@@ -1,0 +1,95 @@
+{
+  "source": "厚生労働省「2023年国民生活基礎調査」(児童のいる世帯の所得分布)、人口動態統計2024(都道府県別出生数)、賃金構造基本統計調査2024(都道府県別)",
+  "year": 2023,
+  "incomeBandsWithChildren": [
+    {
+      "id": "low",
+      "label": "年収300万円未満",
+      "min": 0,
+      "max": 3000000,
+      "share": 0.09
+    },
+    {
+      "id": "lower_mid",
+      "label": "300〜500万円",
+      "min": 3000000,
+      "max": 5000000,
+      "share": 0.16
+    },
+    {
+      "id": "mid",
+      "label": "500〜800万円",
+      "min": 5000000,
+      "max": 8000000,
+      "share": 0.3
+    },
+    {
+      "id": "upper_mid",
+      "label": "800〜1200万円",
+      "min": 8000000,
+      "max": 12000000,
+      "share": 0.29
+    },
+    {
+      "id": "high",
+      "label": "1200万円以上",
+      "min": 12000000,
+      "max": 30000000,
+      "share": 0.16
+    }
+  ],
+  "regions": [
+    {
+      "id": "tokyo",
+      "label": "東京圏",
+      "birthShare": 0.31,
+      "wageIndex": 1.15,
+      "rentIndex": 1.5,
+      "disasterRisk": 1.2
+    },
+    {
+      "id": "osaka",
+      "label": "大阪圏",
+      "birthShare": 0.16,
+      "wageIndex": 1.03,
+      "rentIndex": 1,
+      "disasterRisk": 1.1
+    },
+    {
+      "id": "nagoya",
+      "label": "名古屋圏",
+      "birthShare": 0.1,
+      "wageIndex": 1.02,
+      "rentIndex": 0.95,
+      "disasterRisk": 1.3
+    },
+    {
+      "id": "city",
+      "label": "地方中核都市",
+      "birthShare": 0.23,
+      "wageIndex": 0.92,
+      "rentIndex": 0.85,
+      "disasterRisk": 0.9
+    },
+    {
+      "id": "rural",
+      "label": "地方の町",
+      "birthShare": 0.2,
+      "wageIndex": 0.85,
+      "rentIndex": 0.7,
+      "disasterRisk": 1
+    }
+  ],
+  "estimatedKeys": [
+    "incomeBandsWithChildren[].share",
+    "regions[].birthShare",
+    "regions[].wageIndex",
+    "regions[].rentIndex",
+    "regions[].disasterRisk"
+  ],
+  "notes": {
+    "incomeBands": "児童のいる世帯の平均所得 約812万円(2022年所得)と整合する推定分布",
+    "birthShare": "2024年出生数686,061人。東京圏=東京・神奈川・埼玉・千葉、大阪圏=大阪・京都・兵庫・奈良、名古屋圏=愛知(45,514人,確定)・岐阜・三重。地方は中核都市/町を概ね半々で按分",
+    "disasterRisk": "相対値(1.0=平均)。首都直下・南海トラフ等の想定を考慮した推定"
+  }
+}

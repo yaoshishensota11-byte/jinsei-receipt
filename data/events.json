@@ -1,0 +1,100 @@
+{
+  "source": "人口動態統計・国勢調査・出生動向基本調査・労働力調査・雇用動向調査・国立がん研究センター・介護保険事業状況報告・厚生年金保険・国民年金事業の概況・就労条件総合調査 ほか",
+  "year": 2024,
+  "marriageByAge": {
+    "20s": 0.06,
+    "30s": 0.06,
+    "40s": 0.015,
+    "50plus": 0.003
+  },
+  "lifetimeUnmarriedRate": {
+    "male": 0.2825,
+    "female": 0.1781
+  },
+  "divorceRateAnnual": 0.0065,
+  "birthsPerCouple": 1.9,
+  "unemploymentRate": 0.025,
+  "layoffAnnual": 0.01,
+  "jobChangeRateAnnual": 0.05,
+  "promotionToManagerBy45": 0.3,
+  "cancerLifetimeRisk": {
+    "male": 0.621,
+    "female": 0.489
+  },
+  "cancerIncidenceByAge": {
+    "30s": 0.001,
+    "40s": 0.003,
+    "50s": 0.0065,
+    "60s": 0.014,
+    "70plus": 0.025
+  },
+  "longTermCareNeedRateByAge": {
+    "65to74": 0.043,
+    "75to84": 0.19,
+    "85plus": 0.58
+  },
+  "parentCareStartProbByChildAge": {
+    "40s": 0.03,
+    "50s": 0.05,
+    "60s": 0.04
+  },
+  "inheritanceAverage": 15000000,
+  "inheritanceProbability": 0.6,
+  "majorDisasterAnnualByRiskUnit": 0.003,
+  "lotteryJackpotOdds": 5e-8,
+  "lotteryParticipationRate": 0.3,
+  "startupFiveYearSurvival": 0.6,
+  "startupBigSuccessRate": 0.01,
+  "investmentReturn": {
+    "meanAnnual": 0.07,
+    "stdevAnnual": 0.16,
+    "note": "全世界株式 historical (MSCI ACWI 円ベース長期の概算)"
+  },
+  "depositRate": 0.002,
+  "pensionMonthly": {
+    "kosei_avg": 146429,
+    "kokumin_avg": 57584
+  },
+  "retirementAllowance": {
+    "university": 18960000,
+    "high_school": 16820000
+  },
+  "taxAndSocialInsuranceRate": 0.8,
+  "estimatedKeys": [
+    "marriageByAge",
+    "divorceRateAnnual",
+    "layoffAnnual",
+    "jobChangeRateAnnual",
+    "promotionToManagerBy45",
+    "cancerLifetimeRisk",
+    "cancerIncidenceByAge",
+    "longTermCareNeedRateByAge",
+    "parentCareStartProbByChildAge",
+    "inheritanceAverage",
+    "inheritanceProbability",
+    "majorDisasterAnnualByRiskUnit",
+    "lotteryParticipationRate",
+    "startupFiveYearSurvival",
+    "startupBigSuccessRate",
+    "investmentReturn",
+    "depositRate",
+    "taxAndSocialInsuranceRate"
+  ],
+  "notes": {
+    "marriageByAge": "未婚者の年間初婚ハザード。平均初婚年齢(夫31.1・妻29.8歳)と生涯未婚率に整合するよう推定",
+    "lifetimeUnmarriedRate": "2020年国勢調査 50歳時未婚割合",
+    "divorceRateAnnual": "離婚件数約18.6万件(2024)/有配偶夫婦約2,900万組",
+    "birthsPerCouple": "第16回出生動向基本調査(2021) 完結出生児数1.90",
+    "unemploymentRate": "労働力調査2024年平均 2.5%",
+    "layoffAnnual": "雇用動向調査 離職率14.2%(2024)のうち経営上の都合等の割合から概算",
+    "jobChangeRateAnnual": "労働力調査 転職者比率(約5%)",
+    "cancerLifetimeRisk": "国立がん研究センター がん情報サービス 生涯累積罹患リスク(2020年データ)。記憶値・未検証",
+    "cancerIncidenceByAge": "年間罹患率(全部位, 男女計)の概算",
+    "longTermCareNeedRateByAge": "要支援・要介護認定率(65-69歳約3%,70-74歳約6%,75-79歳約12%,80-84歳約26%,85歳以上約60%)を集約",
+    "inheritanceAverage": "相続人1人あたり取得額の概算",
+    "pensionMonthly": "令和5年度 厚生年金保険・国民年金事業の概況(厚生年金は基礎年金含む)",
+    "retirementAllowance": "令和5年就労条件総合調査 定年退職者平均(大学・大学院卒/高校卒 いずれも管理・事務・技術職)。高卒現業職は1,183万円",
+    "taxAndSocialInsuranceRate": "可処分所得/額面 の概算(年収・扶養により0.75〜0.85)",
+    "lotteryJackpotOdds": "年末ジャンボ1等 1ユニット2,000万通に1本"
+  }
+}

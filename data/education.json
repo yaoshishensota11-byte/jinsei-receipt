@@ -1,0 +1,35 @@
+{
+  "source": "文部科学省「学校基本調査」(令和6年度)、文科省「児童生徒の問題行動・不登校等生徒指導上の諸課題に関する調査」、東京大学大学経営・政策研究センター「高校生の進路追跡調査」、JASSO「学生生活調査」",
+  "year": 2024,
+  "highSchoolEntryRate": 0.988,
+  "highSchoolDropoutRate": 0.015,
+  "universityEntryRate": 0.591,
+  "vocationalEntryRate": 0.21,
+  "graduateSchoolEntryRate": 0.125,
+  "universityDropoutRate": 0.019,
+  "universityEntryByHouseholdIncome": {
+    "under400": 0.314,
+    "400to600": 0.439,
+    "600to800": 0.494,
+    "800to1000": 0.548,
+    "over1000": 0.624
+  },
+  "scholarshipUseRate": 0.55,
+  "privateUniversityShare": 0.78,
+  "estimatedKeys": [
+    "highSchoolDropoutRate",
+    "vocationalEntryRate",
+    "graduateSchoolEntryRate",
+    "universityDropoutRate",
+    "scholarshipUseRate",
+    "privateUniversityShare"
+  ],
+  "notes": {
+    "universityEntryRate": "大学(学部)進学率(過年度卒含む, 18歳人口比)",
+    "universityDropoutRate": "年間の中途退学率(文科省調査で概ね2%前後)。在学4年間の累積では約7%",
+    "highSchoolDropoutRate": "年間中途退学率(令和5年度 約1.5%)",
+    "universityEntryByHouseholdIncome": "東大CRUMP 2005年高校3年生追跡調査(2009年報告) 両親年収別4年制大学進学率。区分は400万円以下/〜600/〜800/〜1000/1000万円超",
+    "scholarshipUseRate": "JASSO 学生生活調査(令和4年度) 大学昼間部で何らかの奨学金を受給 約55%",
+    "privateUniversityShare": "学部学生のうち私立在籍 約78%"
+  }
+}

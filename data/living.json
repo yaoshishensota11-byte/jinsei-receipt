@@ -1,0 +1,69 @@
+{
+  "source": "総務省「家計調査(家計収支編)2024年」ほか",
+  "year": 2024,
+  "singleMonthly": {
+    "food": 43941,
+    "housing": 23372,
+    "utilities": 12816,
+    "furniture": 5822,
+    "clothing": 4881,
+    "medical": 8394,
+    "transport_comm": 20418,
+    "education": 0,
+    "culture": 19519,
+    "other": 30375
+  },
+  "familyMonthlyByHeadAge": {
+    "under30": 250000,
+    "30s": 305000,
+    "40s": 348607,
+    "50s": 367643,
+    "60s": 327405,
+    "70plus": 264332
+  },
+  "retiredCoupleMonthly": {
+    "expense": 256521,
+    "income": 252818
+  },
+  "educationCostPerChild": {
+    "public_total_k_to_hs": 5960000,
+    "private_total_k_to_hs": 19760000,
+    "university_national_4y": 2425200,
+    "university_private_4y": 4738710
+  },
+  "weddingCost": 3439000,
+  "childbirthNetCost": 100000,
+  "funeralCost": 1185000,
+  "housePriceNewBuilt": {
+    "tokyo": 50000000,
+    "national": 40000000
+  },
+  "rentMonthly": {
+    "tokyo": 87000,
+    "osaka": 60000,
+    "regional_city": 55000,
+    "rural": 45000
+  },
+  "estimatedKeys": [
+    "familyMonthlyByHeadAge.under30",
+    "familyMonthlyByHeadAge.30s",
+    "educationCostPerChild.public_total_k_to_hs",
+    "educationCostPerChild.private_total_k_to_hs",
+    "educationCostPerChild.university_private_4y",
+    "childbirthNetCost",
+    "funeralCost",
+    "housePriceNewBuilt",
+    "rentMonthly"
+  ],
+  "notes": {
+    "singleMonthly": "家計調査2024年 単身世帯 消費支出169,547円の内訳(教育は9円のため0とした)",
+    "familyMonthlyByHeadAge": "40s以上は家計調査2025年(二人以上の世帯)の世帯主年齢階級別公表値。2025年概況では40歳未満が一括(299,100円)のため under30/30s は按分推定",
+    "retiredCoupleMonthly": "家計調査2024年 65歳以上の夫婦のみの無職世帯(実収入252,818円・消費支出256,521円)。非消費支出30,356円は別",
+    "educationCostPerChild": "文科省 令和5年度子供の学習費調査(幼稚園3歳〜高校3年 15年間 すべて公立 約596万円/すべて私立 約1,976万円)。国立大学は標準額 入学金282,000円+授業料535,800円×4。私立大学は令和5年度 私立大学入学者に係る初年度学生納付金調査の平均(入学金240,806円+(授業料959,205円+施設設備費165,271円)×4)",
+    "weddingCost": "ゼクシィ結婚トレンド調査2024 挙式・披露宴総額平均343.9万円(ご祝儀差し引き前)",
+    "childbirthNetCost": "正常分娩費用の全国平均約50〜52万円から出産育児一時金50万円を差し引き、妊婦健診自己負担・準備品を加えた推定",
+    "funeralCost": "鎌倉新書 お葬式に関する全国調査(2024) 総額平均 約118.5万円(推定・未検証)",
+    "housePriceNewBuilt": "住宅金融支援機構 フラット35利用者調査(2023年度)の建売住宅・マンションの所要資金を平均した概算",
+    "rentMonthly": "住宅・土地統計調査(民営借家)および市場家賃からの推定"
+  }
+}
