@@ -87,7 +87,7 @@ export class Life {
   deathCause = "";
   pending: Choice | null = null;
   records: YearRecord[] = [];
-  choiceLog: { id: ChoiceId; optionId: string; label: string; age: number }[] = [];
+  choiceLog: { id: ChoiceId; optionId: string; label: string; age: number; pickIndex: number }[] = [];
 
   // 生まれ
   sex: Sex;
@@ -124,7 +124,7 @@ export class Life {
   marriageBoostUntil = -1;
   marriageBoost = 1;
   noMarry = false;
-  kids: { born: number; privateSchool: boolean; univ: boolean; away: boolean }[] = [];
+  kids: { born: number; privateSchool: boolean; univ: boolean; away: boolean; decided?: boolean; loan?: boolean }[] = [];
   home: Home = "parents";
   loan = 0;
   loanAnnual = 0;
@@ -230,7 +230,7 @@ export class Life {
     const opt = c.options.find((o) => o.id === optionId);
     if (!opt) throw new Error(`不明な選択肢: ${optionId}`);
     this.pending = null;
-    this.choiceLog.push({ id: c.id, optionId, label: opt.label, age: this.age });
+    this.choiceLog.push({ id: c.id, optionId, label: opt.label, age: this.age, pickIndex: c.options.indexOf(opt) });
     this.preEvents.push({ age: this.age, kind: "choice", text: `【選択】${c.title}：${opt.label}`, major: true });
     applyChoice(this, c.id, optionId, this.rng("c:" + c.id));
   }
@@ -708,7 +708,8 @@ export class Life {
       const cost =
         this.careMode === "facility" ? 1_800_000 : this.careMode === "home" ? 600_000 : this.careMode === "quit" ? 400_000 : 700_000;
       const share = this.careMode === "share" ? 1 : 1 / Math.max(1, this.siblings * 0.5 + 1);
-      this.spend("care", cost * share);
+      // 親自身の年金・貯金でまかなう分もあるので、子の家計が苦しいときは負担が軽くなる
+      this.spend("care", cost * share * (this.cash + this.invest < 0 ? 0.5 : 1));
     }
   }
   careParent = 0;
@@ -743,7 +744,7 @@ export class Life {
       const cost = r.range(300_000, 1_000_000);
       this.spend("medical", cost);
       this.log("health", r.chance(0.5) ? "心臓の病気で入院した。" : "脳の血管の病気で入院した。", -cost, true);
-      this.illMult = Math.min(2, this.illMult * 1.25);
+      this.illMult = Math.min(1.6, this.illMult * 1.12);
     } else if (r.chance(0.012)) {
       const cost = r.range(50_000, 300_000);
       this.spend("medical", cost);
@@ -863,11 +864,12 @@ export class Life {
       const world = streamRng("world", "market", this.year);
       const m = D.ev.investmentReturn;
       const market = world.normal(m.meanAnnual, m.stdevAnnual);
-      const ret = this.investStyle === "stocks" ? market * 1.5 + r.normal(-0.01, 0.15) : market;
+      let ret = this.investStyle === "stocks" ? market * 1.25 + r.normal(-0.025, 0.12) : market;
+      if (a >= 65) ret = ret * 0.5 + D.ev.depositRate * 0.5; // 老後は守りの配分に寄せる
       const g = this.invest * Math.max(-0.7, ret);
       this.invest += g;
       this.cur!.income.invest = (this.cur!.income.invest ?? 0) + g;
-      if (this.investStyle === "stocks" && ret > 0.6) this.log("luck", "持っていた株が大きく値上がりした。", g, true);
+      if (this.investStyle === "stocks" && ret > 0.45) this.log("luck", "持っていた株が大きく値上がりした。", g, true);
       if (ret < -0.25) this.log("money", "株価が大きく下がり、資産が目減りした。", g);
       // 65歳から少しずつ取り崩す
       if (a >= 65 && this.cash < 0) {
@@ -942,7 +944,7 @@ export class Life {
 
     // 住まい
     const rent = D.rentFor(this.region.id) * 12;
-    if (this.home === "rent") this.spend("housing", rent * (fam || this.kids.length ? 1.5 : 1) * Math.min(1.4, Math.max(0.65, scale)) * (this.frugal ? 0.85 : 1));
+    if (this.home === "rent") this.spend("housing", rent * (fam || this.kids.length ? 1.5 : 1) * Math.min(1.4, Math.max(0.5, scale * scale)) * (this.frugal ? 0.85 : 1));
     else if (this.home === "parents") this.spend("housing", 360_000);
     else if (this.home === "own") this.spend("housing", this.housePrice * 0.009);
 
@@ -951,7 +953,15 @@ export class Life {
     for (const k of this.kids) {
       const ka = a - k.born;
       if (ka >= 3 && ka < 18) this.spend("kids", (k.privateSchool ? e.private_total_k_to_hs : e.public_total_k_to_hs) / 15);
-      if (k.univ && ka >= 18 && ka < 22) {
+      if (k.univ && ka === 18 && !k.decided) {
+        k.decided = true;
+        const hh = this.householdIncomeGuess();
+        if (hh < 5_000_000 && this.cash + this.invest < 4_000_000) {
+          k.loan = true;
+          this.log("family", "子どもは奨学金を借りて大学に進んだ。");
+        }
+      }
+      if (k.univ && !k.loan && ka >= 18 && ka < 22) {
         const priv = k.privateSchool || this.rng("kidUniv" + k.born, 0).chance(D.education.privateUniversityShare);
         this.spend("kids", (priv ? e.university_private_4y : e.university_national_4y) / 4 + (k.away ? 1_000_000 : 0));
       }
@@ -999,7 +1009,7 @@ export class Life {
     let q = D.qx(this.sex, a);
     q *= BAND_MORTALITY[this.band.id] ?? 1;
     q *= this.illMult;
-    if (a - this.cancerAge <= 5) q = q + 0.04;
+    if (a - this.cancerAge <= 5) q = q + 0.015; // qx には既にがん死亡が含まれるので上乗せは控えめに
     if (this.selfCare) q *= 1.6;
     if (a >= MAX_AGE - 1) q = 1;
     const r = this.rng("death");
@@ -1052,7 +1062,7 @@ export class Life {
       ownsHome: this.home === "own",
       married: !!this.partner || this.widowed || this.partnerSince >= 0,
       kids: this.kids.length,
-      choices: this.choiceLog,
+      choices: this.choiceLog.map(({ id, optionId, label, age }) => ({ id, optionId, label, age })),
     };
   }
 }

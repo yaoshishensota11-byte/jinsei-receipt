@@ -7,9 +7,11 @@
     "dev": "vite",
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview",
-    "test:sim": "tsx scripts/simtest.ts"
+    "test:sim": "tsx scripts/simtest.ts",
+    "test:ui": "node scripts/uitest.mjs"
   },
   "devDependencies": {
+    "playwright": "^1.56.0",
     "tsx": "^4.23.15",
     "typescript": "^5.9.3",
     "vite": "^5.4.21"

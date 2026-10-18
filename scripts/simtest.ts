@@ -2,6 +2,7 @@
 // 使い方: npx tsx scripts/simtest.ts [回数=200]
 import { Life, autoplay, replay, cohort, rankOf } from "../src/engine/sim";
 import { Rng, hashStr } from "../src/engine/rng";
+import { encodeResult, decodeResult, replayByIndex, buildReceipt } from "../src/engine/result";
 
 const N = Number(process.argv[2] ?? 200);
 const problems: string[] = [];
@@ -26,7 +27,7 @@ function check(l: Life, tag: string) {
 
 const t0 = Date.now();
 for (let i = 0; i < N; i++) {
-  const seed = `test-${i}`;
+  const seed = `t${i}x`;
   const l = new Life(seed);
   const picks: string[] = [];
   const r = new Rng(hashStr(seed + "picks"));
@@ -48,6 +49,11 @@ for (let i = 0; i < N; i++) {
     // 再現性
     const again = replay(seed, picks).summary();
     if (again.finalBalance !== s.finalBalance || again.deathAge !== s.deathAge) problems.push(`${seed}: 再現できない`);
+    const dec = decodeResult(encodeResult(l));
+    const viaUrl = dec && replayByIndex(dec.seed, dec.picks).summary();
+    if (!viaUrl || viaUrl.finalBalance !== s.finalBalance) problems.push(`${seed}: URLから再現できない`);
+    const rc = buildReceipt(l);
+    if (rc.items.length < 3 || !isFinite(rc.change)) problems.push(`${seed}: レシートが不正`);
     ages.push(s.deathAge);
     incomes.push(s.lifetimeIncome);
     balances.push(s.finalBalance);
