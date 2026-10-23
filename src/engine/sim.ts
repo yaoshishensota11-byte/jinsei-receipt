@@ -101,7 +101,10 @@ export class Life {
   readonly mode: string;
   aptitude: number; // 勉強の得意さ（0〜1、隠し値）
   thrift: number; // 金遣い（0.85〜1.25）
+  /** きょうだいの人数（画面には出さない。兄姉は誕生時に、弟妹は生まれた年に出来事として出る） */
   siblings: number;
+  /** きょうだい一人ずつ。born は本人が何歳のときに生まれたか（兄姉はマイナス） */
+  sibs: { sex: Sex; born: number }[] = [];
   lottery: boolean;
   parents: Parent[];
 
@@ -185,6 +188,38 @@ export class Life {
       { age: Math.round(r.normal(33 - (this.D.inst?.marriageAgeShift.male ?? 0), 4.5)), alive: true },
       { age: Math.max(17, Math.round(r.normal(31.5 - (this.D.inst?.marriageAgeShift.female ?? 0), 4))), alive: true },
     ];
+    this.sibs = this.makeSiblings();
+  }
+
+  /** きょうだいを兄姉と弟妹に振り分ける。母の年齢（17〜44歳で出産）に収まるようにする */
+  private makeSiblings(): { sex: Sex; born: number }[] {
+    const r = this.rng("sib", 0);
+    const mother = this.parents[1].age;
+    const out: { sex: Sex; born: number }[] = [];
+    let older = 0;
+    let younger = 0;
+    for (let i = 0; i < this.siblings; i++) {
+      const sex: Sex = r.chance(0.512) ? "male" : "female";
+      // 年の差は2〜4歳くらいが多い
+      const gap = Math.max(1, Math.round(r.normal(3, 1.4)));
+      const canOlder = mother - (older + gap) >= 17;
+      const canYounger = mother + younger + gap <= 44;
+      const goOlder = canOlder && (!canYounger || r.chance(0.5));
+      if (goOlder) {
+        older += gap;
+        out.push({ sex, born: -older });
+      } else if (canYounger) {
+        younger += gap;
+        out.push({ sex, born: younger });
+      }
+    }
+    this.siblings = out.length;
+    return out.sort((a, b) => a.born - b.born);
+  }
+
+  /** いま一緒にいるきょうだいの数（まだ生まれていない弟妹は数えない） */
+  get siblingsNow(): number {
+    return this.sibs.filter((x) => x.born <= this.age).length;
   }
 
   /** 円で考えた金額を、この国の通貨の目安に直す */
@@ -287,7 +322,7 @@ export class Life {
       age: a,
       title: m.title,
       situation: m.situation(this),
-      options: m.options.map(({ id, label, desc }) => ({ id, label, desc })),
+      options: m.options.filter((o) => !o.when || o.when(this)).map(({ id, label, desc }) => ({ id, label, desc })),
     };
   }
 
@@ -386,8 +421,11 @@ export class Life {
   private birthEvents(): void {
     const s = this.sex === "male" ? "男の子" : "女の子";
     this.log("life", `${this.year}年、${this.region.label}に${s}として生まれた。家庭の年収は${this.band.label}。`, undefined, true);
-    if (this.siblings > 0) this.log("family", `きょうだいは${this.siblings}人。`);
-    else this.log("family", "ひとりっ子。");
+    const olders = this.sibs.filter((x) => x.born < 0);
+    if (olders.length) {
+      const words = olders.map((x) => `${-x.born}歳の${x.sex === "male" ? "兄" : "姉"}`);
+      this.log("family", `家には${words.join("と")}がいる。`);
+    }
   }
 
   private schoolYear(r: Rng): void {
@@ -486,6 +524,7 @@ export class Life {
   // ── 家族
   private familyYear(r: Rng): void {
     const a = this.age;
+    for (const x of this.sibs) if (x.born === a && a > 0) this.log("family", `${x.sex === "male" ? "弟" : "妹"}が生まれた。`, undefined, true);
     const p = this.partner;
     if (p && p.alive) {
       p.age++;
@@ -1418,7 +1457,7 @@ export function buildChoice(l: Life, id: ChoiceId): Choice {
           opt("home", "働きながら自宅で介護", "費用は抑えられる。仕事を減らし、心身の負担も大きい。"),
           opt("quit", "仕事を辞めて介護に専念", "そばにいられる。収入が途絶え、復職は簡単ではない。"),
         );
-        if (l.siblings > 0) options.push(opt("share", "きょうだいと分担する", "負担を分け合える。話し合いがまとまらないことも。"));
+        if (l.siblingsNow > 0) options.push(opt("share", "きょうだいと分担する", "負担を分け合える。話し合いがまとまらないことも。"));
       }
       break;
     }

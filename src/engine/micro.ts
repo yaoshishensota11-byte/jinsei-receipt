@@ -7,6 +7,8 @@ export interface MicroOption {
   id: string;
   label: string;
   desc: string;
+  /** この条件のときだけ出す選択肢 */
+  when?: (l: Life) => boolean;
   apply: (l: Life, r: Rng) => void;
 }
 export interface Micro {
@@ -279,7 +281,8 @@ export const MICROS: Micro[] = [
     situation: (l) => `親から「家の修理代が足りない」と${l.D.fmt(l.y(800_000), false)}を頼まれた。`,
     options: [
       { id: "a", label: "出してあげる", desc: "親は助かる。お金は戻らないかもしれない。", apply: (l, r) => { l.spend("events", l.y(800_000)); l.parentDebt = r.chance(0.4); l.logPre("family", "親に修理代を渡した。とても喜ばれた。", -l.y(800_000)); } },
-      { id: "b", label: "きょうだいと相談する", desc: "負担を分けられる。話がこじれることも。", apply: (l, r) => { l.spend("events", l.y(800_000) / (l.siblings + 1)); l.logPre("family", r.chance(0.3) ? "きょうだいと揉めたが、何とか分担した。" : "きょうだいで分担して出した。", -l.y(800_000) / (l.siblings + 1)); } },
+      { id: "c", label: "今は出せないと断る", desc: "自分の家計を守れる。親は困るかもしれない。", apply: (l) => { l.logPre("family", "今は余裕がないと伝えた。親は黙ってうなずいた。"); } },
+      { id: "b", label: "きょうだいと相談する", when: (l) => l.siblingsNow > 0, desc: "負担を分けられる。話がこじれることも。", apply: (l, r) => { l.spend("events", l.y(800_000) / (l.siblings + 1)); l.logPre("family", r.chance(0.3) ? "きょうだいと揉めたが、何とか分担した。" : "きょうだいで分担して出した。", -l.y(800_000) / (l.siblings + 1)); } },
     ],
   },
   {

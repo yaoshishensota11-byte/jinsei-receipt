@@ -71,7 +71,6 @@ function showBirth(seed: string, mode: Mode): void {
     <div class="slot"><span>生まれた場所</span><b class="spin" data-v="${esc(life.region.label + where)}">…</b></div>
     <div class="slot"><span>${mode === "j" ? "家庭の年収" : "家庭"}</span><b class="spin" data-v="${esc(life.band.label)}">…</b></div>
     <div class="slot"><span>性別</span><b class="spin" data-v="${sexWord}">…</b></div>
-    <div class="slot"><span>きょうだい</span><b class="spin" data-v="${life.siblings ? life.siblings + "人" : "ひとりっ子"}">…</b></div>
     <p class="fact" style="visibility:hidden">${esc(fact)}</p>
     <button class="btn" id="go" style="visibility:hidden;margin-top:10px">人生をはじめる</button>
   </div>`);
