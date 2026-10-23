@@ -1,0 +1,7449 @@
+[
+ {
+  "iso3": "IND",
+  "nameJa": "インド",
+  "major": true,
+  "incomeGroup": "LMC",
+  "births": 23219100,
+  "currency": {
+   "code": "INR",
+   "nameJa": "インド ルピー",
+   "symbol": "₹",
+   "jpyPerUnit": 1.67101,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 19.8969,
+  "gniPerCapitaLCU": 216398.0,
+  "consumptionPerCapitaLCU": 123855.0,
+  "incomeShareQuintiles": [
+   0.111,
+   0.148,
+   0.179,
+   0.22,
+   0.342
+  ],
+  "urbanShare": 0.354,
+  "places": [
+   {
+    "nameJa": "デリー",
+    "urban": true,
+    "share": 0.025,
+    "incomeIndex": 2.38
+   },
+   {
+    "nameJa": "ムンバイ",
+    "urban": true,
+    "share": 0.02,
+    "incomeIndex": 2.17
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.3,
+    "incomeIndex": 1.41
+   },
+   {
+    "nameJa": "ウッタル・プラデーシュ州の農村",
+    "urban": false,
+    "share": 0.19,
+    "incomeIndex": 0.65
+   },
+   {
+    "nameJa": "ビハール州の農村",
+    "urban": false,
+    "share": 0.1,
+    "incomeIndex": 0.54
+   },
+   {
+    "nameJa": "その他の農村部",
+    "urban": false,
+    "share": 0.365,
+    "incomeIndex": 0.81
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 70.5,
+   "female": 73.6
+  },
+  "under5MortalityPer1000": 28.0,
+  "tfr": 1.98,
+  "meanAgeFirstMarriage": {
+   "male": 26.0,
+   "female": 22.0
+  },
+  "secondaryNetEnrollment": 0.616,
+  "tertiaryGrossEnrollment": 0.344,
+  "tertiaryAnnualCostShareOfGni": 0.25,
+  "unemploymentRate": 0.042,
+  "informalEmploymentShare": 0.88,
+  "pensionCoverage": 0.24,
+  "pensionReplacementRate": 0.38,
+  "outOfPocketHealthShare": 0.439,
+  "effectiveTaxRateAvgWorker": 0.12,
+  "rentShareOfIncome": 0.3,
+  "housePriceToIncome": 11.0,
+  "disasterRisk": 0.75,
+  "remittanceShareGdp": 0.0366,
+  "estimated": [
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "housePriceToIncome",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "rentShareOfIncome",
+   "tertiaryAnnualCostShareOfGni"
+  ],
+  "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2023"
+ },
+ {
+  "iso3": "CHN",
+  "nameJa": "中国",
+  "major": true,
+  "incomeGroup": "UMC",
+  "births": 9014400,
+  "currency": {
+   "code": "CNY",
+   "nameJa": "中国人民元",
+   "symbol": "￥",
+   "jpyPerUnit": 23.6305,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 3.55079,
+  "gniPerCapitaLCU": 95019.2,
+  "consumptionPerCapitaLCU": 38242.6,
+  "incomeShareQuintiles": [
+   0.073,
+   0.114,
+   0.157,
+   0.219,
+   0.437
+  ],
+  "urbanShare": 0.659,
+  "places": [
+   {
+    "nameJa": "上海",
+    "urban": true,
+    "share": 0.02,
+    "incomeIndex": 2.32
+   },
+   {
+    "nameJa": "北京",
+    "urban": true,
+    "share": 0.015,
+    "incomeIndex": 2.42
+   },
+   {
+    "nameJa": "広州・深圳",
+    "urban": true,
+    "share": 0.05,
+    "incomeIndex": 2.0
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.58,
+    "incomeIndex": 1.11
+   },
+   {
+    "nameJa": "河南省の農村",
+    "urban": false,
+    "share": 0.08,
+    "incomeIndex": 0.53
+   },
+   {
+    "nameJa": "内陸部の農村",
+    "urban": false,
+    "share": 0.255,
+    "incomeIndex": 0.53
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 75.2,
+   "female": 80.9
+  },
+  "under5MortalityPer1000": 6.1,
+  "tfr": 1.0,
+  "meanAgeFirstMarriage": {
+   "male": 28.7,
+   "female": 26.9
+  },
+  "secondaryNetEnrollment": 1.0,
+  "tertiaryGrossEnrollment": 0.769,
+  "tertiaryAnnualCostShareOfGni": 0.07,
+  "unemploymentRate": 0.046,
+  "informalEmploymentShare": 0.55,
+  "pensionCoverage": 0.95,
+  "pensionReplacementRate": 0.7,
+  "outOfPocketHealthShare": 0.322,
+  "effectiveTaxRateAvgWorker": 0.18,
+  "rentShareOfIncome": 0.25,
+  "housePriceToIncome": 30.0,
+  "disasterRisk": 0.55,
+  "remittanceShareGdp": 0.0013,
+  "estimated": [
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "housePriceToIncome",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "rentShareOfIncome",
+   "tertiaryAnnualCostShareOfGni"
+  ],
+  "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2022; 中等教育は前期中等修了率で代替"
+ },
+ {
+  "iso3": "NGA",
+  "nameJa": "ナイジェリア",
+  "major": true,
+  "incomeGroup": "LMC",
+  "births": 7509700,
+  "currency": {
+   "code": "NGN",
+   "nameJa": "ナイジェリア ナイラ",
+   "symbol": "₦",
+   "jpyPerUnit": 0.118391,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 265.54,
+  "gniPerCapitaLCU": 1566420.0,
+  "consumptionPerCapitaLCU": 939849.0,
+  "incomeShareQuintiles": [
+   0.0749,
+   0.1199,
+   0.1638,
+   0.2258,
+   0.4156
+  ],
+  "urbanShare": 0.63,
+  "places": [
+   {
+    "nameJa": "ラゴス",
+    "urban": true,
+    "share": 0.07,
+    "incomeIndex": 1.88
+   },
+   {
+    "nameJa": "カノ",
+    "urban": true,
+    "share": 0.04,
+    "incomeIndex": 1.1
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.36,
+    "incomeIndex": 1.21
+   },
+   {
+    "nameJa": "北部の農村部",
+    "urban": false,
+    "share": 0.33,
+    "incomeIndex": 0.61
+   },
+   {
+    "nameJa": "南部の農村部",
+    "urban": false,
+    "share": 0.2,
+    "incomeIndex": 0.94
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 54.2,
+   "female": 54.7
+  },
+  "under5MortalityPer1000": 116.8,
+  "tfr": 4.48,
+  "meanAgeFirstMarriage": {
+   "male": 28.0,
+   "female": 21.0
+  },
+  "secondaryNetEnrollment": 0.616,
+  "tertiaryGrossEnrollment": 0.206,
+  "tertiaryAnnualCostShareOfGni": 0.25,
+  "unemploymentRate": 0.03,
+  "informalEmploymentShare": 0.93,
+  "pensionCoverage": 0.07,
+  "pensionReplacementRate": 0.35,
+  "outOfPocketHealthShare": 0.719,
+  "effectiveTaxRateAvgWorker": 0.12,
+  "rentShareOfIncome": 0.35,
+  "housePriceToIncome": 15.0,
+  "disasterRisk": 0.45,
+  "remittanceShareGdp": 0.0877,
+  "estimated": [
+   "consumptionPerCapitaLCU",
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "housePriceToIncome",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "rentShareOfIncome",
+   "secondaryNetEnrollment",
+   "tertiaryAnnualCostShareOfGni",
+   "tertiaryGrossEnrollment"
+  ],
+  "notes": "GNI2024/消費推定/PPP2024(PA.NUS.PRVT.PP); 五分位2022"
+ },
+ {
+  "iso3": "PAK",
+  "nameJa": "パキスタン",
+  "major": true,
+  "incomeGroup": "LMC",
+  "births": 6882100,
+  "currency": {
+   "code": "PKR",
+   "nameJa": "パキスタン ルピー",
+   "symbol": "Rs",
+   "jpyPerUnit": 0.569779,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 64.861,
+  "gniPerCapitaLCU": 408512.0,
+  "consumptionPerCapitaLCU": 354894.0,
+  "incomeShareQuintiles": [
+   0.082,
+   0.123,
+   0.16,
+   0.213,
+   0.422
+  ],
+  "urbanShare": 0.392,
+  "places": [
+   {
+    "nameJa": "カラチ",
+    "urban": true,
+    "share": 0.08,
+    "incomeIndex": 1.63
+   },
+   {
+    "nameJa": "ラホール",
+    "urban": true,
+    "share": 0.06,
+    "incomeIndex": 1.52
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.24,
+    "incomeIndex": 1.2
+   },
+   {
+    "nameJa": "パンジャーブ州の農村",
+    "urban": false,
+    "share": 0.32,
+    "incomeIndex": 0.87
+   },
+   {
+    "nameJa": "シンド州・バローチスターン州の農村",
+    "urban": false,
+    "share": 0.3,
+    "incomeIndex": 0.71
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 65.3,
+   "female": 70.2
+  },
+  "under5MortalityPer1000": 57.8,
+  "tfr": 3.6,
+  "meanAgeFirstMarriage": {
+   "male": 26.0,
+   "female": 21.0
+  },
+  "secondaryNetEnrollment": 0.374,
+  "tertiaryGrossEnrollment": 0.109,
+  "tertiaryAnnualCostShareOfGni": 0.3,
+  "unemploymentRate": 0.055,
+  "informalEmploymentShare": 0.82,
+  "pensionCoverage": 0.06,
+  "pensionReplacementRate": 0.4,
+  "outOfPocketHealthShare": 0.529,
+  "effectiveTaxRateAvgWorker": 0.03,
+  "rentShareOfIncome": 0.3,
+  "housePriceToIncome": 15.0,
+  "disasterRisk": 0.6,
+  "remittanceShareGdp": 0.0939,
+  "estimated": [
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "housePriceToIncome",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "rentShareOfIncome",
+   "tertiaryAnnualCostShareOfGni"
+  ],
+  "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2024"
+ },
+ {
+  "iso3": "IDN",
+  "nameJa": "インドネシア",
+  "major": true,
+  "incomeGroup": "UMC",
+  "births": 4482500,
+  "currency": {
+   "code": "IDR",
+   "nameJa": "インドネシア ルピア",
+   "symbol": "Rp",
+   "jpyPerUnit": 0.00874287,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 5104.98,
+  "gniPerCapitaLCU": 76071400.0,
+  "consumptionPerCapitaLCU": 43266400.0,
+  "incomeShareQuintiles": [
+   0.0811,
+   0.1181,
+   0.1542,
+   0.2102,
+   0.4364
+  ],
+  "urbanShare": 0.588,
+  "places": [
+   {
+    "nameJa": "ジャカルタ首都圏",
+    "urban": true,
+    "share": 0.12,
+    "incomeIndex": 1.66
+   },
+   {
+    "nameJa": "スラバヤ",
+    "urban": true,
+    "share": 0.02,
+    "incomeIndex": 1.24
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.45,
+    "incomeIndex": 1.09
+   },
+   {
+    "nameJa": "ジャワ島の農村",
+    "urban": false,
+    "share": 0.22,
+    "incomeIndex": 0.72
+   },
+   {
+    "nameJa": "外島の農村",
+    "urban": false,
+    "share": 0.19,
+    "incomeIndex": 0.67
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 69.0,
+   "female": 73.3
+  },
+  "under5MortalityPer1000": 18.4,
+  "tfr": 2.13,
+  "meanAgeFirstMarriage": {
+   "male": 26.0,
+   "female": 22.0
+  },
+  "secondaryNetEnrollment": 0.787,
+  "tertiaryGrossEnrollment": 0.449,
+  "tertiaryAnnualCostShareOfGni": 0.13,
+  "unemploymentRate": 0.033,
+  "informalEmploymentShare": 0.8,
+  "pensionCoverage": 0.14,
+  "pensionReplacementRate": 0.4,
+  "outOfPocketHealthShare": 0.311,
+  "effectiveTaxRateAvgWorker": 0.06,
+  "rentShareOfIncome": 0.25,
+  "housePriceToIncome": 12.0,
+  "disasterRisk": 0.8,
+  "remittanceShareGdp": 0.0115,
+  "estimated": [
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "housePriceToIncome",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "rentShareOfIncome",
+   "tertiaryAnnualCostShareOfGni"
+  ],
+  "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2024"
+ },
+ {
+  "iso3": "COD",
+  "nameJa": "コンゴ民主共和国",
+  "major": true,
+  "incomeGroup": "LIC",
+  "births": 4369600,
+  "currency": {
+   "code": "CDF",
+   "nameJa": "コンゴ フラン",
+   "symbol": "CDF",
+   "jpyPerUnit": 0.0682436,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 928.602,
+  "gniPerCapitaLCU": 1894980.0,
+  "consumptionPerCapitaLCU": 1053170.0,
+  "incomeShareQuintiles": [
+   0.0549,
+   0.0959,
+   0.1369,
+   0.2018,
+   0.5105
+  ],
+  "urbanShare": 0.447,
+  "places": [
+   {
+    "nameJa": "キンシャサ",
+    "urban": true,
+    "share": 0.12,
+    "incomeIndex": 1.94
+   },
+   {
+    "nameJa": "ルブンバシ",
+    "urban": true,
+    "share": 0.03,
+    "incomeIndex": 1.51
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.3,
+    "incomeIndex": 1.08
+   },
+   {
+    "nameJa": "東部の農村部",
+    "urban": false,
+    "share": 0.25,
+    "incomeIndex": 0.75
+   },
+   {
+    "nameJa": "その他の農村部",
+    "urban": false,
+    "share": 0.3,
+    "incomeIndex": 0.7
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 59.8,
+   "female": 64.0
+  },
+  "under5MortalityPer1000": 91.3,
+  "tfr": 6.05,
+  "meanAgeFirstMarriage": {
+   "male": 25.0,
+   "female": 20.0
+  },
+  "secondaryNetEnrollment": 0.559,
+  "tertiaryGrossEnrollment": 0.064,
+  "tertiaryAnnualCostShareOfGni": 0.4,
+  "unemploymentRate": 0.044,
+  "informalEmploymentShare": 0.9,
+  "pensionCoverage": 0.06,
+  "pensionReplacementRate": 0.3,
+  "outOfPocketHealthShare": 0.38,
+  "effectiveTaxRateAvgWorker": 0.08,
+  "rentShareOfIncome": 0.35,
+  "housePriceToIncome": 15.0,
+  "disasterRisk": 0.4,
+  "remittanceShareGdp": 0.0264,
+  "estimated": [
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "housePriceToIncome",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "rentShareOfIncome",
+   "tertiaryAnnualCostShareOfGni"
+  ],
+  "notes": "GNI2024/消費2024/PPP2021(PA.NUS.PRVT.PP); 五分位2020; 中等教育は前期中等修了率で代替"
+ },
+ {
+  "iso3": "ETH",
+  "nameJa": "エチオピア",
+  "major": true,
+  "incomeGroup": "LIC",
+  "births": 4105700,
+  "currency": {
+   "code": "ETB",
+   "nameJa": "エチオピア ブル",
+   "symbol": "ETB",
+   "jpyPerUnit": 0.966528,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 48.3911,
+  "gniPerCapitaLCU": 176021.0,
+  "consumptionPerCapitaLCU": 141446.0,
+  "incomeShareQuintiles": [
+   0.083,
+   0.128,
+   0.168,
+   0.224,
+   0.397
+  ],
+  "urbanShare": 0.236,
+  "places": [
+   {
+    "nameJa": "アディスアベバ",
+    "urban": true,
+    "share": 0.04,
+    "incomeIndex": 2.48
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.16,
+    "incomeIndex": 1.47
+   },
+   {
+    "nameJa": "オロミア州の農村",
+    "urban": false,
+    "share": 0.4,
+    "incomeIndex": 0.85
+   },
+   {
+    "nameJa": "アムハラ州の農村",
+    "urban": false,
+    "share": 0.22,
+    "incomeIndex": 0.85
+   },
+   {
+    "nameJa": "その他の農村部",
+    "urban": false,
+    "share": 0.18,
+    "incomeIndex": 0.79
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 64.1,
+   "female": 70.7
+  },
+  "under5MortalityPer1000": 51.5,
+  "tfr": 3.99,
+  "meanAgeFirstMarriage": {
+   "male": 25.0,
+   "female": 19.0
+  },
+  "secondaryNetEnrollment": 0.308,
+  "tertiaryGrossEnrollment": 0.059,
+  "tertiaryAnnualCostShareOfGni": 0.1,
+  "unemploymentRate": 0.034,
+  "informalEmploymentShare": 0.86,
+  "pensionCoverage": 0.09,
+  "pensionReplacementRate": 0.4,
+  "outOfPocketHealthShare": 0.463,
+  "effectiveTaxRateAvgWorker": 0.15,
+  "rentShareOfIncome": 0.35,
+  "housePriceToIncome": 20.0,
+  "disasterRisk": 0.35,
+  "remittanceShareGdp": 0.0477,
+  "estimated": [
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "housePriceToIncome",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "rentShareOfIncome",
+   "tertiaryAnnualCostShareOfGni"
+  ],
+  "notes": "金額はWDI 2024年値を為替変動で現行通貨水準に換算(x1.98); GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2021"
+ },
+ {
+  "iso3": "USA",
+  "nameJa": "アメリカ合衆国",
+  "major": true,
+  "incomeGroup": "HIC",
+  "births": 3603300,
+  "currency": {
+   "code": "USD",
+   "nameJa": "米ドル",
+   "symbol": "$",
+   "jpyPerUnit": 157.728,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 1.0,
+  "gniPerCapitaLCU": 85273.9,
+  "consumptionPerCapitaLCU": 58517.0,
+  "incomeShareQuintiles": [
+   0.0511,
+   0.1001,
+   0.1512,
+   0.2262,
+   0.4714
+  ],
+  "urbanShare": 0.801,
+  "places": [
+   {
+    "nameJa": "ニューヨーク",
+    "urban": true,
+    "share": 0.06,
+    "incomeIndex": 1.31
+   },
+   {
+    "nameJa": "ロサンゼルス",
+    "urban": true,
+    "share": 0.05,
+    "incomeIndex": 1.16
+   },
+   {
+    "nameJa": "シカゴ",
+    "urban": true,
+    "share": 0.03,
+    "incomeIndex": 1.11
+   },
+   {
+    "nameJa": "ヒューストン",
+    "urban": true,
+    "share": 0.03,
+    "incomeIndex": 1.06
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.64,
+    "incomeIndex": 1.01
+   },
+   {
+    "nameJa": "中西部・南部の農村",
+    "urban": false,
+    "share": 0.19,
+    "incomeIndex": 0.81
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 75.8,
+   "female": 81.1
+  },
+  "under5MortalityPer1000": 6.5,
+  "tfr": 1.62,
+  "meanAgeFirstMarriage": {
+   "male": 30.2,
+   "female": 28.4
+  },
+  "secondaryNetEnrollment": 0.925,
+  "tertiaryGrossEnrollment": 0.794,
+  "tertiaryAnnualCostShareOfGni": 0.22,
+  "unemploymentRate": 0.04,
+  "informalEmploymentShare": 0.18,
+  "pensionCoverage": 0.98,
+  "pensionReplacementRate": 0.39,
+  "outOfPocketHealthShare": 0.109,
+  "effectiveTaxRateAvgWorker": 0.24,
+  "rentShareOfIncome": 0.3,
+  "housePriceToIncome": 5.5,
+  "disasterRisk": 0.35,
+  "remittanceShareGdp": 0.0003,
+  "estimated": [
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "housePriceToIncome",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "rentShareOfIncome",
+   "tertiaryAnnualCostShareOfGni"
+  ],
+  "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2024"
+ },
+ {
+  "iso3": "BGD",
+  "nameJa": "バングラデシュ",
+  "major": true,
+  "incomeGroup": "LMC",
+  "births": 3489900,
+  "currency": {
+   "code": "BDT",
+   "nameJa": "バングラデシュ タカ",
+   "symbol": "৳",
+   "jpyPerUnit": 1.27564,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 32.9905,
+  "gniPerCapitaLCU": 300646.0,
+  "consumptionPerCapitaLCU": 202152.0,
+  "incomeShareQuintiles": [
+   0.088,
+   0.128,
+   0.165,
+   0.218,
+   0.401
+  ],
+  "urbanShare": 0.327,
+  "places": [
+   {
+    "nameJa": "ダッカ",
+    "urban": true,
+    "share": 0.12,
+    "incomeIndex": 1.86
+   },
+   {
+    "nameJa": "チッタゴン",
+    "urban": true,
+    "share": 0.04,
+    "incomeIndex": 1.34
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.22,
+    "incomeIndex": 1.03
+   },
+   {
+    "nameJa": "北部の農村部",
+    "urban": false,
+    "share": 0.3,
+    "incomeIndex": 0.77
+   },
+   {
+    "nameJa": "南部・デルタ地帯の農村",
+    "urban": false,
+    "share": 0.32,
+    "incomeIndex": 0.83
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 73.0,
+   "female": 76.4
+  },
+  "under5MortalityPer1000": 30.6,
+  "tfr": 2.16,
+  "meanAgeFirstMarriage": {
+   "male": 25.0,
+   "female": 19.0
+  },
+  "secondaryNetEnrollment": 0.665,
+  "tertiaryGrossEnrollment": 0.237,
+  "tertiaryAnnualCostShareOfGni": 0.2,
+  "unemploymentRate": 0.036,
+  "informalEmploymentShare": 0.85,
+  "pensionCoverage": 0.33,
+  "pensionReplacementRate": 0.2,
+  "outOfPocketHealthShare": 0.793,
+  "effectiveTaxRateAvgWorker": 0.02,
+  "rentShareOfIncome": 0.3,
+  "housePriceToIncome": 13.0,
+  "disasterRisk": 0.7,
+  "remittanceShareGdp": 0.0611,
+  "estimated": [
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "housePriceToIncome",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "rentShareOfIncome",
+   "tertiaryAnnualCostShareOfGni"
+  ],
+  "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2022"
+ },
+ {
+  "iso3": "BRA",
+  "nameJa": "ブラジル",
+  "major": true,
+  "incomeGroup": "UMC",
+  "births": 2601700,
+  "currency": {
+   "code": "BRL",
+   "nameJa": "ブラジル レアル",
+   "symbol": "R$",
+   "jpyPerUnit": 31.3907,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 2.5245,
+  "gniPerCapitaLCU": 53707.6,
+  "consumptionPerCapitaLCU": 35536.0,
+  "incomeShareQuintiles": [
+   0.039,
+   0.081,
+   0.128,
+   0.198,
+   0.554
+  ],
+  "urbanShare": 0.879,
+  "places": [
+   {
+    "nameJa": "サンパウロ",
+    "urban": true,
+    "share": 0.09,
+    "incomeIndex": 1.54
+   },
+   {
+    "nameJa": "リオデジャネイロ",
+    "urban": true,
+    "share": 0.05,
+    "incomeIndex": 1.34
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.73,
+    "incomeIndex": 1.0
+   },
+   {
+    "nameJa": "北東部の農村",
+    "urban": false,
+    "share": 0.13,
+    "incomeIndex": 0.51
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 72.8,
+   "female": 79.0
+  },
+  "under5MortalityPer1000": 14.4,
+  "tfr": 1.62,
+  "meanAgeFirstMarriage": {
+   "male": 30.0,
+   "female": 28.0
+  },
+  "secondaryNetEnrollment": 0.817,
+  "tertiaryGrossEnrollment": 0.697,
+  "tertiaryAnnualCostShareOfGni": 0.25,
+  "unemploymentRate": 0.068,
+  "informalEmploymentShare": 0.39,
+  "pensionCoverage": 0.86,
+  "pensionReplacementRate": 0.88,
+  "outOfPocketHealthShare": 0.262,
+  "effectiveTaxRateAvgWorker": 0.2,
+  "rentShareOfIncome": 0.3,
+  "housePriceToIncome": 15.0,
+  "disasterRisk": 0.35,
+  "remittanceShareGdp": 0.0022,
+  "estimated": [
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "housePriceToIncome",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "rentShareOfIncome",
+   "tertiaryAnnualCostShareOfGni"
+  ],
+  "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2024"
+ },
+ {
+  "iso3": "EGY",
+  "nameJa": "エジプト",
+  "major": true,
+  "incomeGroup": "LMC",
+  "births": 2405700,
+  "currency": {
+   "code": "EGP",
+   "nameJa": "エジプト ポンド",
+   "symbol": "E£",
+   "jpyPerUnit": 2.90058,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 6.95183,
+  "gniPerCapitaLCU": 113919.0,
+  "consumptionPerCapitaLCU": 104481.0,
+  "incomeShareQuintiles": [
+   0.0969,
+   0.1349,
+   0.1688,
+   0.2138,
+   0.3856
+  ],
+  "urbanShare": 0.428,
+  "places": [
+   {
+    "nameJa": "カイロ都市圏",
+    "urban": true,
+    "share": 0.18,
+    "incomeIndex": 1.47
+   },
+   {
+    "nameJa": "アレクサンドリア",
+    "urban": true,
+    "share": 0.06,
+    "incomeIndex": 1.26
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.17,
+    "incomeIndex": 1.05
+   },
+   {
+    "nameJa": "上エジプトの農村",
+    "urban": false,
+    "share": 0.3,
+    "incomeIndex": 0.74
+   },
+   {
+    "nameJa": "ナイル・デルタの農村",
+    "urban": false,
+    "share": 0.29,
+    "incomeIndex": 0.89
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 69.5,
+   "female": 73.8
+  },
+  "under5MortalityPer1000": 22.9,
+  "tfr": 2.75,
+  "meanAgeFirstMarriage": {
+   "male": 29.0,
+   "female": 23.0
+  },
+  "secondaryNetEnrollment": 0.828,
+  "tertiaryGrossEnrollment": 0.376,
+  "tertiaryAnnualCostShareOfGni": 0.1,
+  "unemploymentRate": 0.068,
+  "informalEmploymentShare": 0.63,
+  "pensionCoverage": 0.38,
+  "pensionReplacementRate": 0.55,
+  "outOfPocketHealthShare": 0.572,
+  "effectiveTaxRateAvgWorker": 0.15,
+  "rentShareOfIncome": 0.3,
+  "housePriceToIncome": 10.0,
+  "disasterRisk": 0.25,
+  "remittanceShareGdp": 0.076,
+  "estimated": [
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "housePriceToIncome",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "rentShareOfIncome",
+   "tertiaryAnnualCostShareOfGni"
+  ],
+  "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2021"
+ },
+ {
+  "iso3": "TZA",
+  "nameJa": "タンザニア",
+  "major": false,
+  "incomeGroup": "LMC",
+  "births": 2346400,
+  "currency": {
+   "code": "TZS",
+   "nameJa": "タンザニア シリング",
+   "symbol": "TZS",
+   "jpyPerUnit": 0.0596322,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 657.47,
+  "gniPerCapitaLCU": 3024470.0,
+  "consumptionPerCapitaLCU": 1580480.0,
+  "incomeShareQuintiles": [
+   0.0689,
+   0.1049,
+   0.1419,
+   0.2038,
+   0.4805
+  ],
+  "urbanShare": 0.362,
+  "places": [
+   {
+    "nameJa": "ダルエスサラーム",
+    "urban": true,
+    "share": 0.1085,
+    "incomeIndex": 1.87
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.2532,
+    "incomeIndex": 1.21
+   },
+   {
+    "nameJa": "農村部",
+    "urban": false,
+    "share": 0.6383,
+    "incomeIndex": 0.77
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 64.2,
+   "female": 69.8
+  },
+  "under5MortalityPer1000": 38.5,
+  "tfr": 4.61,
+  "meanAgeFirstMarriage": {
+   "male": 25.4,
+   "female": 19.6
+  },
+  "secondaryNetEnrollment": 0.265,
+  "tertiaryGrossEnrollment": 0.04,
+  "tertiaryAnnualCostShareOfGni": 0.225,
+  "unemploymentRate": 0.016,
+  "informalEmploymentShare": 0.97,
+  "pensionCoverage": 0.29,
+  "pensionReplacementRate": 0.39,
+  "outOfPocketHealthShare": 0.279,
+  "effectiveTaxRateAvgWorker": 0.12,
+  "rentShareOfIncome": 0.3,
+  "housePriceToIncome": 15.0,
+  "disasterRisk": 0.3,
+  "remittanceShareGdp": 0.0142,
+  "estimated": [
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "housePriceToIncome",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "rentShareOfIncome",
+   "tertiaryAnnualCostShareOfGni"
+  ],
+  "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2018"
+ },
+ {
+  "iso3": "MEX",
+  "nameJa": "メキシコ",
+  "major": true,
+  "incomeGroup": "UMC",
+  "births": 2037700,
+  "currency": {
+   "code": "MXN",
+   "nameJa": "メキシコ ペソ",
+   "symbol": "$",
+   "jpyPerUnit": 8.40967,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 10.8013,
+  "gniPerCapitaLCU": 248904.0,
+  "consumptionPerCapitaLCU": 180972.0,
+  "incomeShareQuintiles": [
+   0.0561,
+   0.1001,
+   0.1431,
+   0.2112,
+   0.4895
+  ],
+  "urbanShare": 0.798,
+  "places": [
+   {
+    "nameJa": "メキシコシティ首都圏",
+    "urban": true,
+    "share": 0.15,
+    "incomeIndex": 1.37
+   },
+   {
+    "nameJa": "グアダラハラ",
+    "urban": true,
+    "share": 0.04,
+    "incomeIndex": 1.16
+   },
+   {
+    "nameJa": "モンテレイ",
+    "urban": true,
+    "share": 0.04,
+    "incomeIndex": 1.42
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.56,
+    "incomeIndex": 1.0
+   },
+   {
+    "nameJa": "南部の農村",
+    "urban": false,
+    "share": 0.21,
+    "incomeIndex": 0.63
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 72.2,
+   "female": 77.8
+  },
+  "under5MortalityPer1000": 13.4,
+  "tfr": 1.91,
+  "meanAgeFirstMarriage": {
+   "male": 28.0,
+   "female": 26.0
+  },
+  "secondaryNetEnrollment": 0.812,
+  "tertiaryGrossEnrollment": 0.482,
+  "tertiaryAnnualCostShareOfGni": 0.15,
+  "unemploymentRate": 0.027,
+  "informalEmploymentShare": 0.55,
+  "pensionCoverage": 0.73,
+  "pensionReplacementRate": 0.61,
+  "outOfPocketHealthShare": 0.412,
+  "effectiveTaxRateAvgWorker": 0.11,
+  "rentShareOfIncome": 0.3,
+  "housePriceToIncome": 9.0,
+  "disasterRisk": 0.65,
+  "remittanceShareGdp": 0.0371,
+  "estimated": [
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "housePriceToIncome",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "rentShareOfIncome",
+   "tertiaryAnnualCostShareOfGni"
+  ],
+  "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2024"
+ },
+ {
+  "iso3": "PHL",
+  "nameJa": "フィリピン",
+  "major": true,
+  "incomeGroup": "LMC",
+  "births": 1840400,
+  "currency": {
+   "code": "PHP",
+   "nameJa": "フィリピン ペソ",
+   "symbol": "₱",
+   "jpyPerUnit": 2.48673,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 20.7435,
+  "gniPerCapitaLCU": 257956.0,
+  "consumptionPerCapitaLCU": 173863.0,
+  "incomeShareQuintiles": [
+   0.069,
+   0.107,
+   0.146,
+   0.209,
+   0.469
+  ],
+  "urbanShare": 0.555,
+  "places": [
+   {
+    "nameJa": "マニラ首都圏",
+    "urban": true,
+    "share": 0.12,
+    "incomeIndex": 1.81
+   },
+   {
+    "nameJa": "セブ",
+    "urban": true,
+    "share": 0.03,
+    "incomeIndex": 1.28
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.35,
+    "incomeIndex": 1.06
+   },
+   {
+    "nameJa": "ルソン島の農村",
+    "urban": false,
+    "share": 0.25,
+    "incomeIndex": 0.85
+   },
+   {
+    "nameJa": "ミンダナオ島の農村",
+    "urban": false,
+    "share": 0.25,
+    "incomeIndex": 0.64
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 66.9,
+   "female": 72.8
+  },
+  "under5MortalityPer1000": 27.0,
+  "tfr": 1.92,
+  "meanAgeFirstMarriage": {
+   "male": 28.0,
+   "female": 25.0
+  },
+  "secondaryNetEnrollment": 0.656,
+  "tertiaryGrossEnrollment": 0.474,
+  "tertiaryAnnualCostShareOfGni": 0.2,
+  "unemploymentRate": 0.022,
+  "informalEmploymentShare": 0.7,
+  "pensionCoverage": 0.4,
+  "pensionReplacementRate": 0.4,
+  "outOfPocketHealthShare": 0.444,
+  "effectiveTaxRateAvgWorker": 0.12,
+  "rentShareOfIncome": 0.3,
+  "housePriceToIncome": 17.0,
+  "disasterRisk": 0.95,
+  "remittanceShareGdp": 0.0872,
+  "estimated": [
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "housePriceToIncome",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "rentShareOfIncome",
+   "tertiaryAnnualCostShareOfGni"
+  ],
+  "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2023"
+ },
+ {
+  "iso3": "UGA",
+  "nameJa": "ウガンダ",
+  "major": false,
+  "incomeGroup": "LIC",
+  "births": 1712800,
+  "currency": {
+   "code": "UGX",
+   "nameJa": "ウガンダ シリング",
+   "symbol": "UGX",
+   "jpyPerUnit": 0.037517,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 1325.72,
+  "gniPerCapitaLCU": 3960460.0,
+  "consumptionPerCapitaLCU": 2691020.0,
+  "incomeShareQuintiles": [
+   0.066,
+   0.11,
+   0.152,
+   0.219,
+   0.453
+  ],
+  "urbanShare": 0.313,
+  "places": [
+   {
+    "nameJa": "カンパラ",
+    "urban": true,
+    "share": 0.0938,
+    "incomeIndex": 2.19
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.2189,
+    "incomeIndex": 1.27
+   },
+   {
+    "nameJa": "農村部",
+    "urban": false,
+    "share": 0.6873,
+    "incomeIndex": 0.75
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 65.3,
+   "female": 71.1
+  },
+  "under5MortalityPer1000": 49.4,
+  "tfr": 4.28,
+  "meanAgeFirstMarriage": {
+   "male": 25.7,
+   "female": 20.1
+  },
+  "secondaryNetEnrollment": 0.263,
+  "tertiaryGrossEnrollment": 0.046,
+  "tertiaryAnnualCostShareOfGni": 0.25,
+  "unemploymentRate": 0.027,
+  "informalEmploymentShare": 0.944,
+  "pensionCoverage": 0.075,
+  "pensionReplacementRate": 0.35,
+  "outOfPocketHealthShare": 0.322,
+  "effectiveTaxRateAvgWorker": 0.115,
+  "rentShareOfIncome": 0.35,
+  "housePriceToIncome": 17.5,
+  "disasterRisk": 0.3,
+  "remittanceShareGdp": 0.0265,
+  "estimated": [
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "housePriceToIncome",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "rentShareOfIncome",
+   "tertiaryAnnualCostShareOfGni"
+  ],
+  "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2023; 中等教育は前期中等修了率で代替"
+ },
+ {
+  "iso3": "SDN",
+  "nameJa": "スーダン",
+  "major": false,
+  "incomeGroup": "LIC",
+  "births": 1682000,
+  "currency": {
+   "code": "SDG",
+   "nameJa": "スーダン ポンド",
+   "symbol": "SDG",
+   "jpyPerUnit": 0.262803,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 224.284,
+  "gniPerCapitaLCU": 1490440.0,
+  "consumptionPerCapitaLCU": 1251350.0,
+  "incomeShareQuintiles": [
+   0.0779,
+   0.1209,
+   0.1608,
+   0.2168,
+   0.4236
+  ],
+  "urbanShare": 0.349,
+  "places": [
+   {
+    "nameJa": "ハルツーム",
+    "urban": true,
+    "share": 0.1046,
+    "incomeIndex": 2.13
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.2441,
+    "incomeIndex": 1.24
+   },
+   {
+    "nameJa": "農村部",
+    "urban": false,
+    "share": 0.6513,
+    "incomeIndex": 0.73
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 63.3,
+   "female": 69.6
+  },
+  "under5MortalityPer1000": 63.1,
+  "tfr": 4.32,
+  "meanAgeFirstMarriage": {
+   "male": 25.7,
+   "female": 20.0
+  },
+  "secondaryNetEnrollment": 0.475,
+  "tertiaryGrossEnrollment": 0.159,
+  "tertiaryAnnualCostShareOfGni": 0.25,
+  "unemploymentRate": 0.075,
+  "informalEmploymentShare": 0.571,
+  "pensionCoverage": 0.075,
+  "pensionReplacementRate": 0.35,
+  "outOfPocketHealthShare": 0.574,
+  "effectiveTaxRateAvgWorker": 0.115,
+  "rentShareOfIncome": 0.35,
+  "housePriceToIncome": 17.5,
+  "disasterRisk": 0.45,
+  "remittanceShareGdp": 0.0005,
+  "estimated": [
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "housePriceToIncome",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "rentShareOfIncome",
+   "tertiaryAnnualCostShareOfGni"
+  ],
+  "notes": "GNI2024/消費2024/PPP2022(PA.NUS.PRVT.PP); 五分位2014; 中等教育は前期中等修了率で代替"
+ },
+ {
+  "iso3": "KEN",
+  "nameJa": "ケニア",
+  "major": true,
+  "incomeGroup": "LMC",
+  "births": 1500000,
+  "currency": {
+   "code": "KES",
+   "nameJa": "ケニア シリング",
+   "symbol": "KES",
+   "jpyPerUnit": 1.21476,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 44.3917,
+  "gniPerCapitaLCU": 281133.0,
+  "consumptionPerCapitaLCU": 222404.0,
+  "incomeShareQuintiles": [
+   0.0709,
+   0.1089,
+   0.1459,
+   0.2118,
+   0.4625
+  ],
+  "urbanShare": 0.319,
+  "places": [
+   {
+    "nameJa": "ナイロビ",
+    "urban": true,
+    "share": 0.1,
+    "incomeIndex": 2.13
+   },
+   {
+    "nameJa": "モンバサ",
+    "urban": true,
+    "share": 0.03,
+    "incomeIndex": 1.49
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.17,
+    "incomeIndex": 1.17
+   },
+   {
+    "nameJa": "西部の農村部",
+    "urban": false,
+    "share": 0.4,
+    "incomeIndex": 0.75
+   },
+   {
+    "nameJa": "中央部の農村",
+    "urban": false,
+    "share": 0.2,
+    "incomeIndex": 0.96
+   },
+   {
+    "nameJa": "北部の乾燥地帯",
+    "urban": false,
+    "share": 0.1,
+    "incomeIndex": 0.53
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 61.5,
+   "female": 65.9
+  },
+  "under5MortalityPer1000": 39.6,
+  "tfr": 3.21,
+  "meanAgeFirstMarriage": {
+   "male": 27.0,
+   "female": 22.0
+  },
+  "secondaryNetEnrollment": 1.0,
+  "tertiaryGrossEnrollment": 0.104,
+  "tertiaryAnnualCostShareOfGni": 0.4,
+  "unemploymentRate": 0.055,
+  "informalEmploymentShare": 0.83,
+  "pensionCoverage": 0.25,
+  "pensionReplacementRate": 0.3,
+  "outOfPocketHealthShare": 0.242,
+  "effectiveTaxRateAvgWorker": 0.15,
+  "rentShareOfIncome": 0.3,
+  "housePriceToIncome": 15.0,
+  "disasterRisk": 0.35,
+  "remittanceShareGdp": 0.0415,
+  "estimated": [
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "housePriceToIncome",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "rentShareOfIncome",
+   "tertiaryAnnualCostShareOfGni"
+  ],
+  "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2022; 中等教育は前期中等修了率で代替"
+ },
+ {
+  "iso3": "AFG",
+  "nameJa": "アフガニスタン",
+  "major": false,
+  "incomeGroup": "LIC",
+  "births": 1469000,
+  "currency": {
+   "code": "AFN",
+   "nameJa": "アフガニスタン アフガニー",
+   "symbol": "؋",
+   "jpyPerUnit": 2.44669,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 13.988,
+  "gniPerCapitaLCU": 29716.4,
+  "consumptionPerCapitaLCU": 33050.5,
+  "incomeShareQuintiles": [
+   0.072,
+   0.1119,
+   0.1529,
+   0.2139,
+   0.4493
+  ],
+  "urbanShare": 0.257,
+  "places": [
+   {
+    "nameJa": "カブール",
+    "urban": true,
+    "share": 0.0771,
+    "incomeIndex": 2.3
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.1799,
+    "incomeIndex": 1.33
+   },
+   {
+    "nameJa": "農村部",
+    "urban": false,
+    "share": 0.743,
+    "incomeIndex": 0.79
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 64.5,
+   "female": 67.5
+  },
+  "under5MortalityPer1000": 54.9,
+  "tfr": 4.84,
+  "meanAgeFirstMarriage": {
+   "male": 25.2,
+   "female": 19.3
+  },
+  "secondaryNetEnrollment": 0.501,
+  "tertiaryGrossEnrollment": 0.109,
+  "tertiaryAnnualCostShareOfGni": 0.25,
+  "unemploymentRate": 0.137,
+  "informalEmploymentShare": 0.97,
+  "pensionCoverage": 0.075,
+  "pensionReplacementRate": 0.35,
+  "outOfPocketHealthShare": 0.771,
+  "effectiveTaxRateAvgWorker": 0.115,
+  "rentShareOfIncome": 0.35,
+  "housePriceToIncome": 17.5,
+  "disasterRisk": 0.55,
+  "remittanceShareGdp": 0.0395,
+  "estimated": [
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "housePriceToIncome",
+   "incomeShareQuintiles",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "rentShareOfIncome",
+   "tertiaryAnnualCostShareOfGni"
+  ],
+  "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP)"
+ },
+ {
+  "iso3": "VNM",
+  "nameJa": "ベトナム",
+  "major": true,
+  "incomeGroup": "LMC",
+  "births": 1388000,
+  "currency": {
+   "code": "VND",
+   "nameJa": "ベトナム ドン",
+   "symbol": "₫",
+   "jpyPerUnit": 0.00610357,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 7160.71,
+  "gniPerCapitaLCU": 110222000.0,
+  "consumptionPerCapitaLCU": 61043200.0,
+  "incomeShareQuintiles": [
+   0.0681,
+   0.1181,
+   0.1612,
+   0.2202,
+   0.4324
+  ],
+  "urbanShare": 0.385,
+  "places": [
+   {
+    "nameJa": "ホーチミン",
+    "urban": true,
+    "share": 0.09,
+    "incomeIndex": 1.64
+   },
+   {
+    "nameJa": "ハノイ",
+    "urban": true,
+    "share": 0.08,
+    "incomeIndex": 1.54
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.22,
+    "incomeIndex": 1.08
+   },
+   {
+    "nameJa": "メコンデルタの農村",
+    "urban": false,
+    "share": 0.18,
+    "incomeIndex": 0.82
+   },
+   {
+    "nameJa": "北部山岳地帯の農村",
+    "urban": false,
+    "share": 0.1,
+    "incomeIndex": 0.56
+   },
+   {
+    "nameJa": "その他の農村部",
+    "urban": false,
+    "share": 0.33,
+    "incomeIndex": 0.87
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 69.9,
+   "female": 79.3
+  },
+  "under5MortalityPer1000": 17.8,
+  "tfr": 1.91,
+  "meanAgeFirstMarriage": {
+   "male": 27.0,
+   "female": 23.0
+  },
+  "secondaryNetEnrollment": 0.952,
+  "tertiaryGrossEnrollment": 0.376,
+  "tertiaryAnnualCostShareOfGni": 0.15,
+  "unemploymentRate": 0.016,
+  "informalEmploymentShare": 0.66,
+  "pensionCoverage": 0.43,
+  "pensionReplacementRate": 0.65,
+  "outOfPocketHealthShare": 0.392,
+  "effectiveTaxRateAvgWorker": 0.12,
+  "rentShareOfIncome": 0.3,
+  "housePriceToIncome": 25.0,
+  "disasterRisk": 0.6,
+  "remittanceShareGdp": 0.061,
+  "estimated": [
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "housePriceToIncome",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "remittanceShareGdp",
+   "rentShareOfIncome",
+   "tertiaryAnnualCostShareOfGni"
+  ],
+  "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2022; 中等教育は前期中等修了率で代替"
+ },
+ {
+  "iso3": "YEM",
+  "nameJa": "イエメン",
+  "major": false,
+  "incomeGroup": "LIC",
+  "births": 1386900,
+  "currency": {
+   "code": "YER",
+   "nameJa": "イエメン リアル",
+   "symbol": "YER",
+   "jpyPerUnit": 0.667991,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 77.9206,
+  "gniPerCapitaLCU": 129868.0,
+  "consumptionPerCapitaLCU": 77920.6,
+  "incomeShareQuintiles": [
+   0.073,
+   0.115,
+   0.153,
+   0.212,
+   0.447
+  ],
+  "urbanShare": 0.368,
+  "places": [
+   {
+    "nameJa": "サヌア",
+    "urban": true,
+    "share": 0.1104,
+    "incomeIndex": 2.1
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.2577,
+    "incomeIndex": 1.22
+   },
+   {
+    "nameJa": "農村部",
+    "urban": false,
+    "share": 0.6319,
+    "incomeIndex": 0.72
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 67.2,
+   "female": 71.4
+  },
+  "under5MortalityPer1000": 39.5,
+  "tfr": 4.59,
+  "meanAgeFirstMarriage": {
+   "male": 25.4,
+   "female": 19.6
+  },
+  "secondaryNetEnrollment": 0.476,
+  "tertiaryGrossEnrollment": 0.064,
+  "tertiaryAnnualCostShareOfGni": 0.25,
+  "unemploymentRate": 0.17,
+  "informalEmploymentShare": 0.633,
+  "pensionCoverage": 0.075,
+  "pensionReplacementRate": 0.35,
+  "outOfPocketHealthShare": 0.691,
+  "effectiveTaxRateAvgWorker": 0.115,
+  "rentShareOfIncome": 0.35,
+  "housePriceToIncome": 17.5,
+  "disasterRisk": 0.45,
+  "remittanceShareGdp": 0.1204,
+  "estimated": [
+   "consumptionPerCapitaLCU",
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "gniPerCapitaLCU",
+   "housePriceToIncome",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "pppPerIntlDollar",
+   "rentShareOfIncome",
+   "tertiaryAnnualCostShareOfGni",
+   "tertiaryGrossEnrollment"
+  ],
+  "notes": "GNIはWDI欠損のため推定(米ドル換算); GNI2025/消費推定/PPP推定; 五分位2014"
+ },
+ {
+  "iso3": "AGO",
+  "nameJa": "アンゴラ",
+  "major": false,
+  "incomeGroup": "LMC",
+  "births": 1381400,
+  "currency": {
+   "code": "AOA",
+   "nameJa": "アンゴラ クワンザ",
+   "symbol": "Kz",
+   "jpyPerUnit": 0.172073,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 311.186,
+  "gniPerCapitaLCU": 2569870.0,
+  "consumptionPerCapitaLCU": 1693270.0,
+  "incomeShareQuintiles": [
+   0.038,
+   0.0769,
+   0.1259,
+   0.2038,
+   0.5554
+  ],
+  "urbanShare": 0.707,
+  "places": [
+   {
+    "nameJa": "ルアンダ",
+    "urban": true,
+    "share": 0.212,
+    "incomeIndex": 1.53
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.4946,
+    "incomeIndex": 0.99
+   },
+   {
+    "nameJa": "農村部",
+    "urban": false,
+    "share": 0.2934,
+    "incomeIndex": 0.63
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 62.1,
+   "female": 67.1
+  },
+  "under5MortalityPer1000": 50.5,
+  "tfr": 5.12,
+  "meanAgeFirstMarriage": {
+   "male": 25.0,
+   "female": 18.9
+  },
+  "secondaryNetEnrollment": 0.421,
+  "tertiaryGrossEnrollment": 0.1,
+  "tertiaryAnnualCostShareOfGni": 0.225,
+  "unemploymentRate": 0.14,
+  "informalEmploymentShare": 0.855,
+  "pensionCoverage": 0.29,
+  "pensionReplacementRate": 0.39,
+  "outOfPocketHealthShare": 0.325,
+  "effectiveTaxRateAvgWorker": 0.12,
+  "rentShareOfIncome": 0.3,
+  "housePriceToIncome": 15.0,
+  "disasterRisk": 0.3,
+  "remittanceShareGdp": 0.0005,
+  "estimated": [
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "housePriceToIncome",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "rentShareOfIncome",
+   "tertiaryAnnualCostShareOfGni"
+  ],
+  "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2018; 中等教育は前期中等修了率で代替"
+ },
+ {
+  "iso3": "MOZ",
+  "nameJa": "モザンビーク",
+  "major": false,
+  "incomeGroup": "LIC",
+  "births": 1260800,
+  "currency": {
+   "code": "MZN",
+   "nameJa": "モザンビーク メティカル",
+   "symbol": "MZN",
+   "jpyPerUnit": 2.47101,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 25.0908,
+  "gniPerCapitaLCU": 37342.1,
+  "consumptionPerCapitaLCU": 31027.5,
+  "incomeShareQuintiles": [
+   0.047,
+   0.0859,
+   0.1249,
+   0.1878,
+   0.5544
+  ],
+  "urbanShare": 0.364,
+  "places": [
+   {
+    "nameJa": "マプト",
+    "urban": true,
+    "share": 0.1093,
+    "incomeIndex": 2.11
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.255,
+    "incomeIndex": 1.22
+   },
+   {
+    "nameJa": "農村部",
+    "urban": false,
+    "share": 0.6357,
+    "incomeIndex": 0.72
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 60.3,
+   "female": 66.5
+  },
+  "under5MortalityPer1000": 61.7,
+  "tfr": 4.76,
+  "meanAgeFirstMarriage": {
+   "male": 25.3,
+   "female": 19.4
+  },
+  "secondaryNetEnrollment": 0.193,
+  "tertiaryGrossEnrollment": 0.075,
+  "tertiaryAnnualCostShareOfGni": 0.25,
+  "unemploymentRate": 0.067,
+  "informalEmploymentShare": 0.97,
+  "pensionCoverage": 0.075,
+  "pensionReplacementRate": 0.35,
+  "outOfPocketHealthShare": 0.104,
+  "effectiveTaxRateAvgWorker": 0.115,
+  "rentShareOfIncome": 0.35,
+  "housePriceToIncome": 17.5,
+  "disasterRisk": 0.65,
+  "remittanceShareGdp": 0.0117,
+  "estimated": [
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "housePriceToIncome",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "rentShareOfIncome",
+   "tertiaryAnnualCostShareOfGni"
+  ],
+  "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2022"
+ },
+ {
+  "iso3": "RUS",
+  "nameJa": "ロシア",
+  "major": false,
+  "incomeGroup": "HIC",
+  "births": 1236900,
+  "currency": {
+   "code": "RUB",
+   "nameJa": "ロシア ルーブル",
+   "symbol": "₽",
+   "jpyPerUnit": 1.93599,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 29.0498,
+  "gniPerCapitaLCU": 1367060.0,
+  "consumptionPerCapitaLCU": 695866.0,
+  "incomeShareQuintiles": [
+   0.077,
+   0.121,
+   0.165,
+   0.227,
+   0.41
+  ],
+  "urbanShare": 0.751,
+  "places": [
+   {
+    "nameJa": "モスクワ",
+    "urban": true,
+    "share": 0.2253,
+    "incomeIndex": 1.12
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.5258,
+    "incomeIndex": 1.03
+   },
+   {
+    "nameJa": "農村部",
+    "urban": false,
+    "share": 0.2489,
+    "incomeIndex": 0.84
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 68.0,
+   "female": 78.7
+  },
+  "under5MortalityPer1000": 5.3,
+  "tfr": 1.41,
+  "meanAgeFirstMarriage": {
+   "male": 30.4,
+   "female": 27.7
+  },
+  "secondaryNetEnrollment": 0.907,
+  "tertiaryGrossEnrollment": 0.604,
+  "tertiaryAnnualCostShareOfGni": 0.155,
+  "unemploymentRate": 0.024,
+  "informalEmploymentShare": 0.2,
+  "pensionCoverage": 0.99,
+  "pensionReplacementRate": 0.41,
+  "outOfPocketHealthShare": 0.284,
+  "effectiveTaxRateAvgWorker": 0.24,
+  "rentShareOfIncome": 0.275,
+  "housePriceToIncome": 10.5,
+  "disasterRisk": 0.25,
+  "remittanceShareGdp": 0.0008,
+  "estimated": [
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "housePriceToIncome",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "rentShareOfIncome",
+   "tertiaryAnnualCostShareOfGni"
+  ],
+  "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2023"
+ },
+ {
+  "iso3": "ZAF",
+  "nameJa": "南アフリカ",
+  "major": false,
+  "incomeGroup": "UMC",
+  "births": 1186800,
+  "currency": {
+   "code": "ZAR",
+   "nameJa": "南アフリカ ランド",
+   "symbol": "R",
+   "jpyPerUnit": 9.61652,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 7.70191,
+  "gniPerCapitaLCU": 112611.0,
+  "consumptionPerCapitaLCU": 74252.1,
+  "incomeShareQuintiles": [
+   0.037,
+   0.069,
+   0.108,
+   0.191,
+   0.595
+  ],
+  "urbanShare": 0.637,
+  "places": [
+   {
+    "nameJa": "ヨハネスブルク",
+    "urban": true,
+    "share": 0.1911,
+    "incomeIndex": 1.36
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.4458,
+    "incomeIndex": 1.07
+   },
+   {
+    "nameJa": "農村部",
+    "urban": false,
+    "share": 0.3631,
+    "incomeIndex": 0.73
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 62.6,
+   "female": 69.6
+  },
+  "under5MortalityPer1000": 34.8,
+  "tfr": 2.22,
+  "meanAgeFirstMarriage": {
+   "male": 28.5,
+   "female": 24.6
+  },
+  "secondaryNetEnrollment": 0.719,
+  "tertiaryGrossEnrollment": 0.235,
+  "tertiaryAnnualCostShareOfGni": 0.14,
+  "unemploymentRate": 0.323,
+  "informalEmploymentShare": 0.271,
+  "pensionCoverage": 0.795,
+  "pensionReplacementRate": 0.655,
+  "outOfPocketHealthShare": 0.067,
+  "effectiveTaxRateAvgWorker": 0.145,
+  "rentShareOfIncome": 0.275,
+  "housePriceToIncome": 13.5,
+  "disasterRisk": 0.3,
+  "remittanceShareGdp": 0.0021,
+  "estimated": [
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "housePriceToIncome",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "rentShareOfIncome",
+   "tertiaryAnnualCostShareOfGni"
+  ],
+  "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2022"
+ },
+ {
+  "iso3": "IRN",
+  "nameJa": "イラン",
+  "major": false,
+  "incomeGroup": "UMC",
+  "births": 1173500,
+  "currency": {
+   "code": "IRR",
+   "nameJa": "イラン リアル",
+   "symbol": "IRR",
+   "jpyPerUnit": 8.601e-05,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 113985.0,
+  "gniPerCapitaLCU": 2344470000.0,
+  "consumptionPerCapitaLCU": 1068740000.0,
+  "incomeShareQuintiles": [
+   0.07,
+   0.117,
+   0.16,
+   0.22,
+   0.433
+  ],
+  "urbanShare": 0.77,
+  "places": [
+   {
+    "nameJa": "テヘラン",
+    "urban": true,
+    "share": 0.2311,
+    "incomeIndex": 1.29
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.5391,
+    "incomeIndex": 1.01
+   },
+   {
+    "nameJa": "農村部",
+    "urban": false,
+    "share": 0.2298,
+    "incomeIndex": 0.69
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 75.8,
+   "female": 79.6
+  },
+  "under5MortalityPer1000": 11.7,
+  "tfr": 1.7,
+  "meanAgeFirstMarriage": {
+   "male": 29.6,
+   "female": 26.5
+  },
+  "secondaryNetEnrollment": 0.814,
+  "tertiaryGrossEnrollment": 0.587,
+  "tertiaryAnnualCostShareOfGni": 0.14,
+  "unemploymentRate": 0.081,
+  "informalEmploymentShare": 0.572,
+  "pensionCoverage": 0.795,
+  "pensionReplacementRate": 0.655,
+  "outOfPocketHealthShare": 0.431,
+  "effectiveTaxRateAvgWorker": 0.145,
+  "rentShareOfIncome": 0.275,
+  "housePriceToIncome": 13.5,
+  "disasterRisk": 0.5,
+  "remittanceShareGdp": 0.0316,
+  "estimated": [
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "housePriceToIncome",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "remittanceShareGdp",
+   "rentShareOfIncome",
+   "tertiaryAnnualCostShareOfGni"
+  ],
+  "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2023"
+ },
+ {
+  "iso3": "IRQ",
+  "nameJa": "イラク",
+  "major": false,
+  "incomeGroup": "UMC",
+  "births": 1159700,
+  "currency": {
+   "code": "IQD",
+   "nameJa": "イラク ディナール",
+   "symbol": "IQD",
+   "jpyPerUnit": 0.10403,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 559.022,
+  "gniPerCapitaLCU": 7933270.0,
+  "consumptionPerCapitaLCU": 3664280.0,
+  "incomeShareQuintiles": [
+   0.0889,
+   0.1309,
+   0.1688,
+   0.2228,
+   0.3886
+  ],
+  "urbanShare": 0.699,
+  "places": [
+   {
+    "nameJa": "バグダッド",
+    "urban": true,
+    "share": 0.2097,
+    "incomeIndex": 1.32
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.4892,
+    "incomeIndex": 1.04
+   },
+   {
+    "nameJa": "農村部",
+    "urban": false,
+    "share": 0.3011,
+    "incomeIndex": 0.71
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 70.4,
+   "female": 74.1
+  },
+  "under5MortalityPer1000": 22.5,
+  "tfr": 3.25,
+  "meanAgeFirstMarriage": {
+   "male": 26.9,
+   "female": 22.0
+  },
+  "secondaryNetEnrollment": 0.826,
+  "tertiaryGrossEnrollment": 0.482,
+  "tertiaryAnnualCostShareOfGni": 0.14,
+  "unemploymentRate": 0.153,
+  "informalEmploymentShare": 0.436,
+  "pensionCoverage": 0.795,
+  "pensionReplacementRate": 0.655,
+  "outOfPocketHealthShare": 0.54,
+  "effectiveTaxRateAvgWorker": 0.145,
+  "rentShareOfIncome": 0.275,
+  "housePriceToIncome": 13.5,
+  "disasterRisk": 0.3,
+  "remittanceShareGdp": 0.0025,
+  "estimated": [
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "housePriceToIncome",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "rentShareOfIncome",
+   "secondaryNetEnrollment",
+   "tertiaryAnnualCostShareOfGni",
+   "tertiaryGrossEnrollment"
+  ],
+  "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2023"
+ },
+ {
+  "iso3": "NER",
+  "nameJa": "ニジェール",
+  "major": false,
+  "incomeGroup": "LIC",
+  "births": 1095900,
+  "currency": {
+   "code": "XOF",
+   "nameJa": "西アフリカ CFA フラン",
+   "symbol": "F CFA",
+   "jpyPerUnit": 0.270345,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 214.521,
+  "gniPerCapitaLCU": 434720.0,
+  "consumptionPerCapitaLCU": 317196.0,
+  "incomeShareQuintiles": [
+   0.087,
+   0.124,
+   0.159,
+   0.208,
+   0.422
+  ],
+  "urbanShare": 0.18,
+  "places": [
+   {
+    "nameJa": "ニアメ",
+    "urban": true,
+    "share": 0.0541,
+    "incomeIndex": 2.45
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.1263,
+    "incomeIndex": 1.42
+   },
+   {
+    "nameJa": "農村部",
+    "urban": false,
+    "share": 0.8196,
+    "incomeIndex": 0.84
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 60.3,
+   "female": 62.1
+  },
+  "under5MortalityPer1000": 113.5,
+  "tfr": 6.06,
+  "meanAgeFirstMarriage": {
+   "male": 24.3,
+   "female": 17.7
+  },
+  "secondaryNetEnrollment": 0.201,
+  "tertiaryGrossEnrollment": 0.042,
+  "tertiaryAnnualCostShareOfGni": 0.25,
+  "unemploymentRate": 0.004,
+  "informalEmploymentShare": 0.97,
+  "pensionCoverage": 0.075,
+  "pensionReplacementRate": 0.35,
+  "outOfPocketHealthShare": 0.515,
+  "effectiveTaxRateAvgWorker": 0.115,
+  "rentShareOfIncome": 0.35,
+  "housePriceToIncome": 17.5,
+  "disasterRisk": 0.45,
+  "remittanceShareGdp": 0.033,
+  "estimated": [
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "housePriceToIncome",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "rentShareOfIncome",
+   "tertiaryAnnualCostShareOfGni"
+  ],
+  "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2021"
+ },
+ {
+  "iso3": "MDG",
+  "nameJa": "マダガスカル",
+  "major": false,
+  "incomeGroup": "LIC",
+  "births": 1001200,
+  "currency": {
+   "code": "MGA",
+   "nameJa": "マダガスカル アリアリ",
+   "symbol": "Ar",
+   "jpyPerUnit": 0.0349058,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 1250.23,
+  "gniPerCapitaLCU": 2422310.0,
+  "consumptionPerCapitaLCU": 1773410.0,
+  "incomeShareQuintiles": [
+   0.0719,
+   0.1149,
+   0.1548,
+   0.2118,
+   0.4466
+  ],
+  "urbanShare": 0.324,
+  "places": [
+   {
+    "nameJa": "アンタナナリボ",
+    "urban": true,
+    "share": 0.0973,
+    "incomeIndex": 2.17
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.227,
+    "incomeIndex": 1.26
+   },
+   {
+    "nameJa": "農村部",
+    "urban": false,
+    "share": 0.6757,
+    "incomeIndex": 0.74
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 61.9,
+   "female": 65.4
+  },
+  "under5MortalityPer1000": 63.6,
+  "tfr": 3.97,
+  "meanAgeFirstMarriage": {
+   "male": 26.1,
+   "female": 20.6
+  },
+  "secondaryNetEnrollment": 0.298,
+  "tertiaryGrossEnrollment": 0.061,
+  "tertiaryAnnualCostShareOfGni": 0.25,
+  "unemploymentRate": 0.031,
+  "informalEmploymentShare": 0.97,
+  "pensionCoverage": 0.075,
+  "pensionReplacementRate": 0.35,
+  "outOfPocketHealthShare": 0.274,
+  "effectiveTaxRateAvgWorker": 0.115,
+  "rentShareOfIncome": 0.35,
+  "housePriceToIncome": 17.5,
+  "disasterRisk": 0.55,
+  "remittanceShareGdp": 0.0231,
+  "estimated": [
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "housePriceToIncome",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "rentShareOfIncome",
+   "tertiaryAnnualCostShareOfGni"
+  ],
+  "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2021"
+ },
+ {
+  "iso3": "CIV",
+  "nameJa": "コートジボワール",
+  "major": false,
+  "incomeGroup": "LMC",
+  "births": 997000,
+  "currency": {
+   "code": "XOF",
+   "nameJa": "西アフリカ CFA フラン",
+   "symbol": "F CFA",
+   "jpyPerUnit": 0.270345,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 234.123,
+  "gniPerCapitaLCU": 1581490.0,
+  "consumptionPerCapitaLCU": 1142620.0,
+  "incomeShareQuintiles": [
+   0.076,
+   0.116,
+   0.157,
+   0.218,
+   0.433
+  ],
+  "urbanShare": 0.54,
+  "places": [
+   {
+    "nameJa": "アビジャン",
+    "urban": true,
+    "share": 0.1619,
+    "incomeIndex": 1.68
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.3778,
+    "incomeIndex": 1.09
+   },
+   {
+    "nameJa": "農村部",
+    "urban": false,
+    "share": 0.4603,
+    "incomeIndex": 0.69
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 60.0,
+   "female": 64.1
+  },
+  "under5MortalityPer1000": 66.5,
+  "tfr": 4.28,
+  "meanAgeFirstMarriage": {
+   "male": 25.7,
+   "female": 20.1
+  },
+  "secondaryNetEnrollment": 0.402,
+  "tertiaryGrossEnrollment": 0.123,
+  "tertiaryAnnualCostShareOfGni": 0.225,
+  "unemploymentRate": 0.023,
+  "informalEmploymentShare": 0.893,
+  "pensionCoverage": 0.29,
+  "pensionReplacementRate": 0.39,
+  "outOfPocketHealthShare": 0.32,
+  "effectiveTaxRateAvgWorker": 0.12,
+  "rentShareOfIncome": 0.3,
+  "housePriceToIncome": 15.0,
+  "disasterRisk": 0.3,
+  "remittanceShareGdp": 0.0203,
+  "estimated": [
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "housePriceToIncome",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "rentShareOfIncome",
+   "tertiaryAnnualCostShareOfGni"
+  ],
+  "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2021"
+ },
+ {
+  "iso3": "CMR",
+  "nameJa": "カメルーン",
+  "major": false,
+  "incomeGroup": "LMC",
+  "births": 957400,
+  "currency": {
+   "code": "XAF",
+   "nameJa": "中央アフリカ CFA フラン",
+   "symbol": "FCFA",
+   "jpyPerUnit": 0.270345,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 207.582,
+  "gniPerCapitaLCU": 1086590.0,
+  "consumptionPerCapitaLCU": 805707.0,
+  "incomeShareQuintiles": [
+   0.0539,
+   0.0959,
+   0.1469,
+   0.2248,
+   0.4785
+  ],
+  "urbanShare": 0.554,
+  "places": [
+   {
+    "nameJa": "ドゥアラ",
+    "urban": true,
+    "share": 0.1662,
+    "incomeIndex": 1.66
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.3878,
+    "incomeIndex": 1.08
+   },
+   {
+    "nameJa": "農村部",
+    "urban": false,
+    "share": 0.446,
+    "incomeIndex": 0.69
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 61.5,
+   "female": 65.9
+  },
+  "under5MortalityPer1000": 67.0,
+  "tfr": 4.32,
+  "meanAgeFirstMarriage": {
+   "male": 25.7,
+   "female": 20.1
+  },
+  "secondaryNetEnrollment": 0.46,
+  "tertiaryGrossEnrollment": 0.167,
+  "tertiaryAnnualCostShareOfGni": 0.225,
+  "unemploymentRate": 0.036,
+  "informalEmploymentShare": 0.872,
+  "pensionCoverage": 0.29,
+  "pensionReplacementRate": 0.39,
+  "outOfPocketHealthShare": 0.677,
+  "effectiveTaxRateAvgWorker": 0.12,
+  "rentShareOfIncome": 0.3,
+  "housePriceToIncome": 15.0,
+  "disasterRisk": 0.3,
+  "remittanceShareGdp": 0.0129,
+  "estimated": [
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "housePriceToIncome",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "rentShareOfIncome",
+   "tertiaryAnnualCostShareOfGni"
+  ],
+  "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2021"
+ },
+ {
+  "iso3": "TUR",
+  "nameJa": "トルコ",
+  "major": false,
+  "incomeGroup": "UMC",
+  "births": 955700,
+  "currency": {
+   "code": "TRY",
+   "nameJa": "トルコ リラ",
+   "symbol": "₺",
+   "jpyPerUnit": 3.1785,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 18.9861,
+  "gniPerCapitaLCU": 777926.0,
+  "consumptionPerCapitaLCU": 428040.0,
+  "incomeShareQuintiles": [
+   0.055,
+   0.097,
+   0.142,
+   0.209,
+   0.497
+  ],
+  "urbanShare": 0.893,
+  "places": [
+   {
+    "nameJa": "イスタンブール",
+    "urban": true,
+    "share": 0.268,
+    "incomeIndex": 1.22
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.6254,
+    "incomeIndex": 0.96
+   },
+   {
+    "nameJa": "農村部",
+    "urban": false,
+    "share": 0.1066,
+    "incomeIndex": 0.66
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 74.5,
+   "female": 79.9
+  },
+  "under5MortalityPer1000": 13.8,
+  "tfr": 1.51,
+  "meanAgeFirstMarriage": {
+   "male": 30.1,
+   "female": 27.3
+  },
+  "secondaryNetEnrollment": 0.872,
+  "tertiaryGrossEnrollment": 1.0,
+  "tertiaryAnnualCostShareOfGni": 0.14,
+  "unemploymentRate": 0.088,
+  "informalEmploymentShare": 0.405,
+  "pensionCoverage": 0.795,
+  "pensionReplacementRate": 0.655,
+  "outOfPocketHealthShare": 0.19,
+  "effectiveTaxRateAvgWorker": 0.145,
+  "rentShareOfIncome": 0.275,
+  "housePriceToIncome": 13.5,
+  "disasterRisk": 0.5,
+  "remittanceShareGdp": 0.0007,
+  "estimated": [
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "housePriceToIncome",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "rentShareOfIncome",
+   "tertiaryAnnualCostShareOfGni"
+  ],
+  "notes": "金額はWDI 2024年値を為替変動で現行通貨水準に換算(x1.51); GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2023; 高等教育総就学率106%を1.0に丸め"
+ },
+ {
+  "iso3": "MLI",
+  "nameJa": "マリ",
+  "major": false,
+  "incomeGroup": "LIC",
+  "births": 951500,
+  "currency": {
+   "code": "XOF",
+   "nameJa": "西アフリカ CFA フラン",
+   "symbol": "F CFA",
+   "jpyPerUnit": 0.270345,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 192.362,
+  "gniPerCapitaLCU": 644932.0,
+  "consumptionPerCapitaLCU": 481019.0,
+  "incomeShareQuintiles": [
+   0.076,
+   0.115,
+   0.154,
+   0.216,
+   0.439
+  ],
+  "urbanShare": 0.316,
+  "places": [
+   {
+    "nameJa": "バマコ",
+    "urban": true,
+    "share": 0.0948,
+    "incomeIndex": 2.19
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.2213,
+    "incomeIndex": 1.27
+   },
+   {
+    "nameJa": "農村部",
+    "urban": false,
+    "share": 0.6839,
+    "incomeIndex": 0.75
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 59.0,
+   "female": 61.9
+  },
+  "under5MortalityPer1000": 76.2,
+  "tfr": 5.61,
+  "meanAgeFirstMarriage": {
+   "male": 24.6,
+   "female": 18.3
+  },
+  "secondaryNetEnrollment": 0.299,
+  "tertiaryGrossEnrollment": 0.051,
+  "tertiaryAnnualCostShareOfGni": 0.25,
+  "unemploymentRate": 0.029,
+  "informalEmploymentShare": 0.963,
+  "pensionCoverage": 0.075,
+  "pensionReplacementRate": 0.35,
+  "outOfPocketHealthShare": 0.472,
+  "effectiveTaxRateAvgWorker": 0.115,
+  "rentShareOfIncome": 0.35,
+  "housePriceToIncome": 17.5,
+  "disasterRisk": 0.4,
+  "remittanceShareGdp": 0.0399,
+  "estimated": [
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "housePriceToIncome",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "rentShareOfIncome",
+   "tertiaryAnnualCostShareOfGni"
+  ],
+  "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2021"
+ },
+ {
+  "iso3": "UZB",
+  "nameJa": "ウズベキスタン",
+  "major": false,
+  "incomeGroup": "LMC",
+  "births": 943500,
+  "currency": {
+   "code": "UZS",
+   "nameJa": "ウズベキスタン スム",
+   "symbol": "UZS",
+   "jpyPerUnit": 0.013196,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 3372.99,
+  "gniPerCapitaLCU": 42626100.0,
+  "consumptionPerCapitaLCU": 27533200.0,
+  "incomeShareQuintiles": [
+   0.066,
+   0.121,
+   0.167,
+   0.231,
+   0.415
+  ],
+  "urbanShare": 0.51,
+  "places": [
+   {
+    "nameJa": "タシケント",
+    "urban": true,
+    "share": 0.153,
+    "incomeIndex": 1.71
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.357,
+    "incomeIndex": 1.1
+   },
+   {
+    "nameJa": "農村部",
+    "urban": false,
+    "share": 0.49,
+    "incomeIndex": 0.7
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 69.5,
+   "female": 75.4
+  },
+  "under5MortalityPer1000": 13.7,
+  "tfr": 3.5,
+  "meanAgeFirstMarriage": {
+   "male": 26.6,
+   "female": 21.5
+  },
+  "secondaryNetEnrollment": 0.909,
+  "tertiaryGrossEnrollment": 0.565,
+  "tertiaryAnnualCostShareOfGni": 0.225,
+  "unemploymentRate": 0.044,
+  "informalEmploymentShare": 0.505,
+  "pensionCoverage": 0.29,
+  "pensionReplacementRate": 0.39,
+  "outOfPocketHealthShare": 0.641,
+  "effectiveTaxRateAvgWorker": 0.12,
+  "rentShareOfIncome": 0.3,
+  "housePriceToIncome": 15.0,
+  "disasterRisk": 0.25,
+  "remittanceShareGdp": 0.1366,
+  "estimated": [
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "housePriceToIncome",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "rentShareOfIncome",
+   "tertiaryAnnualCostShareOfGni"
+  ],
+  "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2024"
+ },
+ {
+  "iso3": "DZA",
+  "nameJa": "アルジェリア",
+  "major": false,
+  "incomeGroup": "UMC",
+  "births": 906000,
+  "currency": {
+   "code": "DZD",
+   "nameJa": "アルジェリア ディナール",
+   "symbol": "DZD",
+   "jpyPerUnit": 1.172,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 42.2629,
+  "gniPerCapitaLCU": 756623.0,
+  "consumptionPerCapitaLCU": 318315.0,
+  "incomeShareQuintiles": [
+   0.0939,
+   0.1369,
+   0.1748,
+   0.2228,
+   0.3716
+  ],
+  "urbanShare": 0.753,
+  "places": [
+   {
+    "nameJa": "アルジェ",
+    "urban": true,
+    "share": 0.2258,
+    "incomeIndex": 1.29
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.527,
+    "incomeIndex": 1.02
+   },
+   {
+    "nameJa": "農村部",
+    "urban": false,
+    "share": 0.2472,
+    "incomeIndex": 0.69
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 74.9,
+   "female": 77.7
+  },
+  "under5MortalityPer1000": 22.0,
+  "tfr": 2.77,
+  "meanAgeFirstMarriage": {
+   "male": 27.6,
+   "female": 23.1
+  },
+  "secondaryNetEnrollment": 0.819,
+  "tertiaryGrossEnrollment": 0.544,
+  "tertiaryAnnualCostShareOfGni": 0.14,
+  "unemploymentRate": 0.117,
+  "informalEmploymentShare": 0.422,
+  "pensionCoverage": 0.795,
+  "pensionReplacementRate": 0.655,
+  "outOfPocketHealthShare": 0.45,
+  "effectiveTaxRateAvgWorker": 0.145,
+  "rentShareOfIncome": 0.275,
+  "housePriceToIncome": 13.5,
+  "disasterRisk": 0.3,
+  "remittanceShareGdp": 0.0067,
+  "estimated": [
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "housePriceToIncome",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "rentShareOfIncome",
+   "tertiaryAnnualCostShareOfGni"
+  ],
+  "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2011; 中等教育は前期中等修了率で代替"
+ },
+ {
+  "iso3": "MMR",
+  "nameJa": "ミャンマー",
+  "major": false,
+  "incomeGroup": "LMC",
+  "births": 903800,
+  "currency": {
+   "code": "MMK",
+   "nameJa": "ミャンマー チャット",
+   "symbol": "K",
+   "jpyPerUnit": 0.0751183,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 499.698,
+  "gniPerCapitaLCU": 2801270.0,
+  "consumptionPerCapitaLCU": 1680760.0,
+  "incomeShareQuintiles": [
+   0.089,
+   0.13,
+   0.166,
+   0.216,
+   0.399
+  ],
+  "urbanShare": 0.304,
+  "places": [
+   {
+    "nameJa": "ヤンゴン",
+    "urban": true,
+    "share": 0.0913,
+    "incomeIndex": 1.94
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.2131,
+    "incomeIndex": 1.25
+   },
+   {
+    "nameJa": "農村部",
+    "urban": false,
+    "share": 0.6956,
+    "incomeIndex": 0.8
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 63.8,
+   "female": 70.2
+  },
+  "under5MortalityPer1000": 38.1,
+  "tfr": 2.12,
+  "meanAgeFirstMarriage": {
+   "male": 28.7,
+   "female": 25.0
+  },
+  "secondaryNetEnrollment": 0.641,
+  "tertiaryGrossEnrollment": 0.204,
+  "tertiaryAnnualCostShareOfGni": 0.225,
+  "unemploymentRate": 0.029,
+  "informalEmploymentShare": 0.819,
+  "pensionCoverage": 0.29,
+  "pensionReplacementRate": 0.39,
+  "outOfPocketHealthShare": 0.711,
+  "effectiveTaxRateAvgWorker": 0.12,
+  "rentShareOfIncome": 0.3,
+  "housePriceToIncome": 15.0,
+  "disasterRisk": 0.7,
+  "remittanceShareGdp": 0.034,
+  "estimated": [
+   "consumptionPerCapitaLCU",
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "housePriceToIncome",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "rentShareOfIncome",
+   "tertiaryAnnualCostShareOfGni"
+  ],
+  "notes": "GNI2024/消費推定/PPP2021(PA.NUS.PRVT.PP); 五分位2017"
+ },
+ {
+  "iso3": "GHA",
+  "nameJa": "ガーナ",
+  "major": false,
+  "incomeGroup": "LMC",
+  "births": 889000,
+  "currency": {
+   "code": "GHS",
+   "nameJa": "ガーナ セディ",
+   "symbol": "GH₵",
+   "jpyPerUnit": 13.5664,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 4.72101,
+  "gniPerCapitaLCU": 32178.9,
+  "consumptionPerCapitaLCU": 28507.4,
+  "incomeShareQuintiles": [
+   0.047,
+   0.096,
+   0.148,
+   0.223,
+   0.486
+  ],
+  "urbanShare": 0.584,
+  "places": [
+   {
+    "nameJa": "アクラ",
+    "urban": true,
+    "share": 0.1751,
+    "incomeIndex": 1.64
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.4086,
+    "incomeIndex": 1.06
+   },
+   {
+    "nameJa": "農村部",
+    "urban": false,
+    "share": 0.4163,
+    "incomeIndex": 0.67
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 63.1,
+   "female": 67.9
+  },
+  "under5MortalityPer1000": 37.2,
+  "tfr": 3.4,
+  "meanAgeFirstMarriage": {
+   "male": 26.7,
+   "female": 21.7
+  },
+  "secondaryNetEnrollment": 0.572,
+  "tertiaryGrossEnrollment": 0.213,
+  "tertiaryAnnualCostShareOfGni": 0.225,
+  "unemploymentRate": 0.028,
+  "informalEmploymentShare": 0.792,
+  "pensionCoverage": 0.29,
+  "pensionReplacementRate": 0.39,
+  "outOfPocketHealthShare": 0.267,
+  "effectiveTaxRateAvgWorker": 0.12,
+  "rentShareOfIncome": 0.3,
+  "housePriceToIncome": 15.0,
+  "disasterRisk": 0.3,
+  "remittanceShareGdp": 0.0363,
+  "estimated": [
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "housePriceToIncome",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "rentShareOfIncome",
+   "tertiaryAnnualCostShareOfGni"
+  ],
+  "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2016"
+ },
+ {
+  "iso3": "TCD",
+  "nameJa": "チャド",
+  "major": false,
+  "incomeGroup": "LIC",
+  "births": 819100,
+  "currency": {
+   "code": "XAF",
+   "nameJa": "中央アフリカ CFA フラン",
+   "symbol": "FCFA",
+   "jpyPerUnit": 0.270345,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 238.085,
+  "gniPerCapitaLCU": 572751.0,
+  "consumptionPerCapitaLCU": 355292.0,
+  "incomeShareQuintiles": [
+   0.0689,
+   0.1099,
+   0.1588,
+   0.2138,
+   0.4486
+  ],
+  "urbanShare": 0.269,
+  "places": [
+   {
+    "nameJa": "ンジャメナ",
+    "urban": true,
+    "share": 0.0808,
+    "incomeIndex": 2.27
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.1885,
+    "incomeIndex": 1.32
+   },
+   {
+    "nameJa": "農村部",
+    "urban": false,
+    "share": 0.7307,
+    "incomeIndex": 0.78
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 53.2,
+   "female": 57.0
+  },
+  "under5MortalityPer1000": 100.6,
+  "tfr": 6.12,
+  "meanAgeFirstMarriage": {
+   "male": 24.2,
+   "female": 17.7
+  },
+  "secondaryNetEnrollment": 0.189,
+  "tertiaryGrossEnrollment": 0.044,
+  "tertiaryAnnualCostShareOfGni": 0.25,
+  "unemploymentRate": 0.011,
+  "informalEmploymentShare": 0.97,
+  "pensionCoverage": 0.075,
+  "pensionReplacementRate": 0.35,
+  "outOfPocketHealthShare": 0.517,
+  "effectiveTaxRateAvgWorker": 0.115,
+  "rentShareOfIncome": 0.35,
+  "housePriceToIncome": 17.5,
+  "disasterRisk": 0.45,
+  "remittanceShareGdp": 0.0395,
+  "estimated": [
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "housePriceToIncome",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "remittanceShareGdp",
+   "rentShareOfIncome",
+   "tertiaryAnnualCostShareOfGni"
+  ],
+  "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2022"
+ },
+ {
+  "iso3": "SOM",
+  "nameJa": "ソマリア",
+  "major": false,
+  "incomeGroup": "LIC",
+  "births": 788800,
+  "currency": {
+   "code": "SOS",
+   "nameJa": "ソマリア シリング",
+   "symbol": "SOS",
+   "jpyPerUnit": 0.276517,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 188.235,
+  "gniPerCapitaLCU": 342246.0,
+  "consumptionPerCapitaLCU": 205347.0,
+  "incomeShareQuintiles": [
+   0.072,
+   0.1119,
+   0.1529,
+   0.2139,
+   0.4493
+  ],
+  "urbanShare": 0.546,
+  "places": [
+   {
+    "nameJa": "モガディシュ",
+    "urban": true,
+    "share": 0.1639,
+    "incomeIndex": 1.85
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.3823,
+    "incomeIndex": 1.07
+   },
+   {
+    "nameJa": "農村部",
+    "urban": false,
+    "share": 0.4538,
+    "incomeIndex": 0.63
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 56.4,
+   "female": 61.4
+  },
+  "under5MortalityPer1000": 104.3,
+  "tfr": 6.13,
+  "meanAgeFirstMarriage": {
+   "male": 24.2,
+   "female": 17.6
+  },
+  "secondaryNetEnrollment": 0.31,
+  "tertiaryGrossEnrollment": 0.064,
+  "tertiaryAnnualCostShareOfGni": 0.25,
+  "unemploymentRate": 0.189,
+  "informalEmploymentShare": 0.639,
+  "pensionCoverage": 0.075,
+  "pensionReplacementRate": 0.35,
+  "outOfPocketHealthShare": 0.308,
+  "effectiveTaxRateAvgWorker": 0.115,
+  "rentShareOfIncome": 0.35,
+  "housePriceToIncome": 17.5,
+  "disasterRisk": 0.55,
+  "remittanceShareGdp": 0.0395,
+  "estimated": [
+   "consumptionPerCapitaLCU",
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "gniPerCapitaLCU",
+   "housePriceToIncome",
+   "incomeShareQuintiles",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "pppPerIntlDollar",
+   "remittanceShareGdp",
+   "rentShareOfIncome",
+   "secondaryNetEnrollment",
+   "tertiaryAnnualCostShareOfGni",
+   "tertiaryGrossEnrollment"
+  ],
+  "notes": "GNIはWDI欠損のため推定(米ドル換算); GNI2025/消費推定/PPP推定"
+ },
+ {
+  "iso3": "JPN",
+  "nameJa": "日本",
+  "major": true,
+  "incomeGroup": "HIC",
+  "births": 747100,
+  "currency": {
+   "code": "JPY",
+   "nameJa": "日本円",
+   "symbol": "￥",
+   "jpyPerUnit": 1.0,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 99.3848,
+  "gniPerCapitaLCU": 5427120.0,
+  "consumptionPerCapitaLCU": 2714900.0,
+  "incomeShareQuintiles": [
+   0.068,
+   0.13,
+   0.176,
+   0.232,
+   0.394
+  ],
+  "urbanShare": 0.922,
+  "places": [
+   {
+    "nameJa": "東京",
+    "urban": true,
+    "share": 0.14,
+    "incomeIndex": 1.3
+   },
+   {
+    "nameJa": "大阪",
+    "urban": true,
+    "share": 0.08,
+    "incomeIndex": 1.0
+   },
+   {
+    "nameJa": "名古屋",
+    "urban": true,
+    "share": 0.07,
+    "incomeIndex": 1.08
+   },
+   {
+    "nameJa": "福岡",
+    "urban": true,
+    "share": 0.05,
+    "incomeIndex": 0.95
+   },
+   {
+    "nameJa": "その他の地方都市",
+    "urban": true,
+    "share": 0.43,
+    "incomeIndex": 0.97
+   },
+   {
+    "nameJa": "地方の町",
+    "urban": false,
+    "share": 0.23,
+    "incomeIndex": 0.85
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 81.1,
+   "female": 87.1
+  },
+  "under5MortalityPer1000": 2.4,
+  "tfr": 1.2,
+  "meanAgeFirstMarriage": {
+   "male": 31.1,
+   "female": 29.7
+  },
+  "secondaryNetEnrollment": 0.931,
+  "tertiaryGrossEnrollment": 0.645,
+  "tertiaryAnnualCostShareOfGni": 0.15,
+  "unemploymentRate": 0.025,
+  "informalEmploymentShare": 0.13,
+  "pensionCoverage": 0.98,
+  "pensionReplacementRate": 0.39,
+  "outOfPocketHealthShare": 0.122,
+  "effectiveTaxRateAvgWorker": 0.23,
+  "rentShareOfIncome": 0.25,
+  "housePriceToIncome": 12.0,
+  "disasterRisk": 0.5,
+  "remittanceShareGdp": 0.0011,
+  "estimated": [
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "housePriceToIncome",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "rentShareOfIncome",
+   "secondaryNetEnrollment",
+   "tertiaryAnnualCostShareOfGni"
+  ],
+  "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2020"
+ },
+ {
+  "iso3": "BFA",
+  "nameJa": "ブルキナファソ",
+  "major": false,
+  "incomeGroup": "LIC",
+  "births": 728600,
+  "currency": {
+   "code": "XOF",
+   "nameJa": "西アフリカ CFA フラン",
+   "symbol": "F CFA",
+   "jpyPerUnit": 0.270345,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 199.487,
+  "gniPerCapitaLCU": 560751.0,
+  "consumptionPerCapitaLCU": 370316.0,
+  "incomeShareQuintiles": [
+   0.073,
+   0.112,
+   0.151,
+   0.211,
+   0.453
+  ],
+  "urbanShare": 0.283,
+  "places": [
+   {
+    "nameJa": "ワガドゥグー",
+    "urban": true,
+    "share": 0.085,
+    "incomeIndex": 2.25
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.1983,
+    "incomeIndex": 1.3
+   },
+   {
+    "nameJa": "農村部",
+    "urban": false,
+    "share": 0.7167,
+    "incomeIndex": 0.77
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 58.9,
+   "female": 63.2
+  },
+  "under5MortalityPer1000": 77.4,
+  "tfr": 4.19,
+  "meanAgeFirstMarriage": {
+   "male": 25.8,
+   "female": 20.3
+  },
+  "secondaryNetEnrollment": 0.31,
+  "tertiaryGrossEnrollment": 0.1,
+  "tertiaryAnnualCostShareOfGni": 0.25,
+  "unemploymentRate": 0.034,
+  "informalEmploymentShare": 0.97,
+  "pensionCoverage": 0.075,
+  "pensionReplacementRate": 0.35,
+  "outOfPocketHealthShare": 0.438,
+  "effectiveTaxRateAvgWorker": 0.115,
+  "rentShareOfIncome": 0.35,
+  "housePriceToIncome": 17.5,
+  "disasterRisk": 0.4,
+  "remittanceShareGdp": 0.0257,
+  "estimated": [
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "housePriceToIncome",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "rentShareOfIncome",
+   "tertiaryAnnualCostShareOfGni"
+  ],
+  "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2021"
+ },
+ {
+  "iso3": "COL",
+  "nameJa": "コロンビア",
+  "major": false,
+  "incomeGroup": "UMC",
+  "births": 705000,
+  "currency": {
+   "code": "COP",
+   "nameJa": "コロンビア ペソ",
+   "symbol": "$",
+   "jpyPerUnit": 0.0494212,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 1542.19,
+  "gniPerCapitaLCU": 31904400.0,
+  "consumptionPerCapitaLCU": 23600800.0,
+  "incomeShareQuintiles": [
+   0.032,
+   0.071,
+   0.115,
+   0.193,
+   0.589
+  ],
+  "urbanShare": 0.785,
+  "places": [
+   {
+    "nameJa": "ボゴタ",
+    "urban": true,
+    "share": 0.2356,
+    "incomeIndex": 1.28
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.5496,
+    "incomeIndex": 1.0
+   },
+   {
+    "nameJa": "農村部",
+    "urban": false,
+    "share": 0.2148,
+    "incomeIndex": 0.68
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 75.0,
+   "female": 80.5
+  },
+  "under5MortalityPer1000": 11.9,
+  "tfr": 1.65,
+  "meanAgeFirstMarriage": {
+   "male": 29.7,
+   "female": 26.7
+  },
+  "secondaryNetEnrollment": 0.775,
+  "tertiaryGrossEnrollment": 0.593,
+  "tertiaryAnnualCostShareOfGni": 0.14,
+  "unemploymentRate": 0.096,
+  "informalEmploymentShare": 0.607,
+  "pensionCoverage": 0.795,
+  "pensionReplacementRate": 0.655,
+  "outOfPocketHealthShare": 0.146,
+  "effectiveTaxRateAvgWorker": 0.145,
+  "rentShareOfIncome": 0.275,
+  "housePriceToIncome": 13.5,
+  "disasterRisk": 0.65,
+  "remittanceShareGdp": 0.0282,
+  "estimated": [
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "housePriceToIncome",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "rentShareOfIncome",
+   "tertiaryAnnualCostShareOfGni"
+  ],
+  "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2024"
+ },
+ {
+  "iso3": "DEU",
+  "nameJa": "ドイツ",
+  "major": true,
+  "incomeGroup": "HIC",
+  "births": 691300,
+  "currency": {
+   "code": "EUR",
+   "nameJa": "ユーロ",
+   "symbol": "€",
+   "jpyPerUnit": 177.334,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 0.70155,
+  "gniPerCapitaLCU": 53619.3,
+  "consumptionPerCapitaLCU": 27335.4,
+  "incomeShareQuintiles": [
+   0.0691,
+   0.1281,
+   0.1702,
+   0.2232,
+   0.4094
+  ],
+  "urbanShare": 0.82,
+  "places": [
+   {
+    "nameJa": "ベルリン",
+    "urban": true,
+    "share": 0.05,
+    "incomeIndex": 1.01
+   },
+   {
+    "nameJa": "ハンブルク",
+    "urban": true,
+    "share": 0.025,
+    "incomeIndex": 1.16
+   },
+   {
+    "nameJa": "ミュンヘン",
+    "urban": true,
+    "share": 0.02,
+    "incomeIndex": 1.31
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.68,
+    "incomeIndex": 1.01
+   },
+   {
+    "nameJa": "地方の町村",
+    "urban": false,
+    "share": 0.225,
+    "incomeIndex": 0.93
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 78.7,
+   "female": 83.5
+  },
+  "under5MortalityPer1000": 3.7,
+  "tfr": 1.39,
+  "meanAgeFirstMarriage": {
+   "male": 34.6,
+   "female": 32.2
+  },
+  "secondaryNetEnrollment": 0.853,
+  "tertiaryGrossEnrollment": 0.767,
+  "tertiaryAnnualCostShareOfGni": 0.01,
+  "unemploymentRate": 0.034,
+  "informalEmploymentShare": 0.1,
+  "pensionCoverage": 1.0,
+  "pensionReplacementRate": 0.43,
+  "outOfPocketHealthShare": 0.111,
+  "effectiveTaxRateAvgWorker": 0.39,
+  "rentShareOfIncome": 0.28,
+  "housePriceToIncome": 10.0,
+  "disasterRisk": 0.15,
+  "remittanceShareGdp": 0.0047,
+  "estimated": [
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "housePriceToIncome",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "rentShareOfIncome",
+   "tertiaryAnnualCostShareOfGni"
+  ],
+  "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2022"
+ },
+ {
+  "iso3": "GBR",
+  "nameJa": "英国",
+  "major": true,
+  "incomeGroup": "HIC",
+  "births": 686800,
+  "currency": {
+   "code": "GBP",
+   "nameJa": "英国ポンド",
+   "symbol": "£",
+   "jpyPerUnit": 211.319,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 0.68274,
+  "gniPerCapitaLCU": 41325.1,
+  "consumptionPerCapitaLCU": 25359.9,
+  "incomeShareQuintiles": [
+   0.076,
+   0.125,
+   0.17,
+   0.229,
+   0.4
+  ],
+  "urbanShare": 0.832,
+  "places": [
+   {
+    "nameJa": "ロンドン",
+    "urban": true,
+    "share": 0.18,
+    "incomeIndex": 1.33
+   },
+   {
+    "nameJa": "マンチェスター",
+    "urban": true,
+    "share": 0.04,
+    "incomeIndex": 0.88
+   },
+   {
+    "nameJa": "バーミンガム",
+    "urban": true,
+    "share": 0.04,
+    "incomeIndex": 0.87
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.58,
+    "incomeIndex": 0.93
+   },
+   {
+    "nameJa": "地方の町村",
+    "urban": false,
+    "share": 0.16,
+    "incomeIndex": 0.93
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 79.4,
+   "female": 83.2
+  },
+  "under5MortalityPer1000": 4.6,
+  "tfr": 1.56,
+  "meanAgeFirstMarriage": {
+   "male": 33.4,
+   "female": 31.5
+  },
+  "secondaryNetEnrollment": 0.971,
+  "tertiaryGrossEnrollment": 0.804,
+  "tertiaryAnnualCostShareOfGni": 0.25,
+  "unemploymentRate": 0.044,
+  "informalEmploymentShare": 0.13,
+  "pensionCoverage": 1.0,
+  "pensionReplacementRate": 0.51,
+  "outOfPocketHealthShare": 0.146,
+  "effectiveTaxRateAvgWorker": 0.24,
+  "rentShareOfIncome": 0.33,
+  "housePriceToIncome": 9.0,
+  "disasterRisk": 0.12,
+  "remittanceShareGdp": 0.0013,
+  "estimated": [
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "housePriceToIncome",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "rentShareOfIncome",
+   "tertiaryAnnualCostShareOfGni"
+  ],
+  "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2021"
+ },
+ {
+  "iso3": "ZMB",
+  "nameJa": "ザンビア",
+  "major": false,
+  "incomeGroup": "LMC",
+  "births": 685600,
+  "currency": {
+   "code": "ZMW",
+   "nameJa": "ザンビア クワチャ",
+   "symbol": "ZK",
+   "jpyPerUnit": 7.86709,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 7.56648,
+  "gniPerCapitaLCU": 27686.3,
+  "consumptionPerCapitaLCU": 14919.6,
+  "incomeShareQuintiles": [
+   0.039,
+   0.073,
+   0.119,
+   0.205,
+   0.564
+  ],
+  "urbanShare": 0.455,
+  "places": [
+   {
+    "nameJa": "ルサカ",
+    "urban": true,
+    "share": 0.1364,
+    "incomeIndex": 1.76
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.3183,
+    "incomeIndex": 1.14
+   },
+   {
+    "nameJa": "農村部",
+    "urban": false,
+    "share": 0.5453,
+    "incomeIndex": 0.73
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 63.9,
+   "female": 68.7
+  },
+  "under5MortalityPer1000": 49.1,
+  "tfr": 4.1,
+  "meanAgeFirstMarriage": {
+   "male": 25.9,
+   "female": 20.4
+  },
+  "secondaryNetEnrollment": 0.553,
+  "tertiaryGrossEnrollment": 0.04,
+  "tertiaryAnnualCostShareOfGni": 0.225,
+  "unemploymentRate": 0.059,
+  "informalEmploymentShare": 0.901,
+  "pensionCoverage": 0.29,
+  "pensionReplacementRate": 0.39,
+  "outOfPocketHealthShare": 0.103,
+  "effectiveTaxRateAvgWorker": 0.12,
+  "rentShareOfIncome": 0.3,
+  "housePriceToIncome": 15.0,
+  "disasterRisk": 0.3,
+  "remittanceShareGdp": 0.0132,
+  "estimated": [
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "housePriceToIncome",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "rentShareOfIncome",
+   "tertiaryAnnualCostShareOfGni"
+  ],
+  "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2022; 中等教育は前期中等修了率で代替"
+ },
+ {
+  "iso3": "FRA",
+  "nameJa": "フランス",
+  "major": true,
+  "incomeGroup": "HIC",
+  "births": 676900,
+  "currency": {
+   "code": "EUR",
+   "nameJa": "ユーロ",
+   "symbol": "€",
+   "jpyPerUnit": 177.334,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 0.71693,
+  "gniPerCapitaLCU": 43412.0,
+  "consumptionPerCapitaLCU": 23271.4,
+  "incomeShareQuintiles": [
+   0.077,
+   0.129,
+   0.172,
+   0.225,
+   0.397
+  ],
+  "urbanShare": 0.788,
+  "places": [
+   {
+    "nameJa": "パリ都市圏",
+    "urban": true,
+    "share": 0.2,
+    "incomeIndex": 1.29
+   },
+   {
+    "nameJa": "リヨン",
+    "urban": true,
+    "share": 0.03,
+    "incomeIndex": 1.04
+   },
+   {
+    "nameJa": "マルセイユ",
+    "urban": true,
+    "share": 0.03,
+    "incomeIndex": 0.89
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.55,
+    "incomeIndex": 0.94
+   },
+   {
+    "nameJa": "地方の農村部",
+    "urban": false,
+    "share": 0.19,
+    "incomeIndex": 0.87
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 80.1,
+   "female": 85.7
+  },
+  "under5MortalityPer1000": 4.3,
+  "tfr": 1.66,
+  "meanAgeFirstMarriage": {
+   "male": 34.0,
+   "female": 32.0
+  },
+  "secondaryNetEnrollment": 0.947,
+  "tertiaryGrossEnrollment": 0.715,
+  "tertiaryAnnualCostShareOfGni": 0.03,
+  "unemploymentRate": 0.074,
+  "informalEmploymentShare": 0.1,
+  "pensionCoverage": 1.0,
+  "pensionReplacementRate": 0.57,
+  "outOfPocketHealthShare": 0.093,
+  "effectiveTaxRateAvgWorker": 0.28,
+  "rentShareOfIncome": 0.27,
+  "housePriceToIncome": 11.0,
+  "disasterRisk": 0.15,
+  "remittanceShareGdp": 0.0129,
+  "estimated": [
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "housePriceToIncome",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "rentShareOfIncome",
+   "tertiaryAnnualCostShareOfGni"
+  ],
+  "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2023"
+ },
+ {
+  "iso3": "MWI",
+  "nameJa": "マラウイ",
+  "major": false,
+  "incomeGroup": "LIC",
+  "births": 662300,
+  "currency": {
+   "code": "MWK",
+   "nameJa": "マラウィ クワチャ",
+   "symbol": "MWK",
+   "jpyPerUnit": 0.0909938,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 501.744,
+  "gniPerCapitaLCU": 893122.0,
+  "consumptionPerCapitaLCU": 774723.0,
+  "incomeShareQuintiles": [
+   0.0699,
+   0.1099,
+   0.1489,
+   0.2098,
+   0.4615
+  ],
+  "urbanShare": 0.173,
+  "places": [
+   {
+    "nameJa": "リロングウェ",
+    "urban": true,
+    "share": 0.0518,
+    "incomeIndex": 2.47
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.1209,
+    "incomeIndex": 1.43
+   },
+   {
+    "nameJa": "農村部",
+    "urban": false,
+    "share": 0.8273,
+    "incomeIndex": 0.85
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 64.1,
+   "female": 70.6
+  },
+  "under5MortalityPer1000": 49.6,
+  "tfr": 3.65,
+  "meanAgeFirstMarriage": {
+   "male": 26.4,
+   "female": 21.2
+  },
+  "secondaryNetEnrollment": 0.342,
+  "tertiaryGrossEnrollment": 0.027,
+  "tertiaryAnnualCostShareOfGni": 0.25,
+  "unemploymentRate": 0.051,
+  "informalEmploymentShare": 0.788,
+  "pensionCoverage": 0.075,
+  "pensionReplacementRate": 0.35,
+  "outOfPocketHealthShare": 0.12,
+  "effectiveTaxRateAvgWorker": 0.115,
+  "rentShareOfIncome": 0.35,
+  "housePriceToIncome": 17.5,
+  "disasterRisk": 0.45,
+  "remittanceShareGdp": 0.0198,
+  "estimated": [
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "housePriceToIncome",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "rentShareOfIncome",
+   "tertiaryAnnualCostShareOfGni"
+  ],
+  "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2019"
+ },
+ {
+  "iso3": "MAR",
+  "nameJa": "モロッコ",
+  "major": false,
+  "incomeGroup": "LMC",
+  "births": 629800,
+  "currency": {
+   "code": "MAD",
+   "nameJa": "モロッコ ディルハム",
+   "symbol": "MAD",
+   "jpyPerUnit": 16.1158,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 4.03814,
+  "gniPerCapitaLCU": 40678.8,
+  "consumptionPerCapitaLCU": 25227.6,
+  "incomeShareQuintiles": [
+   0.067,
+   0.107,
+   0.147,
+   0.209,
+   0.47
+  ],
+  "urbanShare": 0.628,
+  "places": [
+   {
+    "nameJa": "カサブランカ",
+    "urban": true,
+    "share": 0.1884,
+    "incomeIndex": 1.6
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.4396,
+    "incomeIndex": 1.03
+   },
+   {
+    "nameJa": "農村部",
+    "urban": false,
+    "share": 0.372,
+    "incomeIndex": 0.66
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 73.2,
+   "female": 77.6
+  },
+  "under5MortalityPer1000": 16.3,
+  "tfr": 2.23,
+  "meanAgeFirstMarriage": {
+   "male": 28.5,
+   "female": 24.6
+  },
+  "secondaryNetEnrollment": 0.645,
+  "tertiaryGrossEnrollment": 0.482,
+  "tertiaryAnnualCostShareOfGni": 0.225,
+  "unemploymentRate": 0.091,
+  "informalEmploymentShare": 0.53,
+  "pensionCoverage": 0.29,
+  "pensionReplacementRate": 0.39,
+  "outOfPocketHealthShare": 0.373,
+  "effectiveTaxRateAvgWorker": 0.12,
+  "rentShareOfIncome": 0.3,
+  "housePriceToIncome": 15.0,
+  "disasterRisk": 0.3,
+  "remittanceShareGdp": 0.0779,
+  "estimated": [
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "housePriceToIncome",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "rentShareOfIncome",
+   "tertiaryAnnualCostShareOfGni"
+  ],
+  "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2013"
+ },
+ {
+  "iso3": "THA",
+  "nameJa": "タイ",
+  "major": false,
+  "incomeGroup": "UMC",
+  "births": 591200,
+  "currency": {
+   "code": "THB",
+   "nameJa": "タイ バーツ",
+   "symbol": "฿",
+   "jpyPerUnit": 4.68623,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 10.907,
+  "gniPerCapitaLCU": 252380.0,
+  "consumptionPerCapitaLCU": 150774.0,
+  "incomeShareQuintiles": [
+   0.079,
+   0.12,
+   0.162,
+   0.224,
+   0.415
+  ],
+  "urbanShare": 0.619,
+  "places": [
+   {
+    "nameJa": "バンコク",
+    "urban": true,
+    "share": 0.1856,
+    "incomeIndex": 1.37
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.4331,
+    "incomeIndex": 1.08
+   },
+   {
+    "nameJa": "農村部",
+    "urban": false,
+    "share": 0.3813,
+    "incomeIndex": 0.73
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 72.2,
+   "female": 80.9
+  },
+  "under5MortalityPer1000": 9.2,
+  "tfr": 1.21,
+  "meanAgeFirstMarriage": {
+   "male": 31.0,
+   "female": 28.8
+  },
+  "secondaryNetEnrollment": 0.773,
+  "tertiaryGrossEnrollment": 0.45,
+  "tertiaryAnnualCostShareOfGni": 0.14,
+  "unemploymentRate": 0.008,
+  "informalEmploymentShare": 0.661,
+  "pensionCoverage": 0.795,
+  "pensionReplacementRate": 0.655,
+  "outOfPocketHealthShare": 0.099,
+  "effectiveTaxRateAvgWorker": 0.145,
+  "rentShareOfIncome": 0.275,
+  "housePriceToIncome": 13.5,
+  "disasterRisk": 0.4,
+  "remittanceShareGdp": 0.0179,
+  "estimated": [
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "housePriceToIncome",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "rentShareOfIncome",
+   "tertiaryAnnualCostShareOfGni"
+  ],
+  "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2024"
+ },
+ {
+  "iso3": "NPL",
+  "nameJa": "ネパール",
+  "major": false,
+  "incomeGroup": "LMC",
+  "births": 574300,
+  "currency": {
+   "code": "NPR",
+   "nameJa": "ネパール ルピー",
+   "symbol": "Rs",
+   "jpyPerUnit": 1.04389,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 35.2857,
+  "gniPerCapitaLCU": 197440.0,
+  "consumptionPerCapitaLCU": 166238.0,
+  "incomeShareQuintiles": [
+   0.087,
+   0.131,
+   0.17,
+   0.222,
+   0.39
+  ],
+  "urbanShare": 0.668,
+  "places": [
+   {
+    "nameJa": "カトマンズ",
+    "urban": true,
+    "share": 0.2003,
+    "incomeIndex": 1.56
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.4674,
+    "incomeIndex": 1.01
+   },
+   {
+    "nameJa": "農村部",
+    "urban": false,
+    "share": 0.3323,
+    "incomeIndex": 0.64
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 68.8,
+   "female": 71.8
+  },
+  "under5MortalityPer1000": 26.1,
+  "tfr": 1.98,
+  "meanAgeFirstMarriage": {
+   "male": 28.9,
+   "female": 25.4
+  },
+  "secondaryNetEnrollment": 0.619,
+  "tertiaryGrossEnrollment": 0.213,
+  "tertiaryAnnualCostShareOfGni": 0.225,
+  "unemploymentRate": 0.105,
+  "informalEmploymentShare": 0.97,
+  "pensionCoverage": 0.29,
+  "pensionReplacementRate": 0.39,
+  "outOfPocketHealthShare": 0.594,
+  "effectiveTaxRateAvgWorker": 0.12,
+  "rentShareOfIncome": 0.3,
+  "housePriceToIncome": 15.0,
+  "disasterRisk": 0.55,
+  "remittanceShareGdp": 0.2599,
+  "estimated": [
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "housePriceToIncome",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "rentShareOfIncome",
+   "tertiaryAnnualCostShareOfGni"
+  ],
+  "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2022"
+ },
+ {
+  "iso3": "SAU",
+  "nameJa": "サウジアラビア",
+  "major": false,
+  "incomeGroup": "HIC",
+  "births": 553200,
+  "currency": {
+   "code": "SAR",
+   "nameJa": "サウジ リヤル",
+   "symbol": "SAR",
+   "jpyPerUnit": 42.0608,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 1.88288,
+  "gniPerCapitaLCU": 134154.0,
+  "consumptionPerCapitaLCU": 59424.6,
+  "incomeShareQuintiles": [
+   0.0762,
+   0.1273,
+   0.1703,
+   0.2255,
+   0.4007
+  ],
+  "urbanShare": 0.845,
+  "places": [
+   {
+    "nameJa": "リヤド",
+    "urban": true,
+    "share": 0.2534,
+    "incomeIndex": 1.1
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.5912,
+    "incomeIndex": 1.01
+   },
+   {
+    "nameJa": "農村部",
+    "urban": false,
+    "share": 0.1554,
+    "incomeIndex": 0.82
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 77.1,
+   "female": 81.2
+  },
+  "under5MortalityPer1000": 6.2,
+  "tfr": 2.28,
+  "meanAgeFirstMarriage": {
+   "male": 28.4,
+   "female": 24.4
+  },
+  "secondaryNetEnrollment": 0.964,
+  "tertiaryGrossEnrollment": 0.839,
+  "tertiaryAnnualCostShareOfGni": 0.155,
+  "unemploymentRate": 0.035,
+  "informalEmploymentShare": 0.164,
+  "pensionCoverage": 0.99,
+  "pensionReplacementRate": 0.41,
+  "outOfPocketHealthShare": 0.141,
+  "effectiveTaxRateAvgWorker": 0.24,
+  "rentShareOfIncome": 0.275,
+  "housePriceToIncome": 10.5,
+  "disasterRisk": 0.15,
+  "remittanceShareGdp": 0.0003,
+  "estimated": [
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "housePriceToIncome",
+   "incomeShareQuintiles",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "rentShareOfIncome",
+   "tertiaryAnnualCostShareOfGni"
+  ],
+  "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP)"
+ },
+ {
+  "iso3": "PER",
+  "nameJa": "ペルー",
+  "major": false,
+  "incomeGroup": "UMC",
+  "births": 539600,
+  "currency": {
+   "code": "PEN",
+   "nameJa": "ペルー ソル",
+   "symbol": "PEN",
+   "jpyPerUnit": 45.8948,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 1.94918,
+  "gniPerCapitaLCU": 30149.0,
+  "consumptionPerCapitaLCU": 19465.0,
+  "incomeShareQuintiles": [
+   0.0561,
+   0.1061,
+   0.1542,
+   0.2212,
+   0.4624
+  ],
+  "urbanShare": 0.852,
+  "places": [
+   {
+    "nameJa": "リマ",
+    "urban": true,
+    "share": 0.2556,
+    "incomeIndex": 1.24
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.5963,
+    "incomeIndex": 0.98
+   },
+   {
+    "nameJa": "農村部",
+    "urban": false,
+    "share": 0.1481,
+    "incomeIndex": 0.67
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 75.4,
+   "female": 80.1
+  },
+  "under5MortalityPer1000": 13.3,
+  "tfr": 1.98,
+  "meanAgeFirstMarriage": {
+   "male": 29.0,
+   "female": 25.4
+  },
+  "secondaryNetEnrollment": 0.893,
+  "tertiaryGrossEnrollment": 0.712,
+  "tertiaryAnnualCostShareOfGni": 0.14,
+  "unemploymentRate": 0.052,
+  "informalEmploymentShare": 0.659,
+  "pensionCoverage": 0.795,
+  "pensionReplacementRate": 0.655,
+  "outOfPocketHealthShare": 0.27,
+  "effectiveTaxRateAvgWorker": 0.145,
+  "rentShareOfIncome": 0.275,
+  "housePriceToIncome": 13.5,
+  "disasterRisk": 0.55,
+  "remittanceShareGdp": 0.0169,
+  "estimated": [
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "housePriceToIncome",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "rentShareOfIncome",
+   "tertiaryAnnualCostShareOfGni"
+  ],
+  "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2024"
+ },
+ {
+  "iso3": "SEN",
+  "nameJa": "セネガル",
+  "major": false,
+  "incomeGroup": "LMC",
+  "births": 531900,
+  "currency": {
+   "code": "XOF",
+   "nameJa": "西アフリカ CFA フラン",
+   "symbol": "F CFA",
+   "jpyPerUnit": 0.270345,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 229.281,
+  "gniPerCapitaLCU": 994992.0,
+  "consumptionPerCapitaLCU": 697333.0,
+  "incomeShareQuintiles": [
+   0.0731,
+   0.1151,
+   0.1562,
+   0.2162,
+   0.4394
+  ],
+  "urbanShare": 0.552,
+  "places": [
+   {
+    "nameJa": "ダカール",
+    "urban": true,
+    "share": 0.1657,
+    "incomeIndex": 1.67
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.3867,
+    "incomeIndex": 1.08
+   },
+   {
+    "nameJa": "農村部",
+    "urban": false,
+    "share": 0.4476,
+    "incomeIndex": 0.69
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 66.8,
+   "female": 70.8
+  },
+  "under5MortalityPer1000": 38.2,
+  "tfr": 3.82,
+  "meanAgeFirstMarriage": {
+   "male": 26.2,
+   "female": 20.9
+  },
+  "secondaryNetEnrollment": 0.377,
+  "tertiaryGrossEnrollment": 0.153,
+  "tertiaryAnnualCostShareOfGni": 0.225,
+  "unemploymentRate": 0.028,
+  "informalEmploymentShare": 0.824,
+  "pensionCoverage": 0.29,
+  "pensionReplacementRate": 0.39,
+  "outOfPocketHealthShare": 0.443,
+  "effectiveTaxRateAvgWorker": 0.12,
+  "rentShareOfIncome": 0.3,
+  "housePriceToIncome": 15.0,
+  "disasterRisk": 0.3,
+  "remittanceShareGdp": 0.1064,
+  "estimated": [
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "housePriceToIncome",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "rentShareOfIncome",
+   "tertiaryAnnualCostShareOfGni"
+  ],
+  "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2021"
+ },
+ {
+  "iso3": "SYR",
+  "nameJa": "シリア",
+  "major": false,
+  "incomeGroup": "LIC",
+  "births": 521600,
+  "currency": {
+   "code": "SYP",
+   "nameJa": "シリア ポンド",
+   "symbol": "£",
+   "jpyPerUnit": 0.0121214,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 5251.18,
+  "gniPerCapitaLCU": 19883000.0,
+  "consumptionPerCapitaLCU": 23512300.0,
+  "incomeShareQuintiles": [
+   0.0929,
+   0.1409,
+   0.1788,
+   0.2368,
+   0.3506
+  ],
+  "urbanShare": 0.721,
+  "places": [
+   {
+    "nameJa": "ダマスカス",
+    "urban": true,
+    "share": 0.2162,
+    "incomeIndex": 1.66
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.5045,
+    "incomeIndex": 0.96
+   },
+   {
+    "nameJa": "農村部",
+    "urban": false,
+    "share": 0.2793,
+    "incomeIndex": 0.57
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 69.8,
+   "female": 74.4
+  },
+  "under5MortalityPer1000": 20.1,
+  "tfr": 2.71,
+  "meanAgeFirstMarriage": {
+   "male": 27.6,
+   "female": 23.3
+  },
+  "secondaryNetEnrollment": 0.485,
+  "tertiaryGrossEnrollment": 0.438,
+  "tertiaryAnnualCostShareOfGni": 0.25,
+  "unemploymentRate": 0.134,
+  "informalEmploymentShare": 0.562,
+  "pensionCoverage": 0.075,
+  "pensionReplacementRate": 0.35,
+  "outOfPocketHealthShare": 0.724,
+  "effectiveTaxRateAvgWorker": 0.115,
+  "rentShareOfIncome": 0.35,
+  "housePriceToIncome": 17.5,
+  "disasterRisk": 0.35,
+  "remittanceShareGdp": 0.0264,
+  "estimated": [
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "housePriceToIncome",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "rentShareOfIncome",
+   "tertiaryAnnualCostShareOfGni"
+  ],
+  "notes": "金額はWDI 2022年値を為替変動で現行通貨水準に換算(x5.19); GNI2022/消費2022/PPP2021(PA.NUS.PRVT.PP); 五分位2022"
+ },
+ {
+  "iso3": "ARG",
+  "nameJa": "アルゼンチン",
+  "major": false,
+  "incomeGroup": "UMC",
+  "births": 503800,
+  "currency": {
+   "code": "ARS",
+   "nameJa": "アルゼンチン ペソ",
+   "symbol": "$",
+   "jpyPerUnit": 0.103379,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 690.438,
+  "gniPerCapitaLCU": 20874300.0,
+  "consumptionPerCapitaLCU": 14213300.0,
+  "incomeShareQuintiles": [
+   0.051,
+   0.097,
+   0.148,
+   0.225,
+   0.479
+  ],
+  "urbanShare": 0.923,
+  "places": [
+   {
+    "nameJa": "ブエノスアイレス",
+    "urban": true,
+    "share": 0.2768,
+    "incomeIndex": 1.21
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.6459,
+    "incomeIndex": 0.95
+   },
+   {
+    "nameJa": "農村部",
+    "urban": false,
+    "share": 0.0773,
+    "incomeIndex": 0.65
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 74.8,
+   "female": 79.9
+  },
+  "under5MortalityPer1000": 9.7,
+  "tfr": 1.5,
+  "meanAgeFirstMarriage": {
+   "male": 30.1,
+   "female": 27.3
+  },
+  "secondaryNetEnrollment": 0.908,
+  "tertiaryGrossEnrollment": 1.0,
+  "tertiaryAnnualCostShareOfGni": 0.14,
+  "unemploymentRate": 0.072,
+  "informalEmploymentShare": 0.386,
+  "pensionCoverage": 0.795,
+  "pensionReplacementRate": 0.655,
+  "outOfPocketHealthShare": 0.245,
+  "effectiveTaxRateAvgWorker": 0.145,
+  "rentShareOfIncome": 0.275,
+  "housePriceToIncome": 13.5,
+  "disasterRisk": 0.25,
+  "remittanceShareGdp": 0.0017,
+  "estimated": [
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "housePriceToIncome",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "rentShareOfIncome",
+   "tertiaryAnnualCostShareOfGni"
+  ],
+  "notes": "金額はWDI 2024年値を為替変動で現行通貨水準に換算(x1.67); GNI2024/消費2024/PPP2021(PA.NUS.PRVT.PP); 五分位2024; 高等教育総就学率108%を1.0に丸め"
+ },
+ {
+  "iso3": "ZWE",
+  "nameJa": "ジンバブエ",
+  "major": false,
+  "incomeGroup": "LMC",
+  "births": 496900,
+  "currency": {
+   "code": "ZWG",
+   "nameJa": "ジンバブエ ゴールド",
+   "symbol": "ZWG",
+   "jpyPerUnit": 5.92625,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 9.58145,
+  "gniPerCapitaLCU": 55891.8,
+  "consumptionPerCapitaLCU": 33535.1,
+  "incomeShareQuintiles": [
+   0.048,
+   0.079,
+   0.12,
+   0.192,
+   0.561
+  ],
+  "urbanShare": 0.399,
+  "places": [
+   {
+    "nameJa": "ハラレ",
+    "urban": true,
+    "share": 0.1197,
+    "incomeIndex": 1.83
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.2793,
+    "incomeIndex": 1.18
+   },
+   {
+    "nameJa": "農村部",
+    "urban": false,
+    "share": 0.601,
+    "incomeIndex": 0.75
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 60.2,
+   "female": 65.0
+  },
+  "under5MortalityPer1000": 64.2,
+  "tfr": 3.72,
+  "meanAgeFirstMarriage": {
+   "male": 26.3,
+   "female": 21.1
+  },
+  "secondaryNetEnrollment": 0.487,
+  "tertiaryGrossEnrollment": 0.077,
+  "tertiaryAnnualCostShareOfGni": 0.225,
+  "unemploymentRate": 0.094,
+  "informalEmploymentShare": 0.877,
+  "pensionCoverage": 0.29,
+  "pensionReplacementRate": 0.39,
+  "outOfPocketHealthShare": 0.106,
+  "effectiveTaxRateAvgWorker": 0.12,
+  "rentShareOfIncome": 0.3,
+  "housePriceToIncome": 15.0,
+  "disasterRisk": 0.35,
+  "remittanceShareGdp": 0.0845,
+  "estimated": [
+   "consumptionPerCapitaLCU",
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "gniPerCapitaLCU",
+   "housePriceToIncome",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "pppPerIntlDollar",
+   "rentShareOfIncome",
+   "tertiaryAnnualCostShareOfGni"
+  ],
+  "notes": "GNIはWDI欠損のため推定(米ドル換算); GNI2025/消費推定/PPP推定; 五分位2019"
+ },
+ {
+  "iso3": "GIN",
+  "nameJa": "ギニア",
+  "major": false,
+  "incomeGroup": "LMC",
+  "births": 487600,
+  "currency": {
+   "code": "GNF",
+   "nameJa": "ギニア フラン",
+   "symbol": "FG",
+   "jpyPerUnit": 0.0178186,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 3583.77,
+  "gniPerCapitaLCU": 13166300.0,
+  "consumptionPerCapitaLCU": 10037900.0,
+  "incomeShareQuintiles": [
+   0.085,
+   0.131,
+   0.173,
+   0.229,
+   0.382
+  ],
+  "urbanShare": 0.381,
+  "places": [
+   {
+    "nameJa": "コナクリ",
+    "urban": true,
+    "share": 0.1142,
+    "incomeIndex": 1.85
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.2665,
+    "incomeIndex": 1.19
+   },
+   {
+    "nameJa": "農村部",
+    "urban": false,
+    "share": 0.6193,
+    "incomeIndex": 0.76
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 59.5,
+   "female": 61.9
+  },
+  "under5MortalityPer1000": 95.0,
+  "tfr": 4.22,
+  "meanAgeFirstMarriage": {
+   "male": 25.8,
+   "female": 20.2
+  },
+  "secondaryNetEnrollment": 0.322,
+  "tertiaryGrossEnrollment": 0.109,
+  "tertiaryAnnualCostShareOfGni": 0.225,
+  "unemploymentRate": 0.051,
+  "informalEmploymentShare": 0.97,
+  "pensionCoverage": 0.29,
+  "pensionReplacementRate": 0.39,
+  "outOfPocketHealthShare": 0.544,
+  "effectiveTaxRateAvgWorker": 0.12,
+  "rentShareOfIncome": 0.3,
+  "housePriceToIncome": 15.0,
+  "disasterRisk": 0.3,
+  "remittanceShareGdp": 0.0246,
+  "estimated": [
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "housePriceToIncome",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "rentShareOfIncome",
+   "tertiaryAnnualCostShareOfGni"
+  ],
+  "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2018"
+ },
+ {
+  "iso3": "BEN",
+  "nameJa": "ベナン",
+  "major": false,
+  "incomeGroup": "LMC",
+  "births": 478100,
+  "currency": {
+   "code": "XOF",
+   "nameJa": "西アフリカ CFA フラン",
+   "symbol": "F CFA",
+   "jpyPerUnit": 0.270345,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 199.279,
+  "gniPerCapitaLCU": 891864.0,
+  "consumptionPerCapitaLCU": 530329.0,
+  "incomeShareQuintiles": [
+   0.076,
+   0.119,
+   0.161,
+   0.221,
+   0.423
+  ],
+  "urbanShare": 0.525,
+  "places": [
+   {
+    "nameJa": "コトヌー",
+    "urban": true,
+    "share": 0.1576,
+    "incomeIndex": 1.69
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.3678,
+    "incomeIndex": 1.09
+   },
+   {
+    "nameJa": "農村部",
+    "urban": false,
+    "share": 0.4746,
+    "incomeIndex": 0.7
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 59.3,
+   "female": 62.2
+  },
+  "under5MortalityPer1000": 77.2,
+  "tfr": 4.56,
+  "meanAgeFirstMarriage": {
+   "male": 25.5,
+   "female": 19.7
+  },
+  "secondaryNetEnrollment": 0.466,
+  "tertiaryGrossEnrollment": 0.102,
+  "tertiaryAnnualCostShareOfGni": 0.225,
+  "unemploymentRate": 0.016,
+  "informalEmploymentShare": 0.97,
+  "pensionCoverage": 0.29,
+  "pensionReplacementRate": 0.39,
+  "outOfPocketHealthShare": 0.424,
+  "effectiveTaxRateAvgWorker": 0.12,
+  "rentShareOfIncome": 0.3,
+  "housePriceToIncome": 15.0,
+  "disasterRisk": 0.3,
+  "remittanceShareGdp": 0.0172,
+  "estimated": [
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "housePriceToIncome",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "rentShareOfIncome",
+   "tertiaryAnnualCostShareOfGni"
+  ],
+  "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2021"
+ },
+ {
+  "iso3": "BDI",
+  "nameJa": "ブルンジ",
+  "major": false,
+  "incomeGroup": "LIC",
+  "births": 460900,
+  "currency": {
+   "code": "BIF",
+   "nameJa": "ブルンジ フラン",
+   "symbol": "BIF",
+   "jpyPerUnit": 0.0525887,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 1029.51,
+  "gniPerCapitaLCU": 1034580.0,
+  "consumptionPerCapitaLCU": 563972.0,
+  "incomeShareQuintiles": [
+   0.071,
+   0.112,
+   0.153,
+   0.214,
+   0.45
+  ],
+  "urbanShare": 0.248,
+  "places": [
+   {
+    "nameJa": "ブジュンブラ",
+    "urban": true,
+    "share": 0.0745,
+    "incomeIndex": 2.31
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.1738,
+    "incomeIndex": 1.34
+   },
+   {
+    "nameJa": "農村部",
+    "urban": false,
+    "share": 0.7517,
+    "incomeIndex": 0.79
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 61.6,
+   "female": 65.7
+  },
+  "under5MortalityPer1000": 48.7,
+  "tfr": 4.88,
+  "meanAgeFirstMarriage": {
+   "male": 25.2,
+   "female": 19.2
+  },
+  "secondaryNetEnrollment": 0.275,
+  "tertiaryGrossEnrollment": 0.06,
+  "tertiaryAnnualCostShareOfGni": 0.25,
+  "unemploymentRate": 0.009,
+  "informalEmploymentShare": 0.97,
+  "pensionCoverage": 0.075,
+  "pensionReplacementRate": 0.35,
+  "outOfPocketHealthShare": 0.245,
+  "effectiveTaxRateAvgWorker": 0.115,
+  "rentShareOfIncome": 0.35,
+  "housePriceToIncome": 17.5,
+  "disasterRisk": 0.3,
+  "remittanceShareGdp": 0.078,
+  "estimated": [
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "housePriceToIncome",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "rentShareOfIncome",
+   "tertiaryAnnualCostShareOfGni"
+  ],
+  "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2020"
+ },
+ {
+  "iso3": "MYS",
+  "nameJa": "マレーシア",
+  "major": false,
+  "incomeGroup": "UMC",
+  "births": 436000,
+  "currency": {
+   "code": "MYR",
+   "nameJa": "マレーシア リンギット",
+   "symbol": "RM",
+   "jpyPerUnit": 38.6378,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 1.44923,
+  "gniPerCapitaLCU": 52483.2,
+  "consumptionPerCapitaLCU": 33019.4,
+  "incomeShareQuintiles": [
+   0.0589,
+   0.1019,
+   0.1499,
+   0.2208,
+   0.4685
+  ],
+  "urbanShare": 0.769,
+  "places": [
+   {
+    "nameJa": "クアラルンプール",
+    "urban": true,
+    "share": 0.2308,
+    "incomeIndex": 1.29
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.5384,
+    "incomeIndex": 1.01
+   },
+   {
+    "nameJa": "農村部",
+    "urban": false,
+    "share": 0.2308,
+    "incomeIndex": 0.69
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 74.3,
+   "female": 79.4
+  },
+  "under5MortalityPer1000": 8.3,
+  "tfr": 1.55,
+  "meanAgeFirstMarriage": {
+   "male": 30.0,
+   "female": 27.1
+  },
+  "secondaryNetEnrollment": 0.722,
+  "tertiaryGrossEnrollment": 0.385,
+  "tertiaryAnnualCostShareOfGni": 0.14,
+  "unemploymentRate": 0.038,
+  "informalEmploymentShare": 0.382,
+  "pensionCoverage": 0.795,
+  "pensionReplacementRate": 0.655,
+  "outOfPocketHealthShare": 0.371,
+  "effectiveTaxRateAvgWorker": 0.145,
+  "rentShareOfIncome": 0.275,
+  "housePriceToIncome": 13.5,
+  "disasterRisk": 0.3,
+  "remittanceShareGdp": 0.018,
+  "estimated": [
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "housePriceToIncome",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "rentShareOfIncome",
+   "tertiaryAnnualCostShareOfGni"
+  ],
+  "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2021"
+ },
+ {
+  "iso3": "VEN",
+  "nameJa": "ベネズエラ",
+  "major": false,
+  "incomeGroup": "UMC",
+  "births": 427000,
+  "currency": {
+   "code": "VES",
+   "nameJa": "ベネズエラ ボリバル",
+   "symbol": "VES",
+   "jpyPerUnit": 0.179087,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 396.331,
+  "gniPerCapitaLCU": 3346790.0,
+  "consumptionPerCapitaLCU": 2008080.0,
+  "incomeShareQuintiles": [
+   0.043,
+   0.0959,
+   0.1459,
+   0.2208,
+   0.4944
+  ],
+  "urbanShare": 0.893,
+  "places": [
+   {
+    "nameJa": "カラカス",
+    "urban": true,
+    "share": 0.2679,
+    "incomeIndex": 1.22
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.625,
+    "incomeIndex": 0.96
+   },
+   {
+    "nameJa": "農村部",
+    "urban": false,
+    "share": 0.1071,
+    "incomeIndex": 0.66
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 68.7,
+   "female": 76.5
+  },
+  "under5MortalityPer1000": 24.2,
+  "tfr": 2.08,
+  "meanAgeFirstMarriage": {
+   "male": 28.7,
+   "female": 25.1
+  },
+  "secondaryNetEnrollment": 0.732,
+  "tertiaryGrossEnrollment": 0.482,
+  "tertiaryAnnualCostShareOfGni": 0.14,
+  "unemploymentRate": 0.053,
+  "informalEmploymentShare": 0.544,
+  "pensionCoverage": 0.795,
+  "pensionReplacementRate": 0.655,
+  "outOfPocketHealthShare": 0.297,
+  "effectiveTaxRateAvgWorker": 0.145,
+  "rentShareOfIncome": 0.275,
+  "housePriceToIncome": 13.5,
+  "disasterRisk": 0.35,
+  "remittanceShareGdp": 0.0316,
+  "estimated": [
+   "consumptionPerCapitaLCU",
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "gniPerCapitaLCU",
+   "housePriceToIncome",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "pppPerIntlDollar",
+   "rentShareOfIncome",
+   "tertiaryAnnualCostShareOfGni",
+   "tertiaryGrossEnrollment"
+  ],
+  "notes": "GNIはWDI欠損のため推定(米ドル換算); GNI2025/消費推定/PPP推定; 五分位2006"
+ },
+ {
+  "iso3": "KAZ",
+  "nameJa": "カザフスタン",
+  "major": false,
+  "incomeGroup": "UMC",
+  "births": 409400,
+  "currency": {
+   "code": "KZT",
+   "nameJa": "カザフスタン テンゲ",
+   "symbol": "₸",
+   "jpyPerUnit": 0.352053,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 176.0,
+  "gniPerCapitaLCU": 6106490.0,
+  "consumptionPerCapitaLCU": 3470040.0,
+  "incomeShareQuintiles": [
+   0.098,
+   0.131,
+   0.163,
+   0.215,
+   0.393
+  ],
+  "urbanShare": 0.621,
+  "places": [
+   {
+    "nameJa": "アルマトイ",
+    "urban": true,
+    "share": 0.1862,
+    "incomeIndex": 1.37
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.4345,
+    "incomeIndex": 1.08
+   },
+   {
+    "nameJa": "農村部",
+    "urban": false,
+    "share": 0.3793,
+    "incomeIndex": 0.73
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 70.1,
+   "female": 78.4
+  },
+  "under5MortalityPer1000": 9.6,
+  "tfr": 3.01,
+  "meanAgeFirstMarriage": {
+   "male": 27.2,
+   "female": 22.5
+  },
+  "secondaryNetEnrollment": 0.998,
+  "tertiaryGrossEnrollment": 0.535,
+  "tertiaryAnnualCostShareOfGni": 0.14,
+  "unemploymentRate": 0.048,
+  "informalEmploymentShare": 0.412,
+  "pensionCoverage": 0.795,
+  "pensionReplacementRate": 0.655,
+  "outOfPocketHealthShare": 0.276,
+  "effectiveTaxRateAvgWorker": 0.145,
+  "rentShareOfIncome": 0.275,
+  "housePriceToIncome": 13.5,
+  "disasterRisk": 0.2,
+  "remittanceShareGdp": 0.0008,
+  "estimated": [
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "housePriceToIncome",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "rentShareOfIncome",
+   "tertiaryAnnualCostShareOfGni"
+  ],
+  "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2021"
+ },
+ {
+  "iso3": "RWA",
+  "nameJa": "ルワンダ",
+  "major": false,
+  "incomeGroup": "LIC",
+  "births": 395600,
+  "currency": {
+   "code": "RWF",
+   "nameJa": "ルワンダ フラン",
+   "symbol": "RF",
+   "jpyPerUnit": 0.106906,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 361.395,
+  "gniPerCapitaLCU": 1365550.0,
+  "consumptionPerCapitaLCU": 885631.0,
+  "incomeShareQuintiles": [
+   0.0739,
+   0.1089,
+   0.1439,
+   0.1978,
+   0.4755
+  ],
+  "urbanShare": 0.299,
+  "places": [
+   {
+    "nameJa": "キガリ",
+    "urban": true,
+    "share": 0.0897,
+    "incomeIndex": 2.22
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.2092,
+    "incomeIndex": 1.28
+   },
+   {
+    "nameJa": "農村部",
+    "urban": false,
+    "share": 0.7011,
+    "incomeIndex": 0.76
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 65.5,
+   "female": 69.9
+  },
+  "under5MortalityPer1000": 38.8,
+  "tfr": 3.7,
+  "meanAgeFirstMarriage": {
+   "male": 26.3,
+   "female": 21.1
+  },
+  "secondaryNetEnrollment": 0.359,
+  "tertiaryGrossEnrollment": 0.094,
+  "tertiaryAnnualCostShareOfGni": 0.25,
+  "unemploymentRate": 0.113,
+  "informalEmploymentShare": 0.572,
+  "pensionCoverage": 0.075,
+  "pensionReplacementRate": 0.35,
+  "outOfPocketHealthShare": 0.041,
+  "effectiveTaxRateAvgWorker": 0.115,
+  "rentShareOfIncome": 0.35,
+  "housePriceToIncome": 17.5,
+  "disasterRisk": 0.3,
+  "remittanceShareGdp": 0.0342,
+  "estimated": [
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "housePriceToIncome",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "rentShareOfIncome",
+   "tertiaryAnnualCostShareOfGni"
+  ],
+  "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2023"
+ },
+ {
+  "iso3": "ITA",
+  "nameJa": "イタリア",
+  "major": false,
+  "incomeGroup": "HIC",
+  "births": 377500,
+  "currency": {
+   "code": "EUR",
+   "nameJa": "ユーロ",
+   "symbol": "€",
+   "jpyPerUnit": 177.334,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 0.62516,
+  "gniPerCapitaLCU": 37271.6,
+  "consumptionPerCapitaLCU": 21506.5,
+  "incomeShareQuintiles": [
+   0.0659,
+   0.1229,
+   0.1698,
+   0.2308,
+   0.4106
+  ],
+  "urbanShare": 0.696,
+  "places": [
+   {
+    "nameJa": "ローマ",
+    "urban": true,
+    "share": 0.2088,
+    "incomeIndex": 1.13
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.4872,
+    "incomeIndex": 1.04
+   },
+   {
+    "nameJa": "農村部",
+    "urban": false,
+    "share": 0.304,
+    "incomeIndex": 0.85
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 81.4,
+   "female": 85.4
+  },
+  "under5MortalityPer1000": 2.8,
+  "tfr": 1.21,
+  "meanAgeFirstMarriage": {
+   "male": 31.0,
+   "female": 28.8
+  },
+  "secondaryNetEnrollment": 0.947,
+  "tertiaryGrossEnrollment": 0.759,
+  "tertiaryAnnualCostShareOfGni": 0.155,
+  "unemploymentRate": 0.065,
+  "informalEmploymentShare": 0.301,
+  "pensionCoverage": 0.99,
+  "pensionReplacementRate": 0.41,
+  "outOfPocketHealthShare": 0.236,
+  "effectiveTaxRateAvgWorker": 0.24,
+  "rentShareOfIncome": 0.275,
+  "housePriceToIncome": 10.5,
+  "disasterRisk": 0.3,
+  "remittanceShareGdp": 0.0051,
+  "estimated": [
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "housePriceToIncome",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "rentShareOfIncome",
+   "tertiaryAnnualCostShareOfGni"
+  ],
+  "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2023"
+ },
+ {
+  "iso3": "GTM",
+  "nameJa": "グアテマラ",
+  "major": false,
+  "incomeGroup": "UMC",
+  "births": 377200,
+  "currency": {
+   "code": "GTQ",
+   "nameJa": "グアテマラ ケツァル",
+   "symbol": "Q",
+   "jpyPerUnit": 20.6388,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 3.47309,
+  "gniPerCapitaLCU": 47039.9,
+  "consumptionPerCapitaLCU": 42099.3,
+  "incomeShareQuintiles": [
+   0.046,
+   0.0931,
+   0.1401,
+   0.2142,
+   0.5066
+  ],
+  "urbanShare": 0.56,
+  "places": [
+   {
+    "nameJa": "グアテマラシティ",
+    "urban": true,
+    "share": 0.1679,
+    "incomeIndex": 1.41
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.3917,
+    "incomeIndex": 1.1
+   },
+   {
+    "nameJa": "農村部",
+    "urban": false,
+    "share": 0.4404,
+    "incomeIndex": 0.75
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 70.3,
+   "female": 74.9
+  },
+  "under5MortalityPer1000": 21.2,
+  "tfr": 2.31,
+  "meanAgeFirstMarriage": {
+   "male": 28.3,
+   "female": 24.3
+  },
+  "secondaryNetEnrollment": 0.438,
+  "tertiaryGrossEnrollment": 0.273,
+  "tertiaryAnnualCostShareOfGni": 0.14,
+  "unemploymentRate": 0.026,
+  "informalEmploymentShare": 0.535,
+  "pensionCoverage": 0.795,
+  "pensionReplacementRate": 0.655,
+  "outOfPocketHealthShare": 0.572,
+  "effectiveTaxRateAvgWorker": 0.145,
+  "rentShareOfIncome": 0.275,
+  "housePriceToIncome": 13.5,
+  "disasterRisk": 0.6,
+  "remittanceShareGdp": 0.1912,
+  "estimated": [
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "housePriceToIncome",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "rentShareOfIncome",
+   "tertiaryAnnualCostShareOfGni"
+  ],
+  "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2023"
+ },
+ {
+  "iso3": "KHM",
+  "nameJa": "カンボジア",
+  "major": false,
+  "incomeGroup": "LMC",
+  "births": 361600,
+  "currency": {
+   "code": "KHR",
+   "nameJa": "カンボジア リエル",
+   "symbol": "៛",
+   "jpyPerUnit": 0.0387732,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 1477.79,
+  "gniPerCapitaLCU": 10619100.0,
+  "consumptionPerCapitaLCU": 6397310.0,
+  "incomeShareQuintiles": [
+   0.0704,
+   0.1147,
+   0.1579,
+   0.2213,
+   0.4357
+  ],
+  "urbanShare": 0.409,
+  "places": [
+   {
+    "nameJa": "プノンペン",
+    "urban": true,
+    "share": 0.1226,
+    "incomeIndex": 1.81
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.2861,
+    "incomeIndex": 1.17
+   },
+   {
+    "nameJa": "農村部",
+    "urban": false,
+    "share": 0.5913,
+    "incomeIndex": 0.75
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 68.0,
+   "female": 73.2
+  },
+  "under5MortalityPer1000": 19.1,
+  "tfr": 2.58,
+  "meanAgeFirstMarriage": {
+   "male": 27.9,
+   "female": 23.6
+  },
+  "secondaryNetEnrollment": 0.616,
+  "tertiaryGrossEnrollment": 0.214,
+  "tertiaryAnnualCostShareOfGni": 0.225,
+  "unemploymentRate": 0.003,
+  "informalEmploymentShare": 0.709,
+  "pensionCoverage": 0.29,
+  "pensionReplacementRate": 0.39,
+  "outOfPocketHealthShare": 0.606,
+  "effectiveTaxRateAvgWorker": 0.12,
+  "rentShareOfIncome": 0.3,
+  "housePriceToIncome": 15.0,
+  "disasterRisk": 0.5,
+  "remittanceShareGdp": 0.061,
+  "estimated": [
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "housePriceToIncome",
+   "incomeShareQuintiles",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "rentShareOfIncome",
+   "tertiaryAnnualCostShareOfGni"
+  ],
+  "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 中等教育は前期中等修了率で代替"
+ },
+ {
+  "iso3": "CAN",
+  "nameJa": "カナダ",
+  "major": false,
+  "incomeGroup": "HIC",
+  "births": 352400,
+  "currency": {
+   "code": "CAD",
+   "nameJa": "カナダ ドル",
+   "symbol": "$",
+   "jpyPerUnit": 112.381,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 1.2409,
+  "gniPerCapitaLCU": 74156.9,
+  "consumptionPerCapitaLCU": 41885.3,
+  "incomeShareQuintiles": [
+   0.077,
+   0.13,
+   0.172,
+   0.226,
+   0.395
+  ],
+  "urbanShare": 0.827,
+  "places": [
+   {
+    "nameJa": "トロント",
+    "urban": true,
+    "share": 0.2481,
+    "incomeIndex": 1.1
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.5789,
+    "incomeIndex": 1.01
+   },
+   {
+    "nameJa": "農村部",
+    "urban": false,
+    "share": 0.173,
+    "incomeIndex": 0.83
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 79.5,
+   "female": 83.9
+  },
+  "under5MortalityPer1000": 5.4,
+  "tfr": 1.27,
+  "meanAgeFirstMarriage": {
+   "male": 30.8,
+   "female": 28.5
+  },
+  "secondaryNetEnrollment": 0.998,
+  "tertiaryGrossEnrollment": 0.763,
+  "tertiaryAnnualCostShareOfGni": 0.155,
+  "unemploymentRate": 0.064,
+  "informalEmploymentShare": 0.249,
+  "pensionCoverage": 0.99,
+  "pensionReplacementRate": 0.41,
+  "outOfPocketHealthShare": 0.152,
+  "effectiveTaxRateAvgWorker": 0.24,
+  "rentShareOfIncome": 0.275,
+  "housePriceToIncome": 10.5,
+  "disasterRisk": 0.15,
+  "remittanceShareGdp": 0.0004,
+  "estimated": [
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "housePriceToIncome",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "rentShareOfIncome",
+   "tertiaryAnnualCostShareOfGni"
+  ],
+  "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2022"
+ },
+ {
+  "iso3": "PRK",
+  "nameJa": "北朝鮮",
+  "major": false,
+  "incomeGroup": "LIC",
+  "births": 342000,
+  "currency": {
+   "code": "KPW",
+   "nameJa": "北朝鮮ウォン",
+   "symbol": "₩",
+   "jpyPerUnit": 0.175114,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 297.236,
+  "gniPerCapitaLCU": 1080860.0,
+  "consumptionPerCapitaLCU": 648516.0,
+  "incomeShareQuintiles": [
+   0.072,
+   0.1119,
+   0.1529,
+   0.2139,
+   0.4493
+  ],
+  "urbanShare": 0.639,
+  "places": [
+   {
+    "nameJa": "平壌",
+    "urban": true,
+    "share": 0.1916,
+    "incomeIndex": 1.74
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.447,
+    "incomeIndex": 1.01
+   },
+   {
+    "nameJa": "農村部",
+    "urban": false,
+    "share": 0.3614,
+    "incomeIndex": 0.6
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 71.5,
+   "female": 75.7
+  },
+  "under5MortalityPer1000": 18.0,
+  "tfr": 1.78,
+  "meanAgeFirstMarriage": {
+   "male": 29.4,
+   "female": 26.1
+  },
+  "secondaryNetEnrollment": 0.31,
+  "tertiaryGrossEnrollment": 0.267,
+  "tertiaryAnnualCostShareOfGni": 0.25,
+  "unemploymentRate": 0.035,
+  "informalEmploymentShare": 0.754,
+  "pensionCoverage": 0.075,
+  "pensionReplacementRate": 0.35,
+  "outOfPocketHealthShare": 0.463,
+  "effectiveTaxRateAvgWorker": 0.115,
+  "rentShareOfIncome": 0.35,
+  "housePriceToIncome": 17.5,
+  "disasterRisk": 0.3,
+  "remittanceShareGdp": 0.0395,
+  "estimated": [
+   "consumptionPerCapitaLCU",
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "gniPerCapitaLCU",
+   "housePriceToIncome",
+   "incomeShareQuintiles",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "outOfPocketHealthShare",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "pppPerIntlDollar",
+   "remittanceShareGdp",
+   "rentShareOfIncome",
+   "secondaryNetEnrollment",
+   "tertiaryAnnualCostShareOfGni"
+  ],
+  "notes": "GNIはWDI欠損のため推定(米ドル換算); GNI2025/消費推定/PPP推定"
+ },
+ {
+  "iso3": "SSD",
+  "nameJa": "南スーダン",
+  "major": false,
+  "incomeGroup": "LIC",
+  "births": 328300,
+  "currency": {
+   "code": "SSP",
+   "nameJa": "南スーダン ポンド",
+   "symbol": "£",
+   "jpyPerUnit": 0.0274539,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 2964.02,
+  "gniPerCapitaLCU": 2298080.0,
+  "consumptionPerCapitaLCU": 1378850.0,
+  "incomeShareQuintiles": [
+   0.049,
+   0.0959,
+   0.1419,
+   0.2188,
+   0.4944
+  ],
+  "urbanShare": 0.214,
+  "places": [
+   {
+    "nameJa": "ジュバ",
+    "urban": true,
+    "share": 0.0641,
+    "incomeIndex": 2.38
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.1496,
+    "incomeIndex": 1.38
+   },
+   {
+    "nameJa": "農村部",
+    "urban": false,
+    "share": 0.7863,
+    "incomeIndex": 0.82
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 54.6,
+   "female": 60.6
+  },
+  "under5MortalityPer1000": 96.7,
+  "tfr": 3.86,
+  "meanAgeFirstMarriage": {
+   "male": 26.2,
+   "female": 20.8
+  },
+  "secondaryNetEnrollment": 0.055,
+  "tertiaryGrossEnrollment": 0.064,
+  "tertiaryAnnualCostShareOfGni": 0.25,
+  "unemploymentRate": 0.124,
+  "informalEmploymentShare": 0.97,
+  "pensionCoverage": 0.075,
+  "pensionReplacementRate": 0.35,
+  "outOfPocketHealthShare": 0.271,
+  "effectiveTaxRateAvgWorker": 0.115,
+  "rentShareOfIncome": 0.35,
+  "housePriceToIncome": 17.5,
+  "disasterRisk": 0.3,
+  "remittanceShareGdp": 0.0949,
+  "estimated": [
+   "consumptionPerCapitaLCU",
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "gniPerCapitaLCU",
+   "housePriceToIncome",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "rentShareOfIncome",
+   "tertiaryAnnualCostShareOfGni",
+   "tertiaryGrossEnrollment"
+  ],
+  "notes": "GNIはWDI欠損のため推定(米ドル換算); GNI2025/消費推定/PPP2021(PA.NUS.PRVT.PP); 五分位2016"
+ },
+ {
+  "iso3": "ESP",
+  "nameJa": "スペイン",
+  "major": false,
+  "incomeGroup": "HIC",
+  "births": 319100,
+  "currency": {
+   "code": "EUR",
+   "nameJa": "ユーロ",
+   "symbol": "€",
+   "jpyPerUnit": 177.334,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 0.58848,
+  "gniPerCapitaLCU": 32555.7,
+  "consumptionPerCapitaLCU": 18068.2,
+  "incomeShareQuintiles": [
+   0.065,
+   0.126,
+   0.173,
+   0.234,
+   0.402
+  ],
+  "urbanShare": 0.803,
+  "places": [
+   {
+    "nameJa": "マドリード",
+    "urban": true,
+    "share": 0.2409,
+    "incomeIndex": 1.11
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.5622,
+    "incomeIndex": 1.01
+   },
+   {
+    "nameJa": "農村部",
+    "urban": false,
+    "share": 0.1969,
+    "incomeIndex": 0.83
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 81.3,
+   "female": 86.7
+  },
+  "under5MortalityPer1000": 3.2,
+  "tfr": 1.12,
+  "meanAgeFirstMarriage": {
+   "male": 31.3,
+   "female": 29.3
+  },
+  "secondaryNetEnrollment": 0.969,
+  "tertiaryGrossEnrollment": 0.938,
+  "tertiaryAnnualCostShareOfGni": 0.155,
+  "unemploymentRate": 0.114,
+  "informalEmploymentShare": 0.256,
+  "pensionCoverage": 0.99,
+  "pensionReplacementRate": 0.41,
+  "outOfPocketHealthShare": 0.209,
+  "effectiveTaxRateAvgWorker": 0.24,
+  "rentShareOfIncome": 0.275,
+  "housePriceToIncome": 10.5,
+  "disasterRisk": 0.2,
+  "remittanceShareGdp": 0.0037,
+  "estimated": [
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "housePriceToIncome",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "rentShareOfIncome",
+   "tertiaryAnnualCostShareOfGni"
+  ],
+  "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2023"
+ },
+ {
+  "iso3": "AUS",
+  "nameJa": "オーストラリア",
+  "major": false,
+  "incomeGroup": "HIC",
+  "births": 287900,
+  "currency": {
+   "code": "AUD",
+   "nameJa": "オーストラリア ドル",
+   "symbol": "$",
+   "jpyPerUnit": 110.652,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 1.4274,
+  "gniPerCapitaLCU": 95113.3,
+  "consumptionPerCapitaLCU": 50687.7,
+  "incomeShareQuintiles": [
+   0.072,
+   0.124,
+   0.165,
+   0.226,
+   0.413
+  ],
+  "urbanShare": 0.876,
+  "places": [
+   {
+    "nameJa": "シドニー",
+    "urban": true,
+    "share": 0.2628,
+    "incomeIndex": 1.09
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.6132,
+    "incomeIndex": 1.0
+   },
+   {
+    "nameJa": "農村部",
+    "urban": false,
+    "share": 0.124,
+    "incomeIndex": 0.82
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 81.1,
+   "female": 85.1
+  },
+  "under5MortalityPer1000": 3.7,
+  "tfr": 1.5,
+  "meanAgeFirstMarriage": {
+   "male": 30.1,
+   "female": 27.3
+  },
+  "secondaryNetEnrollment": 0.923,
+  "tertiaryGrossEnrollment": 1.0,
+  "tertiaryAnnualCostShareOfGni": 0.155,
+  "unemploymentRate": 0.039,
+  "informalEmploymentShare": 0.244,
+  "pensionCoverage": 0.99,
+  "pensionReplacementRate": 0.41,
+  "outOfPocketHealthShare": 0.158,
+  "effectiveTaxRateAvgWorker": 0.24,
+  "rentShareOfIncome": 0.275,
+  "housePriceToIncome": 10.5,
+  "disasterRisk": 0.25,
+  "remittanceShareGdp": 0.001,
+  "estimated": [
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "housePriceToIncome",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "rentShareOfIncome",
+   "tertiaryAnnualCostShareOfGni"
+  ],
+  "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2020; 高等教育総就学率108%を1.0に丸め"
+ },
+ {
+  "iso3": "POL",
+  "nameJa": "ポーランド",
+  "major": false,
+  "incomeGroup": "HIC",
+  "births": 271500,
+  "currency": {
+   "code": "PLN",
+   "nameJa": "ポーランド ズウォティ",
+   "symbol": "zł",
+   "jpyPerUnit": 40.6932,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 2.00804,
+  "gniPerCapitaLCU": 96583.4,
+  "consumptionPerCapitaLCU": 57344.0,
+  "incomeShareQuintiles": [
+   0.086,
+   0.139,
+   0.177,
+   0.225,
+   0.373
+  ],
+  "urbanShare": 0.6,
+  "places": [
+   {
+    "nameJa": "ワルシャワ",
+    "urban": true,
+    "share": 0.1799,
+    "incomeIndex": 1.16
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.4198,
+    "incomeIndex": 1.06
+   },
+   {
+    "nameJa": "農村部",
+    "urban": false,
+    "share": 0.4003,
+    "incomeIndex": 0.87
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 74.6,
+   "female": 82.1
+  },
+  "under5MortalityPer1000": 4.3,
+  "tfr": 1.2,
+  "meanAgeFirstMarriage": {
+   "male": 31.0,
+   "female": 28.8
+  },
+  "secondaryNetEnrollment": 0.941,
+  "tertiaryGrossEnrollment": 0.809,
+  "tertiaryAnnualCostShareOfGni": 0.155,
+  "unemploymentRate": 0.028,
+  "informalEmploymentShare": 0.308,
+  "pensionCoverage": 0.99,
+  "pensionReplacementRate": 0.41,
+  "outOfPocketHealthShare": 0.158,
+  "effectiveTaxRateAvgWorker": 0.24,
+  "rentShareOfIncome": 0.275,
+  "housePriceToIncome": 10.5,
+  "disasterRisk": 0.12,
+  "remittanceShareGdp": 0.0095,
+  "estimated": [
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "housePriceToIncome",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "rentShareOfIncome",
+   "tertiaryAnnualCostShareOfGni"
+  ],
+  "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2023"
+ },
+ {
+  "iso3": "TJK",
+  "nameJa": "タジキスタン",
+  "major": false,
+  "incomeGroup": "LMC",
+  "births": 271400,
+  "currency": {
+   "code": "TJS",
+   "nameJa": "タジキスタン ソモニ",
+   "symbol": "TJS",
+   "jpyPerUnit": 17.1212,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 3.17683,
+  "gniPerCapitaLCU": 19237.1,
+  "consumptionPerCapitaLCU": 13629.8,
+  "incomeShareQuintiles": [
+   0.0709,
+   0.1148,
+   0.1597,
+   0.2226,
+   0.432
+  ],
+  "urbanShare": 0.262,
+  "places": [
+   {
+    "nameJa": "ドゥシャンベ",
+    "urban": true,
+    "share": 0.0785,
+    "incomeIndex": 2.0
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.1833,
+    "incomeIndex": 1.29
+   },
+   {
+    "nameJa": "農村部",
+    "urban": false,
+    "share": 0.7382,
+    "incomeIndex": 0.82
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 69.6,
+   "female": 74.0
+  },
+  "under5MortalityPer1000": 28.8,
+  "tfr": 3.07,
+  "meanAgeFirstMarriage": {
+   "male": 27.1,
+   "female": 22.4
+  },
+  "secondaryNetEnrollment": 0.88,
+  "tertiaryGrossEnrollment": 0.356,
+  "tertiaryAnnualCostShareOfGni": 0.225,
+  "unemploymentRate": 0.07,
+  "informalEmploymentShare": 0.448,
+  "pensionCoverage": 0.29,
+  "pensionReplacementRate": 0.39,
+  "outOfPocketHealthShare": 0.624,
+  "effectiveTaxRateAvgWorker": 0.12,
+  "rentShareOfIncome": 0.3,
+  "housePriceToIncome": 15.0,
+  "disasterRisk": 0.4,
+  "remittanceShareGdp": 0.4715,
+  "estimated": [
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "housePriceToIncome",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "rentShareOfIncome",
+   "tertiaryAnnualCostShareOfGni"
+  ],
+  "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2024; 中等教育は前期中等修了率で代替"
+ },
+ {
+  "iso3": "ECU",
+  "nameJa": "エクアドル",
+  "major": false,
+  "incomeGroup": "UMC",
+  "births": 270300,
+  "currency": {
+   "code": "USD",
+   "nameJa": "米ドル",
+   "symbol": "$",
+   "jpyPerUnit": 157.728,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 0.45022,
+  "gniPerCapitaLCU": 6641.41,
+  "consumptionPerCapitaLCU": 4338.21,
+  "incomeShareQuintiles": [
+   0.043,
+   0.091,
+   0.144,
+   0.222,
+   0.5
+  ],
+  "urbanShare": 0.632,
+  "places": [
+   {
+    "nameJa": "グアヤキル",
+    "urban": true,
+    "share": 0.1897,
+    "incomeIndex": 1.36
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.4427,
+    "incomeIndex": 1.07
+   },
+   {
+    "nameJa": "農村部",
+    "urban": false,
+    "share": 0.3676,
+    "incomeIndex": 0.73
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 74.7,
+   "female": 80.1
+  },
+  "under5MortalityPer1000": 13.0,
+  "tfr": 1.82,
+  "meanAgeFirstMarriage": {
+   "male": 29.3,
+   "female": 26.0
+  },
+  "secondaryNetEnrollment": 0.847,
+  "tertiaryGrossEnrollment": 0.679,
+  "tertiaryAnnualCostShareOfGni": 0.14,
+  "unemploymentRate": 0.035,
+  "informalEmploymentShare": 0.683,
+  "pensionCoverage": 0.795,
+  "pensionReplacementRate": 0.655,
+  "outOfPocketHealthShare": 0.309,
+  "effectiveTaxRateAvgWorker": 0.145,
+  "rentShareOfIncome": 0.275,
+  "housePriceToIncome": 13.5,
+  "disasterRisk": 0.55,
+  "remittanceShareGdp": 0.0529,
+  "estimated": [
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "housePriceToIncome",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "rentShareOfIncome",
+   "tertiaryAnnualCostShareOfGni"
+  ],
+  "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2024"
+ },
+ {
+  "iso3": "TGO",
+  "nameJa": "トーゴ",
+  "major": false,
+  "incomeGroup": "LIC",
+  "births": 268500,
+  "currency": {
+   "code": "XOF",
+   "nameJa": "西アフリカ CFA フラン",
+   "symbol": "F CFA",
+   "jpyPerUnit": 0.270345,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 223.316,
+  "gniPerCapitaLCU": 769351.0,
+  "consumptionPerCapitaLCU": 538115.0,
+  "incomeShareQuintiles": [
+   0.068,
+   0.11,
+   0.154,
+   0.216,
+   0.452
+  ],
+  "urbanShare": 0.438,
+  "places": [
+   {
+    "nameJa": "ロメ",
+    "urban": true,
+    "share": 0.1314,
+    "incomeIndex": 2.0
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.3067,
+    "incomeIndex": 1.16
+   },
+   {
+    "nameJa": "農村部",
+    "urban": false,
+    "share": 0.5619,
+    "incomeIndex": 0.68
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 62.5,
+   "female": 62.9
+  },
+  "under5MortalityPer1000": 58.1,
+  "tfr": 4.19,
+  "meanAgeFirstMarriage": {
+   "male": 25.8,
+   "female": 20.3
+  },
+  "secondaryNetEnrollment": 0.41,
+  "tertiaryGrossEnrollment": 0.149,
+  "tertiaryAnnualCostShareOfGni": 0.25,
+  "unemploymentRate": 0.019,
+  "informalEmploymentShare": 0.954,
+  "pensionCoverage": 0.075,
+  "pensionReplacementRate": 0.35,
+  "outOfPocketHealthShare": 0.643,
+  "effectiveTaxRateAvgWorker": 0.115,
+  "rentShareOfIncome": 0.35,
+  "housePriceToIncome": 17.5,
+  "disasterRisk": 0.3,
+  "remittanceShareGdp": 0.0869,
+  "estimated": [
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "housePriceToIncome",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "rentShareOfIncome",
+   "tertiaryAnnualCostShareOfGni"
+  ],
+  "notes": "GNI2024/消費2023/PPP2024(PA.NUS.PRVT.PP); 五分位2021"
+ },
+ {
+  "iso3": "BOL",
+  "nameJa": "ボリビア",
+  "major": false,
+  "incomeGroup": "LMC",
+  "births": 260200,
+  "currency": {
+   "code": "BOB",
+   "nameJa": "ボリビア ボリビアーノ",
+   "symbol": "Bs",
+   "jpyPerUnit": 13.4564,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 3.93439,
+  "gniPerCapitaLCU": 50740.2,
+  "consumptionPerCapitaLCU": 36082.5,
+  "incomeShareQuintiles": [
+   0.0541,
+   0.1041,
+   0.1522,
+   0.2222,
+   0.4674
+  ],
+  "urbanShare": 0.712,
+  "places": [
+   {
+    "nameJa": "サンタクルス",
+    "urban": true,
+    "share": 0.2137,
+    "incomeIndex": 1.53
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.4987,
+    "incomeIndex": 0.99
+   },
+   {
+    "nameJa": "農村部",
+    "urban": false,
+    "share": 0.2876,
+    "incomeIndex": 0.63
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 66.1,
+   "female": 71.1
+  },
+  "under5MortalityPer1000": 16.4,
+  "tfr": 2.55,
+  "meanAgeFirstMarriage": {
+   "male": 27.9,
+   "female": 23.7
+  },
+  "secondaryNetEnrollment": 0.766,
+  "tertiaryGrossEnrollment": 0.206,
+  "tertiaryAnnualCostShareOfGni": 0.225,
+  "unemploymentRate": 0.033,
+  "informalEmploymentShare": 0.82,
+  "pensionCoverage": 0.29,
+  "pensionReplacementRate": 0.39,
+  "outOfPocketHealthShare": 0.273,
+  "effectiveTaxRateAvgWorker": 0.12,
+  "rentShareOfIncome": 0.3,
+  "housePriceToIncome": 15.0,
+  "disasterRisk": 0.4,
+  "remittanceShareGdp": 0.0231,
+  "estimated": [
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "housePriceToIncome",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "rentShareOfIncome",
+   "tertiaryAnnualCostShareOfGni",
+   "tertiaryGrossEnrollment"
+  ],
+  "notes": "金額はWDI 2024年値を為替変動で現行通貨水準に換算(x1.70); GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2024"
+ },
+ {
+  "iso3": "SLE",
+  "nameJa": "シエラレオネ",
+  "major": false,
+  "incomeGroup": "LIC",
+  "births": 258900,
+  "currency": {
+   "code": "SLE",
+   "nameJa": "シエラレオネ レオン",
+   "symbol": "SLE",
+   "jpyPerUnit": 6.87866,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 6.61705,
+  "gniPerCapitaLCU": 18070.3,
+  "consumptionPerCapitaLCU": 14564.4,
+  "incomeShareQuintiles": [
+   0.0789,
+   0.1169,
+   0.1528,
+   0.2098,
+   0.4416
+  ],
+  "urbanShare": 0.454,
+  "places": [
+   {
+    "nameJa": "フリータウン",
+    "urban": true,
+    "share": 0.1361,
+    "incomeIndex": 1.97
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.3175,
+    "incomeIndex": 1.14
+   },
+   {
+    "nameJa": "農村部",
+    "urban": false,
+    "share": 0.5464,
+    "incomeIndex": 0.67
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 60.1,
+   "female": 63.5
+  },
+  "under5MortalityPer1000": 93.8,
+  "tfr": 3.79,
+  "meanAgeFirstMarriage": {
+   "male": 26.2,
+   "female": 21.0
+  },
+  "secondaryNetEnrollment": 0.418,
+  "tertiaryGrossEnrollment": 0.064,
+  "tertiaryAnnualCostShareOfGni": 0.25,
+  "unemploymentRate": 0.031,
+  "informalEmploymentShare": 0.97,
+  "pensionCoverage": 0.075,
+  "pensionReplacementRate": 0.35,
+  "outOfPocketHealthShare": 0.545,
+  "effectiveTaxRateAvgWorker": 0.115,
+  "rentShareOfIncome": 0.35,
+  "housePriceToIncome": 17.5,
+  "disasterRisk": 0.3,
+  "remittanceShareGdp": 0.046,
+  "estimated": [
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "housePriceToIncome",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "rentShareOfIncome",
+   "tertiaryAnnualCostShareOfGni",
+   "tertiaryGrossEnrollment"
+  ],
+  "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2018"
+ },
+ {
+  "iso3": "HTI",
+  "nameJa": "ハイチ",
+  "major": false,
+  "incomeGroup": "LMC",
+  "births": 258400,
+  "currency": {
+   "code": "HTG",
+   "nameJa": "ハイチ グールド",
+   "symbol": "HTG",
+   "jpyPerUnit": 1.20375,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 106.602,
+  "gniPerCapitaLCU": 272395.0,
+  "consumptionPerCapitaLCU": 262023.0,
+  "incomeShareQuintiles": [
+   0.0549,
+   0.1029,
+   0.1518,
+   0.2198,
+   0.4706
+  ],
+  "urbanShare": 0.55,
+  "places": [
+   {
+    "nameJa": "ポルトープランス",
+    "urban": true,
+    "share": 0.1651,
+    "incomeIndex": 1.67
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.3853,
+    "incomeIndex": 1.08
+   },
+   {
+    "nameJa": "農村部",
+    "urban": false,
+    "share": 0.4496,
+    "incomeIndex": 0.69
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 61.7,
+   "female": 68.3
+  },
+  "under5MortalityPer1000": 54.4,
+  "tfr": 2.66,
+  "meanAgeFirstMarriage": {
+   "male": 27.7,
+   "female": 23.4
+  },
+  "secondaryNetEnrollment": 0.616,
+  "tertiaryGrossEnrollment": 0.206,
+  "tertiaryAnnualCostShareOfGni": 0.225,
+  "unemploymentRate": 0.146,
+  "informalEmploymentShare": 0.959,
+  "pensionCoverage": 0.29,
+  "pensionReplacementRate": 0.39,
+  "outOfPocketHealthShare": 0.524,
+  "effectiveTaxRateAvgWorker": 0.12,
+  "rentShareOfIncome": 0.3,
+  "housePriceToIncome": 15.0,
+  "disasterRisk": 0.7,
+  "remittanceShareGdp": 0.1695,
+  "estimated": [
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "housePriceToIncome",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "rentShareOfIncome",
+   "secondaryNetEnrollment",
+   "tertiaryAnnualCostShareOfGni",
+   "tertiaryGrossEnrollment"
+  ],
+  "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2012"
+ },
+ {
+  "iso3": "PNG",
+  "nameJa": "パプアニューギニア",
+  "major": false,
+  "incomeGroup": "LMC",
+  "births": 255300,
+  "currency": {
+   "code": "PGK",
+   "nameJa": "パプアニューギニア キナ",
+   "symbol": "PGK",
+   "jpyPerUnit": 35.2427,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 2.71633,
+  "gniPerCapitaLCU": 10527.9,
+  "consumptionPerCapitaLCU": 6316.73,
+  "incomeShareQuintiles": [
+   0.051,
+   0.1,
+   0.152,
+   0.224,
+   0.473
+  ],
+  "urbanShare": 0.154,
+  "places": [
+   {
+    "nameJa": "ポートモレスビー",
+    "urban": true,
+    "share": 0.0462,
+    "incomeIndex": 2.15
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.1078,
+    "incomeIndex": 1.39
+   },
+   {
+    "nameJa": "農村部",
+    "urban": false,
+    "share": 0.846,
+    "incomeIndex": 0.89
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 63.7,
+   "female": 69.1
+  },
+  "under5MortalityPer1000": 40.6,
+  "tfr": 3.1,
+  "meanAgeFirstMarriage": {
+   "male": 27.1,
+   "female": 22.3
+  },
+  "secondaryNetEnrollment": 0.324,
+  "tertiaryGrossEnrollment": 0.206,
+  "tertiaryAnnualCostShareOfGni": 0.225,
+  "unemploymentRate": 0.026,
+  "informalEmploymentShare": 0.909,
+  "pensionCoverage": 0.29,
+  "pensionReplacementRate": 0.39,
+  "outOfPocketHealthShare": 0.086,
+  "effectiveTaxRateAvgWorker": 0.12,
+  "rentShareOfIncome": 0.3,
+  "housePriceToIncome": 15.0,
+  "disasterRisk": 0.6,
+  "remittanceShareGdp": 0.0001,
+  "estimated": [
+   "consumptionPerCapitaLCU",
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "housePriceToIncome",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "rentShareOfIncome",
+   "tertiaryAnnualCostShareOfGni",
+   "tertiaryGrossEnrollment"
+  ],
+  "notes": "GNI2024/消費推定/PPP2024(PA.NUS.PRVT.PP); 五分位2009"
+ },
+ {
+  "iso3": "LKA",
+  "nameJa": "スリランカ",
+  "major": false,
+  "incomeGroup": "LMC",
+  "births": 246800,
+  "currency": {
+   "code": "LKR",
+   "nameJa": "スリランカ ルピー",
+   "symbol": "Rs",
+   "jpyPerUnit": 0.475305,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 87.4893,
+  "gniPerCapitaLCU": 1337430.0,
+  "consumptionPerCapitaLCU": 951796.0,
+  "incomeShareQuintiles": [
+   0.074,
+   0.111,
+   0.15,
+   0.208,
+   0.457
+  ],
+  "urbanShare": 0.203,
+  "places": [
+   {
+    "nameJa": "コロンボ",
+    "urban": true,
+    "share": 0.0609,
+    "incomeIndex": 2.08
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.1421,
+    "incomeIndex": 1.35
+   },
+   {
+    "nameJa": "農村部",
+    "urban": false,
+    "share": 0.797,
+    "incomeIndex": 0.86
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 74.2,
+   "female": 80.6
+  },
+  "under5MortalityPer1000": 6.1,
+  "tfr": 1.97,
+  "meanAgeFirstMarriage": {
+   "male": 29.0,
+   "female": 25.4
+  },
+  "secondaryNetEnrollment": 0.91,
+  "tertiaryGrossEnrollment": 0.207,
+  "tertiaryAnnualCostShareOfGni": 0.225,
+  "unemploymentRate": 0.042,
+  "informalEmploymentShare": 0.567,
+  "pensionCoverage": 0.29,
+  "pensionReplacementRate": 0.39,
+  "outOfPocketHealthShare": 0.548,
+  "effectiveTaxRateAvgWorker": 0.12,
+  "rentShareOfIncome": 0.3,
+  "housePriceToIncome": 15.0,
+  "disasterRisk": 0.4,
+  "remittanceShareGdp": 0.0675,
+  "estimated": [
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "housePriceToIncome",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "rentShareOfIncome",
+   "tertiaryAnnualCostShareOfGni"
+  ],
+  "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2019"
+ },
+ {
+  "iso3": "CAF",
+  "nameJa": "中央アフリカ",
+  "major": false,
+  "incomeGroup": "LIC",
+  "births": 238900,
+  "currency": {
+   "code": "XAF",
+   "nameJa": "中央アフリカ CFA フラン",
+   "symbol": "FCFA",
+   "jpyPerUnit": 0.270345,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 263.365,
+  "gniPerCapitaLCU": 331811.0,
+  "consumptionPerCapitaLCU": 306282.0,
+  "incomeShareQuintiles": [
+   0.056,
+   0.097,
+   0.141,
+   0.214,
+   0.492
+  ],
+  "urbanShare": 0.441,
+  "places": [
+   {
+    "nameJa": "バンギ",
+    "urban": true,
+    "share": 0.1324,
+    "incomeIndex": 1.99
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.3089,
+    "incomeIndex": 1.15
+   },
+   {
+    "nameJa": "農村部",
+    "urban": false,
+    "share": 0.5587,
+    "incomeIndex": 0.68
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 55.3,
+   "female": 59.3
+  },
+  "under5MortalityPer1000": 92.6,
+  "tfr": 6.01,
+  "meanAgeFirstMarriage": {
+   "male": 24.3,
+   "female": 17.8
+  },
+  "secondaryNetEnrollment": 0.127,
+  "tertiaryGrossEnrollment": 0.028,
+  "tertiaryAnnualCostShareOfGni": 0.25,
+  "unemploymentRate": 0.063,
+  "informalEmploymentShare": 0.97,
+  "pensionCoverage": 0.075,
+  "pensionReplacementRate": 0.35,
+  "outOfPocketHealthShare": 0.45,
+  "effectiveTaxRateAvgWorker": 0.115,
+  "rentShareOfIncome": 0.35,
+  "housePriceToIncome": 17.5,
+  "disasterRisk": 0.3,
+  "remittanceShareGdp": 0.0395,
+  "estimated": [
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "housePriceToIncome",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "remittanceShareGdp",
+   "rentShareOfIncome",
+   "tertiaryAnnualCostShareOfGni"
+  ],
+  "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2021"
+ },
+ {
+  "iso3": "JOR",
+  "nameJa": "ヨルダン",
+  "major": false,
+  "incomeGroup": "UMC",
+  "births": 235800,
+  "currency": {
+   "code": "JOD",
+   "nameJa": "ヨルダン ディナール",
+   "symbol": "JOD",
+   "jpyPerUnit": 222.465,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 0.3212,
+  "gniPerCapitaLCU": 3527.57,
+  "consumptionPerCapitaLCU": 2116.54,
+  "incomeShareQuintiles": [
+   0.082,
+   0.121,
+   0.158,
+   0.215,
+   0.424
+  ],
+  "urbanShare": 0.93,
+  "places": [
+   {
+    "nameJa": "アンマン",
+    "urban": true,
+    "share": 0.2789,
+    "incomeIndex": 1.21
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.6507,
+    "incomeIndex": 0.95
+   },
+   {
+    "nameJa": "農村部",
+    "urban": false,
+    "share": 0.0704,
+    "incomeIndex": 0.65
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 75.7,
+   "female": 80.2
+  },
+  "under5MortalityPer1000": 13.3,
+  "tfr": 2.64,
+  "meanAgeFirstMarriage": {
+   "male": 27.8,
+   "female": 23.4
+  },
+  "secondaryNetEnrollment": 0.626,
+  "tertiaryGrossEnrollment": 0.359,
+  "tertiaryAnnualCostShareOfGni": 0.14,
+  "unemploymentRate": 0.167,
+  "informalEmploymentShare": 0.232,
+  "pensionCoverage": 0.795,
+  "pensionReplacementRate": 0.655,
+  "outOfPocketHealthShare": 0.345,
+  "effectiveTaxRateAvgWorker": 0.145,
+  "rentShareOfIncome": 0.275,
+  "housePriceToIncome": 13.5,
+  "disasterRisk": 0.3,
+  "remittanceShareGdp": 0.0756,
+  "estimated": [
+   "consumptionPerCapitaLCU",
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "housePriceToIncome",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "rentShareOfIncome",
+   "tertiaryAnnualCostShareOfGni"
+  ],
+  "notes": "GNI2024/消費推定/PPP2024(PA.NUS.PRVT.PP); 五分位2010"
+ },
+ {
+  "iso3": "HND",
+  "nameJa": "ホンジュラス",
+  "major": false,
+  "incomeGroup": "LMC",
+  "births": 233800,
+  "currency": {
+   "code": "HNL",
+   "nameJa": "ホンジュラス レンピラ",
+   "symbol": "L",
+   "jpyPerUnit": 5.87547,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 12.388,
+  "gniPerCapitaLCU": 78259.8,
+  "consumptionPerCapitaLCU": 72477.4,
+  "incomeShareQuintiles": [
+   0.037,
+   0.0899,
+   0.1449,
+   0.2288,
+   0.4994
+  ],
+  "urbanShare": 0.588,
+  "places": [
+   {
+    "nameJa": "テグシガルパ",
+    "urban": true,
+    "share": 0.1764,
+    "incomeIndex": 1.63
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.4115,
+    "incomeIndex": 1.06
+   },
+   {
+    "nameJa": "農村部",
+    "urban": false,
+    "share": 0.4121,
+    "incomeIndex": 0.67
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 70.3,
+   "female": 75.5
+  },
+  "under5MortalityPer1000": 15.5,
+  "tfr": 2.5,
+  "meanAgeFirstMarriage": {
+   "male": 28.0,
+   "female": 23.8
+  },
+  "secondaryNetEnrollment": 0.438,
+  "tertiaryGrossEnrollment": 0.233,
+  "tertiaryAnnualCostShareOfGni": 0.225,
+  "unemploymentRate": 0.049,
+  "informalEmploymentShare": 0.511,
+  "pensionCoverage": 0.29,
+  "pensionReplacementRate": 0.39,
+  "outOfPocketHealthShare": 0.531,
+  "effectiveTaxRateAvgWorker": 0.12,
+  "rentShareOfIncome": 0.3,
+  "housePriceToIncome": 15.0,
+  "disasterRisk": 0.55,
+  "remittanceShareGdp": 0.2574,
+  "estimated": [
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "housePriceToIncome",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "rentShareOfIncome",
+   "tertiaryAnnualCostShareOfGni"
+  ],
+  "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2024"
+ },
+ {
+  "iso3": "KOR",
+  "nameJa": "韓国",
+  "major": true,
+  "incomeGroup": "HIC",
+  "births": 232700,
+  "currency": {
+   "code": "KRW",
+   "nameJa": "韓国ウォン",
+   "symbol": "₩",
+   "jpyPerUnit": 0.119215,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 872.469,
+  "gniPerCapitaLCU": 50120000.0,
+  "consumptionPerCapitaLCU": 23955600.0,
+  "incomeShareQuintiles": [
+   0.0739,
+   0.1239,
+   0.1688,
+   0.2308,
+   0.4026
+  ],
+  "urbanShare": 0.812,
+  "places": [
+   {
+    "nameJa": "ソウル",
+    "urban": true,
+    "share": 0.17,
+    "incomeIndex": 1.16
+   },
+   {
+    "nameJa": "京畿道の都市",
+    "urban": true,
+    "share": 0.3,
+    "incomeIndex": 1.06
+   },
+   {
+    "nameJa": "釜山",
+    "urban": true,
+    "share": 0.05,
+    "incomeIndex": 0.96
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.39,
+    "incomeIndex": 0.93
+   },
+   {
+    "nameJa": "地方の郡部",
+    "urban": false,
+    "share": 0.09,
+    "incomeIndex": 0.81
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 80.6,
+   "female": 86.4
+  },
+  "under5MortalityPer1000": 2.9,
+  "tfr": 0.72,
+  "meanAgeFirstMarriage": {
+   "male": 34.0,
+   "female": 31.5
+  },
+  "secondaryNetEnrollment": 0.98,
+  "tertiaryGrossEnrollment": 1.0,
+  "tertiaryAnnualCostShareOfGni": 0.16,
+  "unemploymentRate": 0.028,
+  "informalEmploymentShare": 0.3,
+  "pensionCoverage": 0.92,
+  "pensionReplacementRate": 0.32,
+  "outOfPocketHealthShare": 0.318,
+  "effectiveTaxRateAvgWorker": 0.15,
+  "rentShareOfIncome": 0.23,
+  "housePriceToIncome": 25.0,
+  "disasterRisk": 0.25,
+  "remittanceShareGdp": 0.0039,
+  "estimated": [
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "housePriceToIncome",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "rentShareOfIncome",
+   "tertiaryAnnualCostShareOfGni"
+  ],
+  "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2021; 高等教育総就学率112%を1.0に丸め"
+ },
+ {
+  "iso3": "UKR",
+  "nameJa": "ウクライナ",
+  "major": false,
+  "incomeGroup": "UMC",
+  "births": 212200,
+  "currency": {
+   "code": "UAH",
+   "nameJa": "ウクライナ フリヴニャ",
+   "symbol": "₴",
+   "jpyPerUnit": 3.50167,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 10.8088,
+  "gniPerCapitaLCU": 217083.0,
+  "consumptionPerCapitaLCU": 128639.0,
+  "incomeShareQuintiles": [
+   0.1001,
+   0.1431,
+   0.1762,
+   0.2212,
+   0.3594
+  ],
+  "urbanShare": 0.695,
+  "places": [
+   {
+    "nameJa": "キーウ",
+    "urban": true,
+    "share": 0.2086,
+    "incomeIndex": 1.33
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.4867,
+    "incomeIndex": 1.04
+   },
+   {
+    "nameJa": "農村部",
+    "urban": false,
+    "share": 0.3047,
+    "incomeIndex": 0.71
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 66.9,
+   "female": 80.2
+  },
+  "under5MortalityPer1000": 8.0,
+  "tfr": 0.98,
+  "meanAgeFirstMarriage": {
+   "male": 31.9,
+   "female": 30.3
+  },
+  "secondaryNetEnrollment": 0.857,
+  "tertiaryGrossEnrollment": 0.872,
+  "tertiaryAnnualCostShareOfGni": 0.14,
+  "unemploymentRate": 0.098,
+  "informalEmploymentShare": 0.35,
+  "pensionCoverage": 0.795,
+  "pensionReplacementRate": 0.655,
+  "outOfPocketHealthShare": 0.453,
+  "effectiveTaxRateAvgWorker": 0.145,
+  "rentShareOfIncome": 0.275,
+  "housePriceToIncome": 13.5,
+  "disasterRisk": 0.15,
+  "remittanceShareGdp": 0.0629,
+  "estimated": [
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "housePriceToIncome",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "rentShareOfIncome",
+   "tertiaryAnnualCostShareOfGni"
+  ],
+  "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2020"
+ },
+ {
+  "iso3": "DOM",
+  "nameJa": "ドミニカ共和国",
+  "major": false,
+  "incomeGroup": "UMC",
+  "births": 203200,
+  "currency": {
+   "code": "DOP",
+   "nameJa": "ドミニカ ペソ",
+   "symbol": "$",
+   "jpyPerUnit": 2.56947,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 23.5392,
+  "gniPerCapitaLCU": 614315.0,
+  "consumptionPerCapitaLCU": 438843.0,
+  "incomeShareQuintiles": [
+   0.0611,
+   0.1071,
+   0.1542,
+   0.2232,
+   0.4544
+  ],
+  "urbanShare": 0.724,
+  "places": [
+   {
+    "nameJa": "サントドミンゴ",
+    "urban": true,
+    "share": 0.2172,
+    "incomeIndex": 1.31
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.5069,
+    "incomeIndex": 1.03
+   },
+   {
+    "nameJa": "農村部",
+    "urban": false,
+    "share": 0.2759,
+    "incomeIndex": 0.7
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 70.5,
+   "female": 77.0
+  },
+  "under5MortalityPer1000": 31.5,
+  "tfr": 2.24,
+  "meanAgeFirstMarriage": {
+   "male": 28.4,
+   "female": 24.6
+  },
+  "secondaryNetEnrollment": 0.706,
+  "tertiaryGrossEnrollment": 0.577,
+  "tertiaryAnnualCostShareOfGni": 0.14,
+  "unemploymentRate": 0.053,
+  "informalEmploymentShare": 0.554,
+  "pensionCoverage": 0.795,
+  "pensionReplacementRate": 0.655,
+  "outOfPocketHealthShare": 0.251,
+  "effectiveTaxRateAvgWorker": 0.145,
+  "rentShareOfIncome": 0.275,
+  "housePriceToIncome": 13.5,
+  "disasterRisk": 0.5,
+  "remittanceShareGdp": 0.0913,
+  "estimated": [
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "housePriceToIncome",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "rentShareOfIncome",
+   "tertiaryAnnualCostShareOfGni"
+  ],
+  "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2024"
+ },
+ {
+  "iso3": "COG",
+  "nameJa": "コンゴ共和国",
+  "major": false,
+  "incomeGroup": "LMC",
+  "births": 189400,
+  "currency": {
+   "code": "XAF",
+   "nameJa": "中央アフリカ CFA フラン",
+   "symbol": "FCFA",
+   "jpyPerUnit": 0.270345,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 231.937,
+  "gniPerCapitaLCU": 1357580.0,
+  "consumptionPerCapitaLCU": 713464.0,
+  "incomeShareQuintiles": [
+   0.042,
+   0.082,
+   0.132,
+   0.207,
+   0.537
+  ],
+  "urbanShare": 0.639,
+  "places": [
+   {
+    "nameJa": "ブラザビル",
+    "urban": true,
+    "share": 0.1917,
+    "incomeIndex": 1.59
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.4472,
+    "incomeIndex": 1.03
+   },
+   {
+    "nameJa": "農村部",
+    "urban": false,
+    "share": 0.3611,
+    "incomeIndex": 0.65
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 64.1,
+   "female": 67.5
+  },
+  "under5MortalityPer1000": 40.3,
+  "tfr": 4.16,
+  "meanAgeFirstMarriage": {
+   "male": 25.9,
+   "female": 20.3
+  },
+  "secondaryNetEnrollment": 0.479,
+  "tertiaryGrossEnrollment": 0.104,
+  "tertiaryAnnualCostShareOfGni": 0.225,
+  "unemploymentRate": 0.199,
+  "informalEmploymentShare": 0.96,
+  "pensionCoverage": 0.29,
+  "pensionReplacementRate": 0.39,
+  "outOfPocketHealthShare": 0.28,
+  "effectiveTaxRateAvgWorker": 0.12,
+  "rentShareOfIncome": 0.3,
+  "housePriceToIncome": 15.0,
+  "disasterRisk": 0.3,
+  "remittanceShareGdp": 0.003,
+  "estimated": [
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "housePriceToIncome",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "rentShareOfIncome",
+   "tertiaryAnnualCostShareOfGni"
+  ],
+  "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2011; 中等教育は前期中等修了率で代替"
+ },
+ {
+  "iso3": "ISR",
+  "nameJa": "イスラエル",
+  "major": false,
+  "incomeGroup": "HIC",
+  "births": 183200,
+  "currency": {
+   "code": "ILS",
+   "nameJa": "イスラエル新シェケル",
+   "symbol": "₪",
+   "jpyPerUnit": 50.9503,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 3.60798,
+  "gniPerCapitaLCU": 199483.0,
+  "consumptionPerCapitaLCU": 97436.7,
+  "incomeShareQuintiles": [
+   0.052,
+   0.108,
+   0.166,
+   0.239,
+   0.435
+  ],
+  "urbanShare": 0.915,
+  "places": [
+   {
+    "nameJa": "テルアビブ",
+    "urban": true,
+    "share": 0.2746,
+    "incomeIndex": 1.08
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.6408,
+    "incomeIndex": 0.99
+   },
+   {
+    "nameJa": "農村部",
+    "urban": false,
+    "share": 0.0846,
+    "incomeIndex": 0.81
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 81.0,
+   "female": 85.5
+  },
+  "under5MortalityPer1000": 3.4,
+  "tfr": 2.85,
+  "meanAgeFirstMarriage": {
+   "male": 27.4,
+   "female": 22.9
+  },
+  "secondaryNetEnrollment": 0.986,
+  "tertiaryGrossEnrollment": 0.563,
+  "tertiaryAnnualCostShareOfGni": 0.155,
+  "unemploymentRate": 0.036,
+  "informalEmploymentShare": 0.229,
+  "pensionCoverage": 0.99,
+  "pensionReplacementRate": 0.41,
+  "outOfPocketHealthShare": 0.205,
+  "effectiveTaxRateAvgWorker": 0.24,
+  "rentShareOfIncome": 0.275,
+  "housePriceToIncome": 10.5,
+  "disasterRisk": 0.3,
+  "remittanceShareGdp": 0.0018,
+  "estimated": [
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "housePriceToIncome",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "rentShareOfIncome",
+   "tertiaryAnnualCostShareOfGni"
+  ],
+  "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2022"
+ },
+ {
+  "iso3": "CHL",
+  "nameJa": "チリ",
+  "major": false,
+  "incomeGroup": "HIC",
+  "births": 176200,
+  "currency": {
+   "code": "CLP",
+   "nameJa": "チリ ペソ",
+   "symbol": "$",
+   "jpyPerUnit": 0.161129,
+   "asOf": "2026-10-22"
+  },
+  "pppPerIntlDollar": 464.876,
+  "gniPerCapitaLCU": 14984500.0,
+  "consumptionPerCapitaLCU": 9161740.0,
+  "incomeShareQuintiles": [
+   0.0581,
+   0.0991,
+   0.1401,
+   0.2032,
+   0.4995
+  ],
+  "urbanShare": 0.89,
+  "places": [
+   {
+    "nameJa": "サンティアゴ",
+    "urban": true,
+    "share": 0.267,
+    "incomeIndex": 1.09
+   },
+   {
+    "nameJa": "その他の都市",
+    "urban": true,
+    "share": 0.623,
+    "incomeIndex": 1.0
+   },
+   {
+    "nameJa": "農村部",
+    "urban": false,
+    "share": 0.11,
+    "incomeIndex": 0.81
+   }
+  ],
+  "lifeExpectancy": {
+   "male": 79.2,
+   "female": 83.1
+  },
+  "under5MortalityPer1000": 6.9,
+  "tfr": 1.17,
+  "meanAgeFirstMarriage": {
+   "male": 31.2,
+   "female": 29.0
+  },
+  "secondaryNetEnrollment": 0.887,
+  "tertiaryGrossEnrollment": 1.0,
+  "tertiaryAnnualCostShareOfGni": 0.155,
+  "unemploymentRate": 0.087,
+  "informalEmploymentShare": 0.371,
+  "pensionCoverage": 0.99,
+  "pensionReplacementRate": 0.41,
+  "outOfPocketHealthShare": 0.346,
+  "effectiveTaxRateAvgWorker": 0.24,
+  "rentShareOfIncome": 0.275,
+  "housePriceToIncome": 10.5,
+  "disasterRisk": 0.5,
+  "remittanceShareGdp": 0.0003,
+  "estimated": [
+   "disasterRisk",
+   "effectiveTaxRateAvgWorker",
+   "housePriceToIncome",
+   "informalEmploymentShare",
+   "meanAgeFirstMarriage",
+   "pensionCoverage",
+   "pensionReplacementRate",
+   "places",
+   "rentShareOfIncome",
+   "tertiaryAnnualCostShareOfGni"
+  ],
+  "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2024; 高等教育総就学率110%を1.0に丸め"
+ }
+]

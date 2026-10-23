@@ -10,11 +10,14 @@ const app = document.getElementById("app")!;
 function esc(s: string): string {
   return s.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]!);
 }
+// 表示する通貨（main で人生を再現したあと、その国のものに切り替える）
+let fmt: (n: number) => string = yen;
+let unit = "円";
 function man(n: number): string {
-  return `${Math.round(n / 1e4).toLocaleString("ja-JP")}万円`;
+  return `${Math.round(n / 1e4).toLocaleString("ja-JP")}万${unit}`;
 }
 function signedYen(n: number): string {
-  return n > 0 ? `+${yen(n)}` : yen(n);
+  return n > 0 ? `+${fmt(n)}` : fmt(n);
 }
 
 function showError(): void {
@@ -102,7 +105,7 @@ function renderChart(box: HTMLElement, data: YearFlow[]): void {
     data.forEach((d, i) => {
       if (d.age % 10 === 0) s += `<text x="${(x(i) + bw / 2).toFixed(1)}" y="${H - 8}" class="tick x">${d.age}</text>`;
     });
-    s += `<text x="${m.l - 6}" y="${m.t - 14}" class="unit l">万円</text>`;
+    s += `<text x="${m.l - 6}" y="${m.t - 14}" class="unit l">万${unit}</text>`;
     s += `<text x="${W - m.r + 6}" y="${m.t - 14}" class="unit r">残高</text>`;
     s += `<line class="cursor" x1="0" x2="0" y1="${m.t}" y2="${H - m.b}" visibility="hidden"/>`;
     s += `<rect class="hit" x="${m.l}" y="${m.t}" width="${iw}" height="${ih}" fill="transparent"/>`;
@@ -160,12 +163,12 @@ function render(l: Life): void {
   app.innerHTML = `
     <header class="head">
       <p class="eyebrow">人生のレシート ・ 詳細</p>
-      <h1>${esc(s.regionLabel)}生まれ、${s.deathAge}歳で閉店</h1>
+      <h1>${esc(l.D.isJapan ? "" : l.D.nameJa + "・")}${esc(s.regionLabel)}生まれ、${s.deathAge}歳で閉店</h1>
       <p class="summary">
-        ${esc(s.regionLabel)}の${esc(s.familyBandLabel)}の家庭に${sexWord}として誕生。
+        ${esc(l.D.isJapan ? "" : l.D.nameJa + "の")}${esc(s.regionLabel)}で、${esc(l.D.isJapan ? s.familyBandLabel + "の家庭" : s.familyBandLabel)}に${sexWord}として誕生。
         ${s.deathAge}歳、${esc(s.deathCause)}で人生を終えました。
-        生涯収入 <b>${yen(s.lifetimeIncome)}</b>、最後に残ったのは
-        <b class="${s.finalBalance < 0 ? "neg" : ""}">${yen(s.finalBalance)}</b>
+        生涯収入 <b>${fmt(s.lifetimeIncome)}</b>、最後に残ったのは
+        <b class="${s.finalBalance < 0 ? "neg" : ""}">${fmt(s.finalBalance)}</b>
         <span class="chip tone-${d.stamp.tone}">${esc(d.stamp.text)}</span>
       </p>
     </header>
@@ -186,7 +189,7 @@ function render(l: Life): void {
         <div class="chart-svg"></div>
         <div class="tip" hidden></div>
       </div>
-      <p class="note">グラフをタップすると、その年の金額が出ます。単位は万円。運用益は収入に含みません。</p>
+      <p class="note">グラフをタップすると、その年の金額が出ます。単位は万${unit}。運用益は収入に含みません。</p>
     </section>
 
     <section class="panel">
@@ -195,13 +198,13 @@ function render(l: Life): void {
         ${cats
           .map(
             ([k, v]) => `<li>
-              <div class="bar-head"><span>${EXPENSE_LABEL[k]}</span><span class="num">${yen(v)}<small>${((v / total) * 100).toFixed(1)}%</small></span></div>
+              <div class="bar-head"><span>${EXPENSE_LABEL[k]}</span><span class="num">${fmt(v)}<small>${((v / total) * 100).toFixed(1)}%</small></span></div>
               <div class="track"><div class="fill" style="width:${((v / maxCat) * 100).toFixed(1)}%"></div></div>
             </li>`,
           )
           .join("")}
       </ul>
-      <p class="total">支出合計 <b>${yen(total)}</b></p>
+      <p class="total">支出合計 <b>${fmt(total)}</b></p>
     </section>
 
     <section class="panel">
@@ -251,7 +254,10 @@ async function main(): Promise<void> {
   if (!parsed) return showError();
   let life: Life;
   try {
-    life = replayByIndex(parsed.seed, parsed.picks);
+    life = replayByIndex(parsed.seed, parsed.picks, parsed.mode);
+    const D = life.D;
+    fmt = (n) => D.fmt(n);
+    unit = D.currency.nameJa;
     if (!life.records.length) return showError();
   } catch (e) {
     console.warn(e);

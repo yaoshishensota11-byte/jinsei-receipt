@@ -13,9 +13,10 @@ for (let i = 0; i < N; i++) {
   page.on("pageerror", (e) => errors.push(e.message));
   page.on("console", (m) => m.type() === "error" && !m.text().includes("fonts.g") && errors.push(m.text()));
   const seed = `ui${i}t`;
+  // 日本・主要国・世界のモードを順番に試す
+  const mode = ["j", "m", "w"][i % 3];
   const t0 = Date.now();
-  await page.goto(`${BASE}/?seed=${seed}&turbo=${TURBO}&auto`);
-  await page.click("#start");
+  await page.goto(`${BASE}/?seed=${seed}&turbo=${TURBO}&auto&mode=${mode}`);
   let emptyChoice = false;
   // 選択場面が空でないかを見張る
   const watch = setInterval(async () => {
@@ -40,15 +41,18 @@ for (let i = 0; i < N; i++) {
       change: r?.data?.change,
       stamp: r?.data?.stamp?.text,
       age: g?.life?.age,
+      country: g?.life?.D?.nameJa,
+      place: g?.life?.region?.label,
       choices: g?.life?.choiceLog?.length,
+      playMs: g?.playMs,
       overflow: document.documentElement.scrollWidth > 390,
     };
   });
-  if (i === 0) await page.screenshot({ path: "docs/result-screen.png", fullPage: true });
+  if (i < 3) await page.screenshot({ path: `docs/result-${mode}.png`, fullPage: true });
   const ok = !errors.length && !emptyChoice && res.url && Number.isFinite(res.change) && !res.overflow;
   if (!ok) failures++;
   console.log(
-    `${ok ? "✔" : "✖"} ${seed} ${((Date.now() - t0) / 1000).toFixed(1)}s 享年${res.age} 選択${res.choices}回 お釣り${Math.round((res.change ?? NaN) / 1e4)}万 [${res.stamp}]` +
+    `${ok ? "✔" : "✖"} ${seed}[${mode}] ${res.country}・${res.place} ${((Date.now() - t0) / 1000).toFixed(1)}s 等倍換算${(res.playMs / 60000).toFixed(1)}分 享年${res.age} 選択${res.choices}回 [${res.stamp}]` +
       (errors.length ? ` errors=${errors.join(" | ")}` : "") +
       (emptyChoice ? " 空の選択肢あり" : "") +
       (res.overflow ? " 横はみ出し" : ""),

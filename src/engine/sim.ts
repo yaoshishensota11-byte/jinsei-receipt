@@ -1,7 +1,8 @@
 // 人生シミュレーション本体。1年ずつ進み、選択場面で止まる。
 // 同じ seed と同じ選択の並びなら、まったく同じ人生になる。
 import { Rng, streamRng, hashStr } from "./rng";
-import * as D from "./data";
+import { JAPAN, type CountryData, type Region, type IncomeBand } from "./data";
+import { MICROS } from "./micro";
 import type {
   Choice,
   ChoiceId,
@@ -71,6 +72,7 @@ const REGION_LIVING: Record<string, number> = { tokyo: 1.08, osaka: 1.0, nagoya:
 const REGION_HOUSE: Record<string, number> = { tokyo: 1, osaka: 0.8, nagoya: 0.78, city: 0.7, rural: 0.58 };
 const REGION_CAR: Record<string, number> = { tokyo: 0.25, osaka: 0.45, nagoya: 0.8, city: 0.85, rural: 0.95 };
 
+/** 円の表示（日本円のまま表示したいとき用） */
 export function yen(n: number): string {
   const sign = n < 0 ? "-" : "";
   const a = Math.abs(n);
@@ -91,8 +93,12 @@ export class Life {
 
   // 生まれ
   sex: Sex;
-  region: D.Region;
-  band: D.IncomeBand;
+  region: Region;
+  band: IncomeBand;
+  /** 生まれた国の統計 */
+  readonly D: CountryData;
+  /** 遊び方：j=日本 / m=主要国 / w=世界 */
+  readonly mode: string;
   aptitude: number; // 勉強の得意さ（0〜1、隠し値）
   thrift: number; // 金遣い（0.85〜1.25）
   siblings: number;
@@ -156,29 +162,44 @@ export class Life {
   private preIncome: Partial<Record<IncomeCat, number>> = {};
   private preExpense: Partial<Record<ExpenseCat, number>> = {};
 
-  constructor(seed: string, birthYear = BIRTH_YEAR) {
+  constructor(seed: string, country: CountryData = JAPAN, mode = "j", birthYear = BIRTH_YEAR) {
     this.seed = seed;
+    this.D = country;
+    this.mode = mode;
     this.birthYear = birthYear;
     const r = this.rng("birth", 0);
     this.sex = r.chance(0.512) ? "male" : "female";
-    const regions = D.household.regions;
+    const regions = this.D.household.regions;
     this.region = r.weighted(regions, regions.map((x) => x.birthShare));
-    const bands = D.household.incomeBandsWithChildren;
+    const bands = this.D.household.incomeBandsWithChildren;
     this.band = r.weighted(bands, bands.map((b) => b.share));
     const bandIdx = bands.indexOf(this.band);
     // 家庭の所得と学力の相関はゆるく入れる（決定論にはしない）
     this.aptitude = Math.min(1, Math.max(0, r.normal(0.42 + bandIdx * 0.04, 0.22)));
     this.thrift = r.range(0.88, 1.22);
-    this.siblings = r.weighted([0, 1, 2], [0.22, 0.55, 0.23]);
-    this.lottery = r.chance(D.ev.lotteryParticipationRate);
+    // きょうだいの数はその国の出生率に合わせる
+    const tfr = this.D.inst?.tfr ?? 1.9;
+    this.siblings = tfr < 2.2 ? r.weighted([0, 1, 2], [0.22, 0.55, 0.23]) : Math.min(7, Math.max(0, Math.round(r.normal(tfr - 1, 1.3))));
+    this.lottery = r.chance(this.D.ev.lotteryParticipationRate);
     this.parents = [
-      { age: Math.round(r.normal(33, 4.5)), alive: true },
-      { age: Math.round(r.normal(31.5, 4)), alive: true },
+      { age: Math.round(r.normal(33 - (this.D.inst?.marriageAgeShift.male ?? 0), 4.5)), alive: true },
+      { age: Math.max(17, Math.round(r.normal(31.5 - (this.D.inst?.marriageAgeShift.female ?? 0), 4))), alive: true },
     ];
+  }
+
+  /** 円で考えた金額を、この国の通貨の目安に直す */
+  y(n: number): number {
+    return n * this.D.k;
   }
 
   private rng(stream: string, age = this.age): Rng {
     return streamRng(this.seed, stream, age);
+  }
+
+  /** 地域の係数。日本は地域ごとの表、他の国は都市部か農村部かで決める */
+  regionFactor(map: Record<string, number>, urban: number, rural: number): number {
+    if (this.D.isJapan) return map[this.region.id] ?? 1;
+    return this.region.urban ? urban : rural;
   }
 
   get year(): number {
@@ -202,7 +223,7 @@ export class Life {
     return this.region.label;
   }
   get bandIdx(): number {
-    return D.household.incomeBandsWithChildren.indexOf(this.band);
+    return this.D.household.incomeBandsWithChildren.indexOf(this.band);
   }
 
   // ───────────────────────── 進行 ─────────────────────────
@@ -231,9 +252,59 @@ export class Life {
     if (!opt) throw new Error(`不明な選択肢: ${optionId}`);
     this.pending = null;
     this.choiceLog.push({ id: c.id, optionId, label: opt.label, age: this.age, pickIndex: c.options.indexOf(opt) });
-    this.preEvents.push({ age: this.age, kind: "choice", text: `【選択】${c.title}：${opt.label}`, major: true });
-    applyChoice(this, c.id, optionId, this.rng("c:" + c.id));
+    const micro = c.id.startsWith("micro:");
+    this.preEvents.push({ age: this.age, kind: "choice", text: `【選択】${c.title}：${opt.label}`, major: !micro });
+    if (micro) {
+      const m = MICROS.find((x) => "micro:" + x.id === c.id)!;
+      this.usedMicro.set(m.id, this.age);
+      m.options.find((o) => o.id === optionId)!.apply(this, this.rng("c:" + c.id));
+    } else applyChoice(this, c.id, optionId, this.rng("c:" + c.id));
   }
+
+  /** 次に小さな選択を出す年齢 */
+  nextMicro = 6;
+  /** 小さな選択ごとの、最後に出た年齢 */
+  usedMicro = new Map<string, number>();
+  private microReady(id: string, repeat?: boolean): boolean {
+    const last = this.usedMicro.get(id);
+    return last === undefined || (!!repeat && this.age - last >= 10);
+  }
+
+  private microChoice(): Choice | null {
+    const a = this.age;
+    if (a < this.nextMicro || this.choiceLog.some((c) => c.age === a)) return null;
+    const r = this.rng("micro");
+    const pool = MICROS.filter((m) => a >= m.min && a <= m.max && this.microReady(m.id, m.repeat) && (!m.when || m.when(this)));
+    if (!pool.length) {
+      this.nextMicro = a + 1;
+      return null;
+    }
+    // 年齢の上限が近いものを優先して、取りこぼしを減らす
+    const m = r.weighted(pool, pool.map((x) => 1 / (1 + Math.max(0, x.max - a) * 0.15)));
+    this.nextMicro = a + r.int(1, 3);
+    return {
+      id: `micro:${m.id}`,
+      age: a,
+      title: m.title,
+      situation: m.situation(this),
+      options: m.options.map(({ id, label, desc }) => ({ id, label, desc })),
+    };
+  }
+
+  // 小さな選択がもたらす状態
+  social = 0;
+  familyHelped = false;
+  abroad = false;
+  abroadUntil = -1;
+  sideIncome = 0;
+  gymUntil = -1;
+  insured = false;
+  cramUntil = -1;
+  parentDebt = false;
+  repairLater = false;
+  earlyCheckUntil = -1;
+  prepaidFuneral = false;
+  seniorWorkUntil = -1;
 
   /** 選択前後に起きた出来事を、その年の記録に入れるためのバッファ */
   preEvents: LifeEvent[] = [];
@@ -259,7 +330,7 @@ export class Life {
     if (!this.made("parentCare") && this.made("careerShift") && (this.careTriggered || a >= 58))
       return buildChoice(this, "parentCare");
     if (!this.made("retire") && a >= 60 && this.made("parentCare")) return buildChoice(this, "retire");
-    return null;
+    return this.microChoice();
   }
 
   // ───────────────────────── 1年の計算 ─────────────────────────
@@ -305,6 +376,8 @@ export class Life {
   }
   spend(cat: ExpenseCat, v: number): void {
     if (!isFinite(v) || v <= 0) return;
+    if (cat === "medical" && this.D.inst) v *= this.D.inst.medicalBurden;
+    if (cat === "medical" && this.insured && v > this.y(200_000)) v *= 0.5;
     const t = this.cur ? this.cur.expense : this.preExpense;
     t[cat] = (t[cat] ?? 0) + v;
     this.cash -= v;
@@ -325,28 +398,28 @@ export class Life {
     const drop = BAND_DROPOUT[this.band.id] ?? 1;
     // 在学中のアルバイト・学費
     if (this.school === "hs_night" || this.school === "univ_night") {
-      this.addIncome("salary", D.nonRegularWage(this.sex, Math.max(a, 20)) * 0.65 * this.region.wageIndex);
+      this.addIncome("salary", this.D.nonRegularWage(this.sex, Math.max(a, 20)) * 0.65 * this.region.wageIndex);
     } else if (this.school === "univ_work") {
-      this.addIncome("salary", 900000 * this.region.wageIndex);
+      this.addIncome("salary", this.y(900000) * this.region.wageIndex);
     } else if ((this.school === "univ" || this.school === "vocational" || this.school === "grad") && r.chance(0.7)) {
-      this.addIncome("salary", r.range(300000, 900000));
+      this.addIncome("salary", r.range(this.y(300000), this.y(900000)));
     }
-    if (this.school === "univ_night") this.spend("selfEdu", 600000);
+    if (this.school === "univ_night") this.spend("selfEdu", this.y(600000));
     if (this.school === "univ_work") {
       // 奨学金（貸与）は学費と生活費に消える
-      const loan = 1200000;
+      const loan = this.y(1200000);
       this.scholarship += loan;
       this.cash += loan;
-      this.spend("selfEdu", this.privateUni ? 1300000 : 700000);
-      this.spend("other", 700000);
+      this.spend("selfEdu", this.privateUni ? this.y(1300000) : this.y(700000));
+      this.spend("other", this.y(700000));
     }
 
     // 中退
     let pDrop = 0;
     if (this.school === "hs" || this.school === "hs_night" || this.school === "kosen")
-      pDrop = D.education.highSchoolDropoutRate * drop * (this.school === "hs_night" ? 4 : 1);
+      pDrop = this.D.education.highSchoolDropoutRate * drop * (this.school === "hs_night" ? 4 : 1);
     if (this.school === "univ" || this.school === "univ_work" || this.school === "univ_night" || this.school === "vocational")
-      pDrop = (D.education.universityDropoutRate / 4) * drop * (this.school === "univ_work" ? 1.8 : this.school === "univ_night" ? 2.5 : 1);
+      pDrop = (this.D.education.universityDropoutRate / 4) * drop * (this.school === "univ_work" ? 1.8 : this.school === "univ_night" ? 2.5 : 1);
     if (r.chance(pDrop)) {
       const famReason = r.chance(Math.min(0.75, 0.25 * drop));
       const what = this.schoolName();
@@ -371,7 +444,7 @@ export class Life {
       };
       this.edu = next[this.school] ?? this.edu;
       this.log("school", `${what}を卒業した。`);
-      if ((this.school === "univ" || this.school === "univ_work") && r.chance(D.education.graduateSchoolEntryRate * (0.6 + this.aptitude))) {
+      if ((this.school === "univ" || this.school === "univ_work") && r.chance(this.D.education.graduateSchoolEntryRate * (0.6 + this.aptitude))) {
         this.school = "grad";
         this.schoolEnd = a + 3;
         this.log("school", "大学院に進んだ。", undefined, true);
@@ -424,14 +497,14 @@ export class Life {
         const hh = this.householdIncomeGuess();
         const kid = {
           born: a,
-          privateSchool: kr.chance(hh > 10_000_000 ? 0.45 : hh > 7_000_000 ? 0.15 : 0.05),
-          univ: kr.chance(univRateForIncome(hh)),
+          privateSchool: kr.chance(hh > this.y(10_000_000) ? 0.45 : hh > this.y(7_000_000) ? 0.15 : 0.05),
+          univ: kr.chance(this.D.univRateForIncome(hh)),
           away: kr.chance(0.4),
         };
         this.kids.push(kid);
         const nth = ["第一子", "第二子", "第三子", "第四子"][this.kids.length - 1] ?? "子ども";
-        this.log("family", `${nth}が生まれた。`, -D.living.childbirthNetCost, this.kids.length === 1);
-        this.spend("kids", D.living.childbirthNetCost);
+        this.log("family", `${nth}が生まれた。`, -this.D.living.childbirthNetCost, this.kids.length === 1);
+        this.spend("kids", this.D.living.childbirthNetCost);
         if (this.sex === "female" && (this.job === "big" || this.job === "sme" || this.job === "civil") && r.chance(0.3)) {
           this.log("work", "出産を機に仕事を辞めた。", undefined, true);
           this.job = "none";
@@ -439,7 +512,7 @@ export class Life {
         }
       }
       // 離婚
-      if (r.chance(D.ev.divorceRateAnnual * (a - this.partnerSince < 10 ? 1.4 : 0.7))) {
+      if (r.chance(this.D.ev.divorceRateAnnual * (a - this.partnerSince < 10 ? 1.4 : 0.7))) {
         const share = Math.max(0, this.cash) * 0.5;
         this.log("family", "離婚した。財産は分け合った。", -share, true);
         this.spend("events", share);
@@ -448,14 +521,14 @@ export class Life {
         this.noMarry = r.chance(0.5);
       }
       // 配偶者の死亡
-      else if (r.chance(D.qx(p.sex, p.age) * 0.9)) {
+      else if (r.chance(this.D.qx(p.sex, p.age) * 0.9)) {
         p.alive = false;
-        this.log("family", `パートナーが${p.age}歳で亡くなった。`, -D.living.funeralCost, true);
-        this.spend("events", D.living.funeralCost);
+        this.log("family", `パートナーが${p.age}歳で亡くなった。`, -this.D.living.funeralCost, true);
+        this.spend("events", this.D.living.funeralCost);
         this.widowed = true;
         this.partner = null;
       }
-    } else if (!this.noMarry && a >= 20 && a < 30 && this.school === "done" && !this.made("marriageHome")) {
+    } else if (!this.noMarry && a >= 18 && a < 30 && this.school === "done" && !this.made("marriageHome")) {
       // 30歳の選択より前に自然に結婚することもある
       if (r.chance(this.marriageHazard(a) * 0.9)) this.marry(r, "結婚した。");
     } else if (!this.noMarry && a >= 30 && a < 60 && !this.partner) {
@@ -474,16 +547,18 @@ export class Life {
   private kidsTarget(r: Rng): number {
     if (this._kidsTarget >= 0) return this._kidsTarget;
     const kr = this.rng("kidsTarget", 0);
-    const m = D.ev.birthsPerCouple;
-    this._kidsTarget = kr.weighted([0, 1, 2, 3], [0.08, 0.2, Math.max(0.3, 0.72 - m * 0.05), Math.max(0.05, (m - 1.6) * 0.8)]);
+    const m = this.D.inst?.tfr ?? this.D.ev.birthsPerCouple;
+    this._kidsTarget =
+      m < 2.4
+        ? kr.weighted([0, 1, 2, 3], [0.08, 0.2, Math.max(0.3, 0.72 - m * 0.05), Math.max(0.05, (m - 1.6) * 0.8)])
+        : Math.min(8, Math.max(0, Math.round(kr.normal(m * 1.05, 1.4))));
     void r;
     return this._kidsTarget;
   }
   private _kidsTarget = -1;
 
   marriageHazard(a: number): number {
-    const m = D.ev.marriageByAge;
-    const base = a < 30 ? m["20s"] : a < 40 ? m["30s"] : a < 50 ? m["40s"] : m["50plus"];
+    const base = this.D.marriageHazard(a, this.sex) * (1 + Math.min(0.5, this.social));
     // 収入が安定していると結婚しやすい傾向（統計的な相関をゆるく反映）
     const stab = this.job === "nonregular" || this.job === "none" ? (this.sex === "male" ? 0.6 : 1) : 1.05;
     return base * stab;
@@ -499,7 +574,7 @@ export class Life {
     this.partnerSince = this.age;
     this.log("family", `${text}（相手は${pAge}歳）`, undefined, true);
     if (r.chance(0.5)) {
-      const net = D.living.weddingCost * 0.45;
+      const net = this.D.living.weddingCost * 0.45;
       this.spend("events", net);
       this.log("money", "結婚式を挙げた。ご祝儀で半分ほど戻った。", -net);
     }
@@ -516,17 +591,17 @@ export class Life {
     const m = this.careerMult;
     switch (this.job) {
       case "big":
-        return D.regularWage(this.sex, this.edu, a) * 1.18 * m * w;
+        return this.D.regularWage(this.sex, this.edu, a) * 1.18 * m * w;
       case "sme":
-        return D.regularWage(this.sex, this.edu, a) * 0.86 * m * w;
+        return this.D.regularWage(this.sex, this.edu, a) * 0.86 * m * w;
       case "civil":
-        return D.regularWage(this.sex, this.edu, a) * 1.02 * Math.min(m, 1.2) * Math.min(w, 1.05);
+        return this.D.regularWage(this.sex, this.edu, a) * 1.02 * Math.min(m, 1.2) * Math.min(w, 1.05);
       case "nonregular":
-        return D.nonRegularWage(this.sex, a) * Math.min(m, 1.3) * w;
+        return this.D.nonRegularWage(this.sex, a) * Math.min(m, 1.3) * w;
       case "freelance":
-        return D.income.selfEmployedMedianAnnual * m * Math.min(w, 1.1);
+        return this.D.income.selfEmployedMedianAnnual * m * Math.min(w, 1.1);
       case "founder":
-        return D.income.selfEmployedMedianAnnual * m * (this.founderBig ? 6 : 1);
+        return this.D.income.selfEmployedMedianAnnual * m * (this.founderBig ? 6 : 1);
       default:
         return 0;
     }
@@ -535,8 +610,8 @@ export class Life {
   partnerIncome(): number {
     const p = this.partner;
     if (!p || !p.alive || p.age >= 65) return 0;
-    if (p.work === "regular") return D.regularWage(p.sex, p.edu, p.age) * 0.95 * this.region.wageIndex;
-    if (p.work === "part") return D.nonRegularWage(p.sex, p.age) * 0.55 * this.region.wageIndex;
+    if (p.work === "regular") return this.D.regularWage(p.sex, p.edu, p.age) * 0.95 * this.region.wageIndex;
+    if (p.work === "part") return this.D.nonRegularWage(p.sex, p.age) * 0.55 * this.region.wageIndex;
     return 0;
   }
 
@@ -574,7 +649,7 @@ export class Life {
 
       // 昇進
       if ((this.job === "big" || this.job === "sme" || this.job === "civil") && !this.manager && a >= 35 && a <= 55 && !this.postRetireWork) {
-        const p = 1 - Math.pow(1 - D.ev.promotionToManagerBy45, 1 / 10);
+        const p = 1 - Math.pow(1 - this.D.ev.promotionToManagerBy45, 1 / 10);
         if (r.chance(p * (this.edu === "university" || this.edu === "graduate" ? 1.3 : 0.7))) {
           this.manager = true;
           this.careerMult *= 1.18;
@@ -584,7 +659,7 @@ export class Life {
       // リストラ・倒産・雇い止め
       const layoffMult = recession ? 2.2 : 1;
       if ((this.job === "big" || this.job === "sme") && a >= 30 && a < 60 && !this.postRetireWork) {
-        const p = D.ev.layoffAnnual * layoffMult * (this.job === "big" ? (a >= 45 ? 1.3 : 0.6) : 1) * (this.manager ? 0.8 : 1);
+        const p = this.D.ev.layoffAnnual * layoffMult * (this.job === "big" ? (a >= 45 ? 1.3 : 0.6) : 1) * (this.manager ? 0.8 : 1);
         if (r.chance(p)) {
           const sev = this.job === "big" ? this.salaryOf(a) * r.range(0.5, 1.5) : this.salaryOf(a) * 0.3;
           this.log("work", this.job === "big" ? "早期退職を迫られ、会社を辞めた。割増退職金が出た。" : "勤め先が経営不振で人員削減。職を失った。", sev, true);
@@ -603,20 +678,20 @@ export class Life {
       } else if (this.job === "founder") {
         const years = a - this.founderYear;
         if (!this.founderBig && years >= 1 && years <= 5) {
-          const fail = 1 - Math.pow(D.ev.startupFiveYearSurvival, 1 / 5);
+          const fail = 1 - Math.pow(this.D.ev.startupFiveYearSurvival, 1 / 5);
           if (r.chance(fail * (recession ? 1.6 : 1))) {
-            const debt = r.range(1_000_000, 8_000_000);
+            const debt = r.range(this.y(1_000_000), this.y(8_000_000));
             this.log("work", "会社をたたんだ。借入の返済が残った。", -debt, true);
             this.spend("other", debt);
             this.job = "none";
             this.unemployedUntil = a + 1;
-          } else if (r.chance(D.ev.startupBigSuccessRate / 5)) {
+          } else if (r.chance(this.D.ev.startupBigSuccessRate / 5)) {
             this.founderBig = true;
             this.log("luck", "事業が大きく当たった。会社が急成長している。", undefined, true);
           }
         }
         if (this.founderBig && r.chance(0.04)) {
-          const exit = D.income.selfEmployedMedianAnnual * r.range(20, 120);
+          const exit = this.D.income.selfEmployedMedianAnnual * r.range(20, 120);
           this.log("luck", "会社を売却した。", exit, true);
           this.addIncome("windfall", exit);
           this.job = "freelance";
@@ -629,10 +704,27 @@ export class Life {
         }
       }
       // 転職（自発的）
-      if ((this.job === "sme" || this.job === "big") && a < 55 && r.chance(D.ev.jobChangeRateAnnual * 0.35)) {
+      if ((this.job === "sme" || this.job === "big") && a < 55 && r.chance(this.D.ev.jobChangeRateAnnual * 0.35)) {
         const ch = Math.exp(r.normal(0.02, 0.12));
         this.careerMult *= ch;
         this.log("work", ch >= 1 ? "より条件のいい会社に転職した。" : "働きやすさを優先して転職した。給料は少し下がった。");
+      }
+    }
+
+    // 小さな選択の効果：副業・出稼ぎ・近所の仕事
+    if (this.seniorWorkUntil >= 0 && a >= this.seniorWorkUntil) {
+      this.seniorWorkUntil = -1;
+      this.sideIncome = 0;
+    }
+    if (this.sideIncome > 0 && a < 80) this.addIncome("salary", this.sideIncome);
+    if (this.abroad) {
+      if (a < this.abroadUntil && this.job !== "none") {
+        // 出稼ぎ先の稼ぎ（現地の数倍）。生活費を引いた分を仕送りする
+        this.addIncome("salary", this.salaryOf(a) * 2.2);
+      } else {
+        this.abroad = false;
+        this.abroadUntil = -1;
+        this.log("work", "出稼ぎから帰ってきた。家族と暮らす日々に戻った。", undefined, true);
       }
     }
 
@@ -654,7 +746,7 @@ export class Life {
 
   retire(r: Rng): void {
     if (this.job === "big" || this.job === "sme" || this.job === "civil" || this.regularYears >= 10) {
-      const base = this.edu === "university" || this.edu === "graduate" ? D.ev.retirementAllowance.university : D.ev.retirementAllowance.high_school;
+      const base = this.edu === "university" || this.edu === "graduate" ? this.D.ev.retirementAllowance.university : this.D.ev.retirementAllowance.high_school;
       const jm = this.job === "big" ? 1.15 : this.job === "civil" ? 1.05 : this.job === "sme" ? 0.55 : 0.3;
       const amt = base * jm * Math.min(1, this.regularYears / 35) * r.range(0.85, 1.15);
       if (amt > 0) {
@@ -676,17 +768,17 @@ export class Life {
       const pa = p.age + a;
       const sex: Sex = i === 0 ? "male" : "female";
       const careEnding = this.careUntil === a && this.careMode !== "" && i === this.careParent;
-      if (careEnding || r.chance(D.qx(sex, pa))) {
+      if (careEnding || r.chance(this.D.qx(sex, pa))) {
         p.alive = false;
-        this.log("family", `${i === 0 ? "父" : "母"}が${pa}歳で亡くなった。`, -D.living.funeralCost / (this.siblings + 1), true);
-        this.spend("events", D.living.funeralCost / (this.siblings + 1));
+        this.log("family", `${i === 0 ? "父" : "母"}が${pa}歳で亡くなった。`, -this.D.living.funeralCost / (this.siblings + 1), true);
+        this.spend("events", this.D.living.funeralCost / (this.siblings + 1));
         if (careEnding) this.careMode = "";
         if (!this.parents.some((x) => x.alive)) {
           this.inherit(r);
           if (this.home === "parents") {
             // 同居していた実家をそのまま受け継ぐ
             this.home = "own";
-            this.housePrice = (this.region.id === "tokyo" ? 30_000_000 : 12_000_000) / (this.siblings + 1);
+            this.housePrice = (this.region.id === "tokyo" ? this.y(30_000_000) : this.y(12_000_000)) / (this.siblings + 1);
             this.boughtAge = a - 30;
             this.log("life", "住んでいた実家を受け継いだ。");
           }
@@ -695,7 +787,7 @@ export class Life {
     }
     // 介護が必要になる
     if (!this.careTriggered && !this.made("parentCare") && a >= 45 && this.parents.some((p) => p.alive)) {
-      const pc = D.ev.parentCareStartProbByChildAge;
+      const pc = this.D.ev.parentCareStartProbByChildAge;
       const pr = a < 50 ? pc["40s"] : a < 60 ? pc["50s"] : pc["60s"];
       if (r.chance(pr)) {
         this.careTriggered = true;
@@ -706,7 +798,7 @@ export class Life {
     // 介護費用
     if (this.careMode && a < this.careUntil) {
       const cost =
-        this.careMode === "facility" ? 1_800_000 : this.careMode === "home" ? 600_000 : this.careMode === "quit" ? 400_000 : 700_000;
+        this.careMode === "facility" ? this.y(1_800_000) : this.careMode === "home" ? this.y(600_000) : this.careMode === "quit" ? this.y(400_000) : this.y(700_000);
       const share = this.careMode === "share" ? 1 : 1 / Math.max(1, this.siblings * 0.5 + 1);
       // 親自身の年金・貯金でまかなう分もあるので、子の家計が苦しいときは負担が軽くなる
       this.spend("care", cost * share * (this.cash + this.invest < 0 ? 0.5 : 1));
@@ -717,7 +809,7 @@ export class Life {
   private inherit(r: Rng): void {
     const b = BAND_INHERIT[this.band.id] ?? BAND_INHERIT.mid;
     if (r.chance(b.p)) {
-      const amt = (D.ev.inheritanceAverage * b.mult * Math.exp(r.normal(-0.2, 0.7))) / (this.siblings + 1);
+      const amt = (this.D.ev.inheritanceAverage * b.mult * Math.exp(r.normal(-0.2, 0.7))) / (this.siblings + 1);
       this.addIncome("windfall", amt);
       this.log("money", "親の遺産を相続した。", amt, true);
     } else {
@@ -729,10 +821,18 @@ export class Life {
   private healthYear(r: Rng): void {
     const a = this.age;
     if (a < 20) return;
-    const pc = D.cancerAnnual(a) * (this.sex === "male" ? 1.1 : 0.9);
+    if (this.gymUntil > a) this.spend("fun", this.y(96_000));
+    if (this.insured && a < 70) this.spend("other", this.y(60_000));
+    if (this.cramUntil > a) this.spend("kids", this.y(400_000));
+    if (this.repairLater && this.home === "own" && r.chance(0.12)) {
+      this.repairLater = false;
+      this.spend("housing", this.y(2_500_000));
+      this.log("money", "先送りにしていた家の傷みが広がり、大きな修理になった。", -this.y(2_500_000), true);
+    }
+    const pc = this.D.cancerAnnual(a) * (this.sex === "male" ? 1.1 : 0.9);
     if (a - this.cancerAge > 6 && r.chance(pc)) {
       this.cancerAge = a;
-      const cost = r.range(400_000, 1_500_000);
+      const cost = r.range(this.y(400_000), this.y(1_500_000));
       this.spend("medical", cost);
       this.log("health", "がんが見つかり、治療を受けた。", -cost, true);
       if (this.job !== "none" && this.job !== "retired" && r.chance(0.2)) {
@@ -741,20 +841,20 @@ export class Life {
         this.unemployedUntil = a + 2;
       }
     } else if (r.chance(0.002 + Math.max(0, a - 40) * 0.0006)) {
-      const cost = r.range(300_000, 1_000_000);
+      const cost = r.range(this.y(300_000), this.y(1_000_000));
       this.spend("medical", cost);
       this.log("health", r.chance(0.5) ? "心臓の病気で入院した。" : "脳の血管の病気で入院した。", -cost, true);
       this.illMult = Math.min(1.6, this.illMult * 1.12);
     } else if (r.chance(0.012)) {
-      const cost = r.range(50_000, 300_000);
+      const cost = r.range(this.y(50_000), this.y(300_000));
       this.spend("medical", cost);
       this.log("health", r.pick(["骨折して通院した。", "手術のため入院した。", "持病の治療が続いた。"]), -cost);
     }
-    if (!this.selfCare && a >= 65 && r.chance(D.careNeed(a) / 6)) {
+    if (!this.selfCare && a >= 65 && r.chance(this.D.careNeed(a) / 6)) {
       this.selfCare = true;
       this.log("health", "要介護の認定を受けた。介護サービスを使いはじめた。", undefined, true);
     }
-    if (this.selfCare) this.spend("care", r.range(600_000, 1_200_000));
+    if (this.selfCare) this.spend("care", r.range(this.y(600_000), this.y(1_200_000)));
   }
 
   // ── 運
@@ -762,40 +862,40 @@ export class Life {
     const a = this.age;
     if (a < 20) return;
     if (this.lottery) {
-      this.spend("fun", 30_000);
-      if (r.chance(D.ev.lotteryJackpotOdds * 10)) {
-        this.addIncome("windfall", 700_000_000);
-        this.log("luck", "年末ジャンボ宝くじで1等が当たった。", 700_000_000, true);
+      this.spend("fun", this.y(30_000));
+      if (r.chance(this.D.ev.lotteryJackpotOdds * 10)) {
+        this.addIncome("windfall", this.y(700_000_000));
+        this.log("luck", this.D.isJapan ? "年末ジャンボ宝くじで1等が当たった。" : "宝くじの1等が当たった。", this.y(700_000_000), true);
       } else if (r.chance(10 / 1_000_000)) {
-        this.addIncome("windfall", 1_000_000);
-        this.log("luck", "宝くじで100万円が当たった。", 1_000_000, true);
+        this.addIncome("windfall", this.y(1_000_000));
+        this.log("luck", `宝くじで${this.D.fmt(this.y(1_000_000), false)}が当たった。`, this.y(1_000_000), true);
       } else if (r.chance(0.02)) {
-        this.addIncome("windfall", 10_000);
-        this.log("luck", "宝くじで1万円が当たった。", 10_000);
+        this.addIncome("windfall", this.y(10_000));
+        this.log("luck", `宝くじで${this.D.fmt(this.y(10_000), false)}が当たった。`, this.y(10_000));
       }
     }
     if (a >= 22 && a < 60 && r.chance(0.0015)) {
-      const amt = r.range(3_000_000, 30_000_000);
+      const amt = r.range(this.y(3_000_000), this.y(30_000_000));
       this.addIncome("windfall", amt);
       this.log("luck", "副業で作ったものが思わぬヒットになった。", amt, true);
     }
-    const dis = D.ev.majorDisasterAnnualByRiskUnit * this.region.disasterRisk;
+    const dis = this.D.ev.majorDisasterAnnualByRiskUnit * this.region.disasterRisk;
     if (r.chance(dis)) {
       const own = this.home === "own";
-      const dmg = own ? r.range(1_500_000, 8_000_000) : r.range(200_000, 800_000);
+      const dmg = own ? r.range(this.y(1_500_000), this.y(8_000_000)) : r.range(this.y(200_000), this.y(800_000));
       this.spend("events", dmg);
       this.log("disaster", own ? "大きな地震で家が被害を受け、修理した。" : "大きな災害で家財を失った。", -dmg, true);
     }
     // 車
-    if (a >= 22 && this.school === "done" && !this.frugal && !this.welfare && r.chance((REGION_CAR[this.region.id] ?? 0.6) / 9) && a < 80) {
+    if (a >= 22 && this.school === "done" && !this.frugal && !this.welfare && r.chance(this.regionFactor(REGION_CAR, 0.35, 0.55) * Math.min(1, this.D.k * 3) / 9) && a < 80) {
       const liquid = this.cash + this.invest;
-      const used = liquid < 2_000_000;
-      const c = used ? r.range(400_000, 1_000_000) : r.range(1_500_000, 3_200_000);
+      const used = liquid < this.y(2_000_000);
+      const c = used ? r.range(this.y(400_000), this.y(1_000_000)) : r.range(this.y(1_500_000), this.y(3_200_000));
       this.spend("car", c);
       this.log("money", used ? "中古車に買い替えた。" : "車を買い替えた。", -c);
     }
     if (a >= 25 && !this.tight && !this.frugal && r.chance(0.04)) {
-      const c = r.range(150_000, 600_000);
+      const c = r.range(this.y(150_000), this.y(600_000));
       this.spend("fun", c);
       this.log("money", r.pick(["家族で海外旅行に行った。", "趣味に思い切って使った。", "家電をまとめて買い替えた。"]), -c);
     }
@@ -813,19 +913,26 @@ export class Life {
     if (a >= this.pensionStart) {
       const pen = this.pensionAnnual();
       this.addIncome("pension", pen);
-      if (a === this.pensionStart) this.log("money", `年金を受け取りはじめた（年${yen(pen)}）。`, undefined, true);
+      if (a === this.pensionStart)
+        this.log("money", pen > 0 ? `年金を受け取りはじめた（年${this.D.fmt(pen)}）。` : "年金には入っていなかった。これからは貯えと家族が頼り。", undefined, true);
     }
     if (this.partner?.alive && this.partner.age >= 65) this.addIncome("partner", this.partnerPension());
-    if (this.widowed && a >= 60) this.addIncome("pension", D.ev.pensionMonthly.kosei_avg * 12 * 0.35);
+    if (this.widowed && a >= 60 && this.D.isJapan) this.addIncome("pension", this.D.ev.pensionMonthly.kosei_avg * 12 * 0.35);
 
     // 児童手当
     const minors = this.kids.filter((k) => a - k.born < 18).length;
-    if (minors > 0) this.addIncome("windfall", minors * 12 * 12_000);
+    if (minors > 0 && this.D.isJapan) this.addIncome("windfall", minors * 12 * this.y(12_000));
 
     // 税
     const gross = (this.cur!.income.salary ?? 0) + (this.cur!.income.partner ?? 0) * 0;
     const pension = (this.cur!.income.pension ?? 0) * (a >= this.pensionStart ? 1 : 0);
-    this.spend("tax", taxOf(gross) + (this.cur!.income.partner ? taxOf(this.cur!.income.partner) : 0) + pensionTax(Math.min(pension, this.pensionAnnual() + 1)));
+    const formal = this.job === "big" || this.job === "sme" || this.job === "civil" || this.job === "retired";
+    this.spend(
+      "tax",
+      this.D.tax(gross, formal) +
+        (this.cur!.income.partner ? this.D.tax(this.cur!.income.partner, this.partner?.work === "regular") : 0) +
+        this.D.pensionTax(Math.min(pension, this.pensionAnnual() + 1)),
+    );
 
     if (!living) this.livingCosts(r);
 
@@ -862,10 +969,10 @@ export class Life {
     }
     if (this.invest > 0) {
       const world = streamRng("world", "market", this.year);
-      const m = D.ev.investmentReturn;
+      const m = this.D.ev.investmentReturn;
       const market = world.normal(m.meanAnnual, m.stdevAnnual);
       let ret = this.investStyle === "stocks" ? market * 1.25 + r.normal(-0.025, 0.12) : market;
-      if (a >= 65) ret = ret * 0.5 + D.ev.depositRate * 0.5; // 老後は守りの配分に寄せる
+      if (a >= 65) ret = ret * 0.5 + this.D.ev.depositRate * 0.5; // 老後は守りの配分に寄せる
       const g = this.invest * Math.max(-0.7, ret);
       this.invest += g;
       this.cur!.income.invest = (this.cur!.income.invest ?? 0) + g;
@@ -873,12 +980,12 @@ export class Life {
       if (ret < -0.25) this.log("money", "株価が大きく下がり、資産が目減りした。", g);
       // 65歳から少しずつ取り崩す
       if (a >= 65 && this.cash < 0) {
-        const w = Math.min(this.invest, -this.cash + 500_000);
+        const w = Math.min(this.invest, -this.cash + this.y(500_000));
         this.invest -= w;
         this.cash += w;
       }
     }
-    if (this.cash > 0) this.cash += this.cash * D.ev.depositRate;
+    if (this.cash > 0) this.cash += this.cash * this.D.ev.depositRate;
     if (this.cash < 0) {
       if (this.invest > 0) {
         const w = Math.min(this.invest, -this.cash);
@@ -892,41 +999,57 @@ export class Life {
       this.reverseMortgage = true;
       this.log("money", "家を担保にお金を借りて暮らすことにした。", undefined, true);
     }
-    if (a >= 65 && this.cash + this.invest < 0 && (this.home !== "own" || this.cash + this.invest < -this.homeValue)) {
+    // 日本以外：借りられる額には限りがあるので、一定を超えたら家族・親戚の援助で暮らす
+    const creditLimit = this.y(this.D.inst?.incomeGroup === "HIC" ? 5_000_000 : 1_500_000);
+    const overLimit = !this.D.isJapan && this.cash + this.invest < -creditLimit;
+    if ((overLimit || a >= 65) && this.cash + this.invest < 0 && (this.home !== "own" || this.cash + this.invest < -this.homeValue || overLimit)) {
       const c = this.cur!;
       const inc = (["salary", "partner", "pension", "windfall"] as IncomeCat[]).reduce((t, k) => t + (c.income[k] ?? 0), 0);
       const exp = Object.values(c.expense).reduce((t, v) => t + (v ?? 0), 0);
       const gap = exp - inc;
       if (gap > 0) {
-        if (!this.welfare) this.log("money", "貯えが尽き、生活保護を受けはじめた。", undefined, true);
+        if (!this.welfare) {
+          const text = this.D.isJapan
+            ? "貯えが尽き、生活保護を受けはじめた。"
+            : a < 65
+              ? "借金が返せなくなり、親戚に助けを求めた。しばらく援助を受けて暮らす。"
+              : this.kids.length
+                ? "貯えが尽き、子どもたちの仕送りに頼って暮らすようになった。"
+                : "貯えが尽き、親戚や地域の支えで暮らすようになった。";
+          this.log("money", text, undefined, true);
+        }
         this.welfare = true;
         this.addIncome("windfall", gap);
       }
     }
+    if (this.welfare && !this.D.isJapan && a < 65 && this.cash + this.invest > 0) {
+      this.welfare = false;
+      this.log("money", "援助を受けずに暮らせるようになった。");
+    }
     // 家計が苦しいときは節約する
     const wasFrugal = this.frugal;
-    this.frugal = this.cash + this.invest < -1_000_000 && this.school === "done";
+    this.frugal = this.cash + this.invest < -this.y(1_000_000) && this.school === "done";
     if (this.frugal && !wasFrugal) this.log("money", "家計が赤字続きになり、節約生活を始めた。");
     if (!this.frugal && wasFrugal) this.log("money", "家計が立ち直った。");
   }
 
   private livingCosts(r: Rng): void {
     const a = this.age;
-    const reg = REGION_LIVING[this.region.id] ?? 1;
-    const s = D.living.singleMonthly;
-    const share = (k: string) => (s[k] ?? 0) / Math.max(1, D.singleMonthlyTotal() - (s.housing ?? 0) - (s.education ?? 0));
+    const reg = this.regionFactor(REGION_LIVING, 1.05, 0.9);
+    const s = this.D.living.singleMonthly;
+    const share = (k: string) => (s[k] ?? 0) / Math.max(1, this.D.singleMonthlyTotal() - (s.housing ?? 0) - (s.education ?? 0));
     const fam = this.partner?.alive;
     let annual: number;
     const elderly = a >= 65 && (this.job === "retired" || this.job === "none");
     if (elderly) {
       // 家計調査の「支出」には税・社会保険料（非消費支出）が含まれるので除く。住居費も別に計上
-      annual = D.living.retiredCoupleMonthly.expense * 12 * (fam ? 1 : 0.62) * 0.8;
+      annual = this.D.living.retiredCoupleMonthly.expense * 12 * (fam ? 1 : 0.62) * 0.8;
       // 年を重ねると支出は自然に減る
       annual *= a >= 85 ? 0.82 : a >= 75 ? 0.9 : 1;
     } else if (fam) {
-      annual = D.familyMonthly(a) * 12 * 0.78;
+      annual = this.D.familyMonthly(a) * 12 * 0.78;
     } else {
-      annual = (D.singleMonthlyTotal() - (s.housing ?? 0)) * 12 * (a < 30 ? 1 : 1.08);
+      annual = (this.D.singleMonthlyTotal() - (s.housing ?? 0)) * 12 * (a < 30 ? 1 : 1.08);
     }
     // 家計は収入に合わせて調整される（家計調査の平均は平均的な所得の世帯なので、収入比で伸び縮みさせる）
     const c = this.cur!;
@@ -934,7 +1057,7 @@ export class Life {
       (["salary", "partner", "pension", "windfall"] as IncomeCat[]).reduce((t, k) => t + (c.income[k] ?? 0), 0) -
       (c.expense.tax ?? 0) +
       0.04 * Math.max(0, this.cash + this.invest);
-    const ref = elderly ? (fam ? 3_000_000 : 1_900_000) : fam ? 5_600_000 : 3_000_000;
+    const ref = elderly ? (fam ? this.y(3_000_000) : this.y(1_900_000)) : fam ? this.y(5_600_000) : this.y(3_000_000);
     const scale = Math.min(1.8, Math.max(elderly ? 0.45 : 0.6, Math.pow(Math.max(1, disp) / ref, 0.55)));
     annual *= scale;
     const kidsLiving = this.kids.filter((k) => a - k.born < 22).length;
@@ -943,32 +1066,32 @@ export class Life {
     if (this.home === "parents") annual *= 0.55;
 
     // 住まい
-    const rent = D.rentFor(this.region.id) * 12;
+    const rent = this.D.rentFor(this.region) * 12;
     if (this.home === "rent") this.spend("housing", rent * (fam || this.kids.length ? 1.5 : 1) * Math.min(1.4, Math.max(0.5, scale * scale)) * (this.frugal ? 0.85 : 1));
-    else if (this.home === "parents") this.spend("housing", 360_000);
+    else if (this.home === "parents") this.spend("housing", this.y(360_000));
     else if (this.home === "own") this.spend("housing", this.housePrice * 0.009);
 
     // 子どもの教育費
-    const e = D.living.educationCostPerChild;
+    const e = this.D.living.educationCostPerChild;
     for (const k of this.kids) {
       const ka = a - k.born;
       if (ka >= 3 && ka < 18) this.spend("kids", (k.privateSchool ? e.private_total_k_to_hs : e.public_total_k_to_hs) / 15);
       if (k.univ && ka === 18 && !k.decided) {
         k.decided = true;
         const hh = this.householdIncomeGuess();
-        if (hh < 5_000_000 && this.cash + this.invest < 4_000_000) {
+        if (hh < this.y(5_000_000) && this.cash + this.invest < this.y(4_000_000)) {
           k.loan = true;
           this.log("family", "子どもは奨学金を借りて大学に進んだ。");
         }
       }
       if (k.univ && !k.loan && ka >= 18 && ka < 22) {
-        const priv = k.privateSchool || this.rng("kidUniv" + k.born, 0).chance(D.education.privateUniversityShare);
-        this.spend("kids", (priv ? e.university_private_4y : e.university_national_4y) / 4 + (k.away ? 1_000_000 : 0));
+        const priv = k.privateSchool || this.rng("kidUniv" + k.born, 0).chance(this.D.education.privateUniversityShare);
+        this.spend("kids", (priv ? e.university_private_4y : e.university_national_4y) / 4 + (k.away ? this.y(1_000_000) : 0));
       }
     }
-    if (this.childSupport && this.kids.some((k) => a - k.born < 18)) this.spend("kids", 600_000);
-    if (this.selfStudyUntil > a) this.spend("selfEdu", 400_000);
-    if (this.keepHouseCost) this.spend("housing", 200_000);
+    if (this.childSupport && this.kids.some((k) => a - k.born < 18)) this.spend("kids", this.y(600_000));
+    if (this.selfStudyUntil > a) this.spend("selfEdu", this.y(400_000));
+    if (this.keepHouseCost) this.spend("housing", this.y(200_000));
 
     // 予算の制約：貯えが薄いときは、固定費を払った残りで暮らす（最低限の生活水準は下回らない）
     const liquid = this.cash + this.invest;
@@ -976,7 +1099,8 @@ export class Life {
       const spentSoFar = Object.entries(c.expense).reduce((t, [k, v]) => t + (k === "tax" ? 0 : v ?? 0), 0);
       const upcoming = (this.loan > 0 ? this.loanAnnual : 0) + (this.scholarship > 0 && this.school === "done" ? this.scholarshipAnnual : 0);
       const budget = disp - 0.04 * Math.max(0, liquid) - spentSoFar - upcoming + Math.max(0, liquid) * 0.3;
-      const minimum = (fam ? 1_700_000 : 1_000_000) + kidsLiving * 300_000;
+      // 最低限の暮らしの水準。所得の低い国では日本よりずっと低い
+      const minimum = ((fam ? this.y(1_700_000) : this.y(1_000_000)) + kidsLiving * this.y(300_000)) * (this.D.isJapan ? 1 : 0.45);
       const capped = Math.max(minimum * (this.home === "parents" ? 0.55 : 1), Math.min(annual, budget));
       if (capped < annual * 0.97 && !this.tight) this.log("money", "家計を切りつめて暮らすようになった。");
       this.tight = capped < annual * 0.97;
@@ -993,23 +1117,51 @@ export class Life {
   }
 
   pensionAnnual(): number {
-    const pm = D.ev.pensionMonthly;
+    const inst = this.D.inst;
+    if (inst) {
+      // 年金に入れるかどうかは、正規の仕事をどれだけ続けたかで決まりやすい
+      if (this.pensionCovered === null) {
+        const r = this.rng("pension", 0);
+        // 高所得国の公的年金は雇用形態にかかわらず広く加入する。それ以外の国は正規雇用の人が中心
+        const p =
+          inst.incomeGroup === "HIC"
+            ? inst.pensionCoverage * (this.workYears >= 10 ? 1 : 0.6)
+            : this.regularYears >= 15
+              ? Math.min(0.98, inst.pensionCoverage * 1.8 + 0.2)
+              : inst.pensionCoverage * 0.5;
+        this.pensionCovered = r.chance(p);
+      }
+      if (!this.pensionCovered) return 0;
+      const ref = this.lastRegularWage > 0 ? this.lastRegularWage : this.D.regularWage(this.sex, this.edu, 50) * 0.6;
+      const years = inst.incomeGroup === "HIC" ? this.workYears : this.regularYears;
+      return Math.max(0, ref * inst.pensionReplacementRate * Math.min(1, Math.max(0.3, years / 35)) * this.pensionMult);
+    }
+    const pm = this.D.ev.pensionMonthly;
     const basic = pm.kokumin_avg * 12 * Math.min(1, (Math.max(this.workYears, 20) + 5) / 40);
-    const kosei = (pm.kosei_avg - pm.kokumin_avg) * 12 * Math.min(1.4, this.regularYears / 38) * Math.min(1.5, Math.max(0.6, this.lastRegularWage / 5_000_000));
+    const kosei = (pm.kosei_avg - pm.kokumin_avg) * 12 * Math.min(1.4, this.regularYears / 38) * Math.min(1.5, Math.max(0.6, this.lastRegularWage / this.y(5_000_000)));
     return Math.max(0, (basic + kosei) * this.pensionMult);
   }
+  pensionCovered: boolean | null = null;
+
   partnerPension(): number {
-    const pm = D.ev.pensionMonthly;
+    const inst = this.D.inst;
+    if (inst) {
+      const p = this.partner;
+      if (!p || p.work !== "regular") return 0;
+      return this.D.regularWage(p.sex, p.edu, 55) * inst.pensionReplacementRate * 0.8;
+    }
+    const pm = this.D.ev.pensionMonthly;
     return this.partner?.work === "regular" ? pm.kosei_avg * 12 * 0.9 : pm.kokumin_avg * 12;
   }
 
   private mortality(): void {
     const a = this.age;
     if (a < 18) return; // 子ども時代の死亡は扱わない（体験として重すぎるため）
-    let q = D.qx(this.sex, a);
+    let q = this.D.qx(this.sex, a);
     q *= BAND_MORTALITY[this.band.id] ?? 1;
     q *= this.illMult;
-    if (a - this.cancerAge <= 5) q = q + 0.015; // qx には既にがん死亡が含まれるので上乗せは控えめに
+    // qx には既にがん死亡が含まれるので上乗せは控えめに。医療を受けにくい国ほど重くなる
+    if (a - this.cancerAge <= 5) q = q + Math.min(0.06, 0.015 * Math.sqrt(this.D.inst?.medicalBurden ?? 1)) * (this.earlyCheckUntil >= this.cancerAge ? 0.5 : 1);
     if (this.selfCare) q *= 1.6;
     if (a >= MAX_AGE - 1) q = 1;
     const r = this.rng("death");
@@ -1017,7 +1169,7 @@ export class Life {
       this.dead = true;
       this.deathCause = this.pickCause(r);
       this.log("death", `${a}歳で亡くなった。死因は${this.deathCause}。`, undefined, true);
-      const funeral = D.living.funeralCost;
+      const funeral = this.prepaidFuneral ? 0 : this.D.living.funeralCost;
       this.spend("events", funeral);
     }
   }
@@ -1026,7 +1178,7 @@ export class Life {
     const a = this.age;
     if (a - this.cancerAge <= 5 && r.chance(0.7)) return CAUSE_LABEL.cancer;
     const g = a < 40 ? "under40" : a < 65 ? "40to64" : "65plus";
-    const shares = D.lifetable.causeShare[g];
+    const shares = this.D.lifetable.causeShare[g];
     const keys = Object.keys(shares);
     const k = r.weighted(keys, keys.map((x) => shares[x]));
     return CAUSE_LABEL[k] ?? CAUSE_LABEL.other;
@@ -1069,43 +1221,9 @@ export class Life {
 
 // ───────────────────────── 税 ─────────────────────────
 
-export function taxOf(gross: number): number {
-  if (gross <= 0) return 0;
-  const social = Math.min(gross, 14_000_000) * 0.15;
-  const kyuyo = Math.min(1_950_000, Math.max(550_000, gross * 0.2 + 440_000));
-  const taxable = Math.max(0, gross - kyuyo - social - 480_000);
-  const brackets: [number, number][] = [
-    [1_950_000, 0.05],
-    [3_300_000, 0.1],
-    [6_950_000, 0.2],
-    [9_000_000, 0.23],
-    [18_000_000, 0.33],
-    [40_000_000, 0.4],
-    [Infinity, 0.45],
-  ];
-  let it = 0;
-  let prev = 0;
-  for (const [cap, rate] of brackets) {
-    if (taxable > prev) it += (Math.min(taxable, cap) - prev) * rate;
-    prev = cap;
-  }
-  return social + it * 1.021 + taxable * 0.1;
-}
-function pensionTax(p: number): number {
-  return Math.max(0, p - 1_100_000) * 0.1 + p * 0.06;
-}
-
-function univRateForIncome(hh: number): number {
-  const u = D.education.universityEntryByHouseholdIncome;
-  if (hh < 4_000_000) return u.under400;
-  if (hh < 6_000_000) return u["400to600"];
-  if (hh < 8_000_000) return u["600to800"];
-  if (hh < 10_000_000) return u["800to1000"];
-  return u.over1000;
-}
 function bandUnivRate(l: Life): number {
-  const mid = (l.band.min + Math.min(l.band.max, 15_000_000)) / 2;
-  return univRateForIncome(mid);
+  const mid = (l.band.min + Math.min(l.band.max, l.y(15_000_000))) / 2;
+  return l.D.univRateForIncome(mid);
 }
 
 // ───────────────────────── 選択場面 ─────────────────────────
@@ -1123,21 +1241,28 @@ export function buildChoice(l: Life, id: ChoiceId): Choice {
   switch (id) {
     case "afterJHS": {
       title = "中学卒業後の進路";
-      const noFull = r.chance(l.band.id === "low" ? 0.08 : l.band.id === "lower_mid" ? 0.03 : 0.008);
+      const jp = l.D.isJapan;
+      // 日本は家庭の年収帯から、他の国は中等教育の就学率と家庭の豊かさから「進学できない」確率を決める
+      const bandF = [2, 1.4, 1, 0.5, 0.2][l.bandIdx] ?? 1;
+      const pNoFull = jp
+        ? l.band.id === "low" ? 0.08 : l.band.id === "lower_mid" ? 0.03 : 0.008
+        : Math.min(0.92, (1 - l.D.education.highSchoolEntryRate) * bandF);
+      const noFull = r.chance(pNoFull);
       if (noFull) {
-        situation = "家計が苦しく、全日制の高校に通わせる余裕がないと親に言われた。";
+        situation = jp ? "家計が苦しく、全日制の高校に通わせる余裕がないと親に言われた。" : "家計が苦しく、上の学校に通わせる余裕はないと親に言われた。";
         options.push(
-          opt("night", "定時制高校に通いながら働く", "高卒資格を目指せる。働く分、中退しやすい。"),
-          opt("work", "就職する", "早くから稼げる。ただし中卒の給料は伸びにくい。"),
+          opt("night", jp ? "定時制高校に通いながら働く" : "働きながら夜間の学校に通う", "卒業資格を目指せる。働く分、中退しやすい。"),
+          opt("work", jp ? "就職する" : "働きに出る", "早くから稼げる。ただし学歴が低いと給料は伸びにくい。"),
         );
+        if (!jp && !l.region.urban) options.push(opt("farm", "家の農作業を手伝う", "家族と一緒にいられる。現金収入は少ない。"));
       } else {
         situation = `成績はクラスで${l.aptitude > 0.7 ? "上のほう" : l.aptitude > 0.4 ? "真ん中くらい" : "下のほう"}。`;
-        options.push(opt("public", "公立高校へ", "学費は安い。進路は自分次第。"));
+        options.push(opt("public", jp ? "公立高校へ" : "公立の高校へ", "学費は安い。進路は自分次第。"));
         if (!low || r.chance(0.35))
           options.push(opt("private", "私立高校へ", low ? "特待生の話がある。家計の負担は残り、事情で中退するリスクも。" : "大学進学には有利。学費は親の負担に。"));
         options.push(
-          opt("kosen", "高専へ（5年制）", "技術職の就職に強い。進路が早く固まり、向き不向きが出やすい。"),
-          opt("work", "就職する", "早く稼げて自立できる。給料の伸びは小さい。"),
+          opt("kosen", jp ? "高専へ（5年制）" : "職業技術学校へ（5年制）", "技術職の就職に強い。進路が早く固まり、向き不向きが出やすい。"),
+          opt("work", jp ? "就職する" : "働きに出る", "早く稼げて自立できる。給料の伸びは小さい。"),
         );
         if (low && !options.some((o) => o.id === "private")) situation += "私立に行く余裕はない。";
       }
@@ -1164,7 +1289,7 @@ export function buildChoice(l: Life, id: ChoiceId): Choice {
         break;
       }
       title = "高校卒業後の進路";
-      const pUniv = bandUnivRate(l) / Math.max(0.01, D.education.universityEntryByHouseholdIncome.over1000);
+      const pUniv = bandUnivRate(l) / Math.max(0.01, l.D.education.universityEntryByHouseholdIncome.over1000);
       const noSupport = r.chance(Math.max(0.03, 0.85 - pUniv * 0.85));
       if (noSupport) {
         situation = "親からは「学費は出せない」と言われた。";
@@ -1207,7 +1332,7 @@ export function buildChoice(l: Life, id: ChoiceId): Choice {
     }
     case "invest": {
       title = "投資を始めるか";
-      situation = `${a}歳。貯金は${yen(Math.max(0, l.cash))}。周りでNISAの話を聞くようになった。`;
+      situation = `${a}歳。貯金は${l.D.fmt(Math.max(0, l.cash))}。${l.D.isJapan ? "周りでNISAの話を聞くようになった。" : "周りで投資の話を聞くようになった。"}`;
       options.push(
         opt("index", "毎月コツコツ積立投資", "長く続ければ増えやすい。暴落の年は資産が目減りする。"),
         opt("stocks", "個別株で攻める", "大きく増えることも、大きく減ることもある。"),
@@ -1227,7 +1352,7 @@ export function buildChoice(l: Life, id: ChoiceId): Choice {
         );
         if (l.parents.some((x) => x.alive)) options.push(opt("withParents", "親と二世帯で住む", "住居費が浮き、子育ての手も借りられる。気をつかう暮らし。"));
       } else {
-        const met = r.chance(0.32 * l.marriageHazard(a) / Math.max(0.01, D.ev.marriageByAge["30s"]));
+        const met = r.chance(0.32 * l.marriageHazard(a) / Math.max(0.01, l.D.ev.marriageByAge["30s"]));
         if (met) {
           situation = "付き合っている人から、将来の話をされた。";
           options.push(
@@ -1251,7 +1376,7 @@ export function buildChoice(l: Life, id: ChoiceId): Choice {
       title = "転職・独立";
       const j = l.job;
       if (j === "big" || j === "sme" || j === "civil") {
-        situation = `${a}歳、${jobLabel(j)}${l.manager ? "の管理職" : ""}。年収は${yen(l.salaryOf(a))}ほど。`;
+        situation = `${a}歳、${jobLabel(j)}${l.manager ? "の管理職" : ""}。年収は${l.D.fmt(l.salaryOf(a))}ほど。`;
         options.push(
           opt("stay", "今の職場に残る", "昇進のチャンスはある。会社の都合に振り回されることも。"),
           opt("change", "転職する", "給料が上がるかもしれないし、下がるかもしれない。"),
@@ -1300,7 +1425,9 @@ export function buildChoice(l: Life, id: ChoiceId): Choice {
     case "retire": {
       title = "退職の時期";
       const working = l.job !== "none" && l.job !== "retired";
-      situation = working ? `${a}歳。会社員なら定年の年。貯えは${yen(l.balance)}。` : `${a}歳。貯えは${yen(l.balance)}。年金は65歳から。`;
+      situation = working
+        ? `${a}歳。会社員なら定年の年。貯えは${l.D.fmt(l.balance)}。`
+        : `${a}歳。貯えは${l.D.fmt(l.balance)}。${l.D.isJapan ? "年金は65歳から。" : ""}`;
       if (working) {
         options.push(
           opt("r60", "60歳で引退する", "自由な時間が増える。年金まで5年は貯えで暮らす。"),
@@ -1391,7 +1518,7 @@ function applyChoice(l: Life, id: ChoiceId, o: string, r: Rng): void {
       if (o === "univ_loan") {
         l.school = "univ_work";
         l.schoolEnd = a + 4;
-        l.privateUni = r.chance(D.education.privateUniversityShare);
+        l.privateUni = r.chance(l.D.education.privateUniversityShare);
         l.logPre("school", `奨学金を借りて${l.privateUni ? "私立" : "国公立"}大学に入学した。`);
         break;
       }
@@ -1399,8 +1526,8 @@ function applyChoice(l: Life, id: ChoiceId, o: string, r: Rng): void {
         l.school = "vocational";
         l.schoolEnd = a + 2;
         if (o === "voc_loan") {
-          l.scholarship += 2_200_000;
-          l.scholarshipAnnual = 2_200_000 / 12;
+          l.scholarship += l.y(2_200_000);
+          l.scholarshipAnnual = l.y(2_200_000) / 12;
         }
         l.logPre("school", "専門学校に入学した。");
         break;
@@ -1467,10 +1594,10 @@ function applyChoice(l: Life, id: ChoiceId, o: string, r: Rng): void {
       break;
     case "marriageHome": {
       const buy = (single: boolean) => {
-        const nat = D.living.housePriceNewBuilt.national;
-        const base = l.region.id === "tokyo" ? D.living.housePriceNewBuilt.tokyo : nat * (REGION_HOUSE[l.region.id] ?? 0.7) / 0.85;
+        const nat = l.D.living.housePriceNewBuilt.national;
+        const base = l.region.id === "tokyo" ? l.D.living.housePriceNewBuilt.tokyo : nat * l.regionFactor(REGION_HOUSE, l.region.wageIndex, l.region.wageIndex * 0.7) / 0.85;
         // 銀行が貸すのは年収の7倍程度まで。手が届く範囲の物件を選ぶ
-        const hh = Math.max(2_500_000, l.householdIncomeGuess());
+        const hh = Math.max(l.y(2_500_000), l.householdIncomeGuess());
         const price = Math.min(base * (single ? 0.6 : 1) * r.range(0.85, 1.15), hh * 7 + Math.max(0, l.cash) * 0.6);
         const down = Math.max(0, Math.min(l.cash * 0.6, price * 0.1));
         l.spend("housing", down);
@@ -1480,7 +1607,7 @@ function applyChoice(l: Life, id: ChoiceId, o: string, r: Rng): void {
         const i = 0.012;
         l.loanAnnual = (l.loan * i) / (1 - Math.pow(1 + i, -35));
         l.home = "own";
-        l.logPre("money", `${single ? "マンション" : "家"}を${yen(price)}で買った。35年ローンを組んだ。`, -down, true);
+        l.logPre("money", `${single ? "マンション" : "家"}を${l.D.fmt(price)}で買った。35年ローンを組んだ。`, -down, true);
       };
       if (o === "buy") buy(false);
       else if (o === "rent") l.home = "rent";
@@ -1496,10 +1623,10 @@ function applyChoice(l: Life, id: ChoiceId, o: string, r: Rng): void {
         l.noMarry = true;
         if (l.home === "parents") l.home = "rent";
       } else if (o === "konkatsu") {
-        l.spend("events", 300_000);
+        l.spend("events", l.y(300_000));
         l.marriageBoost = 2.5;
         l.marriageBoostUntil = a + 10;
-        l.logPre("life", "婚活サービスに登録した。", -300_000);
+        l.logPre("life", "婚活サービスに登録した。", -l.y(300_000));
       } else if (o === "condo") {
         l.noMarry = r.chance(0.7);
         buy(true);
@@ -1520,7 +1647,7 @@ function applyChoice(l: Life, id: ChoiceId, o: string, r: Rng): void {
         l.job = "founder";
         l.founderYear = a;
         l.careerMult = Math.exp(r.normal(-0.15, 0.4));
-        const seedMoney = o === "expand" ? 3_000_000 : 2_000_000;
+        const seedMoney = o === "expand" ? l.y(3_000_000) : l.y(2_000_000);
         l.spend("other", seedMoney);
         l.logPre("work", o === "expand" ? "人を雇って事業を広げた。" : "会社を立ち上げた。", -seedMoney, true);
       } else if (o === "seekRegular") {
@@ -1547,11 +1674,11 @@ function applyChoice(l: Life, id: ChoiceId, o: string, r: Rng): void {
     }
     case "parentCare": {
       if (o === "sellHouse") {
-        const v = l.region.id === "tokyo" ? r.range(10_000_000, 40_000_000) : l.region.id === "rural" ? (r.chance(0.4) ? 0 : r.range(1_000_000, 6_000_000)) : r.range(3_000_000, 15_000_000);
+        const v = l.region.id === "tokyo" ? r.range(l.y(10_000_000), l.y(40_000_000)) : l.region.id === "rural" ? (r.chance(0.4) ? 0 : r.range(l.y(1_000_000), l.y(6_000_000))) : r.range(l.y(3_000_000), l.y(15_000_000));
         const share = v / (l.siblings + 1);
         l.addIncome("windfall", share);
-        l.logPre("money", v > 0 ? `実家を売った。手元に${yen(share)}。` : "実家は買い手がつかず、解体費だけかかった。", v > 0 ? share : -1_500_000, true);
-        if (v === 0) l.spend("housing", 1_500_000);
+        l.logPre("money", v > 0 ? `実家を売った。手元に${l.D.fmt(share)}。` : "実家は買い手がつかず、解体費だけかかった。", v > 0 ? share : -l.y(1_500_000), true);
+        if (v === 0) l.spend("housing", l.y(1_500_000));
       } else if (o === "keepHouse") {
         l.keepHouseCost = true;
       } else if (o === "moveIn") {
@@ -1612,8 +1739,8 @@ function applyChoice(l: Life, id: ChoiceId, o: string, r: Rng): void {
 // ───────────────────────── 再生・自動プレイ ─────────────────────────
 
 /** シードと選択の並びから人生を最後まで再現する */
-export function replay(seed: string, picks: string[]): Life {
-  const l = new Life(seed);
+export function replay(seed: string, picks: string[], country: CountryData = JAPAN, mode = "j"): Life {
+  const l = new Life(seed, country, mode);
   let i = 0;
   let guard = 0;
   while (!l.dead && guard++ < 500) {
@@ -1629,12 +1756,12 @@ export function replay(seed: string, picks: string[]): Life {
 }
 
 /** 選択をランダムに（決定的に）行う自動プレイ。同い年の比較用 */
-export function autoplay(seed: string): Life {
-  const l = new Life(seed);
+export function autoplay(seed: string, country: CountryData = JAPAN, mode = "j"): Life {
+  const l = new Life(seed, country, mode);
   let guard = 0;
   while (!l.dead && guard++ < 500) {
     if (l.pending) {
-      const r = new Rng(hashStr(seed + "|auto|" + l.pending.id));
+      const r = new Rng(hashStr(`${seed}|auto|${l.pending.id}|${l.age}`));
       l.choose(r.pick(l.pending.options).id);
       continue;
     }
@@ -1643,21 +1770,23 @@ export function autoplay(seed: string): Life {
   return l;
 }
 
-let cohortCache: { income: number[]; balance: number[] } | null = null;
-/** 同い年の比較集団（固定シード）。誰が遊んでも同じ集団と比べる */
-export function cohort(n = 400): { income: number[]; balance: number[] } {
-  if (cohortCache) return cohortCache;
+const cohortCache = new Map<string, { income: number[]; balance: number[] }>();
+/** 同じ国・同い年の比較集団（固定シード）。誰が遊んでも同じ集団と比べる */
+export function cohort(country: CountryData = JAPAN, n = 300): { income: number[]; balance: number[] } {
+  const hit = cohortCache.get(country.iso3);
+  if (hit) return hit;
   const income: number[] = [];
   const balance: number[] = [];
   for (let i = 0; i < n; i++) {
-    const s = autoplay(`cohort-${BIRTH_YEAR}-${i}`).summary();
+    const s = autoplay(`cohort-${BIRTH_YEAR}-${country.iso3}-${i}`, country).summary();
     income.push(s.lifetimeIncome);
     balance.push(s.finalBalance);
   }
   income.sort((a, b) => a - b);
   balance.sort((a, b) => a - b);
-  cohortCache = { income, balance };
-  return cohortCache;
+  const c = { income, balance };
+  cohortCache.set(country.iso3, c);
+  return c;
 }
 
 /** 上位何％か（0〜1、小さいほど上位） */

@@ -2,10 +2,11 @@
 // URLには「シード」と「各選択場面で何番目を選んだか」だけを入れる。
 // エンジンは決定的なので、これだけで人生をまるごと再現できる（サーバー不要）。
 import { Life, cohort, rankOf, BIRTH_YEAR, yen } from "./sim";
+import { pickCountry, type Mode } from "./world";
 import { streamRng } from "./rng";
 import { EXPENSE_LABEL, type ExpenseCat, type LifeEvent } from "./types";
 
-export const CODEC_VERSION = "1";
+export const CODEC_VERSION = "2";
 
 export interface ReceiptItem {
   label: string;
@@ -26,6 +27,9 @@ export interface ReceiptData {
   rankBalance: number;
   cohortSize: number;
   stamp: { text: string; tone: "red" | "blue" | "green" | "gold" | "gray" };
+  /** 表示する通貨（日本は円） */
+  currency: { code: string; nameJa: string; symbol: string; jpyPerUnit: number };
+  countryName: string;
   deathLine: string;
   closing: string;
 }
@@ -35,19 +39,25 @@ export function picksOf(l: Life): number[] {
   return l.choiceLog.map((c) => c.pickIndex ?? 0);
 }
 
+// 版2：`2.<モード j|m|w>.<シード>.<選んだ番号の並び>`。国はモードとシードから決まる
 export function encodeResult(l: Life): string {
-  return `${CODEC_VERSION}.${l.seed}.${picksOf(l).join("")}`;
+  return `${CODEC_VERSION}.${l.mode}.${l.seed}.${picksOf(l).join("")}`;
 }
 
-export function decodeResult(code: string): { seed: string; picks: number[] } | null {
-  const m = /^(\d+)\.([a-z0-9-]{1,40})\.([0-9]{0,16})$/.exec(code.trim());
+export function decodeResult(code: string): { mode: Mode; seed: string; picks: number[] } | null {
+  const m = /^(\d+)\.([jmw])\.([a-z0-9-]{1,40})\.([0-9]{0,120})$/.exec(code.trim());
   if (!m || m[1] !== CODEC_VERSION) return null;
-  return { seed: m[2], picks: [...m[3]].map(Number) };
+  return { mode: m[2] as Mode, seed: m[3], picks: [...m[4]].map(Number) };
+}
+
+/** 生まれる前の人生を作る（モードから国が決まる） */
+export function newLife(seed: string, mode: Mode): Life {
+  return new Life(seed, pickCountry(seed, mode), mode);
 }
 
 /** 番号の並びから人生を再現 */
-export function replayByIndex(seed: string, picks: number[]): Life {
-  const l = new Life(seed);
+export function replayByIndex(seed: string, picks: number[], mode: Mode = "j"): Life {
+  const l = newLife(seed, mode);
   let i = 0;
   let guard = 0;
   while (!l.dead && guard++ < 500) {
@@ -72,7 +82,9 @@ function dateOf(seed: string, year: number, stream: string): string {
   return `${year}年${m}月${d}日`;
 }
 
-export function stampOf(balance: number): ReceiptData["stamp"] {
+/** はんこ。基準額は円で決め、その国のお金の規模（k）に合わせる */
+export function stampOf(balance: number, k = 1): ReceiptData["stamp"] {
+  balance /= k;
   if (balance < -3_000_000) return { text: "赤字閉店", tone: "gray" };
   // ほぼ使い切って終わった（少しの借りは公的扶助や遺品整理で精算される範囲）
   if (balance < 5_000_000) return { text: "人生完済", tone: "red" };
@@ -100,7 +112,7 @@ function memoFor(l: Life, cat: ExpenseCat, amount: number): string {
     case "utilities":
       return "電気・ガス・水道";
     case "car":
-      return l.region.id === "tokyo" ? "電車とスマホ代" : "車は暮らしの足";
+      return l.region.id === "tokyo" || (!l.D.isJapan && l.region.urban) ? "電車・バスとスマホ代" : "車は暮らしの足";
     case "medical":
       return has("がん") ? "がん治療を含む" : has("入院") ? "入院も経験した" : "通院と薬";
     case "care":
@@ -120,7 +132,7 @@ function memoFor(l: Life, cat: ExpenseCat, amount: number): string {
 
 export function buildReceipt(l: Life): ReceiptData {
   const s = l.summary();
-  const c = cohort();
+  const c = cohort(l.D);
   const order: ExpenseCat[] = ["housing", "food", "tax", "kids", "car", "fun", "other", "utilities", "medical", "care", "selfEdu", "events"];
   const items: ReceiptItem[] = order
     .map((k) => ({ label: EXPENSE_LABEL[k], amount: Math.round(s.expenseTotal[k] ?? 0), memo: memoFor(l, k, s.expenseTotal[k] ?? 0) }))
@@ -140,7 +152,9 @@ export function buildReceipt(l: Life): ReceiptData {
     receiptNo: s.seed.toUpperCase(),
     visitDate: dateOf(s.seed, s.birthYear, "visit"),
     closeDate: dateOf(s.seed, s.birthYear + s.deathAge, "close"),
-    customer: `${s.regionLabel}生まれ・${sexWord}・家庭${s.familyBandLabel.replace("年収", "")}`,
+    customer: l.D.isJapan
+      ? `${s.regionLabel}生まれ・${sexWord}・家庭${s.familyBandLabel.replace("年収", "")}`
+      : `${l.D.nameJa}・${s.regionLabel}生まれ・${sexWord}・${s.familyBandLabel.replace(/（.*$/, "")}`,
     items,
     subtotal,
     deposit: Math.round(s.lifetimeIncome + inv),
@@ -149,7 +163,9 @@ export function buildReceipt(l: Life): ReceiptData {
     rankIncome: rankOf(c.income, s.lifetimeIncome),
     rankBalance: rankOf(c.balance, s.finalBalance),
     cohortSize: c.income.length,
-    stamp: stampOf(s.finalBalance),
+    stamp: stampOf(s.finalBalance, l.D.k),
+    currency: l.D.currency,
+    countryName: l.D.nameJa,
     deathLine: `${s.deathAge}歳で閉店（${s.deathCause}）`,
     closing: "またのご来店は、ございません。",
   };

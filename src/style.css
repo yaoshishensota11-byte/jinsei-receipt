@@ -495,3 +495,69 @@ button {
 [hidden] {
   display: none !important;
 }
+
+/* ── 生まれる場所のモード ── */
+.modes {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.modes-h {
+  font-size: 14px;
+  font-weight: 700;
+  margin: 4px 2px 2px;
+}
+.mode {
+  text-align: left;
+  border: 1.5px solid var(--ink);
+  background: var(--paper);
+  border-radius: 12px;
+  padding: 14px 16px;
+  cursor: pointer;
+}
+.mode b {
+  display: block;
+  font-size: 17px;
+  margin-bottom: 3px;
+}
+.mode span {
+  font-size: 13px;
+  color: var(--sub);
+  line-height: 1.6;
+}
+.mode:active {
+  background: var(--bg);
+}
+.birth .fact {
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--sub);
+  margin: 6px 2px 0;
+}
+.birth .slot {
+  gap: 12px;
+}
+.birth .slot span:first-child {
+  flex: none;
+  white-space: nowrap;
+}
+.birth .slot b {
+  text-align: right;
+  min-width: 0;
+  font-size: 17px;
+  line-height: 1.5;
+}
+.hud .money b small {
+  display: block;
+  font-size: 10px;
+  font-weight: 400;
+  color: var(--sub);
+}
+
+/* 小さな選択は、大きな分かれ道より軽い見た目にする */
+.sheet.small .tag {
+  color: var(--sub);
+}
+.sheet.small h2 {
+  font-size: 18px;
+}

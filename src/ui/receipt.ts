@@ -18,10 +18,16 @@ const TONE: Record<ReceiptData["stamp"]["tone"], string> = {
   gray: "#666",
 };
 
-/** ¥12,345,678 形式。負は -¥ */
-export function yenFull(n: number): string {
+/** ¥12,345,678 形式。負は -¥。他の国は現地の通貨記号で表示する */
+export function yenFull(n: number, symbol = "¥"): string {
   const r = Math.round(n);
-  return `${r < 0 ? "-" : ""}¥${Math.abs(r).toLocaleString("ja-JP")}`;
+  return `${r < 0 ? "-" : ""}${symbol}${Math.abs(r).toLocaleString("ja-JP")}`;
+}
+/** 円に直した目安（万円単位） */
+function approxYen(n: number): string {
+  const a = Math.abs(n);
+  const v = a >= 1e8 ? `${(a / 1e8).toFixed(2)}億円` : a >= 1e4 ? `${Math.round(a / 1e4).toLocaleString("ja-JP")}万円` : `${Math.round(a).toLocaleString("ja-JP")}円`;
+  return `約${n < 0 ? "-" : ""}${v}`;
 }
 
 function hash(s: string): number {
@@ -225,8 +231,11 @@ function layout(p: Pen, d: ReceiptData): void {
     text(p, v, PAD + 62, 13, { maxW: W - PAD * 2 - 62 });
   }
   rule(p);
+  const jp = d.currency.code === "JPY";
+  const sym = jp ? "¥" : d.currency.symbol || d.currency.code + " ";
+  const money = (n: number) => yenFull(n, sym);
   for (const it of d.items) {
-    row(p, it.label, yenFull(it.amount), 15);
+    row(p, it.label, money(it.amount), 15);
     if (it.memo && it.memo !== "—") {
       p.y += 16;
       text(p, "　└ " + it.memo, PAD, 11, { color: GRAY, maxW: W - PAD * 2 });
@@ -234,24 +243,29 @@ function layout(p: Pen, d: ReceiptData): void {
     p.y += 3;
   }
   rule(p, "solid");
-  row(p, "小計", yenFull(d.subtotal), 16, { bold: true });
+  row(p, "小計", money(d.subtotal), 16, { bold: true });
   p.y += 6;
-  row(p, "お預かり", yenFull(d.deposit), 16, { bold: true });
+  row(p, "お預かり", money(d.deposit), 16, { bold: true });
   for (const l of d.depositLines) {
     p.y += 16;
     if (p.draw) {
       text(p, "　" + l.label, PAD + 8, 11, { color: GRAY });
-      text(p, yenFull(l.amount), W - PAD, 11, { color: GRAY, align: "right" });
+      text(p, money(l.amount), W - PAD, 11, { color: GRAY, align: "right" });
     }
   }
   rule(p, "double");
   p.y += 4;
   p.changeY = p.y + 18;
-  row(p, "お釣り", yenFull(d.change), 26, { bold: true, rightColor: d.change < 0 ? RED_INK : INK });
-  p.y += 64; // はんこの置き場
+  row(p, "お釣り", money(d.change), 26, { bold: true, rightColor: d.change < 0 ? RED_INK : INK });
+  if (!jp) {
+    p.y += 20;
+    // はんこと重ならないよう左に寄せる
+    text(p, `${approxYen(d.change * d.currency.jpyPerUnit)}（今日の為替で換算）`, PAD, 11, { color: GRAY });
+    p.y += 44;
+  } else p.y += 64; // はんこの置き場
   rule(p);
   p.y += 22;
-  text(p, `同い年${d.cohortSize}人の中で`, PAD, 13, { color: GRAY });
+  text(p, jp ? `同い年${d.cohortSize}人の中で` : `${d.countryName}の同い年${d.cohortSize}人の中で`, PAD, 13, { color: GRAY });
   rankBar(p, "生涯収入", d.rankIncome);
   rankBar(p, "お釣り", d.rankBalance);
   p.y += 10;

@@ -1,11 +1,14 @@
-import { Life, yen, jobLabel, cohort } from "./engine/sim";
+import { Life, jobLabel, cohort } from "./engine/sim";
 import { randomSeed, Rng, hashStr } from "./engine/rng";
-import { buildReceipt, detailUrl, shareIntentUrl } from "./engine/result";
+import { buildReceipt, detailUrl, shareIntentUrl, newLife } from "./engine/result";
+import { COUNTRIES, worldCountry, type Mode } from "./engine/world";
 import type { Choice, LifeEvent, YearRecord } from "./engine/types";
 import { drawReceipt, downloadReceipt } from "./ui/receipt";
 
-// 等倍で1年10秒 → 平均寿命まで約14分。選択場面を含めて約20分。
-const YEAR_MS = 10_000;
+// 1年の長さは出来事の数で変える。何も起きない年はすぐ過ぎ、出来事の多い年はじっくり見せる。
+// 選択（大きな8回＋小さな選択）を含めて、等倍で1プレイ約10分。
+const QUIET_YEAR_MS = 1_200;
+const yearMsFor = (events: number) => (events === 0 ? QUIET_YEAR_MS : Math.min(6_000, 2_200 + 900 * events));
 const SPEEDS = [1, 2, 3, 4, 5] as const;
 
 const params = new URLSearchParams(location.search);
@@ -22,6 +25,8 @@ const h = (html: string) => {
 };
 const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]!);
 
+const yenShort = (n: number) => (Math.abs(n) >= 1e4 ? `${Math.round(n / 1e4).toLocaleString("ja-JP")}万円` : `${Math.round(n).toLocaleString("ja-JP")}円`);
+
 // ───────────────────────── タイトル ─────────────────────────
 
 function showTitle(): void {
@@ -32,34 +37,48 @@ function showTitle(): void {
         <div class="en">LIFE STORE RECEIPT</div>
         <h1>人生のレシート</h1>
         <div class="dash"></div>
-        <p>あなたは今年、日本のどこかで生まれる赤ちゃん。<br>住む地域と家庭の年収は、生まれるまで分かりません。</p>
-        <p>1年ずつ進む一生のなかで、8回だけ道を選べます。最後に、人生のお会計をどうぞ。</p>
+        <p>あなたは今年生まれる赤ちゃん。<br>どこの国のどんな家庭に生まれるかは、生まれるまで分かりません。</p>
+        <p>大きな分かれ道が8回と、日々の小さな選択がいくつも。最後に、人生のお会計をどうぞ。</p>
         <div class="dash"></div>
-        <div class="meta">所要時間 約20分（倍速で短縮できます）<br>賃金・家計・寿命・進学などは公的統計がもと</div>
+        <div class="meta">所要時間 約10分（倍速で短縮できます）<br>賃金・家計・寿命・進学などは公的統計がもと</div>
       </div>
-      <button class="btn" id="start">生まれる</button>
+      <div class="modes">
+        <div class="modes-h">どこに生まれますか？</div>
+        <button class="mode" data-mode="j"><b>日本で生まれる</b><span>日本の地域・家庭のどこかに生まれる。</span></button>
+        <button class="mode" data-mode="m"><b>主要20か国のどこかで</b><span>日本・米国・インド・ナイジェリア・ドイツなど20か国から、どこになるかは運しだい。</span></button>
+        <button class="mode" data-mode="w"><b>世界のどこかで</b><span>実際の出生数の割合で生まれる国が決まる。いちばん現実に近い。</span></button>
+      </div>
     </div>`),
   );
-  document.getElementById("start")!.onclick = () => showBirth(params.get("seed") || randomSeed());
+  app.querySelectorAll<HTMLElement>(".mode").forEach(
+    (b) => (b.onclick = () => showBirth(params.get("seed") || randomSeed(), b.dataset.mode as Mode)),
+  );
+  if (AUTO) showBirth(params.get("seed") || randomSeed(), (params.get("mode") as Mode) || "j");
 }
 
 // ───────────────────────── 誕生 ─────────────────────────
 
-function showBirth(seed: string): void {
-  const life = new Life(seed);
+function showBirth(seed: string, mode: Mode): void {
+  const life = newLife(seed, mode);
   const sexWord = life.sex === "male" ? "男の子" : "女の子";
+  const u5 = worldCountry(life.D.iso3)?.under5MortalityPer1000;
+  // 子どもの死亡はゲームでは起こさないが、その国の現実として一文だけ伝える
+  const fact = u5 ? `この国では、子どもの約${Math.max(2, Math.round(1000 / u5)).toLocaleString("ja-JP")}人に1人が5歳を迎えられません。` : "";
+  const where = life.region.urban === false && !life.region.label.includes("農村") ? "（農村部）" : "";
   const el = h(`<div class="birth">
     <h2>${life.birthYear}年、あなたが生まれます</h2>
-    <div class="slot"><span>住む地域</span><b class="spin" data-v="${esc(life.region.label)}">…</b></div>
-    <div class="slot"><span>家庭の年収</span><b class="spin" data-v="${esc(life.band.label)}">…</b></div>
+    ${mode === "j" ? "" : `<div class="slot"><span>国</span><b class="spin" data-v="${esc(life.D.nameJa)}">…</b></div>`}
+    <div class="slot"><span>生まれた場所</span><b class="spin" data-v="${esc(life.region.label + where)}">…</b></div>
+    <div class="slot"><span>${mode === "j" ? "家庭の年収" : "家庭"}</span><b class="spin" data-v="${esc(life.band.label)}">…</b></div>
     <div class="slot"><span>性別</span><b class="spin" data-v="${sexWord}">…</b></div>
     <div class="slot"><span>きょうだい</span><b class="spin" data-v="${life.siblings ? life.siblings + "人" : "ひとりっ子"}">…</b></div>
+    <p class="fact" style="visibility:hidden">${esc(fact)}</p>
     <button class="btn" id="go" style="visibility:hidden;margin-top:10px">人生をはじめる</button>
   </div>`);
   app.innerHTML = "";
   app.append(el);
   const slots = [...el.querySelectorAll<HTMLElement>("b.spin")];
-  const pool = ["東京圏", "大阪圏", "地方の町", "300〜500万円", "1200万円以上", "名古屋圏", "地方中核都市", "500〜800万円"];
+  const pool = mode === "j" ? ["東京圏", "大阪圏", "地方の町", "名古屋圏", "地方中核都市", "300〜500万円", "1200万円以上"] : COUNTRIES.slice(0, 40).map((c) => c.nameJa);
   let tick = 0;
   const r = new Rng(hashStr(seed + "spin"));
   const step = 500 / TURBO;
@@ -75,6 +94,7 @@ function showBirth(seed: string): void {
       clearInterval(iv);
       const go = el.querySelector<HTMLElement>("#go")!;
       go.style.visibility = "visible";
+      el.querySelector<HTMLElement>(".fact")!.style.visibility = "visible";
       go.onclick = () => startGame(life);
       if (AUTO) setTimeout(() => startGame(life), 200);
     }
@@ -87,6 +107,14 @@ class Game {
   speed = 1; // 0 = 一時停止
   lastSpeed = 1;
   private yearT = 0; // 今の年の経過ms
+  private yearMs = QUIET_YEAR_MS; // 今の年の長さms
+  /** 等倍での自動進行の合計時間（テストでプレイ時間の目安を出すため） */
+  autoMs = 0;
+  /** 等倍で遊んだときの目安（選択は大きな分かれ道20秒・小さな選択6秒と見込む） */
+  get playMs(): number {
+    const micro = this.life.choiceLog.filter((c) => c.id.startsWith("micro:")).length;
+    return this.autoMs + (this.life.choiceLog.length - micro) * 20_000 + micro * 6_000;
+  }
   private current: YearRecord | null = null;
   private shown = 0;
   private raf = 0;
@@ -138,7 +166,7 @@ class Game {
     this.raf = requestAnimationFrame(this.loop);
     // 比較集団の計算は、余裕のあるときに済ませておく
     const idle = (window as unknown as { requestIdleCallback?: (f: () => void) => void }).requestIdleCallback ?? ((f: () => void) => setTimeout(f, 1500));
-    idle(() => cohort());
+    idle(() => cohort(this.life.D));
   }
 
   setSpeed(s: number): void {
@@ -170,17 +198,19 @@ class Game {
       this.current = rec;
       this.shown = 0;
       this.yearT = 0;
+      this.yearMs = yearMsFor(rec.events.length);
+      this.autoMs += this.yearMs;
       this.renderHud();
     }
     this.yearT += ms;
     const rec = this.current;
     const n = rec.events.length;
     // その年の出来事を、1年の中で順番に見せる
-    while (this.shown < n && this.yearT >= ((this.shown + 0.5) / Math.max(n, 1)) * YEAR_MS * 0.8) {
+    while (this.shown < n && this.yearT >= ((this.shown + 0.5) / Math.max(n, 1)) * this.yearMs * 0.8) {
       this.pushEvent(rec.events[this.shown++]);
     }
-    (this.hud.querySelector("#prog") as HTMLElement).style.width = `${Math.min(100, (this.yearT / YEAR_MS) * 100)}%`;
-    if (this.yearT >= YEAR_MS) {
+    (this.hud.querySelector("#prog") as HTMLElement).style.width = `${Math.min(100, (this.yearT / this.yearMs) * 100)}%`;
+    if (this.yearT >= this.yearMs) {
       while (this.shown < n) this.pushEvent(rec.events[this.shown++]);
       this.current = null;
       if (this.life.dead) this.finish();
@@ -200,16 +230,16 @@ class Game {
     const home = l.home === "own" ? "・持ち家" : l.home === "rent" ? "・賃貸" : "・実家";
     q("status").textContent = `${status}${fam}${kids}${home}`;
     const bal = rec ? rec.balance : l.balance;
-    q("bal").textContent = yen(bal);
+    q("bal").innerHTML = `${esc(l.D.fmt(bal, false))}${l.D.isJapan ? "" : `<small>約${esc(yenShort(l.D.toJpy(bal)))}</small>`}`;
     q("bal").className = bal < 0 ? "minus" : "";
     const inc = rec ? Object.entries(rec.income).reduce((t, [k, v]) => t + (k === "invest" ? 0 : v ?? 0), 0) : 0;
     const exp = rec ? Object.values(rec.expense).reduce((t, v) => t + (v ?? 0), 0) : 0;
-    q("inc").textContent = yen(inc);
-    q("exp").textContent = yen(exp);
+    q("inc").textContent = l.D.fmt(inc, false);
+    q("exp").textContent = l.D.fmt(exp, false);
   }
 
   private pushEvent(e: LifeEvent): void {
-    const amt = e.amount ? `<span class="amt ${e.amount > 0 ? "plus" : "minus"}">${e.amount > 0 ? "+" : ""}${yen(e.amount)}</span>` : "";
+    const amt = e.amount ? `<span class="amt ${e.amount > 0 ? "plus" : "minus"}">${e.amount > 0 ? "+" : ""}${esc(this.life.D.fmt(e.amount))}</span>` : "";
     // 新しい出来事を上に積む。下へスクロールして過去を読んでいる間は、表示位置を動かさない
     const reading = this.feed.scrollTop > 40;
     const el = h(`<div class="ev k-${e.kind}${e.major ? " major" : ""}"><div class="a">${e.age}歳</div><div class="t">${esc(e.text)}${amt}</div></div>`);
@@ -229,10 +259,10 @@ class Game {
         const exp = Object.values(y.expense).reduce((t, v) => t + (v ?? 0), 0);
         const head = y.events.find((e) => e.major) ?? y.events[0];
         return `<details>
-          <summary><b>${y.age}歳</b><em>${head ? esc(head.text) : "—"}</em><span class="${y.balance < 0 ? "minus" : ""}">${yen(y.balance)}</span></summary>
+          <summary><b>${y.age}歳</b><em>${head ? esc(head.text) : "—"}</em><span class="${y.balance < 0 ? "minus" : ""}">${esc(this.life.D.fmt(y.balance, false))}</span></summary>
           <div class="body">
-            ${y.events.length ? `<ul>${y.events.map((e) => `<li>${esc(e.text)}${e.amount ? `（${e.amount > 0 ? "+" : ""}${yen(e.amount)}）` : ""}</li>`).join("")}</ul>` : "<p>特に大きな出来事はなかった。</p>"}
-            <div class="nums"><span>収入 ${yen(inc)}</span><span>支出 ${yen(exp)}</span><span>${y.year}年</span><span>年末の貯え ${yen(y.balance)}</span></div>
+            ${y.events.length ? `<ul>${y.events.map((e) => `<li>${esc(e.text)}${e.amount ? `（${e.amount > 0 ? "+" : ""}${esc(this.life.D.fmt(e.amount))}）` : ""}</li>`).join("")}</ul>` : "<p>特に大きな出来事はなかった。</p>"}
+            <div class="nums"><span>収入 ${esc(this.life.D.fmt(inc, false))}</span><span>支出 ${esc(this.life.D.fmt(exp, false))}</span><span>${y.year}年</span><span>年末の貯え ${esc(this.life.D.fmt(y.balance, false))}</span></div>
           </div>
         </details>`;
       })
@@ -243,9 +273,10 @@ class Game {
   private openChoice(c: Choice): void {
     this.choosing = true;
     this.ctrl.querySelectorAll("button").forEach((b) => b.classList.toggle("on", b.dataset.s === "0"));
-    const n = this.life.choiceLog.length + 1;
-    const bg = h(`<div class="sheet-bg"><div class="sheet">
-      <div class="tag">分かれ道 ${n} / 8 ・ ${c.age}歳</div>
+    const micro = c.id.startsWith("micro:");
+    const n = this.life.choiceLog.filter((x) => !x.id.startsWith("micro:")).length + 1;
+    const bg = h(`<div class="sheet-bg"><div class="sheet${micro ? " small" : ""}">
+      <div class="tag">${micro ? "小さな選択" : `分かれ道 ${n} / 8`} ・ ${c.age}歳</div>
       <h2>${esc(c.title)}</h2>
       <p class="sit">${esc(c.situation)}</p>
       ${c.options.map((o) => `<button class="opt" data-id="${esc(o.id)}"><b>${esc(o.label)}</b><span>${esc(o.desc)}</span></button>`).join("")}
@@ -309,7 +340,7 @@ async function showResult(life: Life): Promise<void> {
   }
   drawReceipt(cv, data);
   root.querySelector<HTMLElement>("#png")!.onclick = () => downloadReceipt(cv, `jinsei-receipt-${life.seed}.png`);
-  root.querySelector<HTMLElement>("#again")!.onclick = () => showBirth(randomSeed());
+  root.querySelector<HTMLElement>("#again")!.onclick = () => showTitle();
   (window as unknown as { __result: unknown }).__result = { url, data };
   window.scrollTo(0, 0);
 }

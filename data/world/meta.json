@@ -1,0 +1,50 @@
+{
+ "year": 2023,
+ "worldBirths": 131464000,
+ "coveredBirthShare": 0.9606,
+ "exchangeRatesAsOf": "2026-10-22",
+ "sources": [
+  {
+   "key": "wdi",
+   "name": "World Bank World Development Indicators (open-numbers DDF mirror on GitHub)",
+   "url": "https://github.com/open-numbers/ddf--open_numbers--world_development_indicators",
+   "year": 2025
+  },
+  {
+   "key": "fx",
+   "name": "fawazahmed0/exchange-api (npm @fawazahmed0/currency-api)",
+   "url": "https://github.com/fawazahmed0/exchange-api",
+   "year": 2026
+  },
+  {
+   "key": "cldr",
+   "name": "Unicode CLDR 49 currency names/symbols (npm cldr-numbers-full)",
+   "url": "https://github.com/unicode-org/cldr-json",
+   "year": 2026
+  },
+  {
+   "key": "names",
+   "name": "i18n-iso-countries ja locale (npm) + MOFA-style overrides",
+   "url": "https://github.com/michaelwittig/node-i18n-iso-countries",
+   "year": 2026
+  },
+  {
+   "key": "currencyMap",
+   "name": "country-to-currency (npm)",
+   "url": "https://github.com/thiagodp/country-to-currency",
+   "year": 2026
+  },
+  {
+   "key": "incomeGroup",
+   "name": "World Bank country income classification FY2026 (manual overrides on mirror)",
+   "url": "https://datahelpdesk.worldbank.org/knowledgebase/articles/906519",
+   "year": 2025
+  },
+  {
+   "key": "handEstimates",
+   "name": "Hand-entered approximations referencing ILO WSPR 2024-26, ILO informality stats, OECD Pensions at a Glance 2023, OECD Taxing Wages 2024, UN World Marriage Data, WorldRiskIndex 2023 (not downloaded)",
+   "url": "https://www.ilo.org/ ; https://www.oecd.org/ ; https://weltrisikobericht.de/",
+   "year": 2024
+  }
+ ]
+}

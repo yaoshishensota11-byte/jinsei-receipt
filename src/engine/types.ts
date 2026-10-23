@@ -105,7 +105,8 @@ export type ChoiceId =
   | "marriageHome"
   | "careerShift"
   | "parentCare"
-  | "retire";
+  | "retire"
+  | `micro:${string}`;
 
 export interface LifeSummary {
   seed: string;
