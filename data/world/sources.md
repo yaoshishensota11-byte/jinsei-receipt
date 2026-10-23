@@ -82,3 +82,13 @@
 - 各イベントの `basis` に根拠（統計名・機関名・報道）を日本語で記載した。根拠の数値はいずれも記憶に基づくもので、原典では確認していない。
 - `annualProb` は「条件を満たす人が1年間にその出来事に直面する確率」を根拠の数値から大まかに見積もった値で、**全件推定**（`estimated: true`）。
 - 金額は日本円の水準で書いており、ゲーム側で各国の物価水準を掛ける前提。
+
+### INFORM Risk Index（ユーザー提供ファイル）による更新
+
+| データ | 出典 | 版 | 取得方法 | 推定の有無 |
+|---|---|---|---|---|
+| floodRisk / earthquakeRisk / droughtRisk / epidemicRisk / conflictRisk（全88か国） | European Commission JRC「INFORM Risk Index」 https://drmkc.jrc.ec.europa.eu/inform-index/INFORM-Risk/Results-and-data | Mid 2026 v0.7.3（2026年9月1日公開） | ユーザーがダウンロードしたExcel（シート「INFORM Risk 2026 (a-z)」）を build/apply_inform.py で反映 | 実データ（ゲーム用に家庭単位の相対値へ変換） |
+
+- 生のスコア（0〜10）は risks.json の各国 `inform` に保存。
+- 変換：洪水＝max(River Flood, Coastal flood)/10 の3乗、地震＝Earthquake/10 の3乗、干ばつ＝Drought/10、感染症＝Epidemic/10、紛争による避難＝10^((Current Conflict Intensity − 10)/2.5)（いまの紛争の激しさを指数で直す）。
+- 中国の ipvPast12mWomen は、WHO VAW 2018 推計（https://vaw-data.srhr.org/ 、15〜49歳・過去1年 10.6%）をユーザーが確認した値に更新。
