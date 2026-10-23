@@ -111,8 +111,9 @@ class Game {
   autoMs = 0;
   /** 等倍で遊んだときの目安（選択は大きな分かれ道20秒・小さな選択6秒と見込む） */
   get playMs(): number {
-    const micro = this.life.choiceLog.filter((c) => c.id.startsWith("micro:")).length;
-    return this.autoMs + (this.life.choiceLog.length - micro) * 20_000 + micro * 6_000;
+    const small = this.life.choiceLog.filter((c) => c.id.startsWith("micro:")).length;
+    const ev = this.life.choiceLog.filter((c) => c.id.startsWith("ev:")).length;
+    return this.autoMs + (this.life.choiceLog.length - small - ev) * 20_000 + small * 6_000 + ev * 10_000;
   }
   private current: YearRecord | null = null;
   private shown = 0;
@@ -273,9 +274,10 @@ class Game {
     this.choosing = true;
     this.ctrl.querySelectorAll("button").forEach((b) => b.classList.toggle("on", b.dataset.s === "0"));
     const micro = c.id.startsWith("micro:");
-    const n = this.life.choiceLog.filter((x) => !x.id.startsWith("micro:")).length + 1;
+    const event = c.id.startsWith("ev:");
+    const n = this.life.choiceLog.filter((x) => !x.id.startsWith("micro:") && !x.id.startsWith("ev:")).length + 1;
     const bg = h(`<div class="sheet-bg"><div class="sheet${micro ? " small" : ""}">
-      <div class="tag">${micro ? "小さな選択" : `分かれ道 ${n} / 8`} ・ ${c.age}歳</div>
+      <div class="tag">${micro ? "小さな選択" : event ? "人生の出来事" : `分かれ道 ${n} / 8`} ・ ${c.age}歳</div>
       <h2>${esc(c.title)}</h2>
       <p class="sit">${esc(c.situation)}</p>
       ${c.options.map((o) => `<button class="opt" data-id="${esc(o.id)}"><b>${esc(o.label)}</b><span>${esc(o.desc)}</span></button>`).join("")}

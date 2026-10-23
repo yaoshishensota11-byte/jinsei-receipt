@@ -1,0 +1,5121 @@
+[
+ {
+  "id": "jpn_tenkin",
+  "iso3": [
+   "JPN"
+  ],
+  "minAge": 25,
+  "maxAge": 55,
+  "annualProb": 0.03,
+  "requires": "working",
+  "title": "転勤の辞令",
+  "situation": "会社から、来春から遠方の支店に異動するよう内示が出た。",
+  "options": [
+   {
+    "id": "a",
+    "label": "単身赴任する",
+    "desc": "家族の生活は変わらない。二重生活で出費が増え、疲れもたまる。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 600000
+     },
+     {
+      "type": "careerMult",
+      "value": 1.04
+     },
+     {
+      "type": "health",
+      "value": 1.02
+     }
+    ],
+    "result": "週末ごとに新幹線で帰る生活が始まった。"
+   },
+   {
+    "id": "b",
+    "label": "家族で引っ越す",
+    "desc": "家族は一緒にいられる。引っ越し費用がかかり、配偶者は仕事を探し直す。",
+    "effects": [
+     {
+      "type": "moveCost",
+      "value": 400000
+     },
+     {
+      "type": "careerMult",
+      "value": 1.03
+     }
+    ],
+    "result": "家族で新しい街に移った。"
+   },
+   {
+    "id": "c",
+    "label": "転勤を断る",
+    "desc": "今の暮らしを守れる。昇進の道は狭くなる。",
+    "effects": [
+     {
+      "type": "careerMult",
+      "value": 0.95
+     }
+    ],
+    "result": "異動を断り、今の部署に残った。"
+   }
+  ],
+  "basis": "転勤のある企業は多く、正社員の約3割が転勤を経験（労働政策研究・研修機構の調査）。年率は概算",
+  "estimated": true
+ },
+ {
+  "id": "jpn_kaigo",
+  "iso3": [
+   "JPN"
+  ],
+  "minAge": 40,
+  "maxAge": 65,
+  "annualProb": 0.01,
+  "requires": "working",
+  "title": "親の介護",
+  "situation": "離れて暮らす親が倒れ、日常生活に介助が必要になった。",
+  "options": [
+   {
+    "id": "a",
+    "label": "介護サービスを使い仕事を続ける",
+    "desc": "収入は保てる。費用がかかり、休日は介護に追われる。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 500000
+     },
+     {
+      "type": "health",
+      "value": 1.03
+     }
+    ],
+    "result": "ケアマネジャーと相談し、仕事と介護を両立することにした。"
+   },
+   {
+    "id": "b",
+    "label": "仕事を辞めて介護に専念する",
+    "desc": "親のそばにいられる。収入が途絶え、再就職は難しくなる。",
+    "effects": [
+     {
+      "type": "incomeDropPct",
+      "value": 0.8
+     },
+     {
+      "type": "careerMult",
+      "value": 0.85
+     }
+    ],
+    "result": "会社を辞め、実家に通う毎日になった。"
+   },
+   {
+    "id": "c",
+    "label": "施設に入ってもらう",
+    "desc": "仕事への影響は小さい。入居費用の負担が重い。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 1500000
+     }
+    ],
+    "result": "近くの施設に入居してもらった。"
+   }
+  ],
+  "basis": "介護・看護を理由とする離職者は年約10万人（総務省 就業構造基本調査2022）。介護をしながら働く人は約365万人",
+  "estimated": true
+ },
+ {
+  "id": "jpn_earthquake",
+  "iso3": [
+   "JPN"
+  ],
+  "minAge": 0,
+  "maxAge": 100,
+  "annualProb": 0.008,
+  "requires": null,
+  "title": "大きな地震",
+  "situation": "住んでいる地域で震度6弱以上の地震が起きた。家具が倒れ、しばらく水道が止まった。",
+  "options": [
+   {
+    "id": "a",
+    "label": "自宅にとどまって片付ける",
+    "desc": "住み慣れた家にいられる。修理費がかかり、余震の不安が続く。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 300000
+     },
+     {
+      "type": "health",
+      "value": 1.02
+     }
+    ],
+    "result": "割れた食器を片付け、給水所に並ぶ日々が続いた。"
+   },
+   {
+    "id": "b",
+    "label": "親族の家に一時避難する",
+    "desc": "安全に過ごせる。仕事を休むことになる。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 100000
+     },
+     {
+      "type": "incomeDropPct",
+      "value": 0.05
+     }
+    ],
+    "result": "しばらく親族の家で過ごした。"
+   }
+  ],
+  "basis": "震度6弱以上の地震は年に数回発生（気象庁）。1人あたりの年率は概算",
+  "estimated": true
+ },
+ {
+  "id": "jpn_heavy_rain",
+  "iso3": [
+   "JPN"
+  ],
+  "minAge": 0,
+  "maxAge": 100,
+  "annualProb": 0.005,
+  "requires": null,
+  "title": "豪雨で浸水",
+  "situation": "線状降水帯による大雨で川があふれ、自宅の1階が浸水した。",
+  "options": [
+   {
+    "id": "a",
+    "label": "保険と貯金で修理する",
+    "desc": "元の家に戻れる。出費が大きい。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 800000
+     }
+    ],
+    "result": "業者を手配し、数か月かけて家を直した。"
+   },
+   {
+    "id": "b",
+    "label": "高台の賃貸に移る",
+    "desc": "次の水害の心配は減る。引っ越し費用がかかる。",
+    "effects": [
+     {
+      "type": "moveCost",
+      "value": 500000
+     },
+     {
+      "type": "health",
+      "value": 0.99
+     }
+    ],
+    "result": "浸水の心配の少ない地域に引っ越した。"
+   }
+  ],
+  "basis": "近年は毎年のように豪雨災害が発生（国土交通省 水害統計）。年率は概算",
+  "estimated": true
+ },
+ {
+  "id": "jpn_seishain",
+  "iso3": [
+   "JPN"
+  ],
+  "minAge": 23,
+  "maxAge": 45,
+  "annualProb": 0.04,
+  "requires": "working",
+  "title": "正社員登用の話",
+  "situation": "契約社員として働く職場で、正社員登用試験を受けないかと声をかけられた。",
+  "options": [
+   {
+    "id": "a",
+    "label": "試験を受ける",
+    "desc": "安定と昇給が見込める。責任と残業が増える。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 30000
+     },
+     {
+      "type": "careerMult",
+      "value": 1.06
+     },
+     {
+      "type": "health",
+      "value": 1.02
+     }
+    ],
+    "result": "試験に合格し、正社員になった。"
+   },
+   {
+    "id": "b",
+    "label": "今の働き方を続ける",
+    "desc": "時間の自由を保てる。賃金は上がりにくい。",
+    "effects": [
+     {
+      "type": "careerMult",
+      "value": 0.98
+     },
+     {
+      "type": "health",
+      "value": 0.99
+     }
+    ],
+    "result": "契約社員のまま働くことにした。"
+   }
+  ],
+  "basis": "非正規雇用は雇用者の約37%（総務省 労働力調査）。登用の機会の年率は概算",
+  "estimated": true
+ },
+ {
+  "id": "jpn_chugaku_juken",
+  "iso3": [
+   "JPN"
+  ],
+  "minAge": 35,
+  "maxAge": 55,
+  "annualProb": 0.03,
+  "requires": "hasKids",
+  "title": "中学受験",
+  "situation": "子どもの同級生の多くが塾に通い始め、中学受験をするか家族で話し合った。",
+  "options": [
+   {
+    "id": "a",
+    "label": "塾に通わせて受験する",
+    "desc": "選べる学校が広がる。3年間の塾代が重く、家族の時間が減る。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 1200000
+     }
+    ],
+    "result": "週4日の塾通いが始まった。"
+   },
+   {
+    "id": "b",
+    "label": "地元の公立中学に進む",
+    "desc": "出費を抑えられる。子どもが周りと比べて不安を口にする。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 100000
+     }
+    ],
+    "result": "地元の中学校に進むことにした。"
+   }
+  ],
+  "basis": "首都圏の私立・国立中学受験率は約2割（首都圏模試センター 2024）",
+  "estimated": true
+ },
+ {
+  "id": "usa_medical_bill",
+  "iso3": [
+   "USA"
+  ],
+  "minAge": 0,
+  "maxAge": 90,
+  "annualProb": 0.03,
+  "requires": null,
+  "title": "救急外来の請求書",
+  "situation": "救急外来で治療を受けたあと、保険でカバーされない高額な請求書が届いた。",
+  "options": [
+   {
+    "id": "a",
+    "label": "分割払いで支払う",
+    "desc": "信用は守れる。数年間、家計が苦しくなる。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 400000
+     }
+    ],
+    "result": "病院と分割払いの契約を結んだ。"
+   },
+   {
+    "id": "b",
+    "label": "病院と交渉し支援制度を申請する",
+    "desc": "支払額を減らせる。手続きに時間を取られる。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 150000
+     },
+     {
+      "type": "incomeDropPct",
+      "value": 0.03
+     }
+    ],
+    "result": "何度も電話して減額にこぎつけた。"
+   }
+  ],
+  "basis": "米国の成人の約4割が医療費の借金を抱える（KFF 2022調査）",
+  "estimated": true
+ },
+ {
+  "id": "usa_student_loan",
+  "iso3": [
+   "USA"
+  ],
+  "minAge": 18,
+  "maxAge": 19,
+  "annualProb": 0.15,
+  "requires": null,
+  "title": "大学進学と学生ローン",
+  "situation": "大学の合格通知が届いた。学費は年に数万ドルかかる。",
+  "options": [
+   {
+    "id": "a",
+    "label": "学生ローンで4年制大学へ",
+    "desc": "将来の収入が伸びやすい。卒業時に大きな借金が残る。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 3000000
+     },
+     {
+      "type": "careerMult",
+      "value": 1.15
+     }
+    ],
+    "result": "ローンの書類にサインし、寮に入った。"
+   },
+   {
+    "id": "b",
+    "label": "コミュニティカレッジから編入する",
+    "desc": "学費を抑えられる。編入の準備と遠回りが必要になる。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 1000000
+     },
+     {
+      "type": "careerMult",
+      "value": 1.08
+     }
+    ],
+    "result": "地元の短大で2年学んでから編入した。"
+   },
+   {
+    "id": "c",
+    "label": "すぐに働き始める",
+    "desc": "借金はない。昇進できる職は限られやすい。",
+    "effects": [
+     {
+      "type": "careerMult",
+      "value": 0.95
+     },
+     {
+      "type": "income",
+      "value": 500000
+     }
+    ],
+    "result": "高校を出てすぐに働き始めた。"
+   }
+  ],
+  "basis": "学士取得者の約半数が学生ローンを利用、平均残高は約3万ドル（College Board 2023）",
+  "estimated": true
+ },
+ {
+  "id": "usa_layoff",
+  "iso3": [
+   "USA"
+  ],
+  "minAge": 25,
+  "maxAge": 62,
+  "annualProb": 0.03,
+  "requires": "working",
+  "title": "突然のレイオフ",
+  "situation": "会社の業績悪化で、部署ごと解雇されることになった。",
+  "options": [
+   {
+    "id": "a",
+    "label": "すぐに別の仕事に就く",
+    "desc": "収入の空白は短い。条件は前より下がる。",
+    "effects": [
+     {
+      "type": "incomeDropPct",
+      "value": 0.1
+     },
+     {
+      "type": "careerMult",
+      "value": 0.95
+     }
+    ],
+    "result": "2週間後には新しい職場で働いていた。"
+   },
+   {
+    "id": "b",
+    "label": "失業保険を受けながら探す",
+    "desc": "条件の良い仕事を狙える。半年ほど収入が減る。",
+    "effects": [
+     {
+      "type": "incomeDropPct",
+      "value": 0.3
+     },
+     {
+      "type": "careerMult",
+      "value": 1.02
+     }
+    ],
+    "result": "じっくり求人を探した。"
+   },
+   {
+    "id": "c",
+    "label": "仕事の多い州へ移る",
+    "desc": "選択肢が広がる。引っ越し費用と人間関係の断絶がある。",
+    "effects": [
+     {
+      "type": "moveCost",
+      "value": 500000
+     },
+     {
+      "type": "incomeDropPct",
+      "value": 0.15
+     },
+     {
+      "type": "careerMult",
+      "value": 1.05
+     }
+    ],
+    "result": "車に荷物を積んで別の州へ移った。"
+   }
+  ],
+  "basis": "米国の非自発的離職（レイオフ・解雇）は年に雇用者の1割前後（BLS JOLTS）。大規模なものは概算で年3%",
+  "estimated": true
+ },
+ {
+  "id": "usa_childcare",
+  "iso3": [
+   "USA"
+  ],
+  "minAge": 24,
+  "maxAge": 45,
+  "annualProb": 0.08,
+  "requires": "hasKids",
+  "title": "保育料の高さ",
+  "situation": "産休が明けたが、近くの保育施設の料金は月に1,000ドルを超えていた。",
+  "options": [
+   {
+    "id": "a",
+    "label": "保育施設に預けて共働きを続ける",
+    "desc": "キャリアを保てる。給料の多くが保育料に消える。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 1500000
+     },
+     {
+      "type": "careerMult",
+      "value": 1.02
+     }
+    ],
+    "result": "子どもを保育施設に預けて職場に戻った。"
+   },
+   {
+    "id": "b",
+    "label": "片方が仕事を減らす",
+    "desc": "保育料はかからない。世帯収入とキャリアが下がる。",
+    "effects": [
+     {
+      "type": "incomeDropPct",
+      "value": 0.3
+     },
+     {
+      "type": "careerMult",
+      "value": 0.95
+     }
+    ],
+    "result": "パートタイムに切り替えた。"
+   }
+  ],
+  "basis": "保育料は全米平均で年1万ドル超（Child Care Aware of America 2023）。米国には全国的な育児休業給付がない",
+  "estimated": true
+ },
+ {
+  "id": "usa_hurricane_wildfire",
+  "iso3": [
+   "USA"
+  ],
+  "minAge": 0,
+  "maxAge": 100,
+  "annualProb": 0.006,
+  "requires": null,
+  "title": "ハリケーン・山火事で避難",
+  "situation": "大型のハリケーン（または山火事）が近づき、地域に避難命令が出た。",
+  "options": [
+   {
+    "id": "a",
+    "label": "戻って保険で家を直す",
+    "desc": "地元の暮らしを続けられる。保険料は翌年から大きく上がる。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 400000
+     }
+    ],
+    "result": "保険の査定を待って家を修理した。"
+   },
+   {
+    "id": "b",
+    "label": "災害の少ない地域に引っ越す",
+    "desc": "将来の被害を避けられる。仕事と友人を失う。",
+    "effects": [
+     {
+      "type": "moveCost",
+      "value": 700000
+     },
+     {
+      "type": "careerMult",
+      "value": 0.98
+     }
+    ],
+    "result": "別の州で暮らし直すことにした。"
+   }
+  ],
+  "basis": "フロリダ・カリフォルニアなどで大規模災害が多発、住宅保険料が上昇（報道）。全国平均の年率は概算",
+  "estimated": true
+ },
+ {
+  "id": "chn_unfinished_flat",
+  "iso3": [
+   "CHN"
+  ],
+  "minAge": 25,
+  "maxAge": 50,
+  "annualProb": 0.01,
+  "requires": null,
+  "title": "工事が止まったマンション",
+  "situation": "頭金を払って予約購入したマンションの工事が、開発会社の資金難で止まった。",
+  "options": [
+   {
+    "id": "a",
+    "label": "ローンを払い続け完成を待つ",
+    "desc": "いずれ家が手に入るかもしれない。今の家賃とローンの二重払いが続く。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 800000
+     }
+    ],
+    "result": "工事の再開を待ちながら、家賃とローンを払い続けた。"
+   },
+   {
+    "id": "b",
+    "label": "頭金をあきらめて賃貸を続ける",
+    "desc": "毎月の支払いは軽くなる。貯金の一部を失う。",
+    "effects": [
+     {
+      "type": "cashLossPct",
+      "value": 0.2
+     }
+    ],
+    "result": "購入契約を整理し、賃貸暮らしを続けた。"
+   }
+  ],
+  "basis": "2022年に工事停止物件で住宅ローン返済を拒否する動きが各地に広がった（報道）。2021年以降、住宅価格は下落傾向",
+  "estimated": true
+ },
+ {
+  "id": "chn_hukou_school",
+  "iso3": [
+   "CHN"
+  ],
+  "minAge": 25,
+  "maxAge": 50,
+  "annualProb": 0.05,
+  "requires": "hasKids",
+  "title": "戸籍と子どもの学校",
+  "situation": "働いている都市に戸籍がないため、子どもが地元の公立校に入るには多くの書類と条件が必要だと分かった。",
+  "options": [
+   {
+    "id": "a",
+    "label": "子どもを故郷の祖父母に預ける",
+    "desc": "学費は安く済む。子どもと離れて暮らすことになる。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 100000
+     },
+     {
+      "type": "health",
+      "value": 1.01
+     }
+    ],
+    "result": "子どもは故郷の祖父母と暮らし始めた。"
+   },
+   {
+    "id": "b",
+    "label": "都市の私立学校に通わせる",
+    "desc": "家族で暮らせる。学費が重い。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 800000
+     }
+    ],
+    "result": "私立の小学校に入学させた。"
+   },
+   {
+    "id": "c",
+    "label": "家族で故郷に戻る",
+    "desc": "戸籍のある地元で通学できる。収入の良い仕事を手放す。",
+    "effects": [
+     {
+      "type": "moveCost",
+      "value": 200000
+     },
+     {
+      "type": "careerMult",
+      "value": 0.92
+     }
+    ],
+    "result": "家族で故郷の町に戻った。"
+   }
+  ],
+  "basis": "戸籍（戸口）のない都市では公立校入学に条件がある。農村の留守児童は約700万人（民政部 2018）",
+  "estimated": true
+ },
+ {
+  "id": "chn_gaokao",
+  "iso3": [
+   "CHN"
+  ],
+  "minAge": 17,
+  "maxAge": 18,
+  "annualProb": 0.2,
+  "requires": null,
+  "title": "高考の結果",
+  "situation": "全国統一の大学入試「高考」の点数が発表され、志望校には届かなかった。",
+  "options": [
+   {
+    "id": "a",
+    "label": "1年浪人して再挑戦する",
+    "desc": "上の大学を狙える。1年遅れ、家族の負担が増える。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 200000
+     },
+     {
+      "type": "careerMult",
+      "value": 1.04
+     }
+    ],
+    "result": "復読（浪人）クラスに通い始めた。"
+   },
+   {
+    "id": "b",
+    "label": "点数に合う大学・専科に進む",
+    "desc": "早く社会に出られる。希望の分野ではないかもしれない。",
+    "effects": [
+     {
+      "type": "careerMult",
+      "value": 0.99
+     },
+     {
+      "type": "cost",
+      "value": 50000
+     }
+    ],
+    "result": "点数で入れる学校に進学した。"
+   }
+  ],
+  "basis": "2024年の高考受験者は約1,342万人（教育部）",
+  "estimated": true
+ },
+ {
+  "id": "chn_996",
+  "iso3": [
+   "CHN"
+  ],
+  "minAge": 22,
+  "maxAge": 40,
+  "annualProb": 0.05,
+  "requires": "urban",
+  "title": "長時間労働の職場",
+  "situation": "勤め先で、朝9時から夜9時まで週6日働くことが当たり前になってきた。",
+  "options": [
+   {
+    "id": "a",
+    "label": "受け入れて働き続ける",
+    "desc": "評価と収入が上がる。体を壊しやすい。",
+    "effects": [
+     {
+      "type": "careerMult",
+      "value": 1.05
+     },
+     {
+      "type": "health",
+      "value": 1.04
+     }
+    ],
+    "result": "夜遅くまで働く日々が続いた。"
+   },
+   {
+    "id": "b",
+    "label": "残業の少ない会社に移る",
+    "desc": "体と家庭の時間を守れる。給料は下がる。",
+    "effects": [
+     {
+      "type": "careerMult",
+      "value": 0.95
+     },
+     {
+      "type": "health",
+      "value": 0.98
+     }
+    ],
+    "result": "定時に帰れる会社に転職した。"
+   }
+  ],
+  "basis": "IT企業などの「996」勤務が社会問題化（2019年以降の報道）",
+  "estimated": true
+ },
+ {
+  "id": "chn_flood",
+  "iso3": [
+   "CHN"
+  ],
+  "minAge": 0,
+  "maxAge": 100,
+  "annualProb": 0.01,
+  "requires": "rural",
+  "title": "夏の大雨と洪水",
+  "situation": "夏の豪雨で川が増水し、村の田畑と家が水につかった。",
+  "options": [
+   {
+    "id": "a",
+    "label": "村に残って復旧する",
+    "desc": "土地と家を守れる。今年の収入は大きく減る。",
+    "effects": [
+     {
+      "type": "incomeDropPct",
+      "value": 0.3
+     },
+     {
+      "type": "cost",
+      "value": 100000
+     }
+    ],
+    "result": "水が引いたあと、泥をかき出した。"
+   },
+   {
+    "id": "b",
+    "label": "町の工場に出稼ぎに行く",
+    "desc": "現金収入が得られる。家族と離れる。",
+    "effects": [
+     {
+      "type": "moveCost",
+      "value": 100000
+     },
+     {
+      "type": "careerMult",
+      "value": 1.03
+     }
+    ],
+    "result": "町の工場で働くことにした。"
+   }
+  ],
+  "basis": "長江・黄河流域などで毎年のように洪水被害（応急管理部）。農村の年率は概算",
+  "estimated": true
+ },
+ {
+  "id": "ind_monsoon_flood",
+  "iso3": [
+   "IND"
+  ],
+  "minAge": 0,
+  "maxAge": 100,
+  "annualProb": 0.02,
+  "requires": null,
+  "title": "モンスーンの洪水",
+  "situation": "モンスーンの大雨で近くの川があふれ、家の中まで水が入ってきた。",
+  "options": [
+   {
+    "id": "a",
+    "label": "家にとどまる",
+    "desc": "家財を見張れる。不衛生な水で体調を崩しやすい。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 100000
+     },
+     {
+      "type": "health",
+      "value": 1.05
+     }
+    ],
+    "result": "水が引くまで2階で過ごした。"
+   },
+   {
+    "id": "b",
+    "label": "親戚の村へ一時避難する",
+    "desc": "安全に過ごせる。その間は働けない。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 50000
+     },
+     {
+      "type": "incomeDropPct",
+      "value": 0.1
+     }
+    ],
+    "result": "親戚の家に身を寄せた。"
+   }
+  ],
+  "basis": "アッサム・ビハールなどで毎年数百万人が洪水の影響を受ける（NDMA、報道）",
+  "estimated": true
+ },
+ {
+  "id": "ind_entrance_exam",
+  "iso3": [
+   "IND"
+  ],
+  "minAge": 16,
+  "maxAge": 18,
+  "annualProb": 0.15,
+  "requires": null,
+  "title": "工学・医学部の入試準備",
+  "situation": "周りの多くが工学系入試（JEE）や医学部入試（NEET）の予備校に通い始めた。",
+  "options": [
+   {
+    "id": "a",
+    "label": "予備校の町に下宿して準備する",
+    "desc": "難関校を狙える。費用が大きく、重圧も強い。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 600000
+     },
+     {
+      "type": "careerMult",
+      "value": 1.08
+     },
+     {
+      "type": "health",
+      "value": 1.02
+     }
+    ],
+    "result": "コタの予備校に入り、下宿生活を始めた。"
+   },
+   {
+    "id": "b",
+    "label": "地元の大学に進む",
+    "desc": "家族の負担は軽い。就職先の選択肢は限られやすい。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 150000
+     },
+     {
+      "type": "careerMult",
+      "value": 1.0
+     }
+    ],
+    "result": "地元の大学に進学した。"
+   }
+  ],
+  "basis": "NEETの受験者は年約230万人、JEE Mainは約120万人（NTA 2024）",
+  "estimated": true
+ },
+ {
+  "id": "ind_wedding_cost",
+  "iso3": [
+   "IND"
+  ],
+  "minAge": 20,
+  "maxAge": 35,
+  "annualProb": 0.08,
+  "requires": null,
+  "title": "結婚式の費用",
+  "situation": "結婚が決まり、親族から盛大な式を挙げるよう期待されている。",
+  "options": [
+   {
+    "id": "a",
+    "label": "親族の期待どおり盛大に挙げる",
+    "desc": "家同士の関係が良くなる。借金をする家庭も多い。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 1500000
+     }
+    ],
+    "result": "数百人を招いて3日間の式を挙げた。"
+   },
+   {
+    "id": "b",
+    "label": "簡素な式にする",
+    "desc": "出費を抑えられる。親族の一部から不満が出る。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 300000
+     }
+    ],
+    "result": "近しい人だけで式を挙げた。"
+   }
+  ],
+  "basis": "結婚式費用は年収の数倍になることも多い（業界推計・報道）",
+  "estimated": true
+ },
+ {
+  "id": "ind_gulf_work",
+  "iso3": [
+   "IND"
+  ],
+  "minAge": 20,
+  "maxAge": 45,
+  "annualProb": 0.015,
+  "requires": "working",
+  "title": "湾岸諸国への出稼ぎ",
+  "situation": "知人から、ドバイの建設現場の仕事を紹介すると持ちかけられた。",
+  "options": [
+   {
+    "id": "a",
+    "label": "仲介料を払って出稼ぎに行く",
+    "desc": "収入は数倍になる。家族と離れ、暑さの中での重労働になる。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 200000
+     },
+     {
+      "type": "careerMult",
+      "value": 1.15
+     },
+     {
+      "type": "health",
+      "value": 1.03
+     }
+    ],
+    "result": "2年契約でドバイに渡った。"
+   },
+   {
+    "id": "b",
+    "label": "家族のそばに残る",
+    "desc": "家族と暮らせる。収入は伸びにくい。",
+    "effects": [
+     {
+      "type": "careerMult",
+      "value": 0.99
+     },
+     {
+      "type": "health",
+      "value": 0.99
+     }
+    ],
+    "result": "地元で働き続けることにした。"
+   }
+  ],
+  "basis": "湾岸協力会議（GCC）諸国のインド人労働者は約900万人（外務省・インド政府）",
+  "estimated": true
+ },
+ {
+  "id": "ind_crop_failure",
+  "iso3": [
+   "IND"
+  ],
+  "minAge": 18,
+  "maxAge": 70,
+  "annualProb": 0.06,
+  "requires": "rural",
+  "title": "雨不足で不作",
+  "situation": "モンスーンの雨が少なく、育てていた作物の収穫が大きく減った。",
+  "options": [
+   {
+    "id": "a",
+    "label": "金貸しから借りて次の作付けをする",
+    "desc": "畑を続けられる。高い利息を払うことになる。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 200000
+     }
+    ],
+    "result": "利息の高い借金をして種と肥料を買った。"
+   },
+   {
+    "id": "b",
+    "label": "町の建設現場で日雇いで働く",
+    "desc": "現金収入が入る。畑の手入れができない。",
+    "effects": [
+     {
+      "type": "incomeDropPct",
+      "value": 0.2
+     },
+     {
+      "type": "careerMult",
+      "value": 1.01
+     }
+    ],
+    "result": "収穫期まで町で働いた。"
+   }
+  ],
+  "basis": "インドの農地の約半分は天水農業（農業・農民福祉省）",
+  "estimated": true
+ },
+ {
+  "id": "ind_private_hospital",
+  "iso3": [
+   "IND"
+  ],
+  "minAge": 0,
+  "maxAge": 90,
+  "annualProb": 0.03,
+  "requires": null,
+  "title": "家族の入院",
+  "situation": "家族が入院することになり、公立病院と私立病院のどちらにするか迷った。",
+  "options": [
+   {
+    "id": "a",
+    "label": "私立病院に入院する",
+    "desc": "すぐに治療が受けられる。費用が高い。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 300000
+     },
+     {
+      "type": "health",
+      "value": 0.96
+     }
+    ],
+    "result": "私立病院で手術を受けた。"
+   },
+   {
+    "id": "b",
+    "label": "公立病院で順番を待つ",
+    "desc": "費用はほとんどかからない。待ち時間が長い。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 30000
+     },
+     {
+      "type": "health",
+      "value": 1.04
+     }
+    ],
+    "result": "混雑する公立病院で順番を待った。"
+   }
+  ],
+  "basis": "医療費の自己負担割合は約4〜5割（WHO GHED）",
+  "estimated": true
+ },
+ {
+  "id": "nga_fuel_price",
+  "iso3": [
+   "NGA"
+  ],
+  "minAge": 18,
+  "maxAge": 70,
+  "annualProb": 0.04,
+  "requires": "working",
+  "title": "ガソリン代の高騰",
+  "situation": "燃料補助金が打ち切られ、ガソリンと交通費が一気に値上がりした。",
+  "options": [
+   {
+    "id": "a",
+    "label": "バイク通勤をやめて歩く",
+    "desc": "出費は抑えられる。通勤に時間がかかり、仕事に響く。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 30000
+     },
+     {
+      "type": "careerMult",
+      "value": 0.98
+     }
+    ],
+    "result": "1時間歩いて通うことにした。"
+   },
+   {
+    "id": "b",
+    "label": "乗り合いバスを使い続ける",
+    "desc": "仕事は続けやすい。交通費が家計を圧迫する。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 100000
+     }
+    ],
+    "result": "食費を削って交通費に回した。"
+   }
+  ],
+  "basis": "2023年の補助金撤廃でガソリン価格が約3倍に（報道）",
+  "estimated": true
+ },
+ {
+  "id": "nga_naira_drop",
+  "iso3": [
+   "NGA"
+  ],
+  "minAge": 20,
+  "maxAge": 80,
+  "annualProb": 0.04,
+  "requires": null,
+  "title": "ナイラの急落",
+  "situation": "為替の自由化でナイラが急落し、輸入品を中心に物価が上がり続けている。",
+  "options": [
+   {
+    "id": "a",
+    "label": "ナイラのまま貯金を持つ",
+    "desc": "手間はかからない。貯金の価値が大きく目減りする。",
+    "effects": [
+     {
+      "type": "cashLossPct",
+      "value": 0.3
+     }
+    ],
+    "result": "銀行の預金で買える物がどんどん減っていった。"
+   },
+   {
+    "id": "b",
+    "label": "手数料を払ってドルに替える",
+    "desc": "貯金の価値を守れる。両替の手数料と手間がかかる。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 30000
+     },
+     {
+      "type": "protectCash",
+      "value": true
+     }
+    ],
+    "result": "貯金の一部を米ドルに替えた。"
+   }
+  ],
+  "basis": "2023〜24年にナイラは対ドルで約7割下落（中央銀行公式レート）",
+  "estimated": true
+ },
+ {
+  "id": "nga_generator",
+  "iso3": [
+   "NGA"
+  ],
+  "minAge": 18,
+  "maxAge": 80,
+  "annualProb": 0.1,
+  "requires": "urban",
+  "title": "停電と発電機",
+  "situation": "送電網の停電が続き、1日に数時間しか電気が来ない。",
+  "options": [
+   {
+    "id": "a",
+    "label": "発電機を買う",
+    "desc": "仕事や勉強を続けられる。燃料代がかさむ。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 150000
+     },
+     {
+      "type": "careerMult",
+      "value": 1.02
+     }
+    ],
+    "result": "小さな発電機を買って店の電気をまかなった。"
+   },
+   {
+    "id": "b",
+    "label": "停電に合わせて暮らす",
+    "desc": "出費はない。仕事の効率が落ちる。",
+    "effects": [
+     {
+      "type": "careerMult",
+      "value": 0.98
+     }
+    ],
+    "result": "電気が来る時間に合わせて動くようにした。"
+   }
+  ],
+  "basis": "企業の多くが自家発電に頼る（世界銀行 企業調査）",
+  "estimated": true
+ },
+ {
+  "id": "nga_japa",
+  "iso3": [
+   "NGA"
+  ],
+  "minAge": 22,
+  "maxAge": 40,
+  "annualProb": 0.015,
+  "requires": "working",
+  "title": "海外移住（ジャパ）",
+  "situation": "同僚が次々と英国やカナダに移住し、自分も就労ビザを取るか考えた。",
+  "options": [
+   {
+    "id": "a",
+    "label": "貯金をはたいて移住する",
+    "desc": "収入と生活の安定が見込める。費用が大きく、家族と離れる。",
+    "effects": [
+     {
+      "type": "moveCost",
+      "value": 1500000
+     },
+     {
+      "type": "careerMult",
+      "value": 1.3
+     }
+    ],
+    "result": "ビザが下り、英国の病院で働くことになった。"
+   },
+   {
+    "id": "b",
+    "label": "国内で働き続ける",
+    "desc": "家族や友人と暮らせる。物価高の中で収入は伸びにくい。",
+    "effects": [
+     {
+      "type": "careerMult",
+      "value": 0.99
+     },
+     {
+      "type": "health",
+      "value": 0.99
+     }
+    ],
+    "result": "ラゴスでの仕事を続けた。"
+   }
+  ],
+  "basis": "医師・看護師などの国外流出「ジャパ」が2020年代に急増（報道、英国の就労ビザ統計）",
+  "estimated": true
+ },
+ {
+  "id": "nga_asuu_strike",
+  "iso3": [
+   "NGA"
+  ],
+  "minAge": 18,
+  "maxAge": 24,
+  "annualProb": 0.1,
+  "requires": null,
+  "title": "大学教員のストライキ",
+  "situation": "国立大学の教員組合がストライキに入り、授業が何か月も止まった。",
+  "options": [
+   {
+    "id": "a",
+    "label": "再開を待つ",
+    "desc": "学費は安いまま。卒業が遅れる。",
+    "effects": [
+     {
+      "type": "careerMult",
+      "value": 0.97
+     }
+    ],
+    "result": "8か月後に授業が再開した。"
+   },
+   {
+    "id": "b",
+    "label": "私立大学に移る",
+    "desc": "予定どおり卒業できる。学費が大きく上がる。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 800000
+     },
+     {
+      "type": "careerMult",
+      "value": 1.01
+     }
+    ],
+    "result": "私立大学に編入した。"
+   }
+  ],
+  "basis": "2022年の大学教員組合（ASUU）のストは約8か月続いた（報道）",
+  "estimated": true
+ },
+ {
+  "id": "pak_flood",
+  "iso3": [
+   "PAK"
+  ],
+  "minAge": 0,
+  "maxAge": 100,
+  "annualProb": 0.02,
+  "requires": "rural",
+  "title": "大洪水",
+  "situation": "記録的な雨で村一帯が水につかり、家畜と畑が流された。",
+  "options": [
+   {
+    "id": "a",
+    "label": "避難キャンプに身を寄せる",
+    "desc": "安全と食料を得られる。衛生状態が悪い。",
+    "effects": [
+     {
+      "type": "health",
+      "value": 1.05
+     },
+     {
+      "type": "incomeDropPct",
+      "value": 0.3
+     }
+    ],
+    "result": "道路沿いのテントで数か月を過ごした。"
+   },
+   {
+    "id": "b",
+    "label": "都市の親戚を頼って移る",
+    "desc": "仕事を探せる。村の土地を離れることになる。",
+    "effects": [
+     {
+      "type": "moveCost",
+      "value": 150000
+     },
+     {
+      "type": "careerMult",
+      "value": 1.02
+     }
+    ],
+    "result": "カラチの親戚の家に移った。"
+   }
+  ],
+  "basis": "2022年の洪水で約3,300万人が被災（国家防災管理局）",
+  "estimated": true
+ },
+ {
+  "id": "pak_inflation",
+  "iso3": [
+   "PAK"
+  ],
+  "minAge": 18,
+  "maxAge": 80,
+  "annualProb": 0.04,
+  "requires": null,
+  "title": "物価の急上昇",
+  "situation": "ルピーが下落し、小麦粉や電気代などの値段が1年で3割近く上がった。",
+  "options": [
+   {
+    "id": "a",
+    "label": "現金で持ち続ける",
+    "desc": "使いやすい。貯金の価値が減る。",
+    "effects": [
+     {
+      "type": "cashLossPct",
+      "value": 0.25
+     }
+    ],
+    "result": "同じお金で買える小麦粉が目に見えて減った。"
+   },
+   {
+    "id": "b",
+    "label": "金（ゴールド）に替える",
+    "desc": "価値を守りやすい。売るときに手間と差額がかかる。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 20000
+     },
+     {
+      "type": "protectCash",
+      "value": true
+     }
+    ],
+    "result": "貯金の一部で金の装身具を買った。"
+   }
+  ],
+  "basis": "2023年のCPI上昇率は約30%（WDI）",
+  "estimated": true
+ },
+ {
+  "id": "pak_electricity_bill",
+  "iso3": [
+   "PAK"
+  ],
+  "minAge": 20,
+  "maxAge": 80,
+  "annualProb": 0.06,
+  "requires": "urban",
+  "title": "電気代の請求額",
+  "situation": "料金改定で、毎月の電気代が家賃に近い額になった。",
+  "options": [
+   {
+    "id": "a",
+    "label": "太陽光パネルを付ける",
+    "desc": "長い目で見れば電気代が下がる。初期費用が大きい。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 250000
+     },
+     {
+      "type": "careerMult",
+      "value": 1.0
+     }
+    ],
+    "result": "屋根に太陽光パネルを付けた。"
+   },
+   {
+    "id": "b",
+    "label": "扇風機だけで夏を過ごす",
+    "desc": "出費を抑えられる。猛暑で体がつらい。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 30000
+     },
+     {
+      "type": "health",
+      "value": 1.03
+     }
+    ],
+    "result": "エアコンを止めて夏を過ごした。"
+   }
+  ],
+  "basis": "2023年に電気料金の値上げへの抗議が各地で起きた。家庭用太陽光の導入が急増（報道）",
+  "estimated": true
+ },
+ {
+  "id": "pak_gulf_work",
+  "iso3": [
+   "PAK"
+  ],
+  "minAge": 20,
+  "maxAge": 45,
+  "annualProb": 0.015,
+  "requires": "working",
+  "title": "サウジアラビアへの出稼ぎ",
+  "situation": "親戚の紹介で、サウジアラビアの運転手の仕事に応募できることになった。",
+  "options": [
+   {
+    "id": "a",
+    "label": "出稼ぎに行く",
+    "desc": "収入が大きく増え、仕送りができる。家族と何年も離れる。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 200000
+     },
+     {
+      "type": "careerMult",
+      "value": 1.15
+     },
+     {
+      "type": "health",
+      "value": 1.02
+     }
+    ],
+    "result": "リヤドで運転手として働き始めた。"
+   },
+   {
+    "id": "b",
+    "label": "国内に残る",
+    "desc": "家族と暮らせる。収入は伸びにくい。",
+    "effects": [
+     {
+      "type": "careerMult",
+      "value": 0.99
+     },
+     {
+      "type": "health",
+      "value": 0.99
+     }
+    ],
+    "result": "国内で仕事を続けた。"
+   }
+  ],
+  "basis": "海外就労者の送金はGDPの約9%（WDI 2024）",
+  "estimated": true
+ },
+ {
+  "id": "pak_heatwave",
+  "iso3": [
+   "PAK"
+  ],
+  "minAge": 0,
+  "maxAge": 100,
+  "annualProb": 0.05,
+  "requires": null,
+  "title": "熱波",
+  "situation": "気温が45度を超える日が続き、停電も重なった。",
+  "options": [
+   {
+    "id": "a",
+    "label": "日中の外仕事を休む",
+    "desc": "体を守れる。日給が減る。",
+    "effects": [
+     {
+      "type": "incomeDropPct",
+      "value": 0.05
+     },
+     {
+      "type": "health",
+      "value": 0.99
+     }
+    ],
+    "result": "昼間は休み、夜明けに働いた。"
+   },
+   {
+    "id": "b",
+    "label": "いつもどおり働く",
+    "desc": "収入は保てる。熱中症の危険が高い。",
+    "effects": [
+     {
+      "type": "health",
+      "value": 1.04
+     }
+    ],
+    "result": "水を持って現場に出続けた。"
+   }
+  ],
+  "basis": "シンド州などで45度超の熱波が頻発（パキスタン気象局）",
+  "estimated": true
+ },
+ {
+  "id": "bgd_garment_job",
+  "iso3": [
+   "BGD"
+  ],
+  "minAge": 16,
+  "maxAge": 35,
+  "annualProb": 0.05,
+  "requires": null,
+  "title": "縫製工場の求人",
+  "situation": "ダッカ近郊の縫製工場で働き手を募集していると、村で話が広まった。",
+  "options": [
+   {
+    "id": "a",
+    "label": "都市に出て工場で働く",
+    "desc": "毎月の現金収入が得られる。長時間労働で家族と離れる。",
+    "effects": [
+     {
+      "type": "moveCost",
+      "value": 50000
+     },
+     {
+      "type": "careerMult",
+      "value": 1.06
+     },
+     {
+      "type": "health",
+      "value": 1.02
+     }
+    ],
+    "result": "ガジプールの工場で働き始めた。"
+   },
+   {
+    "id": "b",
+    "label": "村に残る",
+    "desc": "家族の近くにいられる。現金収入は少ない。",
+    "effects": [
+     {
+      "type": "careerMult",
+      "value": 0.98
+     }
+    ],
+    "result": "村で家業を手伝い続けた。"
+   }
+  ],
+  "basis": "縫製業は輸出の約8割、労働者は約400万人（バングラデシュ縫製業者・輸出業者協会）",
+  "estimated": true
+ },
+ {
+  "id": "bgd_flood",
+  "iso3": [
+   "BGD"
+  ],
+  "minAge": 0,
+  "maxAge": 100,
+  "annualProb": 0.04,
+  "requires": null,
+  "title": "雨季の洪水",
+  "situation": "上流からの大水で川が氾濫し、道も畑も水につかった。",
+  "options": [
+   {
+    "id": "a",
+    "label": "高床にした家にとどまる",
+    "desc": "家と家畜を守れる。食料と水が不足する。",
+    "effects": [
+     {
+      "type": "health",
+      "value": 1.04
+     },
+     {
+      "type": "incomeDropPct",
+      "value": 0.1
+     }
+    ],
+    "result": "ボートで食料を受け取りながら水が引くのを待った。"
+   },
+   {
+    "id": "b",
+    "label": "避難所に移る",
+    "desc": "安全に過ごせる。家財の一部を失う。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 80000
+     }
+    ],
+    "result": "サイクロンシェルターに避難した。"
+   }
+  ],
+  "basis": "国土の約2割が毎年浸水する（バングラデシュ水開発庁）",
+  "estimated": true
+ },
+ {
+  "id": "bgd_cyclone",
+  "iso3": [
+   "BGD"
+  ],
+  "minAge": 0,
+  "maxAge": 100,
+  "annualProb": 0.015,
+  "requires": "rural",
+  "title": "サイクロン",
+  "situation": "沿岸部にサイクロンの警報が出た。",
+  "options": [
+   {
+    "id": "a",
+    "label": "すぐにシェルターへ避難する",
+    "desc": "命を守れる。家を空けている間に家財が傷む。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 60000
+     }
+    ],
+    "result": "家族でシェルターに避難し、一晩を過ごした。"
+   },
+   {
+    "id": "b",
+    "label": "家にとどまり補強する",
+    "desc": "家を守れることもある。危険が大きい。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 20000
+     },
+     {
+      "type": "health",
+      "value": 1.05
+     }
+    ],
+    "result": "屋根をロープで縛って嵐をやり過ごした。"
+   }
+  ],
+  "basis": "早期警報とシェルターの整備で死者は大きく減ったが、被害は毎年発生（防災・救援省）",
+  "estimated": true
+ },
+ {
+  "id": "bgd_microcredit",
+  "iso3": [
+   "BGD"
+  ],
+  "minAge": 20,
+  "maxAge": 60,
+  "annualProb": 0.05,
+  "requires": "rural",
+  "title": "マイクロクレジット",
+  "situation": "村のマイクロファイナンスの集まりで、小さな商売のための融資を勧められた。",
+  "options": [
+   {
+    "id": "a",
+    "label": "借りて商売を始める",
+    "desc": "収入が増える可能性がある。毎週の返済が重荷になる。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 50000
+     },
+     {
+      "type": "careerMult",
+      "value": 1.05
+     }
+    ],
+    "result": "ミシンを買って仕立ての仕事を始めた。"
+   },
+   {
+    "id": "b",
+    "label": "借りない",
+    "desc": "借金の心配はない。暮らしは今のまま。",
+    "effects": [
+     {
+      "type": "careerMult",
+      "value": 0.99
+     }
+    ],
+    "result": "今の暮らしを続けることにした。"
+   }
+  ],
+  "basis": "マイクロファイナンスの利用者は約4,000万人（マイクロクレジット規制庁）",
+  "estimated": true
+ },
+ {
+  "id": "bgd_gulf_work",
+  "iso3": [
+   "BGD"
+  ],
+  "minAge": 20,
+  "maxAge": 40,
+  "annualProb": 0.015,
+  "requires": "working",
+  "title": "海外への出稼ぎ",
+  "situation": "仲介業者から、マレーシアや中東の工場の仕事を紹介された。",
+  "options": [
+   {
+    "id": "a",
+    "label": "借金をして渡航する",
+    "desc": "仕送りで家族の暮らしが良くなる。仲介料が高く、条件が説明と違うこともある。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 400000
+     },
+     {
+      "type": "careerMult",
+      "value": 1.15
+     }
+    ],
+    "result": "マレーシアの工場で働くことになった。"
+   },
+   {
+    "id": "b",
+    "label": "国内に残る",
+    "desc": "借金のリスクはない。収入は伸びにくい。",
+    "effects": [
+     {
+      "type": "careerMult",
+      "value": 0.99
+     }
+    ],
+    "result": "国内で働き続けた。"
+   }
+  ],
+  "basis": "海外就労者は年約100万人が新たに出国（人材雇用訓練局 2023）",
+  "estimated": true
+ },
+ {
+  "id": "idn_earthquake",
+  "iso3": [
+   "IDN"
+  ],
+  "minAge": 0,
+  "maxAge": 100,
+  "annualProb": 0.006,
+  "requires": null,
+  "title": "地震と津波警報",
+  "situation": "強い地震が起き、沿岸に津波警報が出た。",
+  "options": [
+   {
+    "id": "a",
+    "label": "高台に避難して家を建て直す",
+    "desc": "地元に残れる。再建に費用がかかる。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 300000
+     },
+     {
+      "type": "incomeDropPct",
+      "value": 0.1
+     }
+    ],
+    "result": "高台に避難し、その後家を直した。"
+   },
+   {
+    "id": "b",
+    "label": "別の島の親戚を頼る",
+    "desc": "安全に暮らせる。仕事を一から探す。",
+    "effects": [
+     {
+      "type": "moveCost",
+      "value": 200000
+     },
+     {
+      "type": "careerMult",
+      "value": 0.97
+     }
+    ],
+    "result": "親戚のいる町に移った。"
+   }
+  ],
+  "basis": "世界有数の地震多発国（BMKG）。2018年スラウェシ地震など",
+  "estimated": true
+ },
+ {
+  "id": "idn_jakarta_flood",
+  "iso3": [
+   "IDN"
+  ],
+  "minAge": 0,
+  "maxAge": 100,
+  "annualProb": 0.04,
+  "requires": "urban",
+  "title": "雨季の冠水",
+  "situation": "大雨で住んでいる地区が冠水し、数日間仕事に行けなかった。",
+  "options": [
+   {
+    "id": "a",
+    "label": "家財を高い所に上げて耐える",
+    "desc": "費用は小さい。毎年同じことが起きる。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 50000
+     },
+     {
+      "type": "incomeDropPct",
+      "value": 0.02
+     }
+    ],
+    "result": "水が引くのを待った。"
+   },
+   {
+    "id": "b",
+    "label": "冠水しない地区へ引っ越す",
+    "desc": "被害を避けられる。家賃と通勤時間が増える。",
+    "effects": [
+     {
+      "type": "moveCost",
+      "value": 200000
+     },
+     {
+      "type": "health",
+      "value": 0.99
+     }
+    ],
+    "result": "少し高い土地のアパートに移った。"
+   }
+  ],
+  "basis": "ジャカルタは地盤沈下もあり冠水が頻発（報道）。首都移転計画の背景の一つ",
+  "estimated": true
+ },
+ {
+  "id": "idn_haze",
+  "iso3": [
+   "IDN"
+  ],
+  "minAge": 0,
+  "maxAge": 100,
+  "annualProb": 0.04,
+  "requires": "rural",
+  "title": "森林火災の煙害",
+  "situation": "乾季の森林火災の煙で、空が何週間も霞んでいる。",
+  "options": [
+   {
+    "id": "a",
+    "label": "マスクと空気清浄機を買う",
+    "desc": "体を守れる。出費がかかる。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 30000
+     },
+     {
+      "type": "health",
+      "value": 0.99
+     }
+    ],
+    "result": "マスクを買い、窓を閉めて過ごした。"
+   },
+   {
+    "id": "b",
+    "label": "いつもどおり過ごす",
+    "desc": "出費はない。呼吸器の不調が出やすい。",
+    "effects": [
+     {
+      "type": "health",
+      "value": 1.03
+     }
+    ],
+    "result": "せきをしながら畑仕事を続けた。"
+   }
+  ],
+  "basis": "スマトラ・カリマンタンで泥炭火災による煙害が繰り返し発生（2015、2019年など）",
+  "estimated": true
+ },
+ {
+  "id": "idn_jkn",
+  "iso3": [
+   "IDN"
+  ],
+  "minAge": 18,
+  "maxAge": 60,
+  "annualProb": 0.05,
+  "requires": null,
+  "title": "国民健康保険の加入",
+  "situation": "屋台の商売を始めたので、国民健康保険（JKN）に自分で保険料を払って入るか考えた。",
+  "options": [
+   {
+    "id": "a",
+    "label": "保険料を払って加入する",
+    "desc": "病気のときに安心できる。毎月の出費が増える。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 30000
+     },
+     {
+      "type": "health",
+      "value": 0.97
+     }
+    ],
+    "result": "JKNに加入した。"
+   },
+   {
+    "id": "b",
+    "label": "加入しない",
+    "desc": "手元にお金が残る。病気になると全額を払う。",
+    "effects": [
+     {
+      "type": "health",
+      "value": 1.02
+     }
+    ],
+    "result": "保険料の分を商売に回した。"
+   }
+  ],
+  "basis": "JKNの加入率は人口の約95%だが、自営業者の保険料滞納が多い（BPJS Kesehatan）",
+  "estimated": true
+ },
+ {
+  "id": "idn_online_loan",
+  "iso3": [
+   "IDN"
+  ],
+  "minAge": 20,
+  "maxAge": 50,
+  "annualProb": 0.03,
+  "requires": null,
+  "title": "スマホの即日ローン",
+  "situation": "急な出費があり、スマホアプリの即日ローンの広告が目に入った。",
+  "options": [
+   {
+    "id": "a",
+    "label": "アプリで借りる",
+    "desc": "すぐにお金が手に入る。利息が高く、取り立てが厳しいこともある。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 60000
+     }
+    ],
+    "result": "アプリで借りて支払いを済ませた。"
+   },
+   {
+    "id": "b",
+    "label": "親族に頭を下げて借りる",
+    "desc": "利息はかからない。気まずさが残る。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 10000
+     },
+     {
+      "type": "health",
+      "value": 1.01
+     }
+    ],
+    "result": "叔父にお金を借りた。"
+   }
+  ],
+  "basis": "オンライン貸金（pinjol）の利用と違法業者の問題が拡大（金融サービス庁 OJK）",
+  "estimated": true
+ },
+ {
+  "id": "bra_price_rise",
+  "iso3": [
+   "BRA"
+  ],
+  "minAge": 20,
+  "maxAge": 80,
+  "annualProb": 0.04,
+  "requires": null,
+  "title": "物価の上昇",
+  "situation": "食料品の値段が上がり、毎月の買い物で同じ額では足りなくなってきた。",
+  "options": [
+   {
+    "id": "a",
+    "label": "レアルの普通預金のまま",
+    "desc": "手間はない。目減りが続く。",
+    "effects": [
+     {
+      "type": "cashLossPct",
+      "value": 0.08
+     }
+    ],
+    "result": "安売りの店を探して回った。"
+   },
+   {
+    "id": "b",
+    "label": "物価連動の国債に移す",
+    "desc": "価値を守りやすい。すぐには引き出しにくい。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 5000
+     },
+     {
+      "type": "protectCash",
+      "value": true
+     }
+    ],
+    "result": "Tesouro Diretoで物価連動債を買った。"
+   }
+  ],
+  "basis": "1990年代前半は年数千%のインフレ。近年も年4〜10%程度（WDI）",
+  "estimated": true
+ },
+ {
+  "id": "bra_security",
+  "iso3": [
+   "BRA"
+  ],
+  "minAge": 20,
+  "maxAge": 70,
+  "annualProb": 0.04,
+  "requires": "urban",
+  "title": "防犯のための出費",
+  "situation": "近所で強盗が相次ぎ、家族で防犯対策を話し合った。",
+  "options": [
+   {
+    "id": "a",
+    "label": "警備付きの集合住宅に引っ越す",
+    "desc": "安心して暮らせる。家賃が上がる。",
+    "effects": [
+     {
+      "type": "moveCost",
+      "value": 400000
+     },
+     {
+      "type": "health",
+      "value": 0.99
+     }
+    ],
+    "result": "門と守衛のあるマンションに移った。"
+   },
+   {
+    "id": "b",
+    "label": "今の家に鉄格子とカメラを付ける",
+    "desc": "費用は抑えられる。不安は残る。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 100000
+     }
+    ],
+    "result": "窓に格子を付けた。"
+   }
+  ],
+  "basis": "殺人率は人口10万人あたり約19（WDI 2023）。民間警備への支出が大きい",
+  "estimated": true
+ },
+ {
+  "id": "bra_phone_theft",
+  "iso3": [
+   "BRA"
+  ],
+  "minAge": 15,
+  "maxAge": 70,
+  "annualProb": 0.06,
+  "requires": "urban",
+  "title": "スマホのひったくり",
+  "situation": "通勤中にスマホをひったくられた。",
+  "options": [
+   {
+    "id": "a",
+    "label": "同じ機種を買い直す",
+    "desc": "仕事にすぐ戻れる。出費が大きい。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 100000
+     }
+    ],
+    "result": "分割払いで新しいスマホを買った。"
+   },
+   {
+    "id": "b",
+    "label": "安い中古を買う",
+    "desc": "出費を抑えられる。使い勝手は落ちる。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 30000
+     },
+     {
+      "type": "careerMult",
+      "value": 0.995
+     }
+    ],
+    "result": "中古のスマホで当面しのぐことにした。"
+   }
+  ],
+  "basis": "サンパウロなど大都市で携帯電話の盗難が多い（ブラジル公共安全フォーラム）",
+  "estimated": true
+ },
+ {
+  "id": "bra_sus_wait",
+  "iso3": [
+   "BRA"
+  ],
+  "minAge": 0,
+  "maxAge": 90,
+  "annualProb": 0.04,
+  "requires": null,
+  "title": "公立病院の待ち時間",
+  "situation": "専門医の診察が必要になったが、公的医療（SUS）では数か月待ちだと言われた。",
+  "options": [
+   {
+    "id": "a",
+    "label": "民間の医療保険に入る",
+    "desc": "すぐに診てもらえる。保険料が高い。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 200000
+     },
+     {
+      "type": "health",
+      "value": 0.97
+     }
+    ],
+    "result": "民間の医療保険に加入した。"
+   },
+   {
+    "id": "b",
+    "label": "SUSで順番を待つ",
+    "desc": "費用はかからない。症状が進むおそれがある。",
+    "effects": [
+     {
+      "type": "health",
+      "value": 1.03
+     }
+    ],
+    "result": "予約の日まで待った。"
+   }
+  ],
+  "basis": "人口の約25%が民間医療保険に加入（ANS）",
+  "estimated": true
+ },
+ {
+  "id": "bra_enem",
+  "iso3": [
+   "BRA"
+  ],
+  "minAge": 17,
+  "maxAge": 18,
+  "annualProb": 0.15,
+  "requires": null,
+  "title": "全国高校試験（ENEM）",
+  "situation": "ENEMの点数で国立大学に入れるかが決まる。結果は少し足りなかった。",
+  "options": [
+   {
+    "id": "a",
+    "label": "予備校（cursinho）で1年勉強する",
+    "desc": "学費無料の国立大学を狙える。1年遅れる。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 150000
+     },
+     {
+      "type": "careerMult",
+      "value": 1.04
+     }
+    ],
+    "result": "予備校に通い始めた。"
+   },
+   {
+    "id": "b",
+    "label": "私立大学に奨学金で入る",
+    "desc": "すぐに進学できる。学費の借金が残る。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 600000
+     },
+     {
+      "type": "careerMult",
+      "value": 1.03
+     }
+    ],
+    "result": "私立大学に入学した。"
+   }
+  ],
+  "basis": "ENEMの受験者は年約400万人（INEP 2024）",
+  "estimated": true
+ },
+ {
+  "id": "deu_ausbildung",
+  "iso3": [
+   "DEU"
+  ],
+  "minAge": 16,
+  "maxAge": 19,
+  "annualProb": 0.18,
+  "requires": null,
+  "title": "職業訓練か大学か",
+  "situation": "学校を出たあと、職業訓練（デュアルシステム）に進むか、大学を目指すかを決める時期が来た。",
+  "options": [
+   {
+    "id": "a",
+    "label": "企業で職業訓練を受ける",
+    "desc": "訓練手当をもらいながら資格が取れる。職種の幅は決まりやすい。",
+    "effects": [
+     {
+      "type": "income",
+      "value": 300000
+     },
+     {
+      "type": "careerMult",
+      "value": 1.03
+     }
+    ],
+    "result": "自動車工場の訓練生になった。"
+   },
+   {
+    "id": "b",
+    "label": "アビトゥーアを取って大学へ",
+    "desc": "専門職への道が開ける。働き始めるのが遅れる。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 300000
+     },
+     {
+      "type": "careerMult",
+      "value": 1.07
+     }
+    ],
+    "result": "大学進学を目指すことにした。"
+   }
+  ],
+  "basis": "若者の約半数が職業訓練に進む（連邦職業教育研究所 BIBB）",
+  "estimated": true
+ },
+ {
+  "id": "deu_energy_price",
+  "iso3": [
+   "DEU"
+  ],
+  "minAge": 20,
+  "maxAge": 90,
+  "annualProb": 0.05,
+  "requires": null,
+  "title": "暖房費の値上がり",
+  "situation": "ガス料金の改定で、冬の暖房費が前年の2倍近くになった。",
+  "options": [
+   {
+    "id": "a",
+    "label": "暖房を控えて重ね着する",
+    "desc": "出費を抑えられる。家の中が寒い。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 30000
+     },
+     {
+      "type": "health",
+      "value": 1.01
+     }
+    ],
+    "result": "室温を18度に下げて冬を過ごした。"
+   },
+   {
+    "id": "b",
+    "label": "ヒートポンプに替える",
+    "desc": "長い目で見れば光熱費が下がる。初期費用が大きい。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 500000
+     }
+    ],
+    "result": "補助金を使ってヒートポンプを入れた。"
+   }
+  ],
+  "basis": "2022年のエネルギー危機で家庭のガス料金が急騰（連邦統計局）",
+  "estimated": true
+ },
+ {
+  "id": "deu_kita",
+  "iso3": [
+   "DEU"
+  ],
+  "minAge": 25,
+  "maxAge": 45,
+  "annualProb": 0.08,
+  "requires": "hasKids",
+  "title": "保育所の空き待ち",
+  "situation": "育児休業が終わるが、近くの保育所（Kita）に空きがない。",
+  "options": [
+   {
+    "id": "a",
+    "label": "育休を延ばして待つ",
+    "desc": "子どもと過ごせる。収入とキャリアが止まる。",
+    "effects": [
+     {
+      "type": "incomeDropPct",
+      "value": 0.4
+     },
+     {
+      "type": "careerMult",
+      "value": 0.97
+     }
+    ],
+    "result": "育休を延長して空きを待った。"
+   },
+   {
+    "id": "b",
+    "label": "民間のベビーシッターを雇う",
+    "desc": "仕事に戻れる。費用が高い。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 600000
+     },
+     {
+      "type": "careerMult",
+      "value": 1.01
+     }
+    ],
+    "result": "ベビーシッターを雇って職場に戻った。"
+   }
+  ],
+  "basis": "保育所の定員は約30万人分不足（ドイツ経済研究所 2023）",
+  "estimated": true
+ },
+ {
+  "id": "deu_flood",
+  "iso3": [
+   "DEU"
+  ],
+  "minAge": 0,
+  "maxAge": 100,
+  "annualProb": 0.003,
+  "requires": null,
+  "title": "豪雨による洪水",
+  "situation": "記録的な大雨で近くの川が氾濫し、家の1階が泥に埋まった。",
+  "options": [
+   {
+    "id": "a",
+    "label": "保険で直して住み続ける",
+    "desc": "地元に残れる。片付けに何か月もかかる。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 500000
+     }
+    ],
+    "result": "町の人たちと一緒に泥をかき出した。"
+   },
+   {
+    "id": "b",
+    "label": "川から離れた町に引っ越す",
+    "desc": "次の水害を避けられる。引っ越し費用がかかる。",
+    "effects": [
+     {
+      "type": "moveCost",
+      "value": 600000
+     }
+    ],
+    "result": "別の町で暮らし直すことにした。"
+   }
+  ],
+  "basis": "2021年のアール渓谷などの洪水で180人以上が亡くなった（報道）",
+  "estimated": true
+ },
+ {
+  "id": "deu_wohnung",
+  "iso3": [
+   "DEU"
+  ],
+  "minAge": 20,
+  "maxAge": 50,
+  "annualProb": 0.06,
+  "requires": "urban",
+  "title": "都市の住まい探し",
+  "situation": "家族が増えて引っ越したいが、都市部の賃貸物件の内見には何十人も集まる。",
+  "options": [
+   {
+    "id": "a",
+    "label": "郊外に移る",
+    "desc": "広い家に住める。通勤時間が長くなる。",
+    "effects": [
+     {
+      "type": "moveCost",
+      "value": 300000
+     },
+     {
+      "type": "health",
+      "value": 1.01
+     }
+    ],
+    "result": "電車で1時間の郊外に引っ越した。"
+   },
+   {
+    "id": "b",
+    "label": "今の狭い部屋で暮らす",
+    "desc": "家賃は据え置き。手狭で家族のストレスが増える。",
+    "effects": [
+     {
+      "type": "health",
+      "value": 1.01
+     },
+     {
+      "type": "cost",
+      "value": 20000
+     }
+    ],
+    "result": "家具を工夫して今の部屋で暮らし続けた。"
+   }
+  ],
+  "basis": "ベルリン・ミュンヘンなどで家賃が高騰（連邦統計局、報道）",
+  "estimated": true
+ },
+ {
+  "id": "gbr_cost_of_living",
+  "iso3": [
+   "GBR"
+  ],
+  "minAge": 18,
+  "maxAge": 90,
+  "annualProb": 0.06,
+  "requires": null,
+  "title": "生活費の高騰",
+  "situation": "光熱費と食料品の値上がりで、毎月の家計が赤字になった。",
+  "options": [
+   {
+    "id": "a",
+    "label": "フードバンクや支援制度を使う",
+    "desc": "当面の生活をしのげる。手続きに気まずさがある。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 20000
+     },
+     {
+      "type": "health",
+      "value": 1.0
+     }
+    ],
+    "result": "地域の支援窓口に相談した。"
+   },
+   {
+    "id": "b",
+    "label": "残業や副業を増やす",
+    "desc": "収入を補える。疲れがたまる。",
+    "effects": [
+     {
+      "type": "income",
+      "value": 150000
+     },
+     {
+      "type": "health",
+      "value": 1.03
+     }
+    ],
+    "result": "週末に配達の仕事を始めた。"
+   }
+  ],
+  "basis": "2022〜23年に物価上昇率が約10%に達した（ONS）",
+  "estimated": true
+ },
+ {
+  "id": "gbr_nhs_wait",
+  "iso3": [
+   "GBR"
+  ],
+  "minAge": 0,
+  "maxAge": 90,
+  "annualProb": 0.04,
+  "requires": null,
+  "title": "NHSの待機リスト",
+  "situation": "手術が必要と言われたが、国民保健サービス（NHS）では1年近く待つ見込みだった。",
+  "options": [
+   {
+    "id": "a",
+    "label": "民間病院で自費で受ける",
+    "desc": "すぐに治療できる。費用が大きい。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 1000000
+     },
+     {
+      "type": "health",
+      "value": 0.96
+     }
+    ],
+    "result": "貯金を崩して民間病院で手術を受けた。"
+   },
+   {
+    "id": "b",
+    "label": "NHSで待つ",
+    "desc": "費用はかからない。その間、痛みと休業が続く。",
+    "effects": [
+     {
+      "type": "health",
+      "value": 1.03
+     },
+     {
+      "type": "incomeDropPct",
+      "value": 0.05
+     }
+    ],
+    "result": "順番を待つことにした。"
+   }
+  ],
+  "basis": "NHSの待機者は約760万件（NHS England 2024）",
+  "estimated": true
+ },
+ {
+  "id": "gbr_mortgage_rate",
+  "iso3": [
+   "GBR"
+  ],
+  "minAge": 28,
+  "maxAge": 65,
+  "annualProb": 0.08,
+  "requires": "ownsHome",
+  "title": "住宅ローン金利の更新",
+  "situation": "2年固定の住宅ローン金利が終わり、新しい金利は以前の2倍以上になった。",
+  "options": [
+   {
+    "id": "a",
+    "label": "新しい固定金利で借り換える",
+    "desc": "返済額が読める。毎月の支払いが大きく増える。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 400000
+     }
+    ],
+    "result": "5年固定で借り換えた。"
+   },
+   {
+    "id": "b",
+    "label": "家を売って小さな家に移る",
+    "desc": "返済が軽くなる。引っ越しの費用と手間がかかる。",
+    "effects": [
+     {
+      "type": "moveCost",
+      "value": 500000
+     }
+    ],
+    "result": "家を売り、賃貸に移った。"
+   }
+  ],
+  "basis": "2022年秋以降、住宅ローン金利が急上昇（イングランド銀行）。英国は短期固定が主流",
+  "estimated": true
+ },
+ {
+  "id": "gbr_tuition",
+  "iso3": [
+   "GBR"
+  ],
+  "minAge": 18,
+  "maxAge": 19,
+  "annualProb": 0.15,
+  "requires": null,
+  "title": "大学の学費と学生ローン",
+  "situation": "イングランドの大学の学費は年9,000ポンド超。学生ローンを使って進学するか考えた。",
+  "options": [
+   {
+    "id": "a",
+    "label": "学生ローンで大学へ",
+    "desc": "学位が取れる。卒業後、長く返済が続く。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 1500000
+     },
+     {
+      "type": "careerMult",
+      "value": 1.1
+     }
+    ],
+    "result": "学生ローンを申し込み、大学に入った。"
+   },
+   {
+    "id": "b",
+    "label": "見習い（アプレンティスシップ）として働く",
+    "desc": "給料をもらいながら学べる。進める職種は限られる。",
+    "effects": [
+     {
+      "type": "income",
+      "value": 300000
+     },
+     {
+      "type": "careerMult",
+      "value": 1.04
+     }
+    ],
+    "result": "会社の見習い制度に入った。"
+   }
+  ],
+  "basis": "学費上限は年9,250ポンド（2024）、9,535ポンド（2025）（教育省）",
+  "estimated": true
+ },
+ {
+  "id": "gbr_rent_rise",
+  "iso3": [
+   "GBR"
+  ],
+  "minAge": 20,
+  "maxAge": 60,
+  "annualProb": 0.08,
+  "requires": "urban",
+  "title": "家賃の値上げ",
+  "situation": "大家から、来月から家賃を15%上げると通知が来た。",
+  "options": [
+   {
+    "id": "a",
+    "label": "受け入れて住み続ける",
+    "desc": "引っ越しの手間はない。家計が苦しくなる。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 200000
+     }
+    ],
+    "result": "値上げを受け入れた。"
+   },
+   {
+    "id": "b",
+    "label": "家賃の安い地域に移る",
+    "desc": "毎月の出費が減る。通勤時間が長くなる。",
+    "effects": [
+     {
+      "type": "moveCost",
+      "value": 300000
+     },
+     {
+      "type": "careerMult",
+      "value": 0.99
+     }
+    ],
+    "result": "郊外の町に引っ越した。"
+   }
+  ],
+  "basis": "民間賃貸の家賃は2023〜24年に前年比約9%上昇（ONS）",
+  "estimated": true
+ },
+ {
+  "id": "fra_strike",
+  "iso3": [
+   "FRA"
+  ],
+  "minAge": 18,
+  "maxAge": 70,
+  "annualProb": 0.08,
+  "requires": "urban",
+  "title": "交通機関のストライキ",
+  "situation": "年金改革に反対するストライキで、電車と地下鉄がほとんど動かない日が続いた。",
+  "options": [
+   {
+    "id": "a",
+    "label": "自転車で通勤する",
+    "desc": "仕事を休まずに済む。朝早く出る必要がある。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 30000
+     },
+     {
+      "type": "health",
+      "value": 0.99
+     }
+    ],
+    "result": "自転車を買って通勤した。"
+   },
+   {
+    "id": "b",
+    "label": "在宅勤務や休暇にする",
+    "desc": "体は楽。仕事が遅れる。",
+    "effects": [
+     {
+      "type": "incomeDropPct",
+      "value": 0.02
+     }
+    ],
+    "result": "家から働けない日は休みを取った。"
+   }
+  ],
+  "basis": "2019〜20年、2023年に大規模な交通ストが発生（報道）",
+  "estimated": true
+ },
+ {
+  "id": "fra_pension_age",
+  "iso3": [
+   "FRA"
+  ],
+  "minAge": 55,
+  "maxAge": 62,
+  "annualProb": 0.06,
+  "requires": "working",
+  "title": "年金の支給開始年齢",
+  "situation": "年金改革で、年金を満額受け取れる年齢が2年遅くなった。",
+  "options": [
+   {
+    "id": "a",
+    "label": "64歳まで働く",
+    "desc": "年金と収入が増える。体力的にきつい。",
+    "effects": [
+     {
+      "type": "income",
+      "value": 1000000
+     },
+     {
+      "type": "health",
+      "value": 1.02
+     }
+    ],
+    "result": "あと2年働くことにした。"
+   },
+   {
+    "id": "b",
+    "label": "減額を受け入れて早めに退職する",
+    "desc": "自由な時間が増える。年金額が減る。",
+    "effects": [
+     {
+      "type": "incomeDropPct",
+      "value": 0.5
+     },
+     {
+      "type": "health",
+      "value": 0.99
+     }
+    ],
+    "result": "予定どおり退職した。"
+   }
+  ],
+  "basis": "2023年の改革で受給開始年齢が62歳から64歳へ段階的に引き上げ（その後見直し議論）",
+  "estimated": true
+ },
+ {
+  "id": "fra_heatwave",
+  "iso3": [
+   "FRA"
+  ],
+  "minAge": 60,
+  "maxAge": 100,
+  "annualProb": 0.04,
+  "requires": null,
+  "title": "夏の猛暑",
+  "situation": "気温40度近い熱波が続き、自宅にはエアコンがない。",
+  "options": [
+   {
+    "id": "a",
+    "label": "エアコンを買う",
+    "desc": "体を守れる。費用と電気代がかかる。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 100000
+     },
+     {
+      "type": "health",
+      "value": 0.97
+     }
+    ],
+    "result": "移動式のエアコンを買った。"
+   },
+   {
+    "id": "b",
+    "label": "涼しい公共施設で過ごす",
+    "desc": "出費はない。毎日の移動が負担。",
+    "effects": [
+     {
+      "type": "health",
+      "value": 1.02
+     }
+    ],
+    "result": "昼間は図書館で過ごした。"
+   }
+  ],
+  "basis": "2003年の熱波で約1万5,000人が死亡。近年も熱波が頻発（公衆衛生庁）",
+  "estimated": true
+ },
+ {
+  "id": "fra_prepa",
+  "iso3": [
+   "FRA"
+  ],
+  "minAge": 18,
+  "maxAge": 19,
+  "annualProb": 0.12,
+  "requires": null,
+  "title": "グランゼコール準備級",
+  "situation": "バカロレアに合格し、大学に進むか、難関校を目指す準備級（プレパ）に進むか選ぶことになった。",
+  "options": [
+   {
+    "id": "a",
+    "label": "準備級に進む",
+    "desc": "難関校への道が開ける。2年間、勉強漬けになる。",
+    "effects": [
+     {
+      "type": "careerMult",
+      "value": 1.07
+     },
+     {
+      "type": "health",
+      "value": 1.02
+     }
+    ],
+    "result": "準備級に入学した。"
+   },
+   {
+    "id": "b",
+    "label": "大学に進む",
+    "desc": "自分のペースで学べる。就職ではやや不利になることもある。",
+    "effects": [
+     {
+      "type": "careerMult",
+      "value": 1.02
+     },
+     {
+      "type": "cost",
+      "value": 30000
+     }
+    ],
+    "result": "大学に入学した。"
+   }
+  ],
+  "basis": "準備級の在籍者は約8万人（高等教育省）",
+  "estimated": true
+ },
+ {
+  "id": "fra_creche",
+  "iso3": [
+   "FRA"
+  ],
+  "minAge": 25,
+  "maxAge": 45,
+  "annualProb": 0.08,
+  "requires": "hasKids",
+  "title": "保育所の申し込み",
+  "situation": "公立保育所（クレッシュ）に申し込んだが、空きが出るのは1年後と言われた。",
+  "options": [
+   {
+    "id": "a",
+    "label": "認定保育ママに預ける",
+    "desc": "仕事に戻れる。費用が少し高い。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 300000
+     },
+     {
+      "type": "careerMult",
+      "value": 1.01
+     }
+    ],
+    "result": "近所の保育ママに預けることにした。"
+   },
+   {
+    "id": "b",
+    "label": "育児休業を延ばす",
+    "desc": "子どもと過ごせる。給付は少なく、収入が減る。",
+    "effects": [
+     {
+      "type": "incomeDropPct",
+      "value": 0.4
+     },
+     {
+      "type": "careerMult",
+      "value": 0.98
+     }
+    ],
+    "result": "育児休業を延長した。"
+   }
+  ],
+  "basis": "3歳未満児の保育定員は需要に足りない（家族手当全国金庫 CNAF）",
+  "estimated": true
+ },
+ {
+  "id": "mex_migrate_us",
+  "iso3": [
+   "MEX"
+  ],
+  "minAge": 18,
+  "maxAge": 40,
+  "annualProb": 0.015,
+  "requires": null,
+  "title": "米国へ働きに行く話",
+  "situation": "米国で働くいとこから、農場の仕事があると連絡が来た。",
+  "options": [
+   {
+    "id": "a",
+    "label": "米国へ働きに行く",
+    "desc": "収入が大きく増え、家族に送金できる。家族と離れ、移動にも危険が伴う。",
+    "effects": [
+     {
+      "type": "moveCost",
+      "value": 800000
+     },
+     {
+      "type": "careerMult",
+      "value": 1.3
+     },
+     {
+      "type": "health",
+      "value": 1.03
+     }
+    ],
+    "result": "国境を越え、農場で働き始めた。"
+   },
+   {
+    "id": "b",
+    "label": "地元に残り、いとこの送金を頼りにする",
+    "desc": "家族と暮らせる。仕事の選択肢は少ない。",
+    "effects": [
+     {
+      "type": "income",
+      "value": 200000
+     },
+     {
+      "type": "careerMult",
+      "value": 0.99
+     }
+    ],
+    "result": "地元で働きながら、時々の送金を受け取った。"
+   }
+  ],
+  "basis": "海外からの送金はGDPの約4%、年600億ドル超（メキシコ銀行 2024）",
+  "estimated": true
+ },
+ {
+  "id": "mex_security",
+  "iso3": [
+   "MEX"
+  ],
+  "minAge": 20,
+  "maxAge": 70,
+  "annualProb": 0.03,
+  "requires": null,
+  "title": "地域の治安の悪化",
+  "situation": "地元で犯罪組織による事件が増え、夜の外出や商売に不安を感じるようになった。",
+  "options": [
+   {
+    "id": "a",
+    "label": "別の町に引っ越す",
+    "desc": "安心して暮らせる。仕事と人間関係を失う。",
+    "effects": [
+     {
+      "type": "moveCost",
+      "value": 300000
+     },
+     {
+      "type": "health",
+      "value": 0.98
+     }
+    ],
+    "result": "親戚のいる町に移った。"
+   },
+   {
+    "id": "b",
+    "label": "店の営業時間を短くする",
+    "desc": "地元に残れる。売り上げが減る。",
+    "effects": [
+     {
+      "type": "incomeDropPct",
+      "value": 0.15
+     }
+    ],
+    "result": "日が暮れる前に店を閉めるようにした。"
+   }
+  ],
+  "basis": "殺人率は人口10万人あたり約25（WDI 2023）。州による差が大きい",
+  "estimated": true
+ },
+ {
+  "id": "mex_formal_job",
+  "iso3": [
+   "MEX"
+  ],
+  "minAge": 18,
+  "maxAge": 45,
+  "annualProb": 0.06,
+  "requires": "working",
+  "title": "社会保険のある仕事",
+  "situation": "屋台の仕事より給料は少し低いが、社会保険（IMSS）に入れる工場の仕事を紹介された。",
+  "options": [
+   {
+    "id": "a",
+    "label": "工場の正規の仕事に就く",
+    "desc": "医療と年金の保障がある。手取りは減る。",
+    "effects": [
+     {
+      "type": "careerMult",
+      "value": 1.02
+     },
+     {
+      "type": "health",
+      "value": 0.98
+     },
+     {
+      "type": "incomeDropPct",
+      "value": 0.05
+     }
+    ],
+    "result": "工場で働き始め、IMSSに加入した。"
+   },
+   {
+    "id": "b",
+    "label": "屋台の仕事を続ける",
+    "desc": "手取りは多い。病気や老後の保障がない。",
+    "effects": [
+     {
+      "type": "careerMult",
+      "value": 0.99
+     },
+     {
+      "type": "health",
+      "value": 1.01
+     }
+    ],
+    "result": "屋台を続けることにした。"
+   }
+  ],
+  "basis": "就業者の約55%がインフォーマル雇用（INEGI）",
+  "estimated": true
+ },
+ {
+  "id": "mex_earthquake",
+  "iso3": [
+   "MEX"
+  ],
+  "minAge": 0,
+  "maxAge": 100,
+  "annualProb": 0.005,
+  "requires": "urban",
+  "title": "大地震",
+  "situation": "強い地震が起き、住んでいる建物の壁にひびが入った。",
+  "options": [
+   {
+    "id": "a",
+    "label": "補修して住み続ける",
+    "desc": "住み慣れた家にいられる。安全面の不安が残る。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 300000
+     },
+     {
+      "type": "health",
+      "value": 1.01
+     }
+    ],
+    "result": "壁を補修して住み続けた。"
+   },
+   {
+    "id": "b",
+    "label": "別の住まいに移る",
+    "desc": "安心できる。引っ越し費用がかかる。",
+    "effects": [
+     {
+      "type": "moveCost",
+      "value": 400000
+     }
+    ],
+    "result": "新しい建物に移った。"
+   }
+  ],
+  "basis": "1985年、2017年にメキシコ市で大地震（国立地震局）",
+  "estimated": true
+ },
+ {
+  "id": "mex_hurricane",
+  "iso3": [
+   "MEX"
+  ],
+  "minAge": 0,
+  "maxAge": 100,
+  "annualProb": 0.01,
+  "requires": null,
+  "title": "ハリケーン",
+  "situation": "大型のハリケーンが上陸し、屋根と家財が被害を受けた。",
+  "options": [
+   {
+    "id": "a",
+    "label": "借金をして家を直す",
+    "desc": "すぐに元の暮らしに戻れる。返済が続く。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 300000
+     }
+    ],
+    "result": "屋根を直した。"
+   },
+   {
+    "id": "b",
+    "label": "支援を待ちながら仮住まいする",
+    "desc": "出費を抑えられる。不便な生活が続く。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 80000
+     },
+     {
+      "type": "health",
+      "value": 1.02
+     }
+    ],
+    "result": "支援物資を受け取りながら仮住まいをした。"
+   }
+  ],
+  "basis": "2023年のハリケーン・オーティスでアカプルコが大被害（報道）",
+  "estimated": true
+ },
+ {
+  "id": "phl_ofw",
+  "iso3": [
+   "PHL"
+  ],
+  "minAge": 22,
+  "maxAge": 45,
+  "annualProb": 0.03,
+  "requires": "working",
+  "title": "海外就労（OFW）",
+  "situation": "中東の病院や香港の家庭で働く仕事の募集があり、応募するか考えた。",
+  "options": [
+   {
+    "id": "a",
+    "label": "海外で働く",
+    "desc": "収入は国内の数倍で、家族に仕送りできる。何年も家族と離れる。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 150000
+     },
+     {
+      "type": "careerMult",
+      "value": 1.25
+     },
+     {
+      "type": "health",
+      "value": 1.02
+     }
+    ],
+    "result": "契約書にサインし、海外へ渡った。"
+   },
+   {
+    "id": "b",
+    "label": "国内で働き続ける",
+    "desc": "家族と暮らせる。収入は伸びにくい。",
+    "effects": [
+     {
+      "type": "careerMult",
+      "value": 0.99
+     },
+     {
+      "type": "health",
+      "value": 0.99
+     }
+    ],
+    "result": "マニラで働き続けた。"
+   }
+  ],
+  "basis": "海外就労者（OFW）は約200万人、送金はGDPの約9%（フィリピン統計庁、WDI）",
+  "estimated": true
+ },
+ {
+  "id": "phl_typhoon",
+  "iso3": [
+   "PHL"
+  ],
+  "minAge": 0,
+  "maxAge": 100,
+  "annualProb": 0.06,
+  "requires": null,
+  "title": "台風",
+  "situation": "強い台風が直撃し、家の屋根が飛ばされた。",
+  "options": [
+   {
+    "id": "a",
+    "label": "借金をして家を直す",
+    "desc": "すぐに元の暮らしに戻れる。返済が続く。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 150000
+     }
+    ],
+    "result": "トタン板を買って屋根を直した。"
+   },
+   {
+    "id": "b",
+    "label": "避難所で支援を待つ",
+    "desc": "出費を抑えられる。不便な生活が続く。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 30000
+     },
+     {
+      "type": "health",
+      "value": 1.03
+     }
+    ],
+    "result": "体育館で支援物資を受け取りながら過ごした。"
+   }
+  ],
+  "basis": "年に約20個の台風が接近・上陸する（PAGASA）",
+  "estimated": true
+ },
+ {
+  "id": "phl_commute",
+  "iso3": [
+   "PHL"
+  ],
+  "minAge": 20,
+  "maxAge": 60,
+  "annualProb": 0.05,
+  "requires": "urban",
+  "title": "マニラの通勤",
+  "situation": "渋滞がひどく、片道2時間以上かけて通勤している。",
+  "options": [
+   {
+    "id": "a",
+    "label": "職場の近くに部屋を借りる",
+    "desc": "時間と体力が戻る。家賃が二重になる。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 150000
+     },
+     {
+      "type": "health",
+      "value": 0.99
+     }
+    ],
+    "result": "平日だけ職場近くの部屋に住むことにした。"
+   },
+   {
+    "id": "b",
+    "label": "今のまま通う",
+    "desc": "出費は増えない。疲れが抜けない。",
+    "effects": [
+     {
+      "type": "health",
+      "value": 1.02
+     }
+    ],
+    "result": "ジープニーとバスを乗り継いで通い続けた。"
+   }
+  ],
+  "basis": "マニラ首都圏は世界でも渋滞の激しい都市の一つ（TomTom Traffic Index）",
+  "estimated": true
+ },
+ {
+  "id": "phl_hospital_deposit",
+  "iso3": [
+   "PHL"
+  ],
+  "minAge": 0,
+  "maxAge": 90,
+  "annualProb": 0.03,
+  "requires": null,
+  "title": "入院の前払い金",
+  "situation": "家族が入院することになり、病院から前払い金を求められた。",
+  "options": [
+   {
+    "id": "a",
+    "label": "親戚から借りて私立病院へ",
+    "desc": "すぐに治療が受けられる。借金が残る。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 200000
+     },
+     {
+      "type": "health",
+      "value": 0.97
+     }
+    ],
+    "result": "親戚に借りて前払い金を払った。"
+   },
+   {
+    "id": "b",
+    "label": "公立病院で順番を待つ",
+    "desc": "費用は安い。混雑していて待ち時間が長い。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 30000
+     },
+     {
+      "type": "health",
+      "value": 1.03
+     }
+    ],
+    "result": "公立病院の廊下で順番を待った。"
+   }
+  ],
+  "basis": "医療費の自己負担割合は約4割（WHO GHED）",
+  "estimated": true
+ },
+ {
+  "id": "egy_pound_drop",
+  "iso3": [
+   "EGY"
+  ],
+  "minAge": 20,
+  "maxAge": 80,
+  "annualProb": 0.04,
+  "requires": null,
+  "title": "ポンドの切り下げ",
+  "situation": "エジプト・ポンドが切り下げられ、輸入品の値段が一気に上がった。",
+  "options": [
+   {
+    "id": "a",
+    "label": "ポンドのまま預金する",
+    "desc": "高い金利が付く。物価上昇に追いつかない。",
+    "effects": [
+     {
+      "type": "cashLossPct",
+      "value": 0.3
+     }
+    ],
+    "result": "預金で買える物が減っていった。"
+   },
+   {
+    "id": "b",
+    "label": "金（ゴールド）を買う",
+    "desc": "価値を守りやすい。売り買いの差額がかかる。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 20000
+     },
+     {
+      "type": "protectCash",
+      "value": true
+     }
+    ],
+    "result": "貯金の一部で金を買った。"
+   }
+  ],
+  "basis": "2016年、2022〜24年にポンドが大幅に下落（中央銀行）",
+  "estimated": true
+ },
+ {
+  "id": "egy_bread_subsidy",
+  "iso3": [
+   "EGY"
+  ],
+  "minAge": 18,
+  "maxAge": 90,
+  "annualProb": 0.05,
+  "requires": null,
+  "title": "補助金付きパンの値上げ",
+  "situation": "配給カードで買える補助金付きパンの値段が大きく引き上げられた。",
+  "options": [
+   {
+    "id": "a",
+    "label": "ほかの食費を削る",
+    "desc": "パンは今までどおり買える。食事の質が落ちる。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 20000
+     },
+     {
+      "type": "health",
+      "value": 1.01
+     }
+    ],
+    "result": "肉を買う回数を減らした。"
+   },
+   {
+    "id": "b",
+    "label": "副業を始める",
+    "desc": "収入を補える。休む時間が減る。",
+    "effects": [
+     {
+      "type": "income",
+      "value": 50000
+     },
+     {
+      "type": "health",
+      "value": 1.02
+     }
+    ],
+    "result": "夜に配達の仕事を始めた。"
+   }
+  ],
+  "basis": "2024年に補助金付きパンの価格が4倍に引き上げられた（報道）",
+  "estimated": true
+ },
+ {
+  "id": "egy_tutoring",
+  "iso3": [
+   "EGY"
+  ],
+  "minAge": 40,
+  "maxAge": 60,
+  "annualProb": 0.1,
+  "requires": "hasKids",
+  "title": "高校卒業試験と家庭教師",
+  "situation": "子どもが高校卒業試験（サナウェイヤ・アンマ）を控え、ほとんどの同級生が私塾に通っている。",
+  "options": [
+   {
+    "id": "a",
+    "label": "私塾と家庭教師を付ける",
+    "desc": "志望の学部を狙いやすい。家計の負担が重い。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 300000
+     }
+    ],
+    "result": "毎晩の私塾通いが始まった。"
+   },
+   {
+    "id": "b",
+    "label": "学校の授業と独学で臨む",
+    "desc": "出費を抑えられる。点数で不利になるおそれがある。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 20000
+     }
+    ],
+    "result": "家で一緒に過去問を解いた。"
+   }
+  ],
+  "basis": "家庭の教育費の多くが私塾・家庭教師に使われる（世界銀行・報道）",
+  "estimated": true
+ },
+ {
+  "id": "egy_gulf_work",
+  "iso3": [
+   "EGY"
+  ],
+  "minAge": 22,
+  "maxAge": 45,
+  "annualProb": 0.02,
+  "requires": "working",
+  "title": "湾岸諸国での仕事",
+  "situation": "サウジアラビアの会社から、技術者として働かないかと誘われた。",
+  "options": [
+   {
+    "id": "a",
+    "label": "湾岸で働く",
+    "desc": "収入が大きく増える。家族と離れる。",
+    "effects": [
+     {
+      "type": "moveCost",
+      "value": 200000
+     },
+     {
+      "type": "careerMult",
+      "value": 1.2
+     }
+    ],
+    "result": "ジッダの会社で働き始めた。"
+   },
+   {
+    "id": "b",
+    "label": "国内に残る",
+    "desc": "家族と暮らせる。物価高の中で収入は伸びにくい。",
+    "effects": [
+     {
+      "type": "careerMult",
+      "value": 0.99
+     },
+     {
+      "type": "health",
+      "value": 0.99
+     }
+    ],
+    "result": "カイロで働き続けた。"
+   }
+  ],
+  "basis": "海外からの送金は年約200〜300億ドル（中央銀行）",
+  "estimated": true
+ },
+ {
+  "id": "egy_marriage_home",
+  "iso3": [
+   "EGY"
+  ],
+  "minAge": 22,
+  "maxAge": 33,
+  "annualProb": 0.08,
+  "requires": null,
+  "title": "結婚と新居の準備",
+  "situation": "婚約が決まり、慣習として新郎側が住まいと家具をそろえることを期待されている。",
+  "options": [
+   {
+    "id": "a",
+    "label": "家族の援助を受けて新居を用意する",
+    "desc": "慣習どおりに結婚できる。家族に借金が残る。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 1000000
+     }
+    ],
+    "result": "親族の援助で部屋を借り、家具をそろえた。"
+   },
+   {
+    "id": "b",
+    "label": "両親の家に同居して始める",
+    "desc": "出費を抑えられる。気をつかう生活になる。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 200000
+     },
+     {
+      "type": "health",
+      "value": 1.01
+     }
+    ],
+    "result": "しばらく両親の家で暮らすことにした。"
+   }
+  ],
+  "basis": "結婚費用の高騰が晩婚化の一因とされる（CAPMAS、報道）",
+  "estimated": true
+ },
+ {
+  "id": "eth_birr_float",
+  "iso3": [
+   "ETH"
+  ],
+  "minAge": 20,
+  "maxAge": 80,
+  "annualProb": 0.04,
+  "requires": null,
+  "title": "ブルの切り下げ",
+  "situation": "為替が自由化され、ブルの価値が半分以下になった。",
+  "options": [
+   {
+    "id": "a",
+    "label": "ブルのまま持つ",
+    "desc": "手間はない。貯金の価値が大きく減る。",
+    "effects": [
+     {
+      "type": "cashLossPct",
+      "value": 0.35
+     }
+    ],
+    "result": "輸入品の値段が倍になった。"
+   },
+   {
+    "id": "b",
+    "label": "家畜や建材に替える",
+    "desc": "価値を守りやすい。すぐには現金にできない。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 20000
+     },
+     {
+      "type": "protectCash",
+      "value": true
+     }
+    ],
+    "result": "貯金で牛を買った。"
+   }
+  ],
+  "basis": "2024年7月の変動相場制移行でブルは対ドルで半分以下に（中央銀行）",
+  "estimated": true
+ },
+ {
+  "id": "eth_drought",
+  "iso3": [
+   "ETH"
+  ],
+  "minAge": 0,
+  "maxAge": 100,
+  "annualProb": 0.06,
+  "requires": "rural",
+  "title": "干ばつ",
+  "situation": "雨季の雨がほとんど降らず、家畜が弱り、畑は乾ききった。",
+  "options": [
+   {
+    "id": "a",
+    "label": "家畜を売って食料を買う",
+    "desc": "家族の食べ物を確保できる。財産を失う。",
+    "effects": [
+     {
+      "type": "incomeDropPct",
+      "value": 0.3
+     }
+    ],
+    "result": "牛を安値で手放した。"
+   },
+   {
+    "id": "b",
+    "label": "食料支援を受けながら耐える",
+    "desc": "家畜を残せる。食事が足りない日が続く。",
+    "effects": [
+     {
+      "type": "health",
+      "value": 1.05
+     }
+    ],
+    "result": "配給所に並んで穀物を受け取った。"
+   }
+  ],
+  "basis": "2020〜23年の干ばつで東部・南部の数百万人が食料支援を必要とした（OCHA）",
+  "estimated": true
+ },
+ {
+  "id": "eth_conflict_move",
+  "iso3": [
+   "ETH"
+  ],
+  "minAge": 0,
+  "maxAge": 100,
+  "annualProb": 0.008,
+  "requires": null,
+  "title": "地域の衝突による避難",
+  "situation": "住んでいる地域で武力衝突が起き、多くの家族が町を離れ始めた。",
+  "options": [
+   {
+    "id": "a",
+    "label": "親戚のいる町へ避難する",
+    "desc": "安全を確保できる。家と仕事を残していく。",
+    "effects": [
+     {
+      "type": "moveCost",
+      "value": 150000
+     },
+     {
+      "type": "careerMult",
+      "value": 0.92
+     }
+    ],
+    "result": "荷物をまとめて親戚の町へ移った。"
+   },
+   {
+    "id": "b",
+    "label": "家にとどまる",
+    "desc": "家と畑を守れる。物資が届きにくく、不安な日々が続く。",
+    "effects": [
+     {
+      "type": "health",
+      "value": 1.05
+     },
+     {
+      "type": "incomeDropPct",
+      "value": 0.3
+     }
+    ],
+    "result": "家にとどまり、状況が落ち着くのを待った。"
+   }
+  ],
+  "basis": "2020〜22年のティグライ紛争などで国内避難民は数百万人規模（UNHCR、IDMC）",
+  "estimated": true
+ },
+ {
+  "id": "eth_cbhi",
+  "iso3": [
+   "ETH"
+  ],
+  "minAge": 18,
+  "maxAge": 70,
+  "annualProb": 0.05,
+  "requires": "rural",
+  "title": "地域医療保険への加入",
+  "situation": "村で地域医療保険（CBHI）の加入受付があり、年会費を払うか家族で相談した。",
+  "options": [
+   {
+    "id": "a",
+    "label": "加入する",
+    "desc": "診療所でほぼ無料で診てもらえる。年会費がかかる。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 10000
+     },
+     {
+      "type": "health",
+      "value": 0.97
+     }
+    ],
+    "result": "家族全員で加入した。"
+   },
+   {
+    "id": "b",
+    "label": "加入しない",
+    "desc": "手元にお金が残る。病気のときは全額自己負担になる。",
+    "effects": [
+     {
+      "type": "health",
+      "value": 1.02
+     }
+    ],
+    "result": "会費の分を種の購入に回した。"
+   }
+  ],
+  "basis": "地域医療保険は全国の郡に拡大中（エチオピア保健保険サービス）",
+  "estimated": true
+ },
+ {
+  "id": "eth_gulf_work",
+  "iso3": [
+   "ETH"
+  ],
+  "minAge": 18,
+  "maxAge": 35,
+  "annualProb": 0.015,
+  "requires": null,
+  "title": "中東への出稼ぎ",
+  "situation": "仲介業者から、サウジアラビアで家事や建設の仕事があると勧められた。",
+  "options": [
+   {
+    "id": "a",
+    "label": "正規の手続きで出稼ぎに行く",
+    "desc": "仕送りで家族を支えられる。言葉と慣習の違う国で長く働く。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 100000
+     },
+     {
+      "type": "careerMult",
+      "value": 1.15
+     },
+     {
+      "type": "health",
+      "value": 1.02
+     }
+    ],
+    "result": "政府の登録を済ませて渡航した。"
+   },
+   {
+    "id": "b",
+    "label": "国内で働き口を探す",
+    "desc": "家族の近くにいられる。収入は少ない。",
+    "effects": [
+     {
+      "type": "careerMult",
+      "value": 0.99
+     }
+    ],
+    "result": "アディスアベバで仕事を探した。"
+   }
+  ],
+  "basis": "サウジアラビアなどへの就労が多く、政府が正規ルートの整備を進めている（労働・技能省）",
+  "estimated": true
+ },
+ {
+  "id": "cod_displacement",
+  "iso3": [
+   "COD"
+  ],
+  "minAge": 0,
+  "maxAge": 100,
+  "annualProb": 0.01,
+  "requires": null,
+  "title": "東部の衝突による避難",
+  "situation": "住んでいる地域の近くで武装勢力の衝突が起き、住民の多くが避難を始めた。",
+  "options": [
+   {
+    "id": "a",
+    "label": "避難民キャンプへ移る",
+    "desc": "安全と支援を得られる。生活の場を失う。",
+    "effects": [
+     {
+      "type": "moveCost",
+      "value": 50000
+     },
+     {
+      "type": "health",
+      "value": 1.05
+     },
+     {
+      "type": "careerMult",
+      "value": 0.92
+     }
+    ],
+    "result": "ゴマ近郊のキャンプに身を寄せた。"
+   },
+   {
+    "id": "b",
+    "label": "遠くの親戚を頼る",
+    "desc": "キャンプより落ち着いて暮らせる。移動に費用がかかる。",
+    "effects": [
+     {
+      "type": "moveCost",
+      "value": 150000
+     },
+     {
+      "type": "careerMult",
+      "value": 0.95
+     }
+    ],
+    "result": "別の州の親戚の家に移った。"
+   }
+  ],
+  "basis": "国内避難民は約700万人で、多くが東部の北キブ・南キブ・イトゥリ州（UNHCR・IOM 2024）",
+  "estimated": true
+ },
+ {
+  "id": "cod_epidemic",
+  "iso3": [
+   "COD"
+  ],
+  "minAge": 0,
+  "maxAge": 100,
+  "annualProb": 0.02,
+  "requires": null,
+  "title": "感染症の流行",
+  "situation": "地域でコレラ（またはエムポックス）の流行が報告された。",
+  "options": [
+   {
+    "id": "a",
+    "label": "浄水剤を買い、人混みを避ける",
+    "desc": "感染を防ぎやすい。出費と商売への影響がある。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 10000
+     },
+     {
+      "type": "incomeDropPct",
+      "value": 0.05
+     },
+     {
+      "type": "health",
+      "value": 0.97
+     }
+    ],
+    "result": "水を煮沸して使うようにした。"
+   },
+   {
+    "id": "b",
+    "label": "いつもどおり暮らす",
+    "desc": "収入は保てる。感染の危険がある。",
+    "effects": [
+     {
+      "type": "health",
+      "value": 1.05
+     }
+    ],
+    "result": "いつもどおり市場に通った。"
+   }
+  ],
+  "basis": "エボラ、コレラ、はしか、エムポックスの流行が繰り返し発生（WHO）",
+  "estimated": true
+ },
+ {
+  "id": "cod_school_fees",
+  "iso3": [
+   "COD"
+  ],
+  "minAge": 25,
+  "maxAge": 55,
+  "annualProb": 0.1,
+  "requires": "hasKids",
+  "title": "学校の費用",
+  "situation": "小学校は無償化されたが、制服や教材、教員への謝礼などの出費が続く。",
+  "options": [
+   {
+    "id": "a",
+    "label": "子ども全員を学校に通わせる",
+    "desc": "子どもの将来が開ける。家計が苦しくなる。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 60000
+     }
+    ],
+    "result": "制服と教科書をそろえた。"
+   },
+   {
+    "id": "b",
+    "label": "上の子に家の仕事を手伝ってもらう",
+    "desc": "出費が減り、人手が増える。その子は学校を休みがちになる。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 20000
+     },
+     {
+      "type": "careerMult",
+      "value": 1.0
+     }
+    ],
+    "result": "上の子は市場の手伝いをすることになった。"
+   }
+  ],
+  "basis": "2019年から初等教育の無償化を開始（教育省）。教室や教員の不足は続いている",
+  "estimated": true
+ },
+ {
+  "id": "cod_mining",
+  "iso3": [
+   "COD"
+  ],
+  "minAge": 16,
+  "maxAge": 50,
+  "annualProb": 0.03,
+  "requires": "rural",
+  "title": "手掘り鉱山の仕事",
+  "situation": "近くでコバルト（または金）の手掘り鉱山が見つかり、若者が働きに行っている。",
+  "options": [
+   {
+    "id": "a",
+    "label": "鉱山で働く",
+    "desc": "農業より現金収入が多い。事故や健康被害のおそれがある。",
+    "effects": [
+     {
+      "type": "careerMult",
+      "value": 1.08
+     },
+     {
+      "type": "health",
+      "value": 1.06
+     }
+    ],
+    "result": "鉱山で掘る仕事を始めた。"
+   },
+   {
+    "id": "b",
+    "label": "畑を続ける",
+    "desc": "体を守れる。現金収入は少ない。",
+    "effects": [
+     {
+      "type": "careerMult",
+      "value": 0.99
+     }
+    ],
+    "result": "畑仕事を続けた。"
+   }
+  ],
+  "basis": "手掘り鉱山の労働者は100万人以上と推計（世界銀行、OECD）",
+  "estimated": true
+ },
+ {
+  "id": "cod_franc_drop",
+  "iso3": [
+   "COD"
+  ],
+  "minAge": 20,
+  "maxAge": 80,
+  "annualProb": 0.04,
+  "requires": null,
+  "title": "コンゴ・フランの下落",
+  "situation": "フランの価値が下がり、市場の値段がドル建てで決まるようになってきた。",
+  "options": [
+   {
+    "id": "a",
+    "label": "フランのまま持つ",
+    "desc": "手間はない。価値が目減りする。",
+    "effects": [
+     {
+      "type": "cashLossPct",
+      "value": 0.2
+     }
+    ],
+    "result": "同じ額で買える米の量が減った。"
+   },
+   {
+    "id": "b",
+    "label": "ドルで貯める",
+    "desc": "価値を守れる。両替の手数料がかかる。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 5000
+     },
+     {
+      "type": "protectCash",
+      "value": true
+     }
+    ],
+    "result": "少しずつドル札を貯め始めた。"
+   }
+  ],
+  "basis": "経済のドル化が進み、フランは2023年に対ドルで約2割下落（中央銀行）",
+  "estimated": true
+ },
+ {
+  "id": "vnm_motorbike",
+  "iso3": [
+   "VNM"
+  ],
+  "minAge": 18,
+  "maxAge": 30,
+  "annualProb": 0.1,
+  "requires": null,
+  "title": "バイクを買う",
+  "situation": "通勤や通学のために、自分のバイクを買うことにした。",
+  "options": [
+   {
+    "id": "a",
+    "label": "新車を分割で買う",
+    "desc": "故障が少なく安心。月々の返済が続く。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 150000
+     },
+     {
+      "type": "careerMult",
+      "value": 1.02
+     }
+    ],
+    "result": "新しいバイクで通い始めた。"
+   },
+   {
+    "id": "b",
+    "label": "中古を現金で買う",
+    "desc": "出費を抑えられる。修理が多い。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 60000
+     }
+    ],
+    "result": "中古のバイクを手に入れた。"
+   }
+  ],
+  "basis": "バイクの保有台数は約7,000万台（交通運輸省）",
+  "estimated": true
+ },
+ {
+  "id": "vnm_land",
+  "iso3": [
+   "VNM"
+  ],
+  "minAge": 30,
+  "maxAge": 60,
+  "annualProb": 0.03,
+  "requires": null,
+  "title": "土地への投資",
+  "situation": "郊外の土地の値段が上がっていると聞き、貯金で土地を買うか迷った。",
+  "options": [
+   {
+    "id": "a",
+    "label": "土地を買う",
+    "desc": "値上がりすれば資産が増える。値下がりや手続きの問題もある。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 300000
+     },
+     {
+      "type": "protectCash",
+      "value": true
+     }
+    ],
+    "result": "郊外に小さな土地を買った。"
+   },
+   {
+    "id": "b",
+    "label": "貯金のまま持つ",
+    "desc": "すぐに使える。物価上昇で目減りする。",
+    "effects": [
+     {
+      "type": "cashLossPct",
+      "value": 0.03
+     }
+    ],
+    "result": "銀行に預けたままにした。"
+   }
+  ],
+  "basis": "土地は代表的な資産運用先で、2022年には一部地域で価格が急落（報道）",
+  "estimated": true
+ },
+ {
+  "id": "vnm_typhoon_flood",
+  "iso3": [
+   "VNM"
+  ],
+  "minAge": 0,
+  "maxAge": 100,
+  "annualProb": 0.04,
+  "requires": null,
+  "title": "台風と洪水",
+  "situation": "台風のあとの大雨で、中部の村が水につかった。",
+  "options": [
+   {
+    "id": "a",
+    "label": "家を高床に建て直す",
+    "desc": "次の洪水に備えられる。費用がかかる。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 200000
+     }
+    ],
+    "result": "家の床を高くした。"
+   },
+   {
+    "id": "b",
+    "label": "そのまま住み続ける",
+    "desc": "出費を抑えられる。毎年被害を受ける。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 50000
+     },
+     {
+      "type": "health",
+      "value": 1.02
+     }
+    ],
+    "result": "泥をかき出して元の暮らしに戻った。"
+   }
+  ],
+  "basis": "中部は毎年台風・洪水の被害を受ける（防災総局）",
+  "estimated": true
+ },
+ {
+  "id": "vnm_factory",
+  "iso3": [
+   "VNM"
+  ],
+  "minAge": 18,
+  "maxAge": 35,
+  "annualProb": 0.06,
+  "requires": "rural",
+  "title": "工業団地への出稼ぎ",
+  "situation": "村の友人がビンズオンの工業団地で働き、仕送りをしていると聞いた。",
+  "options": [
+   {
+    "id": "a",
+    "label": "工業団地で働く",
+    "desc": "安定した給料が得られる。家族と離れ、寮生活になる。",
+    "effects": [
+     {
+      "type": "moveCost",
+      "value": 50000
+     },
+     {
+      "type": "careerMult",
+      "value": 1.07
+     }
+    ],
+    "result": "電子部品の工場で働き始めた。"
+   },
+   {
+    "id": "b",
+    "label": "村で農業を続ける",
+    "desc": "家族と暮らせる。収入は不安定。",
+    "effects": [
+     {
+      "type": "careerMult",
+      "value": 0.99
+     }
+    ],
+    "result": "村に残って田んぼを続けた。"
+   }
+  ],
+  "basis": "工業団地の労働者は約400万人（計画投資省）",
+  "estimated": true
+ },
+ {
+  "id": "vnm_extra_class",
+  "iso3": [
+   "VNM"
+  ],
+  "minAge": 30,
+  "maxAge": 55,
+  "annualProb": 0.1,
+  "requires": "hasKids",
+  "title": "補習授業",
+  "situation": "子どもの担任の先生が放課後の補習授業を開いており、ほとんどの同級生が通っている。",
+  "options": [
+   {
+    "id": "a",
+    "label": "補習に通わせる",
+    "desc": "成績が上がりやすい。毎月の費用がかかる。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 80000
+     }
+    ],
+    "result": "放課後の補習に通わせた。"
+   },
+   {
+    "id": "b",
+    "label": "家で勉強を見る",
+    "desc": "出費を抑えられる。親の時間が取られる。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 10000
+     },
+     {
+      "type": "careerMult",
+      "value": 0.995
+     }
+    ],
+    "result": "夜に一緒に宿題をした。"
+   }
+  ],
+  "basis": "補習授業（học thêm）は広く行われ、2025年に規制が強化された（教育訓練省）",
+  "estimated": true
+ },
+ {
+  "id": "kor_hagwon",
+  "iso3": [
+   "KOR"
+  ],
+  "minAge": 30,
+  "maxAge": 55,
+  "annualProb": 0.12,
+  "requires": "hasKids",
+  "title": "学習塾（ハグォン）",
+  "situation": "子どもの友人のほとんどが放課後に複数の塾に通っている。",
+  "options": [
+   {
+    "id": "a",
+    "label": "塾をいくつも掛け持ちさせる",
+    "desc": "受験で有利になりやすい。教育費が家計を圧迫する。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 600000
+     }
+    ],
+    "result": "英語と数学の塾に通わせ始めた。"
+   },
+   {
+    "id": "b",
+    "label": "塾を一つに絞る",
+    "desc": "出費を抑えられる。子どもが不安を感じる。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 200000
+     }
+    ],
+    "result": "数学の塾だけに通わせた。"
+   }
+  ],
+  "basis": "小中高生の私教育参加率は約80%、総額約29兆ウォン（統計庁 2024）",
+  "estimated": true
+ },
+ {
+  "id": "kor_jeonse",
+  "iso3": [
+   "KOR"
+  ],
+  "minAge": 25,
+  "maxAge": 45,
+  "annualProb": 0.05,
+  "requires": null,
+  "title": "チョンセ（伝貰）契約",
+  "situation": "新しい部屋を、まとまった保証金を預けて家賃のかからない「チョンセ」で借りるか、月払いの家賃にするか迷った。",
+  "options": [
+   {
+    "id": "a",
+    "label": "チョンセで借りる",
+    "desc": "毎月の家賃がかからない。大家が保証金を返せないリスクがある。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 50000
+     },
+     {
+      "type": "cashLossPct",
+      "value": 0.05
+     }
+    ],
+    "result": "保証保険に入り、チョンセで契約した。"
+   },
+   {
+    "id": "b",
+    "label": "月払いの家賃にする",
+    "desc": "保証金のリスクは小さい。毎月の家賃がかかる。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 400000
+     }
+    ],
+    "result": "月払いの部屋を借りた。"
+   }
+  ],
+  "basis": "2022〜23年にチョンセ詐欺・保証金未返還が社会問題化（国土交通部）",
+  "estimated": true
+ },
+ {
+  "id": "kor_suneung",
+  "iso3": [
+   "KOR"
+  ],
+  "minAge": 18,
+  "maxAge": 19,
+  "annualProb": 0.15,
+  "requires": null,
+  "title": "修学能力試験（スヌン）",
+  "situation": "大学修学能力試験の結果が出て、志望大学には届かなかった。",
+  "options": [
+   {
+    "id": "a",
+    "label": "浪人して再挑戦する",
+    "desc": "上位大学を狙える。1年遅れ、予備校代がかかる。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 400000
+     },
+     {
+      "type": "careerMult",
+      "value": 1.04
+     }
+    ],
+    "result": "予備校の浪人クラスに入った。"
+   },
+   {
+    "id": "b",
+    "label": "点数に合う大学に進む",
+    "desc": "早く社会に出られる。就職で不利を感じることもある。",
+    "effects": [
+     {
+      "type": "careerMult",
+      "value": 0.99
+     },
+     {
+      "type": "cost",
+      "value": 30000
+     }
+    ],
+    "result": "入れる大学に進学した。"
+   }
+  ],
+  "basis": "スヌン受験者の約3割が浪人生など（韓国教育課程評価院 2025）",
+  "estimated": true
+ },
+ {
+  "id": "kor_early_retire",
+  "iso3": [
+   "KOR"
+  ],
+  "minAge": 48,
+  "maxAge": 56,
+  "annualProb": 0.05,
+  "requires": "working",
+  "title": "早期退職の勧め",
+  "situation": "会社から希望退職の募集があり、上司から応募を勧められた。",
+  "options": [
+   {
+    "id": "a",
+    "label": "退職金を受け取って自営業を始める",
+    "desc": "自分の店が持てる。競争が激しく、失敗のリスクがある。",
+    "effects": [
+     {
+      "type": "income",
+      "value": 1500000
+     },
+     {
+      "type": "careerMult",
+      "value": 0.9
+     }
+    ],
+    "result": "チキン店を開いた。"
+   },
+   {
+    "id": "b",
+    "label": "会社に残る",
+    "desc": "収入は続く。居心地の悪さが続く。",
+    "effects": [
+     {
+      "type": "careerMult",
+      "value": 0.97
+     },
+     {
+      "type": "health",
+      "value": 1.02
+     }
+    ],
+    "result": "会社に残ることにした。"
+   }
+  ],
+  "basis": "主な職場からの退職年齢は平均約49歳（統計庁 2023）",
+  "estimated": true
+ },
+ {
+  "id": "kor_wedding_home",
+  "iso3": [
+   "KOR"
+  ],
+  "minAge": 28,
+  "maxAge": 36,
+  "annualProb": 0.06,
+  "requires": null,
+  "title": "結婚と新居",
+  "situation": "結婚を考えているが、ソウルの住宅価格が高く、新居の準備が難しい。",
+  "options": [
+   {
+    "id": "a",
+    "label": "ソウル郊外で新居を探す",
+    "desc": "結婚の準備が進む。通勤時間が長くなる。",
+    "effects": [
+     {
+      "type": "moveCost",
+      "value": 500000
+     },
+     {
+      "type": "health",
+      "value": 1.01
+     }
+    ],
+    "result": "京畿道のマンションを借りた。"
+   },
+   {
+    "id": "b",
+    "label": "結婚をしばらく先に延ばす",
+    "desc": "貯金を増やせる。家族から心配される。",
+    "effects": [
+     {
+      "type": "careerMult",
+      "value": 1.01
+     },
+     {
+      "type": "health",
+      "value": 1.01
+     }
+    ],
+    "result": "あと数年お金を貯めることにした。"
+   }
+  ],
+  "basis": "住宅費の高さは結婚・出産をためらう主な理由の一つ（保健社会研究院）",
+  "estimated": true
+ },
+ {
+  "id": "ken_mpesa_loan",
+  "iso3": [
+   "KEN"
+  ],
+  "minAge": 18,
+  "maxAge": 60,
+  "annualProb": 0.08,
+  "requires": null,
+  "title": "モバイルマネーの少額ローン",
+  "situation": "携帯電話のモバイルマネー（M-Pesa）で、すぐに借りられる少額ローンの案内が届いた。",
+  "options": [
+   {
+    "id": "a",
+    "label": "借りて商品を仕入れる",
+    "desc": "商売を広げられる。返済が遅れると信用情報に傷がつく。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 20000
+     },
+     {
+      "type": "careerMult",
+      "value": 1.04
+     }
+    ],
+    "result": "借りたお金で野菜を多めに仕入れた。"
+   },
+   {
+    "id": "b",
+    "label": "借りずに貯めてから仕入れる",
+    "desc": "借金の心配はない。商売の機会を逃すこともある。",
+    "effects": [
+     {
+      "type": "careerMult",
+      "value": 0.99
+     }
+    ],
+    "result": "少しずつ貯めることにした。"
+   }
+  ],
+  "basis": "M-Pesaは成人の大半が利用し、少額のモバイル融資が広く普及（ケニア中央銀行 FinAccess 2024）",
+  "estimated": true
+ },
+ {
+  "id": "ken_drought",
+  "iso3": [
+   "KEN"
+  ],
+  "minAge": 0,
+  "maxAge": 100,
+  "annualProb": 0.06,
+  "requires": "rural",
+  "title": "干ばつ",
+  "situation": "雨季の雨が何度も降らず、家畜の牧草と水が足りなくなった。",
+  "options": [
+   {
+    "id": "a",
+    "label": "家畜を売る",
+    "desc": "現金を確保できる。財産が減る。",
+    "effects": [
+     {
+      "type": "incomeDropPct",
+      "value": 0.3
+     }
+    ],
+    "result": "牛を安値で売った。"
+   },
+   {
+    "id": "b",
+    "label": "水と牧草を求めて遠くへ移動する",
+    "desc": "家畜を守れる。家族と離れ、危険もある。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 30000
+     },
+     {
+      "type": "health",
+      "value": 1.03
+     }
+    ],
+    "result": "家畜を連れて何日も歩いた。"
+   }
+  ],
+  "basis": "2020〜23年の干ばつで北部を中心に数百万人が食料不足に（国家干ばつ管理局）",
+  "estimated": true
+ },
+ {
+  "id": "ken_school_fees",
+  "iso3": [
+   "KEN"
+  ],
+  "minAge": 35,
+  "maxAge": 60,
+  "annualProb": 0.1,
+  "requires": "hasKids",
+  "title": "中等学校の費用",
+  "situation": "子どもが全寮制の中等学校に合格したが、寮費や制服の費用が必要になった。",
+  "options": [
+   {
+    "id": "a",
+    "label": "借金をして通わせる",
+    "desc": "良い学校で学べる。返済が重い。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 150000
+     }
+    ],
+    "result": "親戚と地域の寄付で費用を集めた。"
+   },
+   {
+    "id": "b",
+    "label": "近くの通学制の学校に通わせる",
+    "desc": "費用を抑えられる。学校の環境は劣る。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 40000
+     }
+    ],
+    "result": "近くの学校に通わせた。"
+   }
+  ],
+  "basis": "中等教育の授業料は無償だが寮費などの負担は大きい（教育省）",
+  "estimated": true
+ },
+ {
+  "id": "ken_fuel_tax",
+  "iso3": [
+   "KEN"
+  ],
+  "minAge": 18,
+  "maxAge": 70,
+  "annualProb": 0.05,
+  "requires": "urban",
+  "title": "燃料と交通費の値上がり",
+  "situation": "燃料税の引き上げで、乗り合いバス（マタツ）の運賃が上がった。",
+  "options": [
+   {
+    "id": "a",
+    "label": "歩ける距離は歩く",
+    "desc": "交通費を抑えられる。時間と体力を使う。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 10000
+     },
+     {
+      "type": "careerMult",
+      "value": 0.995
+     }
+    ],
+    "result": "朝早く家を出て歩くことにした。"
+   },
+   {
+    "id": "b",
+    "label": "運賃を払い続ける",
+    "desc": "時間を守れる。食費を削ることになる。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 40000
+     }
+    ],
+    "result": "食費を削って通勤を続けた。"
+   }
+  ],
+  "basis": "2023年に燃料への付加価値税が8%から16%に引き上げられた（財務省）",
+  "estimated": true
+ },
+ {
+  "id": "ken_harambee",
+  "iso3": [
+   "KEN"
+  ],
+  "minAge": 25,
+  "maxAge": 70,
+  "annualProb": 0.06,
+  "requires": null,
+  "title": "地域の寄付集め（ハランベー）",
+  "situation": "親戚の入院費のために、地域で寄付を集める会が開かれた。",
+  "options": [
+   {
+    "id": "a",
+    "label": "多めに寄付する",
+    "desc": "親戚との絆が深まり、困ったときに助けてもらえる。手元のお金が減る。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 30000
+     },
+     {
+      "type": "health",
+      "value": 0.99
+     }
+    ],
+    "result": "集会で寄付をした。"
+   },
+   {
+    "id": "b",
+    "label": "少額にとどめる",
+    "desc": "家計を守れる。周囲の目が気になる。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 5000
+     },
+     {
+      "type": "health",
+      "value": 1.0
+     }
+    ],
+    "result": "少しだけ寄付した。"
+   }
+  ],
+  "basis": "医療費や学費を地域で集める「ハランベー」の慣習（報道）",
+  "estimated": true
+ },
+ {
+  "id": "gen_lic_malaria",
+  "iso3": [
+   "*LIC"
+  ],
+  "minAge": 0,
+  "maxAge": 100,
+  "annualProb": 0.08,
+  "requires": null,
+  "title": "マラリアにかかる",
+  "situation": "高熱が出て、診療所でマラリアと診断された。",
+  "options": [
+   {
+    "id": "a",
+    "label": "すぐに診療所で治療を受ける",
+    "desc": "早く回復できる。薬代と通院費がかかる。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 10000
+     },
+     {
+      "type": "health",
+      "value": 0.99
+     }
+    ],
+    "result": "薬を飲んで1週間で回復した。"
+   },
+   {
+    "id": "b",
+    "label": "市場の薬で様子を見る",
+    "desc": "出費が少ない。こじらせるおそれがある。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 2000
+     },
+     {
+      "type": "health",
+      "value": 1.04
+     }
+    ],
+    "result": "市場で買った薬を飲んで休んだ。"
+   }
+  ],
+  "basis": "サハラ以南アフリカではマラリアが主要な病気の一つ（WHO World Malaria Report 2024）",
+  "estimated": true
+ },
+ {
+  "id": "gen_savings_group",
+  "iso3": [
+   "*LIC",
+   "*LMC"
+  ],
+  "minAge": 18,
+  "maxAge": 70,
+  "annualProb": 0.06,
+  "requires": null,
+  "title": "頼母子講（積立グループ）",
+  "situation": "近所の人たちから、毎月お金を出し合って順番に受け取る積立グループに誘われた。",
+  "options": [
+   {
+    "id": "a",
+    "label": "参加する",
+    "desc": "まとまったお金を受け取れる。誰かが払わなくなると損をする。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 10000
+     },
+     {
+      "type": "careerMult",
+      "value": 1.02
+     }
+    ],
+    "result": "月に一度の集まりに参加し始めた。"
+   },
+   {
+    "id": "b",
+    "label": "自分で貯める",
+    "desc": "他人に左右されない。貯金が続きにくい。",
+    "effects": [
+     {
+      "type": "careerMult",
+      "value": 1.0
+     },
+     {
+      "type": "cashLossPct",
+      "value": 0.02
+     }
+    ],
+    "result": "家の缶に貯めることにした。"
+   }
+  ],
+  "basis": "ROSCA（回転型貯蓄信用講）は世界の多くの地域で一般的（世界銀行 Global Findex）",
+  "estimated": true
+ },
+ {
+  "id": "gen_rural_harvest",
+  "iso3": [
+   "*RURAL"
+  ],
+  "minAge": 18,
+  "maxAge": 70,
+  "annualProb": 0.05,
+  "requires": "rural",
+  "title": "不作の年",
+  "situation": "天候不順で収穫が例年より大きく減った。",
+  "options": [
+   {
+    "id": "a",
+    "label": "貯えを取り崩す",
+    "desc": "暮らしの水準を保てる。蓄えが減る。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 50000
+     }
+    ],
+    "result": "貯めていたお金で食料を買った。"
+   },
+   {
+    "id": "b",
+    "label": "町で臨時の仕事をする",
+    "desc": "収入を補える。畑の手入れが遅れる。",
+    "effects": [
+     {
+      "type": "incomeDropPct",
+      "value": 0.1
+     },
+     {
+      "type": "careerMult",
+      "value": 1.01
+     }
+    ],
+    "result": "収穫期まで町で働いた。"
+   }
+  ],
+  "basis": "農家の収入は天候の影響を強く受ける（FAO）",
+  "estimated": true
+ },
+ {
+  "id": "gen_urban_rent",
+  "iso3": [
+   "*URBAN"
+  ],
+  "minAge": 20,
+  "maxAge": 60,
+  "annualProb": 0.04,
+  "requires": "urban",
+  "title": "大家からの退去通知",
+  "situation": "建物の建て替えのため、半年以内に部屋を出るよう大家から告げられた。",
+  "options": [
+   {
+    "id": "a",
+    "label": "近くで同じ広さの部屋を探す",
+    "desc": "生活圏を変えずに済む。家賃が上がる。",
+    "effects": [
+     {
+      "type": "moveCost",
+      "value": 200000
+     }
+    ],
+    "result": "近所の部屋に移った。"
+   },
+   {
+    "id": "b",
+    "label": "家賃の安い郊外に移る",
+    "desc": "家賃が下がる。通勤が長くなる。",
+    "effects": [
+     {
+      "type": "moveCost",
+      "value": 150000
+     },
+     {
+      "type": "careerMult",
+      "value": 0.99
+     }
+    ],
+    "result": "郊外に引っ越した。"
+   }
+  ],
+  "basis": "都市部の賃貸住宅では建て替え・契約終了による転居が一般的（概算）",
+  "estimated": true
+ },
+ {
+  "id": "gen_scam_call",
+  "iso3": [
+   "*ALL"
+  ],
+  "minAge": 20,
+  "maxAge": 90,
+  "annualProb": 0.02,
+  "requires": null,
+  "title": "巧妙な詐欺の電話",
+  "situation": "銀行を名乗る相手から、口座が不正利用されているので手続きをしてほしいと電話があった。",
+  "options": [
+   {
+    "id": "a",
+    "label": "いったん切って銀行に確かめる",
+    "desc": "被害を防げる。手間がかかる。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 1000
+     }
+    ],
+    "result": "銀行の窓口に問い合わせ、詐欺だと分かった。"
+   },
+   {
+    "id": "b",
+    "label": "言われたとおり手続きする",
+    "desc": "その場は早く済む。貯金を失うおそれがある。",
+    "effects": [
+     {
+      "type": "cashLossPct",
+      "value": 0.15
+     }
+    ],
+    "result": "後になって詐欺だと気づいた。"
+   }
+  ],
+  "basis": "電話・SMSによる詐欺被害は各国で増加（各国警察・報道）",
+  "estimated": true
+ },
+ {
+  "id": "gen_relative_loan",
+  "iso3": [
+   "*ALL"
+  ],
+  "minAge": 25,
+  "maxAge": 75,
+  "annualProb": 0.03,
+  "requires": null,
+  "title": "親戚からの借金の頼み",
+  "situation": "親戚から、商売の資金を少し貸してほしいと頼まれた。",
+  "options": [
+   {
+    "id": "a",
+    "label": "貸す",
+    "desc": "関係が深まる。返ってこないこともある。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 100000
+     },
+     {
+      "type": "health",
+      "value": 0.99
+     }
+    ],
+    "result": "お金を貸した。"
+   },
+   {
+    "id": "b",
+    "label": "断る",
+    "desc": "お金は守れる。関係がぎくしゃくする。",
+    "effects": [
+     {
+      "type": "health",
+      "value": 1.01
+     }
+    ],
+    "result": "事情を話して断った。"
+   }
+  ],
+  "basis": "家族・親族間の金銭の貸し借りは世界的に一般的（世界銀行 Global Findex）",
+  "estimated": true
+ },
+ {
+  "id": "gen_hic_pension",
+  "iso3": [
+   "*HIC"
+  ],
+  "minAge": 25,
+  "maxAge": 55,
+  "annualProb": 0.05,
+  "requires": "working",
+  "title": "老後資金の積立",
+  "situation": "職場で、税の優遇がある積立投資の制度を案内された。",
+  "options": [
+   {
+    "id": "a",
+    "label": "毎月積み立てる",
+    "desc": "老後の資産が増えやすい。手元のお金が減り、相場で目減りする年もある。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 120000
+     },
+     {
+      "type": "protectCash",
+      "value": true
+     }
+    ],
+    "result": "毎月の積立を始めた。"
+   },
+   {
+    "id": "b",
+    "label": "今は使う",
+    "desc": "今の生活にゆとりができる。老後の備えが手薄になる。",
+    "effects": [
+     {
+      "type": "health",
+      "value": 1.0
+     },
+     {
+      "type": "cashLossPct",
+      "value": 0.01
+     }
+    ],
+    "result": "積立はしないことにした。"
+   }
+  ],
+  "basis": "高所得国では確定拠出型年金・税優遇口座が普及（OECD Pensions at a Glance）",
+  "estimated": true
+ },
+ {
+  "id": "gen_hic_burnout",
+  "iso3": [
+   "*HIC",
+   "*UMC"
+  ],
+  "minAge": 25,
+  "maxAge": 60,
+  "annualProb": 0.03,
+  "requires": "working",
+  "title": "仕事の燃え尽き",
+  "situation": "仕事の量が増え続け、朝起きるのがつらくなってきた。",
+  "options": [
+   {
+    "id": "a",
+    "label": "休職して休む",
+    "desc": "心と体を回復できる。収入と評価が下がる。",
+    "effects": [
+     {
+      "type": "incomeDropPct",
+      "value": 0.3
+     },
+     {
+      "type": "health",
+      "value": 0.97
+     },
+     {
+      "type": "careerMult",
+      "value": 0.97
+     }
+    ],
+    "result": "医師と相談して3か月休んだ。"
+   },
+   {
+    "id": "b",
+    "label": "働き方を変えずに続ける",
+    "desc": "収入は保てる。体調を崩すおそれがある。",
+    "effects": [
+     {
+      "type": "health",
+      "value": 1.05
+     }
+    ],
+    "result": "なんとか毎日出勤を続けた。"
+   }
+  ],
+  "basis": "高所得国の労働者の約2割が仕事のストレスによる不調を経験（OECD・ILO推計、概算）",
+  "estimated": true
+ },
+ {
+  "id": "gen_umc_lmc_gig",
+  "iso3": [
+   "*UMC",
+   "*LMC"
+  ],
+  "minAge": 18,
+  "maxAge": 45,
+  "annualProb": 0.05,
+  "requires": "urban",
+  "title": "配達アプリの仕事",
+  "situation": "スマホの配達アプリに登録すれば、すぐに働けると聞いた。",
+  "options": [
+   {
+    "id": "a",
+    "label": "配達の仕事を始める",
+    "desc": "すぐに現金収入が得られる。社会保険がなく、事故のおそれがある。",
+    "effects": [
+     {
+      "type": "income",
+      "value": 200000
+     },
+     {
+      "type": "health",
+      "value": 1.02
+     },
+     {
+      "type": "careerMult",
+      "value": 0.99
+     }
+    ],
+    "result": "バイクで配達を始めた。"
+   },
+   {
+    "id": "b",
+    "label": "職業訓練を受けて別の仕事を探す",
+    "desc": "長く使える技能が身につく。訓練中は収入が少ない。",
+    "effects": [
+     {
+      "type": "cost",
+      "value": 50000
+     },
+     {
+      "type": "careerMult",
+      "value": 1.04
+     }
+    ],
+    "result": "職業訓練校に通い始めた。"
+   }
+  ],
+  "basis": "新興国の都市部でプラットフォーム労働が急増（ILO World Employment and Social Outlook 2021）",
+  "estimated": true
+ }
+]

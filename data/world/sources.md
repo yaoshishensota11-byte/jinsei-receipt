@@ -55,3 +55,30 @@
 | パプアニューギニア / イラク / ハイチ | 12 | 教育・消費などが欠損 |
 
 全88か国で手入力または推定になっている10フィールド: places, meanAgeFirstMarriage, tertiaryAnnualCostShareOfGni, informalEmploymentShare, pensionCoverage, pensionReplacementRate, effectiveTaxRateAvgWorker, rentShareOfIncome, housePriceToIncome, disasterRisk。ゲーム用の概算として扱うこと。正式な統計として引用しないこと。
+
+## リスク指標と国ごとの出来事
+
+生成手順: `python3 -I build/build_risks.py` → `risks.json`、`python3 -I build/build_events.py` → `country_events.json`、検証は `node build/validate_risks.mjs`。WDI の生データは前回と同じ open-numbers ミラー（`raw/wdi/` に保存、git管理外）から取得した。
+
+### risks.json（88か国）
+
+| フィールド | 出典 | 年 | URL | 推定の有無 |
+|---|---|---|---|---|
+| inflationMean | WDI FP.CPI.TOTL.ZG の2000〜2024年の単純平均（各年300%で頭打ち。ハイパーインフレの1年が平均を支配しないため） | 2000〜2024 | https://github.com/open-numbers/ddf--open_numbers--world_development_indicators | SOM・PRK はデータ無しのため推定 |
+| inflationCrisisShare | 同上で、1990〜2024年のうち年40%超だった年の割合（データのある年のみで計算） | 1990〜2024 | 同上 | SOM・PRK は0と仮置き（推定） |
+| inflationRecent | 同上の最新年（多くは2025年値。`years.inflationRecent` に年を記録） | 主に2025 | 同上 | 最新値が2022年より古いか欠損の7か国（COD・VEN・YEM・MMR・SYR・SOM・PRK）は報道等からの概算 |
+| homicidePer100k | WDI VC.IHR.PSRC.P5（UNODC由来） | 2005〜2023の最新年 | 同上 | 10か国（COD・MDG・CIV・MLI・TCD・SOM・GIN・PRK・TGO・COG）は UNODC の推計水準を記憶から概算 |
+| ipvPast12mWomen | WDI SG.VAW.1549.ZS（過去12か月に配偶者・パートナーから身体的・性的暴力を受けた15〜49歳女性の割合。主にDHS調査） | 2006〜2017の最新年 | 同上 | 37か国（JPN・USA・CHN・BRA・KOR などを含む）は WHO「Violence Against Women Prevalence Estimates 2018」の国別推計値を記憶から概算。日本の内閣府「男女間における暴力に関する調査」（令和5年度）は過去1年の数値を取得できず、WHO推計水準（約4%）を使用 |
+| politicalStability | WDI GOV.WGI.PV.EST（世界ガバナンス指標の政治的安定性・暴力の不在） | ミラー上の最新年（2025表記） | 同上 | なし |
+| conflictRisk | WDI VC.BTL.DETH（戦闘による死者、2015〜2024平均の人口比）と VC.IDP.NWCV（紛争による新規国内避難民、2014〜2023合計の人口比）から指数を作り、UCDP・ACLED・UNHCR の状況認識で約30か国を手で上書き | 2014〜2024 | 同上 | **全件推定** |
+| floodRisk / droughtRisk / earthquakeRisk | INFORM Risk Index・WorldRiskIndex・EM-DAT の記憶に基づく相対的な判断値（0〜1） | - | https://drmkc.jrc.ec.europa.eu/inform-index | **全件推定**（ダウンロードできず） |
+| epidemicRisk | 5歳未満死亡率（countries.json）から算出: 0.05 + 死亡率/130 (+LIC・LMCは0.05)、上限0.9 | 2023 | - | **全件推定**（算出値） |
+
+参考として取得したが未使用: WDI EN.CLC.MDAT.ZS（干ばつ・洪水・異常気温の被災人口比、1990〜2009平均）。
+
+### country_events.json
+
+- 主要20か国に各4〜6件（計101件）、所得グループ・都市農村別の汎用イベント9件、合計110件。
+- 各イベントの `basis` に根拠（統計名・機関名・報道）を日本語で記載した。根拠の数値はいずれも記憶に基づくもので、原典では確認していない。
+- `annualProb` は「条件を満たす人が1年間にその出来事に直面する確率」を根拠の数値から大まかに見積もった値で、**全件推定**（`estimated: true`）。
+- 金額は日本円の水準で書いており、ゲーム側で各国の物価水準を掛ける前提。

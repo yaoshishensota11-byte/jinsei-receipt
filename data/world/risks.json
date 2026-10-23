@@ -1,0 +1,2348 @@
+{
+ "IND": {
+  "inflationMean": 0.061,
+  "inflationCrisisShare": 0.0,
+  "inflationRecent": 0.024,
+  "homicidePer100k": 2.82,
+  "ipvPast12mWomen": 0.22,
+  "politicalStability": -0.61,
+  "conflictRisk": 0.03,
+  "floodRisk": 0.7,
+  "droughtRisk": 0.5,
+  "earthquakeRisk": 0.4,
+  "epidemicRisk": 0.32,
+  "years": {
+   "inflationRecent": 2025,
+   "homicide": 2022,
+   "ipv": 2016,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "CHN": {
+  "inflationMean": 0.02,
+  "inflationCrisisShare": 0.0,
+  "inflationRecent": 0.001,
+  "homicidePer100k": 0.5,
+  "ipvPast12mWomen": 0.08,
+  "politicalStability": 0.02,
+  "conflictRisk": 0.0,
+  "floodRisk": 0.6,
+  "droughtRisk": 0.4,
+  "earthquakeRisk": 0.5,
+  "epidemicRisk": 0.1,
+  "years": {
+   "inflationRecent": 2025,
+   "homicide": 2020,
+   "ipv": null,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "ipvPast12mWomen",
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "NGA": {
+  "inflationMean": 0.139,
+  "inflationCrisisShare": 0.114,
+  "inflationRecent": 0.23,
+  "homicidePer100k": 15.75,
+  "ipvPast12mWomen": 0.11,
+  "politicalStability": -1.74,
+  "conflictRisk": 0.35,
+  "floodRisk": 0.5,
+  "droughtRisk": 0.4,
+  "earthquakeRisk": 0.02,
+  "epidemicRisk": 0.9,
+  "years": {
+   "inflationRecent": 2025,
+   "homicide": 2023,
+   "ipv": 2013,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "PAK": {
+  "inflationMean": 0.095,
+  "inflationCrisisShare": 0.0,
+  "inflationRecent": 0.035,
+  "homicidePer100k": 4.33,
+  "ipvPast12mWomen": 0.16,
+  "politicalStability": -1.95,
+  "conflictRisk": 0.25,
+  "floodRisk": 0.7,
+  "droughtRisk": 0.5,
+  "earthquakeRisk": 0.5,
+  "epidemicRisk": 0.54,
+  "years": {
+   "inflationRecent": 2025,
+   "homicide": 2023,
+   "ipv": null,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "ipvPast12mWomen",
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "IDN": {
+  "inflationMean": 0.058,
+  "inflationCrisisShare": 0.029,
+  "inflationRecent": 0.019,
+  "homicidePer100k": 0.3,
+  "ipvPast12mWomen": 0.09,
+  "politicalStability": -0.74,
+  "conflictRisk": 0.0,
+  "floodRisk": 0.6,
+  "droughtRisk": 0.3,
+  "earthquakeRisk": 0.8,
+  "epidemicRisk": 0.19,
+  "years": {
+   "inflationRecent": 2025,
+   "homicide": 2022,
+   "ipv": null,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "ipvPast12mWomen",
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "COD": {
+  "inflationMean": 0.446,
+  "inflationCrisisShare": 0.407,
+  "inflationRecent": 0.18,
+  "homicidePer100k": 13.5,
+  "ipvPast12mWomen": 0.368,
+  "politicalStability": -2.13,
+  "conflictRisk": 0.6,
+  "floodRisk": 0.4,
+  "droughtRisk": 0.2,
+  "earthquakeRisk": 0.2,
+  "epidemicRisk": 0.8,
+  "years": {
+   "inflationRecent": null,
+   "homicide": null,
+   "ipv": 2014,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "inflationRecent",
+   "homicidePer100k",
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "ETH": {
+  "inflationMean": 0.148,
+  "inflationCrisisShare": 0.029,
+  "inflationRecent": 0.132,
+  "homicidePer100k": 8.51,
+  "ipvPast12mWomen": 0.198,
+  "politicalStability": -1.85,
+  "conflictRisk": 0.5,
+  "floodRisk": 0.4,
+  "droughtRisk": 0.8,
+  "earthquakeRisk": 0.3,
+  "epidemicRisk": 0.5,
+  "years": {
+   "inflationRecent": 2025,
+   "homicide": 2012,
+   "ipv": 2016,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "USA": {
+  "inflationMean": 0.026,
+  "inflationCrisisShare": 0.0,
+  "inflationRecent": 0.029,
+  "homicidePer100k": 5.76,
+  "ipvPast12mWomen": 0.06,
+  "politicalStability": -0.3,
+  "conflictRisk": 0.0,
+  "floodRisk": 0.4,
+  "droughtRisk": 0.3,
+  "earthquakeRisk": 0.3,
+  "epidemicRisk": 0.1,
+  "years": {
+   "inflationRecent": 2024,
+   "homicide": 2023,
+   "ipv": null,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "ipvPast12mWomen",
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "BGD": {
+  "inflationMean": 0.066,
+  "inflationCrisisShare": 0.0,
+  "inflationRecent": 0.088,
+  "homicidePer100k": 2.34,
+  "ipvPast12mWomen": 0.288,
+  "politicalStability": -0.94,
+  "conflictRisk": 0.0,
+  "floodRisk": 0.9,
+  "droughtRisk": 0.3,
+  "earthquakeRisk": 0.3,
+  "epidemicRisk": 0.34,
+  "years": {
+   "inflationRecent": 2025,
+   "homicide": 2018,
+   "ipv": 2015,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "BRA": {
+  "inflationMean": 0.063,
+  "inflationCrisisShare": 0.171,
+  "inflationRecent": 0.05,
+  "homicidePer100k": 19.28,
+  "ipvPast12mWomen": 0.06,
+  "politicalStability": -0.38,
+  "conflictRisk": 0.0,
+  "floodRisk": 0.4,
+  "droughtRisk": 0.4,
+  "earthquakeRisk": 0.02,
+  "epidemicRisk": 0.16,
+  "years": {
+   "inflationRecent": 2025,
+   "homicide": 2023,
+   "ipv": null,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "ipvPast12mWomen",
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "EGY": {
+  "inflationMean": 0.115,
+  "inflationCrisisShare": 0.0,
+  "inflationRecent": 0.141,
+  "homicidePer100k": 1.31,
+  "ipvPast12mWomen": 0.14,
+  "politicalStability": -0.89,
+  "conflictRisk": 0.05,
+  "floodRisk": 0.1,
+  "droughtRisk": 0.3,
+  "earthquakeRisk": 0.2,
+  "epidemicRisk": 0.28,
+  "years": {
+   "inflationRecent": 2025,
+   "homicide": 2017,
+   "ipv": 2014,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "TZA": {
+  "inflationMean": 0.063,
+  "inflationCrisisShare": 0.0,
+  "inflationRecent": 0.033,
+  "homicidePer100k": 3.75,
+  "ipvPast12mWomen": 0.296,
+  "politicalStability": -0.48,
+  "conflictRisk": 0.0,
+  "floodRisk": 0.4,
+  "droughtRisk": 0.5,
+  "earthquakeRisk": 0.2,
+  "epidemicRisk": 0.4,
+  "years": {
+   "inflationRecent": 2025,
+   "homicide": 2020,
+   "ipv": 2016,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "MEX": {
+  "inflationMean": 0.048,
+  "inflationCrisisShare": 0.0,
+  "inflationRecent": 0.038,
+  "homicidePer100k": 24.86,
+  "ipvPast12mWomen": 0.095,
+  "politicalStability": -0.61,
+  "conflictRisk": 0.15,
+  "floodRisk": 0.4,
+  "droughtRisk": 0.4,
+  "earthquakeRisk": 0.6,
+  "epidemicRisk": 0.15,
+  "years": {
+   "inflationRecent": 2025,
+   "homicide": 2023,
+   "ipv": 2016,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "PHL": {
+  "inflationMean": 0.039,
+  "inflationCrisisShare": 0.0,
+  "inflationRecent": 0.017,
+  "homicidePer100k": 4.35,
+  "ipvPast12mWomen": 0.055,
+  "politicalStability": -0.84,
+  "conflictRisk": 0.1,
+  "floodRisk": 0.8,
+  "droughtRisk": 0.3,
+  "earthquakeRisk": 0.7,
+  "epidemicRisk": 0.31,
+  "years": {
+   "inflationRecent": 2025,
+   "homicide": 2023,
+   "ipv": 2017,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "UGA": {
+  "inflationMean": 0.06,
+  "inflationCrisisShare": 0.0,
+  "inflationRecent": 0.036,
+  "homicidePer100k": 8.97,
+  "ipvPast12mWomen": 0.299,
+  "politicalStability": -0.87,
+  "conflictRisk": 0.0,
+  "floodRisk": 0.3,
+  "droughtRisk": 0.4,
+  "earthquakeRisk": 0.2,
+  "epidemicRisk": 0.48,
+  "years": {
+   "inflationRecent": 2025,
+   "homicide": 2023,
+   "ipv": 2016,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "SDN": {
+  "inflationMean": 0.446,
+  "inflationCrisisShare": 0.394,
+  "inflationRecent": 1.388,
+  "homicidePer100k": 5.15,
+  "ipvPast12mWomen": 0.17,
+  "politicalStability": -2.07,
+  "conflictRisk": 0.85,
+  "floodRisk": 0.5,
+  "droughtRisk": 0.7,
+  "earthquakeRisk": 0.05,
+  "epidemicRisk": 0.59,
+  "years": {
+   "inflationRecent": 2022,
+   "homicide": 2008,
+   "ipv": null,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "ipvPast12mWomen",
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "KEN": {
+  "inflationMean": 0.084,
+  "inflationCrisisShare": 0.029,
+  "inflationRecent": 0.041,
+  "homicidePer100k": 4.87,
+  "ipvPast12mWomen": 0.255,
+  "politicalStability": -1.12,
+  "conflictRisk": 0.03,
+  "floodRisk": 0.4,
+  "droughtRisk": 0.7,
+  "earthquakeRisk": 0.1,
+  "epidemicRisk": 0.4,
+  "years": {
+   "inflationRecent": 2025,
+   "homicide": 2022,
+   "ipv": 2014,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "AFG": {
+  "inflationMean": 0.053,
+  "inflationCrisisShare": 0.0,
+  "inflationRecent": -0.066,
+  "homicidePer100k": 4.03,
+  "ipvPast12mWomen": 0.461,
+  "politicalStability": -2.04,
+  "conflictRisk": 0.6,
+  "floodRisk": 0.4,
+  "droughtRisk": 0.7,
+  "earthquakeRisk": 0.7,
+  "epidemicRisk": 0.52,
+  "years": {
+   "inflationRecent": 2024,
+   "homicide": 2021,
+   "ipv": 2015,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "VNM": {
+  "inflationMean": 0.057,
+  "inflationCrisisShare": 0.0,
+  "inflationRecent": 0.033,
+  "homicidePer100k": 1.54,
+  "ipvPast12mWomen": 0.108,
+  "politicalStability": 0.12,
+  "conflictRisk": 0.0,
+  "floodRisk": 0.7,
+  "droughtRisk": 0.3,
+  "earthquakeRisk": 0.05,
+  "epidemicRisk": 0.24,
+  "years": {
+   "inflationRecent": 2025,
+   "homicide": 2011,
+   "ipv": 2010,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "YEM": {
+  "inflationMean": 0.111,
+  "inflationCrisisShare": 0.083,
+  "inflationRecent": 0.2,
+  "homicidePer100k": 5.81,
+  "ipvPast12mWomen": 0.18,
+  "politicalStability": -2.51,
+  "conflictRisk": 0.8,
+  "floodRisk": 0.3,
+  "droughtRisk": 0.6,
+  "earthquakeRisk": 0.2,
+  "epidemicRisk": 0.4,
+  "years": {
+   "inflationRecent": null,
+   "homicide": 2013,
+   "ipv": null,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "inflationRecent",
+   "ipvPast12mWomen",
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "AGO": {
+  "inflationMean": 0.42,
+  "inflationCrisisShare": 0.412,
+  "inflationRecent": 0.202,
+  "homicidePer100k": 4.1,
+  "ipvPast12mWomen": 0.259,
+  "politicalStability": -0.44,
+  "conflictRisk": 0.01,
+  "floodRisk": 0.3,
+  "droughtRisk": 0.6,
+  "earthquakeRisk": 0.05,
+  "epidemicRisk": 0.49,
+  "years": {
+   "inflationRecent": 2025,
+   "homicide": 2016,
+   "ipv": 2016,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "MOZ": {
+  "inflationMean": 0.077,
+  "inflationCrisisShare": 0.0,
+  "inflationRecent": 0.044,
+  "homicidePer100k": 3.59,
+  "ipvPast12mWomen": 0.155,
+  "politicalStability": -1.66,
+  "conflictRisk": 0.3,
+  "floodRisk": 0.7,
+  "droughtRisk": 0.6,
+  "earthquakeRisk": 0.1,
+  "epidemicRisk": 0.57,
+  "years": {
+   "inflationRecent": 2025,
+   "homicide": 2011,
+   "ipv": 2015,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "RUS": {
+  "inflationMean": 0.099,
+  "inflationCrisisShare": 0.156,
+  "inflationRecent": 0.087,
+  "homicidePer100k": 6.77,
+  "ipvPast12mWomen": 0.09,
+  "politicalStability": -0.94,
+  "conflictRisk": 0.2,
+  "floodRisk": 0.3,
+  "droughtRisk": 0.3,
+  "earthquakeRisk": 0.1,
+  "epidemicRisk": 0.09,
+  "years": {
+   "inflationRecent": 2025,
+   "homicide": 2021,
+   "ipv": null,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "ipvPast12mWomen",
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "ZAF": {
+  "inflationMean": 0.052,
+  "inflationCrisisShare": 0.0,
+  "inflationRecent": 0.032,
+  "homicidePer100k": 43.72,
+  "ipvPast12mWomen": 0.13,
+  "politicalStability": -0.38,
+  "conflictRisk": 0.0,
+  "floodRisk": 0.3,
+  "droughtRisk": 0.5,
+  "earthquakeRisk": 0.05,
+  "epidemicRisk": 0.32,
+  "years": {
+   "inflationRecent": 2025,
+   "homicide": 2022,
+   "ipv": null,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "ipvPast12mWomen",
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "IRN": {
+  "inflationMean": 0.219,
+  "inflationCrisisShare": 0.114,
+  "inflationRecent": 0.422,
+  "homicidePer100k": 2.38,
+  "ipvPast12mWomen": 0.18,
+  "politicalStability": -1.69,
+  "conflictRisk": 0.2,
+  "floodRisk": 0.3,
+  "droughtRisk": 0.6,
+  "earthquakeRisk": 0.8,
+  "epidemicRisk": 0.14,
+  "years": {
+   "inflationRecent": 2025,
+   "homicide": 2014,
+   "ipv": null,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "ipvPast12mWomen",
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "IRQ": {
+  "inflationMean": 0.096,
+  "inflationCrisisShare": 0.176,
+  "inflationRecent": 0.003,
+  "homicidePer100k": 9.46,
+  "ipvPast12mWomen": 0.16,
+  "politicalStability": -1.87,
+  "conflictRisk": 0.3,
+  "floodRisk": 0.3,
+  "droughtRisk": 0.6,
+  "earthquakeRisk": 0.3,
+  "epidemicRisk": 0.22,
+  "years": {
+   "inflationRecent": 2025,
+   "homicide": 2013,
+   "ipv": null,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "ipvPast12mWomen",
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "NER": {
+  "inflationMean": 0.025,
+  "inflationCrisisShare": 0.0,
+  "inflationRecent": -0.045,
+  "homicidePer100k": 4.42,
+  "ipvPast12mWomen": 0.13,
+  "politicalStability": -1.77,
+  "conflictRisk": 0.45,
+  "floodRisk": 0.4,
+  "droughtRisk": 0.8,
+  "earthquakeRisk": 0.02,
+  "epidemicRisk": 0.9,
+  "years": {
+   "inflationRecent": 2025,
+   "homicide": 2012,
+   "ipv": null,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "ipvPast12mWomen",
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "MDG": {
+  "inflationMean": 0.086,
+  "inflationCrisisShare": 0.029,
+  "inflationRecent": 0.081,
+  "homicidePer100k": 8.0,
+  "ipvPast12mWomen": 0.18,
+  "politicalStability": -0.52,
+  "conflictRisk": 0.0,
+  "floodRisk": 0.5,
+  "droughtRisk": 0.6,
+  "earthquakeRisk": 0.05,
+  "epidemicRisk": 0.59,
+  "years": {
+   "inflationRecent": 2025,
+   "homicide": null,
+   "ipv": null,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "homicidePer100k",
+   "ipvPast12mWomen",
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "CIV": {
+  "inflationMean": 0.026,
+  "inflationCrisisShare": 0.0,
+  "inflationRecent": 0.001,
+  "homicidePer100k": 10.0,
+  "ipvPast12mWomen": 0.22,
+  "politicalStability": -0.72,
+  "conflictRisk": 0.0,
+  "floodRisk": 0.3,
+  "droughtRisk": 0.3,
+  "earthquakeRisk": 0.02,
+  "epidemicRisk": 0.61,
+  "years": {
+   "inflationRecent": 2025,
+   "homicide": null,
+   "ipv": 2012,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "homicidePer100k",
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "CMR": {
+  "inflationMean": 0.027,
+  "inflationCrisisShare": 0.0,
+  "inflationRecent": 0.034,
+  "homicidePer100k": 6.76,
+  "ipvPast12mWomen": 0.327,
+  "politicalStability": -1.69,
+  "conflictRisk": 0.35,
+  "floodRisk": 0.3,
+  "droughtRisk": 0.4,
+  "earthquakeRisk": 0.05,
+  "epidemicRisk": 0.62,
+  "years": {
+   "inflationRecent": 2025,
+   "homicide": 2022,
+   "ipv": 2014,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "TUR": {
+  "inflationMean": 0.217,
+  "inflationCrisisShare": 0.457,
+  "inflationRecent": 0.349,
+  "homicidePer100k": 3.23,
+  "ipvPast12mWomen": 0.11,
+  "politicalStability": -0.88,
+  "conflictRisk": 0.07,
+  "floodRisk": 0.3,
+  "droughtRisk": 0.4,
+  "earthquakeRisk": 0.8,
+  "epidemicRisk": 0.16,
+  "years": {
+   "inflationRecent": 2025,
+   "homicide": 2023,
+   "ipv": 2014,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "MLI": {
+  "inflationMean": 0.022,
+  "inflationCrisisShare": 0.0,
+  "inflationRecent": 0.033,
+  "homicidePer100k": 10.0,
+  "ipvPast12mWomen": 0.215,
+  "politicalStability": -2.5,
+  "conflictRisk": 0.6,
+  "floodRisk": 0.3,
+  "droughtRisk": 0.8,
+  "earthquakeRisk": 0.02,
+  "epidemicRisk": 0.69,
+  "years": {
+   "inflationRecent": 2025,
+   "homicide": null,
+   "ipv": 2006,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "homicidePer100k",
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "UZB": {
+  "inflationMean": 0.118,
+  "inflationCrisisShare": 0.0,
+  "inflationRecent": 0.088,
+  "homicidePer100k": 1.4,
+  "ipvPast12mWomen": 0.08,
+  "politicalStability": 0.1,
+  "conflictRisk": 0.0,
+  "floodRisk": 0.2,
+  "droughtRisk": 0.5,
+  "earthquakeRisk": 0.4,
+  "epidemicRisk": 0.21,
+  "years": {
+   "inflationRecent": 2025,
+   "homicide": 2021,
+   "ipv": null,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "ipvPast12mWomen",
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "DZA": {
+  "inflationMean": 0.044,
+  "inflationCrisisShare": 0.0,
+  "inflationRecent": 0.014,
+  "homicidePer100k": 1.16,
+  "ipvPast12mWomen": 0.09,
+  "politicalStability": -0.66,
+  "conflictRisk": 0.01,
+  "floodRisk": 0.2,
+  "droughtRisk": 0.6,
+  "earthquakeRisk": 0.5,
+  "epidemicRisk": 0.22,
+  "years": {
+   "inflationRecent": 2025,
+   "homicide": 2023,
+   "ipv": null,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "ipvPast12mWomen",
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "MMR": {
+  "inflationMean": 0.137,
+  "inflationCrisisShare": 0.067,
+  "inflationRecent": 0.25,
+  "homicidePer100k": 2.58,
+  "ipvPast12mWomen": 0.11,
+  "politicalStability": -2.12,
+  "conflictRisk": 0.7,
+  "floodRisk": 0.7,
+  "droughtRisk": 0.4,
+  "earthquakeRisk": 0.5,
+  "epidemicRisk": 0.39,
+  "years": {
+   "inflationRecent": null,
+   "homicide": 2023,
+   "ipv": 2016,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "inflationRecent",
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "GHA": {
+  "inflationMean": 0.178,
+  "inflationCrisisShare": 0.114,
+  "inflationRecent": 0.142,
+  "homicidePer100k": 1.83,
+  "ipvPast12mWomen": 0.192,
+  "politicalStability": 0.09,
+  "conflictRisk": 0.0,
+  "floodRisk": 0.3,
+  "droughtRisk": 0.3,
+  "earthquakeRisk": 0.1,
+  "epidemicRisk": 0.39,
+  "years": {
+   "inflationRecent": 2025,
+   "homicide": 2022,
+   "ipv": 2008,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "TCD": {
+  "inflationMean": 0.034,
+  "inflationCrisisShare": 0.029,
+  "inflationRecent": -0.039,
+  "homicidePer100k": 9.0,
+  "ipvPast12mWomen": 0.175,
+  "politicalStability": -1.57,
+  "conflictRisk": 0.35,
+  "floodRisk": 0.4,
+  "droughtRisk": 0.8,
+  "earthquakeRisk": 0.02,
+  "epidemicRisk": 0.87,
+  "years": {
+   "inflationRecent": 2025,
+   "homicide": null,
+   "ipv": 2015,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "homicidePer100k",
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "SOM": {
+  "inflationMean": 0.08,
+  "inflationCrisisShare": 0.0,
+  "inflationRecent": 0.05,
+  "homicidePer100k": 6.0,
+  "ipvPast12mWomen": 0.22,
+  "politicalStability": -2.17,
+  "conflictRisk": 0.7,
+  "floodRisk": 0.5,
+  "droughtRisk": 0.9,
+  "earthquakeRisk": 0.02,
+  "epidemicRisk": 0.9,
+  "years": {
+   "inflationRecent": null,
+   "homicide": null,
+   "ipv": null,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "inflationMean",
+   "inflationCrisisShare",
+   "inflationRecent",
+   "homicidePer100k",
+   "ipvPast12mWomen",
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "JPN": {
+  "inflationMean": 0.004,
+  "inflationCrisisShare": 0.0,
+  "inflationRecent": 0.032,
+  "homicidePer100k": 0.23,
+  "ipvPast12mWomen": 0.04,
+  "politicalStability": 1.26,
+  "conflictRisk": 0.0,
+  "floodRisk": 0.5,
+  "droughtRisk": 0.1,
+  "earthquakeRisk": 0.9,
+  "epidemicRisk": 0.07,
+  "years": {
+   "inflationRecent": 2025,
+   "homicide": 2023,
+   "ipv": null,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "ipvPast12mWomen",
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "BFA": {
+  "inflationMean": 0.025,
+  "inflationCrisisShare": 0.0,
+  "inflationRecent": -0.006,
+  "homicidePer100k": 1.25,
+  "ipvPast12mWomen": 0.093,
+  "politicalStability": -1.8,
+  "conflictRisk": 0.65,
+  "floodRisk": 0.3,
+  "droughtRisk": 0.7,
+  "earthquakeRisk": 0.02,
+  "epidemicRisk": 0.7,
+  "years": {
+   "inflationRecent": 2025,
+   "homicide": 2017,
+   "ipv": 2010,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "COL": {
+  "inflationMean": 0.054,
+  "inflationCrisisShare": 0.0,
+  "inflationRecent": 0.051,
+  "homicidePer100k": 24.91,
+  "ipvPast12mWomen": 0.184,
+  "politicalStability": -0.95,
+  "conflictRisk": 0.25,
+  "floodRisk": 0.5,
+  "droughtRisk": 0.3,
+  "earthquakeRisk": 0.5,
+  "epidemicRisk": 0.14,
+  "years": {
+   "inflationRecent": 2025,
+   "homicide": 2023,
+   "ipv": 2015,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "DEU": {
+  "inflationMean": 0.019,
+  "inflationCrisisShare": 0.0,
+  "inflationRecent": 0.022,
+  "homicidePer100k": 0.91,
+  "ipvPast12mWomen": 0.05,
+  "politicalStability": 0.21,
+  "conflictRisk": 0.0,
+  "floodRisk": 0.3,
+  "droughtRisk": 0.15,
+  "earthquakeRisk": 0.03,
+  "epidemicRisk": 0.08,
+  "years": {
+   "inflationRecent": 2025,
+   "homicide": 2023,
+   "ipv": 2012,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "GBR": {
+  "inflationMean": 0.025,
+  "inflationCrisisShare": 0.0,
+  "inflationRecent": 0.039,
+  "homicidePer100k": 1.12,
+  "ipvPast12mWomen": 0.06,
+  "politicalStability": 0.29,
+  "conflictRisk": 0.0,
+  "floodRisk": 0.3,
+  "droughtRisk": 0.1,
+  "earthquakeRisk": 0.01,
+  "epidemicRisk": 0.09,
+  "years": {
+   "inflationRecent": 2025,
+   "homicide": 2021,
+   "ipv": 2012,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "ZMB": {
+  "inflationMean": 0.134,
+  "inflationCrisisShare": 0.171,
+  "inflationRecent": 0.139,
+  "homicidePer100k": 5.2,
+  "ipvPast12mWomen": 0.267,
+  "politicalStability": -0.06,
+  "conflictRisk": 0.0,
+  "floodRisk": 0.3,
+  "droughtRisk": 0.6,
+  "earthquakeRisk": 0.05,
+  "epidemicRisk": 0.48,
+  "years": {
+   "inflationRecent": 2025,
+   "homicide": 2015,
+   "ipv": 2014,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "FRA": {
+  "inflationMean": 0.017,
+  "inflationCrisisShare": 0.0,
+  "inflationRecent": 0.009,
+  "homicidePer100k": 1.34,
+  "ipvPast12mWomen": 0.07,
+  "politicalStability": -0.09,
+  "conflictRisk": 0.0,
+  "floodRisk": 0.3,
+  "droughtRisk": 0.2,
+  "earthquakeRisk": 0.05,
+  "epidemicRisk": 0.08,
+  "years": {
+   "inflationRecent": 2025,
+   "homicide": 2023,
+   "ipv": 2012,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "MWI": {
+  "inflationMean": 0.163,
+  "inflationCrisisShare": 0.057,
+  "inflationRecent": 0.284,
+  "homicidePer100k": 1.78,
+  "ipvPast12mWomen": 0.243,
+  "politicalStability": -0.16,
+  "conflictRisk": 0.0,
+  "floodRisk": 0.6,
+  "droughtRisk": 0.6,
+  "earthquakeRisk": 0.1,
+  "epidemicRisk": 0.48,
+  "years": {
+   "inflationRecent": 2025,
+   "homicide": 2012,
+   "ipv": 2016,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "MAR": {
+  "inflationMean": 0.019,
+  "inflationCrisisShare": 0.0,
+  "inflationRecent": 0.007,
+  "homicidePer100k": 1.71,
+  "ipvPast12mWomen": 0.1,
+  "politicalStability": -0.54,
+  "conflictRisk": 0.0,
+  "floodRisk": 0.2,
+  "droughtRisk": 0.6,
+  "earthquakeRisk": 0.4,
+  "epidemicRisk": 0.23,
+  "years": {
+   "inflationRecent": 2025,
+   "homicide": 2023,
+   "ipv": null,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "ipvPast12mWomen",
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "THA": {
+  "inflationMean": 0.019,
+  "inflationCrisisShare": 0.0,
+  "inflationRecent": -0.001,
+  "homicidePer100k": 4.79,
+  "ipvPast12mWomen": 0.09,
+  "politicalStability": -0.56,
+  "conflictRisk": 0.01,
+  "floodRisk": 0.6,
+  "droughtRisk": 0.3,
+  "earthquakeRisk": 0.1,
+  "epidemicRisk": 0.12,
+  "years": {
+   "inflationRecent": 2025,
+   "homicide": 2011,
+   "ipv": null,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "ipvPast12mWomen",
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "NPL": {
+  "inflationMean": 0.063,
+  "inflationCrisisShare": 0.0,
+  "inflationRecent": 0.027,
+  "homicidePer100k": 2.13,
+  "ipvPast12mWomen": 0.112,
+  "politicalStability": -0.44,
+  "conflictRisk": 0.0,
+  "floodRisk": 0.5,
+  "droughtRisk": 0.3,
+  "earthquakeRisk": 0.8,
+  "epidemicRisk": 0.3,
+  "years": {
+   "inflationRecent": 2025,
+   "homicide": 2020,
+   "ipv": 2016,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "SAU": {
+  "inflationMean": 0.023,
+  "inflationCrisisShare": 0.0,
+  "inflationRecent": 0.02,
+  "homicidePer100k": 0.94,
+  "ipvPast12mWomen": 0.11,
+  "politicalStability": 0.02,
+  "conflictRisk": 0.01,
+  "floodRisk": 0.1,
+  "droughtRisk": 0.5,
+  "earthquakeRisk": 0.05,
+  "epidemicRisk": 0.1,
+  "years": {
+   "inflationRecent": 2025,
+   "homicide": 2019,
+   "ipv": null,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "ipvPast12mWomen",
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "PER": {
+  "inflationMean": 0.031,
+  "inflationCrisisShare": 0.114,
+  "inflationRecent": 0.015,
+  "homicidePer100k": 8.6,
+  "ipvPast12mWomen": 0.108,
+  "politicalStability": -0.5,
+  "conflictRisk": 0.0,
+  "floodRisk": 0.5,
+  "droughtRisk": 0.4,
+  "earthquakeRisk": 0.7,
+  "epidemicRisk": 0.15,
+  "years": {
+   "inflationRecent": 2025,
+   "homicide": 2021,
+   "ipv": 2016,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "SEN": {
+  "inflationMean": 0.021,
+  "inflationCrisisShare": 0.0,
+  "inflationRecent": 0.015,
+  "homicidePer100k": 0.27,
+  "ipvPast12mWomen": 0.122,
+  "politicalStability": -0.17,
+  "conflictRisk": 0.0,
+  "floodRisk": 0.3,
+  "droughtRisk": 0.6,
+  "earthquakeRisk": 0.02,
+  "epidemicRisk": 0.39,
+  "years": {
+   "inflationRecent": 2025,
+   "homicide": 2015,
+   "ipv": 2017,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "SYR": {
+  "inflationMean": 0.132,
+  "inflationCrisisShare": 0.067,
+  "inflationRecent": 0.4,
+  "homicidePer100k": 2.06,
+  "ipvPast12mWomen": 0.15,
+  "politicalStability": -2.32,
+  "conflictRisk": 0.75,
+  "floodRisk": 0.2,
+  "droughtRisk": 0.7,
+  "earthquakeRisk": 0.4,
+  "epidemicRisk": 0.25,
+  "years": {
+   "inflationRecent": null,
+   "homicide": 2010,
+   "ipv": null,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "inflationRecent",
+   "ipvPast12mWomen",
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "ARG": {
+  "inflationMean": 0.863,
+  "inflationCrisisShare": 0.857,
+  "inflationRecent": 2.199,
+  "homicidePer100k": 4.49,
+  "ipvPast12mWomen": 0.05,
+  "politicalStability": 0.16,
+  "conflictRisk": 0.0,
+  "floodRisk": 0.4,
+  "droughtRisk": 0.4,
+  "earthquakeRisk": 0.2,
+  "epidemicRisk": 0.12,
+  "years": {
+   "inflationRecent": 2024,
+   "homicide": 2023,
+   "ipv": null,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "ipvPast12mWomen",
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "ZWE": {
+  "inflationMean": 0.598,
+  "inflationCrisisShare": 0.308,
+  "inflationRecent": 1.047,
+  "homicidePer100k": 6.76,
+  "ipvPast12mWomen": 0.199,
+  "politicalStability": -0.87,
+  "conflictRisk": 0.0,
+  "floodRisk": 0.2,
+  "droughtRisk": 0.7,
+  "earthquakeRisk": 0.05,
+  "epidemicRisk": 0.59,
+  "years": {
+   "inflationRecent": 2022,
+   "homicide": 2022,
+   "ipv": 2015,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "GIN": {
+  "inflationMean": 0.14,
+  "inflationCrisisShare": 0.0,
+  "inflationRecent": 0.036,
+  "homicidePer100k": 9.0,
+  "ipvPast12mWomen": 0.21,
+  "politicalStability": -0.73,
+  "conflictRisk": 0.0,
+  "floodRisk": 0.3,
+  "droughtRisk": 0.3,
+  "earthquakeRisk": 0.02,
+  "epidemicRisk": 0.83,
+  "years": {
+   "inflationRecent": 2025,
+   "homicide": null,
+   "ipv": null,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "homicidePer100k",
+   "ipvPast12mWomen",
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "BEN": {
+  "inflationMean": 0.022,
+  "inflationCrisisShare": 0.0,
+  "inflationRecent": 0.011,
+  "homicidePer100k": 1.13,
+  "ipvPast12mWomen": 0.15,
+  "politicalStability": -0.4,
+  "conflictRisk": 0.02,
+  "floodRisk": 0.4,
+  "droughtRisk": 0.3,
+  "earthquakeRisk": 0.02,
+  "epidemicRisk": 0.69,
+  "years": {
+   "inflationRecent": 2025,
+   "homicide": 2017,
+   "ipv": null,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "ipvPast12mWomen",
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "BDI": {
+  "inflationMean": 0.105,
+  "inflationCrisisShare": 0.0,
+  "inflationRecent": 0.341,
+  "homicidePer100k": 5.65,
+  "ipvPast12mWomen": 0.279,
+  "politicalStability": -1.23,
+  "conflictRisk": 0.2,
+  "floodRisk": 0.3,
+  "droughtRisk": 0.4,
+  "earthquakeRisk": 0.2,
+  "epidemicRisk": 0.47,
+  "years": {
+   "inflationRecent": 2025,
+   "homicide": 2016,
+   "ipv": 2017,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "MYS": {
+  "inflationMean": 0.021,
+  "inflationCrisisShare": 0.0,
+  "inflationRecent": 0.014,
+  "homicidePer100k": 0.73,
+  "ipvPast12mWomen": 0.06,
+  "politicalStability": 0.34,
+  "conflictRisk": 0.0,
+  "floodRisk": 0.5,
+  "droughtRisk": 0.1,
+  "earthquakeRisk": 0.05,
+  "epidemicRisk": 0.11,
+  "years": {
+   "inflationRecent": 2025,
+   "homicide": 2023,
+   "ipv": null,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "ipvPast12mWomen",
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "VEN": {
+  "inflationMean": 0.727,
+  "inflationCrisisShare": 0.5,
+  "inflationRecent": 0.5,
+  "homicidePer100k": 12.65,
+  "ipvPast12mWomen": 0.09,
+  "politicalStability": -1.51,
+  "conflictRisk": 0.0,
+  "floodRisk": 0.4,
+  "droughtRisk": 0.3,
+  "earthquakeRisk": 0.3,
+  "epidemicRisk": 0.24,
+  "years": {
+   "inflationRecent": null,
+   "homicide": 2022,
+   "ipv": null,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "inflationRecent",
+   "ipvPast12mWomen",
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "KAZ": {
+  "inflationMean": 0.088,
+  "inflationCrisisShare": 0.065,
+  "inflationRecent": 0.114,
+  "homicidePer100k": 2.55,
+  "ipvPast12mWomen": 0.06,
+  "politicalStability": -0.2,
+  "conflictRisk": 0.0,
+  "floodRisk": 0.2,
+  "droughtRisk": 0.5,
+  "earthquakeRisk": 0.3,
+  "epidemicRisk": 0.12,
+  "years": {
+   "inflationRecent": 2025,
+   "homicide": 2022,
+   "ipv": null,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "ipvPast12mWomen",
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "RWA": {
+  "inflationMean": 0.07,
+  "inflationCrisisShare": 0.0,
+  "inflationRecent": 0.059,
+  "homicidePer100k": 3.61,
+  "ipvPast12mWomen": 0.207,
+  "politicalStability": 0.12,
+  "conflictRisk": 0.0,
+  "floodRisk": 0.3,
+  "droughtRisk": 0.3,
+  "earthquakeRisk": 0.2,
+  "epidemicRisk": 0.4,
+  "years": {
+   "inflationRecent": 2025,
+   "homicide": 2020,
+   "ipv": 2015,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "ITA": {
+  "inflationMean": 0.02,
+  "inflationCrisisShare": 0.0,
+  "inflationRecent": 0.015,
+  "homicidePer100k": 0.57,
+  "ipvPast12mWomen": 0.07,
+  "politicalStability": 0.46,
+  "conflictRisk": 0.0,
+  "floodRisk": 0.3,
+  "droughtRisk": 0.3,
+  "earthquakeRisk": 0.5,
+  "epidemicRisk": 0.07,
+  "years": {
+   "inflationRecent": 2025,
+   "homicide": 2023,
+   "ipv": 2012,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "GTM": {
+  "inflationMean": 0.054,
+  "inflationCrisisShare": 0.029,
+  "inflationRecent": 0.015,
+  "homicidePer100k": 23.37,
+  "ipvPast12mWomen": 0.089,
+  "politicalStability": -0.21,
+  "conflictRisk": 0.0,
+  "floodRisk": 0.5,
+  "droughtRisk": 0.5,
+  "earthquakeRisk": 0.7,
+  "epidemicRisk": 0.21,
+  "years": {
+   "inflationRecent": 2025,
+   "homicide": 2023,
+   "ipv": 2015,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "KHM": {
+  "inflationMean": 0.037,
+  "inflationCrisisShare": 0.0,
+  "inflationRecent": 0.024,
+  "homicidePer100k": 1.82,
+  "ipvPast12mWomen": 0.109,
+  "politicalStability": 0.33,
+  "conflictRisk": 0.0,
+  "floodRisk": 0.6,
+  "droughtRisk": 0.4,
+  "earthquakeRisk": 0.02,
+  "epidemicRisk": 0.25,
+  "years": {
+   "inflationRecent": 2025,
+   "homicide": 2011,
+   "ipv": 2014,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "CAN": {
+  "inflationMean": 0.022,
+  "inflationCrisisShare": 0.0,
+  "inflationRecent": 0.021,
+  "homicidePer100k": 1.98,
+  "ipvPast12mWomen": 0.03,
+  "politicalStability": 0.81,
+  "conflictRisk": 0.0,
+  "floodRisk": 0.3,
+  "droughtRisk": 0.2,
+  "earthquakeRisk": 0.1,
+  "epidemicRisk": 0.09,
+  "years": {
+   "inflationRecent": 2025,
+   "homicide": 2023,
+   "ipv": null,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "ipvPast12mWomen",
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "PRK": {
+  "inflationMean": 0.1,
+  "inflationCrisisShare": 0.0,
+  "inflationRecent": 0.1,
+  "homicidePer100k": 4.0,
+  "ipvPast12mWomen": 0.1,
+  "politicalStability": 0.08,
+  "conflictRisk": 0.1,
+  "floodRisk": 0.5,
+  "droughtRisk": 0.4,
+  "earthquakeRisk": 0.1,
+  "epidemicRisk": 0.24,
+  "years": {
+   "inflationRecent": null,
+   "homicide": null,
+   "ipv": null,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "inflationMean",
+   "inflationCrisisShare",
+   "inflationRecent",
+   "homicidePer100k",
+   "ipvPast12mWomen",
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "SSD": {
+  "inflationMean": 0.587,
+  "inflationCrisisShare": 0.5,
+  "inflationRecent": 0.914,
+  "homicidePer100k": 13.98,
+  "ipvPast12mWomen": 0.27,
+  "politicalStability": -1.52,
+  "conflictRisk": 0.7,
+  "floodRisk": 0.7,
+  "droughtRisk": 0.6,
+  "earthquakeRisk": 0.05,
+  "epidemicRisk": 0.84,
+  "years": {
+   "inflationRecent": 2024,
+   "homicide": 2012,
+   "ipv": null,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "ipvPast12mWomen",
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "ESP": {
+  "inflationMean": 0.024,
+  "inflationCrisisShare": 0.0,
+  "inflationRecent": 0.027,
+  "homicidePer100k": 0.69,
+  "ipvPast12mWomen": 0.02,
+  "politicalStability": 0.18,
+  "conflictRisk": 0.0,
+  "floodRisk": 0.3,
+  "droughtRisk": 0.4,
+  "earthquakeRisk": 0.1,
+  "epidemicRisk": 0.07,
+  "years": {
+   "inflationRecent": 2025,
+   "homicide": 2023,
+   "ipv": 2012,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "AUS": {
+  "inflationMean": 0.029,
+  "inflationCrisisShare": 0.0,
+  "inflationRecent": 0.029,
+  "homicidePer100k": 0.85,
+  "ipvPast12mWomen": 0.03,
+  "politicalStability": 0.78,
+  "conflictRisk": 0.0,
+  "floodRisk": 0.3,
+  "droughtRisk": 0.6,
+  "earthquakeRisk": 0.05,
+  "epidemicRisk": 0.08,
+  "years": {
+   "inflationRecent": 2025,
+   "homicide": 2023,
+   "ipv": null,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "ipvPast12mWomen",
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "POL": {
+  "inflationMean": 0.036,
+  "inflationCrisisShare": 0.086,
+  "inflationRecent": 0.038,
+  "homicidePer100k": 0.8,
+  "ipvPast12mWomen": 0.03,
+  "politicalStability": 0.69,
+  "conflictRisk": 0.0,
+  "floodRisk": 0.3,
+  "droughtRisk": 0.2,
+  "earthquakeRisk": 0.01,
+  "epidemicRisk": 0.08,
+  "years": {
+   "inflationRecent": 2025,
+   "homicide": 2023,
+   "ipv": 2012,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "TJK": {
+  "inflationMean": 0.095,
+  "inflationCrisisShare": 0.0,
+  "inflationRecent": 0.034,
+  "homicidePer100k": 0.89,
+  "ipvPast12mWomen": 0.19,
+  "politicalStability": -0.3,
+  "conflictRisk": 0.03,
+  "floodRisk": 0.4,
+  "droughtRisk": 0.4,
+  "earthquakeRisk": 0.6,
+  "epidemicRisk": 0.32,
+  "years": {
+   "inflationRecent": 2025,
+   "homicide": 2020,
+   "ipv": 2017,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "ECU": {
+  "inflationMean": 0.084,
+  "inflationCrisisShare": 0.171,
+  "inflationRecent": 0.007,
+  "homicidePer100k": 45.72,
+  "ipvPast12mWomen": 0.108,
+  "politicalStability": -0.64,
+  "conflictRisk": 0.0,
+  "floodRisk": 0.4,
+  "droughtRisk": 0.3,
+  "earthquakeRisk": 0.6,
+  "epidemicRisk": 0.15,
+  "years": {
+   "inflationRecent": 2025,
+   "homicide": 2023,
+   "ipv": 2011,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "TGO": {
+  "inflationMean": 0.027,
+  "inflationCrisisShare": 0.0,
+  "inflationRecent": 0.004,
+  "homicidePer100k": 9.0,
+  "ipvPast12mWomen": 0.127,
+  "politicalStability": -0.85,
+  "conflictRisk": 0.02,
+  "floodRisk": 0.3,
+  "droughtRisk": 0.3,
+  "earthquakeRisk": 0.02,
+  "epidemicRisk": 0.55,
+  "years": {
+   "inflationRecent": 2025,
+   "homicide": null,
+   "ipv": 2014,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "homicidePer100k",
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "BOL": {
+  "inflationMean": 0.042,
+  "inflationCrisisShare": 0.0,
+  "inflationRecent": 0.195,
+  "homicidePer100k": 4.42,
+  "ipvPast12mWomen": 0.271,
+  "politicalStability": -0.16,
+  "conflictRisk": 0.0,
+  "floodRisk": 0.4,
+  "droughtRisk": 0.5,
+  "earthquakeRisk": 0.1,
+  "epidemicRisk": 0.23,
+  "years": {
+   "inflationRecent": 2025,
+   "homicide": 2023,
+   "ipv": 2016,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "SLE": {
+  "inflationMean": 0.141,
+  "inflationCrisisShare": 0.056,
+  "inflationRecent": 0.075,
+  "homicidePer100k": 2.22,
+  "ipvPast12mWomen": 0.287,
+  "politicalStability": -0.39,
+  "conflictRisk": 0.0,
+  "floodRisk": 0.4,
+  "droughtRisk": 0.2,
+  "earthquakeRisk": 0.02,
+  "epidemicRisk": 0.82,
+  "years": {
+   "inflationRecent": 2025,
+   "homicide": 2020,
+   "ipv": 2013,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "HTI": {
+  "inflationMean": 0.14,
+  "inflationCrisisShare": 0.0,
+  "inflationRecent": 0.286,
+  "homicidePer100k": 41.15,
+  "ipvPast12mWomen": 0.139,
+  "politicalStability": -1.38,
+  "conflictRisk": 0.5,
+  "floodRisk": 0.5,
+  "droughtRisk": 0.4,
+  "earthquakeRisk": 0.7,
+  "epidemicRisk": 0.52,
+  "years": {
+   "inflationRecent": 2025,
+   "homicide": 2023,
+   "ipv": 2017,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "PNG": {
+  "inflationMean": 0.058,
+  "inflationCrisisShare": 0.0,
+  "inflationRecent": 0.044,
+  "homicidePer100k": 9.34,
+  "ipvPast12mWomen": 0.31,
+  "politicalStability": -0.55,
+  "conflictRisk": 0.02,
+  "floodRisk": 0.5,
+  "droughtRisk": 0.3,
+  "earthquakeRisk": 0.7,
+  "epidemicRisk": 0.41,
+  "years": {
+   "inflationRecent": 2025,
+   "homicide": 2010,
+   "ipv": null,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "ipvPast12mWomen",
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "LKA": {
+  "inflationMean": 0.095,
+  "inflationCrisisShare": 0.029,
+  "inflationRecent": -0.048,
+  "homicidePer100k": 3.31,
+  "ipvPast12mWomen": 0.04,
+  "politicalStability": -0.04,
+  "conflictRisk": 0.0,
+  "floodRisk": 0.5,
+  "droughtRisk": 0.4,
+  "earthquakeRisk": 0.02,
+  "epidemicRisk": 0.15,
+  "years": {
+   "inflationRecent": 2025,
+   "homicide": 2019,
+   "ipv": null,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "ipvPast12mWomen",
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "CAF": {
+  "inflationMean": 0.038,
+  "inflationCrisisShare": 0.0,
+  "inflationRecent": 0.01,
+  "homicidePer100k": 20.12,
+  "ipvPast12mWomen": 0.263,
+  "politicalStability": -1.69,
+  "conflictRisk": 0.65,
+  "floodRisk": 0.3,
+  "droughtRisk": 0.3,
+  "earthquakeRisk": 0.02,
+  "epidemicRisk": 0.81,
+  "years": {
+   "inflationRecent": 2025,
+   "homicide": 2016,
+   "ipv": 2006,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "JOR": {
+  "inflationMean": 0.03,
+  "inflationCrisisShare": 0.0,
+  "inflationRecent": 0.018,
+  "homicidePer100k": 0.99,
+  "ipvPast12mWomen": 0.141,
+  "politicalStability": -0.32,
+  "conflictRisk": 0.0,
+  "floodRisk": 0.1,
+  "droughtRisk": 0.7,
+  "earthquakeRisk": 0.2,
+  "epidemicRisk": 0.15,
+  "years": {
+   "inflationRecent": 2025,
+   "homicide": 2023,
+   "ipv": 2012,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "HND": {
+  "inflationMean": 0.063,
+  "inflationCrisisShare": 0.0,
+  "inflationRecent": 0.046,
+  "homicidePer100k": 31.44,
+  "ipvPast12mWomen": 0.11,
+  "politicalStability": -0.44,
+  "conflictRisk": 0.01,
+  "floodRisk": 0.6,
+  "droughtRisk": 0.5,
+  "earthquakeRisk": 0.3,
+  "epidemicRisk": 0.22,
+  "years": {
+   "inflationRecent": 2025,
+   "homicide": 2023,
+   "ipv": 2012,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "KOR": {
+  "inflationMean": 0.025,
+  "inflationCrisisShare": 0.0,
+  "inflationRecent": 0.021,
+  "homicidePer100k": 0.48,
+  "ipvPast12mWomen": 0.08,
+  "politicalStability": 0.92,
+  "conflictRisk": 0.03,
+  "floodRisk": 0.4,
+  "droughtRisk": 0.2,
+  "earthquakeRisk": 0.1,
+  "epidemicRisk": 0.07,
+  "years": {
+   "inflationRecent": 2025,
+   "homicide": 2023,
+   "ipv": null,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "ipvPast12mWomen",
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "UKR": {
+  "inflationMean": 0.124,
+  "inflationCrisisShare": 0.156,
+  "inflationRecent": 0.127,
+  "homicidePer100k": 3.78,
+  "ipvPast12mWomen": 0.102,
+  "politicalStability": -0.33,
+  "conflictRisk": 0.8,
+  "floodRisk": 0.2,
+  "droughtRisk": 0.3,
+  "earthquakeRisk": 0.05,
+  "epidemicRisk": 0.11,
+  "years": {
+   "inflationRecent": 2025,
+   "homicide": 2021,
+   "ipv": 2007,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "DOM": {
+  "inflationMean": 0.078,
+  "inflationCrisisShare": 0.086,
+  "inflationRecent": 0.039,
+  "homicidePer100k": 10.92,
+  "ipvPast12mWomen": 0.16,
+  "politicalStability": 0.61,
+  "conflictRisk": 0.0,
+  "floodRisk": 0.5,
+  "droughtRisk": 0.3,
+  "earthquakeRisk": 0.4,
+  "epidemicRisk": 0.29,
+  "years": {
+   "inflationRecent": 2025,
+   "homicide": 2023,
+   "ipv": 2013,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "COG": {
+  "inflationMean": 0.026,
+  "inflationCrisisShare": 0.03,
+  "inflationRecent": 0.024,
+  "homicidePer100k": 10.0,
+  "ipvPast12mWomen": 0.18,
+  "politicalStability": -0.49,
+  "conflictRisk": 0.06,
+  "floodRisk": 0.4,
+  "droughtRisk": 0.2,
+  "earthquakeRisk": 0.02,
+  "epidemicRisk": 0.41,
+  "years": {
+   "inflationRecent": 2025,
+   "homicide": null,
+   "ipv": null,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "homicidePer100k",
+   "ipvPast12mWomen",
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "ISR": {
+  "inflationMean": 0.017,
+  "inflationCrisisShare": 0.0,
+  "inflationRecent": 0.03,
+  "homicidePer100k": 1.63,
+  "ipvPast12mWomen": 0.06,
+  "politicalStability": -0.91,
+  "conflictRisk": 0.4,
+  "floodRisk": 0.1,
+  "droughtRisk": 0.5,
+  "earthquakeRisk": 0.3,
+  "epidemicRisk": 0.08,
+  "years": {
+   "inflationRecent": 2025,
+   "homicide": 2022,
+   "ipv": null,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "ipvPast12mWomen",
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ },
+ "CHL": {
+  "inflationMean": 0.038,
+  "inflationCrisisShare": 0.0,
+  "inflationRecent": 0.042,
+  "homicidePer100k": 6.35,
+  "ipvPast12mWomen": 0.06,
+  "politicalStability": 0.17,
+  "conflictRisk": 0.0,
+  "floodRisk": 0.3,
+  "droughtRisk": 0.5,
+  "earthquakeRisk": 0.8,
+  "epidemicRisk": 0.1,
+  "years": {
+   "inflationRecent": 2025,
+   "homicide": 2023,
+   "ipv": null,
+   "politicalStability": 2025
+  },
+  "estimated": [
+   "ipvPast12mWomen",
+   "conflictRisk",
+   "floodRisk",
+   "droughtRisk",
+   "earthquakeRisk",
+   "epidemicRisk"
+  ]
+ }
+}

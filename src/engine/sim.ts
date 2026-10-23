@@ -3,6 +3,8 @@
 import { Rng, streamRng, hashStr } from "./rng";
 import { JAPAN, type CountryData, type Region, type IncomeBand } from "./data";
 import { MICROS } from "./micro";
+import { riskYear, countryEventScene, ipvHazard } from "./risks";
+import { kidsScene, kidsAgainScene, fertilityScene, strainScene, dvScene, type Scene } from "./scenes";
 import type {
   Choice,
   ChoiceId,
@@ -189,6 +191,7 @@ export class Life {
       { age: Math.max(17, Math.round(r.normal(31.5 - (this.D.inst?.marriageAgeShift.female ?? 0), 4))), alive: true },
     ];
     this.sibs = this.makeSiblings();
+    this.ipvRate = ipvHazard(this.D.iso3);
   }
 
   /** きょうだいを兄姉と弟妹に振り分ける。母の年齢（17〜44歳で出産）に収まるようにする */
@@ -289,11 +292,50 @@ export class Life {
     this.choiceLog.push({ id: c.id, optionId, label: opt.label, age: this.age, pickIndex: c.options.indexOf(opt) });
     const micro = c.id.startsWith("micro:");
     this.preEvents.push({ age: this.age, kind: "choice", text: `【選択】${c.title}：${opt.label}`, major: !micro });
-    if (micro) {
+    // （ev: の場面は出来事がきっかけの選択。転機として目立たせる）
+    if (c.id.startsWith("ev:")) {
+      const sc = this.sceneQueue.shift()!;
+      sc.options.find((o) => o.id === optionId)!.apply(this, this.rng("c:" + c.id));
+    } else if (micro) {
       const m = MICROS.find((x) => "micro:" + x.id === c.id)!;
       this.usedMicro.set(m.id, this.age);
       m.options.find((o) => o.id === optionId)!.apply(this, this.rng("c:" + c.id));
     } else applyChoice(this, c.id, optionId, this.rng("c:" + c.id));
+  }
+
+  /** 出来事がきっかけで出る選択場面の待ち行列 */
+  sceneQueue: Scene[] = [];
+  queueScene(sc: Scene): void {
+    if (!this.sceneQueue.some((x) => x.id === sc.id)) this.sceneQueue.push(sc);
+  }
+
+  // 家族計画・夫婦関係
+  kidsPlan: "undecided" | "want" | "later" | "none" = "undecided";
+  kidsFrom = 0;
+  infertile = false;
+  naturalHope = false;
+  strained = false;
+  dvOngoing = false;
+  dvHappened = false;
+  /** 1年あたり、パートナーからの暴力が始まる確率の目安（国の統計から設定） */
+  ipvRate = 0.004;
+  /** ドルや金で貯めている（物価の暴騰に強い） */
+  protectCash = false;
+  inflationNoticed = false;
+  /** 一度起きた「国ごとの出来事」 */
+  usedEvents = new Set<string>();
+
+  /** 離婚する。財産を分け、子どもがいれば養育費などが続く */
+  divorce(r: Rng, text: string, dv = false): void {
+    const a = this.age;
+    const share = Math.max(0, this.cash) * 0.5;
+    this.log("family", text, -share, true);
+    this.spend("events", share);
+    if (this.kids.some((k) => a - k.born < 18) && this.sex === "male") this.childSupport = true;
+    this.partner = null;
+    this.strained = false;
+    this.dvOngoing = false;
+    this.noMarry = r.chance(dv ? 0.7 : 0.5);
   }
 
   /** 次に小さな選択を出す年齢 */
@@ -316,7 +358,8 @@ export class Life {
     }
     // 年齢の上限が近いものを優先して、取りこぼしを減らす
     const m = r.weighted(pool, pool.map((x) => 1 / (1 + Math.max(0, x.max - a) * 0.15)));
-    this.nextMicro = a + r.int(1, 3);
+    // 出来事がきっかけの選択も増えたので、小さな選択は2〜3年に1回にする
+    this.nextMicro = a + r.int(2, 3);
     return {
       id: `micro:${m.id}`,
       age: a,
@@ -365,6 +408,15 @@ export class Life {
     if (!this.made("parentCare") && this.made("careerShift") && (this.careTriggered || a >= 58))
       return buildChoice(this, "parentCare");
     if (!this.made("retire") && a >= 60 && this.made("parentCare")) return buildChoice(this, "retire");
+    const sc = this.sceneQueue[0];
+    if (sc)
+      return {
+        id: `ev:${sc.id}`,
+        age: a,
+        title: sc.title,
+        situation: sc.situation,
+        options: sc.options.map(({ id, label, desc }) => ({ id, label, desc })),
+      };
     return this.microChoice();
   }
 
@@ -385,9 +437,14 @@ export class Life {
     this.parentsYear(r);
     this.healthYear(r);
     this.luckYear(r);
+    riskYear(this, this.rng("risk"));
     this.moneyYear(r);
     this.mortality();
 
+    if (!this.dead) {
+      const sc = countryEventScene(this, this.rng("cevent"));
+      if (sc) this.queueScene(sc);
+    }
     const c = this.cur!;
     c.balance = Math.round(this.balance);
     c.invested = Math.round(this.invest);
@@ -529,9 +586,13 @@ export class Life {
     if (p && p.alive) {
       p.age++;
       // 出産
-      const maxKids = this.kidsTarget(r);
+      const maxKids = Math.max(this.kidsPlan === "want" ? 1 : 0, this.kidsTarget(r));
       const motherAge = this.sex === "female" ? a : p.age;
-      if (this.kids.length < maxKids && motherAge >= 20 && motherAge <= 44 && r.chance(0.32 - Math.max(0, motherAge - 35) * 0.035)) {
+      if (this.kidsPlan === "later" && a >= this.kidsFrom) this.queueScene(kidsAgainScene());
+      if (this.kidsPlan === "want" && this.infertile && !this.naturalHope && a === this.kidsFrom + 2) this.queueScene(fertilityScene(this));
+      if (this.naturalHope && this.infertile && r.chance(0.12)) this.infertile = false;
+      const canHave = this.kidsPlan === "want" && !this.infertile && a >= this.kidsFrom;
+      if (canHave && this.kids.length < maxKids && motherAge >= 18 && motherAge <= 44 && r.chance(0.32 - Math.max(0, motherAge - 35) * 0.035)) {
         const kr = this.rng("kid" + this.kids.length);
         const hh = this.householdIncomeGuess();
         const kid = {
@@ -550,14 +611,19 @@ export class Life {
           this.unemployedUntil = a + 3;
         }
       }
-      // 離婚
-      if (r.chance(this.D.ev.divorceRateAnnual * (a - this.partnerSince < 10 ? 1.4 : 0.7))) {
-        const share = Math.max(0, this.cash) * 0.5;
-        this.log("family", "離婚した。財産は分け合った。", -share, true);
-        this.spend("events", share);
-        if (this.kids.some((k) => a - k.born < 18) && this.sex === "male") this.childSupport = true;
-        this.partner = null;
-        this.noMarry = r.chance(0.5);
+      // 夫婦のすれ違い（いきなり離婚せず、まず話し合いの場面が来る）
+      const pStrain = this.D.ev.divorceRateAnnual * (a - this.partnerSince < 10 ? 1.4 : 0.7) * 2.2;
+      if (this.strained && r.chance(0.35)) {
+        this.divorce(r, "話し合いはまとまらず、離婚した。財産は分け合った。");
+      } else if (!this.strained && r.chance(pStrain)) {
+        this.queueScene(strainScene(this));
+      } else if (!this.dvHappened && r.chance(this.ipvRate * (this.sex === "female" ? 1 : 0.35))) {
+        // パートナーからの暴力（国の統計にもとづく確率。描写はしない）
+        this.dvHappened = true;
+        this.queueScene(dvScene(this));
+      } else if (this.dvOngoing) {
+        this.illMult = Math.min(2, this.illMult * 1.04);
+        if (r.chance(0.2)) this.queueScene({ ...dvScene(this), id: "dv" });
       }
       // 配偶者の死亡
       else if (r.chance(this.D.qx(p.sex, p.age) * 0.9)) {
@@ -566,6 +632,8 @@ export class Life {
         this.spend("events", this.D.living.funeralCost);
         this.widowed = true;
         this.partner = null;
+        this.strained = false;
+        this.dvOngoing = false;
       }
     } else if (!this.noMarry && a >= 18 && a < 30 && this.school === "done" && !this.made("marriageHome")) {
       // 30歳の選択より前に自然に結婚することもある
@@ -611,7 +679,9 @@ export class Life {
     const edu: Edu = r.weighted(["high_school", "vocational", "university"], [0.35, 0.25, 0.4]);
     this.partner = { sex: other, age: pAge, edu, work, alive: true };
     this.partnerSince = this.age;
+    this.kidsPlan = "undecided";
     this.log("family", `${text}（相手は${pAge}歳）`, undefined, true);
+    this.queueScene(kidsScene(this));
     if (r.chance(0.5)) {
       const net = this.D.living.weddingCost * 0.45;
       this.spend("events", net);

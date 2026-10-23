@@ -2,6 +2,7 @@
 // どれも得と損の両方が起こりうるようにし、結果はその場で一言返す。
 import type { Rng } from "./rng";
 import type { Life } from "./sim";
+import { riskOf } from "./risks";
 
 export interface MicroOption {
   id: string;
@@ -145,6 +146,18 @@ export const MICROS: Micro[] = [
         else { l.sideIncome += l.y(90_000); l.logPre("money", "牛を買った。乳を売って少しずつ稼げるようになった。", -l.y(250_000)); }
       } },
       { id: "b", label: "現金で持っておく", desc: "いざという時に使える。増えはしない。", apply: (l) => { l.logPre("money", "お金は手元に残しておいた。"); } },
+    ],
+  },
+  {
+    id: "dollar",
+    min: 22,
+    max: 70,
+    when: (l) => !l.protectCash && l.cash > l.y(300_000) && riskOf(l.D.iso3).inflationMean > 0.08,
+    title: "貯金をどう持つか",
+    situation: () => "物価が上がり続けている。周りではドルや金で貯める人が増えてきた。",
+    options: [
+      { id: "a", label: "ドルや金に替えておく", desc: "通貨が下がっても守られやすい。両替の手数料がかかり、すぐには使いにくい。", apply: (l) => { const fee = l.cash * 0.04; l.spend("other", fee); l.protectCash = true; l.logPre("money", "貯金の多くをドルと金に替えた。", -fee); } },
+      { id: "b", label: "現地のお金のまま持つ", desc: "手数料がかからず、すぐ使える。物価が上がると目減りする。", apply: (l) => { l.logPre("money", "貯金はそのまま銀行に置いておいた。"); } },
     ],
   },
   {
