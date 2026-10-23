@@ -42,12 +42,16 @@ export function riskOf(iso3: string): Risk {
 }
 
 /**
- * パートナーからの暴力が「始まる」1年あたりの確率。
- * 統計は「過去1年に受けた女性の割合」なので、生涯で経験する割合（およそその2倍強）に直してから年あたりに割る。
+ * パートナーからの暴力が「始まる」1年あたりの確率（性別ごと）。
+ * 生涯の被害経験の割合が分かる国（日本：内閣府調査）はそれを使う。
+ * それ以外は「過去1年に受けた女性の割合」を生涯の割合（およそその2倍強）に直し、男性は女性の35%とする。
  */
-export function ipvHazard(iso3: string): number {
-  const lifetime = Math.min(0.6, riskOf(iso3).ipvPast12mWomen * 2.2);
-  return 1 - Math.pow(1 - lifetime, 1 / 40);
+export function ipvHazard(iso3: string, sex: "male" | "female"): number {
+  const raw = RISKS[iso3] as Partial<Risk> & { ipvLifetimeWomen?: number; ipvLifetimeMen?: number };
+  const women = num(raw?.ipvLifetimeWomen, Math.min(0.6, riskOf(iso3).ipvPast12mWomen * 2.2));
+  const lifetime = sex === "female" ? women : num(raw?.ipvLifetimeMen, women * 0.35);
+  // 結婚している期間（およそ40年）で割る
+  return 1 - Math.pow(1 - Math.min(0.6, lifetime), 1 / 40);
 }
 
 /** 統計にもとづく、選択のない出来事 */

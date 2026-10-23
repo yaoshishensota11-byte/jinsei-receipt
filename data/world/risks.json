@@ -1163,13 +1163,11 @@
     "years": {
       "inflationRecent": 2025,
       "homicide": 2023,
-      "ipv": null,
+      "ipv": "内閣府「男女間における暴力に関する調査」令和5年度（概要版 p.3、結婚したことのある人の身体的暴行の被害経験）",
       "politicalStability": 2025,
       "inform": "Mid 2026 v0.7.3"
     },
-    "estimated": [
-      "ipvPast12mWomen"
-    ],
+    "estimated": [],
     "inform": {
       "earthquake": 9.7,
       "flood": 9.4,
@@ -1177,7 +1175,9 @@
       "epidemic": 3.7,
       "conflictProjected": 0.2,
       "conflictCurrent": 2
-    }
+    },
+    "ipvLifetimeWomen": 0.15,
+    "ipvLifetimeMen": 0.115
   },
   "BFA": {
     "inflationMean": 0.025,

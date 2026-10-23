@@ -92,3 +92,4 @@
 - 生のスコア（0〜10）は risks.json の各国 `inform` に保存。
 - 変換：洪水＝max(River Flood, Coastal flood)/10 の3乗、地震＝Earthquake/10 の3乗、干ばつ＝Drought/10、感染症＝Epidemic/10、紛争による避難＝10^((Current Conflict Intensity − 10)/2.5)（いまの紛争の激しさを指数で直す）。
 - 中国の ipvPast12mWomen は、WHO VAW 2018 推計（https://vaw-data.srhr.org/ 、15〜49歳・過去1年 10.6%）をユーザーが確認した値に更新。
+- 日本のパートナー暴力：内閣府男女共同参画局「男女間における暴力に関する調査報告書＜概要版＞」（令和6年3月、令和5年度調査）p.3。結婚したことのある人のうち、配偶者から身体的暴行を受けたことがある割合＝女性15.0%・男性11.5%（何らかの被害は女性27.5%・男性22.0%）。ユーザー提供のPDFから取得。risks.json の JPN に ipvLifetimeWomen / ipvLifetimeMen として保存し、生涯の割合として直接使う。

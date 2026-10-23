@@ -191,7 +191,7 @@ export class Life {
       { age: Math.max(17, Math.round(r.normal(31.5 - (this.D.inst?.marriageAgeShift.female ?? 0), 4))), alive: true },
     ];
     this.sibs = this.makeSiblings();
-    this.ipvRate = ipvHazard(this.D.iso3);
+    this.ipvRate = ipvHazard(this.D.iso3, this.sex);
   }
 
   /** きょうだいを兄姉と弟妹に振り分ける。母の年齢（17〜44歳で出産）に収まるようにする */
@@ -617,7 +617,7 @@ export class Life {
         this.divorce(r, "話し合いはまとまらず、離婚した。財産は分け合った。");
       } else if (!this.strained && r.chance(pStrain)) {
         this.queueScene(strainScene(this));
-      } else if (!this.dvHappened && r.chance(this.ipvRate * (this.sex === "female" ? 1 : 0.35))) {
+      } else if (!this.dvHappened && r.chance(this.ipvRate)) {
         // パートナーからの暴力（国の統計にもとづく確率。描写はしない）
         this.dvHappened = true;
         this.queueScene(dvScene(this));
