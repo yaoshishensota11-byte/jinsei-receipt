@@ -149,7 +149,7 @@ class Game {
     this.feed.hidden = paused;
     this.log.hidden = !paused;
     if (paused) this.renderLog();
-    else this.feed.scrollTop = this.feed.scrollHeight;
+    else this.feed.scrollTop = 0;
   }
 
   private loop = (now: number): void => {
@@ -210,12 +210,14 @@ class Game {
 
   private pushEvent(e: LifeEvent): void {
     const amt = e.amount ? `<span class="amt ${e.amount > 0 ? "plus" : "minus"}">${e.amount > 0 ? "+" : ""}${yen(e.amount)}</span>` : "";
-    this.feed.append(
-      h(`<div class="ev k-${e.kind}${e.major ? " major" : ""}"><div class="a">${e.age}歳</div><div class="t">${esc(e.text)}${amt}</div></div>`),
-    );
+    // 新しい出来事を上に積む。下へスクロールして過去を読んでいる間は、表示位置を動かさない
+    const reading = this.feed.scrollTop > 40;
+    const el = h(`<div class="ev k-${e.kind}${e.major ? " major" : ""}"><div class="a">${e.age}歳</div><div class="t">${esc(e.text)}${amt}</div></div>`);
+    this.feed.prepend(el);
     // 古いものは間引いて軽く保つ（全履歴は一時停止中のログで見られる）
-    while (this.feed.children.length > 80) this.feed.firstElementChild!.remove();
-    this.feed.scrollTop = this.feed.scrollHeight;
+    while (this.feed.children.length > 80) this.feed.lastElementChild!.remove();
+    if (reading) this.feed.scrollTop += el.getBoundingClientRect().height + parseFloat(getComputedStyle(this.feed).rowGap || "0");
+    else this.feed.scrollTop = 0;
   }
 
   private renderLog(): void {

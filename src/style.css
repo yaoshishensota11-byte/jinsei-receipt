@@ -140,10 +140,18 @@ button {
 
 /* ── プレイ画面 ── */
 .game {
-  flex: 1;
+  /* 外枠に合わせて伸びないよう、高さを画面に固定する */
+  flex: none;
   display: flex;
   flex-direction: column;
+  height: 100vh;
   height: 100dvh;
+  /* 画面全体は動かさず、出来事の欄だけをスクロールさせる */
+  overflow: hidden;
+}
+.game .hud,
+.game .controls {
+  flex: none;
 }
 .hud {
   padding: 14px 16px 10px;
@@ -223,7 +231,11 @@ button {
 
 .feed {
   flex: 1;
+  min-height: 0;
   overflow-y: auto;
+  overscroll-behavior: contain;
+  /* 位置の補正は main.ts で行うので、ブラウザの自動補正は切る（二重補正を防ぐ） */
+  overflow-anchor: none;
   padding: 10px 16px 16px;
   display: flex;
   flex-direction: column;
@@ -307,7 +319,9 @@ button {
 /* ── 振り返りログ ── */
 .log {
   flex: 1;
+  min-height: 0;
   overflow-y: auto;
+  overscroll-behavior: contain;
   padding: 10px 16px 16px;
 }
 .log h3 {
