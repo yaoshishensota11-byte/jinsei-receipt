@@ -23,7 +23,7 @@ const seen = new Set();
 for (const c of data) {
   const id = c.iso3 ?? '?';
   for (const k of KEYS) if (!(k in c)) fail(id, `missing key ${k}`);
-  for (const k of Object.keys(c)) if (!KEYS.includes(k)) fail(id, `unexpected key ${k}`);
+  for (const k of Object.keys(c)) if (!KEYS.includes(k) && k !== 'sources') fail(id, `unexpected key ${k}`);
   if (!/^[A-Z]{3}$/.test(id) || seen.has(id)) fail(id, 'bad/duplicate iso3'); seen.add(id);
   if (!['LIC','LMC','UMC','HIC'].includes(c.incomeGroup)) fail(id, 'bad incomeGroup');
   if (typeof c.nameJa !== 'string' || !c.nameJa) fail(id, 'nameJa');

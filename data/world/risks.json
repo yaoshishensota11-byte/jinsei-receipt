@@ -91,7 +91,7 @@
     "inflationCrisisShare": 0,
     "inflationRecent": 0.035,
     "homicidePer100k": 4.33,
-    "ipvPast12mWomen": 0.16,
+    "ipvPast12mWomen": 0.130906,
     "politicalStability": -1.95,
     "conflictRisk": 0.631,
     "floodRisk": 0.8574,
@@ -101,13 +101,11 @@
     "years": {
       "inflationRecent": 2025,
       "homicide": 2023,
-      "ipv": null,
+      "ipv": "WHO VAWポータルの最新推定（15〜49歳・過去1年）",
       "politicalStability": 2025,
       "inform": "Mid 2026 v0.7.3"
     },
-    "estimated": [
-      "ipvPast12mWomen"
-    ],
+    "estimated": [],
     "inform": {
       "earthquake": 9.2,
       "flood": 9.5,
@@ -122,7 +120,7 @@
     "inflationCrisisShare": 0.029,
     "inflationRecent": 0.019,
     "homicidePer100k": 0.3,
-    "ipvPast12mWomen": 0.09,
+    "ipvPast12mWomen": 0.035864,
     "politicalStability": -0.74,
     "conflictRisk": 0.0083,
     "floodRisk": 0.5927,
@@ -132,13 +130,11 @@
     "years": {
       "inflationRecent": 2025,
       "homicide": 2022,
-      "ipv": null,
+      "ipv": "WHO VAWポータルの最新推定（15〜49歳・過去1年）",
       "politicalStability": 2025,
       "inform": "Mid 2026 v0.7.3"
     },
-    "estimated": [
-      "ipvPast12mWomen"
-    ],
+    "estimated": [],
     "inform": {
       "earthquake": 8.9,
       "flood": 8.4,
@@ -151,7 +147,7 @@
   "COD": {
     "inflationMean": 0.446,
     "inflationCrisisShare": 0.407,
-    "inflationRecent": 0.18,
+    "inflationRecent": 0.0741,
     "homicidePer100k": 13.5,
     "ipvPast12mWomen": 0.368,
     "politicalStability": -2.13,
@@ -161,15 +157,14 @@
     "earthquakeRisk": 0.0741,
     "epidemicRisk": 0.82,
     "years": {
-      "inflationRecent": null,
+      "inflationRecent": 2025,
       "homicide": null,
       "ipv": 2014,
       "politicalStability": 2025,
       "inform": "Mid 2026 v0.7.3"
     },
     "estimated": [
-      "homicidePer100k",
-      "inflationRecent"
+      "homicidePer100k"
     ],
     "inform": {
       "earthquake": 4.2,
@@ -214,7 +209,7 @@
     "inflationCrisisShare": 0,
     "inflationRecent": 0.029,
     "homicidePer100k": 5.76,
-    "ipvPast12mWomen": 0.06,
+    "ipvPast12mWomen": 0.073688,
     "politicalStability": -0.3,
     "conflictRisk": 0.01,
     "floodRisk": 0.5927,
@@ -224,13 +219,11 @@
     "years": {
       "inflationRecent": 2024,
       "homicide": 2023,
-      "ipv": null,
+      "ipv": "WHO VAWポータルの最新推定（15〜49歳・過去1年）",
       "politicalStability": 2025,
       "inform": "Mid 2026 v0.7.3"
     },
-    "estimated": [
-      "ipvPast12mWomen"
-    ],
+    "estimated": [],
     "inform": {
       "earthquake": 7.7,
       "flood": 8.4,
@@ -274,7 +267,7 @@
     "inflationCrisisShare": 0.171,
     "inflationRecent": 0.05,
     "homicidePer100k": 19.28,
-    "ipvPast12mWomen": 0.06,
+    "ipvPast12mWomen": 0.023823,
     "politicalStability": -0.38,
     "conflictRisk": 0.0091,
     "floodRisk": 0.4565,
@@ -284,13 +277,11 @@
     "years": {
       "inflationRecent": 2025,
       "homicide": 2023,
-      "ipv": null,
+      "ipv": "WHO VAWポータルの最新推定（15〜49歳・過去1年）",
       "politicalStability": 2025,
       "inform": "Mid 2026 v0.7.3"
     },
-    "estimated": [
-      "ipvPast12mWomen"
-    ],
+    "estimated": [],
     "inform": {
       "earthquake": 0.5,
       "flood": 7.7,
@@ -450,7 +441,7 @@
     "inflationCrisisShare": 0.394,
     "inflationRecent": 1.388,
     "homicidePer100k": 5.15,
-    "ipvPast12mWomen": 0.17,
+    "ipvPast12mWomen": 0.286374,
     "politicalStability": -2.07,
     "conflictRisk": 1,
     "floodRisk": 0.6585,
@@ -460,13 +451,11 @@
     "years": {
       "inflationRecent": 2022,
       "homicide": 2008,
-      "ipv": null,
+      "ipv": "WHO VAWポータルの最新推定（15〜49歳・過去1年）",
       "politicalStability": 2025,
       "inform": "Mid 2026 v0.7.3"
     },
-    "estimated": [
-      "ipvPast12mWomen"
-    ],
+    "estimated": [],
     "inform": {
       "earthquake": 0.1,
       "flood": 8.7,
@@ -566,7 +555,7 @@
   "YEM": {
     "inflationMean": 0.111,
     "inflationCrisisShare": 0.083,
-    "inflationRecent": 0.2,
+    "inflationRecent": 0.2018,
     "homicidePer100k": 5.81,
     "ipvPast12mWomen": 0.18,
     "politicalStability": -2.51,
@@ -576,14 +565,13 @@
     "earthquakeRisk": 0.0049,
     "epidemicRisk": 0.61,
     "years": {
-      "inflationRecent": null,
+      "inflationRecent": 2025,
       "homicide": 2013,
       "ipv": null,
       "politicalStability": 2025,
       "inform": "Mid 2026 v0.7.3"
     },
     "estimated": [
-      "inflationRecent",
       "ipvPast12mWomen"
     ],
     "inform": {
@@ -689,7 +677,7 @@
     "inflationCrisisShare": 0,
     "inflationRecent": 0.032,
     "homicidePer100k": 43.72,
-    "ipvPast12mWomen": 0.13,
+    "ipvPast12mWomen": 0.106245,
     "politicalStability": -0.38,
     "conflictRisk": 0.004,
     "floodRisk": 0.0328,
@@ -699,13 +687,11 @@
     "years": {
       "inflationRecent": 2025,
       "homicide": 2022,
-      "ipv": null,
+      "ipv": "WHO VAWポータルの最新推定（15〜49歳・過去1年）",
       "politicalStability": 2025,
       "inform": "Mid 2026 v0.7.3"
     },
-    "estimated": [
-      "ipvPast12mWomen"
-    ],
+    "estimated": [],
     "inform": {
       "earthquake": 1.5,
       "flood": 3.2,
@@ -782,7 +768,7 @@
     "inflationCrisisShare": 0,
     "inflationRecent": -0.045,
     "homicidePer100k": 4.42,
-    "ipvPast12mWomen": 0.13,
+    "ipvPast12mWomen": 0.124843,
     "politicalStability": -1.77,
     "conflictRisk": 1,
     "floodRisk": 0.2875,
@@ -792,13 +778,11 @@
     "years": {
       "inflationRecent": 2025,
       "homicide": 2012,
-      "ipv": null,
+      "ipv": "WHO VAWポータルの最新推定（15〜49歳・過去1年）",
       "politicalStability": 2025,
       "inform": "Mid 2026 v0.7.3"
     },
-    "estimated": [
-      "ipvPast12mWomen"
-    ],
+    "estimated": [],
     "inform": {
       "earthquake": 0.1,
       "flood": 6.6,
@@ -813,7 +797,7 @@
     "inflationCrisisShare": 0.029,
     "inflationRecent": 0.081,
     "homicidePer100k": 8,
-    "ipvPast12mWomen": 0.18,
+    "ipvPast12mWomen": 0.146063,
     "politicalStability": -0.52,
     "conflictRisk": 0.0011,
     "floodRisk": 0.25,
@@ -823,13 +807,12 @@
     "years": {
       "inflationRecent": 2025,
       "homicide": null,
-      "ipv": null,
+      "ipv": "WHO VAWポータルの最新推定（15〜49歳・過去1年）",
       "politicalStability": 2025,
       "inform": "Mid 2026 v0.7.3"
     },
     "estimated": [
-      "homicidePer100k",
-      "ipvPast12mWomen"
+      "homicidePer100k"
     ],
     "inform": {
       "earthquake": 0.1,
@@ -1025,7 +1008,7 @@
   "MMR": {
     "inflationMean": 0.137,
     "inflationCrisisShare": 0.067,
-    "inflationRecent": 0.25,
+    "inflationRecent": 0.211,
     "homicidePer100k": 2.58,
     "ipvPast12mWomen": 0.11,
     "politicalStability": -2.12,
@@ -1035,15 +1018,13 @@
     "earthquakeRisk": 0.5514,
     "epidemicRisk": 0.63,
     "years": {
-      "inflationRecent": null,
+      "inflationRecent": 2025,
       "homicide": 2023,
       "ipv": 2016,
       "politicalStability": 2025,
       "inform": "Mid 2026 v0.7.3"
     },
-    "estimated": [
-      "inflationRecent"
-    ],
+    "estimated": [],
     "inform": {
       "earthquake": 8.2,
       "flood": 8.8,
@@ -1116,7 +1097,7 @@
   "SOM": {
     "inflationMean": 0.08,
     "inflationCrisisShare": 0,
-    "inflationRecent": 0.05,
+    "inflationRecent": 0.037,
     "homicidePer100k": 6,
     "ipvPast12mWomen": 0.22,
     "politicalStability": -2.17,
@@ -1126,7 +1107,7 @@
     "earthquakeRisk": 0.0022,
     "epidemicRisk": 0.63,
     "years": {
-      "inflationRecent": null,
+      "inflationRecent": 2025,
       "homicide": null,
       "ipv": null,
       "politicalStability": 2025,
@@ -1136,7 +1117,6 @@
       "homicidePer100k",
       "inflationCrisisShare",
       "inflationMean",
-      "inflationRecent",
       "ipvPast12mWomen"
     ],
     "inform": {
@@ -1387,7 +1367,7 @@
     "inflationCrisisShare": 0,
     "inflationRecent": 0.007,
     "homicidePer100k": 1.71,
-    "ipvPast12mWomen": 0.1,
+    "ipvPast12mWomen": 0.215999,
     "politicalStability": -0.54,
     "conflictRisk": 0.0028,
     "floodRisk": 0.125,
@@ -1397,13 +1377,11 @@
     "years": {
       "inflationRecent": 2025,
       "homicide": 2023,
-      "ipv": null,
+      "ipv": "WHO VAWポータルの最新推定（15〜49歳・過去1年）",
       "politicalStability": 2025,
       "inform": "Mid 2026 v0.7.3"
     },
-    "estimated": [
-      "ipvPast12mWomen"
-    ],
+    "estimated": [],
     "inform": {
       "earthquake": 4.4,
       "flood": 5,
@@ -1418,7 +1396,7 @@
     "inflationCrisisShare": 0,
     "inflationRecent": -0.001,
     "homicidePer100k": 4.79,
-    "ipvPast12mWomen": 0.09,
+    "ipvPast12mWomen": 0.143262,
     "politicalStability": -0.56,
     "conflictRisk": 0.0076,
     "floodRisk": 0.9412,
@@ -1428,13 +1406,11 @@
     "years": {
       "inflationRecent": 2025,
       "homicide": 2011,
-      "ipv": null,
+      "ipv": "WHO VAWポータルの最新推定（15〜49歳・過去1年）",
       "politicalStability": 2025,
       "inform": "Mid 2026 v0.7.3"
     },
-    "estimated": [
-      "ipvPast12mWomen"
-    ],
+    "estimated": [],
     "inform": {
       "earthquake": 1.7,
       "flood": 9.8,
@@ -1599,7 +1575,7 @@
     "inflationCrisisShare": 0.857,
     "inflationRecent": 2.199,
     "homicidePer100k": 4.49,
-    "ipvPast12mWomen": 0.05,
+    "ipvPast12mWomen": 0.105733,
     "politicalStability": 0.16,
     "conflictRisk": 0.0008,
     "floodRisk": 0.4565,
@@ -1609,13 +1585,11 @@
     "years": {
       "inflationRecent": 2024,
       "homicide": 2023,
-      "ipv": null,
+      "ipv": "WHO VAWポータルの最新推定（15〜49歳・過去1年）",
       "politicalStability": 2025,
       "inform": "Mid 2026 v0.7.3"
     },
-    "estimated": [
-      "ipvPast12mWomen"
-    ],
+    "estimated": [],
     "inform": {
       "earthquake": 5.5,
       "flood": 7.7,
@@ -1659,7 +1633,7 @@
     "inflationCrisisShare": 0,
     "inflationRecent": 0.036,
     "homicidePer100k": 9,
-    "ipvPast12mWomen": 0.21,
+    "ipvPast12mWomen": 0.196914,
     "politicalStability": -0.73,
     "conflictRisk": 0.0036,
     "floodRisk": 0.1664,
@@ -1669,13 +1643,12 @@
     "years": {
       "inflationRecent": 2025,
       "homicide": null,
-      "ipv": null,
+      "ipv": "WHO VAWポータルの最新推定（15〜49歳・過去1年）",
       "politicalStability": 2025,
       "inform": "Mid 2026 v0.7.3"
     },
     "estimated": [
-      "homicidePer100k",
-      "ipvPast12mWomen"
+      "homicidePer100k"
     ],
     "inform": {
       "earthquake": 0.1,
@@ -1691,7 +1664,7 @@
     "inflationCrisisShare": 0,
     "inflationRecent": 0.011,
     "homicidePer100k": 1.13,
-    "ipvPast12mWomen": 0.15,
+    "ipvPast12mWomen": 0.09476,
     "politicalStability": -0.4,
     "conflictRisk": 0.0076,
     "floodRisk": 0.3008,
@@ -1701,13 +1674,11 @@
     "years": {
       "inflationRecent": 2025,
       "homicide": 2017,
-      "ipv": null,
+      "ipv": "WHO VAWポータルの最新推定（15〜49歳・過去1年）",
       "politicalStability": 2025,
       "inform": "Mid 2026 v0.7.3"
     },
-    "estimated": [
-      "ipvPast12mWomen"
-    ],
+    "estimated": [],
     "inform": {
       "earthquake": 0.1,
       "flood": 6.7,
@@ -1780,9 +1751,9 @@
   "VEN": {
     "inflationMean": 0.727,
     "inflationCrisisShare": 0.5,
-    "inflationRecent": 0.5,
+    "inflationRecent": 2.5195,
     "homicidePer100k": 12.65,
-    "ipvPast12mWomen": 0.09,
+    "ipvPast12mWomen": 0.106379,
     "politicalStability": -1.51,
     "conflictRisk": 0.0145,
     "floodRisk": 0.3008,
@@ -1790,16 +1761,13 @@
     "earthquakeRisk": 0.5314,
     "epidemicRisk": 0.59,
     "years": {
-      "inflationRecent": null,
+      "inflationRecent": 2025,
       "homicide": 2022,
-      "ipv": null,
+      "ipv": "WHO VAWポータルの最新推定（15〜49歳・過去1年）",
       "politicalStability": 2025,
       "inform": "Mid 2026 v0.7.3"
     },
-    "estimated": [
-      "inflationRecent",
-      "ipvPast12mWomen"
-    ],
+    "estimated": [],
     "inform": {
       "earthquake": 8.1,
       "flood": 6.7,
@@ -1814,7 +1782,7 @@
     "inflationCrisisShare": 0.065,
     "inflationRecent": 0.114,
     "homicidePer100k": 2.55,
-    "ipvPast12mWomen": 0.06,
+    "ipvPast12mWomen": 0.047048,
     "politicalStability": -0.2,
     "conflictRisk": 0.0005,
     "floodRisk": 0.439,
@@ -1824,13 +1792,11 @@
     "years": {
       "inflationRecent": 2025,
       "homicide": 2022,
-      "ipv": null,
+      "ipv": "WHO VAWポータルの最新推定（15〜49歳・過去1年）",
       "politicalStability": 2025,
       "inform": "Mid 2026 v0.7.3"
     },
-    "estimated": [
-      "ipvPast12mWomen"
-    ],
+    "estimated": [],
     "inform": {
       "earthquake": 5.6,
       "flood": 7.6,
@@ -1961,7 +1927,7 @@
     "inflationCrisisShare": 0,
     "inflationRecent": 0.021,
     "homicidePer100k": 1.98,
-    "ipvPast12mWomen": 0.03,
+    "ipvPast12mWomen": 0.085406,
     "politicalStability": 0.81,
     "conflictRisk": 0.0006,
     "floodRisk": 0.3579,
@@ -1971,13 +1937,11 @@
     "years": {
       "inflationRecent": 2025,
       "homicide": 2023,
-      "ipv": null,
+      "ipv": "WHO VAWポータルの最新推定（15〜49歳・過去1年）",
       "politicalStability": 2025,
       "inform": "Mid 2026 v0.7.3"
     },
-    "estimated": [
-      "ipvPast12mWomen"
-    ],
+    "estimated": [],
     "inform": {
       "earthquake": 4.8,
       "flood": 7.1,
@@ -2027,7 +1991,7 @@
     "inflationCrisisShare": 0.5,
     "inflationRecent": 0.914,
     "homicidePer100k": 13.98,
-    "ipvPast12mWomen": 0.27,
+    "ipvPast12mWomen": 0.388974,
     "politicalStability": -1.52,
     "conflictRisk": 0.1,
     "floodRisk": 0.4565,
@@ -2037,13 +2001,11 @@
     "years": {
       "inflationRecent": 2024,
       "homicide": 2012,
-      "ipv": null,
+      "ipv": "WHO VAWポータルの最新推定（15〜49歳・過去1年）",
       "politicalStability": 2025,
       "inform": "Mid 2026 v0.7.3"
     },
-    "estimated": [
-      "ipvPast12mWomen"
-    ],
+    "estimated": [],
     "inform": {
       "earthquake": 2.7,
       "flood": 7.7,
@@ -2087,7 +2049,7 @@
     "inflationCrisisShare": 0,
     "inflationRecent": 0.029,
     "homicidePer100k": 0.85,
-    "ipvPast12mWomen": 0.03,
+    "ipvPast12mWomen": 0.018,
     "politicalStability": 0.78,
     "conflictRisk": 0.0006,
     "floodRisk": 0.2383,
@@ -2097,13 +2059,11 @@
     "years": {
       "inflationRecent": 2025,
       "homicide": 2023,
-      "ipv": null,
+      "ipv": "WHO VAWポータルの最新推定（15〜49歳・過去1年）",
       "politicalStability": 2025,
       "inform": "Mid 2026 v0.7.3"
     },
-    "estimated": [
-      "ipvPast12mWomen"
-    ],
+    "estimated": [],
     "inform": {
       "earthquake": 0.1,
       "flood": 6.2,
@@ -2323,7 +2283,7 @@
     "inflationCrisisShare": 0,
     "inflationRecent": 0.044,
     "homicidePer100k": 9.34,
-    "ipvPast12mWomen": 0.31,
+    "ipvPast12mWomen": 0.453344,
     "politicalStability": -0.55,
     "conflictRisk": 0.0023,
     "floodRisk": 0.25,
@@ -2333,13 +2293,11 @@
     "years": {
       "inflationRecent": 2025,
       "homicide": 2010,
-      "ipv": null,
+      "ipv": "WHO VAWポータルの最新推定（15〜49歳・過去1年）",
       "politicalStability": 2025,
       "inform": "Mid 2026 v0.7.3"
     },
-    "estimated": [
-      "ipvPast12mWomen"
-    ],
+    "estimated": [],
     "inform": {
       "earthquake": 9.2,
       "flood": 6.3,
@@ -2354,7 +2312,7 @@
     "inflationCrisisShare": 0.029,
     "inflationRecent": -0.048,
     "homicidePer100k": 3.31,
-    "ipvPast12mWomen": 0.04,
+    "ipvPast12mWomen": 0.079534,
     "politicalStability": -0.04,
     "conflictRisk": 0.0012,
     "floodRisk": 0.0359,
@@ -2364,13 +2322,11 @@
     "years": {
       "inflationRecent": 2025,
       "homicide": 2019,
-      "ipv": null,
+      "ipv": "WHO VAWポータルの最新推定（15〜49歳・過去1年）",
       "politicalStability": 2025,
       "inform": "Mid 2026 v0.7.3"
     },
-    "estimated": [
-      "ipvPast12mWomen"
-    ],
+    "estimated": [],
     "inform": {
       "earthquake": 0.1,
       "flood": 3.3,
@@ -2472,7 +2428,7 @@
     "inflationCrisisShare": 0,
     "inflationRecent": 0.021,
     "homicidePer100k": 0.48,
-    "ipvPast12mWomen": 0.08,
+    "ipvPast12mWomen": 0.083881,
     "politicalStability": 0.92,
     "conflictRisk": 0.0028,
     "floodRisk": 0.3579,
@@ -2482,13 +2438,11 @@
     "years": {
       "inflationRecent": 2025,
       "homicide": 2023,
-      "ipv": null,
+      "ipv": "WHO VAWポータルの最新推定（15〜49歳・過去1年）",
       "politicalStability": 2025,
       "inform": "Mid 2026 v0.7.3"
     },
-    "estimated": [
-      "ipvPast12mWomen"
-    ],
+    "estimated": [],
     "inform": {
       "earthquake": 6.9,
       "flood": 7.1,
@@ -2593,7 +2547,7 @@
     "inflationCrisisShare": 0,
     "inflationRecent": 0.03,
     "homicidePer100k": 1.63,
-    "ipvPast12mWomen": 0.06,
+    "ipvPast12mWomen": 0.053702,
     "politicalStability": -0.91,
     "conflictRisk": 0.6918,
     "floodRisk": 0.0138,
@@ -2603,13 +2557,11 @@
     "years": {
       "inflationRecent": 2025,
       "homicide": 2022,
-      "ipv": null,
+      "ipv": "WHO VAWポータルの最新推定（15〜49歳・過去1年）",
       "politicalStability": 2025,
       "inform": "Mid 2026 v0.7.3"
     },
-    "estimated": [
-      "ipvPast12mWomen"
-    ],
+    "estimated": [],
     "inform": {
       "earthquake": 6.9,
       "flood": 2.4,
@@ -2624,7 +2576,7 @@
     "inflationCrisisShare": 0,
     "inflationRecent": 0.042,
     "homicidePer100k": 6.35,
-    "ipvPast12mWomen": 0.06,
+    "ipvPast12mWomen": 0.039369,
     "politicalStability": 0.17,
     "conflictRisk": 0.0002,
     "floodRisk": 0.1664,
@@ -2634,13 +2586,11 @@
     "years": {
       "inflationRecent": 2025,
       "homicide": 2023,
-      "ipv": null,
+      "ipv": "WHO VAWポータルの最新推定（15〜49歳・過去1年）",
       "politicalStability": 2025,
       "inform": "Mid 2026 v0.7.3"
     },
-    "estimated": [
-      "ipvPast12mWomen"
-    ],
+    "estimated": [],
     "inform": {
       "earthquake": 9.6,
       "flood": 5.5,

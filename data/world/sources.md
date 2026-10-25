@@ -93,3 +93,18 @@
 - 変換：洪水＝max(River Flood, Coastal flood)/10 の3乗、地震＝Earthquake/10 の3乗、干ばつ＝Drought/10、感染症＝Epidemic/10、紛争による避難＝10^((Current Conflict Intensity − 10)/2.5)（いまの紛争の激しさを指数で直す）。
 - 中国の ipvPast12mWomen は、WHO VAW 2018 推計（https://vaw-data.srhr.org/ 、15〜49歳・過去1年 10.6%）をユーザーが確認した値に更新。
 - 日本のパートナー暴力：内閣府男女共同参画局「男女間における暴力に関する調査報告書＜概要版＞」（令和6年3月、令和5年度調査）p.3。結婚したことのある人のうち、配偶者から身体的暴行を受けたことがある割合＝女性15.0%・男性11.5%（何らかの被害は女性27.5%・男性22.0%）。ユーザー提供のPDFから取得。risks.json の JPN に ipvLifetimeWomen / ipvLifetimeMen として保存し、生涯の割合として直接使う。
+
+## ユーザー（Manus）調査による実データ（2026年10月）
+
+元データ：data/world/manual/jinsei_receipt_part1.csv、jinsei_receipt_part2.csv（1行1数値、各行に出典URLと年）。反映は build/apply_manual.py。値が空欄の国はこれまでの推定値のまま。
+
+| データ | 出典 | 反映した国の数 | 備考 |
+|---|---|---|---|
+| pensionCoverage | ILOSTAT SDG 1.3.1（老齢年金の受給率、男女計） https://rplumber.ilo.org/data/indicator?id=SDG_0131_SEX_SOC_RT_A&format=.csv.gz | 87/88 | PRKは未掲載 |
+| informalEmploymentShare | ILOSTAT SDG 8.3.1、未掲載国はILO「Women and Men in the Informal Economy」付表B.1 | 72/88 | 全産業（農業を含む）・男女計。年は国により2003〜2025年 |
+| meanAgeFirstMarriage | UN World Marriage Data 2019（SMAM、男女別） | 87/88 | SOM(1982)、SYR(2001)、UZB(2002)は古い調査 |
+| pensionReplacementRate | OECD Pensions at a Glance（SDMX、グロス・男性・平均賃金・義務的制度、2024） | 23 | OECD加盟国と掲載のG20の国のみ。ZAFは0.078（義務的な所得比例年金がないため） |
+| effectiveTaxRateAvgWorker | OECD Taxing Wages（所得税＋本人社会保険料、単身・子なし・平均賃金、2025） | 16 | OECD加盟国のみ。COLは0（OECDの定義では年金保険料を税に数えないため。ゲームでは下限2%） |
+| ipvPast12mWomen | WHO VAW 推計ポータル https://vaw-data.srhr.org/ （15〜49歳・過去1年・身体的または性的） | 23/35 | ポータルの最新推定（2023年版に更新済み）の値。YEM, RUS, IRN, IRQ, UZB, DZA, SOM, SAU, SYR, MYS, PRK, COG は未掲載のため推定のまま |
+| inflationRecent | IMF World Economic Outlook October 2026（Excel一括） | 5/7 | 各国の最新年の値。SYR・PRKは未掲載 |
+| homicidePer100k | UNODC Data Portal（2026年7月配布Excel） | 0/10 | 対象10か国は総数の率が未掲載のため推定のまま |
