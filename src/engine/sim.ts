@@ -988,7 +988,8 @@ export class Life {
       this.addIncome("windfall", amt);
       this.log("luck", "副業で作ったものが思わぬヒットになった。", amt, true);
     }
-    const dis = this.D.ev.majorDisasterAnnualByRiskUnit * this.region.disasterRisk;
+    // 日本の地震・災害（地域ごとの係数）。日本以外の災害は risks.ts が INFORM の実データで起こす
+    const dis = this.D.isJapan ? this.D.ev.majorDisasterAnnualByRiskUnit * this.region.disasterRisk : 0;
     if (r.chance(dis)) {
       const own = this.home === "own";
       const dmg = own ? r.range(this.y(1_500_000), this.y(8_000_000)) : r.range(this.y(200_000), this.y(800_000));

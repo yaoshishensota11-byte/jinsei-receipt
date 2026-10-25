@@ -85,7 +85,6 @@
     "disasterRisk": 0.75,
     "remittanceShareGdp": 0.0366,
     "estimated": [
-      "disasterRisk",
       "effectiveTaxRateAvgWorker",
       "housePriceToIncome",
       "places",
@@ -207,7 +206,6 @@
     "disasterRisk": 0.55,
     "remittanceShareGdp": 0.0013,
     "estimated": [
-      "disasterRisk",
       "effectiveTaxRateAvgWorker",
       "housePriceToIncome",
       "places",
@@ -324,7 +322,6 @@
     "remittanceShareGdp": 0.0877,
     "estimated": [
       "consumptionPerCapitaLCU",
-      "disasterRisk",
       "effectiveTaxRateAvgWorker",
       "housePriceToIncome",
       "pensionReplacementRate",
@@ -438,7 +435,6 @@
     "disasterRisk": 0.6,
     "remittanceShareGdp": 0.0939,
     "estimated": [
-      "disasterRisk",
       "effectiveTaxRateAvgWorker",
       "housePriceToIncome",
       "pensionReplacementRate",
@@ -555,7 +551,6 @@
     "disasterRisk": 0.8,
     "remittanceShareGdp": 0.0115,
     "estimated": [
-      "disasterRisk",
       "effectiveTaxRateAvgWorker",
       "housePriceToIncome",
       "places",
@@ -676,7 +671,6 @@
     "disasterRisk": 0.4,
     "remittanceShareGdp": 0.0264,
     "estimated": [
-      "disasterRisk",
       "effectiveTaxRateAvgWorker",
       "housePriceToIncome",
       "pensionReplacementRate",
@@ -788,7 +782,6 @@
     "disasterRisk": 0.35,
     "remittanceShareGdp": 0.0477,
     "estimated": [
-      "disasterRisk",
       "effectiveTaxRateAvgWorker",
       "housePriceToIncome",
       "pensionReplacementRate",
@@ -906,7 +899,6 @@
     "disasterRisk": 0.35,
     "remittanceShareGdp": 0.0003,
     "estimated": [
-      "disasterRisk",
       "housePriceToIncome",
       "places",
       "rentShareOfIncome",
@@ -1031,7 +1023,6 @@
     "disasterRisk": 0.7,
     "remittanceShareGdp": 0.0611,
     "estimated": [
-      "disasterRisk",
       "effectiveTaxRateAvgWorker",
       "housePriceToIncome",
       "pensionReplacementRate",
@@ -1137,7 +1128,6 @@
     "disasterRisk": 0.35,
     "remittanceShareGdp": 0.0022,
     "estimated": [
-      "disasterRisk",
       "effectiveTaxRateAvgWorker",
       "housePriceToIncome",
       "places",
@@ -1258,7 +1248,6 @@
     "disasterRisk": 0.25,
     "remittanceShareGdp": 0.076,
     "estimated": [
-      "disasterRisk",
       "effectiveTaxRateAvgWorker",
       "housePriceToIncome",
       "pensionReplacementRate",
@@ -1358,7 +1347,6 @@
     "disasterRisk": 0.3,
     "remittanceShareGdp": 0.0142,
     "estimated": [
-      "disasterRisk",
       "effectiveTaxRateAvgWorker",
       "housePriceToIncome",
       "pensionReplacementRate",
@@ -1470,7 +1458,6 @@
     "disasterRisk": 0.65,
     "remittanceShareGdp": 0.0371,
     "estimated": [
-      "disasterRisk",
       "housePriceToIncome",
       "places",
       "rentShareOfIncome",
@@ -1590,7 +1577,6 @@
     "disasterRisk": 0.95,
     "remittanceShareGdp": 0.0872,
     "estimated": [
-      "disasterRisk",
       "effectiveTaxRateAvgWorker",
       "housePriceToIncome",
       "informalEmploymentShare",
@@ -1686,7 +1672,6 @@
     "disasterRisk": 0.3,
     "remittanceShareGdp": 0.0265,
     "estimated": [
-      "disasterRisk",
       "effectiveTaxRateAvgWorker",
       "housePriceToIncome",
       "pensionReplacementRate",
@@ -1786,7 +1771,6 @@
     "disasterRisk": 0.45,
     "remittanceShareGdp": 0.0005,
     "estimated": [
-      "disasterRisk",
       "effectiveTaxRateAvgWorker",
       "housePriceToIncome",
       "pensionReplacementRate",
@@ -1909,7 +1893,6 @@
     "disasterRisk": 0.35,
     "remittanceShareGdp": 0.0415,
     "estimated": [
-      "disasterRisk",
       "effectiveTaxRateAvgWorker",
       "housePriceToIncome",
       "pensionReplacementRate",
@@ -2009,7 +1992,6 @@
     "disasterRisk": 0.55,
     "remittanceShareGdp": 0.0395,
     "estimated": [
-      "disasterRisk",
       "effectiveTaxRateAvgWorker",
       "housePriceToIncome",
       "incomeShareQuintiles",
@@ -2128,7 +2110,6 @@
     "disasterRisk": 0.6,
     "remittanceShareGdp": 0.061,
     "estimated": [
-      "disasterRisk",
       "effectiveTaxRateAvgWorker",
       "housePriceToIncome",
       "pensionReplacementRate",
@@ -2230,7 +2211,6 @@
     "remittanceShareGdp": 0.1204,
     "estimated": [
       "consumptionPerCapitaLCU",
-      "disasterRisk",
       "effectiveTaxRateAvgWorker",
       "gniPerCapitaLCU",
       "housePriceToIncome",
@@ -2333,7 +2313,6 @@
     "disasterRisk": 0.3,
     "remittanceShareGdp": 0.0005,
     "estimated": [
-      "disasterRisk",
       "effectiveTaxRateAvgWorker",
       "housePriceToIncome",
       "pensionReplacementRate",
@@ -2433,7 +2412,6 @@
     "disasterRisk": 0.65,
     "remittanceShareGdp": 0.0117,
     "estimated": [
-      "disasterRisk",
       "effectiveTaxRateAvgWorker",
       "housePriceToIncome",
       "pensionReplacementRate",
@@ -2533,7 +2511,6 @@
     "disasterRisk": 0.25,
     "remittanceShareGdp": 0.0008,
     "estimated": [
-      "disasterRisk",
       "effectiveTaxRateAvgWorker",
       "housePriceToIncome",
       "pensionReplacementRate",
@@ -2633,7 +2610,6 @@
     "disasterRisk": 0.3,
     "remittanceShareGdp": 0.0021,
     "estimated": [
-      "disasterRisk",
       "effectiveTaxRateAvgWorker",
       "housePriceToIncome",
       "places",
@@ -2742,7 +2718,6 @@
     "disasterRisk": 0.5,
     "remittanceShareGdp": 0.0316,
     "estimated": [
-      "disasterRisk",
       "effectiveTaxRateAvgWorker",
       "housePriceToIncome",
       "informalEmploymentShare",
@@ -2839,7 +2814,6 @@
     "disasterRisk": 0.3,
     "remittanceShareGdp": 0.0025,
     "estimated": [
-      "disasterRisk",
       "effectiveTaxRateAvgWorker",
       "housePriceToIncome",
       "pensionReplacementRate",
@@ -2941,7 +2915,6 @@
     "disasterRisk": 0.45,
     "remittanceShareGdp": 0.033,
     "estimated": [
-      "disasterRisk",
       "effectiveTaxRateAvgWorker",
       "housePriceToIncome",
       "pensionReplacementRate",
@@ -3046,7 +3019,6 @@
     "disasterRisk": 0.55,
     "remittanceShareGdp": 0.0231,
     "estimated": [
-      "disasterRisk",
       "effectiveTaxRateAvgWorker",
       "housePriceToIncome",
       "pensionReplacementRate",
@@ -3151,7 +3123,6 @@
     "disasterRisk": 0.3,
     "remittanceShareGdp": 0.0203,
     "estimated": [
-      "disasterRisk",
       "effectiveTaxRateAvgWorker",
       "housePriceToIncome",
       "pensionReplacementRate",
@@ -3251,7 +3222,6 @@
     "disasterRisk": 0.3,
     "remittanceShareGdp": 0.0129,
     "estimated": [
-      "disasterRisk",
       "effectiveTaxRateAvgWorker",
       "housePriceToIncome",
       "pensionReplacementRate",
@@ -3351,7 +3321,6 @@
     "disasterRisk": 0.5,
     "remittanceShareGdp": 0.0007,
     "estimated": [
-      "disasterRisk",
       "housePriceToIncome",
       "places",
       "rentShareOfIncome",
@@ -3459,7 +3428,6 @@
     "disasterRisk": 0.4,
     "remittanceShareGdp": 0.0399,
     "estimated": [
-      "disasterRisk",
       "effectiveTaxRateAvgWorker",
       "housePriceToIncome",
       "pensionReplacementRate",
@@ -3559,7 +3527,6 @@
     "disasterRisk": 0.25,
     "remittanceShareGdp": 0.1366,
     "estimated": [
-      "disasterRisk",
       "effectiveTaxRateAvgWorker",
       "housePriceToIncome",
       "informalEmploymentShare",
@@ -3655,7 +3622,6 @@
     "disasterRisk": 0.3,
     "remittanceShareGdp": 0.0067,
     "estimated": [
-      "disasterRisk",
       "effectiveTaxRateAvgWorker",
       "housePriceToIncome",
       "informalEmploymentShare",
@@ -3752,7 +3718,6 @@
     "remittanceShareGdp": 0.034,
     "estimated": [
       "consumptionPerCapitaLCU",
-      "disasterRisk",
       "effectiveTaxRateAvgWorker",
       "housePriceToIncome",
       "pensionReplacementRate",
@@ -3852,7 +3817,6 @@
     "disasterRisk": 0.3,
     "remittanceShareGdp": 0.0363,
     "estimated": [
-      "disasterRisk",
       "effectiveTaxRateAvgWorker",
       "housePriceToIncome",
       "pensionReplacementRate",
@@ -3952,7 +3916,6 @@
     "disasterRisk": 0.45,
     "remittanceShareGdp": 0.0395,
     "estimated": [
-      "disasterRisk",
       "effectiveTaxRateAvgWorker",
       "housePriceToIncome",
       "pensionReplacementRate",
@@ -4054,7 +4017,6 @@
     "remittanceShareGdp": 0.0395,
     "estimated": [
       "consumptionPerCapitaLCU",
-      "disasterRisk",
       "effectiveTaxRateAvgWorker",
       "gniPerCapitaLCU",
       "housePriceToIncome",
@@ -4178,7 +4140,6 @@
     "disasterRisk": 0.5,
     "remittanceShareGdp": 0.0011,
     "estimated": [
-      "disasterRisk",
       "housePriceToIncome",
       "places",
       "rentShareOfIncome",
@@ -4287,7 +4248,6 @@
     "disasterRisk": 0.4,
     "remittanceShareGdp": 0.0257,
     "estimated": [
-      "disasterRisk",
       "effectiveTaxRateAvgWorker",
       "housePriceToIncome",
       "pensionReplacementRate",
@@ -4387,7 +4347,6 @@
     "disasterRisk": 0.65,
     "remittanceShareGdp": 0.0282,
     "estimated": [
-      "disasterRisk",
       "housePriceToIncome",
       "places",
       "rentShareOfIncome",
@@ -4507,7 +4466,6 @@
     "disasterRisk": 0.15,
     "remittanceShareGdp": 0.0047,
     "estimated": [
-      "disasterRisk",
       "housePriceToIncome",
       "places",
       "rentShareOfIncome",
@@ -4627,7 +4585,6 @@
     "disasterRisk": 0.12,
     "remittanceShareGdp": 0.0013,
     "estimated": [
-      "disasterRisk",
       "housePriceToIncome",
       "places",
       "rentShareOfIncome",
@@ -4735,7 +4692,6 @@
     "disasterRisk": 0.3,
     "remittanceShareGdp": 0.0132,
     "estimated": [
-      "disasterRisk",
       "effectiveTaxRateAvgWorker",
       "housePriceToIncome",
       "pensionReplacementRate",
@@ -4847,7 +4803,6 @@
     "disasterRisk": 0.15,
     "remittanceShareGdp": 0.0129,
     "estimated": [
-      "disasterRisk",
       "housePriceToIncome",
       "places",
       "rentShareOfIncome",
@@ -4955,7 +4910,6 @@
     "disasterRisk": 0.45,
     "remittanceShareGdp": 0.0198,
     "estimated": [
-      "disasterRisk",
       "effectiveTaxRateAvgWorker",
       "housePriceToIncome",
       "pensionReplacementRate",
@@ -5055,7 +5009,6 @@
     "disasterRisk": 0.3,
     "remittanceShareGdp": 0.0779,
     "estimated": [
-      "disasterRisk",
       "effectiveTaxRateAvgWorker",
       "housePriceToIncome",
       "pensionReplacementRate",
@@ -5160,7 +5113,6 @@
     "disasterRisk": 0.4,
     "remittanceShareGdp": 0.0179,
     "estimated": [
-      "disasterRisk",
       "effectiveTaxRateAvgWorker",
       "housePriceToIncome",
       "pensionReplacementRate",
@@ -5265,7 +5217,6 @@
     "disasterRisk": 0.55,
     "remittanceShareGdp": 0.2599,
     "estimated": [
-      "disasterRisk",
       "effectiveTaxRateAvgWorker",
       "housePriceToIncome",
       "pensionReplacementRate",
@@ -5365,7 +5316,6 @@
     "disasterRisk": 0.15,
     "remittanceShareGdp": 0.0003,
     "estimated": [
-      "disasterRisk",
       "effectiveTaxRateAvgWorker",
       "housePriceToIncome",
       "incomeShareQuintiles",
@@ -5466,7 +5416,6 @@
     "disasterRisk": 0.55,
     "remittanceShareGdp": 0.0169,
     "estimated": [
-      "disasterRisk",
       "effectiveTaxRateAvgWorker",
       "housePriceToIncome",
       "pensionReplacementRate",
@@ -5566,7 +5515,6 @@
     "disasterRisk": 0.3,
     "remittanceShareGdp": 0.1064,
     "estimated": [
-      "disasterRisk",
       "effectiveTaxRateAvgWorker",
       "housePriceToIncome",
       "pensionReplacementRate",
@@ -5666,7 +5614,6 @@
     "disasterRisk": 0.35,
     "remittanceShareGdp": 0.0264,
     "estimated": [
-      "disasterRisk",
       "effectiveTaxRateAvgWorker",
       "housePriceToIncome",
       "pensionReplacementRate",
@@ -5766,7 +5713,6 @@
     "disasterRisk": 0.25,
     "remittanceShareGdp": 0.0017,
     "estimated": [
-      "disasterRisk",
       "effectiveTaxRateAvgWorker",
       "housePriceToIncome",
       "places",
@@ -5876,7 +5822,6 @@
     "remittanceShareGdp": 0.0845,
     "estimated": [
       "consumptionPerCapitaLCU",
-      "disasterRisk",
       "effectiveTaxRateAvgWorker",
       "gniPerCapitaLCU",
       "housePriceToIncome",
@@ -5978,7 +5923,6 @@
     "disasterRisk": 0.3,
     "remittanceShareGdp": 0.0246,
     "estimated": [
-      "disasterRisk",
       "effectiveTaxRateAvgWorker",
       "housePriceToIncome",
       "informalEmploymentShare",
@@ -6079,7 +6023,6 @@
     "disasterRisk": 0.3,
     "remittanceShareGdp": 0.0172,
     "estimated": [
-      "disasterRisk",
       "effectiveTaxRateAvgWorker",
       "housePriceToIncome",
       "pensionReplacementRate",
@@ -6184,7 +6127,6 @@
     "disasterRisk": 0.3,
     "remittanceShareGdp": 0.078,
     "estimated": [
-      "disasterRisk",
       "effectiveTaxRateAvgWorker",
       "housePriceToIncome",
       "pensionReplacementRate",
@@ -6284,7 +6226,6 @@
     "disasterRisk": 0.3,
     "remittanceShareGdp": 0.018,
     "estimated": [
-      "disasterRisk",
       "effectiveTaxRateAvgWorker",
       "housePriceToIncome",
       "informalEmploymentShare",
@@ -6381,7 +6322,6 @@
     "remittanceShareGdp": 0.0316,
     "estimated": [
       "consumptionPerCapitaLCU",
-      "disasterRisk",
       "effectiveTaxRateAvgWorker",
       "gniPerCapitaLCU",
       "housePriceToIncome",
@@ -6489,7 +6429,6 @@
     "disasterRisk": 0.2,
     "remittanceShareGdp": 0.0008,
     "estimated": [
-      "disasterRisk",
       "effectiveTaxRateAvgWorker",
       "housePriceToIncome",
       "informalEmploymentShare",
@@ -6590,7 +6529,6 @@
     "disasterRisk": 0.3,
     "remittanceShareGdp": 0.0342,
     "estimated": [
-      "disasterRisk",
       "effectiveTaxRateAvgWorker",
       "housePriceToIncome",
       "pensionReplacementRate",
@@ -6690,7 +6628,6 @@
     "disasterRisk": 0.3,
     "remittanceShareGdp": 0.0051,
     "estimated": [
-      "disasterRisk",
       "housePriceToIncome",
       "places",
       "rentShareOfIncome",
@@ -6798,7 +6735,6 @@
     "disasterRisk": 0.6,
     "remittanceShareGdp": 0.1912,
     "estimated": [
-      "disasterRisk",
       "effectiveTaxRateAvgWorker",
       "housePriceToIncome",
       "pensionReplacementRate",
@@ -6898,7 +6834,6 @@
     "disasterRisk": 0.5,
     "remittanceShareGdp": 0.061,
     "estimated": [
-      "disasterRisk",
       "effectiveTaxRateAvgWorker",
       "housePriceToIncome",
       "incomeShareQuintiles",
@@ -6999,7 +6934,6 @@
     "disasterRisk": 0.15,
     "remittanceShareGdp": 0.0004,
     "estimated": [
-      "disasterRisk",
       "housePriceToIncome",
       "informalEmploymentShare",
       "places",
@@ -7109,7 +7043,6 @@
     "remittanceShareGdp": 0.0395,
     "estimated": [
       "consumptionPerCapitaLCU",
-      "disasterRisk",
       "effectiveTaxRateAvgWorker",
       "gniPerCapitaLCU",
       "housePriceToIncome",
@@ -7197,7 +7130,6 @@
     "remittanceShareGdp": 0.0949,
     "estimated": [
       "consumptionPerCapitaLCU",
-      "disasterRisk",
       "effectiveTaxRateAvgWorker",
       "gniPerCapitaLCU",
       "housePriceToIncome",
@@ -7300,7 +7232,6 @@
     "disasterRisk": 0.2,
     "remittanceShareGdp": 0.0037,
     "estimated": [
-      "disasterRisk",
       "housePriceToIncome",
       "places",
       "rentShareOfIncome",
@@ -7408,7 +7339,6 @@
     "disasterRisk": 0.25,
     "remittanceShareGdp": 0.001,
     "estimated": [
-      "disasterRisk",
       "housePriceToIncome",
       "informalEmploymentShare",
       "places",
@@ -7517,7 +7447,6 @@
     "disasterRisk": 0.12,
     "remittanceShareGdp": 0.0095,
     "estimated": [
-      "disasterRisk",
       "housePriceToIncome",
       "places",
       "rentShareOfIncome",
@@ -7625,7 +7554,6 @@
     "disasterRisk": 0.4,
     "remittanceShareGdp": 0.4715,
     "estimated": [
-      "disasterRisk",
       "effectiveTaxRateAvgWorker",
       "housePriceToIncome",
       "pensionReplacementRate",
@@ -7725,7 +7653,6 @@
     "disasterRisk": 0.55,
     "remittanceShareGdp": 0.0529,
     "estimated": [
-      "disasterRisk",
       "effectiveTaxRateAvgWorker",
       "housePriceToIncome",
       "pensionReplacementRate",
@@ -7825,7 +7752,6 @@
     "disasterRisk": 0.3,
     "remittanceShareGdp": 0.0869,
     "estimated": [
-      "disasterRisk",
       "effectiveTaxRateAvgWorker",
       "housePriceToIncome",
       "pensionReplacementRate",
@@ -7925,7 +7851,6 @@
     "disasterRisk": 0.4,
     "remittanceShareGdp": 0.0231,
     "estimated": [
-      "disasterRisk",
       "effectiveTaxRateAvgWorker",
       "housePriceToIncome",
       "pensionReplacementRate",
@@ -8026,7 +7951,6 @@
     "disasterRisk": 0.3,
     "remittanceShareGdp": 0.046,
     "estimated": [
-      "disasterRisk",
       "effectiveTaxRateAvgWorker",
       "housePriceToIncome",
       "pensionReplacementRate",
@@ -8127,7 +8051,6 @@
     "disasterRisk": 0.7,
     "remittanceShareGdp": 0.1695,
     "estimated": [
-      "disasterRisk",
       "effectiveTaxRateAvgWorker",
       "housePriceToIncome",
       "pensionReplacementRate",
@@ -8230,7 +8153,6 @@
     "remittanceShareGdp": 0.0001,
     "estimated": [
       "consumptionPerCapitaLCU",
-      "disasterRisk",
       "effectiveTaxRateAvgWorker",
       "housePriceToIncome",
       "informalEmploymentShare",
@@ -8332,7 +8254,6 @@
     "disasterRisk": 0.4,
     "remittanceShareGdp": 0.0675,
     "estimated": [
-      "disasterRisk",
       "effectiveTaxRateAvgWorker",
       "housePriceToIncome",
       "pensionReplacementRate",
@@ -8437,7 +8358,6 @@
     "disasterRisk": 0.3,
     "remittanceShareGdp": 0.0395,
     "estimated": [
-      "disasterRisk",
       "effectiveTaxRateAvgWorker",
       "housePriceToIncome",
       "informalEmploymentShare",
@@ -8535,7 +8455,6 @@
     "remittanceShareGdp": 0.0756,
     "estimated": [
       "consumptionPerCapitaLCU",
-      "disasterRisk",
       "effectiveTaxRateAvgWorker",
       "housePriceToIncome",
       "pensionReplacementRate",
@@ -8635,7 +8554,6 @@
     "disasterRisk": 0.55,
     "remittanceShareGdp": 0.2574,
     "estimated": [
-      "disasterRisk",
       "effectiveTaxRateAvgWorker",
       "housePriceToIncome",
       "pensionReplacementRate",
@@ -8747,7 +8665,6 @@
     "disasterRisk": 0.25,
     "remittanceShareGdp": 0.0039,
     "estimated": [
-      "disasterRisk",
       "housePriceToIncome",
       "places",
       "rentShareOfIncome",
@@ -8860,7 +8777,6 @@
     "disasterRisk": 0.15,
     "remittanceShareGdp": 0.0629,
     "estimated": [
-      "disasterRisk",
       "effectiveTaxRateAvgWorker",
       "housePriceToIncome",
       "informalEmploymentShare",
@@ -8956,7 +8872,6 @@
     "disasterRisk": 0.5,
     "remittanceShareGdp": 0.0913,
     "estimated": [
-      "disasterRisk",
       "effectiveTaxRateAvgWorker",
       "housePriceToIncome",
       "pensionReplacementRate",
@@ -9056,7 +8971,6 @@
     "disasterRisk": 0.3,
     "remittanceShareGdp": 0.003,
     "estimated": [
-      "disasterRisk",
       "effectiveTaxRateAvgWorker",
       "housePriceToIncome",
       "pensionReplacementRate",
@@ -9156,7 +9070,6 @@
     "disasterRisk": 0.3,
     "remittanceShareGdp": 0.0018,
     "estimated": [
-      "disasterRisk",
       "housePriceToIncome",
       "informalEmploymentShare",
       "places",
@@ -9265,7 +9178,6 @@
     "disasterRisk": 0.5,
     "remittanceShareGdp": 0.0003,
     "estimated": [
-      "disasterRisk",
       "housePriceToIncome",
       "places",
       "rentShareOfIncome",
