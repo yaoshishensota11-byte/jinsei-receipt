@@ -80,15 +80,13 @@
     "pensionReplacementRate": 0.392,
     "outOfPocketHealthShare": 0.439,
     "effectiveTaxRateAvgWorker": 0.12,
-    "rentShareOfIncome": 0.3,
-    "housePriceToIncome": 11.0,
+    "rentShareOfIncome": 0.125583351482,
+    "housePriceToIncome": 11.1,
     "disasterRisk": 0.75,
     "remittanceShareGdp": 0.0366,
     "estimated": [
       "effectiveTaxRateAvgWorker",
-      "housePriceToIncome",
       "places",
-      "rentShareOfIncome",
       "tertiaryAnnualCostShareOfGni"
     ],
     "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2023",
@@ -117,6 +115,16 @@
         "source": "OECD Pensions at a Glance 2025 database",
         "url": "https://sdmx.oecd.org/public/rest/data/OECD.ELS.SPD,DSD_PAG@DF_PAG,1.0/.A.GPRR100.....?startPeriod=2024&endPeriod=2024&dimensionAtObservation=AllDimensions",
         "year": "2024"
+      },
+      "housing_share_of_consumption": {
+        "source": "World Bank ICP 2021",
+        "url": "https://api.worldbank.org/v2/sources/90/country/IND/series/9060000?format=json&per_page=200",
+        "year": "2021"
+      },
+      "house_price_to_income": {
+        "source": "Numbeo Property Prices Index by Country",
+        "url": "https://www.numbeo.com/property-investment/rankings_by_country.jsp",
+        "year": "2026"
       }
     }
   },
@@ -201,15 +209,13 @@
     "pensionReplacementRate": 0.806,
     "outOfPocketHealthShare": 0.322,
     "effectiveTaxRateAvgWorker": 0.18,
-    "rentShareOfIncome": 0.25,
-    "housePriceToIncome": 30.0,
+    "rentShareOfIncome": 0.166829260504,
+    "housePriceToIncome": 17.4,
     "disasterRisk": 0.55,
     "remittanceShareGdp": 0.0013,
     "estimated": [
       "effectiveTaxRateAvgWorker",
-      "housePriceToIncome",
       "places",
-      "rentShareOfIncome",
       "tertiaryAnnualCostShareOfGni"
     ],
     "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2022; 中等教育は前期中等修了率で代替",
@@ -238,6 +244,16 @@
         "source": "OECD Pensions at a Glance 2025 database",
         "url": "https://sdmx.oecd.org/public/rest/data/OECD.ELS.SPD,DSD_PAG@DF_PAG,1.0/.A.GPRR100.....?startPeriod=2024&endPeriod=2024&dimensionAtObservation=AllDimensions",
         "year": "2024"
+      },
+      "housing_share_of_consumption": {
+        "source": "World Bank ICP 2021",
+        "url": "https://api.worldbank.org/v2/sources/90/country/CHN/series/9060000?format=json&per_page=200",
+        "year": "2021"
+      },
+      "house_price_to_income": {
+        "source": "Numbeo Property Prices Index by Country",
+        "url": "https://www.numbeo.com/property-investment/rankings_by_country.jsp",
+        "year": "2026"
       }
     }
   },
@@ -316,17 +332,15 @@
     "pensionReplacementRate": 0.35,
     "outOfPocketHealthShare": 0.719,
     "effectiveTaxRateAvgWorker": 0.12,
-    "rentShareOfIncome": 0.35,
-    "housePriceToIncome": 15.0,
+    "rentShareOfIncome": 0.0811187328752,
+    "housePriceToIncome": 116.3,
     "disasterRisk": 0.45,
     "remittanceShareGdp": 0.0877,
     "estimated": [
       "consumptionPerCapitaLCU",
       "effectiveTaxRateAvgWorker",
-      "housePriceToIncome",
       "pensionReplacementRate",
       "places",
-      "rentShareOfIncome",
       "secondaryNetEnrollment",
       "tertiaryAnnualCostShareOfGni",
       "tertiaryGrossEnrollment"
@@ -352,6 +366,16 @@
         "source": "UN World Marriage Data 2019",
         "url": "https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/undesa_pd_2019_wmd_marital_status.xlsx",
         "year": "2013"
+      },
+      "housing_share_of_consumption": {
+        "source": "World Bank ICP 2021",
+        "url": "https://api.worldbank.org/v2/sources/90/country/NGA/series/9060000?format=json&per_page=200",
+        "year": "2021"
+      },
+      "house_price_to_income": {
+        "source": "Numbeo Property Prices Index by Country",
+        "url": "https://www.numbeo.com/property-investment/rankings_by_country.jsp",
+        "year": "2026"
       }
     }
   },
@@ -430,16 +454,14 @@
     "pensionReplacementRate": 0.4,
     "outOfPocketHealthShare": 0.529,
     "effectiveTaxRateAvgWorker": 0.03,
-    "rentShareOfIncome": 0.3,
-    "housePriceToIncome": 15.0,
+    "rentShareOfIncome": 0.216529314752,
+    "housePriceToIncome": 20.0,
     "disasterRisk": 0.6,
     "remittanceShareGdp": 0.0939,
     "estimated": [
       "effectiveTaxRateAvgWorker",
-      "housePriceToIncome",
       "pensionReplacementRate",
       "places",
-      "rentShareOfIncome",
       "tertiaryAnnualCostShareOfGni"
     ],
     "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2024",
@@ -468,6 +490,16 @@
         "source": "UN World Marriage Data 2019",
         "url": "https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/undesa_pd_2019_wmd_marital_status.xlsx",
         "year": "2018"
+      },
+      "housing_share_of_consumption": {
+        "source": "World Bank ICP 2021",
+        "url": "https://api.worldbank.org/v2/sources/90/country/PAK/series/9060000?format=json&per_page=200",
+        "year": "2021"
+      },
+      "house_price_to_income": {
+        "source": "Numbeo Property Prices Index by Country",
+        "url": "https://www.numbeo.com/property-investment/rankings_by_country.jsp",
+        "year": "2026"
       }
     }
   },
@@ -546,15 +578,13 @@
     "pensionReplacementRate": 0.534,
     "outOfPocketHealthShare": 0.311,
     "effectiveTaxRateAvgWorker": 0.06,
-    "rentShareOfIncome": 0.25,
-    "housePriceToIncome": 12.0,
+    "rentShareOfIncome": 0.105012275258,
+    "housePriceToIncome": 27.0,
     "disasterRisk": 0.8,
     "remittanceShareGdp": 0.0115,
     "estimated": [
       "effectiveTaxRateAvgWorker",
-      "housePriceToIncome",
       "places",
-      "rentShareOfIncome",
       "tertiaryAnnualCostShareOfGni"
     ],
     "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2024",
@@ -588,6 +618,16 @@
         "source": "OECD Pensions at a Glance 2025 database",
         "url": "https://sdmx.oecd.org/public/rest/data/OECD.ELS.SPD,DSD_PAG@DF_PAG,1.0/.A.GPRR100.....?startPeriod=2024&endPeriod=2024&dimensionAtObservation=AllDimensions",
         "year": "2024"
+      },
+      "housing_share_of_consumption": {
+        "source": "World Bank ICP 2021",
+        "url": "https://api.worldbank.org/v2/sources/90/country/IDN/series/9060000?format=json&per_page=200",
+        "year": "2021"
+      },
+      "house_price_to_income": {
+        "source": "Numbeo Property Prices Index by Country",
+        "url": "https://www.numbeo.com/property-investment/rankings_by_country.jsp",
+        "year": "2026"
       }
     }
   },
@@ -666,7 +706,7 @@
     "pensionReplacementRate": 0.3,
     "outOfPocketHealthShare": 0.38,
     "effectiveTaxRateAvgWorker": 0.08,
-    "rentShareOfIncome": 0.35,
+    "rentShareOfIncome": 0.112781328943,
     "housePriceToIncome": 15.0,
     "disasterRisk": 0.4,
     "remittanceShareGdp": 0.0264,
@@ -675,7 +715,6 @@
       "housePriceToIncome",
       "pensionReplacementRate",
       "places",
-      "rentShareOfIncome",
       "tertiaryAnnualCostShareOfGni"
     ],
     "notes": "GNI2024/消費2024/PPP2021(PA.NUS.PRVT.PP); 五分位2020; 中等教育は前期中等修了率で代替",
@@ -699,6 +738,11 @@
         "source": "UN World Marriage Data 2019",
         "url": "https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/undesa_pd_2019_wmd_marital_status.xlsx",
         "year": "2014"
+      },
+      "housing_share_of_consumption": {
+        "source": "World Bank ICP 2021",
+        "url": "https://api.worldbank.org/v2/sources/90/country/COD/series/9060000?format=json&per_page=200",
+        "year": "2021"
       }
     }
   },
@@ -777,7 +821,7 @@
     "pensionReplacementRate": 0.4,
     "outOfPocketHealthShare": 0.463,
     "effectiveTaxRateAvgWorker": 0.15,
-    "rentShareOfIncome": 0.35,
+    "rentShareOfIncome": 0.187575769068,
     "housePriceToIncome": 20.0,
     "disasterRisk": 0.35,
     "remittanceShareGdp": 0.0477,
@@ -786,7 +830,6 @@
       "housePriceToIncome",
       "pensionReplacementRate",
       "places",
-      "rentShareOfIncome",
       "tertiaryAnnualCostShareOfGni"
     ],
     "notes": "金額はWDI 2024年値を為替変動で現行通貨水準に換算(x1.98); GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2021",
@@ -810,6 +853,11 @@
         "source": "UN World Marriage Data 2019",
         "url": "https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/undesa_pd_2019_wmd_marital_status.xlsx",
         "year": "2016"
+      },
+      "housing_share_of_consumption": {
+        "source": "World Bank ICP 2021",
+        "url": "https://api.worldbank.org/v2/sources/90/country/ETH/series/9060000?format=json&per_page=200",
+        "year": "2021"
       }
     }
   },
@@ -894,14 +942,12 @@
     "pensionReplacementRate": 0.397,
     "outOfPocketHealthShare": 0.109,
     "effectiveTaxRateAvgWorker": 0.24314295,
-    "rentShareOfIncome": 0.3,
-    "housePriceToIncome": 5.5,
+    "rentShareOfIncome": 0.16393129697,
+    "housePriceToIncome": 3.4,
     "disasterRisk": 0.35,
     "remittanceShareGdp": 0.0003,
     "estimated": [
-      "housePriceToIncome",
       "places",
-      "rentShareOfIncome",
       "tertiaryAnnualCostShareOfGni"
     ],
     "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2024",
@@ -940,6 +986,16 @@
         "source": "OECD Taxing Wages 2026 database",
         "url": "https://sdmx.oecd.org/public/rest/data/OECD.CTP.TPS,DSD_TAX_WAGES_COMP@DF_TW_COMP,/.AV_ITR+AV_R_EMPEE_SSC.PT_WG_EARN_G.S_C0.AW100._Z.A?startPeriod=2025&endPeriod=2025&dimensionAtObservation=AllDimensions",
         "year": "2025"
+      },
+      "housing_share_of_consumption": {
+        "source": "World Bank ICP 2021",
+        "url": "https://api.worldbank.org/v2/sources/90/country/USA/series/9060000?format=json&per_page=200",
+        "year": "2021"
+      },
+      "house_price_to_income": {
+        "source": "Numbeo Property Prices Index by Country",
+        "url": "https://www.numbeo.com/property-investment/rankings_by_country.jsp",
+        "year": "2026"
       }
     }
   },
@@ -1018,16 +1074,14 @@
     "pensionReplacementRate": 0.2,
     "outOfPocketHealthShare": 0.793,
     "effectiveTaxRateAvgWorker": 0.02,
-    "rentShareOfIncome": 0.3,
-    "housePriceToIncome": 13.0,
+    "rentShareOfIncome": 0.16440843348,
+    "housePriceToIncome": 16.3,
     "disasterRisk": 0.7,
     "remittanceShareGdp": 0.0611,
     "estimated": [
       "effectiveTaxRateAvgWorker",
-      "housePriceToIncome",
       "pensionReplacementRate",
       "places",
-      "rentShareOfIncome",
       "tertiaryAnnualCostShareOfGni"
     ],
     "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2022",
@@ -1051,6 +1105,16 @@
         "source": "UN World Marriage Data 2019",
         "url": "https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/undesa_pd_2019_wmd_marital_status.xlsx",
         "year": "2014"
+      },
+      "housing_share_of_consumption": {
+        "source": "World Bank ICP 2021",
+        "url": "https://api.worldbank.org/v2/sources/90/country/BGD/series/9060000?format=json&per_page=200",
+        "year": "2021"
+      },
+      "house_price_to_income": {
+        "source": "Numbeo Property Prices Index by Country",
+        "url": "https://www.numbeo.com/property-investment/rankings_by_country.jsp",
+        "year": "2026"
       }
     }
   },
@@ -1123,15 +1187,13 @@
     "pensionReplacementRate": 0.884,
     "outOfPocketHealthShare": 0.262,
     "effectiveTaxRateAvgWorker": 0.2,
-    "rentShareOfIncome": 0.3,
-    "housePriceToIncome": 15.0,
+    "rentShareOfIncome": 0.155156775982,
+    "housePriceToIncome": 14.7,
     "disasterRisk": 0.35,
     "remittanceShareGdp": 0.0022,
     "estimated": [
       "effectiveTaxRateAvgWorker",
-      "housePriceToIncome",
       "places",
-      "rentShareOfIncome",
       "tertiaryAnnualCostShareOfGni"
     ],
     "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2024",
@@ -1165,6 +1227,16 @@
         "source": "OECD Pensions at a Glance 2025 database",
         "url": "https://sdmx.oecd.org/public/rest/data/OECD.ELS.SPD,DSD_PAG@DF_PAG,1.0/.A.GPRR100.....?startPeriod=2024&endPeriod=2024&dimensionAtObservation=AllDimensions",
         "year": "2024"
+      },
+      "housing_share_of_consumption": {
+        "source": "World Bank ICP 2021",
+        "url": "https://api.worldbank.org/v2/sources/90/country/BRA/series/9060000?format=json&per_page=200",
+        "year": "2021"
+      },
+      "house_price_to_income": {
+        "source": "Numbeo Property Prices Index by Country",
+        "url": "https://www.numbeo.com/property-investment/rankings_by_country.jsp",
+        "year": "2026"
       }
     }
   },
@@ -1243,16 +1315,14 @@
     "pensionReplacementRate": 0.55,
     "outOfPocketHealthShare": 0.572,
     "effectiveTaxRateAvgWorker": 0.15,
-    "rentShareOfIncome": 0.3,
-    "housePriceToIncome": 10.0,
+    "rentShareOfIncome": 0.128110508431,
+    "housePriceToIncome": 18.3,
     "disasterRisk": 0.25,
     "remittanceShareGdp": 0.076,
     "estimated": [
       "effectiveTaxRateAvgWorker",
-      "housePriceToIncome",
       "pensionReplacementRate",
       "places",
-      "rentShareOfIncome",
       "tertiaryAnnualCostShareOfGni"
     ],
     "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2021",
@@ -1276,6 +1346,16 @@
         "source": "UN World Marriage Data 2019",
         "url": "https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/undesa_pd_2019_wmd_marital_status.xlsx",
         "year": "2017"
+      },
+      "housing_share_of_consumption": {
+        "source": "World Bank ICP 2021",
+        "url": "https://api.worldbank.org/v2/sources/90/country/EGY/series/9060000?format=json&per_page=200",
+        "year": "2021"
+      },
+      "house_price_to_income": {
+        "source": "Numbeo Property Prices Index by Country",
+        "url": "https://www.numbeo.com/property-investment/rankings_by_country.jsp",
+        "year": "2026"
       }
     }
   },
@@ -1342,7 +1422,7 @@
     "pensionReplacementRate": 0.39,
     "outOfPocketHealthShare": 0.279,
     "effectiveTaxRateAvgWorker": 0.12,
-    "rentShareOfIncome": 0.3,
+    "rentShareOfIncome": 0.342400194485,
     "housePriceToIncome": 15.0,
     "disasterRisk": 0.3,
     "remittanceShareGdp": 0.0142,
@@ -1351,7 +1431,6 @@
       "housePriceToIncome",
       "pensionReplacementRate",
       "places",
-      "rentShareOfIncome",
       "tertiaryAnnualCostShareOfGni"
     ],
     "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2018",
@@ -1375,6 +1454,11 @@
         "source": "UN World Marriage Data 2019",
         "url": "https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/undesa_pd_2019_wmd_marital_status.xlsx",
         "year": "2016"
+      },
+      "housing_share_of_consumption": {
+        "source": "World Bank ICP 2021",
+        "url": "https://api.worldbank.org/v2/sources/90/country/TZA/series/9060000?format=json&per_page=200",
+        "year": "2021"
       }
     }
   },
@@ -1453,14 +1537,12 @@
     "pensionReplacementRate": 0.696,
     "outOfPocketHealthShare": 0.412,
     "effectiveTaxRateAvgWorker": 0.13174865,
-    "rentShareOfIncome": 0.3,
-    "housePriceToIncome": 9.0,
+    "rentShareOfIncome": 0.169848017751,
+    "housePriceToIncome": 13.0,
     "disasterRisk": 0.65,
     "remittanceShareGdp": 0.0371,
     "estimated": [
-      "housePriceToIncome",
       "places",
-      "rentShareOfIncome",
       "tertiaryAnnualCostShareOfGni"
     ],
     "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2024",
@@ -1494,6 +1576,16 @@
         "source": "OECD Taxing Wages 2026 database",
         "url": "https://sdmx.oecd.org/public/rest/data/OECD.CTP.TPS,DSD_TAX_WAGES_COMP@DF_TW_COMP,/.AV_ITR+AV_R_EMPEE_SSC.PT_WG_EARN_G.S_C0.AW100._Z.A?startPeriod=2025&endPeriod=2025&dimensionAtObservation=AllDimensions",
         "year": "2025"
+      },
+      "housing_share_of_consumption": {
+        "source": "World Bank ICP 2021",
+        "url": "https://api.worldbank.org/v2/sources/90/country/MEX/series/9060000?format=json&per_page=200",
+        "year": "2021"
+      },
+      "house_price_to_income": {
+        "source": "Numbeo Property Prices Index by Country",
+        "url": "https://www.numbeo.com/property-investment/rankings_by_country.jsp",
+        "year": "2026"
       }
     }
   },
@@ -1572,17 +1664,15 @@
     "pensionReplacementRate": 0.4,
     "outOfPocketHealthShare": 0.444,
     "effectiveTaxRateAvgWorker": 0.12,
-    "rentShareOfIncome": 0.3,
-    "housePriceToIncome": 17.0,
+    "rentShareOfIncome": 0.119813098576,
+    "housePriceToIncome": 34.5,
     "disasterRisk": 0.95,
     "remittanceShareGdp": 0.0872,
     "estimated": [
       "effectiveTaxRateAvgWorker",
-      "housePriceToIncome",
       "informalEmploymentShare",
       "pensionReplacementRate",
       "places",
-      "rentShareOfIncome",
       "tertiaryAnnualCostShareOfGni"
     ],
     "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2023",
@@ -1601,6 +1691,16 @@
         "source": "UN World Marriage Data 2019",
         "url": "https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/undesa_pd_2019_wmd_marital_status.xlsx",
         "year": "2017"
+      },
+      "housing_share_of_consumption": {
+        "source": "World Bank ICP 2021",
+        "url": "https://api.worldbank.org/v2/sources/90/country/PHL/series/9060000?format=json&per_page=200",
+        "year": "2021"
+      },
+      "house_price_to_income": {
+        "source": "Numbeo Property Prices Index by Country",
+        "url": "https://www.numbeo.com/property-investment/rankings_by_country.jsp",
+        "year": "2026"
       }
     }
   },
@@ -1667,7 +1767,7 @@
     "pensionReplacementRate": 0.35,
     "outOfPocketHealthShare": 0.322,
     "effectiveTaxRateAvgWorker": 0.115,
-    "rentShareOfIncome": 0.35,
+    "rentShareOfIncome": 0.284211721697,
     "housePriceToIncome": 17.5,
     "disasterRisk": 0.3,
     "remittanceShareGdp": 0.0265,
@@ -1676,7 +1776,6 @@
       "housePriceToIncome",
       "pensionReplacementRate",
       "places",
-      "rentShareOfIncome",
       "tertiaryAnnualCostShareOfGni"
     ],
     "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2023; 中等教育は前期中等修了率で代替",
@@ -1700,6 +1799,11 @@
         "source": "UN World Marriage Data 2019",
         "url": "https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/undesa_pd_2019_wmd_marital_status.xlsx",
         "year": "2016"
+      },
+      "housing_share_of_consumption": {
+        "source": "World Bank ICP 2021",
+        "url": "https://api.worldbank.org/v2/sources/90/country/UGA/series/9060000?format=json&per_page=200",
+        "year": "2021"
       }
     }
   },
@@ -1766,7 +1870,7 @@
     "pensionReplacementRate": 0.35,
     "outOfPocketHealthShare": 0.574,
     "effectiveTaxRateAvgWorker": 0.115,
-    "rentShareOfIncome": 0.35,
+    "rentShareOfIncome": 0.103981238802,
     "housePriceToIncome": 17.5,
     "disasterRisk": 0.45,
     "remittanceShareGdp": 0.0005,
@@ -1775,7 +1879,6 @@
       "housePriceToIncome",
       "pensionReplacementRate",
       "places",
-      "rentShareOfIncome",
       "tertiaryAnnualCostShareOfGni"
     ],
     "notes": "GNI2024/消費2024/PPP2022(PA.NUS.PRVT.PP); 五分位2014; 中等教育は前期中等修了率で代替",
@@ -1804,6 +1907,11 @@
         "source": "UN World Marriage Data 2019",
         "url": "https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/undesa_pd_2019_wmd_marital_status.xlsx",
         "year": "2014"
+      },
+      "housing_share_of_consumption": {
+        "source": "World Bank ICP 2021",
+        "url": "https://api.worldbank.org/v2/sources/90/country/SDN/series/9060000?format=json&per_page=200",
+        "year": "2021"
       }
     }
   },
@@ -1888,16 +1996,14 @@
     "pensionReplacementRate": 0.3,
     "outOfPocketHealthShare": 0.242,
     "effectiveTaxRateAvgWorker": 0.15,
-    "rentShareOfIncome": 0.3,
-    "housePriceToIncome": 15.0,
+    "rentShareOfIncome": 0.133960278542,
+    "housePriceToIncome": 17.0,
     "disasterRisk": 0.35,
     "remittanceShareGdp": 0.0415,
     "estimated": [
       "effectiveTaxRateAvgWorker",
-      "housePriceToIncome",
       "pensionReplacementRate",
       "places",
-      "rentShareOfIncome",
       "tertiaryAnnualCostShareOfGni"
     ],
     "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2022; 中等教育は前期中等修了率で代替",
@@ -1921,6 +2027,16 @@
         "source": "UN World Marriage Data 2019",
         "url": "https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/undesa_pd_2019_wmd_marital_status.xlsx",
         "year": "2014"
+      },
+      "housing_share_of_consumption": {
+        "source": "World Bank ICP 2021",
+        "url": "https://api.worldbank.org/v2/sources/90/country/KEN/series/9060000?format=json&per_page=200",
+        "year": "2021"
+      },
+      "house_price_to_income": {
+        "source": "Numbeo Property Prices Index by Country",
+        "url": "https://www.numbeo.com/property-investment/rankings_by_country.jsp",
+        "year": "2026"
       }
     }
   },
@@ -2105,17 +2221,15 @@
     "pensionReplacementRate": 0.65,
     "outOfPocketHealthShare": 0.392,
     "effectiveTaxRateAvgWorker": 0.12,
-    "rentShareOfIncome": 0.3,
-    "housePriceToIncome": 25.0,
+    "rentShareOfIncome": 0.120771124457,
+    "housePriceToIncome": 32.7,
     "disasterRisk": 0.6,
     "remittanceShareGdp": 0.061,
     "estimated": [
       "effectiveTaxRateAvgWorker",
-      "housePriceToIncome",
       "pensionReplacementRate",
       "places",
       "remittanceShareGdp",
-      "rentShareOfIncome",
       "tertiaryAnnualCostShareOfGni"
     ],
     "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2022; 中等教育は前期中等修了率で代替",
@@ -2139,6 +2253,16 @@
         "source": "UN World Marriage Data 2019",
         "url": "https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/undesa_pd_2019_wmd_marital_status.xlsx",
         "year": "2015"
+      },
+      "housing_share_of_consumption": {
+        "source": "World Bank ICP 2021",
+        "url": "https://api.worldbank.org/v2/sources/90/country/VNM/series/9060000?format=json&per_page=200",
+        "year": "2021"
+      },
+      "house_price_to_income": {
+        "source": "Numbeo Property Prices Index by Country",
+        "url": "https://www.numbeo.com/property-investment/rankings_by_country.jsp",
+        "year": "2026"
       }
     }
   },
@@ -2308,7 +2432,7 @@
     "pensionReplacementRate": 0.39,
     "outOfPocketHealthShare": 0.325,
     "effectiveTaxRateAvgWorker": 0.12,
-    "rentShareOfIncome": 0.3,
+    "rentShareOfIncome": 0.0458084149474,
     "housePriceToIncome": 15.0,
     "disasterRisk": 0.3,
     "remittanceShareGdp": 0.0005,
@@ -2317,7 +2441,6 @@
       "housePriceToIncome",
       "pensionReplacementRate",
       "places",
-      "rentShareOfIncome",
       "tertiaryAnnualCostShareOfGni"
     ],
     "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2018; 中等教育は前期中等修了率で代替",
@@ -2341,6 +2464,11 @@
         "source": "UN World Marriage Data 2019",
         "url": "https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/undesa_pd_2019_wmd_marital_status.xlsx",
         "year": "2016"
+      },
+      "housing_share_of_consumption": {
+        "source": "World Bank ICP 2021",
+        "url": "https://api.worldbank.org/v2/sources/90/country/AGO/series/9060000?format=json&per_page=200",
+        "year": "2021"
       }
     }
   },
@@ -2407,7 +2535,7 @@
     "pensionReplacementRate": 0.35,
     "outOfPocketHealthShare": 0.104,
     "effectiveTaxRateAvgWorker": 0.115,
-    "rentShareOfIncome": 0.35,
+    "rentShareOfIncome": 0.0884811381397,
     "housePriceToIncome": 17.5,
     "disasterRisk": 0.65,
     "remittanceShareGdp": 0.0117,
@@ -2416,7 +2544,6 @@
       "housePriceToIncome",
       "pensionReplacementRate",
       "places",
-      "rentShareOfIncome",
       "tertiaryAnnualCostShareOfGni"
     ],
     "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2022",
@@ -2440,6 +2567,11 @@
         "source": "UN World Marriage Data 2019",
         "url": "https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/undesa_pd_2019_wmd_marital_status.xlsx",
         "year": "2017"
+      },
+      "housing_share_of_consumption": {
+        "source": "World Bank ICP 2021",
+        "url": "https://api.worldbank.org/v2/sources/90/country/MOZ/series/9060000?format=json&per_page=200",
+        "year": "2021"
       }
     }
   },
@@ -2507,12 +2639,11 @@
     "outOfPocketHealthShare": 0.284,
     "effectiveTaxRateAvgWorker": 0.24,
     "rentShareOfIncome": 0.275,
-    "housePriceToIncome": 10.5,
+    "housePriceToIncome": 13.1,
     "disasterRisk": 0.25,
     "remittanceShareGdp": 0.0008,
     "estimated": [
       "effectiveTaxRateAvgWorker",
-      "housePriceToIncome",
       "pensionReplacementRate",
       "places",
       "rentShareOfIncome",
@@ -2539,6 +2670,11 @@
         "source": "UN World Marriage Data 2019",
         "url": "https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/undesa_pd_2019_wmd_marital_status.xlsx",
         "year": "2010"
+      },
+      "house_price_to_income": {
+        "source": "Numbeo Property Prices Index by Country",
+        "url": "https://www.numbeo.com/property-investment/rankings_by_country.jsp",
+        "year": "2026"
       }
     }
   },
@@ -2605,15 +2741,13 @@
     "pensionReplacementRate": 0.078,
     "outOfPocketHealthShare": 0.067,
     "effectiveTaxRateAvgWorker": 0.145,
-    "rentShareOfIncome": 0.275,
-    "housePriceToIncome": 13.5,
+    "rentShareOfIncome": 0.138777842859,
+    "housePriceToIncome": 3.1,
     "disasterRisk": 0.3,
     "remittanceShareGdp": 0.0021,
     "estimated": [
       "effectiveTaxRateAvgWorker",
-      "housePriceToIncome",
       "places",
-      "rentShareOfIncome",
       "tertiaryAnnualCostShareOfGni"
     ],
     "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2022",
@@ -2647,6 +2781,16 @@
         "source": "OECD Pensions at a Glance 2025 database",
         "url": "https://sdmx.oecd.org/public/rest/data/OECD.ELS.SPD,DSD_PAG@DF_PAG,1.0/.A.GPRR100.....?startPeriod=2024&endPeriod=2024&dimensionAtObservation=AllDimensions",
         "year": "2024"
+      },
+      "housing_share_of_consumption": {
+        "source": "World Bank ICP 2021",
+        "url": "https://api.worldbank.org/v2/sources/90/country/ZAF/series/9060000?format=json&per_page=200",
+        "year": "2021"
+      },
+      "house_price_to_income": {
+        "source": "Numbeo Property Prices Index by Country",
+        "url": "https://www.numbeo.com/property-investment/rankings_by_country.jsp",
+        "year": "2026"
       }
     }
   },
@@ -2714,12 +2858,11 @@
     "outOfPocketHealthShare": 0.431,
     "effectiveTaxRateAvgWorker": 0.145,
     "rentShareOfIncome": 0.275,
-    "housePriceToIncome": 13.5,
+    "housePriceToIncome": 16.0,
     "disasterRisk": 0.5,
     "remittanceShareGdp": 0.0316,
     "estimated": [
       "effectiveTaxRateAvgWorker",
-      "housePriceToIncome",
       "informalEmploymentShare",
       "pensionReplacementRate",
       "places",
@@ -2743,6 +2886,11 @@
         "source": "UN World Marriage Data 2019",
         "url": "https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/undesa_pd_2019_wmd_marital_status.xlsx",
         "year": "2016"
+      },
+      "house_price_to_income": {
+        "source": "Numbeo Property Prices Index by Country",
+        "url": "https://www.numbeo.com/property-investment/rankings_by_country.jsp",
+        "year": "2026"
       }
     }
   },
@@ -2809,16 +2957,14 @@
     "pensionReplacementRate": 0.655,
     "outOfPocketHealthShare": 0.54,
     "effectiveTaxRateAvgWorker": 0.145,
-    "rentShareOfIncome": 0.275,
-    "housePriceToIncome": 13.5,
+    "rentShareOfIncome": 0.219696808729,
+    "housePriceToIncome": 10.1,
     "disasterRisk": 0.3,
     "remittanceShareGdp": 0.0025,
     "estimated": [
       "effectiveTaxRateAvgWorker",
-      "housePriceToIncome",
       "pensionReplacementRate",
       "places",
-      "rentShareOfIncome",
       "secondaryNetEnrollment",
       "tertiaryAnnualCostShareOfGni",
       "tertiaryGrossEnrollment"
@@ -2844,6 +2990,16 @@
         "source": "UN World Marriage Data 2019",
         "url": "https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/undesa_pd_2019_wmd_marital_status.xlsx",
         "year": "2012"
+      },
+      "housing_share_of_consumption": {
+        "source": "World Bank ICP 2021",
+        "url": "https://api.worldbank.org/v2/sources/90/country/IRQ/series/9060000?format=json&per_page=200",
+        "year": "2021"
+      },
+      "house_price_to_income": {
+        "source": "Numbeo Property Prices Index by Country",
+        "url": "https://www.numbeo.com/property-investment/rankings_by_country.jsp",
+        "year": "2026"
       }
     }
   },
@@ -2910,7 +3066,7 @@
     "pensionReplacementRate": 0.35,
     "outOfPocketHealthShare": 0.515,
     "effectiveTaxRateAvgWorker": 0.115,
-    "rentShareOfIncome": 0.35,
+    "rentShareOfIncome": 0.107802144868,
     "housePriceToIncome": 17.5,
     "disasterRisk": 0.45,
     "remittanceShareGdp": 0.033,
@@ -2919,7 +3075,6 @@
       "housePriceToIncome",
       "pensionReplacementRate",
       "places",
-      "rentShareOfIncome",
       "tertiaryAnnualCostShareOfGni"
     ],
     "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2021",
@@ -2948,6 +3103,11 @@
         "source": "UN World Marriage Data 2019",
         "url": "https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/undesa_pd_2019_wmd_marital_status.xlsx",
         "year": "2015"
+      },
+      "housing_share_of_consumption": {
+        "source": "World Bank ICP 2021",
+        "url": "https://api.worldbank.org/v2/sources/90/country/NER/series/9060000?format=json&per_page=200",
+        "year": "2021"
       }
     }
   },
@@ -3014,7 +3174,7 @@
     "pensionReplacementRate": 0.35,
     "outOfPocketHealthShare": 0.274,
     "effectiveTaxRateAvgWorker": 0.115,
-    "rentShareOfIncome": 0.35,
+    "rentShareOfIncome": 0.0976263922725,
     "housePriceToIncome": 17.5,
     "disasterRisk": 0.55,
     "remittanceShareGdp": 0.0231,
@@ -3023,7 +3183,6 @@
       "housePriceToIncome",
       "pensionReplacementRate",
       "places",
-      "rentShareOfIncome",
       "tertiaryAnnualCostShareOfGni"
     ],
     "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2021",
@@ -3052,6 +3211,11 @@
         "source": "UN World Marriage Data 2019",
         "url": "https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/undesa_pd_2019_wmd_marital_status.xlsx",
         "year": "2009"
+      },
+      "housing_share_of_consumption": {
+        "source": "World Bank ICP 2021",
+        "url": "https://api.worldbank.org/v2/sources/90/country/MDG/series/9060000?format=json&per_page=200",
+        "year": "2021"
       }
     }
   },
@@ -3118,7 +3282,7 @@
     "pensionReplacementRate": 0.39,
     "outOfPocketHealthShare": 0.32,
     "effectiveTaxRateAvgWorker": 0.12,
-    "rentShareOfIncome": 0.3,
+    "rentShareOfIncome": 0.0772625977772,
     "housePriceToIncome": 15.0,
     "disasterRisk": 0.3,
     "remittanceShareGdp": 0.0203,
@@ -3127,7 +3291,6 @@
       "housePriceToIncome",
       "pensionReplacementRate",
       "places",
-      "rentShareOfIncome",
       "tertiaryAnnualCostShareOfGni"
     ],
     "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2021",
@@ -3151,6 +3314,11 @@
         "source": "UN World Marriage Data 2019",
         "url": "https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/undesa_pd_2019_wmd_marital_status.xlsx",
         "year": "2016"
+      },
+      "housing_share_of_consumption": {
+        "source": "World Bank ICP 2021",
+        "url": "https://api.worldbank.org/v2/sources/90/country/CIV/series/9060000?format=json&per_page=200",
+        "year": "2021"
       }
     }
   },
@@ -3217,16 +3385,14 @@
     "pensionReplacementRate": 0.39,
     "outOfPocketHealthShare": 0.677,
     "effectiveTaxRateAvgWorker": 0.12,
-    "rentShareOfIncome": 0.3,
-    "housePriceToIncome": 15.0,
+    "rentShareOfIncome": 0.157451862981,
+    "housePriceToIncome": 46.0,
     "disasterRisk": 0.3,
     "remittanceShareGdp": 0.0129,
     "estimated": [
       "effectiveTaxRateAvgWorker",
-      "housePriceToIncome",
       "pensionReplacementRate",
       "places",
-      "rentShareOfIncome",
       "tertiaryAnnualCostShareOfGni"
     ],
     "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2021",
@@ -3250,6 +3416,16 @@
         "source": "UN World Marriage Data 2019",
         "url": "https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/undesa_pd_2019_wmd_marital_status.xlsx",
         "year": "2014"
+      },
+      "housing_share_of_consumption": {
+        "source": "World Bank ICP 2021",
+        "url": "https://api.worldbank.org/v2/sources/90/country/CMR/series/9060000?format=json&per_page=200",
+        "year": "2021"
+      },
+      "house_price_to_income": {
+        "source": "Numbeo Property Prices Index by Country",
+        "url": "https://www.numbeo.com/property-investment/rankings_by_country.jsp",
+        "year": "2026"
       }
     }
   },
@@ -3316,14 +3492,12 @@
     "pensionReplacementRate": 0.691,
     "outOfPocketHealthShare": 0.19,
     "effectiveTaxRateAvgWorker": 0.29284214,
-    "rentShareOfIncome": 0.275,
-    "housePriceToIncome": 13.5,
+    "rentShareOfIncome": 0.121232578017,
+    "housePriceToIncome": 6.6,
     "disasterRisk": 0.5,
     "remittanceShareGdp": 0.0007,
     "estimated": [
-      "housePriceToIncome",
       "places",
-      "rentShareOfIncome",
       "tertiaryAnnualCostShareOfGni"
     ],
     "notes": "金額はWDI 2024年値を為替変動で現行通貨水準に換算(x1.51); GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2023; 高等教育総就学率106%を1.0に丸め",
@@ -3357,6 +3531,16 @@
         "source": "OECD Taxing Wages 2026 database",
         "url": "https://sdmx.oecd.org/public/rest/data/OECD.CTP.TPS,DSD_TAX_WAGES_COMP@DF_TW_COMP,/.AV_ITR+AV_R_EMPEE_SSC.PT_WG_EARN_G.S_C0.AW100._Z.A?startPeriod=2025&endPeriod=2025&dimensionAtObservation=AllDimensions",
         "year": "2025"
+      },
+      "housing_share_of_consumption": {
+        "source": "World Bank ICP 2021",
+        "url": "https://api.worldbank.org/v2/sources/90/country/TUR/series/9060000?format=json&per_page=200",
+        "year": "2021"
+      },
+      "house_price_to_income": {
+        "source": "Numbeo Property Prices Index by Country",
+        "url": "https://www.numbeo.com/property-investment/rankings_by_country.jsp",
+        "year": "2026"
       }
     }
   },
@@ -3423,7 +3607,7 @@
     "pensionReplacementRate": 0.35,
     "outOfPocketHealthShare": 0.472,
     "effectiveTaxRateAvgWorker": 0.115,
-    "rentShareOfIncome": 0.35,
+    "rentShareOfIncome": 0.0782525079937,
     "housePriceToIncome": 17.5,
     "disasterRisk": 0.4,
     "remittanceShareGdp": 0.0399,
@@ -3432,7 +3616,6 @@
       "housePriceToIncome",
       "pensionReplacementRate",
       "places",
-      "rentShareOfIncome",
       "tertiaryAnnualCostShareOfGni"
     ],
     "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2021",
@@ -3456,6 +3639,11 @@
         "source": "UN World Marriage Data 2019",
         "url": "https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/undesa_pd_2019_wmd_marital_status.xlsx",
         "year": "2018"
+      },
+      "housing_share_of_consumption": {
+        "source": "World Bank ICP 2021",
+        "url": "https://api.worldbank.org/v2/sources/90/country/MLI/series/9060000?format=json&per_page=200",
+        "year": "2021"
       }
     }
   },
@@ -3522,17 +3710,15 @@
     "pensionReplacementRate": 0.39,
     "outOfPocketHealthShare": 0.641,
     "effectiveTaxRateAvgWorker": 0.12,
-    "rentShareOfIncome": 0.3,
-    "housePriceToIncome": 15.0,
+    "rentShareOfIncome": 0.126992127239,
+    "housePriceToIncome": 11.8,
     "disasterRisk": 0.25,
     "remittanceShareGdp": 0.1366,
     "estimated": [
       "effectiveTaxRateAvgWorker",
-      "housePriceToIncome",
       "informalEmploymentShare",
       "pensionReplacementRate",
       "places",
-      "rentShareOfIncome",
       "tertiaryAnnualCostShareOfGni"
     ],
     "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2024",
@@ -3551,6 +3737,16 @@
         "source": "UN World Marriage Data 2019",
         "url": "https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/undesa_pd_2019_wmd_marital_status.xlsx",
         "year": "2006"
+      },
+      "housing_share_of_consumption": {
+        "source": "World Bank ICP 2021",
+        "url": "https://api.worldbank.org/v2/sources/90/country/UZB/series/9060000?format=json&per_page=200",
+        "year": "2021"
+      },
+      "house_price_to_income": {
+        "source": "Numbeo Property Prices Index by Country",
+        "url": "https://www.numbeo.com/property-investment/rankings_by_country.jsp",
+        "year": "2026"
       }
     }
   },
@@ -3617,17 +3813,15 @@
     "pensionReplacementRate": 0.655,
     "outOfPocketHealthShare": 0.45,
     "effectiveTaxRateAvgWorker": 0.145,
-    "rentShareOfIncome": 0.275,
-    "housePriceToIncome": 13.5,
+    "rentShareOfIncome": 0.0479056582244,
+    "housePriceToIncome": 15.0,
     "disasterRisk": 0.3,
     "remittanceShareGdp": 0.0067,
     "estimated": [
       "effectiveTaxRateAvgWorker",
-      "housePriceToIncome",
       "informalEmploymentShare",
       "pensionReplacementRate",
       "places",
-      "rentShareOfIncome",
       "tertiaryAnnualCostShareOfGni"
     ],
     "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2011; 中等教育は前期中等修了率で代替",
@@ -3646,6 +3840,16 @@
         "source": "UN World Marriage Data 2019",
         "url": "https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/undesa_pd_2019_wmd_marital_status.xlsx",
         "year": "2013"
+      },
+      "housing_share_of_consumption": {
+        "source": "World Bank ICP 2021",
+        "url": "https://api.worldbank.org/v2/sources/90/country/DZA/series/9060000?format=json&per_page=200",
+        "year": "2021"
+      },
+      "house_price_to_income": {
+        "source": "Numbeo Property Prices Index by Country",
+        "url": "https://www.numbeo.com/property-investment/rankings_by_country.jsp",
+        "year": "2026"
       }
     }
   },
@@ -3812,16 +4016,14 @@
     "pensionReplacementRate": 0.39,
     "outOfPocketHealthShare": 0.267,
     "effectiveTaxRateAvgWorker": 0.12,
-    "rentShareOfIncome": 0.3,
-    "housePriceToIncome": 15.0,
+    "rentShareOfIncome": 0.0481769981573,
+    "housePriceToIncome": 49.0,
     "disasterRisk": 0.3,
     "remittanceShareGdp": 0.0363,
     "estimated": [
       "effectiveTaxRateAvgWorker",
-      "housePriceToIncome",
       "pensionReplacementRate",
       "places",
-      "rentShareOfIncome",
       "tertiaryAnnualCostShareOfGni"
     ],
     "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2016",
@@ -3845,6 +4047,16 @@
         "source": "UN World Marriage Data 2019",
         "url": "https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/undesa_pd_2019_wmd_marital_status.xlsx",
         "year": "2017"
+      },
+      "housing_share_of_consumption": {
+        "source": "World Bank ICP 2021",
+        "url": "https://api.worldbank.org/v2/sources/90/country/GHA/series/9060000?format=json&per_page=200",
+        "year": "2021"
+      },
+      "house_price_to_income": {
+        "source": "Numbeo Property Prices Index by Country",
+        "url": "https://www.numbeo.com/property-investment/rankings_by_country.jsp",
+        "year": "2026"
       }
     }
   },
@@ -3911,7 +4123,7 @@
     "pensionReplacementRate": 0.35,
     "outOfPocketHealthShare": 0.517,
     "effectiveTaxRateAvgWorker": 0.115,
-    "rentShareOfIncome": 0.35,
+    "rentShareOfIncome": 0.134305751582,
     "housePriceToIncome": 17.5,
     "disasterRisk": 0.45,
     "remittanceShareGdp": 0.0395,
@@ -3921,7 +4133,6 @@
       "pensionReplacementRate",
       "places",
       "remittanceShareGdp",
-      "rentShareOfIncome",
       "tertiaryAnnualCostShareOfGni"
     ],
     "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2022",
@@ -3945,6 +4156,11 @@
         "source": "UN World Marriage Data 2019",
         "url": "https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/undesa_pd_2019_wmd_marital_status.xlsx",
         "year": "2015"
+      },
+      "housing_share_of_consumption": {
+        "source": "World Bank ICP 2021",
+        "url": "https://api.worldbank.org/v2/sources/90/country/TCD/series/9060000?format=json&per_page=200",
+        "year": "2021"
       }
     }
   },
@@ -4011,7 +4227,7 @@
     "pensionReplacementRate": 0.35,
     "outOfPocketHealthShare": 0.308,
     "effectiveTaxRateAvgWorker": 0.115,
-    "rentShareOfIncome": 0.35,
+    "rentShareOfIncome": 0.0739467837508,
     "housePriceToIncome": 17.5,
     "disasterRisk": 0.55,
     "remittanceShareGdp": 0.0395,
@@ -4025,7 +4241,6 @@
       "places",
       "pppPerIntlDollar",
       "remittanceShareGdp",
-      "rentShareOfIncome",
       "secondaryNetEnrollment",
       "tertiaryAnnualCostShareOfGni",
       "tertiaryGrossEnrollment"
@@ -4051,6 +4266,11 @@
         "source": "UN World Marriage Data 2019",
         "url": "https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/undesa_pd_2019_wmd_marital_status.xlsx",
         "year": "2006"
+      },
+      "housing_share_of_consumption": {
+        "source": "World Bank ICP 2021",
+        "url": "https://api.worldbank.org/v2/sources/90/country/SOM/series/9060000?format=json&per_page=200",
+        "year": "2021"
       }
     }
   },
@@ -4135,14 +4355,12 @@
     "pensionReplacementRate": 0.365,
     "outOfPocketHealthShare": 0.122,
     "effectiveTaxRateAvgWorker": 0.22646641,
-    "rentShareOfIncome": 0.25,
-    "housePriceToIncome": 12.0,
+    "rentShareOfIncome": 0.204917397418,
+    "housePriceToIncome": 11.7,
     "disasterRisk": 0.5,
     "remittanceShareGdp": 0.0011,
     "estimated": [
-      "housePriceToIncome",
       "places",
-      "rentShareOfIncome",
       "secondaryNetEnrollment",
       "tertiaryAnnualCostShareOfGni"
     ],
@@ -4177,6 +4395,16 @@
         "source": "OECD Taxing Wages 2026 database",
         "url": "https://sdmx.oecd.org/public/rest/data/OECD.CTP.TPS,DSD_TAX_WAGES_COMP@DF_TW_COMP,/.AV_ITR+AV_R_EMPEE_SSC.PT_WG_EARN_G.S_C0.AW100._Z.A?startPeriod=2025&endPeriod=2025&dimensionAtObservation=AllDimensions",
         "year": "2025"
+      },
+      "housing_share_of_consumption": {
+        "source": "World Bank ICP 2021",
+        "url": "https://api.worldbank.org/v2/sources/90/country/JPN/series/9060000?format=json&per_page=200",
+        "year": "2021"
+      },
+      "house_price_to_income": {
+        "source": "Numbeo Property Prices Index by Country",
+        "url": "https://www.numbeo.com/property-investment/rankings_by_country.jsp",
+        "year": "2026"
       }
     }
   },
@@ -4243,7 +4471,7 @@
     "pensionReplacementRate": 0.35,
     "outOfPocketHealthShare": 0.438,
     "effectiveTaxRateAvgWorker": 0.115,
-    "rentShareOfIncome": 0.35,
+    "rentShareOfIncome": 0.110038558298,
     "housePriceToIncome": 17.5,
     "disasterRisk": 0.4,
     "remittanceShareGdp": 0.0257,
@@ -4252,7 +4480,6 @@
       "housePriceToIncome",
       "pensionReplacementRate",
       "places",
-      "rentShareOfIncome",
       "tertiaryAnnualCostShareOfGni"
     ],
     "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2021",
@@ -4276,6 +4503,11 @@
         "source": "UN World Marriage Data 2019",
         "url": "https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/undesa_pd_2019_wmd_marital_status.xlsx",
         "year": "2018"
+      },
+      "housing_share_of_consumption": {
+        "source": "World Bank ICP 2021",
+        "url": "https://api.worldbank.org/v2/sources/90/country/BFA/series/9060000?format=json&per_page=200",
+        "year": "2021"
       }
     }
   },
@@ -4342,14 +4574,12 @@
     "pensionReplacementRate": 0.748,
     "outOfPocketHealthShare": 0.146,
     "effectiveTaxRateAvgWorker": 0.0,
-    "rentShareOfIncome": 0.275,
-    "housePriceToIncome": 13.5,
+    "rentShareOfIncome": 0.159390199372,
+    "housePriceToIncome": 14.9,
     "disasterRisk": 0.65,
     "remittanceShareGdp": 0.0282,
     "estimated": [
-      "housePriceToIncome",
       "places",
-      "rentShareOfIncome",
       "tertiaryAnnualCostShareOfGni"
     ],
     "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2024",
@@ -4383,6 +4613,16 @@
         "source": "OECD Taxing Wages 2026 database",
         "url": "https://sdmx.oecd.org/public/rest/data/OECD.CTP.TPS,DSD_TAX_WAGES_COMP@DF_TW_COMP,/.AV_ITR+AV_R_EMPEE_SSC.PT_WG_EARN_G.S_C0.AW100._Z.A?startPeriod=2025&endPeriod=2025&dimensionAtObservation=AllDimensions",
         "year": "2025"
+      },
+      "housing_share_of_consumption": {
+        "source": "World Bank ICP 2021",
+        "url": "https://api.worldbank.org/v2/sources/90/country/COL/series/9060000?format=json&per_page=200",
+        "year": "2021"
+      },
+      "house_price_to_income": {
+        "source": "Numbeo Property Prices Index by Country",
+        "url": "https://www.numbeo.com/property-investment/rankings_by_country.jsp",
+        "year": "2026"
       }
     }
   },
@@ -4461,14 +4701,12 @@
     "pensionReplacementRate": 0.421,
     "outOfPocketHealthShare": 0.111,
     "effectiveTaxRateAvgWorker": 0.38677081,
-    "rentShareOfIncome": 0.28,
-    "housePriceToIncome": 10.0,
+    "rentShareOfIncome": 0.18951185532,
+    "housePriceToIncome": 7.8,
     "disasterRisk": 0.15,
     "remittanceShareGdp": 0.0047,
     "estimated": [
-      "housePriceToIncome",
       "places",
-      "rentShareOfIncome",
       "tertiaryAnnualCostShareOfGni"
     ],
     "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2022",
@@ -4502,6 +4740,16 @@
         "source": "OECD Taxing Wages 2026 database",
         "url": "https://sdmx.oecd.org/public/rest/data/OECD.CTP.TPS,DSD_TAX_WAGES_COMP@DF_TW_COMP,/.AV_ITR+AV_R_EMPEE_SSC.PT_WG_EARN_G.S_C0.AW100._Z.A?startPeriod=2025&endPeriod=2025&dimensionAtObservation=AllDimensions",
         "year": "2025"
+      },
+      "housing_share_of_consumption": {
+        "source": "World Bank ICP 2021",
+        "url": "https://api.worldbank.org/v2/sources/90/country/DEU/series/9060000?format=json&per_page=200",
+        "year": "2021"
+      },
+      "house_price_to_income": {
+        "source": "Numbeo Property Prices Index by Country",
+        "url": "https://www.numbeo.com/property-investment/rankings_by_country.jsp",
+        "year": "2026"
       }
     }
   },
@@ -4580,14 +4828,12 @@
     "pensionReplacementRate": 0.447,
     "outOfPocketHealthShare": 0.146,
     "effectiveTaxRateAvgWorker": 0.23141636,
-    "rentShareOfIncome": 0.33,
-    "housePriceToIncome": 9.0,
+    "rentShareOfIncome": 0.2155415276,
+    "housePriceToIncome": 7.7,
     "disasterRisk": 0.12,
     "remittanceShareGdp": 0.0013,
     "estimated": [
-      "housePriceToIncome",
       "places",
-      "rentShareOfIncome",
       "tertiaryAnnualCostShareOfGni"
     ],
     "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2021",
@@ -4621,6 +4867,16 @@
         "source": "OECD Taxing Wages 2026 database",
         "url": "https://sdmx.oecd.org/public/rest/data/OECD.CTP.TPS,DSD_TAX_WAGES_COMP@DF_TW_COMP,/.AV_ITR+AV_R_EMPEE_SSC.PT_WG_EARN_G.S_C0.AW100._Z.A?startPeriod=2025&endPeriod=2025&dimensionAtObservation=AllDimensions",
         "year": "2025"
+      },
+      "housing_share_of_consumption": {
+        "source": "World Bank ICP 2021",
+        "url": "https://api.worldbank.org/v2/sources/90/country/GBR/series/9060000?format=json&per_page=200",
+        "year": "2021"
+      },
+      "house_price_to_income": {
+        "source": "Numbeo Property Prices Index by Country",
+        "url": "https://www.numbeo.com/property-investment/rankings_by_country.jsp",
+        "year": "2026"
       }
     }
   },
@@ -4687,7 +4943,7 @@
     "pensionReplacementRate": 0.39,
     "outOfPocketHealthShare": 0.103,
     "effectiveTaxRateAvgWorker": 0.12,
-    "rentShareOfIncome": 0.3,
+    "rentShareOfIncome": 0.162064885067,
     "housePriceToIncome": 15.0,
     "disasterRisk": 0.3,
     "remittanceShareGdp": 0.0132,
@@ -4696,7 +4952,6 @@
       "housePriceToIncome",
       "pensionReplacementRate",
       "places",
-      "rentShareOfIncome",
       "tertiaryAnnualCostShareOfGni"
     ],
     "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2022; 中等教育は前期中等修了率で代替",
@@ -4720,6 +4975,11 @@
         "source": "UN World Marriage Data 2019",
         "url": "https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/undesa_pd_2019_wmd_marital_status.xlsx",
         "year": "2014"
+      },
+      "housing_share_of_consumption": {
+        "source": "World Bank ICP 2021",
+        "url": "https://api.worldbank.org/v2/sources/90/country/ZMB/series/9060000?format=json&per_page=200",
+        "year": "2021"
       }
     }
   },
@@ -4798,14 +5058,12 @@
     "pensionReplacementRate": 0.566,
     "outOfPocketHealthShare": 0.093,
     "effectiveTaxRateAvgWorker": 0.27979399,
-    "rentShareOfIncome": 0.27,
-    "housePriceToIncome": 11.0,
+    "rentShareOfIncome": 0.213309002148,
+    "housePriceToIncome": 8.3,
     "disasterRisk": 0.15,
     "remittanceShareGdp": 0.0129,
     "estimated": [
-      "housePriceToIncome",
       "places",
-      "rentShareOfIncome",
       "tertiaryAnnualCostShareOfGni"
     ],
     "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2023",
@@ -4839,6 +5097,16 @@
         "source": "OECD Taxing Wages 2026 database",
         "url": "https://sdmx.oecd.org/public/rest/data/OECD.CTP.TPS,DSD_TAX_WAGES_COMP@DF_TW_COMP,/.AV_ITR+AV_R_EMPEE_SSC.PT_WG_EARN_G.S_C0.AW100._Z.A?startPeriod=2025&endPeriod=2025&dimensionAtObservation=AllDimensions",
         "year": "2025"
+      },
+      "housing_share_of_consumption": {
+        "source": "World Bank ICP 2021",
+        "url": "https://api.worldbank.org/v2/sources/90/country/FRA/series/9060000?format=json&per_page=200",
+        "year": "2021"
+      },
+      "house_price_to_income": {
+        "source": "Numbeo Property Prices Index by Country",
+        "url": "https://www.numbeo.com/property-investment/rankings_by_country.jsp",
+        "year": "2026"
       }
     }
   },
@@ -4905,7 +5173,7 @@
     "pensionReplacementRate": 0.35,
     "outOfPocketHealthShare": 0.12,
     "effectiveTaxRateAvgWorker": 0.115,
-    "rentShareOfIncome": 0.35,
+    "rentShareOfIncome": 0.283503615712,
     "housePriceToIncome": 17.5,
     "disasterRisk": 0.45,
     "remittanceShareGdp": 0.0198,
@@ -4914,7 +5182,6 @@
       "housePriceToIncome",
       "pensionReplacementRate",
       "places",
-      "rentShareOfIncome",
       "tertiaryAnnualCostShareOfGni"
     ],
     "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2019",
@@ -4938,6 +5205,11 @@
         "source": "UN World Marriage Data 2019",
         "url": "https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/undesa_pd_2019_wmd_marital_status.xlsx",
         "year": "2018"
+      },
+      "housing_share_of_consumption": {
+        "source": "World Bank ICP 2021",
+        "url": "https://api.worldbank.org/v2/sources/90/country/MWI/series/9060000?format=json&per_page=200",
+        "year": "2021"
       }
     }
   },
@@ -5004,16 +5276,14 @@
     "pensionReplacementRate": 0.39,
     "outOfPocketHealthShare": 0.373,
     "effectiveTaxRateAvgWorker": 0.12,
-    "rentShareOfIncome": 0.3,
-    "housePriceToIncome": 15.0,
+    "rentShareOfIncome": 0.167432504464,
+    "housePriceToIncome": 13.6,
     "disasterRisk": 0.3,
     "remittanceShareGdp": 0.0779,
     "estimated": [
       "effectiveTaxRateAvgWorker",
-      "housePriceToIncome",
       "pensionReplacementRate",
       "places",
-      "rentShareOfIncome",
       "tertiaryAnnualCostShareOfGni"
     ],
     "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2013",
@@ -5042,6 +5312,16 @@
         "source": "UN World Marriage Data 2019",
         "url": "https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/undesa_pd_2019_wmd_marital_status.xlsx",
         "year": "2018"
+      },
+      "housing_share_of_consumption": {
+        "source": "World Bank ICP 2021",
+        "url": "https://api.worldbank.org/v2/sources/90/country/MAR/series/9060000?format=json&per_page=200",
+        "year": "2021"
+      },
+      "house_price_to_income": {
+        "source": "Numbeo Property Prices Index by Country",
+        "url": "https://www.numbeo.com/property-investment/rankings_by_country.jsp",
+        "year": "2026"
       }
     }
   },
@@ -5108,16 +5388,14 @@
     "pensionReplacementRate": 0.655,
     "outOfPocketHealthShare": 0.099,
     "effectiveTaxRateAvgWorker": 0.145,
-    "rentShareOfIncome": 0.275,
-    "housePriceToIncome": 13.5,
+    "rentShareOfIncome": 0.0884688030126,
+    "housePriceToIncome": 23.8,
     "disasterRisk": 0.4,
     "remittanceShareGdp": 0.0179,
     "estimated": [
       "effectiveTaxRateAvgWorker",
-      "housePriceToIncome",
       "pensionReplacementRate",
       "places",
-      "rentShareOfIncome",
       "tertiaryAnnualCostShareOfGni"
     ],
     "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2024",
@@ -5146,6 +5424,16 @@
         "source": "UN World Marriage Data 2019",
         "url": "https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/undesa_pd_2019_wmd_marital_status.xlsx",
         "year": "2013"
+      },
+      "housing_share_of_consumption": {
+        "source": "World Bank ICP 2021",
+        "url": "https://api.worldbank.org/v2/sources/90/country/THA/series/9060000?format=json&per_page=200",
+        "year": "2021"
+      },
+      "house_price_to_income": {
+        "source": "Numbeo Property Prices Index by Country",
+        "url": "https://www.numbeo.com/property-investment/rankings_by_country.jsp",
+        "year": "2026"
       }
     }
   },
@@ -5212,16 +5500,14 @@
     "pensionReplacementRate": 0.39,
     "outOfPocketHealthShare": 0.594,
     "effectiveTaxRateAvgWorker": 0.12,
-    "rentShareOfIncome": 0.3,
-    "housePriceToIncome": 15.0,
+    "rentShareOfIncome": 0.128858580852,
+    "housePriceToIncome": 39.5,
     "disasterRisk": 0.55,
     "remittanceShareGdp": 0.2599,
     "estimated": [
       "effectiveTaxRateAvgWorker",
-      "housePriceToIncome",
       "pensionReplacementRate",
       "places",
-      "rentShareOfIncome",
       "tertiaryAnnualCostShareOfGni"
     ],
     "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2022",
@@ -5245,6 +5531,16 @@
         "source": "UN World Marriage Data 2019",
         "url": "https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/undesa_pd_2019_wmd_marital_status.xlsx",
         "year": "2017"
+      },
+      "housing_share_of_consumption": {
+        "source": "World Bank ICP 2021",
+        "url": "https://api.worldbank.org/v2/sources/90/country/NPL/series/9060000?format=json&per_page=200",
+        "year": "2021"
+      },
+      "house_price_to_income": {
+        "source": "Numbeo Property Prices Index by Country",
+        "url": "https://www.numbeo.com/property-investment/rankings_by_country.jsp",
+        "year": "2026"
       }
     }
   },
@@ -5311,17 +5607,15 @@
     "pensionReplacementRate": 0.702,
     "outOfPocketHealthShare": 0.141,
     "effectiveTaxRateAvgWorker": 0.24,
-    "rentShareOfIncome": 0.275,
-    "housePriceToIncome": 10.5,
+    "rentShareOfIncome": 0.190948355434,
+    "housePriceToIncome": 4.7,
     "disasterRisk": 0.15,
     "remittanceShareGdp": 0.0003,
     "estimated": [
       "effectiveTaxRateAvgWorker",
-      "housePriceToIncome",
       "incomeShareQuintiles",
       "informalEmploymentShare",
       "places",
-      "rentShareOfIncome",
       "tertiaryAnnualCostShareOfGni"
     ],
     "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP)",
@@ -5345,6 +5639,16 @@
         "source": "OECD Pensions at a Glance 2025 database",
         "url": "https://sdmx.oecd.org/public/rest/data/OECD.ELS.SPD,DSD_PAG@DF_PAG,1.0/.A.GPRR100.....?startPeriod=2024&endPeriod=2024&dimensionAtObservation=AllDimensions",
         "year": "2024"
+      },
+      "housing_share_of_consumption": {
+        "source": "World Bank ICP 2021",
+        "url": "https://api.worldbank.org/v2/sources/90/country/SAU/series/9060000?format=json&per_page=200",
+        "year": "2021"
+      },
+      "house_price_to_income": {
+        "source": "Numbeo Property Prices Index by Country",
+        "url": "https://www.numbeo.com/property-investment/rankings_by_country.jsp",
+        "year": "2026"
       }
     }
   },
@@ -5411,16 +5715,14 @@
     "pensionReplacementRate": 0.655,
     "outOfPocketHealthShare": 0.27,
     "effectiveTaxRateAvgWorker": 0.145,
-    "rentShareOfIncome": 0.275,
-    "housePriceToIncome": 13.5,
+    "rentShareOfIncome": 0.0916903341207,
+    "housePriceToIncome": 14.7,
     "disasterRisk": 0.55,
     "remittanceShareGdp": 0.0169,
     "estimated": [
       "effectiveTaxRateAvgWorker",
-      "housePriceToIncome",
       "pensionReplacementRate",
       "places",
-      "rentShareOfIncome",
       "tertiaryAnnualCostShareOfGni"
     ],
     "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2024",
@@ -5444,6 +5746,16 @@
         "source": "UN World Marriage Data 2019",
         "url": "https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/undesa_pd_2019_wmd_marital_status.xlsx",
         "year": "2016"
+      },
+      "housing_share_of_consumption": {
+        "source": "World Bank ICP 2021",
+        "url": "https://api.worldbank.org/v2/sources/90/country/PER/series/9060000?format=json&per_page=200",
+        "year": "2021"
+      },
+      "house_price_to_income": {
+        "source": "Numbeo Property Prices Index by Country",
+        "url": "https://www.numbeo.com/property-investment/rankings_by_country.jsp",
+        "year": "2026"
       }
     }
   },
@@ -5510,7 +5822,7 @@
     "pensionReplacementRate": 0.39,
     "outOfPocketHealthShare": 0.443,
     "effectiveTaxRateAvgWorker": 0.12,
-    "rentShareOfIncome": 0.3,
+    "rentShareOfIncome": 0.122743291853,
     "housePriceToIncome": 15.0,
     "disasterRisk": 0.3,
     "remittanceShareGdp": 0.1064,
@@ -5519,7 +5831,6 @@
       "housePriceToIncome",
       "pensionReplacementRate",
       "places",
-      "rentShareOfIncome",
       "tertiaryAnnualCostShareOfGni"
     ],
     "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2021",
@@ -5543,6 +5854,11 @@
         "source": "UN World Marriage Data 2019",
         "url": "https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/undesa_pd_2019_wmd_marital_status.xlsx",
         "year": "2017"
+      },
+      "housing_share_of_consumption": {
+        "source": "World Bank ICP 2021",
+        "url": "https://api.worldbank.org/v2/sources/90/country/SEN/series/9060000?format=json&per_page=200",
+        "year": "2021"
       }
     }
   },
@@ -5609,7 +5925,7 @@
     "pensionReplacementRate": 0.35,
     "outOfPocketHealthShare": 0.724,
     "effectiveTaxRateAvgWorker": 0.115,
-    "rentShareOfIncome": 0.35,
+    "rentShareOfIncome": 0.199466652816,
     "housePriceToIncome": 17.5,
     "disasterRisk": 0.35,
     "remittanceShareGdp": 0.0264,
@@ -5618,7 +5934,6 @@
       "housePriceToIncome",
       "pensionReplacementRate",
       "places",
-      "rentShareOfIncome",
       "tertiaryAnnualCostShareOfGni"
     ],
     "notes": "金額はWDI 2022年値を為替変動で現行通貨水準に換算(x5.19); GNI2022/消費2022/PPP2021(PA.NUS.PRVT.PP); 五分位2022",
@@ -5642,6 +5957,11 @@
         "source": "UN World Marriage Data 2019",
         "url": "https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/undesa_pd_2019_wmd_marital_status.xlsx",
         "year": "2006"
+      },
+      "housing_share_of_consumption": {
+        "source": "World Bank ICP 2021",
+        "url": "https://api.worldbank.org/v2/sources/90/country/SYR/series/9060000?format=json&per_page=200",
+        "year": "2021"
       }
     }
   },
@@ -5708,15 +6028,13 @@
     "pensionReplacementRate": 0.687,
     "outOfPocketHealthShare": 0.245,
     "effectiveTaxRateAvgWorker": 0.145,
-    "rentShareOfIncome": 0.275,
-    "housePriceToIncome": 13.5,
+    "rentShareOfIncome": 0.0655947074984,
+    "housePriceToIncome": 12.0,
     "disasterRisk": 0.25,
     "remittanceShareGdp": 0.0017,
     "estimated": [
       "effectiveTaxRateAvgWorker",
-      "housePriceToIncome",
       "places",
-      "rentShareOfIncome",
       "tertiaryAnnualCostShareOfGni"
     ],
     "notes": "金額はWDI 2024年値を為替変動で現行通貨水準に換算(x1.67); GNI2024/消費2024/PPP2021(PA.NUS.PRVT.PP); 五分位2024; 高等教育総就学率108%を1.0に丸め",
@@ -5750,6 +6068,16 @@
         "source": "OECD Pensions at a Glance 2025 database",
         "url": "https://sdmx.oecd.org/public/rest/data/OECD.ELS.SPD,DSD_PAG@DF_PAG,1.0/.A.GPRR100.....?startPeriod=2024&endPeriod=2024&dimensionAtObservation=AllDimensions",
         "year": "2024"
+      },
+      "housing_share_of_consumption": {
+        "source": "World Bank ICP 2021",
+        "url": "https://api.worldbank.org/v2/sources/90/country/ARG/series/9060000?format=json&per_page=200",
+        "year": "2021"
+      },
+      "house_price_to_income": {
+        "source": "Numbeo Property Prices Index by Country",
+        "url": "https://www.numbeo.com/property-investment/rankings_by_country.jsp",
+        "year": "2026"
       }
     }
   },
@@ -5816,19 +6144,17 @@
     "pensionReplacementRate": 0.39,
     "outOfPocketHealthShare": 0.106,
     "effectiveTaxRateAvgWorker": 0.12,
-    "rentShareOfIncome": 0.3,
-    "housePriceToIncome": 15.0,
+    "rentShareOfIncome": 0.298634170989,
+    "housePriceToIncome": 9.1,
     "disasterRisk": 0.35,
     "remittanceShareGdp": 0.0845,
     "estimated": [
       "consumptionPerCapitaLCU",
       "effectiveTaxRateAvgWorker",
       "gniPerCapitaLCU",
-      "housePriceToIncome",
       "pensionReplacementRate",
       "places",
       "pppPerIntlDollar",
-      "rentShareOfIncome",
       "tertiaryAnnualCostShareOfGni"
     ],
     "notes": "GNIはWDI欠損のため推定(米ドル換算); GNI2025/消費推定/PPP推定; 五分位2019",
@@ -5852,6 +6178,16 @@
         "source": "UN World Marriage Data 2019",
         "url": "https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/undesa_pd_2019_wmd_marital_status.xlsx",
         "year": "2017"
+      },
+      "housing_share_of_consumption": {
+        "source": "World Bank ICP 2021",
+        "url": "https://api.worldbank.org/v2/sources/90/country/ZWE/series/9060000?format=json&per_page=200",
+        "year": "2021"
+      },
+      "house_price_to_income": {
+        "source": "Numbeo Property Prices Index by Country",
+        "url": "https://www.numbeo.com/property-investment/rankings_by_country.jsp",
+        "year": "2026"
       }
     }
   },
@@ -5918,7 +6254,7 @@
     "pensionReplacementRate": 0.39,
     "outOfPocketHealthShare": 0.544,
     "effectiveTaxRateAvgWorker": 0.12,
-    "rentShareOfIncome": 0.3,
+    "rentShareOfIncome": 0.0657704948439,
     "housePriceToIncome": 15.0,
     "disasterRisk": 0.3,
     "remittanceShareGdp": 0.0246,
@@ -5928,7 +6264,6 @@
       "informalEmploymentShare",
       "pensionReplacementRate",
       "places",
-      "rentShareOfIncome",
       "tertiaryAnnualCostShareOfGni"
     ],
     "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2018",
@@ -5952,6 +6287,11 @@
         "source": "UN World Marriage Data 2019",
         "url": "https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/undesa_pd_2019_wmd_marital_status.xlsx",
         "year": "2014"
+      },
+      "housing_share_of_consumption": {
+        "source": "World Bank ICP 2021",
+        "url": "https://api.worldbank.org/v2/sources/90/country/GIN/series/9060000?format=json&per_page=200",
+        "year": "2021"
       }
     }
   },
@@ -6018,7 +6358,7 @@
     "pensionReplacementRate": 0.39,
     "outOfPocketHealthShare": 0.424,
     "effectiveTaxRateAvgWorker": 0.12,
-    "rentShareOfIncome": 0.3,
+    "rentShareOfIncome": 0.0897165628709,
     "housePriceToIncome": 15.0,
     "disasterRisk": 0.3,
     "remittanceShareGdp": 0.0172,
@@ -6027,7 +6367,6 @@
       "housePriceToIncome",
       "pensionReplacementRate",
       "places",
-      "rentShareOfIncome",
       "tertiaryAnnualCostShareOfGni"
     ],
     "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2021",
@@ -6056,6 +6395,11 @@
         "source": "UN World Marriage Data 2019",
         "url": "https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/undesa_pd_2019_wmd_marital_status.xlsx",
         "year": "2018"
+      },
+      "housing_share_of_consumption": {
+        "source": "World Bank ICP 2021",
+        "url": "https://api.worldbank.org/v2/sources/90/country/BEN/series/9060000?format=json&per_page=200",
+        "year": "2021"
       }
     }
   },
@@ -6122,7 +6466,7 @@
     "pensionReplacementRate": 0.35,
     "outOfPocketHealthShare": 0.245,
     "effectiveTaxRateAvgWorker": 0.115,
-    "rentShareOfIncome": 0.35,
+    "rentShareOfIncome": 0.112714079484,
     "housePriceToIncome": 17.5,
     "disasterRisk": 0.3,
     "remittanceShareGdp": 0.078,
@@ -6131,7 +6475,6 @@
       "housePriceToIncome",
       "pensionReplacementRate",
       "places",
-      "rentShareOfIncome",
       "tertiaryAnnualCostShareOfGni"
     ],
     "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2020",
@@ -6155,6 +6498,11 @@
         "source": "UN World Marriage Data 2019",
         "url": "https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/undesa_pd_2019_wmd_marital_status.xlsx",
         "year": "2017"
+      },
+      "housing_share_of_consumption": {
+        "source": "World Bank ICP 2021",
+        "url": "https://api.worldbank.org/v2/sources/90/country/BDI/series/9060000?format=json&per_page=200",
+        "year": "2021"
       }
     }
   },
@@ -6221,17 +6569,15 @@
     "pensionReplacementRate": 0.655,
     "outOfPocketHealthShare": 0.371,
     "effectiveTaxRateAvgWorker": 0.145,
-    "rentShareOfIncome": 0.275,
-    "housePriceToIncome": 13.5,
+    "rentShareOfIncome": 0.148841239803,
+    "housePriceToIncome": 8.4,
     "disasterRisk": 0.3,
     "remittanceShareGdp": 0.018,
     "estimated": [
       "effectiveTaxRateAvgWorker",
-      "housePriceToIncome",
       "informalEmploymentShare",
       "pensionReplacementRate",
       "places",
-      "rentShareOfIncome",
       "tertiaryAnnualCostShareOfGni"
     ],
     "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2021",
@@ -6250,6 +6596,16 @@
         "source": "UN World Marriage Data 2019",
         "url": "https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/undesa_pd_2019_wmd_marital_status.xlsx",
         "year": "2010"
+      },
+      "housing_share_of_consumption": {
+        "source": "World Bank ICP 2021",
+        "url": "https://api.worldbank.org/v2/sources/90/country/MYS/series/9060000?format=json&per_page=200",
+        "year": "2021"
+      },
+      "house_price_to_income": {
+        "source": "Numbeo Property Prices Index by Country",
+        "url": "https://www.numbeo.com/property-investment/rankings_by_country.jsp",
+        "year": "2026"
       }
     }
   },
@@ -6317,14 +6673,13 @@
     "outOfPocketHealthShare": 0.297,
     "effectiveTaxRateAvgWorker": 0.145,
     "rentShareOfIncome": 0.275,
-    "housePriceToIncome": 13.5,
+    "housePriceToIncome": 14.2,
     "disasterRisk": 0.35,
     "remittanceShareGdp": 0.0316,
     "estimated": [
       "consumptionPerCapitaLCU",
       "effectiveTaxRateAvgWorker",
       "gniPerCapitaLCU",
-      "housePriceToIncome",
       "pensionReplacementRate",
       "places",
       "pppPerIntlDollar",
@@ -6358,6 +6713,11 @@
         "source": "UN World Marriage Data 2019",
         "url": "https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/undesa_pd_2019_wmd_marital_status.xlsx",
         "year": "2011"
+      },
+      "house_price_to_income": {
+        "source": "Numbeo Property Prices Index by Country",
+        "url": "https://www.numbeo.com/property-investment/rankings_by_country.jsp",
+        "year": "2026"
       }
     }
   },
@@ -6424,17 +6784,15 @@
     "pensionReplacementRate": 0.655,
     "outOfPocketHealthShare": 0.276,
     "effectiveTaxRateAvgWorker": 0.145,
-    "rentShareOfIncome": 0.275,
-    "housePriceToIncome": 13.5,
+    "rentShareOfIncome": 0.198392672795,
+    "housePriceToIncome": 9.5,
     "disasterRisk": 0.2,
     "remittanceShareGdp": 0.0008,
     "estimated": [
       "effectiveTaxRateAvgWorker",
-      "housePriceToIncome",
       "informalEmploymentShare",
       "pensionReplacementRate",
       "places",
-      "rentShareOfIncome",
       "tertiaryAnnualCostShareOfGni"
     ],
     "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2021",
@@ -6458,6 +6816,16 @@
         "source": "UN World Marriage Data 2019",
         "url": "https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/undesa_pd_2019_wmd_marital_status.xlsx",
         "year": "2015"
+      },
+      "housing_share_of_consumption": {
+        "source": "World Bank ICP 2021",
+        "url": "https://api.worldbank.org/v2/sources/90/country/KAZ/series/9060000?format=json&per_page=200",
+        "year": "2021"
+      },
+      "house_price_to_income": {
+        "source": "Numbeo Property Prices Index by Country",
+        "url": "https://www.numbeo.com/property-investment/rankings_by_country.jsp",
+        "year": "2026"
       }
     }
   },
@@ -6524,7 +6892,7 @@
     "pensionReplacementRate": 0.35,
     "outOfPocketHealthShare": 0.041,
     "effectiveTaxRateAvgWorker": 0.115,
-    "rentShareOfIncome": 0.35,
+    "rentShareOfIncome": 0.146045649939,
     "housePriceToIncome": 17.5,
     "disasterRisk": 0.3,
     "remittanceShareGdp": 0.0342,
@@ -6533,7 +6901,6 @@
       "housePriceToIncome",
       "pensionReplacementRate",
       "places",
-      "rentShareOfIncome",
       "tertiaryAnnualCostShareOfGni"
     ],
     "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2023",
@@ -6557,6 +6924,11 @@
         "source": "UN World Marriage Data 2019",
         "url": "https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/undesa_pd_2019_wmd_marital_status.xlsx",
         "year": "2015"
+      },
+      "housing_share_of_consumption": {
+        "source": "World Bank ICP 2021",
+        "url": "https://api.worldbank.org/v2/sources/90/country/RWA/series/9060000?format=json&per_page=200",
+        "year": "2021"
       }
     }
   },
@@ -6623,14 +6995,12 @@
     "pensionReplacementRate": 0.706,
     "outOfPocketHealthShare": 0.236,
     "effectiveTaxRateAvgWorker": 0.28627574,
-    "rentShareOfIncome": 0.275,
-    "housePriceToIncome": 10.5,
+    "rentShareOfIncome": 0.203056632532,
+    "housePriceToIncome": 7.8,
     "disasterRisk": 0.3,
     "remittanceShareGdp": 0.0051,
     "estimated": [
-      "housePriceToIncome",
       "places",
-      "rentShareOfIncome",
       "tertiaryAnnualCostShareOfGni"
     ],
     "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2023",
@@ -6664,6 +7034,16 @@
         "source": "OECD Taxing Wages 2026 database",
         "url": "https://sdmx.oecd.org/public/rest/data/OECD.CTP.TPS,DSD_TAX_WAGES_COMP@DF_TW_COMP,/.AV_ITR+AV_R_EMPEE_SSC.PT_WG_EARN_G.S_C0.AW100._Z.A?startPeriod=2025&endPeriod=2025&dimensionAtObservation=AllDimensions",
         "year": "2025"
+      },
+      "housing_share_of_consumption": {
+        "source": "World Bank ICP 2021",
+        "url": "https://api.worldbank.org/v2/sources/90/country/ITA/series/9060000?format=json&per_page=200",
+        "year": "2021"
+      },
+      "house_price_to_income": {
+        "source": "Numbeo Property Prices Index by Country",
+        "url": "https://www.numbeo.com/property-investment/rankings_by_country.jsp",
+        "year": "2026"
       }
     }
   },
@@ -6730,7 +7110,7 @@
     "pensionReplacementRate": 0.655,
     "outOfPocketHealthShare": 0.572,
     "effectiveTaxRateAvgWorker": 0.145,
-    "rentShareOfIncome": 0.275,
+    "rentShareOfIncome": 0.117631442242,
     "housePriceToIncome": 13.5,
     "disasterRisk": 0.6,
     "remittanceShareGdp": 0.1912,
@@ -6739,7 +7119,6 @@
       "housePriceToIncome",
       "pensionReplacementRate",
       "places",
-      "rentShareOfIncome",
       "tertiaryAnnualCostShareOfGni"
     ],
     "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2023",
@@ -6763,6 +7142,11 @@
         "source": "UN World Marriage Data 2019",
         "url": "https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/undesa_pd_2019_wmd_marital_status.xlsx",
         "year": "2018"
+      },
+      "housing_share_of_consumption": {
+        "source": "World Bank ICP 2021",
+        "url": "https://api.worldbank.org/v2/sources/90/country/GTM/series/9060000?format=json&per_page=200",
+        "year": "2021"
       }
     }
   },
@@ -6829,17 +7213,15 @@
     "pensionReplacementRate": 0.39,
     "outOfPocketHealthShare": 0.606,
     "effectiveTaxRateAvgWorker": 0.12,
-    "rentShareOfIncome": 0.3,
-    "housePriceToIncome": 15.0,
+    "rentShareOfIncome": 0.136616755621,
+    "housePriceToIncome": 35.0,
     "disasterRisk": 0.5,
     "remittanceShareGdp": 0.061,
     "estimated": [
       "effectiveTaxRateAvgWorker",
-      "housePriceToIncome",
       "incomeShareQuintiles",
       "pensionReplacementRate",
       "places",
-      "rentShareOfIncome",
       "tertiaryAnnualCostShareOfGni"
     ],
     "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 中等教育は前期中等修了率で代替",
@@ -6863,6 +7245,16 @@
         "source": "UN World Marriage Data 2019",
         "url": "https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/undesa_pd_2019_wmd_marital_status.xlsx",
         "year": "2014"
+      },
+      "housing_share_of_consumption": {
+        "source": "World Bank ICP 2021",
+        "url": "https://api.worldbank.org/v2/sources/90/country/KHM/series/9060000?format=json&per_page=200",
+        "year": "2021"
+      },
+      "house_price_to_income": {
+        "source": "Numbeo Property Prices Index by Country",
+        "url": "https://www.numbeo.com/property-investment/rankings_by_country.jsp",
+        "year": "2026"
       }
     }
   },
@@ -6929,15 +7321,13 @@
     "pensionReplacementRate": 0.371,
     "outOfPocketHealthShare": 0.152,
     "effectiveTaxRateAvgWorker": 0.25608721,
-    "rentShareOfIncome": 0.275,
-    "housePriceToIncome": 10.5,
+    "rentShareOfIncome": 0.212749663305,
+    "housePriceToIncome": 7.2,
     "disasterRisk": 0.15,
     "remittanceShareGdp": 0.0004,
     "estimated": [
-      "housePriceToIncome",
       "informalEmploymentShare",
       "places",
-      "rentShareOfIncome",
       "tertiaryAnnualCostShareOfGni"
     ],
     "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2022",
@@ -6971,6 +7361,16 @@
         "source": "OECD Taxing Wages 2026 database",
         "url": "https://sdmx.oecd.org/public/rest/data/OECD.CTP.TPS,DSD_TAX_WAGES_COMP@DF_TW_COMP,/.AV_ITR+AV_R_EMPEE_SSC.PT_WG_EARN_G.S_C0.AW100._Z.A?startPeriod=2025&endPeriod=2025&dimensionAtObservation=AllDimensions",
         "year": "2025"
+      },
+      "housing_share_of_consumption": {
+        "source": "World Bank ICP 2021",
+        "url": "https://api.worldbank.org/v2/sources/90/country/CAN/series/9060000?format=json&per_page=200",
+        "year": "2021"
+      },
+      "house_price_to_income": {
+        "source": "Numbeo Property Prices Index by Country",
+        "url": "https://www.numbeo.com/property-investment/rankings_by_country.jsp",
+        "year": "2026"
       }
     }
   },
@@ -7124,7 +7524,7 @@
     "pensionReplacementRate": 0.35,
     "outOfPocketHealthShare": 0.271,
     "effectiveTaxRateAvgWorker": 0.115,
-    "rentShareOfIncome": 0.35,
+    "rentShareOfIncome": 0.0541116661542,
     "housePriceToIncome": 17.5,
     "disasterRisk": 0.3,
     "remittanceShareGdp": 0.0949,
@@ -7136,7 +7536,6 @@
       "informalEmploymentShare",
       "pensionReplacementRate",
       "places",
-      "rentShareOfIncome",
       "tertiaryAnnualCostShareOfGni",
       "tertiaryGrossEnrollment"
     ],
@@ -7161,6 +7560,11 @@
         "source": "UN World Marriage Data 2019",
         "url": "https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/undesa_pd_2019_wmd_marital_status.xlsx",
         "year": "2010"
+      },
+      "housing_share_of_consumption": {
+        "source": "World Bank ICP 2021",
+        "url": "https://api.worldbank.org/v2/sources/90/country/SSD/series/9060000?format=json&per_page=200",
+        "year": "2021"
       }
     }
   },
@@ -7227,14 +7631,12 @@
     "pensionReplacementRate": 0.804,
     "outOfPocketHealthShare": 0.209,
     "effectiveTaxRateAvgWorker": 0.23543533,
-    "rentShareOfIncome": 0.275,
-    "housePriceToIncome": 10.5,
+    "rentShareOfIncome": 0.198811450708,
+    "housePriceToIncome": 8.7,
     "disasterRisk": 0.2,
     "remittanceShareGdp": 0.0037,
     "estimated": [
-      "housePriceToIncome",
       "places",
-      "rentShareOfIncome",
       "tertiaryAnnualCostShareOfGni"
     ],
     "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2023",
@@ -7268,6 +7670,16 @@
         "source": "OECD Taxing Wages 2026 database",
         "url": "https://sdmx.oecd.org/public/rest/data/OECD.CTP.TPS,DSD_TAX_WAGES_COMP@DF_TW_COMP,/.AV_ITR+AV_R_EMPEE_SSC.PT_WG_EARN_G.S_C0.AW100._Z.A?startPeriod=2025&endPeriod=2025&dimensionAtObservation=AllDimensions",
         "year": "2025"
+      },
+      "housing_share_of_consumption": {
+        "source": "World Bank ICP 2021",
+        "url": "https://api.worldbank.org/v2/sources/90/country/ESP/series/9060000?format=json&per_page=200",
+        "year": "2021"
+      },
+      "house_price_to_income": {
+        "source": "Numbeo Property Prices Index by Country",
+        "url": "https://www.numbeo.com/property-investment/rankings_by_country.jsp",
+        "year": "2026"
       }
     }
   },
@@ -7334,15 +7746,13 @@
     "pensionReplacementRate": 0.408,
     "outOfPocketHealthShare": 0.158,
     "effectiveTaxRateAvgWorker": 0.23523271,
-    "rentShareOfIncome": 0.275,
-    "housePriceToIncome": 10.5,
+    "rentShareOfIncome": 0.189366945646,
+    "housePriceToIncome": 8.2,
     "disasterRisk": 0.25,
     "remittanceShareGdp": 0.001,
     "estimated": [
-      "housePriceToIncome",
       "informalEmploymentShare",
       "places",
-      "rentShareOfIncome",
       "tertiaryAnnualCostShareOfGni"
     ],
     "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2020; 高等教育総就学率108%を1.0に丸め",
@@ -7376,6 +7786,16 @@
         "source": "OECD Taxing Wages 2026 database",
         "url": "https://sdmx.oecd.org/public/rest/data/OECD.CTP.TPS,DSD_TAX_WAGES_COMP@DF_TW_COMP,/.AV_ITR+AV_R_EMPEE_SSC.PT_WG_EARN_G.S_C0.AW100._Z.A?startPeriod=2025&endPeriod=2025&dimensionAtObservation=AllDimensions",
         "year": "2025"
+      },
+      "housing_share_of_consumption": {
+        "source": "World Bank ICP 2021",
+        "url": "https://api.worldbank.org/v2/sources/90/country/AUS/series/9060000?format=json&per_page=200",
+        "year": "2021"
+      },
+      "house_price_to_income": {
+        "source": "Numbeo Property Prices Index by Country",
+        "url": "https://www.numbeo.com/property-investment/rankings_by_country.jsp",
+        "year": "2026"
       }
     }
   },
@@ -7442,14 +7862,12 @@
     "pensionReplacementRate": 0.286,
     "outOfPocketHealthShare": 0.158,
     "effectiveTaxRateAvgWorker": 0.24435537,
-    "rentShareOfIncome": 0.275,
-    "housePriceToIncome": 10.5,
+    "rentShareOfIncome": 0.160708130482,
+    "housePriceToIncome": 9.7,
     "disasterRisk": 0.12,
     "remittanceShareGdp": 0.0095,
     "estimated": [
-      "housePriceToIncome",
       "places",
-      "rentShareOfIncome",
       "tertiaryAnnualCostShareOfGni"
     ],
     "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2023",
@@ -7483,6 +7901,16 @@
         "source": "OECD Taxing Wages 2026 database",
         "url": "https://sdmx.oecd.org/public/rest/data/OECD.CTP.TPS,DSD_TAX_WAGES_COMP@DF_TW_COMP,/.AV_ITR+AV_R_EMPEE_SSC.PT_WG_EARN_G.S_C0.AW100._Z.A?startPeriod=2025&endPeriod=2025&dimensionAtObservation=AllDimensions",
         "year": "2025"
+      },
+      "housing_share_of_consumption": {
+        "source": "World Bank ICP 2021",
+        "url": "https://api.worldbank.org/v2/sources/90/country/POL/series/9060000?format=json&per_page=200",
+        "year": "2021"
+      },
+      "house_price_to_income": {
+        "source": "Numbeo Property Prices Index by Country",
+        "url": "https://www.numbeo.com/property-investment/rankings_by_country.jsp",
+        "year": "2026"
       }
     }
   },
@@ -7549,16 +7977,14 @@
     "pensionReplacementRate": 0.39,
     "outOfPocketHealthShare": 0.624,
     "effectiveTaxRateAvgWorker": 0.12,
-    "rentShareOfIncome": 0.3,
-    "housePriceToIncome": 15.0,
+    "rentShareOfIncome": 0.102989641918,
+    "housePriceToIncome": 10.3,
     "disasterRisk": 0.4,
     "remittanceShareGdp": 0.4715,
     "estimated": [
       "effectiveTaxRateAvgWorker",
-      "housePriceToIncome",
       "pensionReplacementRate",
       "places",
-      "rentShareOfIncome",
       "tertiaryAnnualCostShareOfGni"
     ],
     "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2024; 中等教育は前期中等修了率で代替",
@@ -7582,6 +8008,16 @@
         "source": "UN World Marriage Data 2019",
         "url": "https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/undesa_pd_2019_wmd_marital_status.xlsx",
         "year": "2017"
+      },
+      "housing_share_of_consumption": {
+        "source": "World Bank ICP 2021",
+        "url": "https://api.worldbank.org/v2/sources/90/country/TJK/series/9060000?format=json&per_page=200",
+        "year": "2021"
+      },
+      "house_price_to_income": {
+        "source": "Numbeo Property Prices Index by Country",
+        "url": "https://www.numbeo.com/property-investment/rankings_by_country.jsp",
+        "year": "2026"
       }
     }
   },
@@ -7648,16 +8084,14 @@
     "pensionReplacementRate": 0.655,
     "outOfPocketHealthShare": 0.309,
     "effectiveTaxRateAvgWorker": 0.145,
-    "rentShareOfIncome": 0.275,
-    "housePriceToIncome": 13.5,
+    "rentShareOfIncome": 0.107406756729,
+    "housePriceToIncome": 11.3,
     "disasterRisk": 0.55,
     "remittanceShareGdp": 0.0529,
     "estimated": [
       "effectiveTaxRateAvgWorker",
-      "housePriceToIncome",
       "pensionReplacementRate",
       "places",
-      "rentShareOfIncome",
       "tertiaryAnnualCostShareOfGni"
     ],
     "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2024",
@@ -7681,6 +8115,16 @@
         "source": "UN World Marriage Data 2019",
         "url": "https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/undesa_pd_2019_wmd_marital_status.xlsx",
         "year": "2010"
+      },
+      "housing_share_of_consumption": {
+        "source": "World Bank ICP 2021",
+        "url": "https://api.worldbank.org/v2/sources/90/country/ECU/series/9060000?format=json&per_page=200",
+        "year": "2021"
+      },
+      "house_price_to_income": {
+        "source": "Numbeo Property Prices Index by Country",
+        "url": "https://www.numbeo.com/property-investment/rankings_by_country.jsp",
+        "year": "2026"
       }
     }
   },
@@ -7747,7 +8191,7 @@
     "pensionReplacementRate": 0.35,
     "outOfPocketHealthShare": 0.643,
     "effectiveTaxRateAvgWorker": 0.115,
-    "rentShareOfIncome": 0.35,
+    "rentShareOfIncome": 0.126177055369,
     "housePriceToIncome": 17.5,
     "disasterRisk": 0.3,
     "remittanceShareGdp": 0.0869,
@@ -7756,7 +8200,6 @@
       "housePriceToIncome",
       "pensionReplacementRate",
       "places",
-      "rentShareOfIncome",
       "tertiaryAnnualCostShareOfGni"
     ],
     "notes": "GNI2024/消費2023/PPP2024(PA.NUS.PRVT.PP); 五分位2021",
@@ -7780,6 +8223,11 @@
         "source": "UN World Marriage Data 2019",
         "url": "https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/undesa_pd_2019_wmd_marital_status.xlsx",
         "year": "2017"
+      },
+      "housing_share_of_consumption": {
+        "source": "World Bank ICP 2021",
+        "url": "https://api.worldbank.org/v2/sources/90/country/TGO/series/9060000?format=json&per_page=200",
+        "year": "2021"
       }
     }
   },
@@ -7846,16 +8294,14 @@
     "pensionReplacementRate": 0.39,
     "outOfPocketHealthShare": 0.273,
     "effectiveTaxRateAvgWorker": 0.12,
-    "rentShareOfIncome": 0.3,
-    "housePriceToIncome": 15.0,
+    "rentShareOfIncome": 0.160554161808,
+    "housePriceToIncome": 11.2,
     "disasterRisk": 0.4,
     "remittanceShareGdp": 0.0231,
     "estimated": [
       "effectiveTaxRateAvgWorker",
-      "housePriceToIncome",
       "pensionReplacementRate",
       "places",
-      "rentShareOfIncome",
       "tertiaryAnnualCostShareOfGni",
       "tertiaryGrossEnrollment"
     ],
@@ -7880,6 +8326,16 @@
         "source": "UN World Marriage Data 2019",
         "url": "https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/undesa_pd_2019_wmd_marital_status.xlsx",
         "year": "2016"
+      },
+      "housing_share_of_consumption": {
+        "source": "World Bank ICP 2021",
+        "url": "https://api.worldbank.org/v2/sources/90/country/BOL/series/9060000?format=json&per_page=200",
+        "year": "2021"
+      },
+      "house_price_to_income": {
+        "source": "Numbeo Property Prices Index by Country",
+        "url": "https://www.numbeo.com/property-investment/rankings_by_country.jsp",
+        "year": "2026"
       }
     }
   },
@@ -7946,7 +8402,7 @@
     "pensionReplacementRate": 0.35,
     "outOfPocketHealthShare": 0.545,
     "effectiveTaxRateAvgWorker": 0.115,
-    "rentShareOfIncome": 0.35,
+    "rentShareOfIncome": 0.074816303092,
     "housePriceToIncome": 17.5,
     "disasterRisk": 0.3,
     "remittanceShareGdp": 0.046,
@@ -7955,7 +8411,6 @@
       "housePriceToIncome",
       "pensionReplacementRate",
       "places",
-      "rentShareOfIncome",
       "tertiaryAnnualCostShareOfGni",
       "tertiaryGrossEnrollment"
     ],
@@ -7980,6 +8435,11 @@
         "source": "UN World Marriage Data 2019",
         "url": "https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/undesa_pd_2019_wmd_marital_status.xlsx",
         "year": "2017"
+      },
+      "housing_share_of_consumption": {
+        "source": "World Bank ICP 2021",
+        "url": "https://api.worldbank.org/v2/sources/90/country/SLE/series/9060000?format=json&per_page=200",
+        "year": "2021"
       }
     }
   },
@@ -8249,16 +8709,14 @@
     "pensionReplacementRate": 0.39,
     "outOfPocketHealthShare": 0.548,
     "effectiveTaxRateAvgWorker": 0.12,
-    "rentShareOfIncome": 0.3,
-    "housePriceToIncome": 15.0,
+    "rentShareOfIncome": 0.0923231818763,
+    "housePriceToIncome": 55.4,
     "disasterRisk": 0.4,
     "remittanceShareGdp": 0.0675,
     "estimated": [
       "effectiveTaxRateAvgWorker",
-      "housePriceToIncome",
       "pensionReplacementRate",
       "places",
-      "rentShareOfIncome",
       "tertiaryAnnualCostShareOfGni"
     ],
     "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2019",
@@ -8287,6 +8745,16 @@
         "source": "UN World Marriage Data 2019",
         "url": "https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/undesa_pd_2019_wmd_marital_status.xlsx",
         "year": "2016"
+      },
+      "housing_share_of_consumption": {
+        "source": "World Bank ICP 2021",
+        "url": "https://api.worldbank.org/v2/sources/90/country/LKA/series/9060000?format=json&per_page=200",
+        "year": "2021"
+      },
+      "house_price_to_income": {
+        "source": "Numbeo Property Prices Index by Country",
+        "url": "https://www.numbeo.com/property-investment/rankings_by_country.jsp",
+        "year": "2026"
       }
     }
   },
@@ -8353,7 +8821,7 @@
     "pensionReplacementRate": 0.35,
     "outOfPocketHealthShare": 0.45,
     "effectiveTaxRateAvgWorker": 0.115,
-    "rentShareOfIncome": 0.35,
+    "rentShareOfIncome": 0.0830174816005,
     "housePriceToIncome": 17.5,
     "disasterRisk": 0.3,
     "remittanceShareGdp": 0.0395,
@@ -8364,7 +8832,6 @@
       "pensionReplacementRate",
       "places",
       "remittanceShareGdp",
-      "rentShareOfIncome",
       "tertiaryAnnualCostShareOfGni"
     ],
     "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2021",
@@ -8383,6 +8850,11 @@
         "source": "UN World Marriage Data 2019",
         "url": "https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/undesa_pd_2019_wmd_marital_status.xlsx",
         "year": "2010"
+      },
+      "housing_share_of_consumption": {
+        "source": "World Bank ICP 2021",
+        "url": "https://api.worldbank.org/v2/sources/90/country/CAF/series/9060000?format=json&per_page=200",
+        "year": "2021"
       }
     }
   },
@@ -8449,17 +8921,15 @@
     "pensionReplacementRate": 0.655,
     "outOfPocketHealthShare": 0.345,
     "effectiveTaxRateAvgWorker": 0.145,
-    "rentShareOfIncome": 0.275,
-    "housePriceToIncome": 13.5,
+    "rentShareOfIncome": 0.201807276545,
+    "housePriceToIncome": 6.7,
     "disasterRisk": 0.3,
     "remittanceShareGdp": 0.0756,
     "estimated": [
       "consumptionPerCapitaLCU",
       "effectiveTaxRateAvgWorker",
-      "housePriceToIncome",
       "pensionReplacementRate",
       "places",
-      "rentShareOfIncome",
       "tertiaryAnnualCostShareOfGni"
     ],
     "notes": "GNI2024/消費推定/PPP2024(PA.NUS.PRVT.PP); 五分位2010",
@@ -8483,6 +8953,16 @@
         "source": "UN World Marriage Data 2019",
         "url": "https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/undesa_pd_2019_wmd_marital_status.xlsx",
         "year": "2018"
+      },
+      "housing_share_of_consumption": {
+        "source": "World Bank ICP 2021",
+        "url": "https://api.worldbank.org/v2/sources/90/country/JOR/series/9060000?format=json&per_page=200",
+        "year": "2021"
+      },
+      "house_price_to_income": {
+        "source": "Numbeo Property Prices Index by Country",
+        "url": "https://www.numbeo.com/property-investment/rankings_by_country.jsp",
+        "year": "2026"
       }
     }
   },
@@ -8549,7 +9029,7 @@
     "pensionReplacementRate": 0.39,
     "outOfPocketHealthShare": 0.531,
     "effectiveTaxRateAvgWorker": 0.12,
-    "rentShareOfIncome": 0.3,
+    "rentShareOfIncome": 0.107569480046,
     "housePriceToIncome": 15.0,
     "disasterRisk": 0.55,
     "remittanceShareGdp": 0.2574,
@@ -8558,7 +9038,6 @@
       "housePriceToIncome",
       "pensionReplacementRate",
       "places",
-      "rentShareOfIncome",
       "tertiaryAnnualCostShareOfGni"
     ],
     "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2024",
@@ -8582,6 +9061,11 @@
         "source": "UN World Marriage Data 2019",
         "url": "https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/undesa_pd_2019_wmd_marital_status.xlsx",
         "year": "2012"
+      },
+      "housing_share_of_consumption": {
+        "source": "World Bank ICP 2021",
+        "url": "https://api.worldbank.org/v2/sources/90/country/HND/series/9060000?format=json&per_page=200",
+        "year": "2021"
       }
     }
   },
@@ -8660,14 +9144,12 @@
     "pensionReplacementRate": 0.334,
     "outOfPocketHealthShare": 0.318,
     "effectiveTaxRateAvgWorker": 0.16534869,
-    "rentShareOfIncome": 0.23,
-    "housePriceToIncome": 25.0,
+    "rentShareOfIncome": 0.140322809379,
+    "housePriceToIncome": 24.4,
     "disasterRisk": 0.25,
     "remittanceShareGdp": 0.0039,
     "estimated": [
-      "housePriceToIncome",
       "places",
-      "rentShareOfIncome",
       "tertiaryAnnualCostShareOfGni"
     ],
     "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2021; 高等教育総就学率112%を1.0に丸め",
@@ -8706,6 +9188,16 @@
         "source": "OECD Taxing Wages 2026 database",
         "url": "https://sdmx.oecd.org/public/rest/data/OECD.CTP.TPS,DSD_TAX_WAGES_COMP@DF_TW_COMP,/.AV_ITR+AV_R_EMPEE_SSC.PT_WG_EARN_G.S_C0.AW100._Z.A?startPeriod=2025&endPeriod=2025&dimensionAtObservation=AllDimensions",
         "year": "2025"
+      },
+      "housing_share_of_consumption": {
+        "source": "World Bank ICP 2021",
+        "url": "https://api.worldbank.org/v2/sources/90/country/KOR/series/9060000?format=json&per_page=200",
+        "year": "2021"
+      },
+      "house_price_to_income": {
+        "source": "Numbeo Property Prices Index by Country",
+        "url": "https://www.numbeo.com/property-investment/rankings_by_country.jsp",
+        "year": "2026"
       }
     }
   },
@@ -8772,17 +9264,15 @@
     "pensionReplacementRate": 0.655,
     "outOfPocketHealthShare": 0.453,
     "effectiveTaxRateAvgWorker": 0.145,
-    "rentShareOfIncome": 0.275,
-    "housePriceToIncome": 13.5,
+    "rentShareOfIncome": 0.124384468432,
+    "housePriceToIncome": 11.8,
     "disasterRisk": 0.15,
     "remittanceShareGdp": 0.0629,
     "estimated": [
       "effectiveTaxRateAvgWorker",
-      "housePriceToIncome",
       "informalEmploymentShare",
       "pensionReplacementRate",
       "places",
-      "rentShareOfIncome",
       "tertiaryAnnualCostShareOfGni"
     ],
     "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2020",
@@ -8801,6 +9291,16 @@
         "source": "UN World Marriage Data 2019",
         "url": "https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/undesa_pd_2019_wmd_marital_status.xlsx",
         "year": "2012"
+      },
+      "housing_share_of_consumption": {
+        "source": "World Bank ICP 2021",
+        "url": "https://api.worldbank.org/v2/sources/90/country/UKR/series/9060000?format=json&per_page=200",
+        "year": "2021"
+      },
+      "house_price_to_income": {
+        "source": "Numbeo Property Prices Index by Country",
+        "url": "https://www.numbeo.com/property-investment/rankings_by_country.jsp",
+        "year": "2026"
       }
     }
   },
@@ -8867,16 +9367,14 @@
     "pensionReplacementRate": 0.655,
     "outOfPocketHealthShare": 0.251,
     "effectiveTaxRateAvgWorker": 0.145,
-    "rentShareOfIncome": 0.275,
-    "housePriceToIncome": 13.5,
+    "rentShareOfIncome": 0.181375211164,
+    "housePriceToIncome": 13.7,
     "disasterRisk": 0.5,
     "remittanceShareGdp": 0.0913,
     "estimated": [
       "effectiveTaxRateAvgWorker",
-      "housePriceToIncome",
       "pensionReplacementRate",
       "places",
-      "rentShareOfIncome",
       "tertiaryAnnualCostShareOfGni"
     ],
     "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2024",
@@ -8900,6 +9398,16 @@
         "source": "UN World Marriage Data 2019",
         "url": "https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/undesa_pd_2019_wmd_marital_status.xlsx",
         "year": "2014"
+      },
+      "housing_share_of_consumption": {
+        "source": "World Bank ICP 2021",
+        "url": "https://api.worldbank.org/v2/sources/90/country/DOM/series/9060000?format=json&per_page=200",
+        "year": "2021"
+      },
+      "house_price_to_income": {
+        "source": "Numbeo Property Prices Index by Country",
+        "url": "https://www.numbeo.com/property-investment/rankings_by_country.jsp",
+        "year": "2026"
       }
     }
   },
@@ -8966,7 +9474,7 @@
     "pensionReplacementRate": 0.39,
     "outOfPocketHealthShare": 0.28,
     "effectiveTaxRateAvgWorker": 0.12,
-    "rentShareOfIncome": 0.3,
+    "rentShareOfIncome": 0.180998002662,
     "housePriceToIncome": 15.0,
     "disasterRisk": 0.3,
     "remittanceShareGdp": 0.003,
@@ -8975,7 +9483,6 @@
       "housePriceToIncome",
       "pensionReplacementRate",
       "places",
-      "rentShareOfIncome",
       "tertiaryAnnualCostShareOfGni"
     ],
     "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2011; 中等教育は前期中等修了率で代替",
@@ -8999,6 +9506,11 @@
         "source": "UN World Marriage Data 2019",
         "url": "https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/undesa_pd_2019_wmd_marital_status.xlsx",
         "year": "2015"
+      },
+      "housing_share_of_consumption": {
+        "source": "World Bank ICP 2021",
+        "url": "https://api.worldbank.org/v2/sources/90/country/COG/series/9060000?format=json&per_page=200",
+        "year": "2021"
       }
     }
   },
@@ -9065,15 +9577,13 @@
     "pensionReplacementRate": 0.428,
     "outOfPocketHealthShare": 0.205,
     "effectiveTaxRateAvgWorker": 0.21432677,
-    "rentShareOfIncome": 0.275,
-    "housePriceToIncome": 10.5,
+    "rentShareOfIncome": 0.202968822725,
+    "housePriceToIncome": 11.1,
     "disasterRisk": 0.3,
     "remittanceShareGdp": 0.0018,
     "estimated": [
-      "housePriceToIncome",
       "informalEmploymentShare",
       "places",
-      "rentShareOfIncome",
       "tertiaryAnnualCostShareOfGni"
     ],
     "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2022",
@@ -9107,6 +9617,16 @@
         "source": "OECD Taxing Wages 2026 database",
         "url": "https://sdmx.oecd.org/public/rest/data/OECD.CTP.TPS,DSD_TAX_WAGES_COMP@DF_TW_COMP,/.AV_ITR+AV_R_EMPEE_SSC.PT_WG_EARN_G.S_C0.AW100._Z.A?startPeriod=2025&endPeriod=2025&dimensionAtObservation=AllDimensions",
         "year": "2025"
+      },
+      "housing_share_of_consumption": {
+        "source": "World Bank ICP 2021",
+        "url": "https://api.worldbank.org/v2/sources/90/country/ISR/series/9060000?format=json&per_page=200",
+        "year": "2021"
+      },
+      "house_price_to_income": {
+        "source": "Numbeo Property Prices Index by Country",
+        "url": "https://www.numbeo.com/property-investment/rankings_by_country.jsp",
+        "year": "2026"
       }
     }
   },
@@ -9173,14 +9693,12 @@
     "pensionReplacementRate": 0.497,
     "outOfPocketHealthShare": 0.346,
     "effectiveTaxRateAvgWorker": 0.07111488,
-    "rentShareOfIncome": 0.275,
-    "housePriceToIncome": 10.5,
+    "rentShareOfIncome": 0.135776920276,
+    "housePriceToIncome": 15.6,
     "disasterRisk": 0.5,
     "remittanceShareGdp": 0.0003,
     "estimated": [
-      "housePriceToIncome",
       "places",
-      "rentShareOfIncome",
       "tertiaryAnnualCostShareOfGni"
     ],
     "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2024; 高等教育総就学率110%を1.0に丸め",
@@ -9219,6 +9737,16 @@
         "source": "OECD Taxing Wages 2026 database",
         "url": "https://sdmx.oecd.org/public/rest/data/OECD.CTP.TPS,DSD_TAX_WAGES_COMP@DF_TW_COMP,/.AV_ITR+AV_R_EMPEE_SSC.PT_WG_EARN_G.S_C0.AW100._Z.A?startPeriod=2025&endPeriod=2025&dimensionAtObservation=AllDimensions",
         "year": "2025"
+      },
+      "housing_share_of_consumption": {
+        "source": "World Bank ICP 2021",
+        "url": "https://api.worldbank.org/v2/sources/90/country/CHL/series/9060000?format=json&per_page=200",
+        "year": "2021"
+      },
+      "house_price_to_income": {
+        "source": "Numbeo Property Prices Index by Country",
+        "url": "https://www.numbeo.com/property-investment/rankings_by_country.jsp",
+        "year": "2026"
       }
     }
   }

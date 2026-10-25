@@ -108,3 +108,12 @@
 | ipvPast12mWomen | WHO VAW 推計ポータル https://vaw-data.srhr.org/ （15〜49歳・過去1年・身体的または性的） | 23/35 | ポータルの最新推定（2023年版に更新済み）の値。YEM, RUS, IRN, IRQ, UZB, DZA, SOM, SAU, SYR, MYS, PRK, COG は未掲載のため推定のまま |
 | inflationRecent | IMF World Economic Outlook October 2026（Excel一括） | 5/7 | 各国の最新年の値。SYR・PRKは未掲載 |
 | homicidePer100k | UNODC Data Portal（2026年7月配布Excel） | 0/10 | 対象10か国は総数の率が未掲載のため推定のまま |
+
+### 第3部（Manus調査、2026年10月）：住まい
+
+元データ：data/world/manual/jinsei_receipt_part3.csv。依頼文は manual/prompts/part3_prompt.md（(3)〜(6)は未着手のため未反映）。
+
+| データ | 出典 | 反映した国の数 | 備考 |
+|---|---|---|---|
+| rentShareOfIncome | World Bank ICP 2021「Housing, water, electricity, gas and other fuels」の支出割合（World Bank API series 9060000） | 79/88 | 分母は AIC（実質個人消費＝政府が個人に提供するサービスを含む）で、家計消費支出だけの割合より少し小さい。ゲームでは日本との比（0.5〜2倍に制限）で家賃の重さを決めるので、全国同じ定義でそろっていることを優先。AFG, YEM, RUS, IRN, MMR, VEN, PRK, HTI, PNG は未掲載で推定のまま |
+| housePriceToIncome | Numbeo「Property Prices Index by Country」Price To Income Ratio（2026年の最新掲載） | 53/88 | 二次情報（利用者の投稿にもとづく民間サイト。都市部の物件に偏りやすい）。NGA 116.3・LKA 55.4・GHA 49.0・CMR 46.0 など極端な値があるが、ゲームでは日本との比を0.5〜3倍に制限し、さらに住宅ローンは世帯年収の7倍までに抑えている |
