@@ -8,6 +8,8 @@ import csv, json, pathlib, re
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 countries = json.loads((ROOT / "countries.json").read_text(encoding="utf-8"))
 risks = json.loads((ROOT / "risks.json").read_text(encoding="utf-8"))
+# 結婚のしかた（build/build_marriage.py が地域の目安で作る。先にそちらを実行してから、ここで調査済みの値に置き換える）
+marriage = json.loads((ROOT / "marriage.json").read_text(encoding="utf-8"))
 by_iso = {c["iso3"]: c for c in countries}
 
 rows = []
@@ -65,6 +67,13 @@ for r in rows:
         skipped_old.append(f"{iso} {field} {r['year']}")
         continue
     c, k = by_iso.get(iso), risks.get(iso)
+    if field == "marriage_payment_amount":
+        # 婚資・持参金のふつうの額（現地通貨）。物価で最新の年に直し、1人あたり国民所得の何年分かにする
+        y4 = r["year"].strip()[:4]
+        f = cpi_factor(iso, int(y4), 2025) if y4.isdigit() else None
+        if c is None or f is None or not c.get("gniPerCapitaLCU"):
+            continue
+        field, v = "marriage_payment_years", round(v * f / c["gniPerCapitaLCU"], 2)
     if c is None:
         continue
     src = {"source": r["source_name"], "url": r["source_url"], "year": r["year"]}
@@ -126,6 +135,22 @@ for r in rows:
         if y4.isdigit():
             t.setdefault("years", {})[field] = int(y4)
         t.setdefault("sources", []).append(r["source_url"])
+        continue
+    elif field in ("arranged_marriage_share", "betrothal_share", "marriage_payment_years") and iso in marriage:
+        # 結婚のしかた。婚資・持参金の種類は note の先頭に type=dowry|brideprice|mahr|none
+        m = marriage[iso]
+        if field == "arranged_marriage_share" and "本人が選んだ割合" in r["note"]:
+            v = round(1 - v, 4)
+        key = {"arranged_marriage_share": "arranged", "betrothal_share": "betrothal", "marriage_payment_years": "paymentYears"}[field]
+        m[key] = v
+        m["estimated"] = [e for e in m.get("estimated", []) if e != key]
+        if field == "marriage_payment_years":
+            mt = re.match(r"\s*type\s*=\s*(dowry|brideprice|mahr|none)", r["note"])
+            if mt:
+                m["payment"] = mt.group(1)
+                m["estimated"] = [e for e in m["estimated"] if e != "payment"]
+        m.setdefault("sources", {})[field] = {"source": r["source_name"], "url": r["source_url"], "year": r["year"]}
+        applied[field] = applied.get(field, 0) + 1
         continue
     elif field == "inflation_recent" and k is not None:
         y = int(r["year"])
@@ -240,6 +265,7 @@ for iso, (y, v) in latest_infl.items():
 
 (ROOT / "countries.json").write_text(json.dumps(countries, ensure_ascii=False, indent=2), encoding="utf-8")
 (ROOT / "risks.json").write_text(json.dumps(risks, ensure_ascii=False, indent=2), encoding="utf-8")
+(ROOT / "marriage.json").write_text(json.dumps(marriage, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
 print("反映した数（国の数。初婚年齢は男女で2）:", applied)
 print("都市の人口割合で places を組み直した国:", len(rebuilt), " ".join(rebuilt))
 if tax_computed:

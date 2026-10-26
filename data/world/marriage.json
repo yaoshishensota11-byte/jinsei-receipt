@@ -1,0 +1,1146 @@
+{
+ "IND": {
+  "arranged": 0.8,
+  "betrothal": 0.08,
+  "payment": "dowry",
+  "paymentYears": 1.5,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "south_asia_dowry"
+ },
+ "CHN": {
+  "arranged": 0.1,
+  "betrothal": 0.0,
+  "payment": "brideprice",
+  "paymentYears": 1.0,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "china"
+ },
+ "NGA": {
+  "arranged": 0.35,
+  "betrothal": 0.05,
+  "payment": "brideprice",
+  "paymentYears": 0.6,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "ssa"
+ },
+ "PAK": {
+  "arranged": 0.8,
+  "betrothal": 0.08,
+  "payment": "dowry",
+  "paymentYears": 1.5,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "south_asia_dowry"
+ },
+ "IDN": {
+  "arranged": 0.15,
+  "betrothal": 0.02,
+  "payment": "mahr",
+  "paymentYears": 0.2,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "se_asia_mahr"
+ },
+ "COD": {
+  "arranged": 0.35,
+  "betrothal": 0.05,
+  "payment": "brideprice",
+  "paymentYears": 0.6,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "ssa"
+ },
+ "ETH": {
+  "arranged": 0.35,
+  "betrothal": 0.05,
+  "payment": "brideprice",
+  "paymentYears": 0.6,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "ssa"
+ },
+ "USA": {
+  "arranged": 0.02,
+  "betrothal": 0.0,
+  "payment": "none",
+  "paymentYears": 0.0,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "west"
+ },
+ "BGD": {
+  "arranged": 0.8,
+  "betrothal": 0.08,
+  "payment": "dowry",
+  "paymentYears": 1.5,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "south_asia_dowry"
+ },
+ "BRA": {
+  "arranged": 0.02,
+  "betrothal": 0.0,
+  "payment": "none",
+  "paymentYears": 0.0,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "latam"
+ },
+ "EGY": {
+  "arranged": 0.5,
+  "betrothal": 0.05,
+  "payment": "mahr",
+  "paymentYears": 1.0,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "mena"
+ },
+ "TZA": {
+  "arranged": 0.35,
+  "betrothal": 0.05,
+  "payment": "brideprice",
+  "paymentYears": 0.6,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "ssa"
+ },
+ "MEX": {
+  "arranged": 0.02,
+  "betrothal": 0.0,
+  "payment": "none",
+  "paymentYears": 0.0,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "latam"
+ },
+ "PHL": {
+  "arranged": 0.05,
+  "betrothal": 0.0,
+  "payment": "none",
+  "paymentYears": 0.0,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "se_asia"
+ },
+ "UGA": {
+  "arranged": 0.35,
+  "betrothal": 0.05,
+  "payment": "brideprice",
+  "paymentYears": 0.6,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "ssa"
+ },
+ "SDN": {
+  "arranged": 0.7,
+  "betrothal": 0.25,
+  "payment": "brideprice",
+  "paymentYears": 0.8,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "sahel"
+ },
+ "KEN": {
+  "arranged": 0.35,
+  "betrothal": 0.05,
+  "payment": "brideprice",
+  "paymentYears": 0.6,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "ssa"
+ },
+ "AFG": {
+  "arranged": 0.9,
+  "betrothal": 0.3,
+  "payment": "brideprice",
+  "paymentYears": 2.0,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "afg"
+ },
+ "VNM": {
+  "arranged": 0.05,
+  "betrothal": 0.0,
+  "payment": "none",
+  "paymentYears": 0.0,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "se_asia"
+ },
+ "YEM": {
+  "arranged": 0.75,
+  "betrothal": 0.15,
+  "payment": "mahr",
+  "paymentYears": 1.5,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "gulf_yemen"
+ },
+ "AGO": {
+  "arranged": 0.35,
+  "betrothal": 0.05,
+  "payment": "brideprice",
+  "paymentYears": 0.6,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "ssa"
+ },
+ "MOZ": {
+  "arranged": 0.35,
+  "betrothal": 0.05,
+  "payment": "brideprice",
+  "paymentYears": 0.6,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "ssa"
+ },
+ "RUS": {
+  "arranged": 0.02,
+  "betrothal": 0.0,
+  "payment": "none",
+  "paymentYears": 0.0,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "west"
+ },
+ "ZAF": {
+  "arranged": 0.05,
+  "betrothal": 0.05,
+  "payment": "brideprice",
+  "paymentYears": 0.6,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "ssa"
+ },
+ "IRN": {
+  "arranged": 0.5,
+  "betrothal": 0.05,
+  "payment": "mahr",
+  "paymentYears": 1.0,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "mena"
+ },
+ "IRQ": {
+  "arranged": 0.5,
+  "betrothal": 0.05,
+  "payment": "mahr",
+  "paymentYears": 1.0,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "mena"
+ },
+ "NER": {
+  "arranged": 0.7,
+  "betrothal": 0.25,
+  "payment": "brideprice",
+  "paymentYears": 0.8,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "sahel"
+ },
+ "MDG": {
+  "arranged": 0.35,
+  "betrothal": 0.05,
+  "payment": "brideprice",
+  "paymentYears": 0.6,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "ssa"
+ },
+ "CIV": {
+  "arranged": 0.35,
+  "betrothal": 0.05,
+  "payment": "brideprice",
+  "paymentYears": 0.6,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "ssa"
+ },
+ "CMR": {
+  "arranged": 0.35,
+  "betrothal": 0.05,
+  "payment": "brideprice",
+  "paymentYears": 0.6,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "ssa"
+ },
+ "TUR": {
+  "arranged": 0.45,
+  "betrothal": 0.05,
+  "payment": "mahr",
+  "paymentYears": 1.0,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "mena"
+ },
+ "MLI": {
+  "arranged": 0.7,
+  "betrothal": 0.25,
+  "payment": "brideprice",
+  "paymentYears": 0.8,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "sahel"
+ },
+ "UZB": {
+  "arranged": 0.45,
+  "betrothal": 0.05,
+  "payment": "brideprice",
+  "paymentYears": 0.6,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "central_asia"
+ },
+ "DZA": {
+  "arranged": 0.5,
+  "betrothal": 0.05,
+  "payment": "mahr",
+  "paymentYears": 1.0,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "mena"
+ },
+ "MMR": {
+  "arranged": 0.15,
+  "betrothal": 0.02,
+  "payment": "brideprice",
+  "paymentYears": 0.4,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "se_asia_brideprice"
+ },
+ "GHA": {
+  "arranged": 0.35,
+  "betrothal": 0.05,
+  "payment": "brideprice",
+  "paymentYears": 0.6,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "ssa"
+ },
+ "TCD": {
+  "arranged": 0.7,
+  "betrothal": 0.25,
+  "payment": "brideprice",
+  "paymentYears": 0.8,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "sahel"
+ },
+ "SOM": {
+  "arranged": 0.7,
+  "betrothal": 0.25,
+  "payment": "brideprice",
+  "paymentYears": 0.8,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "sahel"
+ },
+ "JPN": {
+  "arranged": 0.06,
+  "betrothal": 0.0,
+  "payment": "none",
+  "paymentYears": 0.0,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "east_asia"
+ },
+ "BFA": {
+  "arranged": 0.7,
+  "betrothal": 0.25,
+  "payment": "brideprice",
+  "paymentYears": 0.8,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "sahel"
+ },
+ "COL": {
+  "arranged": 0.02,
+  "betrothal": 0.0,
+  "payment": "none",
+  "paymentYears": 0.0,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "latam"
+ },
+ "DEU": {
+  "arranged": 0.02,
+  "betrothal": 0.0,
+  "payment": "none",
+  "paymentYears": 0.0,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "west"
+ },
+ "GBR": {
+  "arranged": 0.02,
+  "betrothal": 0.0,
+  "payment": "none",
+  "paymentYears": 0.0,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "west"
+ },
+ "ZMB": {
+  "arranged": 0.35,
+  "betrothal": 0.05,
+  "payment": "brideprice",
+  "paymentYears": 0.6,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "ssa"
+ },
+ "FRA": {
+  "arranged": 0.02,
+  "betrothal": 0.0,
+  "payment": "none",
+  "paymentYears": 0.0,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "west"
+ },
+ "MWI": {
+  "arranged": 0.35,
+  "betrothal": 0.05,
+  "payment": "brideprice",
+  "paymentYears": 0.6,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "ssa"
+ },
+ "MAR": {
+  "arranged": 0.5,
+  "betrothal": 0.05,
+  "payment": "mahr",
+  "paymentYears": 1.0,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "mena"
+ },
+ "THA": {
+  "arranged": 0.15,
+  "betrothal": 0.02,
+  "payment": "brideprice",
+  "paymentYears": 0.4,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "se_asia_brideprice"
+ },
+ "NPL": {
+  "arranged": 0.8,
+  "betrothal": 0.08,
+  "payment": "dowry",
+  "paymentYears": 1.5,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "south_asia_dowry"
+ },
+ "SAU": {
+  "arranged": 0.75,
+  "betrothal": 0.15,
+  "payment": "mahr",
+  "paymentYears": 1.5,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "gulf_yemen"
+ },
+ "PER": {
+  "arranged": 0.02,
+  "betrothal": 0.0,
+  "payment": "none",
+  "paymentYears": 0.0,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "latam"
+ },
+ "SEN": {
+  "arranged": 0.7,
+  "betrothal": 0.25,
+  "payment": "brideprice",
+  "paymentYears": 0.8,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "sahel"
+ },
+ "SYR": {
+  "arranged": 0.5,
+  "betrothal": 0.05,
+  "payment": "mahr",
+  "paymentYears": 1.0,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "mena"
+ },
+ "ARG": {
+  "arranged": 0.02,
+  "betrothal": 0.0,
+  "payment": "none",
+  "paymentYears": 0.0,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "latam"
+ },
+ "ZWE": {
+  "arranged": 0.35,
+  "betrothal": 0.05,
+  "payment": "brideprice",
+  "paymentYears": 0.6,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "ssa"
+ },
+ "GIN": {
+  "arranged": 0.7,
+  "betrothal": 0.25,
+  "payment": "brideprice",
+  "paymentYears": 0.8,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "sahel"
+ },
+ "BEN": {
+  "arranged": 0.35,
+  "betrothal": 0.05,
+  "payment": "brideprice",
+  "paymentYears": 0.6,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "ssa"
+ },
+ "BDI": {
+  "arranged": 0.35,
+  "betrothal": 0.05,
+  "payment": "brideprice",
+  "paymentYears": 0.6,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "ssa"
+ },
+ "MYS": {
+  "arranged": 0.15,
+  "betrothal": 0.02,
+  "payment": "mahr",
+  "paymentYears": 0.2,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "se_asia_mahr"
+ },
+ "VEN": {
+  "arranged": 0.02,
+  "betrothal": 0.0,
+  "payment": "none",
+  "paymentYears": 0.0,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "latam"
+ },
+ "KAZ": {
+  "arranged": 0.15,
+  "betrothal": 0.05,
+  "payment": "brideprice",
+  "paymentYears": 0.6,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "central_asia"
+ },
+ "RWA": {
+  "arranged": 0.35,
+  "betrothal": 0.05,
+  "payment": "brideprice",
+  "paymentYears": 0.6,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "ssa"
+ },
+ "ITA": {
+  "arranged": 0.02,
+  "betrothal": 0.0,
+  "payment": "none",
+  "paymentYears": 0.0,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "west"
+ },
+ "GTM": {
+  "arranged": 0.02,
+  "betrothal": 0.0,
+  "payment": "none",
+  "paymentYears": 0.0,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "latam"
+ },
+ "KHM": {
+  "arranged": 0.15,
+  "betrothal": 0.02,
+  "payment": "brideprice",
+  "paymentYears": 0.4,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "se_asia_brideprice"
+ },
+ "CAN": {
+  "arranged": 0.02,
+  "betrothal": 0.0,
+  "payment": "none",
+  "paymentYears": 0.0,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "west"
+ },
+ "PRK": {
+  "arranged": 0.3,
+  "betrothal": 0.0,
+  "payment": "none",
+  "paymentYears": 0.0,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "east_asia"
+ },
+ "SSD": {
+  "arranged": 0.7,
+  "betrothal": 0.25,
+  "payment": "brideprice",
+  "paymentYears": 0.8,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "sahel"
+ },
+ "ESP": {
+  "arranged": 0.02,
+  "betrothal": 0.0,
+  "payment": "none",
+  "paymentYears": 0.0,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "west"
+ },
+ "AUS": {
+  "arranged": 0.02,
+  "betrothal": 0.0,
+  "payment": "none",
+  "paymentYears": 0.0,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "west"
+ },
+ "POL": {
+  "arranged": 0.02,
+  "betrothal": 0.0,
+  "payment": "none",
+  "paymentYears": 0.0,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "west"
+ },
+ "TJK": {
+  "arranged": 0.45,
+  "betrothal": 0.05,
+  "payment": "brideprice",
+  "paymentYears": 0.6,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "central_asia"
+ },
+ "ECU": {
+  "arranged": 0.02,
+  "betrothal": 0.0,
+  "payment": "none",
+  "paymentYears": 0.0,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "latam"
+ },
+ "TGO": {
+  "arranged": 0.35,
+  "betrothal": 0.05,
+  "payment": "brideprice",
+  "paymentYears": 0.6,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "ssa"
+ },
+ "BOL": {
+  "arranged": 0.02,
+  "betrothal": 0.0,
+  "payment": "none",
+  "paymentYears": 0.0,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "latam"
+ },
+ "SLE": {
+  "arranged": 0.35,
+  "betrothal": 0.05,
+  "payment": "brideprice",
+  "paymentYears": 0.6,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "ssa"
+ },
+ "HTI": {
+  "arranged": 0.02,
+  "betrothal": 0.0,
+  "payment": "none",
+  "paymentYears": 0.0,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "latam"
+ },
+ "PNG": {
+  "arranged": 0.3,
+  "betrothal": 0.05,
+  "payment": "brideprice",
+  "paymentYears": 1.0,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "png"
+ },
+ "LKA": {
+  "arranged": 0.3,
+  "betrothal": 0.08,
+  "payment": "dowry",
+  "paymentYears": 1.5,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "south_asia_dowry"
+ },
+ "CAF": {
+  "arranged": 0.7,
+  "betrothal": 0.25,
+  "payment": "brideprice",
+  "paymentYears": 0.8,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "sahel"
+ },
+ "JOR": {
+  "arranged": 0.5,
+  "betrothal": 0.05,
+  "payment": "mahr",
+  "paymentYears": 1.0,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "mena"
+ },
+ "HND": {
+  "arranged": 0.02,
+  "betrothal": 0.0,
+  "payment": "none",
+  "paymentYears": 0.0,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "latam"
+ },
+ "KOR": {
+  "arranged": 0.05,
+  "betrothal": 0.0,
+  "payment": "none",
+  "paymentYears": 0.0,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "east_asia"
+ },
+ "UKR": {
+  "arranged": 0.02,
+  "betrothal": 0.0,
+  "payment": "none",
+  "paymentYears": 0.0,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "west"
+ },
+ "DOM": {
+  "arranged": 0.02,
+  "betrothal": 0.0,
+  "payment": "none",
+  "paymentYears": 0.0,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "latam"
+ },
+ "COG": {
+  "arranged": 0.35,
+  "betrothal": 0.05,
+  "payment": "brideprice",
+  "paymentYears": 0.6,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "ssa"
+ },
+ "ISR": {
+  "arranged": 0.02,
+  "betrothal": 0.0,
+  "payment": "none",
+  "paymentYears": 0.0,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "west"
+ },
+ "CHL": {
+  "arranged": 0.02,
+  "betrothal": 0.0,
+  "payment": "none",
+  "paymentYears": 0.0,
+  "estimated": [
+   "arranged",
+   "betrothal",
+   "payment",
+   "paymentYears"
+  ],
+  "region": "latam"
+ }
+}

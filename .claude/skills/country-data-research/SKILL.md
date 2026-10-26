@@ -41,6 +41,7 @@ description: 人生のレシートの国別データで「推定値」のまま�
 4. 取り込みと検証。
    ```bash
    python3 -I data/world/build/cpi_series.py   # 物価の年ごとの表（inflation_recent を取り込んだとき）
+   python3 -I data/world/build/build_marriage.py   # 結婚のしかたの目安（地域ごと）を作り直す
    python3 -I data/world/build/apply_manual.py
    node data/world/build/validate.mjs
    node data/world/build/validate_risks.mjs
@@ -77,6 +78,9 @@ description: 人生のレシートの国別データで「推定値」のまま�
 | income_tax_bracket | 所得税の税率（1区分1行）。note に `from=下限; to=上限`（最上位は `to=` を空に）。金額は控除後の年間課税所得 | 各国の税務当局 | rate | 税の計算の材料 |
 | employee_ssc_bracket | 本人社会保険料が累進の国の月額の料率表（1区分1行、note に `from=; to=`、月額） | 各国の社会保険機関 | rate | 税の計算の材料（employee_ssc_rate より優先） |
 | income_tax_credit | 所得税額から差し引く年間の税額控除（ケニアの personal relief など） | 各国の税務当局 | 現地通貨コード | 税の計算の材料 |
+| arranged_marriage_share | 結婚のうち、家族が相手を決めた・縁談で決まった割合（本人の同意があるものを含む） | DHS・全国家族調査・学術調査 | share | marriage.json の arranged |
+| betrothal_share | 家族が決めた結婚のうち、子どものころに許嫁として決まっていた割合 | 学術調査（見つからなければ空欄） | share | marriage.json の betrothal |
+| marriage_payment_amount | 結婚のときの持参金・婚資のふつうの額。note の先頭に `type=dowry|brideprice|mahr|none` | 学術調査・政府統計 | 現地通貨コード | marriage.json の paymentYears（物価で直し、1人あたり国民所得で割る） |
 
 税の4つの材料（平均月収・保険料率・税率表、あれば基礎控除）がそろった国は、apply_manual.py が「平均賃金・単身の所得税＋本人社会保険料 ÷ 年収」を計算して countries.effectiveTaxRateAvgWorker に入れる。
 平均月収が税率表より古い国は、data/world/cpi_annual.json の物価上昇率で税率表の年の金額に直してから計算する。物価の CSV（inflation_recent）を新しく取り込んだときは、先に `python3 -I data/world/build/cpi_series.py` を実行する。

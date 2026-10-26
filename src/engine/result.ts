@@ -6,7 +6,7 @@ import { pickCountry, type Mode } from "./world";
 import { streamRng } from "./rng";
 import { EXPENSE_LABEL, type ExpenseCat, type LifeEvent } from "./types";
 
-export const CODEC_VERSION = "2";
+export const CODEC_VERSION = "3";
 
 export interface ReceiptItem {
   label: string;
@@ -41,7 +41,7 @@ export function picksOf(l: Life): number[] {
   return l.choiceLog.map((c) => c.pickIndex ?? 0);
 }
 
-// 版2：`2.<モード j|m|w>.<シード>.<選んだ番号の並び>`。国はモードとシードから決まる
+// 版3（結婚の場面を追加）：`3.<モード j|m|w>.<シード>.<選んだ番号の並び>`。国はモードとシードから決まる
 export function encodeResult(l: Life): string {
   return `${CODEC_VERSION}.${l.mode}.${l.seed}.${picksOf(l).join("")}`;
 }

@@ -5,6 +5,7 @@ import { JAPAN, type CountryData, type Region, type IncomeBand } from "./data";
 import { MICROS } from "./micro";
 import { riskYear, countryEventScene, ipvHazard } from "./risks";
 import { kidsScene, kidsAgainScene, fertilityScene, strainScene, dvScene, type Scene } from "./scenes";
+import { drawMarriageMode, loveScene, arrangedScene, betrothedScene, type MarriageMode } from "./marriage";
 import type {
   Choice,
   ChoiceId,
@@ -135,6 +136,12 @@ export class Life {
   marriageBoostUntil = -1;
   marriageBoost = 1;
   noMarry = false;
+  /** 結婚のしかた（自分で見つける／縁談／許嫁）。国の割合で生まれたときに決まる */
+  marriageMode: MarriageMode = "love";
+  /** 縁談や許嫁との結婚の話が来る年齢 */
+  arrangedAge = 25;
+  /** この年齢までは結婚の話が来ない（「まだ結婚しない」を選んだあとなど） */
+  marriageDelayUntil = -1;
   kids: { born: number; privateSchool: boolean; univ: boolean; away: boolean; decided?: boolean; loan?: boolean }[] = [];
   home: Home = "parents";
   loan = 0;
@@ -192,6 +199,11 @@ export class Life {
     ];
     this.sibs = this.makeSiblings();
     this.ipvRate = ipvHazard(this.D.iso3, this.sex);
+    const mr = this.rng("marriageMode", 0);
+    this.marriageMode = drawMarriageMode(this.D.iso3, mr);
+    // 家族が決める結婚は、その国の平均初婚年齢より少し早めに話が来る（ゲームの中では18歳以上）
+    const smam = (this.sex === "male" ? 31.1 : 29.7) - (this.D.inst?.marriageAgeShift[this.sex] ?? 0);
+    this.arrangedAge = Math.max(18, Math.round(mr.normal(smam - 1.5, 2)));
   }
 
   /** きょうだいを兄姉と弟妹に振り分ける。母の年齢（17〜44歳で出産）に収まるようにする */
@@ -415,6 +427,8 @@ export class Life {
     if (!this.made("parentCare") && this.made("careerShift") && (this.careTriggered || a >= 58))
       return buildChoice(this, "parentCare");
     if (!this.made("retire") && a >= 60 && this.made("parentCare")) return buildChoice(this, "retire");
+    // 結婚の話を待っている間に、別の形で結婚した場合は、その話は消える
+    while (this.sceneQueue.length && this.partner && ["propose", "arranged", "betrothed"].includes(this.sceneQueue[0].id)) this.sceneQueue.shift();
     const sc = this.sceneQueue[0];
     if (sc)
       return {
@@ -589,6 +603,7 @@ export class Life {
   private familyYear(r: Rng): void {
     const a = this.age;
     for (const x of this.sibs) if (x.born === a && a > 0) this.log("family", `${x.sex === "male" ? "弟" : "妹"}が生まれた。`, undefined, true);
+    if (this.marriageMode === "betrothed" && a === 10) this.log("family", "親どうしの約束で、将来結婚する相手（許嫁）が決まった。", undefined, true);
     const p = this.partner;
     if (p && p.alive) {
       p.age++;
@@ -642,11 +657,16 @@ export class Life {
         this.strained = false;
         this.dvOngoing = false;
       }
-    } else if (!this.noMarry && a >= 18 && a < 30 && this.school === "done" && !this.made("marriageHome")) {
-      // 30歳の選択より前に自然に結婚することもある
-      if (r.chance(this.marriageHazard(a) * 0.9)) this.marry(r, "結婚した。");
-    } else if (!this.noMarry && a >= 30 && a < 60 && !this.partner) {
-      if (r.chance(this.marriageHazard(a) * (a < this.marriageBoostUntil ? this.marriageBoost : 1))) this.marry(r, "結婚した。");
+    } else if (!this.noMarry && !this.partner && a >= 18 && a < 60 && a >= this.marriageDelayUntil) {
+      // 結婚の話は、国の結婚のしかたに合わせて来る。結婚するかどうかは選択の場面で決める
+      if (this.marriageMode === "betrothed" && a >= this.arrangedAge) this.queueScene(betrothedScene(this));
+      else if (this.marriageMode === "arranged" && a >= this.arrangedAge && a < 45 && r.chance(0.5)) this.queueScene(arrangedScene(this));
+      else if (a < 30 && this.school === "done" && !this.made("marriageHome")) {
+        // 30歳の選択より前に、自分で見つけた相手と結婚の話になることもある
+        if (r.chance(this.marriageHazard(a) * (this.marriageMode === "love" ? 1.15 : 0.3))) this.queueScene(loveScene(this));
+      } else if (a >= 30 && r.chance(this.marriageHazard(a) * (a < this.marriageBoostUntil ? this.marriageBoost : 1))) {
+        this.queueScene(loveScene(this));
+      }
     }
     // 子どもの節目
     for (const k of this.kids) {
@@ -678,7 +698,8 @@ export class Life {
     return base * stab;
   }
 
-  marry(r: Rng, text: string): void {
+  /** ceremony を省くと、式を挙げるかは半々で決まる */
+  marry(r: Rng, text: string, ceremony?: boolean): void {
     const other: Sex = this.sex === "male" ? "female" : "male";
     const pAge = Math.max(18, Math.round(this.age + r.normal(this.sex === "male" ? -1.8 : 1.8, 2.5)));
     const work: Partner["work"] =
@@ -689,7 +710,7 @@ export class Life {
     this.kidsPlan = "undecided";
     this.log("family", `${text}（相手は${pAge}歳）`, undefined, true);
     this.queueScene(kidsScene(this));
-    if (r.chance(0.5)) {
+    if (ceremony ?? r.chance(0.5)) {
       const net = this.D.living.weddingCost * 0.45;
       this.spend("events", net);
       this.log("money", "結婚式を挙げた。ご祝儀で半分ほど戻った。", -net);
@@ -1873,13 +1894,21 @@ export function replay(seed: string, picks: string[], country: CountryData = JAP
 }
 
 /** 選択をランダムに（決定的に）行う自動プレイ。同い年の比較用 */
+const AUTO_WEIGHTS: Record<string, number[]> = {
+  "ev:propose": [0.5, 0.35, 0.12, 0.03],
+  "ev:arranged": [0.7, 0.22, 0.08],
+  "ev:betrothed": [0.92, 0.08],
+};
+
 export function autoplay(seed: string, country: CountryData = JAPAN, mode = "j"): Life {
   const l = new Life(seed, country, mode);
   let guard = 0;
   while (!l.dead && guard++ < 500) {
     if (l.pending) {
       const r = new Rng(hashStr(`${seed}|auto|${l.pending.id}|${l.age}`));
-      l.choose(r.pick(l.pending.options).id);
+      // 結婚の場面は、比べる集団の結婚の割合が現実に近くなるよう、結婚する側を選びやすくする
+      const w = AUTO_WEIGHTS[l.pending.id];
+      l.choose((w ? r.weighted(l.pending.options, w) : r.pick(l.pending.options)).id);
       continue;
     }
     l.advance();
