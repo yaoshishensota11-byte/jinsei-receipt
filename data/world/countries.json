@@ -79,13 +79,12 @@
     "pensionCoverage": 0.459,
     "pensionReplacementRate": 0.392,
     "outOfPocketHealthShare": 0.439,
-    "effectiveTaxRateAvgWorker": 0.12,
+    "effectiveTaxRateAvgWorker": 0.1275,
     "rentShareOfIncome": 0.125583351482,
     "housePriceToIncome": 11.1,
     "disasterRisk": 0.75,
     "remittanceShareGdp": 0.0366,
     "estimated": [
-      "effectiveTaxRateAvgWorker",
       "tertiaryAnnualCostShareOfGni",
       "places.incomeIndex"
     ],
@@ -130,6 +129,11 @@
         "source": "UN WUP 2018 / WPP 2024",
         "url": "https://population.un.org/wup/Download/Files/WUP2018-F22-Cities_Over_300K_Annual.xls; https://population.un.org/wpp/",
         "year": "2025"
+      },
+      "tax_rate_avg_worker": {
+        "source": "計算値（平均月収・税率表・本人負担社会保険料率から）",
+        "url": "https://ilostat.ilo.org/data/country-profiles/ind/",
+        "year": ""
       }
     },
     "cityPopulationShare": {
@@ -355,14 +359,13 @@
     "pensionCoverage": 0.196,
     "pensionReplacementRate": 0.35,
     "outOfPocketHealthShare": 0.719,
-    "effectiveTaxRateAvgWorker": 0.12,
+    "effectiveTaxRateAvgWorker": 0.0993,
     "rentShareOfIncome": 0.0811187328752,
     "housePriceToIncome": 116.3,
     "disasterRisk": 0.45,
     "remittanceShareGdp": 0.0877,
     "estimated": [
       "consumptionPerCapitaLCU",
-      "effectiveTaxRateAvgWorker",
       "pensionReplacementRate",
       "secondaryNetEnrollment",
       "tertiaryAnnualCostShareOfGni",
@@ -409,6 +412,11 @@
         "source": "World Bank WDI (UIS API)",
         "url": "https://api.worldbank.org/v2/country/NGA/indicator/SE.TER.ENRR?date=2011&format=json",
         "year": "2011"
+      },
+      "tax_rate_avg_worker": {
+        "source": "計算値（平均月収・税率表・本人負担社会保険料率から）",
+        "url": "https://ilostat.ilo.org/data/country-profiles/nga/",
+        "year": "2026"
       }
     },
     "cityPopulationShare": {
@@ -493,13 +501,12 @@
     "pensionCoverage": 0.174,
     "pensionReplacementRate": 0.411,
     "outOfPocketHealthShare": 0.529,
-    "effectiveTaxRateAvgWorker": 0.03,
+    "effectiveTaxRateAvgWorker": 0.01,
     "rentShareOfIncome": 0.216529314752,
     "housePriceToIncome": 20.0,
     "disasterRisk": 0.6,
     "remittanceShareGdp": 0.0939,
     "estimated": [
-      "effectiveTaxRateAvgWorker",
       "tertiaryAnnualCostShareOfGni",
       "places.incomeIndex"
     ],
@@ -549,6 +556,11 @@
         "source": "OECD, Pensions at a Glance Asia/Pacific 2024",
         "url": "https://www.oecd.org/en/publications/pensions-at-a-glance-asia-pacific-2024_d4146d12-en/full-report/gross-pension-replacement-rates_4d96e8e7.html",
         "year": "2022"
+      },
+      "tax_rate_avg_worker": {
+        "source": "計算値（平均月収・税率表・本人負担社会保険料率から）",
+        "url": "https://www.pbs.gov.pk/wp-content/uploads/2020/07/LFS-2024-25-Annual-Report.pdf",
+        "year": "2025"
       }
     },
     "cityPopulationShare": {
@@ -633,13 +645,12 @@
     "pensionCoverage": 0.312,
     "pensionReplacementRate": 0.534,
     "outOfPocketHealthShare": 0.311,
-    "effectiveTaxRateAvgWorker": 0.06,
+    "effectiveTaxRateAvgWorker": 0.04,
     "rentShareOfIncome": 0.105012275258,
     "housePriceToIncome": 27.0,
     "disasterRisk": 0.8,
     "remittanceShareGdp": 0.0115,
     "estimated": [
-      "effectiveTaxRateAvgWorker",
       "tertiaryAnnualCostShareOfGni",
       "places.incomeIndex"
     ],
@@ -688,6 +699,11 @@
       "city_population_share": {
         "source": "UN WUP 2018 / WPP 2024",
         "url": "https://population.un.org/wup/Download/Files/WUP2018-F22-Cities_Over_300K_Annual.xls; https://population.un.org/wpp/",
+        "year": "2025"
+      },
+      "tax_rate_avg_worker": {
+        "source": "計算値（平均月収・税率表・本人負担社会保険料率から）",
+        "url": "https://rplumber.ilo.org/data/indicator/?id=EAR_EMTA_SEX_CUR_NB&ref_area=IDN",
         "year": "2025"
       }
     },
@@ -1195,13 +1211,12 @@
     "pensionCoverage": 0.569,
     "pensionReplacementRate": 0.2,
     "outOfPocketHealthShare": 0.793,
-    "effectiveTaxRateAvgWorker": 0.02,
+    "effectiveTaxRateAvgWorker": 0.0,
     "rentShareOfIncome": 0.16440843348,
     "housePriceToIncome": 16.3,
     "disasterRisk": 0.7,
     "remittanceShareGdp": 0.0611,
     "estimated": [
-      "effectiveTaxRateAvgWorker",
       "pensionReplacementRate",
       "tertiaryAnnualCostShareOfGni",
       "places.incomeIndex"
@@ -1241,6 +1256,11 @@
       "city_population_share": {
         "source": "UN WUP 2018 / WPP 2024",
         "url": "https://population.un.org/wup/Download/Files/WUP2018-F22-Cities_Over_300K_Annual.xls; https://population.un.org/wpp/",
+        "year": "2025"
+      },
+      "tax_rate_avg_worker": {
+        "source": "計算値（平均月収・税率表・本人負担社会保険料率から）",
+        "url": "https://rplumber.ilo.org/data/indicator/?id=EAR_EMTA_SEX_CUR_NB_A&lang=en&type=label&format=json",
         "year": "2025"
       }
     },
@@ -1460,13 +1480,12 @@
     "pensionCoverage": 0.585,
     "pensionReplacementRate": 0.55,
     "outOfPocketHealthShare": 0.572,
-    "effectiveTaxRateAvgWorker": 0.15,
+    "effectiveTaxRateAvgWorker": 0.11,
     "rentShareOfIncome": 0.128110508431,
     "housePriceToIncome": 18.3,
     "disasterRisk": 0.25,
     "remittanceShareGdp": 0.076,
     "estimated": [
-      "effectiveTaxRateAvgWorker",
       "pensionReplacementRate",
       "tertiaryAnnualCostShareOfGni",
       "places.incomeIndex"
@@ -1507,6 +1526,11 @@
         "source": "UN WUP 2018 / WPP 2024",
         "url": "https://population.un.org/wup/Download/Files/WUP2018-F22-Cities_Over_300K_Annual.xls; https://population.un.org/wpp/",
         "year": "2025"
+      },
+      "tax_rate_avg_worker": {
+        "source": "計算値（平均月収・税率表・本人負担社会保険料率から）",
+        "url": "https://ilostat.ilo.org/data/country-profiles/egy/",
+        "year": "2026"
       }
     },
     "cityPopulationShare": {
@@ -1833,13 +1857,12 @@
     "pensionCoverage": 0.656,
     "pensionReplacementRate": 0.724,
     "outOfPocketHealthShare": 0.444,
-    "effectiveTaxRateAvgWorker": 0.12,
+    "effectiveTaxRateAvgWorker": 0.0999,
     "rentShareOfIncome": 0.119813098576,
     "housePriceToIncome": 34.5,
     "disasterRisk": 0.95,
     "remittanceShareGdp": 0.0872,
     "estimated": [
-      "effectiveTaxRateAvgWorker",
       "informalEmploymentShare",
       "tertiaryAnnualCostShareOfGni",
       "places.incomeIndex"
@@ -1880,6 +1903,11 @@
         "source": "OECD, Pensions at a Glance Asia/Pacific 2024",
         "url": "https://www.oecd.org/en/publications/pensions-at-a-glance-asia-pacific-2024_d4146d12-en/full-report/gross-pension-replacement-rates_4d96e8e7.html",
         "year": "2022"
+      },
+      "tax_rate_avg_worker": {
+        "source": "計算値（平均月収・税率表・本人負担社会保険料率から）",
+        "url": "https://psa.gov.ph/statistics/occupational-wages-survey/node/1684081185",
+        "year": "2025"
       }
     },
     "cityPopulationShare": {
@@ -2418,13 +2446,12 @@
     "pensionCoverage": 0.409,
     "pensionReplacementRate": 0.587,
     "outOfPocketHealthShare": 0.392,
-    "effectiveTaxRateAvgWorker": 0.12,
+    "effectiveTaxRateAvgWorker": 0.1,
     "rentShareOfIncome": 0.120771124457,
     "housePriceToIncome": 32.7,
     "disasterRisk": 0.6,
     "remittanceShareGdp": 0.061,
     "estimated": [
-      "effectiveTaxRateAvgWorker",
       "remittanceShareGdp",
       "tertiaryAnnualCostShareOfGni",
       "places.incomeIndex"
@@ -2470,6 +2497,11 @@
         "source": "OECD, Pensions at a Glance Asia/Pacific 2024",
         "url": "https://www.oecd.org/en/publications/pensions-at-a-glance-asia-pacific-2024_d4146d12-en/full-report/gross-pension-replacement-rates_4d96e8e7.html",
         "year": "2022"
+      },
+      "tax_rate_avg_worker": {
+        "source": "計算値（平均月収・税率表・本人負担社会保険料率から）",
+        "url": "https://ilostat.ilo.org/data/country-profiles/vnm/",
+        "year": "2026"
       }
     },
     "cityPopulationShare": {

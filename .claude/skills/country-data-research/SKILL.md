@@ -74,7 +74,11 @@ description: 人生のレシートの国別データで「推定値」のまま�
 | employee_ssc_rate | 本人負担の社会保険料率の合計（年金・医療・失業など） | ISSA / 米国社会保障庁「Social Security Programs Throughout the World」、各国の社会保険機関 | share | 税の計算の材料 |
 | income_tax_allowance | 所得税がかからない年間の基礎控除・非課税枠（単身・子なし） | 各国の税務当局 | 現地通貨コード | 税の計算の材料 |
 | income_tax_bracket | 所得税の税率（1区分1行）。note に `from=下限; to=上限`（最上位は `to=` を空に）。金額は控除後の年間課税所得 | 各国の税務当局 | rate | 税の計算の材料 |
+| employee_ssc_bracket | 本人社会保険料が累進の国の月額の料率表（1区分1行、note に `from=; to=`、月額） | 各国の社会保険機関 | rate | 税の計算の材料（employee_ssc_rate より優先） |
+| income_tax_credit | 所得税額から差し引く年間の税額控除（ケニアの personal relief など） | 各国の税務当局 | 現地通貨コード | 税の計算の材料 |
 
 税の4つの材料（平均月収・保険料率・税率表、あれば基礎控除）がそろった国は、apply_manual.py が「平均賃金・単身の所得税＋本人社会保険料 ÷ 年収」を計算して countries.effectiveTaxRateAvgWorker に入れる。
+計算しない条件（推定値を残す）：平均月収が税率表より4年以上古い（物価上昇で負担が軽く出る）、保険料率の note に「実効率ではない」とある、材料が欠けている。
+基礎控除が「0%区分の上限」と同じ額なら、税率表がすでに控除を含むので二重に引かない。
 
 CSV の列は必ず `iso3,country_en,field,value,unit,year,source_name,source_url,note`（1行に1つの数値）。値が見つからない行は value を空欄にし、note に理由を書いてもらう。空欄の行は取り込まず、推定値を残す。

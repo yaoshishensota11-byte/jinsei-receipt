@@ -77,7 +77,7 @@ for r in rows:
         c["consumptionPerCapitaLCU"] = v; drop_est(c, "consumptionPerCapitaLCU")
     elif field == "remittance_share_gdp":
         c["remittanceShareGdp"] = v; drop_est(c, "remittanceShareGdp")
-    elif field in ("avg_monthly_earnings", "employee_ssc_rate", "income_tax_allowance", "income_tax_bracket"):
+    elif field in ("avg_monthly_earnings", "employee_ssc_rate", "income_tax_allowance", "income_tax_bracket", "employee_ssc_bracket", "income_tax_credit"):
         # 税・社会保険料の「材料」。国ごとに集めておき、あとでまとめて実効税率を計算する
         t = tax_parts.setdefault(iso, {"brackets": []})
         if field == "income_tax_bracket":
@@ -85,8 +85,17 @@ for r in rows:
             lo = float(meta.get("from", "0").replace(",", "") or 0)
             hi = meta.get("to", "").replace(",", "")
             t["brackets"].append((lo, float(hi) if hi else float("inf"), v))
+        elif field == "employee_ssc_bracket":
+            meta = dict(x.split("=", 1) for x in [y.strip() for y in r["note"].split(";")] if "=" in x)
+            lo = float(meta.get("from", "0").replace(",", "") or 0)
+            hi = meta.get("to", "").replace(",", "")
+            t.setdefault("ssc_brackets", []).append((lo, float(hi) if hi else float("inf"), v))
         else:
             t[field] = v
+            t[field + "_note"] = r["note"]
+        y4 = r["year"].strip()[:4]
+        if y4.isdigit():
+            t.setdefault("years", {})[field] = int(y4)
         t.setdefault("sources", []).append(r["source_url"])
         continue
     elif field == "inflation_recent" and k is not None:
@@ -101,21 +110,50 @@ for r in rows:
 
 # 税・社会保険料の材料がそろった国は、平均賃金・単身の実効負担率を計算する
 #   年収 = 平均月収 × 12、課税所得 = 年収 − 基礎控除、所得税 = 税率表で累進計算、社会保険料 = 年収 × 本人負担率
-tax_computed = []
+tax_computed, tax_skipped = [], []
 for iso, t in tax_parts.items():
     c = by_iso.get(iso)
-    if c is None or "avg_monthly_earnings" not in t or "employee_ssc_rate" not in t or not t["brackets"]:
+    if c is None or "avg_monthly_earnings" not in t or ("employee_ssc_rate" not in t and "ssc_brackets" not in t) or not t["brackets"]:
+        tax_skipped.append(f"{iso}: 材料不足")
         continue
-    annual = t["avg_monthly_earnings"] * 12
-    taxable = max(0.0, annual - t.get("income_tax_allowance", 0.0))
-    tax = 0.0
+    # 保険料率が累進表の最高率など「実効率ではない」と書かれている場合は計算しない
+    if "ssc_brackets" not in t and "実効率ではない" in t.get("employee_ssc_rate_note", ""):
+        tax_skipped.append(f"{iso}: 社会保険料率が実効率ではない")
+        continue
+    # 平均月収の年が税率表より4年以上古いと、物価の上昇で負担が実際より軽く出るので計算しない
+    ys = t.get("years", {})
+    ey, by = ys.get("avg_monthly_earnings"), ys.get("income_tax_bracket")
+    if ey and by and by - ey > 3:
+        tax_skipped.append(f"{iso}: 平均月収が古い（{ey}年、税率表は{by}年）")
+        continue
+    # 区分の境目が「400001から」のように1ずれている表は、前の区分の上限につなげる
+    brackets, prev_hi = [], 0.0
     for lo, hi, rate in sorted(t["brackets"]):
+        if 0 < lo - prev_hi <= 1:
+            lo = prev_hi
+        brackets.append((lo, hi, rate)); prev_hi = hi
+    # 基礎控除が「0%区分の上限」と同じ額なら、税率表がすでに控除を含んでいるので二重に引かない
+    allowance = t.get("income_tax_allowance", 0.0)
+    if any(rate == 0 and lo <= 1 and abs(hi - allowance) <= 1 for lo, hi, rate in brackets):
+        allowance = 0.0
+    annual = t["avg_monthly_earnings"] * 12
+    taxable = max(0.0, annual - allowance)
+    tax = 0.0
+    for lo, hi, rate in brackets:
         if taxable > lo:
             tax += (min(taxable, hi) - lo) * rate
-    share = round((tax + annual * t["employee_ssc_rate"]) / annual, 4)
+    # 税額控除（ケニアの personal relief など）は計算した税額から引く
+    tax = max(0.0, tax - t.get("income_tax_credit", 0.0))
+    # 保険料が累進の国（ブラジルの INSS など）は、月収に月額の料率表を当てはめる
+    if "ssc_brackets" in t:
+        m = t["avg_monthly_earnings"]
+        ssc = sum((min(m, hi) - lo) * rate for lo, hi, rate in sorted(t["ssc_brackets"]) if m > lo) * 12
+    else:
+        ssc = annual * t["employee_ssc_rate"]
+    share = round((tax + ssc) / annual, 4)
     c["effectiveTaxRateAvgWorker"] = share
     drop_est(c, "effectiveTaxRateAvgWorker")
-    c.setdefault("sources", {})["tax_rate_avg_worker"] = {"source": "計算値（平均月収・税率表・本人負担社会保険料率から）", "url": t["sources"][0], "year": ""}
+    c.setdefault("sources", {})["tax_rate_avg_worker"] = {"source": "計算値（平均月収・税率表・本人負担社会保険料率から）", "url": t["sources"][0], "year": str(by or "")}
     tax_computed.append(f"{iso}:{share}")
     applied["tax_rate_avg_worker(計算)"] = applied.get("tax_rate_avg_worker(計算)", 0) + 1
 
@@ -167,5 +205,7 @@ print("反映した数（国の数。初婚年齢は男女で2）:", applied)
 print("都市の人口割合で places を組み直した国:", len(rebuilt), " ".join(rebuilt))
 if tax_computed:
     print("税・社会保険料を計算した国:", " ".join(tax_computed))
+if tax_skipped:
+    print("税・社会保険料を計算しなかった国:", ", ".join(tax_skipped))
 if skipped_old:
     print("古すぎるため取り込まなかった値:", ", ".join(skipped_old))
