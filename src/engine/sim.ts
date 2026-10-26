@@ -5,7 +5,7 @@ import { JAPAN, type CountryData, type Region, type IncomeBand } from "./data";
 import { MICROS } from "./micro";
 import { riskYear, countryEventScene, ipvHazard } from "./risks";
 import { kidsScene, kidsAgainScene, fertilityScene, strainScene, dvScene, type Scene } from "./scenes";
-import { drawMarriageMode, loveScene, arrangedScene, betrothedScene, type MarriageMode } from "./marriage";
+import { drawMarriageMode, meetScene, loveScene, arrangedScene, betrothedScene, type MarriageMode } from "./marriage";
 import type {
   Choice,
   ChoiceId,
@@ -142,6 +142,9 @@ export class Life {
   arrangedAge = 25;
   /** この年齢までは結婚の話が来ない（「まだ結婚しない」を選んだあとなど） */
   marriageDelayUntil = -1;
+  /** 恋人と付き合っている（結婚の前の段階） */
+  dating = false;
+  datingSince = -1;
   kids: { born: number; privateSchool: boolean; univ: boolean; away: boolean; decided?: boolean; loan?: boolean }[] = [];
   home: Home = "parents";
   loan = 0;
@@ -235,6 +238,38 @@ export class Life {
   /** いま一緒にいるきょうだいの数（まだ生まれていない弟妹は数えない） */
   get siblingsNow(): number {
     return this.sibs.filter((x) => x.born <= this.age).length;
+  }
+
+  /** いま一緒に暮らしている家族（自分を含む）。実家にいる間は親ときょうだい、家を出たあとはパートナーと巣立つ前の子ども */
+  get household(): string[] {
+    const a = this.age;
+    const out = ["自分"];
+    const p = this.partner;
+    if (p && p.alive) out.push(p.sex === "male" ? "夫" : "妻");
+    const kidsHome = this.kids.filter((k) => a - k.born < (k.univ ? 22 : 18)).length;
+    if (kidsHome) out.push(`子ども${kidsHome}人`);
+    if (this.home === "parents") {
+      if (this.parents[0].alive) out.push("父");
+      if (this.parents[1].alive) out.push("母");
+      // きょうだいは22歳くらいで家を出る
+      const counts = new Map<string, number>();
+      for (const x of this.sibs) {
+        const sa = a - x.born;
+        if (x.born > a || sa >= 22) continue;
+        const w = x.born < 0 ? (x.sex === "male" ? "兄" : "姉") : x.sex === "male" ? "弟" : "妹";
+        counts.set(w, (counts.get(w) ?? 0) + 1);
+      }
+      for (const w of ["兄", "姉", "弟", "妹"]) {
+        const n = counts.get(w);
+        if (n) out.push(n > 1 ? `${w}${n}人` : w);
+      }
+    }
+    return out;
+  }
+
+  /** household の人数 */
+  get householdSize(): number {
+    return this.household.reduce((t, w) => t + (/(\d+)人$/.test(w) ? Number(/(\d+)人$/.exec(w)![1]) : 1), 0);
   }
 
   /** 円で考えた金額を、この国の通貨の目安に直す */
@@ -428,7 +463,7 @@ export class Life {
       return buildChoice(this, "parentCare");
     if (!this.made("retire") && a >= 60 && this.made("parentCare")) return buildChoice(this, "retire");
     // 結婚の話を待っている間に、別の形で結婚した場合は、その話は消える
-    while (this.sceneQueue.length && this.partner && ["propose", "arranged", "betrothed"].includes(this.sceneQueue[0].id)) this.sceneQueue.shift();
+    while (this.sceneQueue.length && this.partner && ["meet", "propose", "arranged", "betrothed"].includes(this.sceneQueue[0].id)) this.sceneQueue.shift();
     const sc = this.sceneQueue[0];
     if (sc)
       return {
@@ -657,15 +692,23 @@ export class Life {
         this.strained = false;
         this.dvOngoing = false;
       }
-    } else if (!this.noMarry && !this.partner && a >= 18 && a < 60 && a >= this.marriageDelayUntil) {
-      // 結婚の話は、国の結婚のしかたに合わせて来る。結婚するかどうかは選択の場面で決める
-      if (this.marriageMode === "betrothed" && a >= this.arrangedAge) this.queueScene(betrothedScene(this));
-      else if (this.marriageMode === "arranged" && a >= this.arrangedAge && a < 45 && r.chance(0.5)) this.queueScene(arrangedScene(this));
-      else if (a < 30 && this.school === "done" && !this.made("marriageHome")) {
-        // 30歳の選択より前に、自分で見つけた相手と結婚の話になることもある
-        if (r.chance(this.marriageHazard(a) * (this.marriageMode === "love" ? 1.15 : 0.3))) this.queueScene(loveScene(this));
-      } else if (a >= 30 && r.chance(this.marriageHazard(a) * (a < this.marriageBoostUntil ? this.marriageBoost : 1))) {
-        this.queueScene(loveScene(this));
+    } else if (!this.partner && a >= 18 && a < 60 && a >= this.marriageDelayUntil) {
+      // 結婚は「出会い → 付き合う → 結婚の話」と段階を踏む。家族が相手を決める国では縁談や許嫁の話が来る
+      if (!this.noMarry && this.marriageMode === "betrothed" && a >= this.arrangedAge) this.queueScene(betrothedScene(this));
+      else if (!this.noMarry && this.marriageMode === "arranged" && a >= this.arrangedAge && a < 45 && !this.dating && r.chance(0.5))
+        this.queueScene(arrangedScene(this));
+      else if (this.dating) {
+        // 付き合っている間：別れることもあれば、結婚の話になることもある
+        if (r.chance(0.12)) {
+          this.dating = false;
+          this.log("family", "恋人と別れた。");
+        } else if (a - this.datingSince >= 1 && r.chance(0.55)) this.queueScene(loveScene(this));
+      } else if (a >= 30 || (this.school === "done" && !this.made("marriageHome"))) {
+        // 出会い。結婚しないと決めた人にも、まれにいい出会いはある
+        const boost = a < this.marriageBoostUntil ? this.marriageBoost : 1;
+        const mode = this.marriageMode === "love" ? 4 : 0.9;
+        // 付き合ってから結婚まで2年ほどかかるので、2年先の結婚しやすさで出会いが起きる
+        if (r.chance(this.marriageHazard(a + 2) * mode * boost * (this.noMarry ? 0.25 : 1))) this.queueScene(meetScene(this));
       }
     }
     // 子どもの節目
@@ -707,6 +750,8 @@ export class Life {
     const edu: Edu = r.weighted(["high_school", "vocational", "university"], [0.35, 0.25, 0.4]);
     this.partner = { sex: other, age: pAge, edu, work, alive: true };
     this.partnerSince = this.age;
+    this.dating = false;
+    this.noMarry = false;
     this.kidsPlan = "undecided";
     this.log("family", `${text}（相手は${pAge}歳）`, undefined, true);
     this.queueScene(kidsScene(this));
@@ -1490,9 +1535,9 @@ export function buildChoice(l: Life, id: ChoiceId): Choice {
         );
         if (l.parents.some((x) => x.alive)) options.push(opt("withParents", "親と二世帯で住む", "住居費が浮き、子育ての手も借りられる。気をつかう暮らし。"));
       } else {
-        const met = r.chance(0.32 * l.marriageHazard(a) / Math.max(0.01, l.D.ev.marriageByAge["30s"]));
+        const met = l.dating || r.chance(0.32 * l.marriageHazard(a) / Math.max(0.01, l.D.ev.marriageByAge["30s"]));
         if (met) {
-          situation = "付き合っている人から、将来の話をされた。";
+          situation = l.dating ? `付き合って${Math.max(1, a - l.datingSince)}年の恋人から、将来の話をされた。` : "付き合っている人から、将来の話をされた。";
           options.push(
             opt("marryRent", "結婚して賃貸で暮らす", "二人の収入で暮らしが安定しやすい。出費も増える。"),
             opt("marryBuy", "結婚して家を買う", "持ち家で落ち着ける。ローンが長く続く。"),
@@ -1759,6 +1804,8 @@ function applyChoice(l: Life, id: ChoiceId, o: string, r: Rng): void {
         else l.home = "rent";
       } else if (o === "single" || o === "solo") {
         l.noMarry = true;
+        if (l.dating) l.logPre("family", "恋人とは別々の道を歩むことにした。");
+        l.dating = false;
         if (l.home === "parents") l.home = "rent";
       } else if (o === "konkatsu") {
         l.spend("events", l.y(300_000));
@@ -1895,6 +1942,7 @@ export function replay(seed: string, picks: string[], country: CountryData = JAP
 
 /** 選択をランダムに（決定的に）行う自動プレイ。同い年の比較用 */
 const AUTO_WEIGHTS: Record<string, number[]> = {
+  "ev:meet": [0.72, 0.18, 0.1],
   "ev:propose": [0.5, 0.35, 0.12, 0.03],
   "ev:arranged": [0.7, 0.22, 0.08],
   "ev:betrothed": [0.92, 0.08],

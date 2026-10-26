@@ -142,7 +142,8 @@ export function buildReceipt(l: Life): ReceiptData {
   const order: ExpenseCat[] = ["housing", "food", "tax", "kids", "car", "fun", "other", "utilities", "medical", "care", "selfEdu", "events", "inflation"];
   const items: ReceiptItem[] = order
     .map((k) => ({ label: EXPENSE_LABEL[k], amount: Math.round(s.expenseTotal[k] ?? 0), memo: memoFor(l, k, s.expenseTotal[k] ?? 0) }))
-    .filter((it) => it.amount >= 10_000)
+    // 1万円未満の項目は省く（米ドルなど1単位が大きい通貨でも同じ基準になるよう、円に直して比べる）
+    .filter((it) => l.D.toJpy(it.amount) >= 10_000)
     .sort((a, b) => b.amount - a.amount);
   const subtotal = items.reduce((t, i) => t + i.amount, 0);
   const inv = Math.round(s.incomeTotal.invest ?? 0);
@@ -152,7 +153,7 @@ export function buildReceipt(l: Life): ReceiptData {
     { label: "年金・退職金", amount: Math.round(s.incomeTotal.pension ?? 0) },
     { label: "手当・相続・臨時", amount: Math.round(s.incomeTotal.windfall ?? 0) },
     { label: "運用損益", amount: inv },
-  ].filter((d) => Math.abs(d.amount) >= 10_000);
+  ].filter((d) => Math.abs(l.D.toJpy(d.amount)) >= 10_000);
   const sexWord = s.sex === "male" ? "男性" : "女性";
   return {
     receiptNo: s.seed.toUpperCase(),

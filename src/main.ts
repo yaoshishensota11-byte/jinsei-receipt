@@ -142,6 +142,7 @@ class Game {
           <div><label>今年の収入</label><b id="inc">0円</b></div>
           <div><label>今年の支出</label><b id="exp">0円</b></div>
         </div>
+        <div class="family" id="fam"></div>
         <div class="bar"><i id="prog"></i></div>
       </div>
       <div class="feed" id="feed"></div>
@@ -226,10 +227,10 @@ class Game {
     q("age").innerHTML = `${age}<small>歳</small>`;
     q("year").innerHTML = `${l.birthYear + age}年<br>${esc(l.region.label)}`;
     const status = l.school !== "done" && l.school !== "child" ? l.schoolName() + "に在学中" : age < 6 ? "未就学" : age < 15 ? (age < 12 ? "小学生" : "中学生") : jobLabel(l.job);
-    const fam = l.partner ? "・配偶者あり" : "";
-    const kids = l.kids.length ? `・子ども${l.kids.length}人` : "";
     const home = l.home === "own" ? "・持ち家" : l.home === "rent" ? "・賃貸" : "・実家";
-    q("status").textContent = `${status}${fam}${kids}${home}`;
+    q("status").textContent = `${status}${home}${l.dating && !l.partner ? "・恋人あり" : ""}`;
+    // 一緒に暮らしている家族（実家にいる間は親ときょうだい、家を出たあとはパートナーと巣立つ前の子ども）
+    q("fam").innerHTML = `<label>家族</label><b>${l.householdSize}人</b><span>${esc(l.household.join("・"))}</span>`;
     const bal = rec ? rec.balance : l.balance;
     q("bal").innerHTML = `${esc(l.D.fmt(bal, false))}${l.D.isJapan ? "" : `<small>約${esc(yenShort(l.D.toJpy(bal)))}</small>`}`;
     q("bal").className = bal < 0 ? "minus" : "";

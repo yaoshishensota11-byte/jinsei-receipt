@@ -25,6 +25,8 @@ export interface Micro {
 }
 
 const working = (l: Life) => l.job !== "none" && l.job !== "retired" && l.school === "done";
+/** パートナーも子どももいない */
+const alone = (l: Life) => !(l.partner && l.partner.alive) && l.kids.length === 0;
 const company = (l: Life) => l.job === "big" || l.job === "sme" || l.job === "civil";
 const poorCountry = (l: Life) => l.D.inst !== null && (l.D.inst.incomeGroup === "LIC" || l.D.inst.incomeGroup === "LMC");
 const hasKids = (l: Life) => l.kids.some((k) => l.age - k.born < 18);
@@ -339,6 +341,7 @@ export const MICROS: Micro[] = [
     id: "scamCall",
     min: 60,
     max: 90,
+    when: (l) => l.kids.length > 0,
     title: "知らない番号からの電話",
     situation: () => "「息子だけど、会社のお金をなくして…」と電話がかかってきた。",
     options: [
@@ -374,11 +377,36 @@ export const MICROS: Micro[] = [
     id: "endPlan",
     min: 65,
     max: 90,
+    when: (l) => !alone(l),
     title: "人生のしまい方",
     situation: () => "友人の葬儀に出て、自分の最期のことを考えた。",
     options: [
       { id: "a", label: "葬儀やお墓を準備しておく", desc: "家族の負担が減る。今お金がかかる。", apply: (l) => { l.spend("events", l.y(500_000)); l.prepaidFuneral = true; l.logPre("life", "葬儀の準備と遺言を済ませた。", -l.y(500_000)); } },
       { id: "b", label: "まだ考えない", desc: "今は払わずに済む。家族があとで困るかも。", apply: (l) => { l.logPre("life", "まだ先のことだと、考えるのをやめた。"); } },
+    ],
+  },
+  {
+    id: "scamCallSolo",
+    min: 60,
+    max: 90,
+    when: (l) => l.kids.length === 0,
+    title: "知らない番号からの電話",
+    situation: () => "「役所の者です。医療費の払い戻しがあるので、今からATMへ行ってください」と電話がかかってきた。",
+    options: [
+      { id: "a", label: "電話を切って役所に確かめる", desc: "落ち着いて確かめる。手間はかかる。", apply: (l) => { l.logPre("life", "役所に確かめると、そんな払い戻しはなかった。詐欺の電話だった。"); } },
+      { id: "b", label: "言われたとおりATMへ行く", desc: "本当ならお金が戻る。だまされることも。", apply: (l, r) => { if (r.chance(0.9)) { const c = Math.min(Math.max(0, l.cash), l.y(1_000_000)); l.spend("other", c); l.logPre("money", "電話は詐欺だった。振り込んだお金は戻らなかった。", -c, true); } else l.logPre("money", "本当に払い戻しの手続きだった。"); } },
+    ],
+  },
+  {
+    id: "endPlanSolo",
+    min: 65,
+    max: 90,
+    when: (l) => alone(l),
+    title: "人生のしまい方",
+    situation: () => "ひとりで暮らしている。もしものとき、誰が後のことをしてくれるのか考えた。",
+    options: [
+      { id: "a", label: "葬儀や身の回りの整理を契約しておく", desc: "亡くなったあとの手続きを任せられる。今お金がかかる。", apply: (l) => { l.spend("events", l.y(500_000)); l.prepaidFuneral = true; l.logPre("life", "葬儀と身の回りの整理を、前もって契約しておいた。", -l.y(500_000)); } },
+      { id: "b", label: "まだ考えない", desc: "今は払わずに済む。あとの手続きは周りの人が困るかも。", apply: (l) => { l.logPre("life", "まだ先のことだと、考えるのをやめた。"); } },
     ],
   },
   {

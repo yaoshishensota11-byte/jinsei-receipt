@@ -568,3 +568,23 @@ button {
 .sheet.small h2 {
   font-size: 18px;
 }
+
+.hud .family {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-top: 6px;
+  font-size: 12px;
+  color: var(--sub);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.hud .family b {
+  color: var(--ink, inherit);
+  font-size: 14px;
+}
+.hud .family span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

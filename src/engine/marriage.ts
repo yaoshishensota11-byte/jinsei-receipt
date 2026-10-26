@@ -85,13 +85,66 @@ function customLine(l: Life): string {
   return n.payment === "none" || n.paymentYears <= 0 ? "" : `${l.D.isJapan ? "" : `${l.D.nameJa}では`}${PAY_WORD[n.payment]}。`;
 }
 
-/** 自分で見つけた相手と、結婚の話が出たとき */
+/** 気になる人ができたとき（付き合うかどうか） */
+export function meetScene(l: Life): Scene {
+  const a = l.age;
+  const again = l.widowed || l.partnerSince >= 0;
+  const where = again
+    ? "ひとりの暮らしにも慣れたころ、気になる人ができた。"
+    : l.noMarry
+      ? "結婚はしないと決めていたが、ある日、いい人に出会った。"
+      : a < 23 && l.school !== "done"
+        ? "同じ学校に、気になる人ができた。"
+        : ["職場に、気の合う人ができた。", "友だちの紹介で会った人と、話が弾んだ。", "趣味の集まりで、気になる人ができた。"][a % 3];
+  return {
+    id: "meet",
+    title: "出会い",
+    situation: where,
+    options: [
+      {
+        id: "ask",
+        label: "食事に誘ってみる",
+        desc: "うまくいけば付き合える。断られることもある。",
+        apply: (l, r) => {
+          if (r.chance(0.75)) {
+            l.dating = true;
+            l.datingSince = l.age;
+            l.logPre("family", "食事に誘い、付き合いはじめた。");
+          } else {
+            l.marriageDelayUntil = l.age + 1;
+            l.logPre("family", "勇気を出して誘ったが、うまくいかなかった。");
+          }
+        },
+      },
+      {
+        id: "friend",
+        label: "友だちのままでいる",
+        desc: "気楽な関係のまま。この先どうなるかは分からない。",
+        apply: (l, r) => {
+          l.marriageDelayUntil = l.age + r.int(1, 2);
+          l.logPre("family", "友だちのままでいることにした。");
+        },
+      },
+      {
+        id: "focus",
+        label: "今は自分のことを優先する",
+        desc: "仕事や勉強、趣味に打ち込める。出会いはしばらく遠のく。",
+        apply: (l, r) => {
+          l.marriageDelayUntil = l.age + r.int(3, 5);
+          l.logPre("family", "今は恋愛より自分のことを優先すると決めた。");
+        },
+      },
+    ],
+  };
+}
+
+/** 付き合っている恋人と、結婚の話が出たとき */
 export function loveScene(l: Life): Scene {
-  const years = 1 + (l.age % 4);
+  const years = Math.max(1, l.age - l.datingSince);
   return {
     id: "propose",
     title: "結婚のこと",
-    situation: `付き合って${years}年になる相手と、結婚の話が出た。${customLine(l)}`,
+    situation: `付き合って${years}年になる恋人と、結婚の話が出た。${customLine(l)}`,
     options: [
       {
         id: "wedding",
@@ -107,21 +160,24 @@ export function loveScene(l: Life): Scene {
       },
       {
         id: "wait",
-        label: "まだ結婚しない",
-        desc: "仕事や自分の時間を優先する。この相手とは続かないかもしれない。",
+        label: "結婚はまだ先にする",
+        desc: "恋人のまま付き合いを続ける。待たせるうちに、気持ちが離れることもある。",
         apply: (l, r) => {
-          l.marriageDelayUntil = l.age + r.int(3, 6);
-          l.logPre("family", "結婚はまだ先にしようと伝えた。");
-          if (r.chance(0.5)) l.logPre("family", "しばらくして、相手とは別れることになった。");
+          l.marriageDelayUntil = l.age + r.int(2, 3);
+          if (r.chance(0.3)) {
+            l.dating = false;
+            l.logPre("family", "結婚はまだ先にしたいと伝えた。しばらくして、恋人とは別れることになった。");
+          } else l.logPre("family", "結婚はまだ先にしたいと伝え、恋人のまま付き合いを続けることにした。");
         },
       },
       {
-        id: "never",
-        label: "結婚しない生き方を選ぶ",
-        desc: "自由に使えるお金と時間。老後は一人で備える。",
-        apply: (l) => {
-          l.noMarry = true;
-          l.logPre("family", "結婚はしないで生きていくと決めた。");
+        id: "breakup",
+        label: "別れる",
+        desc: "この人とは結婚しないと決める。また別の出会いがあるかもしれない。",
+        apply: (l, r) => {
+          l.dating = false;
+          l.marriageDelayUntil = l.age + r.int(1, 2);
+          l.logPre("family", "この人とは結婚しないと決め、別れた。");
         },
       },
     ],
