@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>人生のレシート｜生まれた国で、一生のお金はどれだけ変わる？</title>
+    <meta name="description" content="生まれる国と家庭はランダム。公的な統計データをもとに、一生ぶんのお金の流れを約10分で体験するブラウザゲーム。無料・登録なし。" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="人生のレシート" />
+    <meta property="og:description" content="同じ一生でも、生まれた国で稼げるお金はどれだけ違う？ 統計データで、一生ぶんのお金を体験する。" />
+    <meta property="og:image" content="https://tomo-project-ivory.vercel.app/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://tomo-project-ivory.vercel.app/og.png" />
+    <meta name="theme-color" content="#ffffff" />
+    <style>
+      :root {
+        --bg: #ffffff;
+        --soft: #f5f5f7;
+        --ink: #1d1d1f;
+        --sub: #6e6e73;
+        --line: #d2d2d7;
+        --accent: #c8302c;
+        --shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #000000;
+          --soft: #1c1c1e;
+          --ink: #f5f5f7;
+          --sub: #a1a1a6;
+          --line: #3a3a3c;
+          --accent: #ff5a4f;
+          --shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+        }
+      }
+      * { box-sizing: border-box; }
+      html { -webkit-text-size-adjust: 100%; }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Noto Sans JP", sans-serif;
+        font-size: 17px;
+        line-height: 1.7;
+        font-weight: 400;
+      }
+      a { color: var(--accent); }
+      .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+      section { padding: 96px 0; }
+      section.soft { background: var(--soft); }
+      h1, h2, h3 { font-weight: 700; margin: 0; letter-spacing: -0.015em; line-height: 1.25; }
+      h1 { font-size: clamp(34px, 7vw, 64px); }
+      h2 { font-size: clamp(28px, 5vw, 48px); }
+      h3 { font-size: 21px; letter-spacing: 0; }
+      p { margin: 0; }
+      /* 見出しは言葉の切れ目でだけ改行する */
+      .nw { display: inline-block; }
+      .lead { font-size: 19px; color: var(--sub); max-width: 36em; }
+      .eyebrow { font-size: 15px; font-weight: 700; color: var(--sub); margin-bottom: 16px; display: flex; align-items: center; gap: 12px; }
+      .eyebrow img { width: 40px; height: 40px; border-radius: 10px; }
+
+      /* ボタン */
+      .cta { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 56px; padding: 0 32px; border-radius: 999px;
+        background: var(--accent); color: #fff; font-size: 19px; font-weight: 700; text-decoration: none; transition: transform 0.25s ease-out, opacity 0.25s ease-out; }
+      .cta:hover { opacity: 0.9; }
+      .cta:active { transform: scale(0.98); }
+      .cta svg { width: 20px; height: 20px; }
+      .note { margin-top: 16px; font-size: 14px; color: var(--sub); }
+
+      /* スマホの画面 */
+      .phone { width: 100%; max-width: 300px; border-radius: 32px; overflow: hidden; box-shadow: var(--shadow); background: #f3efe6; }
+      .phone img { display: block; width: 100%; height: auto; }
+
+      /* はじめの画面 */
+      .hero { padding: 64px 0 96px; }
+      .hero .grid { display: grid; gap: 48px; align-items: center; }
+      .hero h1 { margin-bottom: 24px; }
+      .hero .lead { margin-bottom: 32px; }
+      .hero .phone { margin: 0 auto; }
+
+      /* 遊び方 */
+      .steps { list-style: none; padding: 0; margin: 48px 0 0; display: grid; gap: 48px; }
+      .step { display: grid; gap: 24px; align-items: center; }
+      .step .num { font-size: 15px; font-weight: 700; color: var(--sub); margin-bottom: 8px; }
+      .step h3 { margin-bottom: 8px; }
+      .step p { color: var(--sub); }
+
+      /* 国ごとの差 */
+      .bars { margin-top: 48px; display: grid; gap: 16px; max-width: 720px; }
+      .bar { display: grid; grid-template-columns: 7.5em 1fr; gap: 16px; align-items: center; }
+      .bar .name { font-size: 16px; }
+      .bar .track { position: relative; height: 32px; }
+      .bar .fill { height: 100%; border-radius: 8px; background: var(--ink); opacity: 0.85; min-width: 4px; }
+      .bar.jp .fill { opacity: 1; }
+      .bar .val { position: absolute; top: 50%; transform: translateY(-50%); font-size: 15px; font-weight: 700; white-space: nowrap; }
+      .caption { margin-top: 24px; font-size: 14px; color: var(--sub); max-width: 40em; }
+
+      /* レシート */
+      .receipt { display: grid; gap: 48px; align-items: center; }
+      .receipt img { width: 100%; max-width: 340px; display: block; margin: 0 auto; border-radius: 12px; box-shadow: var(--shadow); }
+      .points { list-style: none; padding: 0; margin: 32px 0 0; display: grid; gap: 16px; }
+      .points li { padding-left: 20px; position: relative; color: var(--sub); }
+      .points li::before { content: ""; position: absolute; left: 0; top: 0.75em; width: 8px; height: 2px; background: var(--ink); }
+      .points b { color: var(--ink); font-weight: 700; }
+
+      /* 授業で */
+      .school { display: grid; gap: 48px; margin-top: 48px; }
+      .school h3 { margin-bottom: 16px; }
+      .school dl { margin: 0; display: grid; gap: 16px; }
+      .school dt { font-weight: 700; }
+      .school dd { margin: 4px 0 0; color: var(--sub); }
+      .sources { margin-top: 16px; color: var(--sub); font-size: 15px; }
+
+      /* よくある質問 */
+      .faq { margin-top: 48px; max-width: 760px; }
+      .faq details { border-bottom: 1px solid var(--line); padding: 24px 0; }
+      .faq summary { cursor: pointer; font-weight: 700; font-size: 18px; list-style: none; display: flex; justify-content: space-between; gap: 16px; }
+      .faq summary::-webkit-details-marker { display: none; }
+      .faq summary::after { content: "+"; font-weight: 400; color: var(--sub); transition: transform 0.25s ease-out; }
+      .faq details[open] summary::after { transform: rotate(45deg); }
+      .faq p { margin-top: 16px; color: var(--sub); }
+
+      /* 最後 */
+      .final { text-align: center; }
+      .final h2 { margin-bottom: 32px; }
+      footer { padding: 48px 0 64px; font-size: 13px; color: var(--sub); border-top: 1px solid var(--line); }
+      footer .wrap { display: grid; gap: 8px; }
+
+      @media (min-width: 820px) {
+        .hero .grid { grid-template-columns: 1.2fr 1fr; }
+        .step { grid-template-columns: 1fr 1fr; gap: 64px; }
+        .step:nth-child(even) .text { order: 2; }
+        .receipt { grid-template-columns: 1fr 1fr; }
+        .school { grid-template-columns: 1fr 1fr; gap: 64px; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        * { transition: none !important; }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="hero">
+        <div class="wrap grid">
+          <div>
+            <div class="eyebrow"><img src="/icon-192.png" alt="" width="40" height="40" />人生のレシート</div>
+            <h1><span class="nw">同じ一生でも、</span><span class="nw">生まれた国で</span><span class="nw">稼げるお金は</span><span class="nw">どれだけ違う？</span></h1>
+            <p class="lead">生まれる国と家庭は、生まれるまで分かりません。公的な統計データをもとに、一生ぶんのお金の流れを約10分で体験するブラウザゲームです。</p>
+            <a class="cta" href="/">
+              生まれてみる
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="M13 18l6-6" /><path d="M13 6l6 6" /></svg>
+            </a>
+            <p class="note">無料・登録なし・スマホでそのまま遊べます</p>
+          </div>
+          <div class="phone"><img src="img/title.webp" alt="ゲームのタイトル画面。日本・主要20か国・世界から、生まれる場所を選ぶ" width="780" height="1688" /></div>
+        </div>
+      </section>
+
+      <section class="soft">
+        <div class="wrap">
+          <h2><span class="nw">生まれて、</span><span class="nw">選んで、</span><span class="nw">お会計。</span></h2>
+          <ol class="steps">
+            <li class="step">
+              <div class="text">
+                <div class="num">1</div>
+                <h3>生まれる場所を選ぶ</h3>
+                <p>「日本」「主要20か国」「世界」から選びます。世界を選ぶと、実際に生まれる赤ちゃんの数の割合で国が決まり、都市や農村、家庭の収入もそこで決まります。</p>
+              </div>
+              <div class="phone"><img src="img/play.webp" alt="インドの農村に生まれた人生の、33歳の画面。貯え、今年の収入と支出、家族の人数と出来事が並ぶ" width="780" height="1688" loading="lazy" /></div>
+            </li>
+            <li class="step">
+              <div class="text">
+                <div class="num">2</div>
+                <h3>分かれ道で選ぶ</h3>
+                <p>進学、最初の働き方、結婚と住まい、親の介護など、大きな分かれ道が8回。日々の小さな選択もたくさん出てきます。正解はありません。運と、その国の現実が重なっていきます。</p>
+              </div>
+              <div class="phone"><img src="img/choice.webp" alt="「最初の働き方」の選択。大企業・中小企業・公務員・非正規・フリーランスから選ぶ" width="780" height="1688" loading="lazy" /></div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section>
+        <div class="wrap">
+          <h2><span class="nw">生涯で稼ぐお金は、</span><span class="nw">生まれた国で</span><span class="nw">ここまで違う。</span></h2>
+          <div class="bars" role="img" aria-label="生涯で稼ぐお金の中央値。アメリカ3.88億円、ドイツ2.82億円、日本1.64億円、中国5,743万円、ブラジル4,447万円、インド912万円、ナイジェリア406万円、エチオピア382万円">
+            <div class="bar"><span class="name">アメリカ</span><div class="track"><div class="fill" style="width: 76%"></div><span class="val" style="left: calc(76% + 8px)">3.88億円</span></div></div>
+            <div class="bar"><span class="name">ドイツ</span><div class="track"><div class="fill" style="width: 55%"></div><span class="val" style="left: calc(55% + 8px)">2.82億円</span></div></div>
+            <div class="bar jp"><span class="name">日本</span><div class="track"><div class="fill" style="width: 32%"></div><span class="val" style="left: calc(32% + 8px)">1.64億円</span></div></div>
+            <div class="bar"><span class="name">中国</span><div class="track"><div class="fill" style="width: 11%"></div><span class="val" style="left: calc(11% + 8px)">5,743万円</span></div></div>
+            <div class="bar"><span class="name">ブラジル</span><div class="track"><div class="fill" style="width: 9%"></div><span class="val" style="left: calc(9% + 8px)">4,447万円</span></div></div>
+            <div class="bar"><span class="name">インド</span><div class="track"><div class="fill" style="width: 2%"></div><span class="val" style="left: calc(2% + 8px)">912万円</span></div></div>
+            <div class="bar"><span class="name">ナイジェリア</span><div class="track"><div class="fill" style="width: 1%"></div><span class="val" style="left: calc(1% + 8px)">406万円</span></div></div>
+            <div class="bar"><span class="name">エチオピア</span><div class="track"><div class="fill" style="width: 1%"></div><span class="val" style="left: calc(1% + 8px)">382万円</span></div></div>
+          </div>
+          <p class="caption">ゲームの中で各国400人の人生を動かしたときの、本人が生涯で稼いだお金の中央値です。現地通貨の金額を今の為替で円に直しています。物価が違うので、暮らしの豊かさをそのまま比べたものではありません。</p>
+        </div>
+      </section>
+
+      <section class="soft">
+        <div class="wrap receipt">
+          <div>
+            <h2><span class="nw">最後に、</span><span class="nw">人生のお会計を</span><span class="nw">どうぞ。</span></h2>
+            <ul class="points">
+              <li><b>1枚のレシートに。</b>住まい・食費・税金・子育て・恋愛と結婚・物価で消えた貯金まで、何にいくら使ったかが並びます。</li>
+              <li><b>同い年の人と比べる。</b>同じ国に生まれた300人の中で、生涯収入と最後に残ったお金が何番目かが分かります。</li>
+              <li><b>URLで共有できる。</b>人生はURLの中の番号だけで再現されるので、登録なしでそのまま友だちに見せられます。</li>
+            </ul>
+          </div>
+          <img src="img/receipt.webp" alt="インドに生まれた人生のレシート。住まい、食費などの項目と金額が並ぶ" width="716" height="1408" loading="lazy" />
+        </div>
+      </section>
+
+      <section>
+        <div class="wrap">
+          <h2><span class="nw">授業でも、</span><span class="nw">そのまま使えます。</span></h2>
+          <p class="lead" style="margin-top: 24px">1回の体験は約10分。倍速もあるので、授業の中で一人ひとりが自分の人生を体験し、結果を持ち寄って話し合えます。</p>
+          <div class="school">
+            <div>
+              <h3>使い方の例</h3>
+              <dl>
+                <dt>社会・地理</dt>
+                <dd>同じクラスでも生まれた国がばらばら。国ごとの収入や物価、税と社会保障の違いを、自分の体験から考えます。</dd>
+                <dt>家庭科・金融教育</dt>
+                <dd>住まい・子育て・老後のお金を、一生の流れの中で見ます。「何にいくら使ったか」をレシートで振り返れます。</dd>
+                <dt>話し合いのきっかけに</dt>
+                <dd>結果のURLを共有して、同じ国でも分かれ道の選び方でどう変わるかを比べます。</dd>
+              </dl>
+            </div>
+            <div>
+              <h3>データと配慮</h3>
+              <dl>
+                <dt>もとにした統計</dt>
+                <dd>日本は政府統計（賃金・家計・寿命・進学など）。世界の88か国は、世界銀行・ILO・国連・IMF・OECD・各国の税務当局などの公的データです。</dd>
+                <dt>金額について</dt>
+                <dd>統計をもとにした架空の試算です。実在の人物の人生ではありません。</dd>
+                <dt>扱わない内容</dt>
+                <dd>自殺や虐待など、過度に苦痛な出来事は扱いません。20歳になる前に亡くなることもありません。</dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="soft">
+        <div class="wrap">
+          <h2>よくある質問</h2>
+          <div class="faq">
+            <details>
+              <summary>無料ですか？ 登録は必要ですか？</summary>
+              <p>無料です。登録やログインも必要ありません。ブラウザで開くだけで遊べます。</p>
+            </details>
+            <details>
+              <summary>どのくらい時間がかかりますか？</summary>
+              <p>1回およそ10分です。画面下のボタンで最大5倍速まで速められます。</p>
+            </details>
+            <details>
+              <summary>スマホとパソコン、どちらで遊べますか？</summary>
+              <p>どちらでも遊べます。スマホの縦画面に合わせて作っています。</p>
+            </details>
+            <details>
+              <summary>同じ国に、もう一度生まれることはできますか？</summary>
+              <p>「日本で生まれる」を選べば必ず日本に生まれます。「主要20か国」「世界」では、どの国になるかは毎回の運しだいです。</p>
+            </details>
+            <details>
+              <summary>結果の金額は正確ですか？</summary>
+              <p>公的な統計をもとにしていますが、一人ひとりの人生を正確に予測するものではありません。国による違いや、選択による違いを感じるための試算です。</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="final">
+        <div class="wrap">
+          <h2><span class="nw">どこに、</span><span class="nw">生まれますか？</span></h2>
+          <a class="cta" href="/">
+            生まれてみる
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="M13 18l6-6" /><path d="M13 6l6 6" /></svg>
+          </a>
+          <p class="note">無料・登録なし・約10分</p>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="wrap">
+        <span>人生のレシート</span>
+        <span>金額は公的統計をもとにした架空の試算です。</span>
+      </div>
+    </footer>
+  </body>
+</html>
