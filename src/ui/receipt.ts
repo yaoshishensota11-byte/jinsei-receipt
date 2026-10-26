@@ -358,6 +358,36 @@ export function drawReceipt(canvas: HTMLCanvasElement, d: ReceiptData): void {
   ctx.restore();
 }
 
+// レシートに書く決まった文字（数字・記号を含む）
+const FIXED_TEXT = "人生商店LIFE STORE ─ 本日も一度きりの営業です来店閉店お客様No.小計お預かりお釣り約万円億（今日の為替で換算）同い年人の中で生涯収入上位%生涯で稼いだお金#人生のレシート—…　└¥0123456789,.-";
+
+/**
+ * レシートで使う文字のフォントを、描く前に読み込む。
+ * Webフォントは文字の種類ごとに分けて配られるため、まだ読み込んでいない文字を canvas に描くと、
+ * iPhone の Safari ではその文字が描かれない（見出しやはんこの文字が消える）。
+ */
+export async function loadReceiptFonts(d: ReceiptData, timeoutMs = 4000): Promise<void> {
+  const f = typeof document !== "undefined" ? document.fonts : undefined;
+  if (!f) return;
+  const text = FIXED_TEXT + JSON.stringify(d);
+  const loads = Promise.all(["400", "700"].map((w) => f.load(`${w} 16px "BIZ UDGothic"`, text))).then(() => undefined);
+  await Promise.race([loads.catch(() => undefined), new Promise((r) => setTimeout(r, timeoutMs))]);
+}
+
+/** フォントを読み込んでから描く。間に合わなかった文字があれば、読み込み終わったときに描き直す */
+export async function showReceipt(canvas: HTMLCanvasElement, d: ReceiptData): Promise<void> {
+  await loadReceiptFonts(d);
+  drawReceipt(canvas, d);
+  const f = typeof document !== "undefined" ? document.fonts : undefined;
+  if (f && f.status === "loading") {
+    const redraw = () => {
+      drawReceipt(canvas, d);
+      if (f.status !== "loading") f.removeEventListener("loadingdone", redraw);
+    };
+    f.addEventListener("loadingdone", redraw);
+  }
+}
+
 export function receiptBlob(canvas: HTMLCanvasElement): Promise<Blob> {
   return new Promise((resolve, reject) => {
     canvas.toBlob((b) => (b ? resolve(b) : reject(new Error("toBlob failed"))), "image/png");

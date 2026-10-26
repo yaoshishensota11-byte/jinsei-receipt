@@ -5,7 +5,7 @@ import { randomSeed, Rng, hashStr } from "./engine/rng";
 import { buildReceipt, detailUrl, shareIntentUrl, newLife } from "./engine/result";
 import { COUNTRIES, worldCountry, type Mode } from "./engine/world";
 import type { Choice, LifeEvent, YearRecord } from "./engine/types";
-import { drawReceipt, downloadReceipt } from "./ui/receipt";
+import { showReceipt, downloadReceipt } from "./ui/receipt";
 
 // 1年の長さは出来事の数で変える。何も起きない年はすぐ過ぎ、出来事の多い年はじっくり見せる。
 // 選択（大きな8回＋小さな選択）を含めて、等倍で1プレイ約10分。
@@ -348,12 +348,7 @@ async function showResult(life: Life): Promise<void> {
   app.innerHTML = "";
   app.append(root);
   const cv = root.querySelector<HTMLCanvasElement>("#rc")!;
-  try {
-    await document.fonts?.ready;
-  } catch {
-    /* フォントが読めなくても描画は続ける */
-  }
-  drawReceipt(cv, data);
+  await showReceipt(cv, data);
   root.querySelector<HTMLElement>("#png")!.onclick = () => downloadReceipt(cv, `jinsei-receipt-${life.seed}.png`);
   root.querySelector<HTMLElement>("#again")!.onclick = () => showTitle();
   (window as unknown as { __result: unknown }).__result = { url, data };

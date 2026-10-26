@@ -4,7 +4,7 @@ import "./ui/detail.css";
 import { buildReceipt, decodeResult, isOldVersion, replayByIndex, shareIntentUrl, turningPoints, yen } from "./engine/result";
 import { EXPENSE_LABEL, type ExpenseCat, type IncomeCat, type YearRecord } from "./engine/types";
 import type { Life } from "./engine/sim";
-import { drawReceipt, downloadReceipt } from "./ui/receipt";
+import { showReceipt, downloadReceipt } from "./ui/receipt";
 
 const app = document.getElementById("app")!;
 
@@ -251,7 +251,7 @@ function render(l: Life): void {
     </footer>`;
 
   const canvas = document.getElementById("receipt") as HTMLCanvasElement;
-  drawReceipt(canvas, d);
+  void showReceipt(canvas, d);
   document.getElementById("save")!.addEventListener("click", () => {
     downloadReceipt(canvas, `jinsei-receipt-${d.receiptNo}.png`).catch(() => {});
   });

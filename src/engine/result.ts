@@ -224,8 +224,13 @@ export function shareText(d?: ReceiptData): string {
   return d ? `${d.countryName}に生まれ、生涯で稼いだお金は約${yen(lifetimeIncomeJpy(d))}。${SHARE_TEXT}` : SHARE_TEXT;
 }
 
+/**
+ * Xの投稿画面を開くURL。
+ * スマホのXアプリは x.com/intent/post を開くと文やURLが入らないことがあるため、
+ * 昔からある twitter.com/intent/tweet を使い、URLも本文に入れる。
+ */
 export function shareIntentUrl(url: string, d?: ReceiptData): string {
-  return `https://x.com/intent/post?text=${encodeURIComponent(shareText(d))}&url=${encodeURIComponent(url)}`;
+  return `https://twitter.com/intent/tweet?text=${encodeURIComponent(`${shareText(d)}\n${url}`)}`;
 }
 
 export { yen, BIRTH_YEAR };
