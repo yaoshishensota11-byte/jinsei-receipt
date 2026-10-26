@@ -160,31 +160,40 @@ function barcode(p: Pen, code: string): void {
   p.y = top + h + 14;
 }
 
+/**
+ * はんこ。別の小さなキャンバスにふつうの描き方で作ってから、レシートに貼る。
+ * レシートに直接「multiply（重ねて濃くする）」で文字を描くと、スマホの一部のブラウザ（アプリ内ブラウザなど）で
+ * はんこの文字だけが消えるため。
+ */
 function stamp(ctx: CanvasRenderingContext2D, d: ReceiptData, cx: number, cy: number): void {
   const color = TONE[d.stamp.tone];
   const rnd = mulberry(hash("stamp|" + d.receiptNo));
   const R = 50;
-  ctx.save();
-  ctx.translate(cx, cy);
-  ctx.rotate((-12 * Math.PI) / 180);
-  ctx.globalAlpha = 0.78;
-  ctx.globalCompositeOperation = "multiply";
-  ctx.strokeStyle = color;
-  ctx.fillStyle = color;
+  const box = (R + 10) * 2;
+  const scale = Math.max(1, ctx.getTransform().a || 1);
+  const off = document.createElement("canvas");
+  off.width = Math.ceil(box * scale);
+  off.height = Math.ceil(box * scale);
+  const s = off.getContext("2d");
+  if (!s) return;
+  s.setTransform(scale, 0, 0, scale, box / 2 * scale, box / 2 * scale);
+  s.rotate((-12 * Math.PI) / 180);
+  s.strokeStyle = color;
+  s.fillStyle = color;
   // ざらついた二重円
   const ring = (r: number, w: number) => {
-    ctx.lineWidth = w;
-    ctx.beginPath();
+    s.lineWidth = w;
+    s.beginPath();
     const n = 72;
     for (let i = 0; i <= n; i++) {
       const a = (i / n) * Math.PI * 2;
       const rr = r + (rnd() - 0.5) * 1.6;
       const x = Math.cos(a) * rr;
       const y = Math.sin(a) * rr;
-      if (i === 0) ctx.moveTo(x, y);
-      else ctx.lineTo(x, y);
+      if (i === 0) s.moveTo(x, y);
+      else s.lineTo(x, y);
     }
-    ctx.stroke();
+    s.stroke();
   };
   ring(R, 3.2);
   ring(R - 6, 1.2);
@@ -193,21 +202,24 @@ function stamp(ctx: CanvasRenderingContext2D, d: ReceiptData, cx: number, cy: nu
   const lines = t.length <= 3 ? [t] : [t.slice(0, Math.ceil(t.length / 2)), t.slice(Math.ceil(t.length / 2))];
   const maxLen = Math.max(...lines.map((l) => l.length));
   const size = Math.min(30, Math.floor(((R - 10) * 2 * 0.9) / maxLen));
-  ctx.font = font(size, true);
-  ctx.textAlign = "center";
-  ctx.textBaseline = "middle";
+  s.font = font(size, true);
+  s.textAlign = "center";
+  s.textBaseline = "middle";
   const lh = size * 1.08;
-  lines.forEach((l, i) => ctx.fillText(l, 0, (i - (lines.length - 1) / 2) * lh + 1));
-  // かすれ：インクを部分的に抜く
-  ctx.globalCompositeOperation = "destination-out";
-  ctx.globalAlpha = 1;
+  lines.forEach((l, i) => s.fillText(l, 0, (i - (lines.length - 1) / 2) * lh + 1));
+  // かすれ：インクを部分的に抜く（はんこの小さなキャンバスの中だけで行う）
+  s.globalCompositeOperation = "destination-out";
   for (let i = 0; i < 260; i++) {
     const a = rnd() * Math.PI * 2;
     const r = Math.sqrt(rnd()) * (R + 3);
-    const s = rnd() * 1.8 + 0.3;
-    ctx.globalAlpha = 0.25 + rnd() * 0.6;
-    ctx.fillRect(Math.cos(a) * r, Math.sin(a) * r, s, s);
+    const sz = rnd() * 1.8 + 0.3;
+    s.globalAlpha = 0.25 + rnd() * 0.6;
+    s.fillRect(Math.cos(a) * r, Math.sin(a) * r, sz, sz);
   }
+  // レシートに貼る（ふつうの重ね方で、少し透かす）
+  ctx.save();
+  ctx.globalAlpha = 0.82;
+  ctx.drawImage(off, cx - box / 2, cy - box / 2, box, box);
   ctx.restore();
 }
 
