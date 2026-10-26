@@ -39,6 +39,21 @@ TOO_OLD = {"remittance_share_gdp", "secondary_net_enrollment", "tertiary_gross_e
 skipped_old = []
 
 tax_parts = {}
+# 年ごとの物価上昇率（build/cpi_series.py で作る）。古い平均月収を税率表の年の金額に直すのに使う
+CPI = json.loads((ROOT / "cpi_annual.json").read_text(encoding="utf-8"))
+
+def cpi_factor(iso, frm, to):
+    """frm 年の金額を to 年の金額に直す倍率。途中の年が欠けていたら None。
+    まだ公表されていない最新の年（統計の最終年より後）は、物価が変わらないものとして扱う"""
+    s = {int(y): v for y, v in CPI.get(iso, {}).items()}
+    if not s:
+        return None
+    f = 1.0
+    for y in range(frm + 1, min(to, max(s)) + 1):
+        if y not in s:
+            return None
+        f *= 1 + s[y] / 100
+    return f
 
 applied = {}
 latest_infl = {}
@@ -134,12 +149,17 @@ for iso, t in tax_parts.items():
     if "ssc_brackets" not in t and "実効率ではない" in t.get("employee_ssc_rate_note", ""):
         tax_skipped.append(f"{iso}: 社会保険料率が実効率ではない")
         continue
-    # 平均月収の年が税率表より4年以上古いと、物価の上昇で負担が実際より軽く出るので計算しない
+    # 平均月収の年が税率表より古いと、物価の上昇の分だけ負担が軽く出るので、物価上昇率で税率表の年の金額に直す
+    #（賃金は物価とほぼ同じだけ上がるとみなす）。10年より古い値や、途中の年の物価が欠けている場合は計算しない
     ys = t.get("years", {})
     ey, by = ys.get("avg_monthly_earnings"), ys.get("income_tax_bracket")
-    if ey and by and by - ey > 3:
-        tax_skipped.append(f"{iso}: 平均月収が古い（{ey}年、税率表は{by}年）")
-        continue
+    uplift = 1.0
+    if ey and by and by > ey:
+        f = cpi_factor(iso, ey, by) if by - ey <= 10 else None
+        if f is None:
+            tax_skipped.append(f"{iso}: 平均月収が古く（{ey}年、税率表は{by}年）、物価で直せない")
+            continue
+        uplift = f
     # 区分の境目が「400001から」のように1ずれている表（月額表を12倍した表は12ずれる）は、前の区分の上限につなげる
     brackets, prev_hi = [], 0.0
     for lo, hi, rate in sorted(t["brackets"]):
@@ -154,7 +174,8 @@ for iso, t in tax_parts.items():
     credit = t.get("income_tax_credit", 0.0)
     if credit and brackets and abs(allowance * brackets[0][2] - credit) <= credit * 0.02:
         allowance = 0.0
-    annual = t["avg_monthly_earnings"] * 12
+    monthly = t["avg_monthly_earnings"] * uplift
+    annual = monthly * 12
     taxable = max(0.0, annual - allowance)
     tax = 0.0
     for lo, hi, rate in brackets:
@@ -164,7 +185,7 @@ for iso, t in tax_parts.items():
     tax = max(0.0, tax - t.get("income_tax_credit", 0.0))
     # 保険料が累進の国（ブラジルの INSS など）は、月収に月額の料率表を当てはめる
     if "ssc_brackets" in t:
-        m = t["avg_monthly_earnings"]
+        m = monthly
         ssc = sum((min(m, hi) - lo) * rate for lo, hi, rate in sorted(t["ssc_brackets"]) if m > lo) * 12
     else:
         ssc = annual * t["employee_ssc_rate"]
@@ -172,7 +193,7 @@ for iso, t in tax_parts.items():
     c["effectiveTaxRateAvgWorker"] = share
     drop_est(c, "effectiveTaxRateAvgWorker")
     c.setdefault("sources", {})["tax_rate_avg_worker"] = {"source": "計算値（平均月収・税率表・本人負担社会保険料率から）", "url": t["sources"][0], "year": str(by or "")}
-    tax_computed.append(f"{iso}:{share}")
+    tax_computed.append(f"{iso}:{share}" + (f"（月収を{ey}→{by}年の物価で×{uplift:.2f}）" if uplift != 1.0 else ""))
     applied["tax_rate_avg_worker(計算)"] = applied.get("tax_rate_avg_worker(計算)", 0) + 1
 
 # 都市の人口割合（国連 WUP）で places を組み直す。所得の係数（incomeIndex）は推定のまま

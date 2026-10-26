@@ -40,6 +40,7 @@ description: 人生のレシートの国別データで「推定値」のまま�
 3. カタログにない field 名があれば、data/world/build/apply_manual.py に対応を追加する。
 4. 取り込みと検証。
    ```bash
+   python3 -I data/world/build/cpi_series.py   # 物価の年ごとの表（inflation_recent を取り込んだとき）
    python3 -I data/world/build/apply_manual.py
    node data/world/build/validate.mjs
    node data/world/build/validate_risks.mjs
@@ -78,7 +79,8 @@ description: 人生のレシートの国別データで「推定値」のまま�
 | income_tax_credit | 所得税額から差し引く年間の税額控除（ケニアの personal relief など） | 各国の税務当局 | 現地通貨コード | 税の計算の材料 |
 
 税の4つの材料（平均月収・保険料率・税率表、あれば基礎控除）がそろった国は、apply_manual.py が「平均賃金・単身の所得税＋本人社会保険料 ÷ 年収」を計算して countries.effectiveTaxRateAvgWorker に入れる。
-計算しない条件（推定値を残す）：平均月収が税率表より4年以上古い（物価上昇で負担が軽く出る）、保険料率の note に「実効率ではない」とある、材料が欠けている。
+平均月収が税率表より古い国は、data/world/cpi_annual.json の物価上昇率で税率表の年の金額に直してから計算する。物価の CSV（inflation_recent）を新しく取り込んだときは、先に `python3 -I data/world/build/cpi_series.py` を実行する。
+計算しない条件（推定値を残す）：平均月収が10年より古い、または途中の年の物価が欠けている、保険料率の note に「実効率ではない」とある、材料が欠けている。
 基礎控除が「0%区分の上限」と同じ額なら、税率表がすでに控除を含むので二重に引かない。税額控除 ÷ 最初の税率と同じ額の基礎控除（南アフリカの tax threshold など）も引かない。
 区分の範囲は note の「from=…; to=…」のほか、「from=0、to=…」「from/to=A–B」「from/to=IRR A/B」も読める。新しい書き方が届いたら、取り込み後に「計算した国」の値を手計算で1つ確かめる。
 平均月収の note に「最低賃金」とある行は使わない（「最低賃金ではない」は除く）。

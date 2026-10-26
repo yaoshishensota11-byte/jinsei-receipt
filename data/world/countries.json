@@ -359,7 +359,7 @@
     "pensionCoverage": 0.196,
     "pensionReplacementRate": 0.35,
     "outOfPocketHealthShare": 0.719,
-    "effectiveTaxRateAvgWorker": 0.0993,
+    "effectiveTaxRateAvgWorker": 0.1237,
     "rentShareOfIncome": 0.0811187328752,
     "housePriceToIncome": 116.3,
     "disasterRisk": 0.45,
@@ -921,7 +921,7 @@
     "pensionCoverage": 0.042,
     "pensionReplacementRate": 0.4,
     "outOfPocketHealthShare": 0.463,
-    "effectiveTaxRateAvgWorker": 0.1954,
+    "effectiveTaxRateAvgWorker": 0.208,
     "rentShareOfIncome": 0.187575769068,
     "housePriceToIncome": 20.0,
     "disasterRisk": 0.35,
@@ -1488,7 +1488,7 @@
     "pensionCoverage": 0.585,
     "pensionReplacementRate": 0.55,
     "outOfPocketHealthShare": 0.572,
-    "effectiveTaxRateAvgWorker": 0.11,
+    "effectiveTaxRateAvgWorker": 0.1215,
     "rentShareOfIncome": 0.128110508431,
     "housePriceToIncome": 18.3,
     "disasterRisk": 0.25,
@@ -1611,7 +1611,7 @@
     "pensionCoverage": 0.06,
     "pensionReplacementRate": 0.39,
     "outOfPocketHealthShare": 0.279,
-    "effectiveTaxRateAvgWorker": 0.1621,
+    "effectiveTaxRateAvgWorker": 0.1706,
     "rentShareOfIncome": 0.342400194485,
     "housePriceToIncome": 15.0,
     "disasterRisk": 0.3,
@@ -1869,7 +1869,7 @@
     "pensionCoverage": 0.656,
     "pensionReplacementRate": 0.724,
     "outOfPocketHealthShare": 0.444,
-    "effectiveTaxRateAvgWorker": 0.0999,
+    "effectiveTaxRateAvgWorker": 0.1023,
     "rentShareOfIncome": 0.119813098576,
     "housePriceToIncome": 34.5,
     "disasterRisk": 0.95,
@@ -1992,13 +1992,12 @@
     "pensionCoverage": 0.183,
     "pensionReplacementRate": 0.35,
     "outOfPocketHealthShare": 0.322,
-    "effectiveTaxRateAvgWorker": 0.115,
+    "effectiveTaxRateAvgWorker": 0.2096,
     "rentShareOfIncome": 0.284211721697,
     "housePriceToIncome": 17.5,
     "disasterRisk": 0.3,
     "remittanceShareGdp": 0.0265,
     "estimated": [
-      "effectiveTaxRateAvgWorker",
       "housePriceToIncome",
       "pensionReplacementRate",
       "places",
@@ -2030,6 +2029,11 @@
         "source": "World Bank ICP 2021",
         "url": "https://api.worldbank.org/v2/sources/90/country/UGA/series/9060000?format=json&per_page=200",
         "year": "2021"
+      },
+      "tax_rate_avg_worker": {
+        "source": "計算値（平均月収・税率表・本人負担社会保険料率から）",
+        "url": "https://rplumber.ilo.org/data/indicator/?id=EAR_EMTA_SEX_ECO_CUR_NB_A&lang=en&type=label&format=.csv",
+        "year": "2025"
       }
     }
   },
@@ -2221,7 +2225,7 @@
     "pensionCoverage": 0.198,
     "pensionReplacementRate": 0.3,
     "outOfPocketHealthShare": 0.242,
-    "effectiveTaxRateAvgWorker": 0.2851,
+    "effectiveTaxRateAvgWorker": 0.2868,
     "rentShareOfIncome": 0.133960278542,
     "housePriceToIncome": 17.0,
     "disasterRisk": 0.35,
@@ -3014,7 +3018,7 @@
     "pensionCoverage": 0.815,
     "pensionReplacementRate": 0.078,
     "outOfPocketHealthShare": 0.067,
-    "effectiveTaxRateAvgWorker": 0.1511,
+    "effectiveTaxRateAvgWorker": 0.1589,
     "rentShareOfIncome": 0.138777842859,
     "housePriceToIncome": 3.1,
     "disasterRisk": 0.3,
@@ -3343,7 +3347,7 @@
     "pensionCoverage": 0.058,
     "pensionReplacementRate": 0.35,
     "outOfPocketHealthShare": 0.515,
-    "effectiveTaxRateAvgWorker": 0.0825,
+    "effectiveTaxRateAvgWorker": 0.0848,
     "rentShareOfIncome": 0.107802144868,
     "housePriceToIncome": 17.5,
     "disasterRisk": 0.45,
@@ -3563,13 +3567,12 @@
     "pensionCoverage": 0.162,
     "pensionReplacementRate": 0.39,
     "outOfPocketHealthShare": 0.32,
-    "effectiveTaxRateAvgWorker": 0.12,
+    "effectiveTaxRateAvgWorker": 0.1552,
     "rentShareOfIncome": 0.0772625977772,
     "housePriceToIncome": 15.0,
     "disasterRisk": 0.3,
     "remittanceShareGdp": 0.0203,
     "estimated": [
-      "effectiveTaxRateAvgWorker",
       "housePriceToIncome",
       "pensionReplacementRate",
       "places",
@@ -3601,6 +3604,11 @@
         "source": "World Bank ICP 2021",
         "url": "https://api.worldbank.org/v2/sources/90/country/CIV/series/9060000?format=json&per_page=200",
         "year": "2021"
+      },
+      "tax_rate_avg_worker": {
+        "source": "計算値（平均月収・税率表・本人負担社会保険料率から）",
+        "url": "https://www.cleiss.fr/docs/cotisations/cotedivoire.html",
+        "year": "2025"
       }
     }
   },
@@ -3666,13 +3674,12 @@
     "pensionCoverage": 0.183,
     "pensionReplacementRate": 0.39,
     "outOfPocketHealthShare": 0.677,
-    "effectiveTaxRateAvgWorker": 0.12,
+    "effectiveTaxRateAvgWorker": 0.1025,
     "rentShareOfIncome": 0.157451862981,
     "housePriceToIncome": 46.0,
     "disasterRisk": 0.3,
     "remittanceShareGdp": 0.0129,
     "estimated": [
-      "effectiveTaxRateAvgWorker",
       "pensionReplacementRate",
       "places",
       "tertiaryAnnualCostShareOfGni"
@@ -3707,6 +3714,11 @@
       "house_price_to_income": {
         "source": "Numbeo Property Prices Index by Country",
         "url": "https://www.numbeo.com/property-investment/rankings_by_country.jsp",
+        "year": "2026"
+      },
+      "tax_rate_avg_worker": {
+        "source": "計算値（平均月収・税率表・本人負担社会保険料率から）",
+        "url": "https://www.ssa.gov/policy/docs/progdesc/ssptw/2018-2019/africa/cameroon.html",
         "year": "2026"
       }
     }
