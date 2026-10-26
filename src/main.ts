@@ -212,7 +212,7 @@ class Game {
       this.yearMs = YEAR_MS;
       this.autoMs += this.yearMs;
       this.renderHud();
-      this.scene.update(this.life, []);
+      this.scene.update(this.life, [], rec.age);
     }
     this.yearT += ms;
     const rec = this.current;
@@ -221,7 +221,7 @@ class Game {
     while (this.shown < n && this.yearT >= ((this.shown + 0.5) / Math.max(n, 1)) * this.yearMs * 0.8) {
       this.pushEvent(rec.events[this.shown++]);
       // 出来事が出たら、ドット絵の表情もその時点の出来事に合わせる
-      this.scene.update(this.life, rec.events.slice(0, this.shown));
+      this.scene.update(this.life, rec.events.slice(0, this.shown), rec.age);
     }
     (this.hud.querySelector("#prog") as HTMLElement).style.width = `${Math.min(100, (this.yearT / this.yearMs) * 100)}%`;
     if (this.yearT >= this.yearMs) {

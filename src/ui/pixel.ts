@@ -8,7 +8,7 @@ const ROWS = 32; // 帯の高さ（マス）
 const GROUND = 29; // 地面の行
 
 type Stage = "baby" | "kid" | "teen" | "adult" | "elder";
-type Outfit = "onesie" | "kid" | "uniform" | "suit" | "work" | "apron" | "casual" | "hoodie" | "cardigan";
+type Outfit = "onesie" | "kid" | "uniform" | "suit" | "work" | "apron" | "casual" | "hoodie" | "cardigan" | "dress";
 type Mood = "neutral" | "smile" | "joy" | "sad";
 
 interface Person {
@@ -54,6 +54,18 @@ export function moodOf(events: LifeEvent[]): Mood {
   return events.length ? "smile" : "neutral";
 }
 
+/** その年だけの特別な場面 */
+export type Special = "" | "hospital" | "wedding" | "disaster" | "lucky";
+
+export function specialOf(events: LifeEvent[]): Special {
+  const t = events.map((e) => e.text).join("\n");
+  if (/入院|がんが見つかり|手術/.test(t)) return "hospital";
+  if (/結婚した|届けだけで結婚|と結婚した|約束どおり結婚|結婚を決めた/.test(t)) return "wedding";
+  if (/浸水|地震|災害|雨が降らず|避難|川があふれ/.test(t)) return "disaster";
+  if (/宝くじ|当たった|当選|遺産|受け継いだ/.test(t)) return "lucky";
+  return "";
+}
+
 function outfitOf(l: Life, age: number): Outfit {
   if (age < 2) return "onesie";
   if (age < 12) return "kid";
@@ -76,8 +88,9 @@ function outfitOf(l: Life, age: number): Outfit {
 }
 
 /** いまの暮らしに登場する人たち（並ぶ順は左から） */
-function cast(l: Life, mood: Mood): Person[] {
-  const a = l.age;
+function cast(l: Life, mood: Mood, a: number): Person[] {
+  // a は画面に出ている年齢（ゲームは1年先まで計算しているので、l.age とは1年ずれることがある）
+  const lag = l.age - a;
   const seed = l.seed;
   const skins = skinsFor(l.D.iso3);
   const skin = pick(skins, seed + "skin");
@@ -104,7 +117,8 @@ function cast(l: Life, mood: Mood): Person[] {
   }
   const p = l.partner;
   if (p && p.alive) {
-    right.push({ stage: stageOf(p.age), female: p.sex === "female", outfit: p.age >= 65 ? "cardigan" : p.work === "regular" ? "suit" : "casual", mood: mood === "joy" ? "smile" : mood, skin: pick(skins, seed + "pskin"), hair: p.age >= 65 ? "#b8b2a8" : pick(HAIRS, seed + "phair"), shirt: pick(SHIRTS, seed + "pshirt") });
+    const pAge = p.age - lag;
+    right.push({ stage: stageOf(pAge), female: p.sex === "female", outfit: pAge >= 65 ? "cardigan" : p.work === "regular" ? "suit" : "casual", mood: mood === "joy" ? "smile" : mood, skin: pick(skins, seed + "pskin"), hair: pAge >= 65 ? "#b8b2a8" : pick(HAIRS, seed + "phair"), shirt: pick(SHIRTS, seed + "pshirt") });
   }
   // 巣立つ前の子ども
   l.kids.forEach((k, i) => {
@@ -145,6 +159,7 @@ function drawPerson(px: Px, p: Person, x: number, bob: number): void {
   if (p.outfit === "work") shirt = "#3d5a80";
   if (p.outfit === "cardigan") shirt = "#b49a76";
   if (p.outfit === "onesie") shirt = "#f1c6d3";
+  if (p.outfit === "dress") shirt = "#fbfaf6";
 
   // 脚
   const legY = top + s.head + s.body;
@@ -197,6 +212,13 @@ function drawPerson(px: Px, p: Person, x: number, bob: number): void {
     px(hx + s.head, top + 2, 1, 2, p.hair);
   }
   if (p.outfit === "work") px(hx - 1, top - 2, s.head + 2, 2, "#e8c547"); // ヘルメット
+  if (p.outfit === "dress") {
+    // ドレスの裾とベール
+    px(cx - 1, legY, s.w + 2, s.legs - 1, "#fbfaf6");
+    px(hx - 1, top - 1, s.head + 2, 1, "#ffffff");
+    px(hx - 2, top, 1, s.head + 3, "#ffffffcc");
+    px(hx + s.head + 1, top, 1, s.head + 3, "#ffffffcc");
+  }
   // 顔
   const ey = top + Math.floor(s.head / 2);
   const el = hx + 2;
@@ -264,6 +286,50 @@ function drawScene(px: Px, cols: number, l: Life, rural: boolean): void {
   }
 }
 
+/** 入院中：自分はベッドで寝ている */
+function drawBed(px: Px, p: Person, x: number): void {
+  const y = GROUND - 7;
+  px(x, y + 2, 24, 4, "#f4f2ec"); // 掛け布団の下のベッド
+  px(x, y + 6, 2, 1, "#9aa3ad");
+  px(x + 22, y + 6, 2, 1, "#9aa3ad");
+  px(x - 1, y - 2, 2, 9, "#9aa3ad"); // 頭側の柵
+  px(x + 23, y, 2, 7, "#9aa3ad");
+  px(x + 1, y, 6, 3, "#ffffff"); // まくら
+  px(x + 2, y - 3, 6, 5, p.skin); // 顔
+  px(x + 2, y - 4, 6, 2, p.hair);
+  px(x + 4, y - 1, 1, 1, INK);
+  px(x + 6, y - 1, 1, 1, INK);
+  px(x + 7, y, 15, 3, "#8fb3d9"); // 掛け布団
+  // 赤十字
+  px(x + 10, GROUND - 22, 6, 6, "#ffffff");
+  px(x + 12, GROUND - 21, 2, 4, "#c8302c");
+  px(x + 11, GROUND - 20, 4, 2, "#c8302c");
+}
+
+/** 出稼ぎ中：自分は遠く（右端）にいて、空に飛行機 */
+function drawPlane(px: Px, x: number, y: number): void {
+  px(x, y + 2, 12, 2, "#8a96a3");
+  px(x + 3, y, 3, 2, "#8a96a3");
+  px(x + 4, y + 4, 4, 2, "#8a96a3");
+  px(x + 10, y + 1, 2, 1, "#8a96a3");
+  px(x + 1, y + 2, 1, 1, "#d9e4ee");
+}
+
+function drawWeather(px: Px, cols: number, special: Special, frame: number): void {
+  if (special === "disaster") {
+    for (let x = 1 + frame; x < cols; x += 5) for (let y = 2 + ((x * 7) % 5); y < GROUND - 2; y += 7) px(x, y, 1, 3, "#7ea6c9");
+    px(0, GROUND - 2, cols, 2, "#7ea6c9aa"); // 水があふれる
+  }
+  if (special === "lucky") {
+    for (let i = 0; i < 9; i++) {
+      const x = (i * 23 + 7) % cols;
+      const y = ((i * 11 + frame * 3) % (GROUND - 6)) + 1;
+      px(x, y, 3, 3, "#e0b43a");
+      px(x + 1, y + 1, 1, 1, "#fff2b3");
+    }
+  }
+}
+
 export class LifeScene {
   readonly el: HTMLCanvasElement;
   private ctx: CanvasRenderingContext2D;
@@ -271,6 +337,8 @@ export class LifeScene {
   private timer = 0;
   private life: Life | null = null;
   private mood: Mood = "neutral";
+  private special: Special = "";
+  private age = 0;
   private still = typeof matchMedia === "function" && matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   constructor() {
@@ -282,9 +350,11 @@ export class LifeScene {
   }
 
   /** 年が変わったとき、または出来事が出たときに呼ぶ */
-  update(l: Life, events: LifeEvent[]): void {
+  update(l: Life, events: LifeEvent[], age = l.age): void {
     this.life = l;
+    this.age = age;
     this.mood = moodOf(events);
+    this.special = specialOf(events);
     this.draw();
   }
 
@@ -317,12 +387,48 @@ export class LifeScene {
       ctx.fillRect(Math.round(x * k), Math.round(y * k), Math.ceil(w * k), Math.ceil(h * k));
     };
     drawScene(px, cols, l, l.region.urban === false);
-    const people = cast(l, this.mood);
-    const total = people.reduce((t, p) => t + widthOf(p), 0);
-    let x = Math.max(24, Math.floor((cols - total) / 2) + 6);
+    const sp = this.special;
+    drawWeather(px, cols, sp, this.frame);
+    const people = cast(l, this.mood, this.age);
+    const me = people.find((p) => p.self)!;
+    // 結婚の年：花嫁は白いドレス、花婿はスーツ。上にハート
+    if (sp === "wedding") {
+      // 並びは「親、自分、相手、子ども」なので、相手は自分のすぐ右
+      const partner = l.partner && l.partner.alive ? people[people.indexOf(me) + 1] : undefined;
+      for (const p of [me, partner]) {
+        if (!p || (p.stage !== "adult" && p.stage !== "elder")) continue;
+        p.outfit = p.female ? "dress" : "suit";
+        p.mood = "joy";
+      }
+    }
+    const abroad = l.abroad && this.age < l.abroadUntil;
+    const standing = people.filter((p) => !((sp === "hospital" || abroad) && p.self));
+    const total = standing.reduce((t, p) => t + widthOf(p), 0) + (sp === "hospital" ? 28 : 0);
+    let x = Math.max(24, Math.floor((cols - total - (abroad ? 20 : 0)) / 2) + 6);
     for (const p of people) {
+      if (p.self && sp === "hospital") {
+        drawBed(px, p, x + 1);
+        x += 28;
+        continue;
+      }
+      if (p.self && abroad) continue;
       drawPerson(px, p, x, p.self || p.mood === "joy" ? this.frame : 0);
       x += widthOf(p);
+    }
+    if (abroad) {
+      // 家族と離れて、遠くで働いている
+      const fx = cols - widthOf(me) - 2;
+      for (let y = 4; y < GROUND; y += 3) px(fx - 3, y, 1, 1, "#b9ad97");
+      drawPerson(px, { ...me, outfit: "work", mood: me.mood === "joy" ? "smile" : me.mood }, fx, this.frame);
+      drawPlane(px, fx - 18 + this.frame, 2);
+    }
+    if (sp === "wedding") {
+      const hx = Math.floor(cols / 2) + 2;
+      px(hx, 2, 2, 2, "#e06a7a");
+      px(hx + 3, 2, 2, 2, "#e06a7a");
+      px(hx, 3, 5, 2, "#e06a7a");
+      px(hx + 1, 5, 3, 1, "#e06a7a");
+      px(hx + 2, 6, 1, 1, "#e06a7a");
     }
   }
 }
