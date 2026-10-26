@@ -52,6 +52,12 @@ export function decodeResult(code: string): { mode: Mode; seed: string; picks: n
   return { mode: m[2] as Mode, seed: m[3], picks: [...m[4]].map(Number) };
 }
 
+/** URLの版が今より古いか（ゲームの内容が変わり、同じ人生を再現できなくなったもの） */
+export function isOldVersion(code: string): boolean {
+  const m = /^(\d+)\./.exec(code.trim());
+  return !!m && Number(m[1]) < Number(CODEC_VERSION);
+}
+
 /** 生まれる前の人生を作る（モードから国が決まる） */
 export function newLife(seed: string, mode: Mode): Life {
   return new Life(seed, pickCountry(seed, mode), mode);

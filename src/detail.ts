@@ -1,6 +1,6 @@
 // 結果の詳細ページ（r.html#<code>）。URLのコードから人生を再現して描く。サーバー不要。
 import "./ui/detail.css";
-import { buildReceipt, decodeResult, replayByIndex, shareIntentUrl, turningPoints, yen } from "./engine/result";
+import { buildReceipt, decodeResult, isOldVersion, replayByIndex, shareIntentUrl, turningPoints, yen } from "./engine/result";
 import { EXPENSE_LABEL, type ExpenseCat, type IncomeCat, type YearRecord } from "./engine/types";
 import type { Life } from "./engine/sim";
 import { drawReceipt, downloadReceipt } from "./ui/receipt";
@@ -27,6 +27,17 @@ function showError(): void {
       <h1>レシートが見つかりません</h1>
       <p>リンクが途中で切れているか、古い形式のようです。<br>新しい人生を始めて、あなたのレシートを発行してみませんか。</p>
       <a class="btn primary" href="./">自分も生まれてみる</a>
+    </section>`;
+}
+
+/** 古い版のURLを開いたとき。ゲームの内容が変わり、そのレシートは再現できない */
+function showOld(): void {
+  document.title = "人生のレシート｜詳細";
+  app.innerHTML = `
+    <section class="empty">
+      <h1>このレシートは古い版のため表示できません</h1>
+      <p>ゲームの内容が新しくなり、以前の版で発行されたレシートは同じ人生を再現できなくなりました。<br>お手数ですが、もう一度遊んでみてください。</p>
+      <a class="btn primary" href="./">もう一度生まれる</a>
     </section>`;
 }
 
@@ -251,7 +262,7 @@ function render(l: Life): void {
 async function main(): Promise<void> {
   const code = decodeURIComponent(location.hash.slice(1));
   const parsed = code ? decodeResult(code) : null;
-  if (!parsed) return showError();
+  if (!parsed) return code && isOldVersion(code) ? showOld() : showError();
   let life: Life;
   try {
     life = replayByIndex(parsed.seed, parsed.picks, parsed.mode);
