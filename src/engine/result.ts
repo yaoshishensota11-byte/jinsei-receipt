@@ -6,7 +6,7 @@ import { pickCountry, type Mode } from "./world";
 import { streamRng } from "./rng";
 import { EXPENSE_LABEL, type ExpenseCat, type LifeEvent } from "./types";
 
-export const CODEC_VERSION = "5";
+export const CODEC_VERSION = "6";
 
 export interface ReceiptItem {
   label: string;
@@ -41,7 +41,7 @@ export function picksOf(l: Life): number[] {
   return l.choiceLog.map((c) => c.pickIndex ?? 0);
 }
 
-// 版5（実家を出るかの選択などを追加）：`5.<モード j|m|w>.<シード>.<選んだ番号の並び>`。国はモードとシードから決まる
+// 版6（親と同居している人の介護の選択を追加）：`6.<モード j|m|w>.<シード>.<選んだ番号の並び>`。国はモードとシードから決まる
 export function encodeResult(l: Life): string {
   return `${CODEC_VERSION}.${l.mode}.${l.seed}.${picksOf(l).join("")}`;
 }
@@ -118,7 +118,7 @@ function memoFor(l: Life, cat: ExpenseCat, amount: number): string {
     case "medical":
       return has("がん") ? "がん治療を含む" : has("入院") ? "入院も経験した" : "通院と薬";
     case "care":
-      return has("要介護") && !l.choiceLog.some((c) => c.id === "parentCare" && ["facility", "home", "quit", "share"].includes(c.optionId))
+      return has("要介護") && !l.choiceLog.some((c) => c.id === "parentCare" && ["facility", "home", "liveIn", "quit", "share"].includes(c.optionId))
         ? "自分の介護サービス"
         : "親の介護、そして自分の";
     case "fun":

@@ -182,7 +182,7 @@ export class Life {
   frugal = false;
 
   // 親の介護
-  careMode: "" | "facility" | "home" | "quit" | "share" = "";
+  careMode: "" | "facility" | "home" | "liveIn" | "quit" | "share" = "";
   careUntil = -1;
   careTriggered = false;
 
@@ -844,6 +844,7 @@ export class Life {
       if (this.job === "freelance" || this.job === "founder") sal *= Math.max(0.2, r.normal(1, 0.28));
       if (recession && (this.job === "big" || this.job === "sme")) sal *= 0.94;
       if (this.careMode === "home" && a < this.careUntil) sal *= 0.85;
+      if (this.careMode === "liveIn" && a < this.careUntil) sal *= 0.9;
       if (this.postRetireWork) sal = this.lastRegularWage > 0 ? this.lastRegularWage * 0.62 : sal;
       this.addIncome("salary", sal);
       this.workYears++;
@@ -1006,13 +1007,27 @@ export class Life {
     // 介護費用
     if (this.careMode && a < this.careUntil) {
       const cost =
-        this.careMode === "facility" ? this.y(1_800_000) : this.careMode === "home" ? this.y(600_000) : this.careMode === "quit" ? this.y(400_000) : this.y(700_000);
-      const share = this.careMode === "share" ? 1 : 1 / Math.max(1, this.siblings * 0.5 + 1);
+        this.careMode === "facility"
+          ? this.y(1_800_000)
+          : this.careMode === "home"
+            ? this.y(600_000)
+            : this.careMode === "liveIn"
+              ? this.y(350_000)
+              : this.careMode === "quit"
+                ? this.y(400_000)
+                : this.y(700_000);
+      // 親と同居している人には、きょうだいがいても負担が寄りやすい
+      const share = this.careMode === "share" ? 1 : 1 / Math.max(1, this.siblings * (this.livesWithParents ? 0.25 : 0.5) + 1);
       // 親自身の年金・貯金でまかなう分もあるので、子の家計が苦しいときは負担が軽くなる
       this.spend("care", cost * share * (this.cash + this.invest < 0 ? 0.5 : 1));
     }
   }
   careParent = 0;
+
+  /** 親と同じ家で暮らしている（実家暮らし・二世帯） */
+  get livesWithParents(): boolean {
+    return (this.home === "parents" || this.coLiveParents) && this.parents.some((p) => p.alive);
+  }
 
   private inherit(r: Rng): void {
     const b = BAND_INHERIT[this.band.id] ?? BAND_INHERIT.mid;
@@ -1621,13 +1636,27 @@ export function buildChoice(l: Life, id: ChoiceId): Choice {
         );
       } else {
         const who = l.careTriggered ? (l.careParent === 0 ? "父" : "母") : "親";
-        situation = l.careTriggered ? `${who}に介護が必要になった。どう向き合う？` : `${who}が高齢になり、介護が必要になった。どう向き合う？`;
-        options.push(
-          opt("facility", "施設に入ってもらう", "仕事は続けられる。費用は毎月かかり続ける。"),
-          opt("home", "働きながら自宅で介護", "費用は抑えられる。仕事を減らし、心身の負担も大きい。"),
-          opt("quit", "仕事を辞めて介護に専念", "そばにいられる。収入が途絶え、復職は簡単ではない。"),
-        );
-        if (l.siblingsNow > 0) options.push(opt("share", "きょうだいと分担する", "負担を分け合える。話し合いがまとまらないことも。"));
+        const together = l.livesWithParents;
+        situation = together
+          ? `一緒に暮らしている${who}に介護が必要になった。同じ家にいるぶん、自分が見ることになりそうだ。どう向き合う？`
+          : l.careTriggered
+            ? `${who}に介護が必要になった。どう向き合う？`
+            : `${who}が高齢になり、介護が必要になった。どう向き合う？`;
+        if (together) {
+          options.push(
+            opt("liveIn", "同じ家で、働きながら自分が見る", "通う手間も交通費もかからない。夜や休日も介護が続き、仕事は少し減る。"),
+            opt("facility", "施設に入ってもらう", "仕事は続けられる。費用は毎月かかり続ける。"),
+            opt("quit", "仕事を辞めて介護に専念", "そばにいられる。収入が途絶え、復職は簡単ではない。"),
+          );
+          if (l.siblingsNow > 0) options.push(opt("share", "家を出たきょうだいにも頼む", "負担を分け合える。同居している自分に負担が寄りがち。"));
+        } else {
+          options.push(
+            opt("facility", "施設に入ってもらう", "仕事は続けられる。費用は毎月かかり続ける。"),
+            opt("home", "実家に通いながら介護", "費用は抑えられる。通う時間と交通費がかかり、仕事を減らすことになる。"),
+            opt("quit", "仕事を辞めて介護に専念", "そばにいられる。収入が途絶え、復職は簡単ではない。"),
+          );
+          if (l.siblingsNow > 0) options.push(opt("share", "きょうだいと分担する", "負担を分け合える。話し合いがまとまらないことも。"));
+        }
       }
       break;
     }
@@ -1893,7 +1922,7 @@ function applyChoice(l: Life, id: ChoiceId, o: string, r: Rng): void {
         if (l.home === "rent") l.home = "parents";
         l.logPre("life", "実家に移り住んだ。");
       } else {
-        l.careMode = o as "facility" | "home" | "quit" | "share";
+        l.careMode = o as "facility" | "home" | "liveIn" | "quit" | "share";
         if (!l.careTriggered) l.careParent = l.parents.findIndex((x) => x.alive);
         l.careTriggered = true;
         l.careUntil = a + r.int(2, 9);
@@ -1902,7 +1931,8 @@ function applyChoice(l: Life, id: ChoiceId, o: string, r: Rng): void {
           l.unemployedUntil = l.careUntil;
           l.logPre("work", "介護のために仕事を辞めた。", undefined, true);
         }
-        if (o === "share" && r.chance(0.3)) l.logPre("family", "きょうだいとの話し合いは難航した。負担は思ったより減らなかった。");
+        if (o === "liveIn") l.logPre("family", "同じ家で暮らしながら、働きつつ親の介護をすることにした。", undefined, true);
+        if (o === "share" && r.chance(l.livesWithParents ? 0.5 : 0.3)) l.logPre("family", "きょうだいとの話し合いは難航した。負担は思ったより減らなかった。");
       }
       break;
     }
