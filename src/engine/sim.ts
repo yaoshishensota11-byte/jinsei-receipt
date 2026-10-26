@@ -322,6 +322,13 @@ export class Life {
   /** ドルや金で貯めている（物価の暴騰に強い） */
   protectCash = false;
   inflationNoticed = false;
+  /** 今年の物価の動きを借りている、その国の過去の年（data/world/cpi_annual.json）。null はまだ選んでいない */
+  inflSrcYear: number | null = null;
+  /** 直近の1年の物価上昇率（割合） */
+  lastInflation = 0;
+  /** 物価の激しい上昇（年25%以上）が続いている年数と、借りている過去の最初の年 */
+  inflSpell = 0;
+  inflSpellFrom = 0;
   /** 一度起きた「国ごとの出来事」 */
   usedEvents = new Set<string>();
 

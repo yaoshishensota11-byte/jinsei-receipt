@@ -152,7 +152,7 @@ export const MICROS: Micro[] = [
     id: "dollar",
     min: 22,
     max: 70,
-    when: (l) => !l.protectCash && l.cash > l.y(300_000) && riskOf(l.D.iso3).inflationMean > 0.08,
+    when: (l) => !l.protectCash && l.cash > l.y(300_000) && (riskOf(l.D.iso3).inflationMean > 0.08 || l.lastInflation > 0.15),
     title: "貯金をどう持つか",
     situation: () => "物価が上がり続けている。周りではドルや金で貯める人が増えてきた。",
     options: [

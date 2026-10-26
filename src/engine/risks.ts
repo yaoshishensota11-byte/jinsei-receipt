@@ -2,6 +2,7 @@
 // 国ごとの「その国らしい出来事」（data/world/country_events.json）を、1年ごとに起こす。
 import risksJson from "../../data/world/risks.json";
 import eventsJson from "../../data/world/country_events.json";
+import cpiJson from "../../data/world/cpi_annual.json";
 import type { Rng } from "./rng";
 import type { Scene } from "./scenes";
 import type { Life } from "./sim";
@@ -54,6 +55,34 @@ export function ipvHazard(iso3: string, sex: "male" | "female"): number {
   return 1 - Math.pow(1 - Math.min(0.6, lifetime), 1 / 40);
 }
 
+// 国ごとの、年ごとの物価上昇率（%）。World Bank WDI と IMF WEO から（build/cpi_series.py）
+const CPI = cpiJson as unknown as Record<string, Record<string, number>>;
+const cpiYears = new Map<string, number[]>();
+function yearsOf(iso3: string): number[] {
+  let ys = cpiYears.get(iso3);
+  if (!ys) {
+    ys = Object.keys(CPI[iso3] ?? {}).map(Number).sort((a, b) => a - b);
+    cpiYears.set(iso3, ys);
+  }
+  return ys;
+}
+
+/**
+ * 今年の物価上昇率を、その国で実際に記録された年の値から決める。
+ * 人生はこれからの年に進むので、過去の何年分かをひと続きのまま借りてくる（高い物価が何年も続いた時代は、そのまま続く）。
+ * 平均でおよそ8年ごとに、別の時代に切り替わる。データのない国は null。
+ */
+function inflationOf(l: Life, r: Rng): { rate: number; year: number } | null {
+  const ys = yearsOf(l.D.iso3);
+  if (ys.length < 5) return null;
+  const next = l.inflSrcYear === null ? null : ys.find((y) => y > l.inflSrcYear!);
+  const jump = r.chance(1 / 8);
+  const year = next === undefined || next === null || jump ? ys[Math.floor(r.next() * ys.length)] : next;
+  l.inflSrcYear = year;
+  // ハイパーインフレの1年がすべてを決めないよう、300%で頭打ちにする
+  return { rate: Math.min(3, CPI[l.D.iso3][String(year)] / 100), year };
+}
+
 /** 統計にもとづく、選択のない出来事 */
 export function riskYear(l: Life, r: Rng): void {
   const a = l.age;
@@ -61,13 +90,46 @@ export function riskYear(l: Life, r: Rng): void {
   const k = riskOf(l.D.iso3);
   const cash = Math.max(0, l.cash);
 
-  // 物価の暴騰（お金が大量に刷られ、通貨の価値が急に下がる）。過去にそうした年の割合から
-  if (cash > 0 && r.chance(k.inflationCrisisShare * 0.5)) {
+  // 物価の上昇。その国で実際に記録された年の上昇率で、現金の価値が目減りする
+  const infl = inflationOf(l, r);
+  if (infl) {
+    const p = infl.rate;
+    l.lastInflation = p;
+    // 預金の利息で年5%ほどは取り戻せるとみなし、それを超える上昇の分だけ価値が減る
+    const lossRate = Math.min(0.75, (Math.max(0, p - 0.05) / (1 + p)) * 0.8) * (l.protectCash ? 0.3 : 1);
+    const loss = cash * lossRate;
+    if (loss > 0) l.spend("other", loss);
+    // 知らせは、激しい上昇が「始まった年」と「収まった年」だけにする（毎年出すと、出来事の一覧が埋まってしまう）
+    if (p >= 0.25) {
+      if (l.inflSpell === 0) {
+        l.inflSpellFrom = infl.year;
+        const tenths = Math.round(lossRate * 10);
+        l.log(
+          "money",
+          `物価が1年で${Math.round(p * 100)}%上がった（${l.D.nameJa}で${infl.year}年に実際に記録された上昇率）。` +
+            (cash <= 0 ? "" : tenths >= 1 ? `貯金の価値が${tenths}割ほど減った。` : "貯金の価値が少し減った。") +
+            (l.protectCash && cash > 0 ? "ドルや金で持っていた分は守られた。" : ""),
+          loss > 0 ? -loss : undefined,
+          true,
+        );
+      }
+      l.inflSpell++;
+    } else {
+      if (l.inflSpell >= 2) {
+        l.log("money", `物価の激しい上昇が${l.inflSpell}年続き、ようやく落ち着いた（${l.D.nameJa}の${l.inflSpellFrom}年からの動きと同じ）。`);
+      }
+      l.inflSpell = 0;
+      if (p >= 0.08 && cash > 0 && !l.inflationNoticed) {
+        l.inflationNoticed = true;
+        l.log("money", "物価が毎年のように上がり、手元のお金の価値が少しずつ目減りしていく。");
+      }
+    }
+  } else if (cash > 0 && r.chance(k.inflationCrisisShare * 0.5)) {
+    // 年ごとのデータがない国は、過去に物価が暴騰した年の割合から
     const loss = cash * r.range(0.3, 0.7) * (l.protectCash ? 0.4 : 1);
     l.spend("other", loss);
     l.log("money", `物価が急に跳ね上がり、通貨の価値が下がった。貯金の価値が${Math.round((loss / cash) * 10)}割ほど減った。`, -loss, true);
   } else if (cash > 0 && k.inflationMean > 0.08) {
-    // 物価が上がり続ける国では、現金のまま持っていると少しずつ目減りする
     const rate = Math.min(0.2, (k.inflationMean - 0.05) * 0.6) * (l.protectCash ? 0.3 : 1);
     l.spend("other", cash * rate);
     if (!l.inflationNoticed) {
