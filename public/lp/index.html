@@ -39,6 +39,7 @@
         }
       }
       * { box-sizing: border-box; }
+      [hidden] { display: none !important; }
       html { -webkit-text-size-adjust: 100%; }
       body {
         margin: 0;
@@ -124,6 +125,27 @@
       .faq summary::after { content: "+"; font-weight: 400; color: var(--sub); transition: transform 0.25s ease-out; }
       .faq details[open] summary::after { transform: rotate(45deg); }
       .faq p { margin-top: 16px; color: var(--sub); }
+
+      /* ご意見 */
+      .fb { margin-top: 48px; max-width: 640px; display: grid; gap: 24px; }
+      .fb fieldset { border: 0; padding: 0; margin: 0; }
+      .fb legend, .fb label.t { font-weight: 700; font-size: 16px; margin-bottom: 12px; display: block; }
+      .fb .kinds { display: flex; flex-wrap: wrap; gap: 8px; }
+      .fb .kinds input { position: absolute; opacity: 0; pointer-events: none; }
+      .fb .kinds span { display: inline-block; padding: 10px 20px; border-radius: 999px; background: var(--soft); color: var(--ink); cursor: pointer; font-size: 15px; transition: background 0.2s ease-out, color 0.2s ease-out; }
+      .fb .kinds input:checked + span { background: var(--ink); color: var(--bg); }
+      .fb .kinds input:focus-visible + span { outline: 2px solid var(--accent); outline-offset: 2px; }
+      .fb textarea { width: 100%; min-height: 160px; padding: 16px; border-radius: 18px; border: 0; background: var(--soft); color: var(--ink); font: inherit; line-height: 1.7; resize: vertical; }
+      .fb textarea:focus { outline: 2px solid var(--accent); outline-offset: 0; }
+      .fb .row { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+      .fb button.cta { border: 0; cursor: pointer; font-family: inherit; }
+      .fb button.cta:disabled { opacity: 0.5; cursor: default; }
+      .fb .status { font-size: 15px; color: var(--sub); }
+      .fb .hint { font-size: 14px; color: var(--sub); }
+      .thanks { margin-top: 48px; max-width: 640px; padding: 32px; border-radius: 24px; background: var(--soft); }
+      .thanks h3 { margin-bottom: 8px; }
+      .thanks p { color: var(--sub); }
+      .thanks button { margin-top: 16px; background: none; border: 0; padding: 0; color: var(--accent); font: inherit; cursor: pointer; }
 
       /* 最後 */
       .final { text-align: center; }
@@ -275,6 +297,37 @@
         </div>
       </section>
 
+      <section id="feedback" hidden>
+        <div class="wrap">
+          <h2><span class="nw">遊んでみた感想を、</span><span class="nw">聞かせてください。</span></h2>
+          <p class="lead" style="margin-top: 24px">よかったところ、分かりにくかったところ、直してほしいところ。ひとことでも、これからの改善に使わせていただきます。</p>
+          <form class="fb" id="fbForm" novalidate>
+            <fieldset>
+              <legend>どんな内容ですか？</legend>
+              <div class="kinds">
+                <label><input type="radio" name="kind" value="感想" checked /><span>感想</span></label>
+                <label><input type="radio" name="kind" value="直してほしい点" /><span>直してほしい点</span></label>
+                <label><input type="radio" name="kind" value="不具合" /><span>不具合</span></label>
+              </div>
+            </fieldset>
+            <div>
+              <label class="t" for="fbText">内容</label>
+              <textarea id="fbText" name="text" maxlength="2000" placeholder="例：結婚の場面が急に感じた／スマホで文字が小さかった" required></textarea>
+            </div>
+            <div class="row">
+              <button class="cta" type="submit" id="fbSend">送信する</button>
+              <span class="status" id="fbStatus" role="status" aria-live="polite"></span>
+            </div>
+            <p class="hint">お名前やメールアドレスは不要です。個人が分かる内容は書かないでください。</p>
+          </form>
+          <div class="thanks" id="fbThanks" hidden>
+            <h3>送信しました。ありがとうございます。</h3>
+            <p>いただいた内容は、すべて読んで改善の参考にします。</p>
+            <button type="button" id="fbAgain">続けて別の内容を送る</button>
+          </div>
+        </div>
+      </section>
+
       <section class="final">
         <div class="wrap">
           <h2><span class="nw">どこに、</span><span class="nw">生まれますか？</span></h2>
@@ -292,5 +345,55 @@
         <span>金額は公的統計をもとにした架空の試算です。</span>
       </div>
     </footer>
+    <script>
+      // ご意見の送り先（Googleフォーム）。フォームを作ったら、ここに送信先と質問の番号を入れる。
+      // 空のあいだは、ご意見の欄は表示しない。
+      const FEEDBACK = {
+        action: "", // 例：https://docs.google.com/forms/d/e/XXXX/formResponse
+        kindEntry: "", // 例：entry.123456789（「種類」の質問）
+        textEntry: "", // 例：entry.987654321（「内容」の質問）
+      };
+      (function () {
+        if (!FEEDBACK.action || !FEEDBACK.textEntry) return;
+        const section = document.getElementById("feedback");
+        const form = document.getElementById("fbForm");
+        const text = document.getElementById("fbText");
+        const send = document.getElementById("fbSend");
+        const status = document.getElementById("fbStatus");
+        const thanks = document.getElementById("fbThanks");
+        section.hidden = false;
+        form.addEventListener("submit", async (e) => {
+          e.preventDefault();
+          const body = text.value.trim();
+          if (!body) {
+            status.textContent = "内容を入力してください。";
+            text.focus();
+            return;
+          }
+          const data = new URLSearchParams();
+          data.set(FEEDBACK.textEntry, body);
+          if (FEEDBACK.kindEntry) data.set(FEEDBACK.kindEntry, form.kind.value);
+          send.disabled = true;
+          status.textContent = "送信しています…";
+          try {
+            // Googleフォームは返事を読めない形（no-cors）で送る。ページは移動しない
+            await fetch(FEEDBACK.action, { method: "POST", mode: "no-cors", body: data });
+            form.hidden = true;
+            thanks.hidden = false;
+            text.value = "";
+            status.textContent = "";
+          } catch {
+            status.textContent = "送信できませんでした。通信状況を確かめて、もう一度お試しください。";
+          } finally {
+            send.disabled = false;
+          }
+        });
+        document.getElementById("fbAgain").addEventListener("click", () => {
+          thanks.hidden = true;
+          form.hidden = false;
+          text.focus();
+        });
+      })();
+    </script>
   </body>
 </html>
