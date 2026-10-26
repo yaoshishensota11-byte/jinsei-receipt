@@ -126,6 +126,16 @@
       .faq details[open] summary::after { transform: rotate(45deg); }
       .faq p { margin-top: 16px; color: var(--sub); }
 
+      /* こんな人生 */
+      .lives { display: grid; grid-auto-flow: column; grid-auto-columns: min(78vw, 300px); gap: 24px; overflow-x: auto; --side: max(24px, calc((100vw - 1040px) / 2 + 24px)); scroll-snap-type: x mandatory; scroll-padding-inline: var(--side); padding: 48px var(--side) 16px; scrollbar-width: thin; }
+      .life { scroll-snap-align: start; display: grid; gap: 8px; align-content: start; color: inherit; text-decoration: none; }
+      .life img { width: 100%; height: auto; border-radius: 18px; background: #f3efe6; box-shadow: var(--shadow); display: block; margin-bottom: 8px; transition: transform 0.25s ease-out; }
+      .life:hover img { transform: translateY(-4px); }
+      .life .meta { font-size: 13px; color: var(--sub); }
+      .life .ttl { font-size: 18px; font-weight: 700; line-height: 1.4; }
+      .life .desc { font-size: 15px; color: var(--sub); }
+      .life .more { font-size: 15px; color: var(--accent); }
+
       /* 言語の切り替え */
       .topbar { display: flex; justify-content: flex-end; padding-top: 16px; }
       .lang { display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; border-radius: 999px; background: var(--soft); color: var(--ink); font-size: 14px; cursor: pointer; }
@@ -261,6 +271,56 @@
 
       <section>
         <div class="wrap">
+          <h2><span class="nw">こんな人生が、</span><span class="nw">ありました。</span></h2>
+          <p class="lead" style="margin-top: 24px">ゲームの中で生まれた人生から、いくつかを選びました。押すと、その人生のレシートと年ごとのお金の流れが見られます。</p>
+        </div>
+        <div class="lives" role="list">
+            <a class="life" href="/r.html#6.j.gtok13.01111111000112001021121110001100203011110">
+              <img src="img/g-tokyo.webp" alt="日本・東京圏生まれの人生のレシート" width="560" height="700" loading="lazy" />
+              <span class="meta">日本・東京圏・男性・95歳で閉店</span>
+              <span class="ttl">東京で、大企業に勤めて老後安泰</span>
+              <span class="desc">生涯で稼いだお金は約1.96億円。最後に約1.33億円が残った。</span>
+              <span class="more">このレシートを見る</span>
+            </a>
+            <a class="life" href="/r.html#6.w.gmig3.1010201110000011102101110111100110100">
+              <img src="img/g-migrate.webp" alt="インド・ウッタル・プラデーシュ州の農村生まれの人生のレシート" width="560" height="700" loading="lazy" />
+              <span class="meta">インド・ウッタル・プラデーシュ州の農村・女性・64歳で閉店</span>
+              <span class="ttl">インドの農村から、海外へ出稼ぎに</span>
+              <span class="desc">出稼ぎで家計を支えた。生涯で稼いだお金は約1,732万円。</span>
+              <span class="more">このレシートを見る</span>
+            </a>
+            <a class="life" href="/r.html#6.w.ginfh.100010110021013110001010011001100111000101">
+              <img src="img/g-inflation.webp" alt="エジプト・ナイル・デルタの農村生まれの人生のレシート" width="560" height="700" loading="lazy" />
+              <span class="meta">エジプト・ナイル・デルタの農村・男性・67歳で閉店</span>
+              <span class="ttl">物価の高騰に、何度も貯金を削られた</span>
+              <span class="desc">物価で消えた貯金は約220万円。エジプトで実際に起きた上昇率のとおりに。</span>
+              <span class="more">このレシートを見る</span>
+            </a>
+            <a class="life" href="/r.html#6.w.gbri3t.000000010000011100010012110011001020">
+              <img src="img/g-brideprice.webp" alt="ベナン・その他の都市生まれの人生のレシート" width="560" height="700" loading="lazy" />
+              <span class="meta">ベナン・その他の都市・男性・56歳で閉店</span>
+              <span class="ttl">婚資を払って結婚し、子だくさんに</span>
+              <span class="desc">子ども4人。恋愛・結婚にかかったお金は約17万円。</span>
+              <span class="more">このレシートを見る</span>
+            </a>
+            <a class="life" href="/r.html#6.j.gcar2w.00000003110003101311010010000100101101110111110">
+              <img src="img/g-care.webp" alt="日本・地方の町生まれの人生のレシート" width="560" height="700" loading="lazy" />
+              <span class="meta">日本・地方の町・女性・95歳で閉店</span>
+              <span class="ttl">実家に残り、親の介護を引き受けた</span>
+              <span class="desc">介護にかかったお金は約1,178万円。最後に約1,218万円が残った。</span>
+              <span class="more">このレシートを見る</span>
+            </a>
+            <a class="life" href="/r.html#6.m.gusa1n.1010130020121110100210100001100110001">
+              <img src="img/g-usa.webp" alt="アメリカ合衆国・シカゴ生まれの人生のレシート" width="560" height="700" loading="lazy" />
+              <span class="meta">アメリカ合衆国・シカゴ・男性・65歳で閉店</span>
+              <span class="ttl">アメリカで高い給料、それでも残らない</span>
+              <span class="desc">生涯で稼いだお金は約3.90億円。それでも最後は約309万円。</span>
+              <span class="more">このレシートを見る</span>
+            </a>
+        </div>
+      </section>
+      <section class="soft">
+        <div class="wrap">
           <h2><span class="nw">授業でも、</span><span class="nw">そのまま使えます。</span></h2>
           <p class="lead" style="margin-top: 24px">1回の体験は約10分。倍速もあるので、授業の中で一人ひとりが自分の人生を体験し、結果を持ち寄って話し合えます。</p>
           <div class="school">
@@ -290,7 +350,7 @@
         </div>
       </section>
 
-      <section class="soft">
+      <section>
         <div class="wrap">
           <h2>よくある質問</h2>
           <div class="faq">
@@ -318,7 +378,7 @@
         </div>
       </section>
 
-      <section id="feedback" hidden>
+      <section id="feedback" class="soft" hidden>
         <div class="wrap">
           <h2><span class="nw">遊んでみた感想を、</span><span class="nw">聞かせてください。</span></h2>
           <p class="lead" style="margin-top: 24px">よかったところ、分かりにくかったところ、直してほしいところ。ひとことでも、これからの改善に使わせていただきます。</p>

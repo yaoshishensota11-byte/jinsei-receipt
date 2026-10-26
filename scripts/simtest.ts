@@ -98,6 +98,17 @@ if (process.argv.includes("--sample")) {
   for (const y of l.records) for (const e of y.events) console.log(`${e.age}歳 ${e.text}`);
   console.log(l.summary());
 }
+// 紹介ページの「こんな人生」が、今の版のURLで開けるか（版を上げたら scripts/lpgallery.ts で作り直す）
+{
+  const fs = await import("node:fs");
+  const gallery = JSON.parse(fs.readFileSync(new URL("../public/lp/gallery.json", import.meta.url), "utf8")) as { key: string; code: string }[];
+  for (const g of gallery) {
+    const dec = decodeResult(g.code);
+    if (!dec) problems.push(`紹介ページの「${g.key}」のURLが古い版（scripts/lpgallery.ts で作り直す）`);
+    else if (!replayByIndex(dec.seed, dec.picks, dec.mode).records.length) problems.push(`紹介ページの「${g.key}」を再現できない`);
+  }
+}
+
 if (problems.length) {
   console.log(`✖ 問題 ${problems.length}件`);
   console.log(problems.slice(0, 20).join("\n"));

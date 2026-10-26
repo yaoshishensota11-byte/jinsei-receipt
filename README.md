@@ -54,6 +54,7 @@
 ## 紹介ページ（LP）とアイコン
 
 - 紹介ページ：`public/lp/index.html`（公開URL `/lp/`）。ページの中で感想・直してほしい点を送れる欄があり、送り先はGoogleフォーム（ページ下の FEEDBACK に送信先と質問の番号を入れると欄が表示される）。「生まれてみる」ボタンでゲーム（`/`）へ移る。一般の人向けの紹介と、授業での使い方・データの説明を1ページにまとめている。画像は `public/lp/img/`。
+- 「こんな人生が、ありました。」：ゲームの中で選んだ6つの人生のレシート（`public/lp/gallery.json`、画像は `public/lp/img/g-*.webp`）。共有URLの版を上げたら `npx tsx scripts/lpgallery.ts > public/lp/gallery.json` で作り直し、レシート画像も撮り直す（simtest が古い版のURLを見つけて知らせる）。
 - アイコン：地球とレシート（`public/favicon.svg`、`favicon-32.png`、`apple-touch-icon.png`、`icon-192.png`、`icon-512.png`、`site.webmanifest`）。ゲーム・詳細ページ・紹介ページの3つで使う。
 
 ## 今後の予定
