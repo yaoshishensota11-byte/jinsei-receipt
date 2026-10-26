@@ -30,7 +30,7 @@ export interface ReceiptData {
   /** 表示する通貨（日本は円） */
   currency: { code: string; nameJa: string; symbol: string; jpyPerUnit: number };
   countryName: string;
-  /** 生涯で稼いだお金（本人・パートナーの稼ぎ、年金、手当など。現地通貨） */
+  /** 生涯で稼いだお金（本人の稼ぎだけ。パートナーの稼ぎ・年金・手当は含めない。現地通貨） */
   lifetimeIncome: number;
   deathLine: string;
   closing: string;
@@ -172,7 +172,7 @@ export function buildReceipt(l: Life): ReceiptData {
     stamp: stampOf(s.finalBalance, l.D.k),
     currency: l.D.currency,
     countryName: l.D.nameJa,
-    lifetimeIncome: Math.round(s.lifetimeIncome),
+    lifetimeIncome: Math.round(s.incomeTotal.salary ?? 0),
     deathLine: `${s.deathAge}歳で閉店（${s.deathCause}）`,
     closing: "またのご来店は、ございません。",
   };

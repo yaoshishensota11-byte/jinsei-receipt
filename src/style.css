@@ -69,6 +69,13 @@ button {
   font-size: 15px;
   margin: 18px 0 0;
 }
+.title p.q {
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.6;
+  text-align: center;
+  color: var(--red);
+}
 .title .dash {
   border-top: 1px dashed var(--line);
   margin: 18px 0;

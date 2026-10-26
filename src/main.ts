@@ -37,6 +37,7 @@ function showTitle(): void {
         <div class="en">LIFE STORE RECEIPT</div>
         <h1>人生のレシート</h1>
         <div class="dash"></div>
+        <p class="q">同じ一生でも、生まれた国で<br>稼げるお金はどれだけ違う？</p>
         <p>あなたは今年生まれる赤ちゃん。<br>どこの国のどんな家庭に生まれるかは、生まれるまで分かりません。</p>
         <p>大きな分かれ道が8回と、日々の小さな選択がいくつも。最後に、人生のお会計をどうぞ。</p>
         <div class="dash"></div>
