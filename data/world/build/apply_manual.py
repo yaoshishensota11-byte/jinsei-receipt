@@ -18,6 +18,19 @@ def num(text):
     m = re.match(r"\s*([0-9][0-9,]*(?:\.[0-9]+)?)", text)
     return float(m.group(1).replace(",", "")) if m else None
 
+NUM = r"([0-9][0-9,]*(?:\.[0-9]+)?)"
+
+def bracket_range(note):
+    """note から区分の範囲を読む。「from=0; to=500」「from=0、to=500」「from/to=0–500」「from/to=IRR 0/500」に対応。上限なしは inf"""
+    m = re.search(r"from/to\s*=\s*(?:[A-Z]{3}\s*)?" + NUM + r"\s*[–\-/]\s*(?:" + NUM + ")?", note)
+    if m:
+        lo, hi = num(m.group(1)), num(m.group(2) or "")
+    else:
+        mf = re.search(r"from\s*=\s*(?:[A-Z]{3}\s*)?" + NUM, note)
+        mt = re.search(r"(?<!from/)(?<![A-Za-z])to\s*=\s*(?:[A-Z]{3}\s*)?" + NUM, note)
+        lo, hi = (num(mf.group(1)) if mf else 0.0), (num(mt.group(1)) if mt else None)
+    return lo or 0.0, hi if hi is not None else float("inf")
+
 def drop_est(obj, key):
     obj["estimated"] = [e for e in obj.get("estimated", []) if not e.startswith(key)]
 
@@ -85,18 +98,12 @@ for r in rows:
         # 税・社会保険料の「材料」。国ごとに集めておき、あとでまとめて実効税率を計算する
         t = tax_parts.setdefault(iso, {"brackets": []})
         # 平均月収の代わりに最低賃金が入っている行は、平均の人の負担がずれるので使わない
-        if field == "avg_monthly_earnings" and ("最低賃金" in r["note"] or "/day" in r["unit"]):
+        if field == "avg_monthly_earnings" and (("最低賃金" in r["note"] and "最低賃金ではない" not in r["note"]) or "/day" in r["unit"]):
             continue
         if field == "income_tax_bracket":
-            meta = dict(x.split("=", 1) for x in [y.strip() for y in r["note"].split(";")] if "=" in x)
-            lo = num(meta.get("from", "")) or 0.0
-            hi = num(meta.get("to", ""))
-            t["brackets"].append((lo, hi if hi is not None else float("inf"), v))
+            t["brackets"].append((*bracket_range(r["note"]), v))
         elif field == "employee_ssc_bracket":
-            meta = dict(x.split("=", 1) for x in [y.strip() for y in r["note"].split(";")] if "=" in x)
-            lo = num(meta.get("from", "")) or 0.0
-            hi = num(meta.get("to", ""))
-            t.setdefault("ssc_brackets", []).append((lo, hi if hi is not None else float("inf"), v))
+            t.setdefault("ssc_brackets", []).append((*bracket_range(r["note"]), v))
         else:
             t[field] = v
             t[field + "_note"] = r["note"]
@@ -133,15 +140,19 @@ for iso, t in tax_parts.items():
     if ey and by and by - ey > 3:
         tax_skipped.append(f"{iso}: 平均月収が古い（{ey}年、税率表は{by}年）")
         continue
-    # 区分の境目が「400001から」のように1ずれている表は、前の区分の上限につなげる
+    # 区分の境目が「400001から」のように1ずれている表（月額表を12倍した表は12ずれる）は、前の区分の上限につなげる
     brackets, prev_hi = [], 0.0
     for lo, hi, rate in sorted(t["brackets"]):
-        if 0 < lo - prev_hi <= 1:
+        if 0 < lo - prev_hi <= 12:
             lo = prev_hi
         brackets.append((lo, hi, rate)); prev_hi = hi
     # 基礎控除が「0%区分の上限」と同じ額なら、税率表がすでに控除を含んでいるので二重に引かない
     allowance = t.get("income_tax_allowance", 0.0)
     if any(rate == 0 and lo <= 1 and abs(hi - allowance) <= 1 for lo, hi, rate in brackets):
+        allowance = 0.0
+    # 南アフリカの tax threshold のように、税額控除 ÷ 最初の税率から出した額も二重に引かない
+    credit = t.get("income_tax_credit", 0.0)
+    if credit and brackets and abs(allowance * brackets[0][2] - credit) <= credit * 0.02:
         allowance = 0.0
     annual = t["avg_monthly_earnings"] * 12
     taxable = max(0.0, annual - allowance)

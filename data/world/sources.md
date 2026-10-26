@@ -154,3 +154,18 @@
 | 平均月収 | ESS 労働力調査 2024/25 | ETH → 実効負担率 19.5% | |
 | 社会保険料率 | 北京市の公式通告 | CHN は未反映 | 本人負担率の合計が通告に載っていない |
 | 最低賃金（SMIG） | ACP の報道 | COD は未反映 | 平均月収ではないため使わない |
+
+## 手作業の調査データ 第6部（data/world/manual/jinsei_receipt_part6.csv、part6_summary.md）
+
+主要20か国の外で、生まれる確率が高い12か国の税・社会保険料の材料。
+
+| 国 | 平均月収の出典 | 税・保険料の出典 | 実効負担率（計算） |
+|---|---|---|---|
+| TZA | NBS Formal Sector Employment and Earnings Survey 2023/24（formal sector のみ） | TRA 2025/26、NSSF | 16.2%（NSSF 本人10%は上限値） |
+| AGO | ILOSTAT 2024 | PwC（二次情報） | 3.0%（月収が非課税枠より低い） |
+| MOZ | ILOSTAT 2022（HIES） | RSM 2025、PwC（二次情報） | 3.0%（同上） |
+| RUS | Rosstat 2025 | FNS 2025 | 13.0%（本人負担の社会保険料なし） |
+| ZAF | Stats SA QES 2023（農業を除く formal sector） | SARS 2025/26 | 15.1%（tax threshold は primary rebate と重なるので引かない） |
+| NER | ILOSTAT 2022 | 一般税法典 Art.66、CLEISS | 8.3% |
+
+計算しなかった国：UGA（平均月収が2021年で古い）、IRN・IRQ・MDG・CIV・CMR（2022年以降の平均月収が見つからない）。税率表と保険料率は取り込み済みで、平均月収が届けば計算される。
