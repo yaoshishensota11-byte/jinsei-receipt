@@ -98,7 +98,7 @@ export function riskYear(l: Life, r: Rng): void {
     // 預金の利息で年5%ほどは取り戻せるとみなし、それを超える上昇の分だけ価値が減る
     const lossRate = Math.min(0.75, (Math.max(0, p - 0.05) / (1 + p)) * 0.8) * (l.protectCash ? 0.3 : 1);
     const loss = cash * lossRate;
-    if (loss > 0) l.spend("other", loss);
+    if (loss > 0) l.spend("inflation", loss);
     // 知らせは、激しい上昇が「始まった年」と「収まった年」だけにする（毎年出すと、出来事の一覧が埋まってしまう）
     if (p >= 0.25) {
       if (l.inflSpell === 0) {
@@ -127,11 +127,11 @@ export function riskYear(l: Life, r: Rng): void {
   } else if (cash > 0 && r.chance(k.inflationCrisisShare * 0.5)) {
     // 年ごとのデータがない国は、過去に物価が暴騰した年の割合から
     const loss = cash * r.range(0.3, 0.7) * (l.protectCash ? 0.4 : 1);
-    l.spend("other", loss);
+    l.spend("inflation", loss);
     l.log("money", `物価が急に跳ね上がり、通貨の価値が下がった。貯金の価値が${Math.round((loss / cash) * 10)}割ほど減った。`, -loss, true);
   } else if (cash > 0 && k.inflationMean > 0.08) {
     const rate = Math.min(0.2, (k.inflationMean - 0.05) * 0.6) * (l.protectCash ? 0.3 : 1);
-    l.spend("other", cash * rate);
+    l.spend("inflation", cash * rate);
     if (!l.inflationNoticed) {
       l.inflationNoticed = true;
       l.log("money", "物価が毎年のように上がり、手元のお金の価値が少しずつ目減りしていく。");

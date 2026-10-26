@@ -99,7 +99,7 @@ function memoFor(l: Life, cat: ExpenseCat, amount: number): string {
   const has = (t: string) => ev.some((e) => e.text.includes(t));
   switch (cat) {
     case "tax":
-      return amount > 80_000_000 ? "国にはずいぶん貢献した" : "給料から毎月、静かに引かれた";
+      return l.D.toJpy(amount) > 80_000_000 ? "国にはずいぶん貢献した" : "給料から毎月、静かに引かれた";
     case "housing":
       if (has("住宅ローンを完済")) return "35年ローン、完済";
       if (s.ownsHome) return l.loan > 0 ? "ローンは途中のまま" : "マイホーム";
@@ -125,6 +125,10 @@ function memoFor(l: Life, cat: ExpenseCat, amount: number): string {
       return has("災害") || has("地震") ? "災害の修理を含む" : "冠婚葬祭と臨時の出費";
     case "selfEdu":
       return l.choiceLog.some((c) => /loan|night/.test(c.optionId)) ? "奨学金と学費" : "学び直しの費用";
+    case "inflation": {
+      const spells = ev.filter((e) => e.text.includes("実際に記録された上昇率")).length;
+      return spells > 0 ? `物価の高騰${spells}回。働いても残らない` : "物価が上がり、少しずつ目減り";
+    }
     case "other":
       return "服・家具・日用品";
   }
@@ -133,7 +137,7 @@ function memoFor(l: Life, cat: ExpenseCat, amount: number): string {
 export function buildReceipt(l: Life): ReceiptData {
   const s = l.summary();
   const c = cohort(l.D);
-  const order: ExpenseCat[] = ["housing", "food", "tax", "kids", "car", "fun", "other", "utilities", "medical", "care", "selfEdu", "events"];
+  const order: ExpenseCat[] = ["housing", "food", "tax", "kids", "car", "fun", "other", "utilities", "medical", "care", "selfEdu", "events", "inflation"];
   const items: ReceiptItem[] = order
     .map((k) => ({ label: EXPENSE_LABEL[k], amount: Math.round(s.expenseTotal[k] ?? 0), memo: memoFor(l, k, s.expenseTotal[k] ?? 0) }))
     .filter((it) => it.amount >= 10_000)

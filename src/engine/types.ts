@@ -22,6 +22,7 @@ export type ExpenseCat =
   | "car"
   | "fun"
   | "events"
+  | "inflation" // 物価の上昇で目減りした現金
   | "other";
 
 export type IncomeCat = "salary" | "partner" | "pension" | "windfall" | "invest";
@@ -38,6 +39,7 @@ export const EXPENSE_LABEL: Record<ExpenseCat, string> = {
   car: "車・交通",
   fun: "趣味・交際",
   events: "冠婚葬祭・臨時",
+  inflation: "物価で消えた貯金",
   other: "その他の生活費",
 };
 
