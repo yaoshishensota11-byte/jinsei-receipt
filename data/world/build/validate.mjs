@@ -50,7 +50,7 @@ for (const c of data) {
   }
   if (!(c.tfr > 0.5 && c.tfr < 8)) fail(id, 'tfr range');
   if (!(c.under5MortalityPer1000 > 0 && c.under5MortalityPer1000 < 300)) fail(id, 'u5mr range');
-  if (!Array.isArray(c.estimated) || !c.estimated.every(k => KEYS.includes(k))) fail(id, 'estimated keys');
+  if (!Array.isArray(c.estimated) || !c.estimated.every(k => KEYS.includes(k.split('.')[0]))) fail(id, 'estimated keys');
   if (emoji.test(JSON.stringify(c))) fail(id, 'emoji found');
 }
 const majors = data.filter(c => c.major);

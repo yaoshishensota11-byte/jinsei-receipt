@@ -148,7 +148,7 @@
     "inflationMean": 0.446,
     "inflationCrisisShare": 0.407,
     "inflationRecent": 0.0741,
-    "homicidePer100k": 13.5,
+    "homicidePer100k": 12.42099214,
     "ipvPast12mWomen": 0.368,
     "politicalStability": -2.13,
     "conflictRisk": 1,
@@ -163,9 +163,7 @@
       "politicalStability": 2025,
       "inform": "Mid 2026 v0.7.3"
     },
-    "estimated": [
-      "homicidePer100k"
-    ],
+    "estimated": [],
     "inform": {
       "earthquake": 4.2,
       "flood": 7,

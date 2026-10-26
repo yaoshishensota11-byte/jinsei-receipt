@@ -27,37 +27,37 @@
       {
         "nameJa": "デリー",
         "urban": true,
-        "share": 0.025,
+        "share": 0.0236,
         "incomeIndex": 2.38
       },
       {
         "nameJa": "ムンバイ",
         "urban": true,
-        "share": 0.02,
+        "share": 0.015,
         "incomeIndex": 2.17
       },
       {
         "nameJa": "その他の都市",
         "urban": true,
-        "share": 0.3,
+        "share": 0.3154,
         "incomeIndex": 1.41
       },
       {
         "nameJa": "ウッタル・プラデーシュ州の農村",
         "urban": false,
-        "share": 0.19,
+        "share": 0.1874,
         "incomeIndex": 0.65
       },
       {
         "nameJa": "ビハール州の農村",
         "urban": false,
-        "share": 0.1,
+        "share": 0.0986,
         "incomeIndex": 0.54
       },
       {
         "nameJa": "その他の農村部",
         "urban": false,
-        "share": 0.365,
+        "share": 0.36,
         "incomeIndex": 0.81
       }
     ],
@@ -86,8 +86,8 @@
     "remittanceShareGdp": 0.0366,
     "estimated": [
       "effectiveTaxRateAvgWorker",
-      "places",
-      "tertiaryAnnualCostShareOfGni"
+      "tertiaryAnnualCostShareOfGni",
+      "places.incomeIndex"
     ],
     "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2023",
     "sources": {
@@ -125,7 +125,19 @@
         "source": "Numbeo Property Prices Index by Country",
         "url": "https://www.numbeo.com/property-investment/rankings_by_country.jsp",
         "year": "2026"
+      },
+      "city_population_share": {
+        "source": "UN WUP 2018 / WPP 2024",
+        "url": "https://population.un.org/wup/Download/Files/WUP2018-F22-Cities_Over_300K_Annual.xls; https://population.un.org/wpp/",
+        "year": "2025"
       }
+    },
+    "cityPopulationShare": {
+      "Delhi": 0.023577276829858065,
+      "Mumbai (Bombay)": 0.015023476457655253,
+      "Kolkata (Calcutta)": 0.010776892621976774,
+      "Bangalore": 0.009790848801571451,
+      "Chennai (Madras)": 0.008390180905587907
     }
   },
   {
@@ -156,37 +168,37 @@
       {
         "nameJa": "上海",
         "urban": true,
-        "share": 0.02,
+        "share": 0.0216,
         "incomeIndex": 2.32
       },
       {
         "nameJa": "北京",
         "urban": true,
-        "share": 0.015,
+        "share": 0.016,
         "incomeIndex": 2.42
       },
       {
-        "nameJa": "広州・深圳",
+        "nameJa": "広州",
         "urban": true,
-        "share": 0.05,
+        "share": 0.0105,
         "incomeIndex": 2.0
       },
       {
         "nameJa": "その他の都市",
         "urban": true,
-        "share": 0.58,
+        "share": 0.6109,
         "incomeIndex": 1.11
       },
       {
         "nameJa": "河南省の農村",
         "urban": false,
-        "share": 0.08,
+        "share": 0.0814,
         "incomeIndex": 0.53
       },
       {
         "nameJa": "内陸部の農村",
         "urban": false,
-        "share": 0.255,
+        "share": 0.2596,
         "incomeIndex": 0.53
       }
     ],
@@ -215,8 +227,8 @@
     "remittanceShareGdp": 0.0013,
     "estimated": [
       "effectiveTaxRateAvgWorker",
-      "places",
-      "tertiaryAnnualCostShareOfGni"
+      "tertiaryAnnualCostShareOfGni",
+      "places.incomeIndex"
     ],
     "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2022; 中等教育は前期中等修了率で代替",
     "sources": {
@@ -254,7 +266,19 @@
         "source": "Numbeo Property Prices Index by Country",
         "url": "https://www.numbeo.com/property-investment/rankings_by_country.jsp",
         "year": "2026"
+      },
+      "city_population_share": {
+        "source": "UN WUP 2018 / WPP 2024",
+        "url": "https://population.un.org/wup/Download/Files/WUP2018-F22-Cities_Over_300K_Annual.xls; https://population.un.org/wpp/",
+        "year": "2025"
       }
+    },
+    "cityPopulationShare": {
+      "Shanghai": 0.021550394641751226,
+      "Beijing": 0.015975339092156017,
+      "Chongqing": 0.012846751836104701,
+      "Guangzhou, Guangdong": 0.010519001054475577,
+      "Tianjin": 0.010395553817543039
     }
   },
   {
@@ -285,31 +309,31 @@
       {
         "nameJa": "ラゴス",
         "urban": true,
-        "share": 0.07,
+        "share": 0.0715,
         "incomeIndex": 1.88
       },
       {
         "nameJa": "カノ",
         "urban": true,
-        "share": 0.04,
+        "share": 0.0194,
         "incomeIndex": 1.1
       },
       {
         "nameJa": "その他の都市",
         "urban": true,
-        "share": 0.36,
+        "share": 0.5391,
         "incomeIndex": 1.21
       },
       {
         "nameJa": "北部の農村部",
         "urban": false,
-        "share": 0.33,
+        "share": 0.2304,
         "incomeIndex": 0.61
       },
       {
         "nameJa": "南部の農村部",
         "urban": false,
-        "share": 0.2,
+        "share": 0.1396,
         "incomeIndex": 0.94
       }
     ],
@@ -324,7 +348,7 @@
       "female": 21.3
     },
     "secondaryNetEnrollment": 0.616,
-    "tertiaryGrossEnrollment": 0.206,
+    "tertiaryGrossEnrollment": 0.0974153350922586,
     "tertiaryAnnualCostShareOfGni": 0.25,
     "unemploymentRate": 0.03,
     "informalEmploymentShare": 0.93145,
@@ -340,10 +364,9 @@
       "consumptionPerCapitaLCU",
       "effectiveTaxRateAvgWorker",
       "pensionReplacementRate",
-      "places",
       "secondaryNetEnrollment",
       "tertiaryAnnualCostShareOfGni",
-      "tertiaryGrossEnrollment"
+      "places.incomeIndex"
     ],
     "notes": "GNI2024/消費推定/PPP2024(PA.NUS.PRVT.PP); 五分位2022",
     "sources": {
@@ -376,7 +399,24 @@
         "source": "Numbeo Property Prices Index by Country",
         "url": "https://www.numbeo.com/property-investment/rankings_by_country.jsp",
         "year": "2026"
+      },
+      "city_population_share": {
+        "source": "UN WUP 2018 / WPP 2024",
+        "url": "https://population.un.org/wup/Download/Files/WUP2018-F22-Cities_Over_300K_Annual.xls; https://population.un.org/wpp/",
+        "year": "2025"
+      },
+      "tertiary_gross_enrollment": {
+        "source": "World Bank WDI (UIS API)",
+        "url": "https://api.worldbank.org/v2/country/NGA/indicator/SE.TER.ENRR?date=2011&format=json",
+        "year": "2011"
       }
+    },
+    "cityPopulationShare": {
+      "Lagos": 0.07149457821517508,
+      "Kano": 0.019358080489391097,
+      "Abuja": 0.017543795020555034,
+      "Ibadan": 0.017269512329342224,
+      "Port Harcourt": 0.015809520303497117
     }
   },
   {
@@ -407,31 +447,31 @@
       {
         "nameJa": "カラチ",
         "urban": true,
-        "share": 0.08,
+        "share": 0.0703,
         "incomeIndex": 1.63
       },
       {
         "nameJa": "ラホール",
         "urban": true,
-        "share": 0.06,
+        "share": 0.0576,
         "incomeIndex": 1.52
       },
       {
         "nameJa": "その他の都市",
         "urban": true,
-        "share": 0.24,
+        "share": 0.2641,
         "incomeIndex": 1.2
       },
       {
         "nameJa": "パンジャーブ州の農村",
         "urban": false,
-        "share": 0.32,
+        "share": 0.3138,
         "incomeIndex": 0.87
       },
       {
         "nameJa": "シンド州・バローチスターン州の農村",
         "urban": false,
-        "share": 0.3,
+        "share": 0.2942,
         "incomeIndex": 0.71
       }
     ],
@@ -451,7 +491,7 @@
     "unemploymentRate": 0.055,
     "informalEmploymentShare": 0.88685,
     "pensionCoverage": 0.174,
-    "pensionReplacementRate": 0.4,
+    "pensionReplacementRate": 0.411,
     "outOfPocketHealthShare": 0.529,
     "effectiveTaxRateAvgWorker": 0.03,
     "rentShareOfIncome": 0.216529314752,
@@ -460,9 +500,8 @@
     "remittanceShareGdp": 0.0939,
     "estimated": [
       "effectiveTaxRateAvgWorker",
-      "pensionReplacementRate",
-      "places",
-      "tertiaryAnnualCostShareOfGni"
+      "tertiaryAnnualCostShareOfGni",
+      "places.incomeIndex"
     ],
     "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2024",
     "sources": {
@@ -500,7 +539,24 @@
         "source": "Numbeo Property Prices Index by Country",
         "url": "https://www.numbeo.com/property-investment/rankings_by_country.jsp",
         "year": "2026"
+      },
+      "city_population_share": {
+        "source": "UN WUP 2018 / WPP 2024",
+        "url": "https://population.un.org/wup/Download/Files/WUP2018-F22-Cities_Over_300K_Annual.xls; https://population.un.org/wpp/",
+        "year": "2025"
+      },
+      "pension_replacement_rate": {
+        "source": "OECD, Pensions at a Glance Asia/Pacific 2024",
+        "url": "https://www.oecd.org/en/publications/pensions-at-a-glance-asia-pacific-2024_d4146d12-en/full-report/gross-pension-replacement-rates_4d96e8e7.html",
+        "year": "2022"
       }
+    },
+    "cityPopulationShare": {
+      "Karachi": 0.07027308747097821,
+      "Lahore": 0.05763503793170835,
+      "Faisalabad": 0.015133279889102465,
+      "Peshawar": 0.009908898147221958,
+      "Gujranwala": 0.009887956318587625
     }
   },
   {
@@ -531,31 +587,31 @@
       {
         "nameJa": "ジャカルタ首都圏",
         "urban": true,
-        "share": 0.12,
+        "share": 0.0655,
         "incomeIndex": 1.66
       },
       {
         "nameJa": "スラバヤ",
         "urban": true,
-        "share": 0.02,
+        "share": 0.0109,
         "incomeIndex": 1.24
       },
       {
         "nameJa": "その他の都市",
         "urban": true,
-        "share": 0.45,
+        "share": 0.5116,
         "incomeIndex": 1.09
       },
       {
         "nameJa": "ジャワ島の農村",
         "urban": false,
-        "share": 0.22,
+        "share": 0.2211,
         "incomeIndex": 0.72
       },
       {
         "nameJa": "外島の農村",
         "urban": false,
-        "share": 0.19,
+        "share": 0.1909,
         "incomeIndex": 0.67
       }
     ],
@@ -584,8 +640,8 @@
     "remittanceShareGdp": 0.0115,
     "estimated": [
       "effectiveTaxRateAvgWorker",
-      "places",
-      "tertiaryAnnualCostShareOfGni"
+      "tertiaryAnnualCostShareOfGni",
+      "places.incomeIndex"
     ],
     "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2024",
     "sources": {
@@ -628,7 +684,19 @@
         "source": "Numbeo Property Prices Index by Country",
         "url": "https://www.numbeo.com/property-investment/rankings_by_country.jsp",
         "year": "2026"
+      },
+      "city_population_share": {
+        "source": "UN WUP 2018 / WPP 2024",
+        "url": "https://population.un.org/wup/Download/Files/WUP2018-F22-Cities_Over_300K_Annual.xls; https://population.un.org/wpp/",
+        "year": "2025"
       }
+    },
+    "cityPopulationShare": {
+      "Jakarta": 0.04056226099011822,
+      "Bekasi": 0.013688189537688645,
+      "Depok": 0.011220581374981978,
+      "Surabaya": 0.010939339032870391,
+      "Bandung": 0.009616116580107345
     }
   },
   {
@@ -659,31 +727,31 @@
       {
         "nameJa": "キンシャサ",
         "urban": true,
-        "share": 0.12,
+        "share": 0.1551,
         "incomeIndex": 1.94
       },
       {
         "nameJa": "ルブンバシ",
         "urban": true,
-        "share": 0.03,
+        "share": 0.0267,
         "incomeIndex": 1.51
       },
       {
         "nameJa": "その他の都市",
         "urban": true,
-        "share": 0.3,
+        "share": 0.2652,
         "incomeIndex": 1.08
       },
       {
         "nameJa": "東部の農村部",
         "urban": false,
-        "share": 0.25,
+        "share": 0.2514,
         "incomeIndex": 0.75
       },
       {
         "nameJa": "その他の農村部",
         "urban": false,
-        "share": 0.3,
+        "share": 0.3016,
         "incomeIndex": 0.7
       }
     ],
@@ -714,8 +782,8 @@
       "effectiveTaxRateAvgWorker",
       "housePriceToIncome",
       "pensionReplacementRate",
-      "places",
-      "tertiaryAnnualCostShareOfGni"
+      "tertiaryAnnualCostShareOfGni",
+      "places.incomeIndex"
     ],
     "notes": "GNI2024/消費2024/PPP2021(PA.NUS.PRVT.PP); 五分位2020; 中等教育は前期中等修了率で代替",
     "sources": {
@@ -743,7 +811,24 @@
         "source": "World Bank ICP 2021",
         "url": "https://api.worldbank.org/v2/sources/90/country/COD/series/9060000?format=json&per_page=200",
         "year": "2021"
+      },
+      "city_population_share": {
+        "source": "UN WUP 2018 / WPP 2024",
+        "url": "https://population.un.org/wup/Download/Files/WUP2018-F22-Cities_Over_300K_Annual.xls; https://population.un.org/wpp/",
+        "year": "2025"
+      },
+      "homicide_rate": {
+        "source": "WHO Global Health Estimates",
+        "url": "https://xmart-api-public.who.int/DATA_/RELAY_WHS?$filter=IND_ID%20eq%20%27361734EVIOLENCE_HOMICIDERATE%27%20and%20DIM_GEO_CODE_M49%20eq%20%27180%27&$select=IND_ID,IND_NAME,GEO_NAME_SHORT,DIM_TIME,DIM_SEX,RATE_PER_100000_N,RATE_PER_100000_NL,RATE_PER_100000_NU&$format=csv",
+        "year": "2021"
       }
+    },
+    "cityPopulationShare": {
+      "Kinshasa": 0.15509636306369978,
+      "Mbuji-Mayi": 0.02755281737446114,
+      "Lubumbashi": 0.026706605983248435,
+      "Kananga": 0.0158403008227408,
+      "Kisangani": 0.013493058728605943
     }
   },
   {
@@ -774,31 +859,31 @@
       {
         "nameJa": "アディスアベバ",
         "urban": true,
-        "share": 0.04,
+        "share": 0.0434,
         "incomeIndex": 2.48
       },
       {
         "nameJa": "その他の都市",
         "urban": true,
-        "share": 0.16,
+        "share": 0.1926,
         "incomeIndex": 1.47
       },
       {
         "nameJa": "オロミア州の農村",
         "urban": false,
-        "share": 0.4,
+        "share": 0.382,
         "incomeIndex": 0.85
       },
       {
         "nameJa": "アムハラ州の農村",
         "urban": false,
-        "share": 0.22,
+        "share": 0.2101,
         "incomeIndex": 0.85
       },
       {
         "nameJa": "その他の農村部",
         "urban": false,
-        "share": 0.18,
+        "share": 0.1719,
         "incomeIndex": 0.79
       }
     ],
@@ -829,8 +914,8 @@
       "effectiveTaxRateAvgWorker",
       "housePriceToIncome",
       "pensionReplacementRate",
-      "places",
-      "tertiaryAnnualCostShareOfGni"
+      "tertiaryAnnualCostShareOfGni",
+      "places.incomeIndex"
     ],
     "notes": "金額はWDI 2024年値を為替変動で現行通貨水準に換算(x1.98); GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2021",
     "sources": {
@@ -858,7 +943,19 @@
         "source": "World Bank ICP 2021",
         "url": "https://api.worldbank.org/v2/sources/90/country/ETH/series/9060000?format=json&per_page=200",
         "year": "2021"
+      },
+      "city_population_share": {
+        "source": "UN WUP 2018 / WPP 2024",
+        "url": "https://population.un.org/wup/Download/Files/WUP2018-F22-Cities_Over_300K_Annual.xls; https://population.un.org/wpp/",
+        "year": "2025"
       }
+    },
+    "cityPopulationShare": {
+      "Addis Ababa": 0.04342248726650955,
+      "Mekele": 0.004645195396778779,
+      "Dire Dawa": 0.0036966213414109206,
+      "Nazret": 0.0034086849217146668,
+      "Gondar": 0.0032821500632856542
     }
   },
   {
@@ -889,37 +986,37 @@
       {
         "nameJa": "ニューヨーク",
         "urban": true,
-        "share": 0.06,
+        "share": 0.055,
         "incomeIndex": 1.31
       },
       {
         "nameJa": "ロサンゼルス",
         "urban": true,
-        "share": 0.05,
+        "share": 0.0364,
         "incomeIndex": 1.16
       },
       {
         "nameJa": "シカゴ",
         "urban": true,
-        "share": 0.03,
+        "share": 0.026,
         "incomeIndex": 1.11
       },
       {
         "nameJa": "ヒューストン",
         "urban": true,
-        "share": 0.03,
+        "share": 0.0198,
         "incomeIndex": 1.06
       },
       {
         "nameJa": "その他の都市",
         "urban": true,
-        "share": 0.64,
+        "share": 0.6638,
         "incomeIndex": 1.01
       },
       {
         "nameJa": "中西部・南部の農村",
         "urban": false,
-        "share": 0.19,
+        "share": 0.199,
         "incomeIndex": 0.81
       }
     ],
@@ -935,7 +1032,7 @@
     },
     "secondaryNetEnrollment": 0.925,
     "tertiaryGrossEnrollment": 0.794,
-    "tertiaryAnnualCostShareOfGni": 0.22,
+    "tertiaryAnnualCostShareOfGni": 0.2272,
     "unemploymentRate": 0.04,
     "informalEmploymentShare": 0.186,
     "pensionCoverage": 1.0,
@@ -947,8 +1044,7 @@
     "disasterRisk": 0.35,
     "remittanceShareGdp": 0.0003,
     "estimated": [
-      "places",
-      "tertiaryAnnualCostShareOfGni"
+      "places.incomeIndex"
     ],
     "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2024",
     "sources": {
@@ -996,7 +1092,33 @@
         "source": "Numbeo Property Prices Index by Country",
         "url": "https://www.numbeo.com/property-investment/rankings_by_country.jsp",
         "year": "2026"
+      },
+      "tuition_public_annual": {
+        "source": "OECD Education at a Glance 2025: United States",
+        "url": "https://www.oecd.org/en/publications/education-at-a-glance-2025_1a3543e2-en/united-states_784df67f-en.html",
+        "year": "2025"
+      },
+      "tuition_private_annual": {
+        "source": "OECD Education at a Glance 2025: United States",
+        "url": "https://www.oecd.org/en/publications/education-at-a-glance-2025_1a3543e2-en/united-states_784df67f-en.html",
+        "year": "2025"
+      },
+      "city_population_share": {
+        "source": "UN WUP 2018 / WPP 2024",
+        "url": "https://population.un.org/wup/Download/Files/WUP2018-F22-Cities_Over_300K_Annual.xls; https://population.un.org/wpp/",
+        "year": "2025"
       }
+    },
+    "tuition": {
+      "public": 9596.0,
+      "private": 34041.0
+    },
+    "cityPopulationShare": {
+      "New York-Newark": 0.055012153336664295,
+      "Los Angeles-Long Beach-Santa Ana": 0.03641113844498725,
+      "Chicago": 0.02596994305025752,
+      "Houston": 0.019788160393628497,
+      "Dallas-Fort Worth": 0.019335084726551325
     }
   },
   {
@@ -1027,31 +1149,31 @@
       {
         "nameJa": "ダッカ",
         "urban": true,
-        "share": 0.12,
+        "share": 0.1395,
         "incomeIndex": 1.86
       },
       {
         "nameJa": "チッタゴン",
         "urban": true,
-        "share": 0.04,
+        "share": 0.032,
         "incomeIndex": 1.34
       },
       {
         "nameJa": "その他の都市",
         "urban": true,
-        "share": 0.22,
+        "share": 0.1555,
         "incomeIndex": 1.03
       },
       {
         "nameJa": "北部の農村部",
         "urban": false,
-        "share": 0.3,
+        "share": 0.3256,
         "incomeIndex": 0.77
       },
       {
         "nameJa": "南部・デルタ地帯の農村",
         "urban": false,
-        "share": 0.32,
+        "share": 0.3474,
         "incomeIndex": 0.83
       }
     ],
@@ -1081,8 +1203,8 @@
     "estimated": [
       "effectiveTaxRateAvgWorker",
       "pensionReplacementRate",
-      "places",
-      "tertiaryAnnualCostShareOfGni"
+      "tertiaryAnnualCostShareOfGni",
+      "places.incomeIndex"
     ],
     "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2022",
     "sources": {
@@ -1115,7 +1237,19 @@
         "source": "Numbeo Property Prices Index by Country",
         "url": "https://www.numbeo.com/property-investment/rankings_by_country.jsp",
         "year": "2026"
+      },
+      "city_population_share": {
+        "source": "UN WUP 2018 / WPP 2024",
+        "url": "https://population.un.org/wup/Download/Files/WUP2018-F22-Cities_Over_300K_Annual.xls; https://population.un.org/wpp/",
+        "year": "2025"
       }
+    },
+    "cityPopulationShare": {
+      "Dhaka": 0.13947356142790282,
+      "Chittagong": 0.03198463282877473,
+      "Sylhet": 0.005844094967258891,
+      "Rajshahi": 0.005697186682298639,
+      "Bogra": 0.00555126845972018
     }
   },
   {
@@ -1146,25 +1280,25 @@
       {
         "nameJa": "サンパウロ",
         "urban": true,
-        "share": 0.09,
+        "share": 0.1078,
         "incomeIndex": 1.54
       },
       {
         "nameJa": "リオデジャネイロ",
         "urban": true,
-        "share": 0.05,
+        "share": 0.0653,
         "incomeIndex": 1.34
       },
       {
         "nameJa": "その他の都市",
         "urban": true,
-        "share": 0.73,
+        "share": 0.7059,
         "incomeIndex": 1.0
       },
       {
         "nameJa": "北東部の農村",
         "urban": false,
-        "share": 0.13,
+        "share": 0.121,
         "incomeIndex": 0.51
       }
     ],
@@ -1193,8 +1327,8 @@
     "remittanceShareGdp": 0.0022,
     "estimated": [
       "effectiveTaxRateAvgWorker",
-      "places",
-      "tertiaryAnnualCostShareOfGni"
+      "tertiaryAnnualCostShareOfGni",
+      "places.incomeIndex"
     ],
     "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2024",
     "sources": {
@@ -1237,7 +1371,19 @@
         "source": "Numbeo Property Prices Index by Country",
         "url": "https://www.numbeo.com/property-investment/rankings_by_country.jsp",
         "year": "2026"
+      },
+      "city_population_share": {
+        "source": "UN WUP 2018 / WPP 2024",
+        "url": "https://population.un.org/wup/Download/Files/WUP2018-F22-Cities_Over_300K_Annual.xls; https://population.un.org/wpp/",
+        "year": "2025"
       }
+    },
+    "cityPopulationShare": {
+      "São Paulo": 0.10783198071467592,
+      "Rio de Janeiro": 0.06530537752014204,
+      "Belo Horizonte": 0.02979183776506614,
+      "Brasília": 0.023409377808206705,
+      "Recife": 0.02037524758020583
     }
   },
   {
@@ -1268,31 +1414,31 @@
       {
         "nameJa": "カイロ都市圏",
         "urban": true,
-        "share": 0.18,
+        "share": 0.1935,
         "incomeIndex": 1.47
       },
       {
         "nameJa": "アレクサンドリア",
         "urban": true,
-        "share": 0.06,
+        "share": 0.0487,
         "incomeIndex": 1.26
       },
       {
         "nameJa": "その他の都市",
         "urban": true,
-        "share": 0.17,
+        "share": 0.1858,
         "incomeIndex": 1.05
       },
       {
         "nameJa": "上エジプトの農村",
         "urban": false,
-        "share": 0.3,
+        "share": 0.2908,
         "incomeIndex": 0.74
       },
       {
         "nameJa": "ナイル・デルタの農村",
         "urban": false,
-        "share": 0.29,
+        "share": 0.2812,
         "incomeIndex": 0.89
       }
     ],
@@ -1322,8 +1468,8 @@
     "estimated": [
       "effectiveTaxRateAvgWorker",
       "pensionReplacementRate",
-      "places",
-      "tertiaryAnnualCostShareOfGni"
+      "tertiaryAnnualCostShareOfGni",
+      "places.incomeIndex"
     ],
     "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2021",
     "sources": {
@@ -1356,7 +1502,19 @@
         "source": "Numbeo Property Prices Index by Country",
         "url": "https://www.numbeo.com/property-investment/rankings_by_country.jsp",
         "year": "2026"
+      },
+      "city_population_share": {
+        "source": "UN WUP 2018 / WPP 2024",
+        "url": "https://population.un.org/wup/Download/Files/WUP2018-F22-Cities_Over_300K_Annual.xls; https://population.un.org/wpp/",
+        "year": "2025"
       }
+    },
+    "cityPopulationShare": {
+      "Al-Qahirah (Cairo)": 0.1935207041776875,
+      "Al-Iskandariyah (Alexandria)": 0.04870302680656639,
+      "Bur Sa'id": 0.0067775281628629,
+      "As-Suways": 0.005855692882198595,
+      "Al-Mansurah": 0.005088511627185705
     }
   },
   {
@@ -1490,31 +1648,31 @@
       {
         "nameJa": "メキシコシティ首都圏",
         "urban": true,
-        "share": 0.15,
+        "share": 0.1717,
         "incomeIndex": 1.37
       },
       {
         "nameJa": "グアダラハラ",
         "urban": true,
-        "share": 0.04,
+        "share": 0.0421,
         "incomeIndex": 1.16
       },
       {
         "nameJa": "モンテレイ",
         "urban": true,
-        "share": 0.04,
+        "share": 0.0398,
         "incomeIndex": 1.42
       },
       {
         "nameJa": "その他の都市",
         "urban": true,
-        "share": 0.56,
+        "share": 0.5444,
         "incomeIndex": 1.0
       },
       {
         "nameJa": "南部の農村",
         "urban": false,
-        "share": 0.21,
+        "share": 0.202,
         "incomeIndex": 0.63
       }
     ],
@@ -1542,8 +1700,8 @@
     "disasterRisk": 0.65,
     "remittanceShareGdp": 0.0371,
     "estimated": [
-      "places",
-      "tertiaryAnnualCostShareOfGni"
+      "tertiaryAnnualCostShareOfGni",
+      "places.incomeIndex"
     ],
     "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2024",
     "sources": {
@@ -1586,7 +1744,19 @@
         "source": "Numbeo Property Prices Index by Country",
         "url": "https://www.numbeo.com/property-investment/rankings_by_country.jsp",
         "year": "2026"
+      },
+      "city_population_share": {
+        "source": "UN WUP 2018 / WPP 2024",
+        "url": "https://population.un.org/wup/Download/Files/WUP2018-F22-Cities_Over_300K_Annual.xls; https://population.un.org/wpp/",
+        "year": "2025"
       }
+    },
+    "cityPopulationShare": {
+      "Ciudad de México (Mexico City)": 0.1717420156078435,
+      "Guadalajara": 0.04210880291267708,
+      "Monterrey": 0.03979733271054837,
+      "Puebla": 0.02599095102410975,
+      "Toluca de Lerdo": 0.020527726467169407
     }
   },
   {
@@ -1617,31 +1787,31 @@
       {
         "nameJa": "マニラ首都圏",
         "urban": true,
-        "share": 0.12,
+        "share": 0.1299,
         "incomeIndex": 1.81
       },
       {
         "nameJa": "セブ",
         "urban": true,
-        "share": 0.03,
+        "share": 0.0091,
         "incomeIndex": 1.28
       },
       {
         "nameJa": "その他の都市",
         "urban": true,
-        "share": 0.35,
+        "share": 0.416,
         "incomeIndex": 1.06
       },
       {
         "nameJa": "ルソン島の農村",
         "urban": false,
-        "share": 0.25,
+        "share": 0.2225,
         "incomeIndex": 0.85
       },
       {
         "nameJa": "ミンダナオ島の農村",
         "urban": false,
-        "share": 0.25,
+        "share": 0.2225,
         "incomeIndex": 0.64
       }
     ],
@@ -1661,7 +1831,7 @@
     "unemploymentRate": 0.022,
     "informalEmploymentShare": 0.7,
     "pensionCoverage": 0.656,
-    "pensionReplacementRate": 0.4,
+    "pensionReplacementRate": 0.724,
     "outOfPocketHealthShare": 0.444,
     "effectiveTaxRateAvgWorker": 0.12,
     "rentShareOfIncome": 0.119813098576,
@@ -1671,9 +1841,8 @@
     "estimated": [
       "effectiveTaxRateAvgWorker",
       "informalEmploymentShare",
-      "pensionReplacementRate",
-      "places",
-      "tertiaryAnnualCostShareOfGni"
+      "tertiaryAnnualCostShareOfGni",
+      "places.incomeIndex"
     ],
     "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2023",
     "sources": {
@@ -1701,7 +1870,24 @@
         "source": "Numbeo Property Prices Index by Country",
         "url": "https://www.numbeo.com/property-investment/rankings_by_country.jsp",
         "year": "2026"
+      },
+      "city_population_share": {
+        "source": "UN WUP 2018 / WPP 2024",
+        "url": "https://population.un.org/wup/Download/Files/WUP2018-F22-Cities_Over_300K_Annual.xls; https://population.un.org/wpp/",
+        "year": "2025"
+      },
+      "pension_replacement_rate": {
+        "source": "OECD, Pensions at a Glance Asia/Pacific 2024",
+        "url": "https://www.oecd.org/en/publications/pensions-at-a-glance-asia-pacific-2024_d4146d12-en/full-report/gross-pension-replacement-rates_4d96e8e7.html",
+        "year": "2022"
       }
+    },
+    "cityPopulationShare": {
+      "Manila": 0.12988970193522498,
+      "Davao City": 0.01734629932364403,
+      "Cebu City": 0.009053764542560738,
+      "Zamboanga City": 0.008485818573533716,
+      "Antipolo": 0.008441744683691509
     }
   },
   {
@@ -1943,37 +2129,37 @@
       {
         "nameJa": "ナイロビ",
         "urban": true,
-        "share": 0.1,
+        "share": 0.0993,
         "incomeIndex": 2.13
       },
       {
         "nameJa": "モンバサ",
         "urban": true,
-        "share": 0.03,
+        "share": 0.0267,
         "incomeIndex": 1.49
       },
       {
         "nameJa": "その他の都市",
         "urban": true,
-        "share": 0.17,
+        "share": 0.193,
         "incomeIndex": 1.17
       },
       {
         "nameJa": "西部の農村部",
         "urban": false,
-        "share": 0.4,
+        "share": 0.3891,
         "incomeIndex": 0.75
       },
       {
         "nameJa": "中央部の農村",
         "urban": false,
-        "share": 0.2,
+        "share": 0.1946,
         "incomeIndex": 0.96
       },
       {
         "nameJa": "北部の乾燥地帯",
         "urban": false,
-        "share": 0.1,
+        "share": 0.0973,
         "incomeIndex": 0.53
       }
     ],
@@ -2003,8 +2189,8 @@
     "estimated": [
       "effectiveTaxRateAvgWorker",
       "pensionReplacementRate",
-      "places",
-      "tertiaryAnnualCostShareOfGni"
+      "tertiaryAnnualCostShareOfGni",
+      "places.incomeIndex"
     ],
     "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2022; 中等教育は前期中等修了率で代替",
     "sources": {
@@ -2037,7 +2223,19 @@
         "source": "Numbeo Property Prices Index by Country",
         "url": "https://www.numbeo.com/property-investment/rankings_by_country.jsp",
         "year": "2026"
+      },
+      "city_population_share": {
+        "source": "UN WUP 2018 / WPP 2024",
+        "url": "https://population.un.org/wup/Download/Files/WUP2018-F22-Cities_Over_300K_Annual.xls; https://population.un.org/wpp/",
+        "year": "2025"
       }
+    },
+    "cityPopulationShare": {
+      "Nairobi": 0.0992877506366256,
+      "Mombasa": 0.026745333750892462,
+      "Ruiru": 0.008344904300853304,
+      "Eldoret": 0.008331802493613084,
+      "Nakuru": 0.0078047861711027155
     }
   },
   {
@@ -2168,37 +2366,37 @@
       {
         "nameJa": "ホーチミン",
         "urban": true,
-        "share": 0.09,
+        "share": 0.0963,
         "incomeIndex": 1.64
       },
       {
         "nameJa": "ハノイ",
         "urban": true,
-        "share": 0.08,
+        "share": 0.055,
         "incomeIndex": 1.54
       },
       {
         "nameJa": "その他の都市",
         "urban": true,
-        "share": 0.22,
+        "share": 0.2337,
         "incomeIndex": 1.08
       },
       {
         "nameJa": "メコンデルタの農村",
         "urban": false,
-        "share": 0.18,
+        "share": 0.1815,
         "incomeIndex": 0.82
       },
       {
         "nameJa": "北部山岳地帯の農村",
         "urban": false,
-        "share": 0.1,
+        "share": 0.1008,
         "incomeIndex": 0.56
       },
       {
         "nameJa": "その他の農村部",
         "urban": false,
-        "share": 0.33,
+        "share": 0.3327,
         "incomeIndex": 0.87
       }
     ],
@@ -2218,7 +2416,7 @@
     "unemploymentRate": 0.016,
     "informalEmploymentShare": 0.67032,
     "pensionCoverage": 0.409,
-    "pensionReplacementRate": 0.65,
+    "pensionReplacementRate": 0.587,
     "outOfPocketHealthShare": 0.392,
     "effectiveTaxRateAvgWorker": 0.12,
     "rentShareOfIncome": 0.120771124457,
@@ -2227,10 +2425,9 @@
     "remittanceShareGdp": 0.061,
     "estimated": [
       "effectiveTaxRateAvgWorker",
-      "pensionReplacementRate",
-      "places",
       "remittanceShareGdp",
-      "tertiaryAnnualCostShareOfGni"
+      "tertiaryAnnualCostShareOfGni",
+      "places.incomeIndex"
     ],
     "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2022; 中等教育は前期中等修了率で代替",
     "sources": {
@@ -2263,7 +2460,24 @@
         "source": "Numbeo Property Prices Index by Country",
         "url": "https://www.numbeo.com/property-investment/rankings_by_country.jsp",
         "year": "2026"
+      },
+      "city_population_share": {
+        "source": "UN WUP 2018 / WPP 2024",
+        "url": "https://population.un.org/wup/Download/Files/WUP2018-F22-Cities_Over_300K_Annual.xls; https://population.un.org/wpp/",
+        "year": "2025"
+      },
+      "pension_replacement_rate": {
+        "source": "OECD, Pensions at a Glance Asia/Pacific 2024",
+        "url": "https://www.oecd.org/en/publications/pensions-at-a-glance-asia-pacific-2024_d4146d12-en/full-report/gross-pension-replacement-rates_4d96e8e7.html",
+        "year": "2022"
       }
+    },
+    "cityPopulationShare": {
+      "Thành Pho Ho Chí Minh (Ho Chi Minh City)": 0.09633571745060572,
+      "Hà Noi": 0.05497908166516389,
+      "Can Tho": 0.019701252558307104,
+      "Hai Phòng": 0.014759133227637685,
+      "Da Nang": 0.012620620241584606
     }
   },
   {
@@ -4654,31 +4868,31 @@
       {
         "nameJa": "ベルリン",
         "urban": true,
-        "share": 0.05,
+        "share": 0.0428,
         "incomeIndex": 1.01
       },
       {
         "nameJa": "ハンブルク",
         "urban": true,
-        "share": 0.025,
+        "share": 0.0213,
         "incomeIndex": 1.16
       },
       {
         "nameJa": "ミュンヘン",
         "urban": true,
-        "share": 0.02,
+        "share": 0.019,
         "incomeIndex": 1.31
       },
       {
         "nameJa": "その他の都市",
         "urban": true,
-        "share": 0.68,
+        "share": 0.7369,
         "incomeIndex": 1.01
       },
       {
         "nameJa": "地方の町村",
         "urban": false,
-        "share": 0.225,
+        "share": 0.18,
         "incomeIndex": 0.93
       }
     ],
@@ -4706,8 +4920,8 @@
     "disasterRisk": 0.15,
     "remittanceShareGdp": 0.0047,
     "estimated": [
-      "places",
-      "tertiaryAnnualCostShareOfGni"
+      "tertiaryAnnualCostShareOfGni",
+      "places.incomeIndex"
     ],
     "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2022",
     "sources": {
@@ -4750,7 +4964,19 @@
         "source": "Numbeo Property Prices Index by Country",
         "url": "https://www.numbeo.com/property-investment/rankings_by_country.jsp",
         "year": "2026"
+      },
+      "city_population_share": {
+        "source": "UN WUP 2018 / WPP 2024",
+        "url": "https://population.un.org/wup/Download/Files/WUP2018-F22-Cities_Over_300K_Annual.xls; https://population.un.org/wpp/",
+        "year": "2025"
       }
+    },
+    "cityPopulationShare": {
+      "Berlin": 0.04275299139391651,
+      "Hamburg": 0.021347991218853394,
+      "München (Munich)": 0.018997703257946013,
+      "Köln (Cologne)": 0.013771364804920224,
+      "Frankfurt am Main": 0.00959811575727072
     }
   },
   {
@@ -4781,31 +5007,31 @@
       {
         "nameJa": "ロンドン",
         "urban": true,
-        "share": 0.18,
+        "share": 0.1411,
         "incomeIndex": 1.33
       },
       {
         "nameJa": "マンチェスター",
         "urban": true,
-        "share": 0.04,
+        "share": 0.0406,
         "incomeIndex": 0.88
       },
       {
         "nameJa": "バーミンガム",
         "urban": true,
-        "share": 0.04,
+        "share": 0.0388,
         "incomeIndex": 0.87
       },
       {
         "nameJa": "その他の都市",
         "urban": true,
-        "share": 0.58,
+        "share": 0.6115,
         "incomeIndex": 0.93
       },
       {
         "nameJa": "地方の町村",
         "urban": false,
-        "share": 0.16,
+        "share": 0.168,
         "incomeIndex": 0.93
       }
     ],
@@ -4821,7 +5047,7 @@
     },
     "secondaryNetEnrollment": 0.971,
     "tertiaryGrossEnrollment": 0.804,
-    "tertiaryAnnualCostShareOfGni": 0.25,
+    "tertiaryAnnualCostShareOfGni": 0.2307,
     "unemploymentRate": 0.044,
     "informalEmploymentShare": 0.1981,
     "pensionCoverage": 1.0,
@@ -4833,8 +5059,7 @@
     "disasterRisk": 0.12,
     "remittanceShareGdp": 0.0013,
     "estimated": [
-      "places",
-      "tertiaryAnnualCostShareOfGni"
+      "places.incomeIndex"
     ],
     "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2021",
     "sources": {
@@ -4877,7 +5102,27 @@
         "source": "Numbeo Property Prices Index by Country",
         "url": "https://www.numbeo.com/property-investment/rankings_by_country.jsp",
         "year": "2026"
+      },
+      "tuition_public_annual": {
+        "source": "UK Department for Education, Changes to tuition fees: 2025 to 2026 academic year",
+        "url": "https://www.gov.uk/government/publications/tuition-fees-and-student-support-2025-to-2026-academic-year/changes-to-tuition-fees-2025-to-2026-academic-year",
+        "year": "2025"
+      },
+      "city_population_share": {
+        "source": "UN WUP 2018 / WPP 2024",
+        "url": "https://population.un.org/wup/Download/Files/WUP2018-F22-Cities_Over_300K_Annual.xls; https://population.un.org/wpp/",
+        "year": "2025"
       }
+    },
+    "tuition": {
+      "public": 9535.0
+    },
+    "cityPopulationShare": {
+      "London": 0.14108727621628678,
+      "Manchester": 0.04061093180789728,
+      "Birmingham (West Midlands)": 0.03877624733361213,
+      "West Yorkshire": 0.028050078708290845,
+      "Glasgow": 0.024644554614530103
     }
   },
   {
@@ -5011,31 +5256,31 @@
       {
         "nameJa": "パリ都市圏",
         "urban": true,
-        "share": 0.2,
+        "share": 0.1701,
         "incomeIndex": 1.29
       },
       {
         "nameJa": "リヨン",
         "urban": true,
-        "share": 0.03,
+        "share": 0.0268,
         "incomeIndex": 1.04
       },
       {
         "nameJa": "マルセイユ",
         "urban": true,
-        "share": 0.03,
+        "share": 0.0247,
         "incomeIndex": 0.89
       },
       {
         "nameJa": "その他の都市",
         "urban": true,
-        "share": 0.55,
+        "share": 0.5664,
         "incomeIndex": 0.94
       },
       {
         "nameJa": "地方の農村部",
         "urban": false,
-        "share": 0.19,
+        "share": 0.212,
         "incomeIndex": 0.87
       }
     ],
@@ -5063,8 +5308,8 @@
     "disasterRisk": 0.15,
     "remittanceShareGdp": 0.0129,
     "estimated": [
-      "places",
-      "tertiaryAnnualCostShareOfGni"
+      "tertiaryAnnualCostShareOfGni",
+      "places.incomeIndex"
     ],
     "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2023",
     "sources": {
@@ -5107,7 +5352,19 @@
         "source": "Numbeo Property Prices Index by Country",
         "url": "https://www.numbeo.com/property-investment/rankings_by_country.jsp",
         "year": "2026"
+      },
+      "city_population_share": {
+        "source": "UN WUP 2018 / WPP 2024",
+        "url": "https://population.un.org/wup/Download/Files/WUP2018-F22-Cities_Over_300K_Annual.xls; https://population.un.org/wpp/",
+        "year": "2025"
       }
+    },
+    "cityPopulationShare": {
+      "Paris": 0.1701151683444675,
+      "Lyon": 0.026794708487872552,
+      "Marseille-Aix-en-Provence": 0.024656500267680823,
+      "Lille": 0.01636546371240113,
+      "Toulouse": 0.01619449101191686
     }
   },
   {
@@ -9097,7 +9354,7 @@
       {
         "nameJa": "ソウル",
         "urban": true,
-        "share": 0.17,
+        "share": 0.1942,
         "incomeIndex": 1.16
       },
       {
@@ -9109,19 +9366,19 @@
       {
         "nameJa": "釜山",
         "urban": true,
-        "share": 0.05,
+        "share": 0.0675,
         "incomeIndex": 0.96
       },
       {
         "nameJa": "その他の都市",
         "urban": true,
-        "share": 0.39,
+        "share": 0.2503,
         "incomeIndex": 0.93
       },
       {
         "nameJa": "地方の郡部",
         "urban": false,
-        "share": 0.09,
+        "share": 0.188,
         "incomeIndex": 0.81
       }
     ],
@@ -9149,8 +9406,8 @@
     "disasterRisk": 0.25,
     "remittanceShareGdp": 0.0039,
     "estimated": [
-      "places",
-      "tertiaryAnnualCostShareOfGni"
+      "tertiaryAnnualCostShareOfGni",
+      "places.incomeIndex"
     ],
     "notes": "GNI2024/消費2024/PPP2024(PA.NUS.PRVT.PP); 五分位2021; 高等教育総就学率112%を1.0に丸め",
     "sources": {
@@ -9198,7 +9455,19 @@
         "source": "Numbeo Property Prices Index by Country",
         "url": "https://www.numbeo.com/property-investment/rankings_by_country.jsp",
         "year": "2026"
+      },
+      "city_population_share": {
+        "source": "UN WUP 2018 / WPP 2024",
+        "url": "https://population.un.org/wup/Download/Files/WUP2018-F22-Cities_Over_300K_Annual.xls; https://population.un.org/wpp/",
+        "year": "2025"
       }
+    },
+    "cityPopulationShare": {
+      "Seoul": 0.1941587775346595,
+      "Busan": 0.06747937257737746,
+      "Incheon": 0.055652089544767004,
+      "Daegu": 0.04223875280044053,
+      "Daejon": 0.030717955635076535
     }
   },
   {

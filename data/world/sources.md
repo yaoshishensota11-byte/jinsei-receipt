@@ -117,3 +117,17 @@
 |---|---|---|---|
 | rentShareOfIncome | World Bank ICP 2021「Housing, water, electricity, gas and other fuels」の支出割合（World Bank API series 9060000） | 79/88 | 分母は AIC（実質個人消費＝政府が個人に提供するサービスを含む）で、家計消費支出だけの割合より少し小さい。ゲームでは日本との比（0.5〜2倍に制限）で家賃の重さを決めるので、全国同じ定義でそろっていることを優先。AFG, YEM, RUS, IRN, MMR, VEN, PRK, HTI, PNG は未掲載で推定のまま |
 | housePriceToIncome | Numbeo「Property Prices Index by Country」Price To Income Ratio（2026年の最新掲載） | 53/88 | 二次情報（利用者の投稿にもとづく民間サイト。都市部の物件に偏りやすい）。NGA 116.3・LKA 55.4・GHA 49.0・CMR 46.0 など極端な値があるが、ゲームでは日本との比を0.5〜3倍に制限し、さらに住宅ローンは世帯年収の7倍までに抑えている |
+
+### 第3部の続き（Manus調査、2026年10月）：都市の人口・学費・小さな穴埋め
+
+元データ：data/world/manual/jinsei_receipt_part3b.csv。
+
+| データ | 出典 | 反映した数 | 備考 |
+|---|---|---|---|
+| places の share（主要19か国） | UN World Urbanization Prospects 2018（File 22、2025年推計の都市圏人口）÷ UN World Population Prospects 2024 の国の人口 | 19か国・95都市 | 名前つきの都市を実際の人口割合に置き換え、「その他の都市」＝都市人口率−名前つき都市の合計、農村部は比率を保って（1−都市人口率）に合わせた。日本語名との対応は build/city_names_ja.json。「広州・深圳」は「広州」に改名（深圳は「その他の都市」に含む）。所得の係数（incomeIndex）は推定のまま |
+| tertiaryAnnualCostShareOfGni | USA：OECD（国公立 9,596ドル・私立 34,041ドル）、GBR：イングランドの授業料上限 9,535ポンド（2025-26） | 2か国 | 国公立6割・私立4割で合成し、1人あたりGNIで割った値 |
+| pensionReplacementRate | OECD Pensions at a Glance Asia/Pacific 2022（グロス・男性・平均賃金） | PAK 0.411、PHL 0.724、VNM 0.587 | |
+| homicidePer100k（COD） | WHO Global Health Estimates（Homicide、2021年） | 12.4 | UNODC に掲載がないため WHO の推計 |
+| tertiaryGrossEnrollment（NGA） | World Bank WDI SE.TER.ENRR | 0.097（2011年） | |
+| 取り込まなかった値 | VNM remittance_share_gdp（2004年） | — | 2010年より前で古すぎるため |
+| 未取得 | tax_rate_avg_worker（13か国）、授業料（17か国）、NGA の1人あたり消費、NGA・JPN の中等教育純就学率、PHL のインフォーマル雇用 | — | 推定のまま |

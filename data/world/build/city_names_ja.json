@@ -1,0 +1,22 @@
+{
+  "_説明": "places の日本語名 → 国連 World Urbanization Prospects の都市名（複数なら合計）。apply_manual.py が都市の人口割合で places を組み直すときに使う",
+  "IND": { "デリー": ["Delhi"], "ムンバイ": ["Mumbai (Bombay)"] },
+  "CHN": { "上海": ["Shanghai"], "北京": ["Beijing"], "広州": ["Guangzhou, Guangdong"] },
+  "NGA": { "ラゴス": ["Lagos"], "カノ": ["Kano"] },
+  "PAK": { "カラチ": ["Karachi"], "ラホール": ["Lahore"] },
+  "IDN": { "ジャカルタ首都圏": ["Jakarta", "Bekasi", "Depok"], "スラバヤ": ["Surabaya"] },
+  "COD": { "キンシャサ": ["Kinshasa"], "ルブンバシ": ["Lubumbashi"] },
+  "ETH": { "アディスアベバ": ["Addis Ababa"] },
+  "USA": { "ニューヨーク": ["New York-Newark"], "ロサンゼルス": ["Los Angeles-Long Beach-Santa Ana"], "シカゴ": ["Chicago"], "ヒューストン": ["Houston"] },
+  "BGD": { "ダッカ": ["Dhaka"], "チッタゴン": ["Chittagong"] },
+  "BRA": { "サンパウロ": ["São Paulo"], "リオデジャネイロ": ["Rio de Janeiro"] },
+  "EGY": { "カイロ都市圏": ["Al-Qahirah (Cairo)"], "アレクサンドリア": ["Al-Iskandariyah (Alexandria)"] },
+  "MEX": { "メキシコシティ首都圏": ["Ciudad de México (Mexico City)"], "グアダラハラ": ["Guadalajara"], "モンテレイ": ["Monterrey"] },
+  "PHL": { "マニラ首都圏": ["Manila"], "セブ": ["Cebu City"] },
+  "KEN": { "ナイロビ": ["Nairobi"], "モンバサ": ["Mombasa"] },
+  "VNM": { "ホーチミン": ["Thành Pho Ho Chí Minh (Ho Chi Minh City)"], "ハノイ": ["Hà Noi"] },
+  "DEU": { "ベルリン": ["Berlin"], "ハンブルク": ["Hamburg"], "ミュンヘン": ["München (Munich)"] },
+  "GBR": { "ロンドン": ["London"], "マンチェスター": ["Manchester"], "バーミンガム": ["Birmingham (West Midlands)"] },
+  "FRA": { "パリ都市圏": ["Paris"], "リヨン": ["Lyon"], "マルセイユ": ["Marseille-Aix-en-Provence"] },
+  "KOR": { "ソウル": ["Seoul"], "釜山": ["Busan"] }
+}

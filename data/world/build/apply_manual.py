@@ -17,12 +17,19 @@ for f in sorted((ROOT / "manual").glob("*.csv")):
 def drop_est(obj, key):
     obj["estimated"] = [e for e in obj.get("estimated", []) if not e.startswith(key)]
 
+# WDI の穴埋め項目は、2010年より前の値だと今の暮らしとずれるので取り込まない
+TOO_OLD = {"remittance_share_gdp", "secondary_net_enrollment", "tertiary_gross_enrollment", "consumption_per_capita_lcu"}
+skipped_old = []
+
 applied = {}
 latest_infl = {}
 for r in rows:
     if not r["value"].strip():
         continue
     iso, field, v = r["iso3"], r["field"], float(r["value"])
+    if field in TOO_OLD and r["year"][:4].isdigit() and int(r["year"][:4]) < 2010:
+        skipped_old.append(f"{iso} {field} {r['year']}")
+        continue
     c, k = by_iso.get(iso), risks.get(iso)
     if c is None:
         continue
@@ -78,6 +85,37 @@ for r in rows:
     c.setdefault("sources", {})[field] = src
     applied[field] = applied.get(field, 0) + 1
 
+# 都市の人口割合（国連 WUP）で places を組み直す。所得の係数（incomeIndex）は推定のまま
+CITY_JA = json.loads((ROOT / "build" / "city_names_ja.json").read_text(encoding="utf-8"))
+rebuilt = []
+for c in countries:
+    cps, names = c.get("cityPopulationShare"), CITY_JA.get(c["iso3"])
+    if not cps or not names:
+        continue
+    for p in c["places"]:
+        if p["nameJa"] == "広州・深圳":
+            p["nameJa"] = "広州"
+    urban = c["urbanShare"]
+    named = 0.0
+    for p in c["places"]:
+        keys = names.get(p["nameJa"])
+        if p["urban"] and keys and all(k in cps for k in keys):
+            p["share"] = round(sum(cps[k] for k in keys), 4)
+        if p["urban"] and p["nameJa"] != "その他の都市":
+            named += p["share"]
+    others = [p for p in c["places"] if p["nameJa"] == "その他の都市"]
+    if others:
+        others[0]["share"] = round(max(0.02, urban - named), 4)
+    rural = [p for p in c["places"] if not p["urban"]]
+    rsum = sum(p["share"] for p in rural) or 1
+    for p in rural:
+        p["share"] = round(p["share"] / rsum * (1 - urban), 4)
+    total = sum(p["share"] for p in c["places"])
+    for p in c["places"]:
+        p["share"] = round(p["share"] / total, 4)
+    c["estimated"] = [e for e in c.get("estimated", []) if e != "places"] + ["places.incomeIndex"]
+    rebuilt.append(c["iso3"])
+
 # disasterRisk は日本以外では使わない（災害は risks.json の INFORM 実データで起こす）
 for c in countries:
     drop_est(c, "disasterRisk")
@@ -92,3 +130,6 @@ for iso, (y, v) in latest_infl.items():
 (ROOT / "countries.json").write_text(json.dumps(countries, ensure_ascii=False, indent=2), encoding="utf-8")
 (ROOT / "risks.json").write_text(json.dumps(risks, ensure_ascii=False, indent=2), encoding="utf-8")
 print("反映した数（国の数。初婚年齢は男女で2）:", applied)
+print("都市の人口割合で places を組み直した国:", len(rebuilt), " ".join(rebuilt))
+if skipped_old:
+    print("古すぎるため取り込まなかった値:", ", ".join(skipped_old))
