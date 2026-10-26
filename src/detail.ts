@@ -243,7 +243,7 @@ function render(l: Life): void {
     downloadReceipt(canvas, `jinsei-receipt-${d.receiptNo}.png`).catch(() => {});
   });
   document.getElementById("share")!.addEventListener("click", () => {
-    window.open(shareIntentUrl(location.href), "_blank", "noopener");
+    window.open(shareIntentUrl(location.href, d), "_blank", "noopener");
   });
   renderChart(app.querySelector<HTMLElement>(".chart")!, flows(l.records));
 }

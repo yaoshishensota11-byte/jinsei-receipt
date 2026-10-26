@@ -326,7 +326,7 @@ async function showResult(life: Life): Promise<void> {
     <canvas id="rc"></canvas>
     <div class="row2">
       <button class="btn sub" id="png">PNGで保存</button>
-      <a class="btn sub" id="x" href="${esc(shareIntentUrl(url))}" target="_blank" rel="noopener">Xで共有</a>
+      <a class="btn sub" id="x" href="${esc(shareIntentUrl(url, data))}" target="_blank" rel="noopener">Xで共有</a>
     </div>
     <a class="btn sub" href="${esc(url)}">詳しい明細を見る</a>
     <button class="btn" id="again">もう一度生まれる</button>

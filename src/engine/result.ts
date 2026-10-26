@@ -30,6 +30,8 @@ export interface ReceiptData {
   /** 表示する通貨（日本は円） */
   currency: { code: string; nameJa: string; symbol: string; jpyPerUnit: number };
   countryName: string;
+  /** 物価の上昇で目減りした貯金（現地通貨）。目減りがなければ 0 */
+  inflationLoss: number;
   deathLine: string;
   closing: string;
 }
@@ -170,6 +172,7 @@ export function buildReceipt(l: Life): ReceiptData {
     stamp: stampOf(s.finalBalance, l.D.k),
     currency: l.D.currency,
     countryName: l.D.nameJa,
+    inflationLoss: Math.round(s.expenseTotal.inflation ?? 0),
     deathLine: `${s.deathAge}歳で閉店（${s.deathCause}）`,
     closing: "またのご来店は、ございません。",
   };
@@ -199,8 +202,20 @@ export function turningPoints(l: Life, max = 8): TurningPoint[] {
 
 export const SHARE_TEXT = "あなたはどこでお金を使う？ #人生のレシート";
 
-export function shareIntentUrl(url: string): string {
-  return `https://x.com/intent/post?text=${encodeURIComponent(SHARE_TEXT)}&url=${encodeURIComponent(url)}`;
+/** 物価で消えた貯金を円に直した額。1万円未満は 0（共有の文やレシートの一言に出さない） */
+export function inflationLossJpy(d: ReceiptData): number {
+  const v = d.inflationLoss * d.currency.jpyPerUnit;
+  return v >= 10_000 ? v : 0;
+}
+
+/** Xに投稿する文。物価で貯金が消えた人生は、その額を一言添える */
+export function shareText(d?: ReceiptData): string {
+  const v = d ? inflationLossJpy(d) : 0;
+  return v > 0 ? `${d!.countryName}に生まれ、物価で消えた貯金は約${yen(v)}。${SHARE_TEXT}` : SHARE_TEXT;
+}
+
+export function shareIntentUrl(url: string, d?: ReceiptData): string {
+  return `https://x.com/intent/post?text=${encodeURIComponent(shareText(d))}&url=${encodeURIComponent(url)}`;
 }
 
 export { yen, BIRTH_YEAR };

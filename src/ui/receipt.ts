@@ -1,5 +1,5 @@
 // 感熱紙風のレシートを canvas に描く。PNG保存・共有もここで扱う。
-import type { ReceiptData } from "../engine/result";
+import { inflationLossJpy, type ReceiptData } from "../engine/result";
 
 const W = 400;
 const PAD = 26;
@@ -269,6 +269,16 @@ function layout(p: Pen, d: ReceiptData): void {
   rankBar(p, "生涯収入", d.rankIncome);
   rankBar(p, "お釣り", d.rankBalance);
   p.y += 10;
+  // 物価で貯金が消えた人生は、その額を一言で目立たせる（日本ではこの目減りがほぼ起きない）
+  const lostJpy = inflationLossJpy(d);
+  if (lostJpy > 0) {
+    rule(p);
+    p.y += 24;
+    text(p, `物価で消えた貯金　${approxYen(lostJpy)}`, W / 2, 15, { bold: true, align: "center", color: RED_INK, maxW: W - PAD * 2 });
+    p.y += 20;
+    text(p, "日本で生まれていたら、ほぼ0円でした", W / 2, 11, { align: "center", color: GRAY, maxW: W - PAD * 2 });
+    p.y += 10;
+  }
   rule(p);
   p.y += 24;
   text(p, d.deathLine, W / 2, 14, { bold: true, align: "center", maxW: W - PAD * 2 });
