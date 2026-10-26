@@ -28,7 +28,9 @@ for (let i = 0; i < N; i++) {
   }, 150);
   try {
     await page.waitForSelector("#rc", { timeout: 180_000 });
-    await page.waitForTimeout(400);
+    // 結果のデータが用意されるまで待つ（比較集団の計算が重いときは少し遅れる）
+    await page.waitForFunction(() => !!window.__result, null, { timeout: 15_000 });
+    await page.waitForTimeout(200);
   } catch (e) {
     errors.push("結果画面に到達しない: " + e.message.split("\n")[0]);
   }
