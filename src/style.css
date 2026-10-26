@@ -613,3 +613,13 @@ button {
   padding: 0;
 }
 .title > .lang { align-self: flex-end; margin-bottom: 8px; }
+
+/* 暮らしの風景（ドット絵） */
+.scene {
+  display: block;
+  flex: none;
+  width: 100%;
+  height: 96px;
+  image-rendering: pixelated;
+  border-bottom: 1px dashed var(--line);
+}

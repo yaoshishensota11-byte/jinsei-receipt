@@ -1,3 +1,4 @@
+import { LifeScene } from "./ui/pixel";
 import { langPicker } from "./ui/lang";
 import { Life, jobLabel, cohort } from "./engine/sim";
 import { randomSeed, Rng, hashStr } from "./engine/rng";
@@ -129,6 +130,8 @@ class Game {
   private feed!: HTMLElement;
   private log!: HTMLElement;
   private ctrl!: HTMLElement;
+  /** ドット絵の「暮らしの風景」 */
+  private scene = new LifeScene();
 
   constructor(public life: Life) {}
 
@@ -158,6 +161,7 @@ class Game {
     </div>`);
     app.append(root);
     this.hud = root.querySelector(".hud")!;
+    this.hud.after(this.scene.el);
     this.feed = root.querySelector("#feed")!;
     this.log = root.querySelector("#log")!;
     this.ctrl = root.querySelector("#ctrl")!;
@@ -168,6 +172,7 @@ class Game {
     };
     this.setSpeed(1);
     this.renderHud();
+    this.scene.update(this.life, []);
     this.prev = performance.now();
     this.raf = requestAnimationFrame(this.loop);
     // 比較集団の計算は、余裕のあるときに済ませておく
@@ -207,6 +212,7 @@ class Game {
       this.yearMs = YEAR_MS;
       this.autoMs += this.yearMs;
       this.renderHud();
+      this.scene.update(this.life, []);
     }
     this.yearT += ms;
     const rec = this.current;
@@ -214,6 +220,8 @@ class Game {
     // その年の出来事を、1年の中で順番に見せる
     while (this.shown < n && this.yearT >= ((this.shown + 0.5) / Math.max(n, 1)) * this.yearMs * 0.8) {
       this.pushEvent(rec.events[this.shown++]);
+      // 出来事が出たら、ドット絵の表情もその時点の出来事に合わせる
+      this.scene.update(this.life, rec.events.slice(0, this.shown));
     }
     (this.hud.querySelector("#prog") as HTMLElement).style.width = `${Math.min(100, (this.yearT / this.yearMs) * 100)}%`;
     if (this.yearT >= this.yearMs) {
