@@ -3,7 +3,7 @@
 CSV の形式: iso3,country_en,field,value,unit,year,source_name,source_url,note（1行に1つの数値）
 値が空欄の行は使わず、これまでの推定値を残す。
 """
-import csv, json, pathlib
+import csv, json, pathlib, re
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 countries = json.loads((ROOT / "countries.json").read_text(encoding="utf-8"))
@@ -13,6 +13,10 @@ by_iso = {c["iso3"]: c for c in countries}
 rows = []
 for f in sorted((ROOT / "manual").glob("*.csv")):
     rows += list(csv.DictReader(f.open(encoding="utf-8-sig")))
+
+def num(text):
+    m = re.match(r"\s*([0-9][0-9,]*(?:\.[0-9]+)?)", text)
+    return float(m.group(1).replace(",", "")) if m else None
 
 def drop_est(obj, key):
     obj["estimated"] = [e for e in obj.get("estimated", []) if not e.startswith(key)]
@@ -80,16 +84,19 @@ for r in rows:
     elif field in ("avg_monthly_earnings", "employee_ssc_rate", "income_tax_allowance", "income_tax_bracket", "employee_ssc_bracket", "income_tax_credit"):
         # 税・社会保険料の「材料」。国ごとに集めておき、あとでまとめて実効税率を計算する
         t = tax_parts.setdefault(iso, {"brackets": []})
+        # 平均月収の代わりに最低賃金が入っている行は、平均の人の負担がずれるので使わない
+        if field == "avg_monthly_earnings" and ("最低賃金" in r["note"] or "/day" in r["unit"]):
+            continue
         if field == "income_tax_bracket":
             meta = dict(x.split("=", 1) for x in [y.strip() for y in r["note"].split(";")] if "=" in x)
-            lo = float(meta.get("from", "0").replace(",", "") or 0)
-            hi = meta.get("to", "").replace(",", "")
-            t["brackets"].append((lo, float(hi) if hi else float("inf"), v))
+            lo = num(meta.get("from", "")) or 0.0
+            hi = num(meta.get("to", ""))
+            t["brackets"].append((lo, hi if hi is not None else float("inf"), v))
         elif field == "employee_ssc_bracket":
             meta = dict(x.split("=", 1) for x in [y.strip() for y in r["note"].split(";")] if "=" in x)
-            lo = float(meta.get("from", "0").replace(",", "") or 0)
-            hi = meta.get("to", "").replace(",", "")
-            t.setdefault("ssc_brackets", []).append((lo, float(hi) if hi else float("inf"), v))
+            lo = num(meta.get("from", "")) or 0.0
+            hi = num(meta.get("to", ""))
+            t.setdefault("ssc_brackets", []).append((lo, hi if hi is not None else float("inf"), v))
         else:
             t[field] = v
             t[field + "_note"] = r["note"]

@@ -921,13 +921,12 @@
     "pensionCoverage": 0.042,
     "pensionReplacementRate": 0.4,
     "outOfPocketHealthShare": 0.463,
-    "effectiveTaxRateAvgWorker": 0.15,
+    "effectiveTaxRateAvgWorker": 0.1954,
     "rentShareOfIncome": 0.187575769068,
     "housePriceToIncome": 20.0,
     "disasterRisk": 0.35,
     "remittanceShareGdp": 0.0477,
     "estimated": [
-      "effectiveTaxRateAvgWorker",
       "housePriceToIncome",
       "pensionReplacementRate",
       "tertiaryAnnualCostShareOfGni",
@@ -963,6 +962,11 @@
       "city_population_share": {
         "source": "UN WUP 2018 / WPP 2024",
         "url": "https://population.un.org/wup/Download/Files/WUP2018-F22-Cities_Over_300K_Annual.xls; https://population.un.org/wpp/",
+        "year": "2025"
+      },
+      "tax_rate_avg_worker": {
+        "source": "計算値（平均月収・税率表・本人負担社会保険料率から）",
+        "url": "https://ilostat.ilo.org/data/country-profiles/eth/",
         "year": "2025"
       }
     },
@@ -1340,13 +1344,12 @@
     "pensionCoverage": 0.886,
     "pensionReplacementRate": 0.884,
     "outOfPocketHealthShare": 0.262,
-    "effectiveTaxRateAvgWorker": 0.2,
+    "effectiveTaxRateAvgWorker": 0.1237,
     "rentShareOfIncome": 0.155156775982,
     "housePriceToIncome": 14.7,
     "disasterRisk": 0.35,
     "remittanceShareGdp": 0.0022,
     "estimated": [
-      "effectiveTaxRateAvgWorker",
       "tertiaryAnnualCostShareOfGni",
       "places.incomeIndex"
     ],
@@ -1395,6 +1398,11 @@
       "city_population_share": {
         "source": "UN WUP 2018 / WPP 2024",
         "url": "https://population.un.org/wup/Download/Files/WUP2018-F22-Cities_Over_300K_Annual.xls; https://population.un.org/wpp/",
+        "year": "2025"
+      },
+      "tax_rate_avg_worker": {
+        "source": "計算値（平均月収・税率表・本人負担社会保険料率から）",
+        "url": "https://ilostat.ilo.org/data/country-profiles/bra/",
         "year": "2025"
       }
     },
@@ -2209,13 +2217,12 @@
     "pensionCoverage": 0.198,
     "pensionReplacementRate": 0.3,
     "outOfPocketHealthShare": 0.242,
-    "effectiveTaxRateAvgWorker": 0.15,
+    "effectiveTaxRateAvgWorker": 0.2851,
     "rentShareOfIncome": 0.133960278542,
     "housePriceToIncome": 17.0,
     "disasterRisk": 0.35,
     "remittanceShareGdp": 0.0415,
     "estimated": [
-      "effectiveTaxRateAvgWorker",
       "pensionReplacementRate",
       "tertiaryAnnualCostShareOfGni",
       "places.incomeIndex"
@@ -2255,6 +2262,11 @@
       "city_population_share": {
         "source": "UN WUP 2018 / WPP 2024",
         "url": "https://population.un.org/wup/Download/Files/WUP2018-F22-Cities_Over_300K_Annual.xls; https://population.un.org/wpp/",
+        "year": "2025"
+      },
+      "tax_rate_avg_worker": {
+        "source": "計算値（平均月収・税率表・本人負担社会保険料率から）",
+        "url": "https://ilostat.ilo.org/data/country-profiles/ken/",
         "year": "2025"
       }
     },
