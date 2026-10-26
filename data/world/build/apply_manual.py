@@ -40,6 +40,13 @@ def drop_est(obj, key):
 TOO_OLD = {"remittance_share_gdp", "secondary_net_enrollment", "tertiary_gross_enrollment", "consumption_per_capita_lcu"}
 skipped_old = []
 
+# 届いた値のうち、今の暮らしを表さないため取り込まないもの（理由つき）
+REJECT = {
+    ("IDN", "arranged_marriage_share"): "1930年以前に生まれた女性だけの値",
+    ("VNM", "arranged_marriage_share"): "1995年の紅河デルタ周辺の地域値で、今の結婚を表さない",
+}
+rejected = []
+
 tax_parts = {}
 # 年ごとの物価上昇率（build/cpi_series.py で作る）。古い平均月収を税率表の年の金額に直すのに使う
 CPI = json.loads((ROOT / "cpi_annual.json").read_text(encoding="utf-8"))
@@ -66,11 +73,19 @@ for r in rows:
     if field in TOO_OLD and r["year"][:4].isdigit() and int(r["year"][:4]) < 2010:
         skipped_old.append(f"{iso} {field} {r['year']}")
         continue
+    if (iso, field) in REJECT:
+        rejected.append(f"{iso} {field}（{REJECT[(iso, field)]}）")
+        continue
     c, k = by_iso.get(iso), risks.get(iso)
     if field == "marriage_payment_amount":
         # 婚資・持参金のふつうの額（現地通貨）。物価で最新の年に直し、1人あたり国民所得の何年分かにする
-        y4 = r["year"].strip()[:4]
-        f = cpi_factor(iso, int(y4), 2025) if y4.isdigit() else None
+        # 年が「2000-2018 (constant 2018 EGP)」のような期間なら、何年の物価で表した額かが書かれているときだけ最後の年を使う
+        ys = [int(x) for x in re.findall(r"(?:19|20)\d\d", r["year"])]
+        if len(ys) > 1 and "constant" not in (r["year"] + r["note"]).lower():
+            rejected.append(f"{iso} {field}（年が期間で、何年の物価の額か分からない）")
+            continue
+        y4 = max(ys) if ys else None
+        f = cpi_factor(iso, y4, 2025) if y4 else None
         if c is None or f is None or not c.get("gniPerCapitaLCU"):
             continue
         field, v = "marriage_payment_years", round(v * f / c["gniPerCapitaLCU"], 2)
@@ -270,6 +285,8 @@ print("反映した数（国の数。初婚年齢は男女で2）:", applied)
 print("都市の人口割合で places を組み直した国:", len(rebuilt), " ".join(rebuilt))
 if tax_computed:
     print("税・社会保険料を計算した国:", " ".join(tax_computed))
+if rejected:
+    print("取り込まなかった値:", ", ".join(rejected))
 if tax_skipped:
     print("税・社会保険料を計算しなかった国:", ", ".join(tax_skipped))
 if skipped_old:

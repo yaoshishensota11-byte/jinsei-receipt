@@ -53,12 +53,12 @@ function payForMarriage(l: Life, r: Rng): void {
       l.log("money", "妻の家から持参金（ダウリー）が届いた。新しい暮らしの家財になった。", amount * 0.5);
     } else {
       // 多くは親が用意するが、自分の貯えからも出す
-      l.spend("events", amount * 0.35);
+      l.spend("love", amount * 0.35);
       l.log("money", "結婚にあたり、家族と出し合って持参金（ダウリー）を用意した。", -amount * 0.35, true);
     }
   } else if (n.payment === "brideprice") {
     if (male) {
-      l.spend("events", amount);
+      l.spend("love", amount);
       l.log("money", "妻の家へ婚資（ブライドプライス）を払った。何年分もの稼ぎが一度に出ていった。", -amount, true);
     } else {
       l.addIncome("windfall", amount * 0.2);
@@ -66,7 +66,7 @@ function payForMarriage(l: Life, r: Rng): void {
     }
   } else if (n.payment === "mahr") {
     if (male) {
-      l.spend("events", amount);
+      l.spend("love", amount);
       l.log("money", "妻へ婚資（マフル）を贈った。", -amount, true);
     } else {
       l.addIncome("windfall", amount * 0.8);

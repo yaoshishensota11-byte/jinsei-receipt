@@ -6,7 +6,7 @@ import { pickCountry, type Mode } from "./world";
 import { streamRng } from "./rng";
 import { EXPENSE_LABEL, type ExpenseCat, type LifeEvent } from "./types";
 
-export const CODEC_VERSION = "4";
+export const CODEC_VERSION = "5";
 
 export interface ReceiptItem {
   label: string;
@@ -41,7 +41,7 @@ export function picksOf(l: Life): number[] {
   return l.choiceLog.map((c) => c.pickIndex ?? 0);
 }
 
-// 版4（結婚までを段階的にした）：`4.<モード j|m|w>.<シード>.<選んだ番号の並び>`。国はモードとシードから決まる
+// 版5（実家を出るかの選択などを追加）：`5.<モード j|m|w>.<シード>.<選んだ番号の並び>`。国はモードとシードから決まる
 export function encodeResult(l: Life): string {
   return `${CODEC_VERSION}.${l.mode}.${l.seed}.${picksOf(l).join("")}`;
 }
@@ -127,6 +127,11 @@ function memoFor(l: Life, cat: ExpenseCat, amount: number): string {
       return has("災害") || has("地震") ? "災害の修理を含む" : "冠婚葬祭と臨時の出費";
     case "selfEdu":
       return l.choiceLog.some((c) => /loan|night/.test(c.optionId)) ? "奨学金と学費" : "学び直しの費用";
+    case "love": {
+      const wed = has("結婚式を挙げた");
+      const pay = has("持参金") || has("婚資");
+      return [has("付き合いはじめた") ? "デート代" : "", wed ? "結婚式" : "", pay ? "持参金・婚資" : ""].filter(Boolean).join("と") || "出会いと結婚";
+    }
     case "inflation": {
       const spells = ev.filter((e) => e.text.includes("実際に記録された上昇率")).length;
       return spells > 0 ? `物価の高騰${spells}回。働いても残らない` : "物価が上がり、少しずつ目減り";
@@ -139,7 +144,7 @@ function memoFor(l: Life, cat: ExpenseCat, amount: number): string {
 export function buildReceipt(l: Life): ReceiptData {
   const s = l.summary();
   const c = cohort(l.D);
-  const order: ExpenseCat[] = ["housing", "food", "tax", "kids", "car", "fun", "other", "utilities", "medical", "care", "selfEdu", "events", "inflation"];
+  const order: ExpenseCat[] = ["housing", "food", "tax", "kids", "car", "fun", "other", "utilities", "medical", "care", "selfEdu", "events", "love", "inflation"];
   const items: ReceiptItem[] = order
     .map((k) => ({ label: EXPENSE_LABEL[k], amount: Math.round(s.expenseTotal[k] ?? 0), memo: memoFor(l, k, s.expenseTotal[k] ?? 0) }))
     // 1万円未満の項目は省く（米ドルなど1単位が大きい通貨でも同じ基準になるよう、円に直して比べる）

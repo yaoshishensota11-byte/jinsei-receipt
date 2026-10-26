@@ -1,55 +1,84 @@
 {
  "IND": {
-  "arranged": 0.8,
+  "arranged": 0.58,
   "betrothal": 0.08,
   "payment": "dowry",
-  "paymentYears": 1.5,
+  "paymentYears": 0.67,
   "estimated": [
-   "arranged",
-   "betrothal",
-   "payment",
-   "paymentYears"
+   "betrothal"
   ],
-  "region": "south_asia_dowry"
+  "region": "south_asia_dowry",
+  "sources": {
+   "arranged_marriage_share": {
+    "source": "India Human Development Survey (IHDS), Partner Choice Map（第7部の行から組み直し）",
+    "url": "https://ihds.umd.edu/partner-choice-map",
+    "year": "2005"
+   },
+   "marriage_payment_years": {
+    "source": "Household Responses to Expected Marriage Payments",
+    "url": "https://www.dartmouth.edu/neudc2012/docs/paper_50.pdf",
+    "year": "2008"
+   }
+  }
  },
  "CHN": {
   "arranged": 0.1,
   "betrothal": 0.0,
   "payment": "brideprice",
-  "paymentYears": 1.0,
+  "paymentYears": 1.25,
   "estimated": [
    "arranged",
-   "betrothal",
-   "payment",
-   "paymentYears"
+   "betrothal"
   ],
-  "region": "china"
+  "region": "china",
+  "sources": {
+   "marriage_payment_years": {
+    "source": "Between money and intimacy: Brideprice, marriage, and women’s position in contemporary China",
+    "url": "https://www.demographic-research.org/volumes/vol50/46/50-46.pdf",
+    "year": "2020"
+   }
+  }
  },
  "NGA": {
-  "arranged": 0.35,
+  "arranged": 0.216,
   "betrothal": 0.05,
   "payment": "brideprice",
   "paymentYears": 0.6,
   "estimated": [
-   "arranged",
    "betrothal",
    "payment",
    "paymentYears"
   ],
-  "region": "ssa"
+  "region": "ssa",
+  "sources": {
+   "arranged_marriage_share": {
+    "source": "Form of Marriage as a Predictor of Intimate Partner Violence among Married Women in North-Central Nigeria",
+    "url": "https://journals.sagepub.com/doi/10.1177/21582440241305648",
+    "year": "2024"
+   }
+  }
  },
  "PAK": {
-  "arranged": 0.8,
+  "arranged": 0.81,
   "betrothal": 0.08,
   "payment": "dowry",
-  "paymentYears": 1.5,
+  "paymentYears": 0.94,
   "estimated": [
-   "arranged",
-   "betrothal",
-   "payment",
-   "paymentYears"
+   "betrothal"
   ],
-  "region": "south_asia_dowry"
+  "region": "south_asia_dowry",
+  "sources": {
+   "arranged_marriage_share": {
+    "source": "Gallup & Gilani Pakistan, Press release 2 on Marriage and Social Behavior",
+    "url": "https://gallup.com.pk/wp/wp-content/uploads/2024/08/23.08.2024.Daily-poll-English.pdf",
+    "year": "2024"
+   },
+   "marriage_payment_years": {
+    "source": "Makino, Marriage, dowry, and women's status in rural Punjab, Pakistan",
+    "url": "https://www.ide.go.jp/library/Japanese/Publish/Reports/InterimReport/2013/pdf/C23_ch2.pdf",
+    "year": "2004"
+   }
+  }
  },
  "IDN": {
   "arranged": 0.15,
@@ -78,17 +107,23 @@
   "region": "ssa"
  },
  "ETH": {
-  "arranged": 0.35,
+  "arranged": 0.702,
   "betrothal": 0.05,
   "payment": "brideprice",
   "paymentYears": 0.6,
   "estimated": [
-   "arranged",
    "betrothal",
    "payment",
    "paymentYears"
   ],
-  "region": "ssa"
+  "region": "ssa",
+  "sources": {
+   "arranged_marriage_share": {
+    "source": "Ethiopia gender survey: A study in seven regions",
+    "url": "https://knowledgecommons.popcouncil.org/cgi/viewcontent.cgi?article=1025&context=departments_sbsr-pgy",
+    "year": "2010"
+   }
+  }
  },
  "USA": {
   "arranged": 0.02,
@@ -104,17 +139,23 @@
   "region": "west"
  },
  "BGD": {
-  "arranged": 0.8,
+  "arranged": 0.942,
   "betrothal": 0.08,
   "payment": "dowry",
   "paymentYears": 1.5,
   "estimated": [
-   "arranged",
    "betrothal",
    "payment",
    "paymentYears"
   ],
-  "region": "south_asia_dowry"
+  "region": "south_asia_dowry",
+  "sources": {
+   "arranged_marriage_share": {
+    "source": "The impact of market integration on arranged marriages in Matlab, Bangladesh（第7部の要約から転記）",
+    "url": "https://www.cambridge.org/core/journals/evolutionary-human-sciences/article/impact-of-market-integration-on-arranged-marriages-in-matlab-bangladesh/A3AE66C81512788833528FFB5A8C468A",
+    "year": "2010"
+   }
+  }
  },
  "BRA": {
   "arranged": 0.02,
@@ -132,15 +173,20 @@
  "EGY": {
   "arranged": 0.5,
   "betrothal": 0.05,
-  "payment": "mahr",
-  "paymentYears": 1.0,
+  "payment": "brideprice",
+  "paymentYears": 2.45,
   "estimated": [
    "arranged",
-   "betrothal",
-   "payment",
-   "paymentYears"
+   "betrothal"
   ],
-  "region": "mena"
+  "region": "mena",
+  "sources": {
+   "marriage_payment_years": {
+    "source": "Returns to Education in the Marriage Market: Bride Price and School Reform in Egypt",
+    "url": "https://openknowledge.worldbank.org/bitstreams/bb9cd83f-2acf-416f-b77e-9eaae412b9e1/download",
+    "year": "2000-2018 (constant 2018 EGP)"
+   }
+  }
  },
  "TZA": {
   "arranged": 0.35,
@@ -494,17 +540,23 @@
   "region": "sahel"
  },
  "JPN": {
-  "arranged": 0.06,
+  "arranged": 0.098,
   "betrothal": 0.0,
   "payment": "none",
   "paymentYears": 0.0,
   "estimated": [
-   "arranged",
    "betrothal",
    "payment",
    "paymentYears"
   ],
-  "region": "east_asia"
+  "region": "east_asia",
+  "sources": {
+   "arranged_marriage_share": {
+    "source": "National Institute of Population and Social Security Research (IPSS), 16th Japanese National Fertility Survey, Figure 5-2",
+    "url": "https://www.ipss.go.jp/ps-doukou/e/doukou16/Nfs16R_summary_eng.pdf",
+    "year": "2021"
+   }
+  }
  },
  "BFA": {
   "arranged": 0.7,

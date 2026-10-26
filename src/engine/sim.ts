@@ -6,6 +6,7 @@ import { MICROS } from "./micro";
 import { riskYear, countryEventScene, ipvHazard } from "./risks";
 import { kidsScene, kidsAgainScene, fertilityScene, strainScene, dvScene, type Scene } from "./scenes";
 import { drawMarriageMode, meetScene, loveScene, arrangedScene, betrothedScene, type MarriageMode } from "./marriage";
+import { leaveHomeScene, kidLeaveScene, kidAtHome } from "./home";
 import type {
   Choice,
   ChoiceId,
@@ -145,7 +146,20 @@ export class Life {
   /** 恋人と付き合っている（結婚の前の段階） */
   dating = false;
   datingSince = -1;
-  kids: { born: number; privateSchool: boolean; univ: boolean; away: boolean; decided?: boolean; loan?: boolean }[] = [];
+  kids: {
+    born: number;
+    privateSchool: boolean;
+    univ: boolean;
+    away: boolean;
+    decided?: boolean;
+    loan?: boolean;
+    /** 巣立つ年齢になっても実家から通って働いている */
+    stayHome?: boolean;
+    /** 家を出た年齢（自分の年齢） */
+    leftAge?: number;
+  }[] = [];
+  /** 実家から通って働いている間、「そろそろ家を出る？」と考えるのはこの年齢から */
+  leaveAskAfter = 0;
   home: Home = "parents";
   loan = 0;
   loanAnnual = 0;
@@ -246,7 +260,7 @@ export class Life {
     const out = ["自分"];
     const p = this.partner;
     if (p && p.alive) out.push(p.sex === "male" ? "夫" : "妻");
-    const kidsHome = this.kids.filter((k) => a - k.born < (k.univ ? 22 : 18)).length;
+    const kidsHome = this.kids.filter((k) => kidAtHome(k, a)).length;
     if (kidsHome) out.push(`子ども${kidsHome}人`);
     if (this.home === "parents") {
       if (this.parents[0].alive) out.push("父");
@@ -698,7 +712,8 @@ export class Life {
       else if (!this.noMarry && this.marriageMode === "arranged" && a >= this.arrangedAge && a < 45 && !this.dating && r.chance(0.5))
         this.queueScene(arrangedScene(this));
       else if (this.dating) {
-        // 付き合っている間：別れることもあれば、結婚の話になることもある
+        // 付き合っている間：デート代がかかる。別れることもあれば、結婚の話になることもある
+        this.spend("love", this.y(150_000));
         if (r.chance(0.12)) {
           this.dating = false;
           this.log("family", "恋人と別れた。");
@@ -708,14 +723,25 @@ export class Life {
         const boost = a < this.marriageBoostUntil ? this.marriageBoost : 1;
         const mode = this.marriageMode === "love" ? 4 : 0.9;
         // 付き合ってから結婚まで2年ほどかかるので、2年先の結婚しやすさで出会いが起きる
-        if (r.chance(this.marriageHazard(a + 2) * mode * boost * (this.noMarry ? 0.25 : 1))) this.queueScene(meetScene(this));
+        const again = this.partnerSince >= 0 ? (a >= 50 ? 0.2 : 0.45) : 1;
+        if (r.chance(this.marriageHazard(a + 2) * mode * boost * again * (this.noMarry ? 0.25 : 1))) this.queueScene(meetScene(this));
       }
+    }
+    // 実家から通って働いている：貯金がたまってきたら「そろそろ家を出る？」
+    if (this.home === "parents" && this.school === "done" && this.job !== "none" && this.job !== "retired" && !this.partner && !this.coLiveParents) {
+      if (a >= Math.max(22, this.leaveAskAfter) && a < 45 && this.cash > this.y(1_000_000) && r.chance(0.3)) this.queueScene(leaveHomeScene(this, true));
     }
     // 子どもの節目
     for (const k of this.kids) {
       const ka = a - k.born;
-      if (ka === 22 && k.univ) this.log("family", "子どもが大学を卒業して独り立ちした。");
-      else if (ka === 18 && !k.univ) this.log("family", "子どもが高校を出て働きはじめた。");
+      if ((ka === 22 && k.univ) || (ka === 18 && !k.univ)) this.queueScene(kidLeaveScene(this, this.kids.indexOf(k)));
+      else if (k.stayHome && k.leftAge === undefined && ka > 18) {
+        // 実家から通う子どもは家にお金を入れ、いずれ貯めたお金で家を出る
+        if (r.chance(0.18) || ka >= 35) {
+          k.leftAge = a;
+          this.log("family", `実家から通っていた子ども（${ka}歳）が、貯めたお金で家を出た。`);
+        } else this.addIncome("windfall", this.y(360_000));
+      }
     }
   }
   childSupport = false;
@@ -757,7 +783,7 @@ export class Life {
     this.queueScene(kidsScene(this));
     if (ceremony ?? r.chance(0.5)) {
       const net = this.D.living.weddingCost * 0.45;
-      this.spend("events", net);
+      this.spend("love", net);
       this.log("money", "結婚式を挙げた。ご祝儀で半分ほど戻った。", -net);
     }
     if (this.home === "parents" && this.school === "done") this.home = "rent";
@@ -1243,7 +1269,7 @@ export class Life {
     const ref = elderly ? (fam ? this.y(3_000_000) : this.y(1_900_000)) : fam ? this.y(5_600_000) : this.y(3_000_000);
     const scale = Math.min(1.8, Math.max(elderly ? 0.45 : 0.6, Math.pow(Math.max(1, disp) / ref, 0.55)));
     annual *= scale;
-    const kidsLiving = this.kids.filter((k) => a - k.born < 22).length;
+    const kidsLiving = this.kids.filter((k) => kidAtHome(k, a) || a - k.born < 22).length;
     annual *= 1 + (kidsLiving > 0 ? 0.08 * kidsLiving : 0);
     annual *= reg * this.thrift * (this.frugal ? 0.8 : 1) * (this.welfare ? 0.75 : 1);
     if (this.home === "parents") annual *= 0.55;
@@ -1339,7 +1365,7 @@ export class Life {
 
   private mortality(): void {
     const a = this.age;
-    if (a < 18) return; // 子ども時代の死亡は扱わない（体験として重すぎるため）
+    if (a < 20) return; // 20歳になるまでの死亡は扱わない（お金の一生が主題で、子ども時代の死は重すぎるため）
     let q = this.D.qx(this.sex, a);
     q *= BAND_MORTALITY[this.band.id] ?? 1;
     q *= this.illMult;
@@ -1754,10 +1780,7 @@ function applyChoice(l: Life, id: ChoiceId, o: string, r: Rng): void {
       } else l.logPre("work", o === "sme" ? "中小企業の正社員になった。" : "非正規の仕事で働きはじめた。");
       l.job = job;
       l.jobStart = a;
-      if (l.home === "parents" && r.chance(l.region.id === "rural" ? 0.45 : 0.6)) {
-        l.home = "rent";
-        l.logPre("life", "実家を出て一人暮らしを始めた。");
-      }
+      if (l.home === "parents") l.queueScene(leaveHomeScene(l, false));
       break;
     }
     case "invest":
@@ -1943,6 +1966,8 @@ export function replay(seed: string, picks: string[], country: CountryData = JAP
 /** 選択をランダムに（決定的に）行う自動プレイ。同い年の比較用 */
 const AUTO_WEIGHTS: Record<string, number[]> = {
   "ev:meet": [0.72, 0.18, 0.1],
+  "ev:leaveHome": [0.55, 0.45],
+  "ev:kidLeave": [0.6, 0.3, 0.1],
   "ev:propose": [0.5, 0.35, 0.12, 0.03],
   "ev:arranged": [0.7, 0.22, 0.08],
   "ev:betrothed": [0.92, 0.08],
