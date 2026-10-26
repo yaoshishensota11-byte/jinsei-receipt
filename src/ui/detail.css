@@ -177,3 +177,4 @@ h1, h2 { margin: 0; line-height: 1.4; }
 .empty { text-align: center; padding: 18vh 0; }
 .empty h1 { font-size: 20px; margin-bottom: 12px; }
 .empty p { color: var(--sub); font-size: 14px; margin: 0 0 22px; }
+.empty p.q { color: var(--accent); font-weight: 700; font-size: 15px; line-height: 1.6; margin: 0 0 14px; }
