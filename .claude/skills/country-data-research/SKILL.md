@@ -15,9 +15,11 @@ description: 人生のレシートの国別データで「推定値」のまま�
    node data/world/build/list_estimated.mjs          # 全88か国
    node data/world/build/list_estimated.mjs --major  # 主要20か国だけ
    ```
-2. 下の「項目カタログ」から、今回調べてもらう項目を選ぶ。
-   - 1回の依頼は3〜6項目まで。多すぎるとManusが途中で止まる。
-   - 全世界分が1つのファイル（Excel/CSV）で手に入る項目は全88か国、国ごとに調べる必要がある項目は主要20か国に絞る。
+2. 下の「項目カタログ」から、今回調べてもらう項目を選ぶ。これまでの依頼で分かったManusの得意・不得意に合わせる。
+   - **一括ファイルで全世界分が取れる項目**（世界銀行・ILO・国連・IMF・OECDの一括データ）は得意。1回に3項目程度まとめてよく、対象は全88か国。
+   - **国ごとに公式サイトを探す項目**（大学の授業料、各国の税率表など）は後半で止まりやすい。1回の依頼につき1項目まで、対象は主要20か国以内に絞る。
+   - **計算が必要な項目**（税・社会保険料の実効負担率など）は、計算まで頼むと失敗しやすい。材料（平均賃金・税率表・保険料率）だけを集めてもらい、計算は apply_manual.py で行う。
+   - 優先順位は「遊んだ結果への効き目」で決める：毎年の手取りや支出に効く項目（税、家賃、物価）＞一度きりの出費（学費、住宅価格）＞まれな出来事の確率。
    - 日本の国内統計（data/*.json）がある項目は、日本を対象から外す。
 3. [template.md](template.md) をもとに、5層（Role / Context / Task / Constraints / Output Format）のプロンプトを作る。
    - 国はISO3と英語名を並べる（英語名は data/world/country_names_en.json）。
@@ -45,9 +47,11 @@ description: 人生のレシートの国別データで「推定値」のまま�
    for m in j m w; do npx tsx scripts/simtest.ts 300 $m; done   # 3モード×300人生。「問題なし」を確認
    ```
    値の変化で人生の結果が大きく動いた場合（赤字の割合、寿命、残高の中央値）は、理由を調べて報告する。
+   apply_manual.py は何度実行しても同じ結果になるように書く（2回続けて実行し、data/world/ に差分が出ないことを確認する）。
 5. data/world/sources.md の末尾に、項目・出典・反映した国の数・備考の表を追記する。
 6. コミットしてpushする（ブランチは作業中のもの）。メッセージには反映した項目と国の数を書く。
 7. ユーザーへの報告：反映した数の表、気づいた点（定義の違い・古い値・空欄の理由）、まだ推定のまま残る項目、次に調べると効果が大きい項目。
+   Manusが途中で止まった場合は、未着手の項目だけを続けて頼む短い依頼文（同じチャットに貼る用）を添える。
 
 ## 項目カタログ（field 名 → ゲームでの使い道）
 
@@ -65,6 +69,12 @@ description: 人生のレシートの国別データで「推定値」のまま�
 | ipv_past12m_women | 過去1年にパートナーから暴力を受けた女性の割合（15〜49歳） | WHO VAW ポータル / DHS | share | risks.ipvPast12mWomen |
 | inflation_recent | 消費者物価上昇率（年平均、年ごとに1行） | IMF WEO | percent | risks.inflationRecent（最新年） |
 | homicide_rate | 殺人の被害者数（10万人あたり） | UNODC、なければ WHO Global Health Estimates | per100k | risks.homicidePer100k |
-| secondary_net_enrollment / tertiary_gross_enrollment / consumption_per_capita_lcu / remittance_share_gdp | 世界銀行 WDI の各指標 | World Bank WDI | share / 現地通貨 | countries の同名の項目 |
+| secondary_net_enrollment / tertiary_gross_enrollment / consumption_per_capita_lcu / remittance_share_gdp | 世界銀行 WDI の各指標（2010年より前の値は取り込まない） | World Bank WDI | share / 現地通貨 | countries の同名の項目 |
+| avg_monthly_earnings | 被用者の平均月収（名目、現地通貨） | ILOSTAT（Mean nominal monthly earnings of employees） | 現地通貨コード | 税の計算の材料 |
+| employee_ssc_rate | 本人負担の社会保険料率の合計（年金・医療・失業など） | ISSA / 米国社会保障庁「Social Security Programs Throughout the World」、各国の社会保険機関 | share | 税の計算の材料 |
+| income_tax_allowance | 所得税がかからない年間の基礎控除・非課税枠（単身・子なし） | 各国の税務当局 | 現地通貨コード | 税の計算の材料 |
+| income_tax_bracket | 所得税の税率（1区分1行）。note に `from=下限; to=上限`（最上位は `to=` を空に）。金額は控除後の年間課税所得 | 各国の税務当局 | rate | 税の計算の材料 |
+
+税の4つの材料（平均月収・保険料率・税率表、あれば基礎控除）がそろった国は、apply_manual.py が「平均賃金・単身の所得税＋本人社会保険料 ÷ 年収」を計算して countries.effectiveTaxRateAvgWorker に入れる。
 
 CSV の列は必ず `iso3,country_en,field,value,unit,year,source_name,source_url,note`（1行に1つの数値）。値が見つからない行は value を空欄にし、note に理由を書いてもらう。空欄の行は取り込まず、推定値を残す。

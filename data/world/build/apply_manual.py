@@ -21,6 +21,8 @@ def drop_est(obj, key):
 TOO_OLD = {"remittance_share_gdp", "secondary_net_enrollment", "tertiary_gross_enrollment", "consumption_per_capita_lcu"}
 skipped_old = []
 
+tax_parts = {}
+
 applied = {}
 latest_infl = {}
 for r in rows:
@@ -75,6 +77,18 @@ for r in rows:
         c["consumptionPerCapitaLCU"] = v; drop_est(c, "consumptionPerCapitaLCU")
     elif field == "remittance_share_gdp":
         c["remittanceShareGdp"] = v; drop_est(c, "remittanceShareGdp")
+    elif field in ("avg_monthly_earnings", "employee_ssc_rate", "income_tax_allowance", "income_tax_bracket"):
+        # 税・社会保険料の「材料」。国ごとに集めておき、あとでまとめて実効税率を計算する
+        t = tax_parts.setdefault(iso, {"brackets": []})
+        if field == "income_tax_bracket":
+            meta = dict(x.split("=", 1) for x in [y.strip() for y in r["note"].split(";")] if "=" in x)
+            lo = float(meta.get("from", "0").replace(",", "") or 0)
+            hi = meta.get("to", "").replace(",", "")
+            t["brackets"].append((lo, float(hi) if hi else float("inf"), v))
+        else:
+            t[field] = v
+        t.setdefault("sources", []).append(r["source_url"])
+        continue
     elif field == "inflation_recent" and k is not None:
         y = int(r["year"])
         if y >= latest_infl.get(iso, (0, 0))[0]:
@@ -84,6 +98,26 @@ for r in rows:
         continue
     c.setdefault("sources", {})[field] = src
     applied[field] = applied.get(field, 0) + 1
+
+# 税・社会保険料の材料がそろった国は、平均賃金・単身の実効負担率を計算する
+#   年収 = 平均月収 × 12、課税所得 = 年収 − 基礎控除、所得税 = 税率表で累進計算、社会保険料 = 年収 × 本人負担率
+tax_computed = []
+for iso, t in tax_parts.items():
+    c = by_iso.get(iso)
+    if c is None or "avg_monthly_earnings" not in t or "employee_ssc_rate" not in t or not t["brackets"]:
+        continue
+    annual = t["avg_monthly_earnings"] * 12
+    taxable = max(0.0, annual - t.get("income_tax_allowance", 0.0))
+    tax = 0.0
+    for lo, hi, rate in sorted(t["brackets"]):
+        if taxable > lo:
+            tax += (min(taxable, hi) - lo) * rate
+    share = round((tax + annual * t["employee_ssc_rate"]) / annual, 4)
+    c["effectiveTaxRateAvgWorker"] = share
+    drop_est(c, "effectiveTaxRateAvgWorker")
+    c.setdefault("sources", {})["tax_rate_avg_worker"] = {"source": "計算値（平均月収・税率表・本人負担社会保険料率から）", "url": t["sources"][0], "year": ""}
+    tax_computed.append(f"{iso}:{share}")
+    applied["tax_rate_avg_worker(計算)"] = applied.get("tax_rate_avg_worker(計算)", 0) + 1
 
 # 都市の人口割合（国連 WUP）で places を組み直す。所得の係数（incomeIndex）は推定のまま
 CITY_JA = json.loads((ROOT / "build" / "city_names_ja.json").read_text(encoding="utf-8"))
@@ -113,7 +147,7 @@ for c in countries:
     total = sum(p["share"] for p in c["places"])
     for p in c["places"]:
         p["share"] = round(p["share"] / total, 4)
-    c["estimated"] = [e for e in c.get("estimated", []) if e != "places"] + ["places.incomeIndex"]
+    c["estimated"] = [e for e in c.get("estimated", []) if e not in ("places", "places.incomeIndex")] + ["places.incomeIndex"]
     rebuilt.append(c["iso3"])
 
 # disasterRisk は日本以外では使わない（災害は risks.json の INFORM 実データで起こす）
@@ -131,5 +165,7 @@ for iso, (y, v) in latest_infl.items():
 (ROOT / "risks.json").write_text(json.dumps(risks, ensure_ascii=False, indent=2), encoding="utf-8")
 print("反映した数（国の数。初婚年齢は男女で2）:", applied)
 print("都市の人口割合で places を組み直した国:", len(rebuilt), " ".join(rebuilt))
+if tax_computed:
+    print("税・社会保険料を計算した国:", " ".join(tax_computed))
 if skipped_old:
     print("古すぎるため取り込まなかった値:", ", ".join(skipped_old))
