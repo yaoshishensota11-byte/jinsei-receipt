@@ -126,6 +126,12 @@
       .faq details[open] summary::after { transform: rotate(45deg); }
       .faq p { margin-top: 16px; color: var(--sub); }
 
+      /* 言語の切り替え */
+      .topbar { display: flex; justify-content: flex-end; padding-top: 16px; }
+      .lang { display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; border-radius: 999px; background: var(--soft); color: var(--ink); font-size: 14px; cursor: pointer; }
+      .lang svg { width: 16px; height: 16px; flex: none; }
+      .lang select { appearance: none; -webkit-appearance: none; border: 0; background: transparent; color: inherit; font: inherit; cursor: pointer; padding: 0; }
+
       /* ご意見 */
       .fb { margin-top: 48px; max-width: 640px; display: grid; gap: 24px; }
       .fb fieldset { border: 0; padding: 0; margin: 0; }
@@ -167,7 +173,22 @@
   </head>
   <body>
     <main>
-      <section class="hero">
+      <div class="wrap topbar">
+        <label class="lang" translate="no">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M3.6 9h16.8M3.6 15h16.8" /><path d="M11.5 3a17 17 0 0 0 0 18M12.5 3a17 17 0 0 1 0 18" /></svg>
+          <select id="langSel" aria-label="Language">
+            <option value="ja">日本語</option>
+            <option value="en">English</option>
+            <option value="zh-CN">简体中文</option>
+            <option value="es">Español</option>
+            <option value="pt">Português</option>
+            <option value="fr">Français</option>
+            <option value="hi">हिन्दी</option>
+            <option value="id">Bahasa Indonesia</option>
+          </select>
+        </label>
+      </div>
+      <section class="hero" style="padding-top: 32px">
         <div class="wrap grid">
           <div>
             <div class="eyebrow"><img src="/icon-192.png" alt="" width="40" height="40" />人生のレシート</div>
@@ -346,6 +367,30 @@
       </div>
     </footer>
     <script>
+      // 言語の切り替え：ページを Google 翻訳（translate.goog）を通して開き直す（src/ui/lang.ts と同じ仕組み）
+      (function () {
+        const PROXY = ".translate.goog";
+        const sel = document.getElementById("langSel");
+        const onProxy = location.hostname.endsWith(PROXY);
+        const q = new URLSearchParams(location.search);
+        sel.value = onProxy ? q.get("_x_tr_tl") || "ja" : "ja";
+        const host = onProxy
+          ? location.host.slice(0, -PROXY.length).split("--").map((x) => x.replace(/-/g, ".")).join("-")
+          : location.host;
+        sel.addEventListener("change", () => {
+          for (const k of [...q.keys()]) if (k.startsWith("_x_tr_")) q.delete(k);
+          if (sel.value === "ja") {
+            const qs = q.toString();
+            location.href = "https://" + host + location.pathname + (qs ? "?" + qs : "") + location.hash;
+            return;
+          }
+          q.set("_x_tr_sl", "ja");
+          q.set("_x_tr_tl", sel.value);
+          q.set("_x_tr_hl", sel.value);
+          location.href = "https://" + host.replace(/-/g, "--").replace(/\./g, "-") + PROXY + location.pathname + "?" + q.toString() + location.hash;
+        });
+      })();
+
       // ご意見の送り先（Googleフォーム）。フォームを作ったら、ここに送信先と質問の番号を入れる。
       // 空のあいだは、ご意見の欄は表示しない。
       const FEEDBACK = {

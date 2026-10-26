@@ -234,18 +234,34 @@ function layout(p: Pen, d: ReceiptData): void {
   const jp = d.currency.code === "JPY";
   const sym = jp ? "¥" : d.currency.symbol || d.currency.code + " ";
   const money = (n: number) => yenFull(n, sym);
+  // 日本以外は、金額の下に円の目安を小さく添える（現地通貨だけではどのくらいの出費か分からないため）
+  const yenW = 92;
+  const yenNote = (amount: number) => {
+    if (jp || !p.draw) return;
+    text(p, approxYen(amount * d.currency.jpyPerUnit), W - PAD, 11, { color: GRAY, align: "right" });
+  };
   for (const it of d.items) {
     row(p, it.label, money(it.amount), 15);
-    if (it.memo && it.memo !== "—") {
+    const memo = it.memo && it.memo !== "—";
+    if (memo || !jp) {
       p.y += 16;
-      text(p, "　└ " + it.memo, PAD, 11, { color: GRAY, maxW: W - PAD * 2 });
+      if (memo) text(p, "　└ " + it.memo, PAD, 11, { color: GRAY, maxW: W - PAD * 2 - (jp ? 0 : yenW) });
+      yenNote(it.amount);
     }
     p.y += 3;
   }
   rule(p, "solid");
   row(p, "小計", money(d.subtotal), 16, { bold: true });
+  if (!jp) {
+    p.y += 16;
+    yenNote(d.subtotal);
+  }
   p.y += 6;
   row(p, "お預かり", money(d.deposit), 16, { bold: true });
+  if (!jp) {
+    p.y += 16;
+    yenNote(d.deposit);
+  }
   for (const l of d.depositLines) {
     p.y += 16;
     if (p.draw) {

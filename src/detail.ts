@@ -1,4 +1,5 @@
 // 結果の詳細ページ（r.html#<code>）。URLのコードから人生を再現して描く。サーバー不要。
+import { langPicker } from "./ui/lang";
 import "./ui/detail.css";
 import { buildReceipt, decodeResult, isOldVersion, replayByIndex, shareIntentUrl, turningPoints, yen } from "./engine/result";
 import { EXPENSE_LABEL, type ExpenseCat, type IncomeCat, type YearRecord } from "./engine/types";
@@ -135,7 +136,7 @@ function renderChart(box: HTMLElement, data: YearFlow[]): void {
       cursor.setAttribute("x1", String(cx));
       cursor.setAttribute("x2", String(cx));
       cursor.setAttribute("visibility", "visible");
-      tip.innerHTML = `<b>${d.age}歳</b><span class="in">収入 ${man(d.income)}</span><span class="ex">支出 ${man(d.expense)}</span><span class="bl">残高 ${man(d.balance)}</span>`;
+      tip.innerHTML = `<b>${d.age}歳</b><span class="in">収入 ${fmt(d.income)}</span><span class="ex">支出 ${fmt(d.expense)}</span><span class="bl">残高 ${fmt(d.balance)}</span>`;
       tip.hidden = false;
       const left = (cx / W) * rect.width;
       const tw = tip.offsetWidth;
@@ -258,6 +259,12 @@ function render(l: Life): void {
     window.open(shareIntentUrl(location.href, d), "_blank", "noopener");
   });
   renderChart(app.querySelector<HTMLElement>(".chart")!, flows(l.records));
+  const head = app.querySelector(".head");
+  if (head) {
+    const lp = langPicker();
+    lp.style.float = "right";
+    head.prepend(lp);
+  }
 }
 
 async function main(): Promise<void> {

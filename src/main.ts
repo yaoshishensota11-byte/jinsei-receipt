@@ -1,3 +1,4 @@
+import { langPicker } from "./ui/lang";
 import { Life, jobLabel, cohort } from "./engine/sim";
 import { randomSeed, Rng, hashStr } from "./engine/rng";
 import { buildReceipt, detailUrl, shareIntentUrl, newLife } from "./engine/result";
@@ -7,8 +8,10 @@ import { drawReceipt, downloadReceipt } from "./ui/receipt";
 
 // 1年の長さは出来事の数で変える。何も起きない年はすぐ過ぎ、出来事の多い年はじっくり見せる。
 // 選択（大きな8回＋小さな選択）を含めて、等倍で1プレイ約10分。
-const QUIET_YEAR_MS = 1_200;
-const yearMsFor = (events: number) => (events === 0 ? QUIET_YEAR_MS : Math.min(6_000, 2_200 + 900 * events));
+// 1年が進む時間は、出来事があってもなくても同じ（速さを変えるのは画面下の倍速ボタンだけ）。
+// 3.2秒は、これまで出来事の数で変えていたときの1年の平均に合わせた長さ
+const YEAR_MS = 3_200;
+
 const SPEEDS = [1, 2, 3, 4, 5] as const;
 
 const params = new URLSearchParams(location.search);
@@ -51,6 +54,7 @@ function showTitle(): void {
       </div>
     </div>`),
   );
+  app.querySelector(".title")!.prepend(langPicker());
   app.querySelectorAll<HTMLElement>(".mode").forEach(
     (b) => (b.onclick = () => showBirth(params.get("seed") || randomSeed(), b.dataset.mode as Mode)),
   );
@@ -107,7 +111,7 @@ class Game {
   speed = 1; // 0 = 一時停止
   lastSpeed = 1;
   private yearT = 0; // 今の年の経過ms
-  private yearMs = QUIET_YEAR_MS; // 今の年の長さms
+  private yearMs = YEAR_MS; // 今の年の長さms
   /** 等倍での自動進行の合計時間（テストでプレイ時間の目安を出すため） */
   autoMs = 0;
   /** 等倍で遊んだときの目安（選択は大きな分かれ道20秒・小さな選択6秒と見込む） */
@@ -200,7 +204,7 @@ class Game {
       this.current = rec;
       this.shown = 0;
       this.yearT = 0;
-      this.yearMs = yearMsFor(rec.events.length);
+      this.yearMs = YEAR_MS;
       this.autoMs += this.yearMs;
       this.renderHud();
     }
