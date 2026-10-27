@@ -468,6 +468,30 @@ button {
   background: var(--bg);
 }
 
+/* ── 子どもとして生まれ直す ── */
+.heir {
+  margin-top: 6px;
+  padding: 14px 14px 6px;
+  border: 1.5px dashed var(--ink);
+  border-radius: 14px;
+}
+.heir h3 {
+  margin: 0 0 4px;
+  font-size: 16px;
+}
+.heir p {
+  margin: 0 0 12px;
+  font-size: 13px;
+  color: var(--sub);
+  line-height: 1.7;
+}
+.heir-end {
+  text-align: center;
+  font-size: 13px;
+  color: var(--sub);
+  margin: 4px 0;
+}
+
 /* ── 結果 ── */
 .result {
   padding: 16px 16px calc(24px + var(--safe-b));

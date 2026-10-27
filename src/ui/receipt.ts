@@ -240,11 +240,13 @@ function layout(p: Pen, d: ReceiptData): void {
     ? [
         ["来店", `${d.visitDate} 〜 ${d.closeDate}`],
         ["お客様", d.customer],
+        ...(d.generation > 1 ? ([["代", d.generationLabel]] as [string, string][]) : []),
       ]
     : [
         ["来店", d.visitDate],
         ["閉店", d.closeDate],
         ["お客様", d.customer],
+        ...(d.generation > 1 ? ([["代", d.generationLabel]] as [string, string][]) : []),
         ["No.", d.receiptNo],
       ];
   for (const [k, v] of info) {
@@ -322,6 +324,20 @@ function layout(p: Pen, d: ReceiptData): void {
   p.y += 24;
   text(p, `生涯で稼いだお金　${approxYen(lifetimeIncomeJpy(d))}`, W / 2, 15, { bold: true, align: "center", maxW: W - PAD * 2 });
   p.y += 10;
+  // 子どもに生まれ直したとき：代ごとの稼ぎと、残したお金
+  if (d.lineage.length > 1) {
+    rule(p);
+    p.y += 20;
+    text(p, "家系のレシート", PAD, 13, { bold: true });
+    text(p, "稼ぎ ／ 残したお金", W - PAD, 11, { color: GRAY, align: "right" });
+    for (const e of d.lineage) {
+      const me = e.gen === d.generation;
+      row(p, `${e.gen}代目・${e.sex}・${e.years}`, approxYen(e.earnedJpy), 12, { bold: me });
+      p.y += 15;
+      text(p, `残した ${approxYen(e.leftJpy)}`, W - PAD, 11, { color: e.leftJpy < 0 ? RED_INK : GRAY, align: "right" });
+    }
+    p.y += 8;
+  }
   rule(p);
   p.y += 24;
   text(p, d.deathLine, W / 2, 14, { bold: true, align: "center", maxW: W - PAD * 2 });
@@ -393,7 +409,7 @@ export function drawReceipt(canvas: HTMLCanvasElement, d: ReceiptData, compact =
 }
 
 // レシートに書く決まった文字（数字・記号を含む）
-const FIXED_TEXT = "その他（項目）〜人生商店LIFE STORE ─ 本日も一度きりの営業です来店閉店お客様No.小計お預かりお釣り約万円億（今日の為替で換算）同い年人の中で生涯収入上位%生涯で稼いだお金#人生のレシート—…　└¥0123456789,.-";
+const FIXED_TEXT = "代目家系のレシート稼ぎ／残したお金男性女性第一二三四五子その他（項目）〜人生商店LIFE STORE ─ 本日も一度きりの営業です来店閉店お客様No.小計お預かりお釣り約万円億（今日の為替で換算）同い年人の中で生涯収入上位%生涯で稼いだお金#人生のレシート—…　└¥0123456789,.-";
 
 /**
  * レシートで使う文字のフォントを、描く前に読み込む。

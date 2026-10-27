@@ -54,6 +54,59 @@ interface Parent {
   alive: boolean;
 }
 
+/** 前の代から受け継ぐもの（「子どもに生まれ直す」で、亡くなった人の子どもとして生まれるとき） */
+export interface Heritage {
+  /** 何代目か（2・3） */
+  gen: number;
+  /** 前の代の何番目の子か */
+  idx: number;
+  /** 前の代までの共有コード */
+  code: string;
+  /** 第一子・第二子… */
+  nth: string;
+  sex: Sex;
+  regionId: string;
+  bandId: string;
+  /** 父・母の、本人誕生時の年齢 */
+  parentAges: [number, number];
+  /** 前の代のあなたは、父(0)か母(1)か */
+  parentIdx: 0 | 1;
+  /** 前の代のあなたが亡くなる年（本人の年齢） */
+  parentDies: number;
+  /** もう一人の親が亡くなる年（前の代の人生で分かっていれば） */
+  otherDies: number | null;
+  /** もう一人の親は、この年齢までは亡くならない（前の代のあなたが亡くなったとき、まだ生きていた） */
+  otherSafeUntil: number;
+  sibs: { sex: Sex; born: number }[];
+  /** 受け継ぐお金（家を除く。借金は引き継がない） */
+  estate: number;
+  /** 前の代のあなたが借金を残した（相続しない） */
+  debt: boolean;
+  /** 実家のうち自分の分の価値 */
+  homeShare: number;
+  /** これまでの代（古い順） */
+  lineage: LineageEntry[];
+}
+export interface LineageEntry {
+  gen: number;
+  sex: Sex;
+  birthYear: number;
+  deathAge: number;
+  region: string;
+  /** 本人が生涯で稼いだお金（現地通貨） */
+  earned: number;
+  /** 最後に残したお金（現地通貨） */
+  left: number;
+}
+
+/** 子どもの性別（ドット絵と同じ決め方。乱数の流れを変えないよう、シードと番号から決める） */
+export function kidFemale(seed: string, i: number): boolean {
+  const key = seed + "kid" + i;
+  let h = 2166136261;
+  for (let j = 0; j < key.length; j++) h = Math.imul(h ^ key.charCodeAt(j), 16777619);
+  return (h >>> 0) % 2 === 0;
+}
+
 const CAUSE_LABEL: Record<string, string> = {
   accident: "不慮の事故",
   cancer: "がん",
@@ -158,7 +211,17 @@ export class Life {
     stayHome?: boolean;
     /** 家を出た年齢（自分の年齢） */
     leftAge?: number;
+    /** 生まれたときの、もう一人の親（パートナー）の年齢 */
+    otherAge?: number;
+    /** もう一人の親と一緒になった年（自分の年齢）。パートナーを見分けるのに使う */
+    otherSince?: number;
   }[] = [];
+  /** パートナーが亡くなった年（一緒になった年 → 亡くなった年。どちらも自分の年齢） */
+  partnerDeaths: Record<number, number> = {};
+  /** 前の代から受け継いだもの（1代目は null） */
+  heir: Heritage | null = null;
+  /** 親から受け継いだお金 */
+  inherited = 0;
   /** 実家から通って働いている間、「そろそろ家を出る？」と考えるのはこの年齢から */
   leaveAskAfter = 0;
   home: Home = "parents";
@@ -192,7 +255,7 @@ export class Life {
   private preIncome: Partial<Record<IncomeCat, number>> = {};
   private preExpense: Partial<Record<ExpenseCat, number>> = {};
 
-  constructor(seed: string, country: CountryData = JAPAN, mode = "j", birthYear = BIRTH_YEAR) {
+  constructor(seed: string, country: CountryData = JAPAN, mode = "j", birthYear = BIRTH_YEAR, heir?: Heritage) {
     this.seed = seed;
     this.D = country;
     this.mode = mode;
@@ -203,6 +266,13 @@ export class Life {
     this.region = r.weighted(regions, regions.map((x) => x.birthShare));
     const bands = this.D.household.incomeBandsWithChildren;
     this.band = r.weighted(bands, bands.map((b) => b.share));
+    // 前の代の子として生まれるときは、性別・地域・家庭の収入を前の代の人生から決める（乱数は同じだけ引いておく）
+    if (heir) {
+      this.heir = heir;
+      this.sex = heir.sex;
+      this.region = regions.find((x) => x.id === heir.regionId) ?? this.region;
+      this.band = bands.find((b) => b.id === heir.bandId) ?? this.band;
+    }
     const bandIdx = bands.indexOf(this.band);
     // 家庭の所得と学力の相関はゆるく入れる（決定論にはしない）
     this.aptitude = Math.min(1, Math.max(0, r.normal(0.42 + bandIdx * 0.04, 0.22)));
@@ -216,6 +286,14 @@ export class Life {
       { age: Math.max(17, Math.round(r.normal(31.5 - (this.D.inst?.marriageAgeShift.female ?? 0), 4))), alive: true },
     ];
     this.sibs = this.makeSiblings();
+    if (heir) {
+      this.parents = [
+        { age: heir.parentAges[0], alive: true },
+        { age: heir.parentAges[1], alive: true },
+      ];
+      this.sibs = heir.sibs.map((x) => ({ ...x }));
+      this.siblings = this.sibs.length;
+    }
     this.ipvRate = ipvHazard(this.D.iso3, this.sex);
     const mr = this.rng("marriageMode", 0);
     this.marriageMode = drawMarriageMode(this.D.iso3, mr);
@@ -550,7 +628,9 @@ export class Life {
 
   private birthEvents(): void {
     const s = this.sex === "male" ? "男の子" : "女の子";
-    this.log("life", `${this.year}年、${this.region.label}に${s}として生まれた。家庭の年収は${this.band.label}。`, undefined, true);
+    const h = this.heir;
+    if (h) this.log("life", `${this.year}年、${this.region.label}に、${h.gen - 1}代目のあなたの${h.nth}（${s}）として生まれた。家庭の年収は${this.band.label}。`, undefined, true);
+    else this.log("life", `${this.year}年、${this.region.label}に${s}として生まれた。家庭の年収は${this.band.label}。`, undefined, true);
     const olders = this.sibs.filter((x) => x.born < 0);
     if (olders.length) {
       const words = olders.map((x) => `${-x.born}歳の${x.sex === "male" ? "兄" : "姉"}`);
@@ -674,6 +754,8 @@ export class Life {
           privateSchool: kr.chance(hh > this.y(10_000_000) ? 0.45 : hh > this.y(7_000_000) ? 0.15 : 0.05),
           univ: kr.chance(this.D.univRateForIncome(hh)),
           away: kr.chance(0.4),
+          otherAge: p.age,
+          otherSince: this.partnerSince,
         };
         this.kids.push(kid);
         const nth = ["第一子", "第二子", "第三子", "第四子"][this.kids.length - 1] ?? "子ども";
@@ -705,6 +787,7 @@ export class Life {
         this.log("family", `パートナーが${p.age}歳で亡くなった。`, -this.D.living.funeralCost, true);
         this.spend("events", this.D.living.funeralCost);
         this.widowed = true;
+        this.partnerDeaths[this.partnerSince] = a;
         this.partner = null;
         this.strained = false;
         this.dvOngoing = false;
@@ -974,18 +1057,25 @@ export class Life {
   // ── 親
   private parentsYear(r: Rng): void {
     const a = this.age;
+    if (this.heir) this.heirParentsYear(a);
     if (a < 18) return;
     for (const [i, p] of this.parents.entries()) {
       if (!p.alive) continue;
       const pa = p.age + a;
       const sex: Sex = i === 0 ? "male" : "female";
       const careEnding = this.careUntil === a && this.careMode !== "" && i === this.careParent;
+      // 前の代の人生で亡くなる年が決まっている親は、ここでは亡くならない（介護はその年で終わる）
+      const h = this.heir;
+      if (h && (i === h.parentIdx || h.otherDies !== null || a < h.otherSafeUntil)) {
+        if (careEnding) this.careMode = "";
+        continue;
+      }
       if (careEnding || r.chance(this.D.qx(sex, pa))) {
         p.alive = false;
         this.log("family", `${i === 0 ? "父" : "母"}が${pa}歳で亡くなった。`, -this.D.living.funeralCost / (this.siblings + 1), true);
         this.spend("events", this.D.living.funeralCost / (this.siblings + 1));
         if (careEnding) this.careMode = "";
-        if (!this.parents.some((x) => x.alive)) {
+        if (!this.parents.some((x) => x.alive) && !this.heir) {
           this.inherit(r);
           if (this.home === "parents") {
             // 同居していた実家をそのまま受け継ぐ
@@ -1030,6 +1120,42 @@ export class Life {
   /** 親と同じ家で暮らしている（実家暮らし・二世帯） */
   get livesWithParents(): boolean {
     return (this.home === "parents" || this.coLiveParents) && this.parents.some((p) => p.alive);
+  }
+
+  /** 前の代のあなた（と、そのパートナー）が、前の代の人生で決まった年に亡くなる。遺産もここで受け継ぐ */
+  private heirParentsYear(a: number): void {
+    const h = this.heir!;
+    const word = (i: number) => (i === 0 ? "父" : "母");
+    const other = h.parentIdx === 0 ? 1 : 0;
+    if (h.otherDies === a && this.parents[other].alive) {
+      this.parents[other].alive = false;
+      this.log("family", `${word(other)}が${this.parents[other].age + a}歳で亡くなった。`, undefined, true);
+    }
+    const me = this.parents[h.parentIdx];
+    if (h.parentDies !== a || !me.alive) return;
+    me.alive = false;
+    const share = this.D.living.funeralCost / (this.siblings + 1);
+    this.log("family", `${word(h.parentIdx)}（${h.gen - 1}代目のあなた）が${me.age + a}歳で亡くなった。`, a >= 18 ? -share : undefined, true);
+    if (a >= 18) this.spend("events", share);
+    if (h.estate > 0) {
+      this.addIncome("windfall", h.estate);
+      this.inherited += h.estate;
+      this.log("money", `${h.gen - 1}代目のあなたが残したお金を相続した。`, h.estate, true);
+    }
+    if (h.debt) this.log("money", "親が残した借金は、相続しなかった（相続放棄）。", undefined, true);
+    if (h.homeShare > 0) {
+      if (this.home === "parents") {
+        this.home = "own";
+        this.housePrice = h.homeShare;
+        this.boughtAge = a - 30;
+        this.log("life", "住んでいた実家を受け継いだ。", undefined, true);
+      } else {
+        this.addIncome("windfall", h.homeShare);
+        this.inherited += h.homeShare;
+        this.log("money", this.siblings ? "実家を売って、きょうだいで分けた。" : "実家を売って、お金に換えた。", h.homeShare, true);
+      }
+    }
+    if (!h.estate && !h.homeShare && !h.debt) this.log("money", "親の遺産はほとんどなかった。");
   }
 
   private inherit(r: Rng): void {
@@ -2007,7 +2133,12 @@ const AUTO_WEIGHTS: Record<string, number[]> = {
 };
 
 export function autoplay(seed: string, country: CountryData = JAPAN, mode = "j"): Life {
-  const l = new Life(seed, country, mode);
+  return autoplayLife(new Life(seed, country, mode));
+}
+
+/** 作ってある人生を、最後まで自動で選んで進める */
+export function autoplayLife(l: Life): Life {
+  const seed = l.seed;
   let guard = 0;
   while (!l.dead && guard++ < 500) {
     if (l.pending) {

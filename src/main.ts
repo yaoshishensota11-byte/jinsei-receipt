@@ -1,8 +1,8 @@
 import { LifeScene } from "./ui/pixel";
 import { langPicker } from "./ui/lang";
-import { Life, jobLabel, cohort } from "./engine/sim";
+import { Life, jobLabel, cohort, kidFemale } from "./engine/sim";
 import { randomSeed, Rng, hashStr } from "./engine/rng";
-import { buildReceipt, detailUrl, shareIntentUrl, newLife } from "./engine/result";
+import { buildReceipt, detailUrl, shareIntentUrl, newLife, childOf, estateFor, MAX_GEN } from "./engine/result";
 import { COUNTRIES, worldCountry, type Mode } from "./engine/world";
 import type { Choice, LifeEvent, YearRecord } from "./engine/types";
 import { showReceipt, downloadReceipt } from "./ui/receipt";
@@ -65,14 +65,21 @@ function showTitle(): void {
 // ───────────────────────── 誕生 ─────────────────────────
 
 function showBirth(seed: string, mode: Mode): void {
-  const life = newLife(seed, mode);
+  showBirthOf(newLife(seed, mode), mode);
+}
+
+/** 誕生の画面（子どもに生まれ直すときは、親の欄も出す） */
+function showBirthOf(life: Life, mode: Mode): void {
+  const seed = life.seed;
+  const heir = life.heir;
   const sexWord = life.sex === "male" ? "男の子" : "女の子";
   const u5 = worldCountry(life.D.iso3)?.under5MortalityPer1000;
   // 子どもの死亡はゲームでは起こさないが、その国の現実として一文だけ伝える
   const fact = u5 ? `この国では、子どもの約${Math.max(2, Math.round(1000 / u5)).toLocaleString("ja-JP")}人に1人が5歳を迎えられません。` : "";
   const where = life.region.urban === false && !life.region.label.includes("農村") ? "（農村部）" : "";
   const el = h(`<div class="birth">
-    <h2>${life.birthYear}年、あなたが生まれます</h2>
+    <h2>${life.birthYear}年、${heir ? `${heir.gen}代目の` : ""}あなたが生まれます</h2>
+    ${heir ? `<div class="slot"><span>親</span><b class="spin" data-v="${heir.gen - 1}代目のあなた（${heir.parentIdx === 0 ? "父" : "母"}）">…</b></div>` : ""}
     ${mode === "j" ? "" : `<div class="slot"><span>国</span><b class="spin" data-v="${esc(life.D.nameJa)}">…</b></div>`}
     <div class="slot"><span>生まれた場所</span><b class="spin" data-v="${esc(life.region.label + where)}">…</b></div>
     <div class="slot"><span>${mode === "j" ? "家庭の年収" : "家庭"}</span><b class="spin" data-v="${esc(life.band.label)}">…</b></div>
@@ -100,8 +107,15 @@ function showBirth(seed: string, mode: Mode): void {
       const go = el.querySelector<HTMLElement>("#go")!;
       go.style.visibility = "visible";
       el.querySelector<HTMLElement>(".fact")!.style.visibility = "visible";
-      go.onclick = () => startGame(life);
-      if (AUTO) setTimeout(() => startGame(life), 200);
+      // 2回押しても、人生は1つだけ始まる
+      let started = false;
+      const start = () => {
+        if (started) return;
+        started = true;
+        startGame(life);
+      };
+      go.onclick = start;
+      if (AUTO) setTimeout(start, 200);
     }
   }, step / 4);
 }
@@ -330,6 +344,27 @@ function startGame(life: Life): void {
 
 // ───────────────────────── 結果 ─────────────────────────
 
+/** 「子どもとして生まれ直す」の欄。子どもがいて、3代目より前のときだけ出す */
+function heirBlock(life: Life): string {
+  const gen = life.heir?.gen ?? 1;
+  if (!life.kids.length) return "";
+  if (gen >= MAX_GEN) return `<p class="heir-end">${MAX_GEN}代の家系は、ここでおしまいです。</p>`;
+  const estate = estateFor(life);
+  const money = estate > 0 ? `受け継ぐお金 約${life.D.fmt(estate)}` : "受け継ぐお金はなし（借金は引き継がない）";
+  const kids = life.kids
+    .map((k, i) => {
+      const nth = ["第一子", "第二子", "第三子", "第四子", "第五子"][i] ?? "子ども";
+      const sex = kidFemale(life.seed, i) ? "女の子" : "男の子";
+      return `<button class="opt" data-i="${i}"><b>${nth}・${sex}</b><span>${life.birthYear + k.born}年生まれ・${esc(money)}</span></button>`;
+    })
+    .join("");
+  return `<div class="heir">
+    <h3>子どもとして、生まれ直す</h3>
+    <p>あなたが残したお金や家を受け継いで、${gen + 1}代目の人生を生きます。家庭の収入は、あなたの稼ぎで決まります。</p>
+    ${kids}
+  </div>`;
+}
+
 async function showResult(life: Life): Promise<void> {
   app.innerHTML = `<div class="result"><div class="loading">お会計中…</div></div>`;
   await new Promise((r) => setTimeout(r, 30));
@@ -344,6 +379,7 @@ async function showResult(life: Life): Promise<void> {
       <a class="btn sub" id="x" href="${esc(shareIntentUrl(url, data))}" target="_blank" rel="noopener">Xで共有</a>
     </div>
     <a class="btn sub" href="${esc(url)}">詳しい明細を見る</a>
+    ${heirBlock(life)}
     <button class="btn" id="again">もう一度生まれる</button>
   </div>`);
   app.innerHTML = "";
@@ -363,6 +399,9 @@ async function showResult(life: Life): Promise<void> {
     document.body.append(z);
   };
   root.querySelector<HTMLElement>("#again")!.onclick = () => showTitle();
+  root.querySelectorAll<HTMLElement>(".heir .opt").forEach((b) => {
+    b.onclick = () => showBirthOf(childOf(life, Number(b.dataset.i)), life.mode as Mode);
+  });
   (window as unknown as { __result: unknown }).__result = { url, data };
   window.scrollTo(0, 0);
 }

@@ -1,7 +1,7 @@
 // 結果の詳細ページ（r.html#<code>）。URLのコードから人生を再現して描く。サーバー不要。
 import { langPicker } from "./ui/lang";
 import "./ui/detail.css";
-import { buildReceipt, decodeResult, isOldVersion, replayByIndex, shareIntentUrl, turningPoints, yen } from "./engine/result";
+import { buildReceipt, decodeResult, isOldVersion, replayCode, shareIntentUrl, turningPoints, yen } from "./engine/result";
 import { EXPENSE_LABEL, type ExpenseCat, type IncomeCat, type YearRecord } from "./engine/types";
 import type { Life } from "./engine/sim";
 import { showReceipt, downloadReceipt } from "./ui/receipt";
@@ -273,7 +273,9 @@ async function main(): Promise<void> {
   if (!parsed) return code && isOldVersion(code) ? showOld() : showError();
   let life: Life;
   try {
-    life = replayByIndex(parsed.seed, parsed.picks, parsed.mode);
+    const l = replayCode(parsed);
+    if (!l) return showError();
+    life = l;
     const D = life.D;
     fmt = (n) => D.fmt(n);
     unit = D.currency.nameJa;

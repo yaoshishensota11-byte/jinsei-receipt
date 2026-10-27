@@ -1,8 +1,8 @@
 // 内部高速モードでのテストプレイ。画面を使わず、選択はシードから決定的にランダムで選ぶ。
 // 使い方: npx tsx scripts/simtest.ts [回数=200]
-import { Life, autoplay, replay, cohort, rankOf } from "../src/engine/sim";
+import { Life, autoplay, autoplayLife, replay, cohort, rankOf } from "../src/engine/sim";
 import { Rng, hashStr } from "../src/engine/rng";
-import { encodeResult, decodeResult, replayByIndex, buildReceipt, newLife } from "../src/engine/result";
+import { encodeResult, decodeResult, replayByIndex, replayCode, childOf, buildReceipt, newLife, MAX_GEN } from "../src/engine/result";
 import type { Mode } from "../src/engine/world";
 
 const N = Number(process.argv[2] ?? 200);
@@ -16,6 +16,7 @@ const balances: number[] = [];
 const choiceCounts: number[] = [];
 const optionHits = new Map<string, number>();
 let events = 0;
+let heirLives = 0;
 
 function check(l: Life, tag: string) {
   for (const y of l.records) {
@@ -60,6 +61,26 @@ for (let i = 0; i < N; i++) {
     if (!viaUrl || viaUrl.finalBalance !== s.finalBalance) problems.push(`${seed}: URLから再現できない`);
     const rc = buildReceipt(l);
     if (rc.items.length < 1 || !isFinite(rc.change)) problems.push(`${seed}: レシートが不正`);
+    // 子どもに生まれ直す：3代目まで続け、どの代もURLから同じ人生に戻れるか
+    if (i % 4 === 0) {
+      let cur = l;
+      while (cur.kids.length && (cur.heir?.gen ?? 1) < MAX_GEN) {
+        const idx = i % cur.kids.length;
+        const child = autoplayLife(childOf(cur, idx));
+        const h = child.heir!;
+        heirLives++;
+        if (child.birthYear !== cur.birthYear + cur.kids[idx].born) problems.push(`${seed}: ${h.gen}代目の生まれ年が合わない`);
+        const parentDeath = child.records.flatMap((y) => y.events).find((e) => e.text.includes(`${h.gen - 1}代目のあなた）が`));
+        if (h.parentDies <= child.age && !parentDeath) problems.push(`${seed}: ${h.gen}代目で親が亡くならない`);
+        if (parentDeath && parentDeath.age !== h.parentDies) problems.push(`${seed}: ${h.gen}代目で親の亡くなる年が違う`);
+        if (h.estate > 0 && h.parentDies <= child.age && Math.abs(child.inherited - h.estate - (child.home === "own" && h.homeShare > 0 ? 0 : h.homeShare)) > 1 && child.inherited < h.estate) problems.push(`${seed}: ${h.gen}代目の相続が合わない`);
+        check(child, `${seed}#${h.gen}`);
+        const back = (() => { const d = decodeResult(encodeResult(child)); return d && replayCode(d); })();
+        if (!back || back.summary().finalBalance !== child.summary().finalBalance || back.heir?.gen !== h.gen) problems.push(`${seed}: ${h.gen}代目をURLから再現できない`);
+        if (buildReceipt(child).lineage.length !== h.gen) problems.push(`${seed}: ${h.gen}代目の家系の行が足りない`);
+        cur = child;
+      }
+    }
     ages.push(s.deathAge);
     // 国をまたいで比べられるよう、円の規模に直して集計する
     incomes.push(s.lifetimeIncome / l.D.k);
@@ -92,6 +113,7 @@ if (MODE !== "j") {
 const t1 = Date.now();
 const c = cohort();
 console.log(`比較集団 ${c.income.length}人 ${Date.now() - t1}ms / 例: 中央値の順位 ${(rankOf(c.income, q(incomes, 0.5)) * 100).toFixed(0)}%`);
+console.log(`子どもに生まれ直した人生 ${heirLives}人（2・3代目）`);
 if (process.argv.includes("--options")) console.log([...optionHits.entries()].sort().map(([k, v]) => `${k}=${v}`).join("  "));
 if (process.argv.includes("--sample")) {
   const l = autoplay("sample-1");

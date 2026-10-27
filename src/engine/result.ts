@@ -1,7 +1,7 @@
 // 結果（レシート・詳細ページ）用のデータ組み立てと、URLへの符号化。
 // URLには「シード」と「各選択場面で何番目を選んだか」だけを入れる。
 // エンジンは決定的なので、これだけで人生をまるごと再現できる（サーバー不要）。
-import { Life, cohort, rankOf, BIRTH_YEAR, yen } from "./sim";
+import { Life, cohort, rankOf, BIRTH_YEAR, yen, kidFemale, type Heritage, type LineageEntry } from "./sim";
 import { pickCountry, type Mode } from "./world";
 import { streamRng } from "./rng";
 import { EXPENSE_LABEL, type ExpenseCat, type LifeEvent } from "./types";
@@ -34,6 +34,12 @@ export interface ReceiptData {
   lifetimeIncome: number;
   deathLine: string;
   closing: string;
+  /** 何代目か（1代目は 1） */
+  generation: number;
+  /** 2代目以降：「2代目（1代目の第一子）」 */
+  generationLabel: string;
+  /** 2代目以降：これまでの代と、この代（円に直した金額） */
+  lineage: { gen: number; sex: string; years: string; earnedJpy: number; leftJpy: number }[];
 }
 
 /** 選択の並び（options の何番目か）を作る */
@@ -42,14 +48,87 @@ export function picksOf(l: Life): number[] {
 }
 
 // 版6（親と同居している人の介護の選択を追加）：`6.<モード j|m|w>.<シード>.<選んだ番号の並び>`。国はモードとシードから決まる
+// 子どもに生まれ直したときは、後ろに「~<何番目の子か>.<選んだ番号の並び>」を代ごとに足す（3代目まで）
 export function encodeResult(l: Life): string {
-  return `${CODEC_VERSION}.${l.mode}.${l.seed}.${picksOf(l).join("")}`;
+  const picks = picksOf(l).join("");
+  return l.heir ? `${l.heir.code}~${l.heir.idx}.${picks}` : `${CODEC_VERSION}.${l.mode}.${l.seed}.${picks}`;
 }
 
-export function decodeResult(code: string): { mode: Mode; seed: string; picks: number[] } | null {
-  const m = /^(\d+)\.([jmw])\.([a-z0-9-]{1,40})\.([0-9]{0,120})$/.exec(code.trim());
+export interface Decoded {
+  mode: Mode;
+  seed: string;
+  picks: number[];
+  /** 2代目以降（何番目の子に生まれ直したか、その代で選んだ番号） */
+  next: { idx: number; picks: number[] }[];
+}
+
+export function decodeResult(code: string): Decoded | null {
+  const m = /^(\d+)\.([jmw])\.([a-z0-9-]{1,40})\.([0-9]{0,120})((?:~\d\.[0-9]{0,120}){0,2})$/.exec(code.trim());
   if (!m || m[1] !== CODEC_VERSION) return null;
-  return { mode: m[2] as Mode, seed: m[3], picks: [...m[4]].map(Number) };
+  const next = m[5]
+    .split("~")
+    .slice(1)
+    .map((x) => {
+      const [i, p] = x.split(".");
+      return { idx: Number(i), picks: [...p].map(Number) };
+    });
+  return { mode: m[2] as Mode, seed: m[3], picks: [...m[4]].map(Number), next };
+}
+
+/** 何代まで続けられるか */
+export const MAX_GEN = 3;
+
+/** 亡くなった人の idx 番目の子として、次の代の人生を作る */
+export function childOf(l: Life, idx: number): Life {
+  const k = l.kids[idx];
+  const gen = (l.heir?.gen ?? 1) + 1;
+  const sex = kidFemale(l.seed, idx) ? "female" : "male";
+  const parentIdx = l.sex === "male" ? 0 : 1;
+  const ages: [number, number] = [0, 0];
+  ages[parentIdx] = k.born;
+  ages[parentIdx === 0 ? 1 : 0] = Math.max(18, k.otherAge ?? k.born + (parentIdx === 0 ? -2 : 2));
+  // もう一人の親：前の代の人生の中で亡くなっていればその年に、最後まで一緒にいれば前の代のあなたより先には亡くならない
+  const died = k.otherSince !== undefined ? l.partnerDeaths[k.otherSince] : undefined;
+  const together = !!l.partner && l.partner.alive && l.partnerSince === k.otherSince;
+  // 家庭の年収：生まれた年の、前の代の夫婦の稼ぎ
+  const rec = l.records.find((y) => y.age === k.born);
+  const hh = rec ? (rec.income.salary ?? 0) + (rec.income.partner ?? 0) : 0;
+  const bands = l.D.household.incomeBandsWithChildren;
+  const band = bands.find((b) => hh >= b.min && hh < b.max) ?? (hh < bands[0].min ? bands[0] : bands[bands.length - 1]);
+  // 遺産：最後に残したお金（家を含む）を子どもの数で分ける。借金は引き継がない
+  const n = Math.max(1, l.kids.length);
+  const total = l.balance;
+  const home = Math.max(0, Math.min(l.homeValue, total));
+  const s = l.summary();
+  const lineage: LineageEntry[] = [
+    ...(l.heir?.lineage ?? []),
+    { gen: gen - 1, sex: l.sex, birthYear: l.birthYear, deathAge: l.age, region: l.region.label, earned: s.incomeTotal.salary ?? 0, left: s.finalBalance },
+  ];
+  const h: Heritage = {
+    gen,
+    idx,
+    code: encodeResult(l),
+    nth: ["第一子", "第二子", "第三子", "第四子", "第五子"][idx] ?? "子ども",
+    sex,
+    regionId: l.region.id,
+    bandId: band.id,
+    parentAges: ages,
+    parentIdx,
+    parentDies: l.age - k.born,
+    otherDies: died !== undefined ? died - k.born : null,
+    otherSafeUntil: together ? l.age - k.born + 1 : 0,
+    sibs: l.kids.map((o, j) => ({ sex: (kidFemale(l.seed, j) ? "female" : "male") as "female" | "male", born: o.born - k.born })).filter((_, j) => j !== idx),
+    estate: Math.max(0, total - home) / n,
+    debt: total < 0,
+    homeShare: home / n,
+    lineage,
+  };
+  return new Life(`${l.seed}k${idx}`, l.D, l.mode, l.birthYear + k.born, h);
+}
+
+/** 子どもとして生まれ直したとき、受け継ぐお金の目安（家を含む。現地通貨） */
+export function estateFor(l: Life): number {
+  return Math.max(0, l.balance) / Math.max(1, l.kids.length);
 }
 
 /** URLの版が今より古いか（ゲームの内容が変わり、同じ人生を再現できなくなったもの） */
@@ -65,7 +144,21 @@ export function newLife(seed: string, mode: Mode): Life {
 
 /** 番号の並びから人生を再現 */
 export function replayByIndex(seed: string, picks: number[], mode: Mode = "j"): Life {
-  const l = newLife(seed, mode);
+  return playPicks(newLife(seed, mode), picks);
+}
+
+/** 共有コードから、何代目までも含めて人生を再現する（子どもの番号が合わないときは null） */
+export function replayCode(d: Decoded): Life | null {
+  let l = replayByIndex(d.seed, d.picks, d.mode);
+  for (const n of d.next) {
+    if (!l.kids[n.idx]) return null;
+    l = playPicks(childOf(l, n.idx), n.picks);
+  }
+  return l;
+}
+
+/** 作ってある人生を、選んだ番号の並びどおりに最後まで進める */
+export function playPicks(l: Life, picks: number[]): Life {
   let i = 0;
   let guard = 0;
   while (!l.dead && guard++ < 500) {
@@ -162,7 +255,8 @@ export function buildReceipt(l: Life): ReceiptData {
     { label: "本人の稼ぎ", amount: Math.round(s.incomeTotal.salary ?? 0) },
     { label: "パートナーの稼ぎ", amount: Math.round(s.incomeTotal.partner ?? 0) },
     { label: "年金・退職金", amount: Math.round(s.incomeTotal.pension ?? 0) },
-    { label: "手当・相続・臨時", amount: Math.round(s.incomeTotal.windfall ?? 0) },
+    { label: "親から受け継いだお金", amount: Math.round(l.inherited) },
+    { label: "手当・相続・臨時", amount: Math.round((s.incomeTotal.windfall ?? 0) - l.inherited) },
     { label: "運用損益", amount: inv },
   ].filter((d) => Math.abs(l.D.toJpy(d.amount)) >= 10_000);
   const sexWord = s.sex === "male" ? "男性" : "女性";
@@ -187,6 +281,20 @@ export function buildReceipt(l: Life): ReceiptData {
     lifetimeIncome: Math.round(s.incomeTotal.salary ?? 0),
     deathLine: `${s.deathAge}歳で閉店（${s.deathCause}）`,
     closing: "またのご来店は、ございません。",
+    generation: l.heir?.gen ?? 1,
+    generationLabel: l.heir ? `${l.heir.gen}代目（${l.heir.gen - 1}代目の${l.heir.nth}）` : "",
+    lineage: l.heir
+      ? [
+          ...l.heir.lineage,
+          { gen: l.heir.gen, sex: l.sex, birthYear: l.birthYear, deathAge: s.deathAge, region: s.regionLabel, earned: s.incomeTotal.salary ?? 0, left: s.finalBalance },
+        ].map((e) => ({
+          gen: e.gen,
+          sex: e.sex === "male" ? "男性" : "女性",
+          years: `${e.birthYear}〜${e.birthYear + e.deathAge}`,
+          earnedJpy: l.D.toJpy(e.earned),
+          leftJpy: l.D.toJpy(e.left),
+        }))
+      : [],
   };
 }
 
@@ -221,7 +329,9 @@ export function lifetimeIncomeJpy(d: ReceiptData): number {
 
 /** Xに投稿する文。生まれた国と、生涯で稼いだお金を添える */
 export function shareText(d?: ReceiptData): string {
-  return d ? `${d.countryName}に生まれ、生涯で稼いだお金は約${yen(lifetimeIncomeJpy(d))}。${SHARE_TEXT}` : SHARE_TEXT;
+  if (!d) return SHARE_TEXT;
+  const who = d.generation > 1 ? `${d.countryName}に生まれた${d.generation}代目。` : `${d.countryName}に生まれ、`;
+  return `${who}生涯で稼いだお金は約${yen(lifetimeIncomeJpy(d))}。${SHARE_TEXT}`;
 }
 
 /**
