@@ -2,7 +2,7 @@ import { LifeScene } from "./ui/pixel";
 import { langPicker } from "./ui/lang";
 import { Life, jobLabel, cohort, kidFemale } from "./engine/sim";
 import { randomSeed, Rng, hashStr } from "./engine/rng";
-import { buildReceipt, detailUrl, shareIntentUrl, newLife, childOf, estateFor, MAX_GEN } from "./engine/result";
+import { buildReceipt, detailUrl, shareIntentUrl, shareUrl, shareBase, newLife, childOf, estateFor, MAX_GEN } from "./engine/result";
 import { COUNTRIES, worldCountry, type Mode } from "./engine/world";
 import type { Choice, LifeEvent, YearRecord } from "./engine/types";
 import { showReceipt, downloadReceipt } from "./ui/receipt";
@@ -376,7 +376,7 @@ async function showResult(life: Life): Promise<void> {
     <p class="rc-hint">タップすると、内訳つきのレシートを大きく見られます</p>
     <div class="row2">
       <button class="btn sub" id="png">PNGで保存</button>
-      <a class="btn sub" id="x" href="${esc(shareIntentUrl(url, data))}" target="_blank" rel="noopener">Xで共有</a>
+      <a class="btn sub" id="x" href="${esc(shareIntentUrl(shareUrl(life, shareBase(location.origin, location.hostname)), data))}" target="_blank" rel="noopener">Xで共有</a>
     </div>
     <a class="btn sub" href="${esc(url)}">詳しい明細を見る</a>
     ${heirBlock(life)}

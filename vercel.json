@@ -1,0 +1,4 @@
+{
+  "rewrites": [{ "source": "/s/:code", "destination": "/api/share?c=:code" }],
+  "functions": { "api/og.js": { "maxDuration": 20 } }
+}

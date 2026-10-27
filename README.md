@@ -62,6 +62,12 @@
 - 「こんな人生が、ありました。」：ゲームの中で選んだ6つの人生のレシート（`public/lp/gallery.json`、画像は `public/lp/img/g-*.webp`）。共有URLの版を上げたら `npx tsx scripts/lpgallery.ts > public/lp/gallery.json` で作り直し、`node scripts/lpgalleryimg.mjs` でレシート画像も撮り直す（simtest が古い版のURLを見つけて知らせる）。
 - アイコン：地球とレシート（`public/favicon.svg`、`favicon-32.png`、`apple-touch-icon.png`、`icon-192.png`、`icon-512.png`、`site.webmanifest`）。ゲーム・詳細ページ・紹介ページの3つで使う。
 
+## 結果ごとの共有画像
+
+「Xで共有」のURLは `/s/<共有コード>`。Xなどがこのページを読むと、その人の結果から作った画像（「〇〇に生まれ、生涯で稼いだお金は約◯◯円」と、費目の上位・お釣り・はんこのレシート）が出る。人が開くと、結果のページ（`/r.html#<共有コード>`）へ移る。
+- 仕組み：Vercel の関数。`api/share.js`（`/s/` を vercel.json で回す）と `api/og.js`（画像を作る。satori と resvg、フォントは Google Fonts から使う文字だけ取る）。中身は `src/server/` にあり、`node scripts/buildapi.mjs`（`npm run build` でも実行）でゲームのコードとデータごと api/ にまとめる。ゲームの中身を変えたら、まとめ直してから push する。
+- 読めないコードや古い版のコードは、ふつうの共有画像（`/og.png`）になる。
+
 ## 紹介ページのデザインと画像
 
 - `/lp/` は、ページ全体を1枚の長いレシートに見立てたデザイン（問いかけ「あなたは、どこでお金を使う？」、ドット絵で一生が流れる場面、場面の一覧、3か国のレシートの比較など）。前のデザインは `/lp-old/` に残している（検索には出さない）。試作のときのURL `/lp-new/` は `/lp/` へ移る。

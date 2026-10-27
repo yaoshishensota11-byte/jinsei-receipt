@@ -177,6 +177,16 @@ export function detailUrl(l: Life, base: string): string {
   return `${base.replace(/\/$/, "")}/r.html#${encodeResult(l)}`;
 }
 
+/** Xなどで共有するURL（/s/<コード>）。開くと結果のページへ移り、プレビューにはその人の画像が出る */
+export function shareUrl(l: Life, base: string): string {
+  return `${base.replace(/\/$/, "")}/s/${encodeResult(l)}`;
+}
+
+/** 共有URLの土台。翻訳（translate.goog）を通して見ているときも、もとのサイトのURLにする */
+export function shareBase(origin: string, hostname: string): string {
+  return hostname.endsWith(".translate.goog") ? "https://tomo-project-ivory.vercel.app" : origin;
+}
+
 function dateOf(seed: string, year: number, stream: string): string {
   const r = streamRng(seed, stream, 0);
   const m = r.int(1, 12);
@@ -241,9 +251,10 @@ function memoFor(l: Life, cat: ExpenseCat, amount: number): string {
   }
 }
 
-export function buildReceipt(l: Life): ReceiptData {
+/** withCohort=false なら、同い年との比較（300人を動かすので重い）を省く。共有画像を作るときに使う */
+export function buildReceipt(l: Life, withCohort = true): ReceiptData {
   const s = l.summary();
-  const c = cohort(l.D);
+  const c = withCohort ? cohort(l.D) : { income: [], balance: [] };
   const order: ExpenseCat[] = ["housing", "food", "tax", "kids", "car", "fun", "other", "utilities", "medical", "care", "selfEdu", "events", "love", "inflation"];
   const items: ReceiptItem[] = order
     .map((k) => ({ label: EXPENSE_LABEL[k], amount: Math.round(s.expenseTotal[k] ?? 0), memo: memoFor(l, k, s.expenseTotal[k] ?? 0) }))
