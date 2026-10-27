@@ -1150,7 +1150,8 @@ export class Life {
       this.log("money", h.homeShare === 0 && h.hadHome ? "実家を売っても返しきれず、親が残した借金を引き継いだ。" : "親が残した借金を引き継いだ。", -h.debt, true);
     }
     if (h.homeShare > 0) {
-      if (this.home === "parents") {
+      // 大人になって実家で暮らしているときだけ、家ごと受け継ぐ（子どものうちは売って、自分の分をお金で受け継ぐ）
+      if (this.home === "parents" && a >= 18) {
         this.home = "own";
         this.housePrice = h.homeShare;
         this.boughtAge = a - 30;
@@ -1158,7 +1159,7 @@ export class Life {
       } else {
         this.addIncome("windfall", h.homeShare);
         this.inherited += h.homeShare;
-        this.log("money", this.siblings ? "実家を売って、きょうだいで分けた。" : "実家を売って、お金に換えた。", h.homeShare, true);
+        this.log("money", a < 18 ? "実家は売られ、自分の分はお金で受け継いだ。" : this.siblings ? "実家を売って、きょうだいで分けた。" : "実家を売って、お金に換えた。", h.homeShare, true);
       }
     }
     if (!h.estate && !h.homeShare && !h.debt) this.log("money", "親の遺産はほとんどなかった。");

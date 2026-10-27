@@ -259,7 +259,8 @@ export function buildReceipt(l: Life): ReceiptData {
     { label: l.inherited < 0 ? "親から受け継いだ借金" : "親から受け継いだお金", amount: Math.round(l.inherited) },
     { label: "手当・相続・臨時", amount: Math.round((s.incomeTotal.windfall ?? 0) - l.inherited) },
     { label: "運用損益", amount: inv },
-  ].filter((d) => Math.abs(l.D.toJpy(d.amount)) >= 10_000);
+    // 親から受け継いだお金・借金は、少なくても行を残す（子どもに生まれ直したことが分かるように）
+  ].filter((d) => Math.abs(l.D.toJpy(d.amount)) >= 10_000 || (d.label.startsWith("親から受け継いだ") && Math.abs(d.amount) >= 1));
   const sexWord = s.sex === "male" ? "男性" : "女性";
   return {
     receiptNo: s.seed.toUpperCase(),
