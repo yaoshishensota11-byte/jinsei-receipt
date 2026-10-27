@@ -6,6 +6,8 @@ import { buildReceipt, detailUrl, shareIntentUrl, shareUrl, shareBase, newLife, 
 import { COUNTRIES, worldCountry, type Mode } from "./engine/world";
 import type { Choice, LifeEvent, YearRecord } from "./engine/types";
 import { showReceipt, downloadReceipt } from "./ui/receipt";
+import { compareMyIncome, topText } from "./engine/myincome";
+import { yen } from "./engine/data";
 
 // 1年の長さは出来事の数で変える。何も起きない年はすぐ過ぎ、出来事の多い年はじっくり見せる。
 // 選択（大きな8回＋小さな選択）を含めて、等倍で1プレイ約10分。
@@ -380,6 +382,12 @@ async function showResult(life: Life): Promise<void> {
     </div>
     <a class="btn sub" href="${esc(url)}">詳しい明細を見る</a>
     ${heirBlock(life)}
+    <details class="mine">
+      <summary>自分の年収と比べてみる</summary>
+      <label class="mine-in">あなたの年収（税金などを引く前）<span><input id="myIncome" type="number" inputmode="numeric" min="0" step="10" placeholder="400" />万円</span></label>
+      <div class="mine-out" id="myOut" aria-live="polite"></div>
+      <p class="mine-note">入力した年収は、どこにも送られません。ゲームの中の世界・日本で、25〜59歳の働く人の年収と比べています（統計をもとにした試算）。</p>
+    </details>
     <button class="btn" id="again">もう一度生まれる</button>
   </div>`);
   app.innerHTML = "";
@@ -399,6 +407,30 @@ async function showResult(life: Life): Promise<void> {
     document.body.append(z);
   };
   root.querySelector<HTMLElement>("#again")!.onclick = () => showTitle();
+  // 自分の年収と比べる（入力はこの画面の中だけで使う）
+  const myIn = root.querySelector<HTMLInputElement>("#myIncome")!;
+  const myOut = root.querySelector<HTMLElement>("#myOut")!;
+  myIn.oninput = () => {
+    const man = Number(myIn.value);
+    if (!(man > 0)) {
+      myOut.innerHTML = "";
+      return;
+    }
+    const jpy = man * 10_000;
+    const c = compareMyIncome(jpy, life);
+    const ratio = c.lifeTypical > 0 ? jpy / c.lifeTypical : 0;
+    const vsLife =
+      c.lifeTypical <= 0
+        ? ""
+        : ratio >= 1.05
+          ? `この人生（${life.D.nameJa}）のふつうの年収 約${yen(c.lifeTypical)} の<b>${ratio >= 10 ? Math.round(ratio) : ratio.toFixed(1)}年分</b>を、1年で稼いでいます。`
+          : ratio <= 0.95
+            ? `この人生（${life.D.nameJa}）のふつうの年収 約${yen(c.lifeTypical)} の<b>${Math.round(ratio * 100)}%</b>です。`
+            : `この人生（${life.D.nameJa}）のふつうの年収 約${yen(c.lifeTypical)} と、ほぼ同じです。`;
+    myOut.innerHTML = `<div class="mine-row"><span>世界の働く人の中で</span><b>${topText(c.world)}</b></div>
+      <div class="mine-row"><span>日本の働く人の中で</span><b>${topText(c.japan)}</b></div>
+      ${vsLife ? `<p>${vsLife}</p>` : ""}`;
+  };
   root.querySelectorAll<HTMLElement>(".heir .opt").forEach((b) => {
     b.onclick = () => showBirthOf(childOf(life, Number(b.dataset.i)), life.mode as Mode);
   });

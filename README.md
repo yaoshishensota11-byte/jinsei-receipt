@@ -59,8 +59,12 @@
 ## 紹介ページ（LP）とアイコン
 
 - 紹介ページ：`public/lp/index.html`（公開URL `/lp/`）。ページの中で感想・直してほしい点を送れる欄があり、送り先はGoogleフォーム（ページ下の FEEDBACK に送信先と質問の番号を入れると欄が表示される）。「生まれてみる」ボタンでゲーム（`/`）へ移る。一般の人向けの紹介と、授業での使い方・データの説明を1ページにまとめている。画像は `public/lp/img/`。
-- 「こんな人生が、ありました。」：ゲームの中で選んだ6つの人生のレシート（`public/lp/gallery.json`、画像は `public/lp/img/g-*.webp`）。共有URLの版を上げたら `npx tsx scripts/lpgallery.ts > public/lp/gallery.json` で作り直し、`node scripts/lpgalleryimg.mjs` でレシート画像も撮り直す（simtest が古い版のURLを見つけて知らせる）。
+- 「こんな人生が、ありました。」：ゲームの中で選んだ6つの人生のレシート（リンクは共有用の `/s/<共有コード>`。開くと結果のページへ移り、共有するとその人生の画像が出る）（`public/lp/gallery.json`、画像は `public/lp/img/g-*.webp`）。共有URLの版を上げたら `npx tsx scripts/lpgallery.ts > public/lp/gallery.json` で作り直し、`node scripts/lpgalleryimg.mjs` でレシート画像も撮り直す（simtest が古い版のURLを見つけて知らせる）。
 - アイコン：地球とレシート（`public/favicon.svg`、`favicon-32.png`、`apple-touch-icon.png`、`icon-192.png`、`icon-512.png`、`site.webmanifest`）。ゲーム・詳細ページ・紹介ページの3つで使う。
+
+## 自分の年収と比べる
+
+結果の画面の「自分の年収と比べてみる」に実際の年収（万円）を入れると、ゲームの中の世界・日本の25〜59歳の働く人の中で上位何%か、この人生のふつうの年収の何年分かが出る。入力はその画面の中だけで使い、どこにも送らない。分布は `npx tsx scripts/incomedist.ts > data/world/income_percentiles.json` で作る（ゲームの中身を変えたら作り直す）。
 
 ## 結果ごとの共有画像
 
