@@ -6,7 +6,7 @@ import { pickCountry, type Mode } from "./world";
 import { streamRng } from "./rng";
 import { EXPENSE_LABEL, type ExpenseCat, type LifeEvent } from "./types";
 
-export const CODEC_VERSION = "6";
+export const CODEC_VERSION = "7";
 
 export interface ReceiptItem {
   label: string;
@@ -47,7 +47,7 @@ export function picksOf(l: Life): number[] {
   return l.choiceLog.map((c) => c.pickIndex ?? 0);
 }
 
-// 版6（親と同居している人の介護の選択を追加）：`6.<モード j|m|w>.<シード>.<選んだ番号の並び>`。国はモードとシードから決まる
+// 版7（子どもからの電話、親が残した家の選択を追加）：`7.<モード j|m|w>.<シード>.<選んだ番号の並び>`。国はモードとシードから決まる
 // 子どもに生まれ直したときは、後ろに「~<何番目の子か>.<選んだ番号の並び>」を代ごとに足す（3代目まで）
 export function encodeResult(l: Life): string {
   const picks = picksOf(l).join("");

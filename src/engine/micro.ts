@@ -1,7 +1,7 @@
 // 小さな選択（1〜3年に1回、5秒で選べる2択）。
 // どれも得と損の両方が起こりうるようにし、結果はその場で一言返す。
 import type { Rng } from "./rng";
-import type { Life } from "./sim";
+import { kidFemale, type Life } from "./sim";
 import { riskOf } from "./risks";
 
 export interface MicroOption {
@@ -22,6 +22,13 @@ export interface Micro {
   title: string;
   situation: (l: Life) => string;
   options: MicroOption[];
+}
+
+/** 乱数の流れを変えずに、シードから文の言い回しを選ぶ */
+function hashPick(key: string, n: number): number {
+  let h = 2166136261;
+  for (let i = 0; i < key.length; i++) h = Math.imul(h ^ key.charCodeAt(i), 16777619);
+  return (h >>> 0) % Math.max(1, n);
 }
 
 const working = (l: Life) => l.job !== "none" && l.job !== "retired" && l.school === "done";
@@ -343,10 +350,87 @@ export const MICROS: Micro[] = [
     max: 90,
     when: (l) => l.kids.length > 0,
     title: "知らない番号からの電話",
-    situation: () => "「息子だけど、会社のお金をなくして…」と電話がかかってきた。",
+    situation: (l) =>
+      [
+        "「息子だけど、会社のお金をなくして…今日中に必要なんだ」と、知らない番号から電話がかかってきた。",
+        `「${l.sex === "female" ? "お母さん" : "お父さん"}？ 私。スマホが壊れて友だちの電話から…家賃が払えなくて」と電話がかかってきた。`,
+        "「事故を起こしてしまって、示談金がすぐ要るんだ」と、泣きそうな声で電話がかかってきた。",
+      ][hashPick(l.seed + "call" + l.age, 3)],
+    // 詐欺がほとんどだが、本当に困った子どもからの電話のこともある
     options: [
-      { id: "a", label: "家族に確認してから", desc: "落ち着いて確かめる。相手は怒るかもしれない。", apply: (l) => { l.logPre("life", "家族に確認すると、まったくの作り話だった。"); } },
-      { id: "b", label: "急いでお金を用意する", desc: "本当なら助けになる。だまされることも。", apply: (l, r) => { if (r.chance(0.85)) { const c = Math.min(Math.max(0, l.cash), l.y(2_000_000)); l.spend("other", c); l.logPre("money", "電話は詐欺だった。お金は戻らなかった。", -c, true); } else l.logPre("family", "本当に困っていた家族を助けることができた。"); } },
+      {
+        id: "a",
+        label: "家族に確認してから",
+        desc: "落ち着いて確かめる。本当に困っていたら、遅れるかもしれない。",
+        apply: (l, r) => {
+          if (r.chance(0.8)) l.logPre("life", "家族に確認すると、まったくの作り話だった。詐欺の電話だった。");
+          else {
+            const c = Math.min(Math.max(0, l.cash) * 0.3, l.y(300_000));
+            if (c > 0) l.spend("kids", c);
+            l.logPre("family", c > 0 ? "確かめると、本当に子どもが困っていた。必要な分だけ送った。" : "確かめると、本当に子どもが困っていた。送れるお金はなく、話を聞くことしかできなかった。", c > 0 ? -c : undefined, true);
+          }
+        },
+      },
+      {
+        id: "b",
+        label: "急いでお金を用意する",
+        desc: "本当なら助けになる。だまされることも。",
+        apply: (l, r) => {
+          if (r.chance(0.8)) {
+            const c = Math.min(Math.max(0, l.cash), l.y(2_000_000));
+            if (c > 0) {
+              l.spend("other", c);
+              l.logPre("money", "電話は詐欺だった。渡したお金は戻らなかった。", -c, true);
+            } else l.logPre("money", "用意できるお金がなく、渡さずに済んだ。あとで詐欺の電話だったと分かった。");
+          } else {
+            const c = Math.min(Math.max(0, l.cash) * 0.5, l.y(500_000));
+            if (c > 0) l.spend("kids", c);
+            l.logPre("family", c > 0 ? "本当に困っていた子どもを、急いで助けることができた。" : "本当に困っていた子どもだったが、用意できるお金がなかった。", c > 0 ? -c : undefined, true);
+          }
+        },
+      },
+    ],
+  },
+  {
+    id: "kidLoan",
+    min: 48,
+    max: 85,
+    repeat: true,
+    when: (l) => l.kids.some((k) => l.age - k.born >= 22),
+    title: "子どもからの電話",
+    situation: (l) => {
+      const grown = l.kids.map((k, i) => ({ i, age: l.age - k.born })).filter((k) => k.age >= 22);
+      const k = grown[hashPick(l.seed + "loanKid" + l.age, grown.length)];
+      const who = kidFemale(l.seed, k.i) ? "娘" : "息子";
+      const why = ["仕事を失って、家賃が払えない", "子どもが入院して、お金が足りない", "始めた店の資金が足りない"][hashPick(l.seed + "loanWhy" + l.age, 3)];
+      return `${who}（${k.age}歳）から電話があった。「${why}。少しだけお金を貸してほしい」`;
+    },
+    options: [
+      {
+        id: "a",
+        label: "お金を貸す",
+        desc: "子どもは助かる。返ってくるかは分からない。",
+        apply: (l, r) => {
+          const c = Math.min(Math.max(0, l.cash) * 0.3, l.y(1_000_000));
+          if (c <= 0) {
+            l.logPre("family", "貸せるお金がなく、気持ちだけ伝えた。");
+            return;
+          }
+          l.spend("kids", c);
+          if (r.chance(0.45)) {
+            l.addIncome("windfall", c * 0.7);
+            l.logPre("family", "子どもにお金を貸した。何年かかけて、少しずつ返してくれた。", -c * 0.3, true);
+          } else l.logPre("family", "子どもにお金を貸した。返ってはこなかったが、子どもは立ち直った。", -c, true);
+        },
+      },
+      {
+        id: "b",
+        label: "事情を話して断る",
+        desc: "自分の老後のお金を守れる。子どもとの間に気まずさが残るかも。",
+        apply: (l, r) => {
+          l.logPre("family", r.chance(0.5) ? "自分たちの老後もあると話して、断った。子どもは自分でなんとかした。" : "断ったあと、しばらく子どもからの電話が減った。");
+        },
+      },
     ],
   },
   {
@@ -394,7 +478,7 @@ export const MICROS: Micro[] = [
     situation: () => "「役所の者です。医療費の払い戻しがあるので、今からATMへ行ってください」と電話がかかってきた。",
     options: [
       { id: "a", label: "電話を切って役所に確かめる", desc: "落ち着いて確かめる。手間はかかる。", apply: (l) => { l.logPre("life", "役所に確かめると、そんな払い戻しはなかった。詐欺の電話だった。"); } },
-      { id: "b", label: "言われたとおりATMへ行く", desc: "本当ならお金が戻る。だまされることも。", apply: (l, r) => { if (r.chance(0.9)) { const c = Math.min(Math.max(0, l.cash), l.y(1_000_000)); l.spend("other", c); l.logPre("money", "電話は詐欺だった。振り込んだお金は戻らなかった。", -c, true); } else l.logPre("money", "本当に払い戻しの手続きだった。"); } },
+      { id: "b", label: "言われたとおりATMへ行く", desc: "本当ならお金が戻る。だまされることも。", apply: (l, r) => { if (r.chance(0.9)) { const c = Math.min(Math.max(0, l.cash), l.y(1_000_000)); if (c > 0) { l.spend("other", c); l.logPre("money", "電話は詐欺だった。振り込んだお金は戻らなかった。", -c, true); } else l.logPre("money", "口座にお金がなく、振り込めなかった。あとで詐欺の電話だったと分かった。"); } else l.logPre("money", "本当に払い戻しの手続きだった。"); } },
     ],
   },
   {

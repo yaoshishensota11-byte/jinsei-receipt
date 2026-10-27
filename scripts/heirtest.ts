@@ -5,6 +5,7 @@ import { COUNTRIES, pickCountry } from "../src/engine/world";
 import { childOf, encodeResult, decodeResult, replayCode, buildReceipt } from "../src/engine/result";
 const problems: string[] = [];
 const rows: string[] = [];
+let houseLive = 0, houseSell = 0;
 let g2 = 0, g3 = 0, debts = 0, estates = 0, homes = 0, none = 0;
 const ok = (n: number) => typeof n === "number" && isFinite(n);
 for (const c of COUNTRIES) {
@@ -36,12 +37,22 @@ for (const c of COUNTRIES) {
       const parentBal = cur.balance / Math.max(1, cur.kids.length);
       if (Math.abs(h.estate + h.homeShare - h.debt - parentBal) > 1) problems.push(`${tag}: 受け継ぐ額が親の残高と合わない`);
       if (h.parentDies <= ch.age) {
-        const expected = h.debt > 0 ? -h.debt : h.homeShare > 0 && evs.some((e) => e.t === "住んでいた実家を受け継いだ。") ? h.estate : h.estate + h.homeShare;
+        // 親が残した家を売ったときだけ、その分もお金として受け継ぐ（住み続けたら家として持つ）
+        const soldHouse = evs.some((e) => e.t.startsWith("親が残した家を売って"));
+        const expected = h.debt > 0 ? -h.debt : h.estate + (soldHouse ? h.homeShare : 0);
         if (Math.abs(ch.inherited - expected) > 1) problems.push(`${tag}: 相続額が違う ${Math.round(ch.inherited)}≠${Math.round(expected)}`);
         if (h.debt > 0) { debts++; cDebt++; if (!evs.some((e) => e.t.includes("借金を引き継いだ") && Math.abs((e.a ?? 0) + h.debt) < 1)) problems.push(`${tag}: 借金の出来事がない`); }
         else if (h.estate > 0 || h.homeShare > 0) { estates++; cEst++; }
         else none++;
-        if (h.homeShare > 0) homes++;
+        if (h.homeShare > 0) {
+          homes++;
+          // 親が残した家は、18歳を過ぎたら「住む」か「売る」を決めている（家の価値が消えていない）
+          const lived = evs.some((e) => /親が残した家(に、そのまま住み続ける|に移り住んだ)/.test(e.t));
+          if (ch.age >= 19 && ch.heldHouse > 0) problems.push(`${tag}: 親が残した家が決まらないまま`);
+          if (ch.age >= 19 && !lived && !soldHouse) problems.push(`${tag}: 親が残した家を住むか売るか選んでいない`);
+          if (lived) houseLive++;
+          if (soldHouse) houseSell++;
+        }
       }
       // 生まれ・家族
       if (ch.D.iso3 !== c.iso3) problems.push(`${tag}: 国が変わった`);
@@ -63,6 +74,6 @@ for (const c of COUNTRIES) {
   rows.push(`${c.iso3}:${chains}${cDebt ? `(借${cDebt})` : ""}`);
   if (!chains) problems.push(`${c.iso3}: 子どもがいる人生が${tried}人中見つからない`);
 }
-console.log(`国 ${COUNTRIES.length}か国 / 2代目 ${g2}人・3代目 ${g3}人 / 遺産を受け継いだ ${estates}・借金を引き継いだ ${debts}・何もなし ${none}（実家あり ${homes}）`);
+console.log(`国 ${COUNTRIES.length}か国 / 2代目 ${g2}人・3代目 ${g3}人 / 遺産を受け継いだ ${estates}・借金を引き継いだ ${debts}・何もなし ${none}（実家あり ${homes}：住んだ ${houseLive}・売った ${houseSell}）`);
 console.log(rows.join(" "));
 console.log(problems.length ? problems.slice(0, 30).join("\n") + `\n…問題 ${problems.length}件` : "✔ 問題なし");

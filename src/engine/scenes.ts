@@ -222,3 +222,39 @@ export function dvScene(l: Life): Scene {
     ],
   };
 }
+
+/** 子どもに生まれ直した人：親が残した家に住むか、売るか */
+export function heldHouseScene(l: Life): Scene {
+  const atHome = l.home === "parents";
+  const owns = l.home === "own";
+  return {
+    id: "heldHouse",
+    title: "親が残した家",
+    situation: `親が残した家（自分の分は${l.D.fmt(l.heldHouse)}）をどうする？`,
+    options: [
+      ...(owns
+        ? []
+        : [
+            {
+              id: "live",
+              label: atHome ? "このまま住み続ける" : "実家に移って住む",
+              desc: "家賃がかからない。古い家なので、修繕や税金のお金はかかる。",
+              apply: (l: Life) => {
+                l.moveIntoHeldHouse();
+                l.logPre("life", atHome ? "親が残した家に、そのまま住み続けることにした。" : "親が残した家に移り住んだ。家賃がかからなくなった。", undefined, true);
+              },
+            },
+          ]),
+      {
+        id: "sell",
+        label: "売ってお金にする",
+        desc: "まとまったお金が手に入る。住む場所は自分で用意する。",
+        apply: (l: Life) => {
+          const v = l.sellHeldHouse();
+          if (l.home === "parents") l.home = "rent";
+          l.logPre("money", l.siblings ? "親が残した家を売って、きょうだいで分けた。" : "親が残した家を売って、お金に換えた。", v, true);
+        },
+      },
+    ],
+  };
+}

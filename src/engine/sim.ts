@@ -4,7 +4,7 @@ import { Rng, streamRng, hashStr } from "./rng";
 import { JAPAN, type CountryData, type Region, type IncomeBand } from "./data";
 import { MICROS } from "./micro";
 import { riskYear, countryEventScene, ipvHazard } from "./risks";
-import { kidsScene, kidsAgainScene, fertilityScene, strainScene, dvScene, type Scene } from "./scenes";
+import { kidsScene, kidsAgainScene, fertilityScene, strainScene, dvScene, heldHouseScene, type Scene } from "./scenes";
 import { drawMarriageMode, meetScene, loveScene, arrangedScene, betrothedScene, type MarriageMode } from "./marriage";
 import { leaveHomeScene, kidLeaveScene, kidAtHome } from "./home";
 import { earlyEvents } from "./early";
@@ -224,6 +224,8 @@ export class Life {
   heir: Heritage | null = null;
   /** 親から受け継いだお金 */
   inherited = 0;
+  /** 親が残した家のうち自分の分（住むか売るかを決めるまで持っておく） */
+  heldHouse = 0;
   /** 実家から通って働いている間、「そろそろ家を出る？」と考えるのはこの年齢から */
   leaveAskAfter = 0;
   home: Home = "parents";
@@ -387,7 +389,7 @@ export class Life {
   }
   /** 純資産：金融資産 − 負債 ＋ 持ち家の評価額（古くなるほど下がる） */
   get balance(): number {
-    return this.cash + this.invest - this.loan - this.scholarship + this.homeValue;
+    return this.cash + this.invest - this.loan - this.scholarship + this.homeValue + this.heldHouse;
   }
   get homeValue(): number {
     if (this.home !== "own" && !this.ownedBefore) return 0;
@@ -1060,6 +1062,8 @@ export class Life {
   private parentsYear(r: Rng): void {
     const a = this.age;
     if (this.heir) this.heirParentsYear(a);
+    // 子どものうちに受け継いだ家は、18歳で住むか売るかを決める
+    if (this.heldHouse > 0 && a >= 18) this.queueScene(heldHouseScene(this));
     if (a < 18) return;
     for (const [i, p] of this.parents.entries()) {
       if (!p.alive) continue;
@@ -1150,19 +1154,30 @@ export class Life {
       this.log("money", h.homeShare === 0 && h.hadHome ? "実家を売っても返しきれず、親が残した借金を引き継いだ。" : "親が残した借金を引き継いだ。", -h.debt, true);
     }
     if (h.homeShare > 0) {
-      // 大人になって実家で暮らしているときだけ、家ごと受け継ぐ（子どものうちは売って、自分の分をお金で受け継ぐ）
-      if (this.home === "parents" && a >= 18) {
-        this.home = "own";
-        this.housePrice = h.homeShare;
-        this.boughtAge = a - 30;
-        this.log("life", "住んでいた実家を受け継いだ。", undefined, true);
-      } else {
-        this.addIncome("windfall", h.homeShare);
-        this.inherited += h.homeShare;
-        this.log("money", a < 18 ? "実家は売られ、自分の分はお金で受け継いだ。" : this.siblings ? "実家を売って、きょうだいで分けた。" : "実家を売って、お金に換えた。", h.homeShare, true);
-      }
+      // 親が残した家は、住み続けるか売るかを選ぶ。子どものうちは住み続け、18歳になったら決める
+      this.heldHouse = h.homeShare;
+      if (a < 18) {
+        const other = this.parents[h.parentIdx === 0 ? 1 : 0].alive;
+        this.log("life", other ? "親が残した家で、そのまま暮らし続けた。" : "親が残した家に、親せきに見守られながら住み続けた。", undefined, true);
+      } else this.queueScene(heldHouseScene(this));
     }
     if (!h.estate && !h.homeShare && !h.debt) this.log("money", "親の遺産はほとんどなかった。");
+  }
+
+  /** 親が残した家に住む（家賃がかからなくなる） */
+  moveIntoHeldHouse(): void {
+    this.home = "own";
+    this.housePrice = this.heldHouse;
+    this.boughtAge = this.age;
+    this.heldHouse = 0;
+  }
+  /** 親が残した家を売って、お金にする */
+  sellHeldHouse(): number {
+    const v = this.heldHouse;
+    this.addIncome("windfall", v);
+    this.inherited += v;
+    this.heldHouse = 0;
+    return v;
   }
 
   private inherit(r: Rng): void {

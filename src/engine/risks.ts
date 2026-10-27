@@ -296,8 +296,10 @@ export function countryEventScene(l: Life, r: Rng): Scene | null {
         label: o.label,
         desc: o.desc,
         apply: (l: Life) => {
+          // 手元のお金が減る出来事でも、お金がなければ取られない（そのときは一言そえる）
+          const nothing = (o.effects ?? []).some((x) => x.type === "cashLossPct") && l.cash <= 0;
           const m = applyEffects(l, o.effects ?? []);
-          l.logPre("life", o.result || `${o.label}ことにした。`, m || undefined);
+          l.logPre("life", (o.result || `${o.label}ことにした。`) + (nothing ? "ただ、手元にお金がなく、取られるものはなかった。" : ""), m || undefined);
         },
       })),
     };
