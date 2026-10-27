@@ -81,7 +81,7 @@ description: 人生のレシートの国別データで「推定値」のまま�
 | arranged_marriage_share | 結婚のうち、家族が相手を決めた・縁談で決まった割合（本人の同意があるものを含む） | DHS・全国家族調査・学術調査 | share | marriage.json の arranged |
 | betrothal_share | 家族が決めた結婚のうち、子どものころに許嫁として決まっていた割合 | 学術調査（見つからなければ空欄） | share | marriage.json の betrothal |
 | marriage_payment_amount | 結婚のときの持参金・婚資のふつうの額。note の先頭に `type=dowry|brideprice|mahr|none` | 学術調査・政府統計 | 現地通貨コード | marriage.json の paymentYears（物価で直し、1人あたり国民所得で割る） |
-| childhood_rite | 0〜6歳ごろの行事（1行事1行）。value は行う子どもの割合（統計があれば）、note に `name=; age=; category=universal|common|some; who=; desc=` | 政府・国際機関の資料、文化人類学の文献 | share | 小さいころの出来事（src/engine/early.ts）。universal は必ず、common・some は確率で出す |
+| childhood_rite | 0〜6歳ごろの行事（1行事1行）。value は行う子どもの割合（統計があれば）、note に `name=; age=; category=universal|common|some; who=; desc=` | 政府・国際機関の資料、文化人類学の文献 | share | 小さいころの出来事（src/engine/rites.ts に手で文にして入れる。apply_manual は読まない）。universal は必ず、common・some は確率で出す。19か国は第8部で取り込み済み |
 
 税の4つの材料（平均月収・保険料率・税率表、あれば基礎控除）がそろった国は、apply_manual.py が「平均賃金・単身の所得税＋本人社会保険料 ÷ 年収」を計算して countries.effectiveTaxRateAvgWorker に入れる。
 平均月収が税率表より古い国は、data/world/cpi_annual.json の物価上昇率で税率表の年の金額に直してから計算する。物価の CSV（inflation_recent）を新しく取り込んだときは、先に `python3 -I data/world/build/cpi_series.py` を実行する。

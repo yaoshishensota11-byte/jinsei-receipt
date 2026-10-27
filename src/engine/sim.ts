@@ -501,7 +501,7 @@ export class Life {
     this.preExpense = {};
     if (a === 0) this.birthEvents();
     // 0〜5歳の成長の場面（お金は動かさない。専用の乱数を使うので、ほかの出来事や選択には影響しない）
-    if (a <= 5) for (const t of earlyEvents(this, this.rng("early"))) this.log("life", t);
+    if (a <= 6) for (const t of earlyEvents(this, this.rng("early"))) this.log("life", t);
     const r = this.rng("year");
 
     this.schoolYear(r);
