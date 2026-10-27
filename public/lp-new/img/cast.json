@@ -1,0 +1,86 @@
+[
+ {
+  "key": "baby",
+  "label": "生まれた",
+  "country": "マダガスカル",
+  "age": 0
+ },
+ {
+  "key": "uniform",
+  "label": "中学・高校",
+  "country": "マダガスカル",
+  "age": 15
+ },
+ {
+  "key": "abroad",
+  "label": "海外へ出稼ぎ",
+  "country": "マダガスカル",
+  "age": 21
+ },
+ {
+  "key": "lucky",
+  "label": "宝くじ・遺産",
+  "country": "マダガスカル",
+  "age": 40
+ },
+ {
+  "key": "disaster",
+  "label": "災害",
+  "country": "マダガスカル",
+  "age": 50
+ },
+ {
+  "key": "hakama",
+  "label": "七五三（はかま）",
+  "country": "日本",
+  "age": 5
+ },
+ {
+  "key": "hospital",
+  "label": "入院",
+  "country": "日本",
+  "age": 74
+ },
+ {
+  "key": "elder",
+  "label": "老後",
+  "country": "日本",
+  "age": 76
+ },
+ {
+  "key": "kinder",
+  "label": "保育園・幼稚園",
+  "country": "日本",
+  "age": 3
+ },
+ {
+  "key": "wedding",
+  "label": "結婚式",
+  "country": "日本",
+  "age": 30
+ },
+ {
+  "key": "kimono",
+  "label": "七五三（着物）",
+  "country": "日本",
+  "age": 3
+ },
+ {
+  "key": "randoseru",
+  "label": "ランドセル",
+  "country": "日本",
+  "age": 5
+ },
+ {
+  "key": "toddle",
+  "label": "はじめて歩いた",
+  "country": "日本",
+  "age": 1
+ },
+ {
+  "key": "family",
+  "label": "子育て",
+  "country": "日本",
+  "age": 41
+ }
+]

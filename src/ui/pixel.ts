@@ -11,7 +11,7 @@ type Stage = "baby" | "kid" | "teen" | "adult" | "elder";
 type Outfit = "onesie" | "kid" | "uniform" | "suit" | "work" | "apron" | "casual" | "hoodie" | "cardigan" | "dress" | "kimono" | "hakama";
 type Mood = "neutral" | "smile" | "joy" | "sad";
 
-interface Person {
+export interface Person {
   stage: Stage;
   female: boolean;
   outfit: Outfit;
@@ -158,7 +158,7 @@ function cast(l: Life, mood: Mood, a: number): Person[] {
 
 // ───────────── 描く ─────────────
 
-type Px = (x: number, y: number, w: number, h: number, c: string) => void;
+export type Px = (x: number, y: number, w: number, h: number, c: string) => void;
 
 const SIZE: Record<Stage, { head: number; body: number; legs: number; w: number }> = {
   baby: { head: 6, body: 4, legs: 1, w: 6 },
@@ -168,11 +168,11 @@ const SIZE: Record<Stage, { head: number; body: number; legs: number; w: number 
   elder: { head: 8, body: 8, legs: 7, w: 10 },
 };
 
-function widthOf(p: Person): number {
+export function widthOf(p: Person): number {
   return SIZE[p.stage].w + 4;
 }
 
-function drawPerson(px: Px, p: Person, x: number, bob: number): void {
+export function drawPerson(px: Px, p: Person, x: number, bob: number): void {
   const s = SIZE[p.stage];
   const h = s.head + s.body + s.legs;
   const jump = p.mood === "joy" ? bob * 2 : 0;

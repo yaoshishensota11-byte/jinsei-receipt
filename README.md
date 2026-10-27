@@ -60,6 +60,11 @@
 - 「こんな人生が、ありました。」：ゲームの中で選んだ6つの人生のレシート（`public/lp/gallery.json`、画像は `public/lp/img/g-*.webp`）。共有URLの版を上げたら `npx tsx scripts/lpgallery.ts > public/lp/gallery.json` で作り直し、レシート画像も撮り直す（simtest が古い版のURLを見つけて知らせる）。
 - アイコン：地球とレシート（`public/favicon.svg`、`favicon-32.png`、`apple-touch-icon.png`、`icon-192.png`、`icon-512.png`、`site.webmanifest`）。ゲーム・詳細ページ・紹介ページの3つで使う。
 
+## 新しい紹介ページ（試作）
+
+`/lp-new/` に、紹介ページの新しいデザインを試作中（今の `/lp/` はそのまま）。ページ全体を1枚の長いレシートに見立て、ドット絵の人を所々に出す。
+画像はすべて、いまのゲームから `node scripts/lpassets.mjs`（`npx vite --port 5199` を動かした状態で）で作り直せる：ゲーム画面、ドット絵で一生が流れるコマ（film.png）、場面の一覧（c-*.png）、背景なしの人（p-*.png）、同じ年に生まれた3か国のレシート（r-*.webp）。
+
 ## 今後の予定
 
 - 自分のブランドのページ（複数の作品をまとめるページ）は今後考える。今の紹介ページは「人生のレシート」専用。
