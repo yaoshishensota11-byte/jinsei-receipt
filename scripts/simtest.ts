@@ -17,6 +17,7 @@ const choiceCounts: number[] = [];
 const optionHits = new Map<string, number>();
 let events = 0;
 let heirLives = 0;
+let heirDebts = 0;
 
 function check(l: Life, tag: string) {
   for (const y of l.records) {
@@ -74,6 +75,8 @@ for (let i = 0; i < N; i++) {
         if (h.parentDies <= child.age && !parentDeath) problems.push(`${seed}: ${h.gen}代目で親が亡くならない`);
         if (parentDeath && parentDeath.age !== h.parentDies) problems.push(`${seed}: ${h.gen}代目で親の亡くなる年が違う`);
         if (h.estate > 0 && h.parentDies <= child.age && Math.abs(child.inherited - h.estate - (child.home === "own" && h.homeShare > 0 ? 0 : h.homeShare)) > 1 && child.inherited < h.estate) problems.push(`${seed}: ${h.gen}代目の相続が合わない`);
+        if (h.debt > 0 && h.parentDies <= child.age && Math.abs(child.inherited + h.debt) > 1) problems.push(`${seed}: ${h.gen}代目で借金を引き継いでいない`);
+        if (h.debt > 0) heirDebts++;
         check(child, `${seed}#${h.gen}`);
         const back = (() => { const d = decodeResult(encodeResult(child)); return d && replayCode(d); })();
         if (!back || back.summary().finalBalance !== child.summary().finalBalance || back.heir?.gen !== h.gen) problems.push(`${seed}: ${h.gen}代目をURLから再現できない`);
@@ -113,7 +116,7 @@ if (MODE !== "j") {
 const t1 = Date.now();
 const c = cohort();
 console.log(`比較集団 ${c.income.length}人 ${Date.now() - t1}ms / 例: 中央値の順位 ${(rankOf(c.income, q(incomes, 0.5)) * 100).toFixed(0)}%`);
-console.log(`子どもに生まれ直した人生 ${heirLives}人（2・3代目）`);
+console.log(`子どもに生まれ直した人生 ${heirLives}人（2・3代目）、うち借金を引き継いだ ${heirDebts}人`);
 if (process.argv.includes("--options")) console.log([...optionHits.entries()].sort().map(([k, v]) => `${k}=${v}`).join("  "));
 if (process.argv.includes("--sample")) {
   const l = autoplay("sample-1");

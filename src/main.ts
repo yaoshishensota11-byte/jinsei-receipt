@@ -350,7 +350,7 @@ function heirBlock(life: Life): string {
   if (!life.kids.length) return "";
   if (gen >= MAX_GEN) return `<p class="heir-end">${MAX_GEN}代の家系は、ここでおしまいです。</p>`;
   const estate = estateFor(life);
-  const money = estate > 0 ? `受け継ぐお金 約${life.D.fmt(estate)}` : "受け継ぐお金はなし（借金は引き継がない）";
+  const money = estate > 0 ? `受け継ぐお金 約${life.D.fmt(estate)}` : estate < 0 ? `受け継ぐ借金 約${life.D.fmt(-estate)}` : "受け継ぐお金はなし";
   const kids = life.kids
     .map((k, i) => {
       const nth = ["第一子", "第二子", "第三子", "第四子", "第五子"][i] ?? "子ども";
@@ -360,7 +360,7 @@ function heirBlock(life: Life): string {
     .join("");
   return `<div class="heir">
     <h3>子どもとして、生まれ直す</h3>
-    <p>あなたが残したお金や家を受け継いで、${gen + 1}代目の人生を生きます。家庭の収入は、あなたの稼ぎで決まります。</p>
+    <p>あなたが残したお金や家を受け継いで、${gen + 1}代目の人生を生きます。借金も引き継ぎます。家庭の収入は、あなたの稼ぎで決まります。</p>
     ${kids}
   </div>`;
 }

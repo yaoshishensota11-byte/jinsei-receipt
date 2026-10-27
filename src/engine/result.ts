@@ -95,7 +95,7 @@ export function childOf(l: Life, idx: number): Life {
   const hh = rec ? (rec.income.salary ?? 0) + (rec.income.partner ?? 0) : 0;
   const bands = l.D.household.incomeBandsWithChildren;
   const band = bands.find((b) => hh >= b.min && hh < b.max) ?? (hh < bands[0].min ? bands[0] : bands[bands.length - 1]);
-  // 遺産：最後に残したお金（家を含む）を子どもの数で分ける。借金は引き継がない
+  // 遺産：最後に残したお金（家を含む）を子どもの数で分ける。借金も相続放棄せず、子どもの数で分けて引き継ぐ
   const n = Math.max(1, l.kids.length);
   const total = l.balance;
   const home = Math.max(0, Math.min(l.homeValue, total));
@@ -119,16 +119,17 @@ export function childOf(l: Life, idx: number): Life {
     otherSafeUntil: together ? l.age - k.born + 1 : 0,
     sibs: l.kids.map((o, j) => ({ sex: (kidFemale(l.seed, j) ? "female" : "male") as "female" | "male", born: o.born - k.born })).filter((_, j) => j !== idx),
     estate: Math.max(0, total - home) / n,
-    debt: total < 0,
+    debt: Math.max(0, -total) / n,
     homeShare: home / n,
+    hadHome: l.homeValue > 0,
     lineage,
   };
   return new Life(`${l.seed}k${idx}`, l.D, l.mode, l.birthYear + k.born, h);
 }
 
-/** 子どもとして生まれ直したとき、受け継ぐお金の目安（家を含む。現地通貨） */
+/** 子どもとして生まれ直したとき、受け継ぐお金の目安（家を含む。借金ならマイナス。現地通貨） */
 export function estateFor(l: Life): number {
-  return Math.max(0, l.balance) / Math.max(1, l.kids.length);
+  return l.balance / Math.max(1, l.kids.length);
 }
 
 /** URLの版が今より古いか（ゲームの内容が変わり、同じ人生を再現できなくなったもの） */
@@ -255,7 +256,7 @@ export function buildReceipt(l: Life): ReceiptData {
     { label: "本人の稼ぎ", amount: Math.round(s.incomeTotal.salary ?? 0) },
     { label: "パートナーの稼ぎ", amount: Math.round(s.incomeTotal.partner ?? 0) },
     { label: "年金・退職金", amount: Math.round(s.incomeTotal.pension ?? 0) },
-    { label: "親から受け継いだお金", amount: Math.round(l.inherited) },
+    { label: l.inherited < 0 ? "親から受け継いだ借金" : "親から受け継いだお金", amount: Math.round(l.inherited) },
     { label: "手当・相続・臨時", amount: Math.round((s.incomeTotal.windfall ?? 0) - l.inherited) },
     { label: "運用損益", amount: inv },
   ].filter((d) => Math.abs(l.D.toJpy(d.amount)) >= 10_000);

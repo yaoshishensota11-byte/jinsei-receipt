@@ -78,12 +78,14 @@ export interface Heritage {
   /** もう一人の親は、この年齢までは亡くならない（前の代のあなたが亡くなったとき、まだ生きていた） */
   otherSafeUntil: number;
   sibs: { sex: Sex; born: number }[];
-  /** 受け継ぐお金（家を除く。借金は引き継がない） */
+  /** 受け継ぐお金（家を除く） */
   estate: number;
-  /** 前の代のあなたが借金を残した（相続しない） */
-  debt: boolean;
+  /** 受け継ぐ借金（前の代のあなたが借金を残したとき。相続放棄はせず、子どもの数で分けて引き継ぐ） */
+  debt: number;
   /** 実家のうち自分の分の価値 */
   homeShare: number;
+  /** 前の代のあなたは家を持っていた */
+  hadHome: boolean;
   /** これまでの代（古い順） */
   lineage: LineageEntry[];
 }
@@ -1142,7 +1144,11 @@ export class Life {
       this.inherited += h.estate;
       this.log("money", `${h.gen - 1}代目のあなたが残したお金を相続した。`, h.estate, true);
     }
-    if (h.debt) this.log("money", "親が残した借金は、相続しなかった（相続放棄）。", undefined, true);
+    if (h.debt > 0) {
+      this.addIncome("windfall", -h.debt);
+      this.inherited -= h.debt;
+      this.log("money", h.homeShare === 0 && h.hadHome ? "実家を売っても返しきれず、親が残した借金を引き継いだ。" : "親が残した借金を引き継いだ。", -h.debt, true);
+    }
     if (h.homeShare > 0) {
       if (this.home === "parents") {
         this.home = "own";
