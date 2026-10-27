@@ -8,7 +8,7 @@ const ROWS = 32; // 帯の高さ（マス）
 const GROUND = 29; // 地面の行
 
 type Stage = "baby" | "kid" | "teen" | "adult" | "elder";
-type Outfit = "onesie" | "kid" | "uniform" | "suit" | "work" | "apron" | "casual" | "hoodie" | "cardigan" | "dress";
+type Outfit = "onesie" | "kid" | "uniform" | "suit" | "work" | "apron" | "casual" | "hoodie" | "cardigan" | "dress" | "kimono" | "hakama";
 type Mood = "neutral" | "smile" | "joy" | "sad";
 
 interface Person {
@@ -20,6 +20,12 @@ interface Person {
   hair: string;
   shirt: string;
   self?: boolean;
+  /** 幼稚園・保育園の黄色い帽子 */
+  hat?: boolean;
+  /** ランドセルの色 */
+  bag?: string;
+  /** よちよち歩き */
+  toddle?: boolean;
 }
 
 const INK = "#2b2620";
@@ -49,13 +55,33 @@ function pick<T>(arr: T[], key: string): T {
 /** その年の出来事から、表情を決める */
 export function moodOf(events: LifeEvent[]): Mood {
   const t = events.map((e) => e.text).join("\n");
-  if (/亡くなった|入院|がん|病気|失業|解雇|災害|浸水|避難|盗|離婚|暴力|跳ね上がり|上昇率|別れた|寝込んだ/.test(t)) return "sad";
-  if (/結婚|生まれた|合格|入学|昇進|昇給|当選|当たった|卒業|付き合いはじめ|一人立ち|独立|家を買った/.test(t)) return "joy";
+  if (/亡くなった|入院|がん|病気|失業|解雇|災害|浸水|避難|盗|離婚|暴力|跳ね上がり|上昇率|別れた|寝込んだ|熱を出して|大泣き/.test(t)) return "sad";
+  if (/結婚|生まれた|合格|入学|昇進|昇給|当選|当たった|卒業|付き合いはじめ|一人立ち|独立|家を買った|笑う|笑った|歩いた|歩けた|歩き出|七五三|ランドセル|誕生日|乗れるよう/.test(t)) return "joy";
   return events.length ? "smile" : "neutral";
 }
 
 /** その年だけの特別な場面 */
 export type Special = "" | "hospital" | "wedding" | "disaster" | "lucky";
+
+/** 小さいころの出来事に合わせた見た目 */
+interface Early {
+  toddle: boolean;
+  kimono: boolean;
+  hakama: boolean;
+  randoseru: boolean;
+  kinder: boolean;
+}
+
+function earlyOf(events: LifeEvent[]): Early {
+  const t = events.map((e) => e.text).join("\n");
+  return {
+    toddle: /歩いた|歩けた|歩き出/.test(t),
+    kimono: /着物/.test(t),
+    hakama: /はかま/.test(t),
+    randoseru: /ランドセル/.test(t),
+    kinder: /幼稚園|保育園/.test(t),
+  };
+}
 
 export function specialOf(events: LifeEvent[]): Special {
   const t = events.map((e) => e.text).join("\n");
@@ -151,7 +177,7 @@ function drawPerson(px: Px, p: Person, x: number, bob: number): void {
   const h = s.head + s.body + s.legs;
   const jump = p.mood === "joy" ? bob * 2 : 0;
   const top = GROUND - h - jump + (p.mood === "joy" ? 0 : bob);
-  const cx = x + 2; // 体の左端
+  const cx = x + 2 + (p.toddle ? (bob ? 1 : -1) : 0); // 体の左端（よちよち歩きは左右に揺れる）
   const pants = p.outfit === "suit" ? "#2f3440" : p.outfit === "work" ? "#3d5a80" : p.outfit === "uniform" ? (p.female ? "#2c3e66" : "#1f2533") : "#4a4f5a";
   let shirt = p.shirt;
   if (p.outfit === "suit") shirt = "#2f3440";
@@ -160,6 +186,8 @@ function drawPerson(px: Px, p: Person, x: number, bob: number): void {
   if (p.outfit === "cardigan") shirt = "#b49a76";
   if (p.outfit === "onesie") shirt = "#f1c6d3";
   if (p.outfit === "dress") shirt = "#fbfaf6";
+  if (p.outfit === "kimono") shirt = "#d9534f";
+  if (p.outfit === "hakama") shirt = "#2b2620";
 
   // 脚
   const legY = top + s.head + s.body;
@@ -177,11 +205,22 @@ function drawPerson(px: Px, p: Person, x: number, bob: number): void {
     }
     px(cx, legY + s.legs - 1, lw + 1, 1, INK);
     px(cx + s.w - 1 - lw, legY + s.legs - 1, lw + 1, 1, INK);
+    if (p.outfit === "kimono") px(cx, legY, s.w, s.legs - 1, shirt);
+    if (p.outfit === "hakama") {
+      px(cx, legY, s.w, s.legs - 1, "#8a8f99");
+      for (let i = 1; i < s.w; i += 2) px(cx + i, legY, 1, s.legs - 1, "#6f7480");
+    }
   }
   // 胴と腕
   const bodyY = top + s.head;
+  if (p.bag) {
+    px(cx - 3, bodyY, 3, s.body + 1, p.bag);
+    px(cx - 3, bodyY, 3, 1, "#00000033");
+  }
   px(cx, bodyY, s.w, s.body, shirt);
-  const armDown = p.mood === "joy" ? -2 : 0;
+  if (p.outfit === "kimono") px(cx, bodyY + Math.floor(s.body / 2), s.w, 2, "#e8c547"); // 帯
+  if (p.outfit === "hakama") px(cx + 1, bodyY, s.w - 2, 1, "#f4f2ec"); // 白いえり
+  const armDown = p.mood === "joy" || p.toddle ? -2 : 0;
   px(cx - 1, bodyY + 1 + armDown, 1, s.body - 2, shirt);
   px(cx + s.w, bodyY + 1 + armDown, 1, s.body - 2, shirt);
   px(cx - 1, bodyY + s.body - 1 + armDown, 1, 1, p.skin);
@@ -212,6 +251,10 @@ function drawPerson(px: Px, p: Person, x: number, bob: number): void {
     px(hx + s.head, top + 2, 1, 2, p.hair);
   }
   if (p.outfit === "work") px(hx - 1, top - 2, s.head + 2, 2, "#e8c547"); // ヘルメット
+  if (p.hat) {
+    px(hx - 1, top - 2, s.head + 2, 2, "#f2c94c"); // 幼稚園・保育園の黄色い帽子
+    px(hx - 2, top, s.head + 4, 1, "#e0b43a");
+  }
   if (p.outfit === "dress") {
     // ドレスの裾とベール
     px(cx - 1, legY, s.w + 2, s.legs - 1, "#fbfaf6");
@@ -338,6 +381,7 @@ export class LifeScene {
   private life: Life | null = null;
   private mood: Mood = "neutral";
   private special: Special = "";
+  private early: Early = earlyOf([]);
   private age = 0;
   private still = typeof matchMedia === "function" && matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -355,6 +399,7 @@ export class LifeScene {
     this.age = age;
     this.mood = moodOf(events);
     this.special = specialOf(events);
+    this.early = earlyOf(events);
     this.draw();
   }
 
@@ -391,6 +436,18 @@ export class LifeScene {
     drawWeather(px, cols, sp, this.frame);
     const people = cast(l, this.mood, this.age);
     const me = people.find((p) => p.self)!;
+    // 小さいころの出来事に合わせた見た目
+    const e = this.early;
+    if (this.age <= 6) {
+      if (e.toddle) {
+        me.toddle = true;
+        if (me.stage === "baby") me.stage = "kid";
+      }
+      if (e.kimono) me.outfit = "kimono";
+      if (e.hakama) me.outfit = "hakama";
+      if (e.kinder) me.hat = true;
+      if (e.randoseru) me.bag = me.female ? "#c8302c" : "#2b2620";
+    }
     // 結婚の年：花嫁は白いドレス、花婿はスーツ。上にハート
     if (sp === "wedding") {
       // 並びは「親、自分、相手、子ども」なので、相手は自分のすぐ右
