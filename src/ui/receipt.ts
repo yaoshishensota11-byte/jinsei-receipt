@@ -296,6 +296,15 @@ function layout(p: Pen, d: ReceiptData): void {
     p.y += 16;
     yenNote(d.deposit);
   }
+  // 短いレシートでも、親から受け継いだお金だけは見せる（子どもに生まれ直した人）
+  const fromParent = d.depositLines.find((l) => l.label === "親から受け継いだお金");
+  if (c && fromParent) {
+    p.y += 16;
+    if (p.draw) {
+      text(p, "　うち親から受け継いだお金", PAD + 8, 11, { color: GRAY });
+      text(p, money(fromParent.amount), W - PAD, 11, { color: GRAY, align: "right" });
+    }
+  }
   for (const l of c ? [] : d.depositLines) {
     p.y += 16;
     if (p.draw) {
@@ -409,7 +418,7 @@ export function drawReceipt(canvas: HTMLCanvasElement, d: ReceiptData, compact =
 }
 
 // レシートに書く決まった文字（数字・記号を含む）
-const FIXED_TEXT = "代目家系のレシート稼ぎ／残したお金男性女性第一二三四五子その他（項目）〜人生商店LIFE STORE ─ 本日も一度きりの営業です来店閉店お客様No.小計お預かりお釣り約万円億（今日の為替で換算）同い年人の中で生涯収入上位%生涯で稼いだお金#人生のレシート—…　└¥0123456789,.-";
+const FIXED_TEXT = "うち親から受け継いだ代目家系のレシート稼ぎ／残したお金男性女性第一二三四五子その他（項目）〜人生商店LIFE STORE ─ 本日も一度きりの営業です来店閉店お客様No.小計お預かりお釣り約万円億（今日の為替で換算）同い年人の中で生涯収入上位%生涯で稼いだお金#人生のレシート—…　└¥0123456789,.-";
 
 /**
  * レシートで使う文字のフォントを、描く前に読み込む。

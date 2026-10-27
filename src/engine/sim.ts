@@ -1756,7 +1756,15 @@ export function buildChoice(l: Life, id: ChoiceId): Choice {
     case "parentCare": {
       title = "親の介護への向き合い方";
       const alive = l.parents.some((x) => x.alive);
-      if (!alive) {
+      if (!alive && l.heir) {
+        // 子どもに生まれ直した人は、親の家とお金の整理を、親が亡くなった年に済ませている
+        situation = "両親はすでに他界している。親が残したものの整理は、亡くなったときに済ませた。これから、自分の老後にどう備える？";
+        options.push(
+          opt("saveMore", "老後に向けて貯金を増やす", "暮らしを少し切りつめる。残せるお金は増える。"),
+          opt("enjoyNow", "今の暮らしを楽しむ", "旅行や趣味にお金を使う。残るお金は減る。"),
+          ...(l.kids.length ? [opt("helpKids", "子どもの暮らしを手伝う", "まとまったお金を子どもに渡す。自分の手元は減る。")] : []),
+        );
+      } else if (!alive) {
         situation = "両親はすでに他界している。実家が空き家のまま残っている。";
         options.push(
           opt("sellHouse", "実家を売る", "まとまったお金になるかもしれない。地域によっては買い手がつかない。"),
@@ -2039,7 +2047,17 @@ function applyChoice(l: Life, id: ChoiceId, o: string, r: Rng): void {
       break;
     }
     case "parentCare": {
-      if (o === "sellHouse") {
+      if (o === "saveMore") {
+        l.thrift *= 0.92;
+        l.logPre("money", "老後に向けて、暮らしを少し切りつめることにした。");
+      } else if (o === "enjoyNow") {
+        l.thrift *= 1.06;
+        l.logPre("life", "旅行や趣味に、お金を使うようにした。");
+      } else if (o === "helpKids") {
+        const gift = l.y(2_000_000);
+        l.spend("kids", gift);
+        l.logPre("family", "子どもの住まいの頭金を援助した。", -gift, true);
+      } else if (o === "sellHouse") {
         const v = l.region.id === "tokyo" ? r.range(l.y(10_000_000), l.y(40_000_000)) : l.region.id === "rural" ? (r.chance(0.4) ? 0 : r.range(l.y(1_000_000), l.y(6_000_000))) : r.range(l.y(3_000_000), l.y(15_000_000));
         const share = v / (l.siblings + 1);
         l.addIncome("windfall", share);
