@@ -337,7 +337,8 @@ async function showResult(life: Life): Promise<void> {
   const url = detailUrl(life, location.origin + location.pathname.replace(/\/[^/]*$/, ""));
   const root = h(`<div class="result">
     <h2>お会計が済みました</h2>
-    <canvas id="rc"></canvas>
+    <button class="rc-wrap" id="rc-open" aria-label="レシートを大きく見る"><canvas id="rc"></canvas></button>
+    <p class="rc-hint">タップすると、内訳つきのレシートを大きく見られます</p>
     <div class="row2">
       <button class="btn sub" id="png">PNGで保存</button>
       <a class="btn sub" id="x" href="${esc(shareIntentUrl(url, data))}" target="_blank" rel="noopener">Xで共有</a>
@@ -347,9 +348,20 @@ async function showResult(life: Life): Promise<void> {
   </div>`);
   app.innerHTML = "";
   app.append(root);
+  // 画面には短いレシートを1画面に収めて出す。保存・拡大は内訳つきの長いレシート
   const cv = root.querySelector<HTMLCanvasElement>("#rc")!;
-  await showReceipt(cv, data);
-  root.querySelector<HTMLElement>("#png")!.onclick = () => downloadReceipt(cv, `jinsei-receipt-${life.seed}.png`);
+  const full = document.createElement("canvas");
+  full.className = "rc-full";
+  await Promise.all([showReceipt(cv, data, true), showReceipt(full, data)]);
+  root.querySelector<HTMLElement>("#png")!.onclick = () => downloadReceipt(full, `jinsei-receipt-${life.seed}.png`);
+  root.querySelector<HTMLElement>("#rc-open")!.onclick = () => {
+    const z = h(`<div class="rc-zoom" role="dialog" aria-label="レシート"><button class="rc-close" aria-label="閉じる">閉じる</button></div>`);
+    z.append(full);
+    z.onclick = (e) => {
+      if (e.target === z || (e.target as HTMLElement).classList.contains("rc-close")) z.remove();
+    };
+    document.body.append(z);
+  };
   root.querySelector<HTMLElement>("#again")!.onclick = () => showTitle();
   (window as unknown as { __result: unknown }).__result = { url, data };
   window.scrollTo(0, 0);

@@ -65,6 +65,8 @@ interface Pen {
   draw: boolean;
   y: number;
   changeY: number;
+  /** 画面用の短いレシート（費目の説明や内訳を省く）。保存する画像は省かない */
+  compact?: boolean;
 }
 
 function text(p: Pen, s: string, x: number, size: number, opts: { bold?: boolean; align?: CanvasTextAlign; color?: string; maxW?: number } = {}): void {
@@ -134,8 +136,7 @@ function rankBar(p: Pen, label: string, rank: number): void {
   }
 }
 
-function barcode(p: Pen, code: string): void {
-  const h = 46;
+function barcode(p: Pen, code: string, h = 46): void {
   const top = p.y + 14;
   if (p.draw) {
     const { ctx } = p;
@@ -223,20 +224,29 @@ function stamp(ctx: CanvasRenderingContext2D, d: ReceiptData, cx: number, cy: nu
   ctx.restore();
 }
 
+/** 短いレシートで出す費目の数。残りは「その他」にまとめる */
+const COMPACT_ITEMS = 7;
+
 function layout(p: Pen, d: ReceiptData): void {
-  p.y = TOOTH + 34;
+  const c = !!p.compact;
+  p.y = TOOTH + (c ? 14 : 34);
   // 店名
-  p.y += 34;
-  text(p, "人生商店", W / 2, 38, { bold: true, align: "center" });
-  p.y += 22;
+  p.y += c ? 30 : 34;
+  text(p, "人生商店", W / 2, c ? 32 : 38, { bold: true, align: "center" });
+  p.y += c ? 18 : 22;
   text(p, "LIFE STORE ─ 本日も一度きりの営業です", W / 2, 11, { align: "center", color: GRAY });
   rule(p);
-  const info: [string, string][] = [
-    ["来店", d.visitDate],
-    ["閉店", d.closeDate],
-    ["お客様", d.customer],
-    ["No.", d.receiptNo],
-  ];
+  const info: [string, string][] = c
+    ? [
+        ["来店", `${d.visitDate} 〜 ${d.closeDate}`],
+        ["お客様", d.customer],
+      ]
+    : [
+        ["来店", d.visitDate],
+        ["閉店", d.closeDate],
+        ["お客様", d.customer],
+        ["No.", d.receiptNo],
+      ];
   for (const [k, v] of info) {
     p.y += 19;
     text(p, k, PAD, 13, { color: GRAY });
@@ -252,7 +262,17 @@ function layout(p: Pen, d: ReceiptData): void {
     if (jp || !p.draw) return;
     text(p, approxYen(amount * d.currency.jpyPerUnit), W - PAD, 11, { color: GRAY, align: "right" });
   };
-  for (const it of d.items) {
+  let items = d.items;
+  if (c && items.length > COMPACT_ITEMS + 1) {
+    const rest = items.slice(COMPACT_ITEMS);
+    items = [...items.slice(0, COMPACT_ITEMS), { ...rest[0], label: `その他（${rest.length}項目）`, amount: rest.reduce((t, i) => t + i.amount, 0), memo: "" }];
+  }
+  for (const it of items) {
+    if (c) {
+      row(p, it.label, money(it.amount), 15);
+      p.y += 2;
+      continue;
+    }
     row(p, it.label, money(it.amount), 15);
     const memo = it.memo && it.memo !== "—";
     if (memo || !jp) {
@@ -274,7 +294,7 @@ function layout(p: Pen, d: ReceiptData): void {
     p.y += 16;
     yenNote(d.deposit);
   }
-  for (const l of d.depositLines) {
+  for (const l of c ? [] : d.depositLines) {
     p.y += 16;
     if (p.draw) {
       text(p, "　" + l.label, PAD + 8, 11, { color: GRAY });
@@ -289,8 +309,8 @@ function layout(p: Pen, d: ReceiptData): void {
     p.y += 20;
     // はんこと重ならないよう左に寄せる
     text(p, `${approxYen(d.change * d.currency.jpyPerUnit)}（今日の為替で換算）`, PAD, 11, { color: GRAY });
-    p.y += 44;
-  } else p.y += 64; // はんこの置き場
+    p.y += c ? 36 : 44;
+  } else p.y += c ? 50 : 64; // はんこの置き場
   rule(p);
   p.y += 22;
   text(p, jp ? `同い年${d.cohortSize}人の中で` : `${d.countryName}の同い年${d.cohortSize}人の中で`, PAD, 13, { color: GRAY });
@@ -305,12 +325,14 @@ function layout(p: Pen, d: ReceiptData): void {
   rule(p);
   p.y += 24;
   text(p, d.deathLine, W / 2, 14, { bold: true, align: "center", maxW: W - PAD * 2 });
-  p.y += 30;
-  text(p, d.closing, W / 2, 13, { align: "center", maxW: W - PAD * 2 });
-  barcode(p, d.receiptNo);
+  if (!c) {
+    p.y += 30;
+    text(p, d.closing, W / 2, 13, { align: "center", maxW: W - PAD * 2 });
+  }
+  barcode(p, d.receiptNo, c ? 28 : 46);
   p.y += 24;
   text(p, "#人生のレシート", W / 2, 13, { bold: true, align: "center" });
-  p.y += 30 + TOOTH;
+  p.y += (c ? 20 : 30) + TOOTH;
 }
 
 function paperPath(ctx: CanvasRenderingContext2D, H: number): void {
@@ -330,11 +352,11 @@ function paperPath(ctx: CanvasRenderingContext2D, H: number): void {
   ctx.closePath();
 }
 
-export function drawReceipt(canvas: HTMLCanvasElement, d: ReceiptData): void {
+export function drawReceipt(canvas: HTMLCanvasElement, d: ReceiptData, compact = false): void {
   const dpr = Math.max(2, Math.ceil(window.devicePixelRatio || 1));
   const mctx = canvas.getContext("2d");
   if (!mctx) return;
-  const measure: Pen = { ctx: mctx, draw: false, y: 0, changeY: 0 };
+  const measure: Pen = { ctx: mctx, draw: false, y: 0, changeY: 0, compact };
   layout(measure, d);
   const H = Math.ceil(measure.y);
 
@@ -364,14 +386,14 @@ export function drawReceipt(canvas: HTMLCanvasElement, d: ReceiptData): void {
   ctx.fillStyle = g;
   ctx.fillRect(0, 0, W, H);
 
-  const pen: Pen = { ctx, draw: true, y: 0, changeY: 0 };
+  const pen: Pen = { ctx, draw: true, y: 0, changeY: 0, compact };
   layout(pen, d);
   stamp(ctx, d, W - PAD - 62, pen.changeY + 36);
   ctx.restore();
 }
 
 // レシートに書く決まった文字（数字・記号を含む）
-const FIXED_TEXT = "人生商店LIFE STORE ─ 本日も一度きりの営業です来店閉店お客様No.小計お預かりお釣り約万円億（今日の為替で換算）同い年人の中で生涯収入上位%生涯で稼いだお金#人生のレシート—…　└¥0123456789,.-";
+const FIXED_TEXT = "その他（項目）〜人生商店LIFE STORE ─ 本日も一度きりの営業です来店閉店お客様No.小計お預かりお釣り約万円億（今日の為替で換算）同い年人の中で生涯収入上位%生涯で稼いだお金#人生のレシート—…　└¥0123456789,.-";
 
 /**
  * レシートで使う文字のフォントを、描く前に読み込む。
@@ -387,13 +409,13 @@ export async function loadReceiptFonts(d: ReceiptData, timeoutMs = 4000): Promis
 }
 
 /** フォントを読み込んでから描く。間に合わなかった文字があれば、読み込み終わったときに描き直す */
-export async function showReceipt(canvas: HTMLCanvasElement, d: ReceiptData): Promise<void> {
+export async function showReceipt(canvas: HTMLCanvasElement, d: ReceiptData, compact = false): Promise<void> {
   await loadReceiptFonts(d);
-  drawReceipt(canvas, d);
+  drawReceipt(canvas, d, compact);
   const f = typeof document !== "undefined" ? document.fonts : undefined;
   if (f && f.status === "loading") {
     const redraw = () => {
-      drawReceipt(canvas, d);
+      drawReceipt(canvas, d, compact);
       if (f.status !== "loading") f.removeEventListener("loadingdone", redraw);
     };
     f.addEventListener("loadingdone", redraw);

@@ -482,11 +482,59 @@ button {
   color: var(--sub);
   font-weight: 400;
 }
-.result canvas {
-  width: 100%;
-  height: auto;
+.result canvas,
+.rc-zoom canvas {
   display: block;
   filter: drop-shadow(0 8px 18px rgba(60, 50, 30, 0.15));
+}
+/* 画面のレシート：見出しとヒントを除いた高さに収まるよう縮める */
+.rc-wrap {
+  display: block;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: zoom-in;
+}
+.result #rc {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: calc(100svh - 112px - var(--safe-b));
+  margin: 0 auto;
+}
+.rc-hint {
+  margin: -2px 0 2px;
+  text-align: center;
+  font-size: 12px;
+  color: var(--sub);
+}
+/* 拡大表示：内訳つきの長いレシートを、指でスクロールして読む */
+.rc-zoom {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  overflow-y: auto;
+  background: rgba(30, 26, 20, 0.72);
+  padding: 56px 12px calc(32px + var(--safe-b));
+}
+.rc-zoom canvas {
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+  margin: 0 auto;
+}
+.rc-close {
+  position: fixed;
+  top: calc(10px + env(safe-area-inset-top, 0px));
+  right: 12px;
+  z-index: 51;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 700;
 }
 .result .row2 {
   display: grid;
