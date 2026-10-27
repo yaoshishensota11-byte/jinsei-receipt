@@ -1,4 +1,4 @@
-// 新しい紹介ページ（public/lp-new/）に載せる画像を、いまのゲームから作る。
+// 紹介ページ（public/lp/）に載せる画像を、いまのゲームから作る。
 // 使い方: npx vite --port 5199 & node scripts/lpassets.mjs
 // 作るもの:
 //   img/s-*.webp     ゲーム画面（タイトル・誕生・プレイ中・選択・レシート）
@@ -10,7 +10,7 @@ import { execFileSync } from "node:child_process";
 import { mkdirSync, writeFileSync } from "node:fs";
 
 const BASE = "http://localhost:5199";
-const OUT = "public/lp-new/img";
+const OUT = "public/lp/img";
 mkdirSync(OUT, { recursive: true });
 const b = await chromium.launch();
 

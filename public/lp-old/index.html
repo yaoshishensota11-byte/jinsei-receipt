@@ -1,0 +1,505 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="robots" content="noindex" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>人生のレシート｜生まれた国で、一生のお金はどれだけ変わる？</title>
+    <meta name="description" content="生まれる国と家庭はランダム。公的な統計データをもとに、一生ぶんのお金の流れを約10分で体験するブラウザゲーム。無料・登録なし。" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="人生のレシート" />
+    <meta property="og:description" content="同じ一生でも、生まれた国で稼げるお金はどれだけ違う？ 統計データで、一生ぶんのお金を体験する。" />
+    <meta property="og:image" content="https://tomo-project-ivory.vercel.app/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://tomo-project-ivory.vercel.app/og.png" />
+    <meta name="theme-color" content="#ffffff" />
+    <style>
+      :root {
+        --bg: #ffffff;
+        --soft: #f5f5f7;
+        --ink: #1d1d1f;
+        --sub: #6e6e73;
+        --line: #d2d2d7;
+        --accent: #c8302c;
+        --shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #000000;
+          --soft: #1c1c1e;
+          --ink: #f5f5f7;
+          --sub: #a1a1a6;
+          --line: #3a3a3c;
+          --accent: #ff5a4f;
+          --shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+        }
+      }
+      * { box-sizing: border-box; }
+      [hidden] { display: none !important; }
+      html { -webkit-text-size-adjust: 100%; }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Noto Sans JP", sans-serif;
+        font-size: 17px;
+        line-height: 1.7;
+        font-weight: 400;
+      }
+      a { color: var(--accent); }
+      .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+      section { padding: 96px 0; }
+      section.soft { background: var(--soft); }
+      h1, h2, h3 { font-weight: 700; margin: 0; letter-spacing: -0.015em; line-height: 1.25; }
+      h1 { font-size: clamp(34px, 7vw, 64px); }
+      h2 { font-size: clamp(28px, 5vw, 48px); }
+      h3 { font-size: 21px; letter-spacing: 0; }
+      p { margin: 0; }
+      /* 見出しは言葉の切れ目でだけ改行する */
+      .nw { display: inline-block; }
+      .lead { font-size: 19px; color: var(--sub); max-width: 36em; }
+      .eyebrow { font-size: 15px; font-weight: 700; color: var(--sub); margin-bottom: 16px; display: flex; align-items: center; gap: 12px; }
+      .eyebrow img { width: 40px; height: 40px; border-radius: 10px; }
+
+      /* ボタン */
+      .cta { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 56px; padding: 0 32px; border-radius: 999px;
+        background: var(--accent); color: #fff; font-size: 19px; font-weight: 700; text-decoration: none; transition: transform 0.25s ease-out, opacity 0.25s ease-out; }
+      .cta:hover { opacity: 0.9; }
+      .cta:active { transform: scale(0.98); }
+      .cta svg { width: 20px; height: 20px; }
+      .note { margin-top: 16px; font-size: 14px; color: var(--sub); }
+
+      /* スマホの画面 */
+      .phone { width: 100%; max-width: 300px; border-radius: 32px; overflow: hidden; box-shadow: var(--shadow); background: #f3efe6; }
+      .phone img { display: block; width: 100%; height: auto; }
+
+      /* はじめの画面 */
+      .hero { padding: 64px 0 96px; }
+      .hero .grid { display: grid; gap: 48px; align-items: center; }
+      .hero h1 { margin-bottom: 24px; }
+      .hero .lead { margin-bottom: 32px; }
+      .hero .phone { margin: 0 auto; }
+
+      /* 遊び方 */
+      .steps { list-style: none; padding: 0; margin: 48px 0 0; display: grid; gap: 48px; }
+      .step { display: grid; gap: 24px; align-items: center; }
+      .step .num { font-size: 15px; font-weight: 700; color: var(--sub); margin-bottom: 8px; }
+      .step h3 { margin-bottom: 8px; }
+      .step p { color: var(--sub); }
+
+      /* 国ごとの差 */
+      .bars { margin-top: 48px; display: grid; gap: 16px; max-width: 720px; }
+      .bar { display: grid; grid-template-columns: 7.5em 1fr; gap: 16px; align-items: center; }
+      .bar .name { font-size: 16px; }
+      .bar .track { position: relative; height: 32px; }
+      .bar .fill { height: 100%; border-radius: 8px; background: var(--ink); opacity: 0.85; min-width: 4px; }
+      .bar.jp .fill { opacity: 1; }
+      .bar .val { position: absolute; top: 50%; transform: translateY(-50%); font-size: 15px; font-weight: 700; white-space: nowrap; }
+      .caption { margin-top: 24px; font-size: 14px; color: var(--sub); max-width: 40em; }
+
+      /* レシート */
+      .receipt { display: grid; gap: 48px; align-items: center; }
+      .receipt img { width: 100%; max-width: 340px; display: block; margin: 0 auto; border-radius: 12px; box-shadow: var(--shadow); }
+      .points { list-style: none; padding: 0; margin: 32px 0 0; display: grid; gap: 16px; }
+      .points li { padding-left: 20px; position: relative; color: var(--sub); }
+      .points li::before { content: ""; position: absolute; left: 0; top: 0.75em; width: 8px; height: 2px; background: var(--ink); }
+      .points b { color: var(--ink); font-weight: 700; }
+
+      /* 授業で */
+      .school { display: grid; gap: 48px; margin-top: 48px; }
+      .school h3 { margin-bottom: 16px; }
+      .school dl { margin: 0; display: grid; gap: 16px; }
+      .school dt { font-weight: 700; }
+      .school dd { margin: 4px 0 0; color: var(--sub); }
+      .sources { margin-top: 16px; color: var(--sub); font-size: 15px; }
+
+      /* よくある質問 */
+      .faq { margin-top: 48px; max-width: 760px; }
+      .faq details { border-bottom: 1px solid var(--line); padding: 24px 0; }
+      .faq summary { cursor: pointer; font-weight: 700; font-size: 18px; list-style: none; display: flex; justify-content: space-between; gap: 16px; }
+      .faq summary::-webkit-details-marker { display: none; }
+      .faq summary::after { content: "+"; font-weight: 400; color: var(--sub); transition: transform 0.25s ease-out; }
+      .faq details[open] summary::after { transform: rotate(45deg); }
+      .faq p { margin-top: 16px; color: var(--sub); }
+
+      /* こんな人生 */
+      .lives { display: grid; grid-auto-flow: column; grid-auto-columns: min(78vw, 300px); gap: 24px; overflow-x: auto; --side: max(24px, calc((100vw - 1040px) / 2 + 24px)); scroll-snap-type: x mandatory; scroll-padding-inline: var(--side); padding: 48px var(--side) 16px; scrollbar-width: thin; }
+      .life { scroll-snap-align: start; display: grid; gap: 8px; align-content: start; color: inherit; text-decoration: none; }
+      .life img { width: 100%; height: auto; border-radius: 18px; background: #f3efe6; box-shadow: var(--shadow); display: block; margin-bottom: 8px; transition: transform 0.25s ease-out; }
+      .life:hover img { transform: translateY(-4px); }
+      .life .meta { font-size: 13px; color: var(--sub); }
+      .life .ttl { font-size: 18px; font-weight: 700; line-height: 1.4; }
+      .life .desc { font-size: 15px; color: var(--sub); }
+      .life .more { font-size: 15px; color: var(--accent); }
+
+      /* 言語の切り替え */
+      .topbar { display: flex; justify-content: flex-end; padding-top: 16px; }
+      .lang { display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; border-radius: 999px; background: var(--soft); color: var(--ink); font-size: 14px; cursor: pointer; }
+      .lang svg { width: 16px; height: 16px; flex: none; }
+      .lang select { appearance: none; -webkit-appearance: none; border: 0; background: transparent; color: inherit; font: inherit; cursor: pointer; padding: 0; }
+
+      /* ご意見 */
+      .fb { margin-top: 48px; max-width: 640px; display: grid; gap: 24px; }
+      .fb fieldset { border: 0; padding: 0; margin: 0; }
+      .fb legend, .fb label.t { font-weight: 700; font-size: 16px; margin-bottom: 12px; display: block; }
+      .fb .kinds { display: flex; flex-wrap: wrap; gap: 8px; }
+      .fb .kinds input { position: absolute; opacity: 0; pointer-events: none; }
+      .fb .kinds span { display: inline-block; padding: 10px 20px; border-radius: 999px; background: var(--soft); color: var(--ink); cursor: pointer; font-size: 15px; transition: background 0.2s ease-out, color 0.2s ease-out; }
+      .fb .kinds input:checked + span { background: var(--ink); color: var(--bg); }
+      .fb .kinds input:focus-visible + span { outline: 2px solid var(--accent); outline-offset: 2px; }
+      .fb textarea { width: 100%; min-height: 160px; padding: 16px; border-radius: 18px; border: 0; background: var(--soft); color: var(--ink); font: inherit; line-height: 1.7; resize: vertical; }
+      .fb textarea:focus { outline: 2px solid var(--accent); outline-offset: 0; }
+      .fb .row { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+      .fb button.cta { border: 0; cursor: pointer; font-family: inherit; }
+      .fb button.cta:disabled { opacity: 0.5; cursor: default; }
+      .fb .status { font-size: 15px; color: var(--sub); }
+      .fb .hint { font-size: 14px; color: var(--sub); }
+      .thanks { margin-top: 48px; max-width: 640px; padding: 32px; border-radius: 24px; background: var(--soft); }
+      .thanks h3 { margin-bottom: 8px; }
+      .thanks p { color: var(--sub); }
+      .thanks button { margin-top: 16px; background: none; border: 0; padding: 0; color: var(--accent); font: inherit; cursor: pointer; }
+
+      /* 最後 */
+      .final { text-align: center; }
+      .final h2 { margin-bottom: 32px; }
+      footer { padding: 48px 0 64px; font-size: 13px; color: var(--sub); border-top: 1px solid var(--line); }
+      footer .wrap { display: grid; gap: 8px; }
+
+      @media (min-width: 820px) {
+        .hero .grid { grid-template-columns: 1.2fr 1fr; }
+        .step { grid-template-columns: 1fr 1fr; gap: 64px; }
+        .step:nth-child(even) .text { order: 2; }
+        .receipt { grid-template-columns: 1fr 1fr; }
+        .school { grid-template-columns: 1fr 1fr; gap: 64px; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        * { transition: none !important; }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="wrap topbar">
+        <label class="lang" translate="no">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M3.6 9h16.8M3.6 15h16.8" /><path d="M11.5 3a17 17 0 0 0 0 18M12.5 3a17 17 0 0 1 0 18" /></svg>
+          <select id="langSel" aria-label="Language">
+            <option value="ja">日本語</option>
+            <option value="en">English</option>
+            <option value="zh-CN">简体中文</option>
+            <option value="es">Español</option>
+            <option value="pt">Português</option>
+            <option value="fr">Français</option>
+            <option value="hi">हिन्दी</option>
+            <option value="id">Bahasa Indonesia</option>
+          </select>
+        </label>
+      </div>
+      <section class="hero" style="padding-top: 32px">
+        <div class="wrap grid">
+          <div>
+            <div class="eyebrow"><img src="/icon-192.png" alt="" width="40" height="40" />人生のレシート</div>
+            <h1><span class="nw">同じ一生でも、</span><span class="nw">生まれた国で</span><span class="nw">稼げるお金は</span><span class="nw">どれだけ違う？</span></h1>
+            <p class="lead">生まれる国と家庭は、生まれるまで分かりません。公的な統計データをもとに、一生ぶんのお金の流れを約10分で体験するブラウザゲームです。</p>
+            <a class="cta" href="/">
+              生まれてみる
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="M13 18l6-6" /><path d="M13 6l6 6" /></svg>
+            </a>
+            <p class="note">無料・登録なし・スマホでそのまま遊べます</p>
+          </div>
+          <div class="phone"><img src="img/title.webp" alt="ゲームのタイトル画面。日本・主要20か国・世界から、生まれる場所を選ぶ" width="780" height="1688" /></div>
+        </div>
+      </section>
+
+      <section class="soft">
+        <div class="wrap">
+          <h2><span class="nw">生まれて、</span><span class="nw">選んで、</span><span class="nw">お会計。</span></h2>
+          <ol class="steps">
+            <li class="step">
+              <div class="text">
+                <div class="num">1</div>
+                <h3>生まれる場所を選ぶ</h3>
+                <p>「日本」「主要20か国」「世界」から選びます。世界を選ぶと、実際に生まれる赤ちゃんの数の割合で国が決まり、都市や農村、家庭の収入もそこで決まります。</p>
+              </div>
+              <div class="phone"><img src="img/play.webp" alt="インドの農村に生まれた人生の、33歳の画面。貯え、今年の収入と支出、家族の人数と出来事が並ぶ" width="780" height="1688" loading="lazy" /></div>
+            </li>
+            <li class="step">
+              <div class="text">
+                <div class="num">2</div>
+                <h3>分かれ道で選ぶ</h3>
+                <p>進学、最初の働き方、結婚と住まい、親の介護など、大きな分かれ道が8回。日々の小さな選択もたくさん出てきます。正解はありません。運と、その国の現実が重なっていきます。</p>
+              </div>
+              <div class="phone"><img src="img/choice.webp" alt="「最初の働き方」の選択。大企業・中小企業・公務員・非正規・フリーランスから選ぶ" width="780" height="1688" loading="lazy" /></div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section>
+        <div class="wrap">
+          <h2><span class="nw">生涯で稼ぐお金は、</span><span class="nw">生まれた国で</span><span class="nw">ここまで違う。</span></h2>
+          <div class="bars" role="img" aria-label="生涯で稼ぐお金の中央値。アメリカ3.88億円、ドイツ2.82億円、日本1.64億円、中国5,743万円、ブラジル4,447万円、インド912万円、ナイジェリア406万円、エチオピア382万円">
+            <div class="bar"><span class="name">アメリカ</span><div class="track"><div class="fill" style="width: 76%"></div><span class="val" style="left: calc(76% + 8px)">3.88億円</span></div></div>
+            <div class="bar"><span class="name">ドイツ</span><div class="track"><div class="fill" style="width: 55%"></div><span class="val" style="left: calc(55% + 8px)">2.82億円</span></div></div>
+            <div class="bar jp"><span class="name">日本</span><div class="track"><div class="fill" style="width: 32%"></div><span class="val" style="left: calc(32% + 8px)">1.64億円</span></div></div>
+            <div class="bar"><span class="name">中国</span><div class="track"><div class="fill" style="width: 11%"></div><span class="val" style="left: calc(11% + 8px)">5,743万円</span></div></div>
+            <div class="bar"><span class="name">ブラジル</span><div class="track"><div class="fill" style="width: 9%"></div><span class="val" style="left: calc(9% + 8px)">4,447万円</span></div></div>
+            <div class="bar"><span class="name">インド</span><div class="track"><div class="fill" style="width: 2%"></div><span class="val" style="left: calc(2% + 8px)">912万円</span></div></div>
+            <div class="bar"><span class="name">ナイジェリア</span><div class="track"><div class="fill" style="width: 1%"></div><span class="val" style="left: calc(1% + 8px)">406万円</span></div></div>
+            <div class="bar"><span class="name">エチオピア</span><div class="track"><div class="fill" style="width: 1%"></div><span class="val" style="left: calc(1% + 8px)">382万円</span></div></div>
+          </div>
+          <p class="caption">ゲームの中で各国400人の人生を動かしたときの、本人が生涯で稼いだお金の中央値です。現地通貨の金額を今の為替で円に直しています。物価が違うので、暮らしの豊かさをそのまま比べたものではありません。</p>
+        </div>
+      </section>
+
+      <section class="soft">
+        <div class="wrap receipt">
+          <div>
+            <h2><span class="nw">最後に、</span><span class="nw">人生のお会計を</span><span class="nw">どうぞ。</span></h2>
+            <ul class="points">
+              <li><b>1枚のレシートに。</b>住まい・食費・税金・子育て・恋愛と結婚・物価で消えた貯金まで、何にいくら使ったかが並びます。</li>
+              <li><b>同い年の人と比べる。</b>同じ国に生まれた300人の中で、生涯収入と最後に残ったお金が何番目かが分かります。</li>
+              <li><b>URLで共有できる。</b>人生はURLの中の番号だけで再現されるので、登録なしでそのまま友だちに見せられます。</li>
+            </ul>
+          </div>
+          <img src="img/receipt.webp" alt="インドに生まれた人生のレシート。住まい、食費などの項目と金額が並ぶ" width="716" height="1408" loading="lazy" />
+        </div>
+      </section>
+
+      <section>
+        <div class="wrap">
+          <h2><span class="nw">こんな人生が、</span><span class="nw">ありました。</span></h2>
+          <p class="lead" style="margin-top: 24px">ゲームの中で生まれた人生から、いくつかを選びました。押すと、その人生のレシートと年ごとのお金の流れが見られます。</p>
+        </div>
+        <div class="lives" role="list">
+            <a class="life" href="/r.html#6.j.gtok13.01111111000112001021121110001100203011110">
+              <img src="img/g-tokyo.webp" alt="日本・東京圏生まれの人生のレシート" width="560" height="700" loading="lazy" />
+              <span class="meta">日本・東京圏・男性・95歳で閉店</span>
+              <span class="ttl">東京で、大企業に勤めて老後安泰</span>
+              <span class="desc">生涯で稼いだお金は約1.96億円。最後に約1.33億円が残った。</span>
+              <span class="more">このレシートを見る</span>
+            </a>
+            <a class="life" href="/r.html#6.w.gmig3.1010201110000011102101110111100110100">
+              <img src="img/g-migrate.webp" alt="インド・ウッタル・プラデーシュ州の農村生まれの人生のレシート" width="560" height="700" loading="lazy" />
+              <span class="meta">インド・ウッタル・プラデーシュ州の農村・女性・64歳で閉店</span>
+              <span class="ttl">インドの農村から、海外へ出稼ぎに</span>
+              <span class="desc">出稼ぎで家計を支えた。生涯で稼いだお金は約1,732万円。</span>
+              <span class="more">このレシートを見る</span>
+            </a>
+            <a class="life" href="/r.html#6.w.ginfh.100010110021013110001010011001100111000101">
+              <img src="img/g-inflation.webp" alt="エジプト・ナイル・デルタの農村生まれの人生のレシート" width="560" height="700" loading="lazy" />
+              <span class="meta">エジプト・ナイル・デルタの農村・男性・67歳で閉店</span>
+              <span class="ttl">物価の高騰に、何度も貯金を削られた</span>
+              <span class="desc">物価で消えた貯金は約220万円。エジプトで実際に起きた上昇率のとおりに。</span>
+              <span class="more">このレシートを見る</span>
+            </a>
+            <a class="life" href="/r.html#6.w.gbri3t.000000010000011100010012110011001020">
+              <img src="img/g-brideprice.webp" alt="ベナン・その他の都市生まれの人生のレシート" width="560" height="700" loading="lazy" />
+              <span class="meta">ベナン・その他の都市・男性・56歳で閉店</span>
+              <span class="ttl">婚資を払って結婚し、子だくさんに</span>
+              <span class="desc">子ども4人。恋愛・結婚にかかったお金は約17万円。</span>
+              <span class="more">このレシートを見る</span>
+            </a>
+            <a class="life" href="/r.html#6.j.gcar2w.00000003110003101311010010000100101101110111110">
+              <img src="img/g-care.webp" alt="日本・地方の町生まれの人生のレシート" width="560" height="700" loading="lazy" />
+              <span class="meta">日本・地方の町・女性・95歳で閉店</span>
+              <span class="ttl">実家に残り、親の介護を引き受けた</span>
+              <span class="desc">介護にかかったお金は約1,178万円。最後に約1,218万円が残った。</span>
+              <span class="more">このレシートを見る</span>
+            </a>
+            <a class="life" href="/r.html#6.m.gusa1n.1010130020121110100210100001100110001">
+              <img src="img/g-usa.webp" alt="アメリカ合衆国・シカゴ生まれの人生のレシート" width="560" height="700" loading="lazy" />
+              <span class="meta">アメリカ合衆国・シカゴ・男性・65歳で閉店</span>
+              <span class="ttl">アメリカで高い給料、それでも残らない</span>
+              <span class="desc">生涯で稼いだお金は約3.90億円。それでも最後は約309万円。</span>
+              <span class="more">このレシートを見る</span>
+            </a>
+        </div>
+      </section>
+      <section class="soft">
+        <div class="wrap">
+          <h2><span class="nw">授業でも、</span><span class="nw">そのまま使えます。</span></h2>
+          <p class="lead" style="margin-top: 24px">1回の体験は約10分。倍速もあるので、授業の中で一人ひとりが自分の人生を体験し、結果を持ち寄って話し合えます。</p>
+          <div class="school">
+            <div>
+              <h3>使い方の例</h3>
+              <dl>
+                <dt>社会・地理</dt>
+                <dd>同じクラスでも生まれた国がばらばら。国ごとの収入や物価、税と社会保障の違いを、自分の体験から考えます。</dd>
+                <dt>家庭科・金融教育</dt>
+                <dd>住まい・子育て・老後のお金を、一生の流れの中で見ます。「何にいくら使ったか」をレシートで振り返れます。</dd>
+                <dt>話し合いのきっかけに</dt>
+                <dd>結果のURLを共有して、同じ国でも分かれ道の選び方でどう変わるかを比べます。</dd>
+              </dl>
+            </div>
+            <div>
+              <h3>データと配慮</h3>
+              <dl>
+                <dt>もとにした統計</dt>
+                <dd>日本は政府統計（賃金・家計・寿命・進学など）。世界の88か国は、世界銀行・ILO・国連・IMF・OECD・各国の税務当局などの公的データです。</dd>
+                <dt>金額について</dt>
+                <dd>統計をもとにした架空の試算です。実在の人物の人生ではありません。</dd>
+                <dt>扱わない内容</dt>
+                <dd>自殺や虐待など、過度に苦痛な出来事は扱いません。20歳になる前に亡くなることもありません。</dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="wrap">
+          <h2>よくある質問</h2>
+          <div class="faq">
+            <details>
+              <summary>無料ですか？ 登録は必要ですか？</summary>
+              <p>無料です。登録やログインも必要ありません。ブラウザで開くだけで遊べます。</p>
+            </details>
+            <details>
+              <summary>どのくらい時間がかかりますか？</summary>
+              <p>1回およそ10分です。画面下のボタンで最大5倍速まで速められます。</p>
+            </details>
+            <details>
+              <summary>スマホとパソコン、どちらで遊べますか？</summary>
+              <p>どちらでも遊べます。スマホの縦画面に合わせて作っています。</p>
+            </details>
+            <details>
+              <summary>同じ国に、もう一度生まれることはできますか？</summary>
+              <p>「日本で生まれる」を選べば必ず日本に生まれます。「主要20か国」「世界」では、どの国になるかは毎回の運しだいです。</p>
+            </details>
+            <details>
+              <summary>結果の金額は正確ですか？</summary>
+              <p>公的な統計をもとにしていますが、一人ひとりの人生を正確に予測するものではありません。国による違いや、選択による違いを感じるための試算です。</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section id="feedback" class="soft" hidden>
+        <div class="wrap">
+          <h2><span class="nw">遊んでみた感想を、</span><span class="nw">聞かせてください。</span></h2>
+          <p class="lead" style="margin-top: 24px">よかったところ、分かりにくかったところ、直してほしいところ。ひとことでも、これからの改善に使わせていただきます。</p>
+          <form class="fb" id="fbForm" novalidate>
+            <fieldset>
+              <legend>どんな内容ですか？</legend>
+              <div class="kinds">
+                <label><input type="radio" name="kind" value="感想" checked /><span>感想</span></label>
+                <label><input type="radio" name="kind" value="直してほしい点" /><span>直してほしい点</span></label>
+                <label><input type="radio" name="kind" value="不具合" /><span>不具合</span></label>
+              </div>
+            </fieldset>
+            <div>
+              <label class="t" for="fbText">内容</label>
+              <textarea id="fbText" name="text" maxlength="2000" placeholder="例：結婚の場面が急に感じた／スマホで文字が小さかった" required></textarea>
+            </div>
+            <div class="row">
+              <button class="cta" type="submit" id="fbSend">送信する</button>
+              <span class="status" id="fbStatus" role="status" aria-live="polite"></span>
+            </div>
+            <p class="hint">お名前やメールアドレスは不要です。個人が分かる内容は書かないでください。</p>
+          </form>
+          <div class="thanks" id="fbThanks" hidden>
+            <h3>送信しました。ありがとうございます。</h3>
+            <p>いただいた内容は、すべて読んで改善の参考にします。</p>
+            <button type="button" id="fbAgain">続けて別の内容を送る</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="final">
+        <div class="wrap">
+          <h2><span class="nw">どこに、</span><span class="nw">生まれますか？</span></h2>
+          <a class="cta" href="/">
+            生まれてみる
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="M13 18l6-6" /><path d="M13 6l6 6" /></svg>
+          </a>
+          <p class="note">無料・登録なし・約10分</p>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="wrap">
+        <span>人生のレシート</span>
+        <span>金額は公的統計をもとにした架空の試算です。</span>
+      </div>
+    </footer>
+    <script>
+      // 言語の切り替え：ページを Google 翻訳（translate.goog）を通して開き直す（src/ui/lang.ts と同じ仕組み）
+      (function () {
+        const PROXY = ".translate.goog";
+        const sel = document.getElementById("langSel");
+        const onProxy = location.hostname.endsWith(PROXY);
+        const q = new URLSearchParams(location.search);
+        sel.value = onProxy ? q.get("_x_tr_tl") || "ja" : "ja";
+        const host = onProxy
+          ? location.host.slice(0, -PROXY.length).split("--").map((x) => x.replace(/-/g, ".")).join("-")
+          : location.host;
+        sel.addEventListener("change", () => {
+          for (const k of [...q.keys()]) if (k.startsWith("_x_tr_")) q.delete(k);
+          if (sel.value === "ja") {
+            const qs = q.toString();
+            location.href = "https://" + host + location.pathname + (qs ? "?" + qs : "") + location.hash;
+            return;
+          }
+          q.set("_x_tr_sl", "ja");
+          q.set("_x_tr_tl", sel.value);
+          q.set("_x_tr_hl", sel.value);
+          location.href = "https://" + host.replace(/-/g, "--").replace(/\./g, "-") + PROXY + location.pathname + "?" + q.toString() + location.hash;
+        });
+      })();
+
+      // ご意見の送り先（Googleフォーム）。フォームを作ったら、ここに送信先と質問の番号を入れる。
+      // 空のあいだは、ご意見の欄は表示しない。
+      const FEEDBACK = {
+        action: "https://docs.google.com/forms/d/e/1FAIpQLSd1JUQ7oXcOu8Q0Q6VBxg1OTY1Pyr1dgTS8wMlv4bAOAjlAEA/formResponse",
+        kindEntry: "entry.1034168313", // 「種類」の質問
+        textEntry: "entry.1841712781", // 「内容」の質問
+      };
+      (function () {
+        if (!FEEDBACK.action || !FEEDBACK.textEntry) return;
+        const section = document.getElementById("feedback");
+        const form = document.getElementById("fbForm");
+        const text = document.getElementById("fbText");
+        const send = document.getElementById("fbSend");
+        const status = document.getElementById("fbStatus");
+        const thanks = document.getElementById("fbThanks");
+        section.hidden = false;
+        form.addEventListener("submit", async (e) => {
+          e.preventDefault();
+          const body = text.value.trim();
+          if (!body) {
+            status.textContent = "内容を入力してください。";
+            text.focus();
+            return;
+          }
+          const data = new URLSearchParams();
+          data.set(FEEDBACK.textEntry, body);
+          if (FEEDBACK.kindEntry) data.set(FEEDBACK.kindEntry, form.kind.value);
+          send.disabled = true;
+          status.textContent = "送信しています…";
+          try {
+            // Googleフォームは返事を読めない形（no-cors）で送る。ページは移動しない
+            await fetch(FEEDBACK.action, { method: "POST", mode: "no-cors", body: data });
+            form.hidden = true;
+            thanks.hidden = false;
+            text.value = "";
+            status.textContent = "";
+          } catch {
+            status.textContent = "送信できませんでした。通信状況を確かめて、もう一度お試しください。";
+          } finally {
+            send.disabled = false;
+          }
+        });
+        document.getElementById("fbAgain").addEventListener("click", () => {
+          thanks.hidden = true;
+          form.hidden = false;
+          text.focus();
+        });
+      })();
+    </script>
+  </body>
+</html>
