@@ -311,6 +311,41 @@ export function buildReceipt(l: Life, withCohort = true): ReceiptData {
   };
 }
 
+/** 「詳細つきで保存」でレシートの下に続ける明細（金額は現地通貨） */
+export interface ReceiptDetail {
+  turning: { age: number; text: string; amount?: number }[];
+  choices: { age: number; label: string }[];
+  decades: { label: string; income: number; expense: number; balance: number }[];
+}
+
+/** 選んだ道（「場面の名前：選んだもの」。出来事の記録から取る） */
+export function choicesOf(l: Life): { age: number; label: string }[] {
+  return l.records.flatMap((y) => y.events.filter((e) => e.text.startsWith("【選択】")).map((e) => ({ age: y.age, label: e.text.replace(/^【選択】/, "") })));
+}
+
+export function buildDetail(l: Life): ReceiptDetail {
+  const s = l.summary();
+  const decades: ReceiptDetail["decades"] = [];
+  for (let from = 0; from <= s.deathAge; from += 10) {
+    const ys = l.records.filter((y) => y.age >= from && y.age < from + 10);
+    if (!ys.length) continue;
+    const sum = (o: Record<string, number | undefined>, skip: string[] = []) =>
+      Object.entries(o).reduce((t, [k, v]) => t + (skip.includes(k) ? 0 : v ?? 0), 0);
+    decades.push({
+      label: `${from}〜${Math.min(from + 9, s.deathAge)}歳`,
+      income: ys.reduce((t, y) => t + sum(y.income, ["invest"]), 0),
+      expense: ys.reduce((t, y) => t + sum(y.expense), 0),
+      balance: ys[ys.length - 1].balance,
+    });
+  }
+  return {
+    // 選択は「選んだ道」に出すので、転機には選択以外の出来事を出す
+    turning: turningPoints(l, 10, false),
+    choices: choicesOf(l),
+    decades,
+  };
+}
+
 export interface TurningPoint {
   age: number;
   text: string;
@@ -318,11 +353,12 @@ export interface TurningPoint {
 }
 
 /** 転機：選択と、金額の大きい出来事・人生の節目 */
-export function turningPoints(l: Life, max = 8): TurningPoint[] {
+export function turningPoints(l: Life, max = 8, withChoices = true): TurningPoint[] {
   const all: (LifeEvent & { score: number })[] = [];
   for (const y of l.records)
     for (const e of y.events) {
       if (!e.major) continue;
+      if (!withChoices && (e.kind === "choice" || e.text.startsWith("【選択】"))) continue;
       const score = Math.abs(e.amount ?? 0) / 1e6 + (e.kind === "choice" ? 3 : 0) + (["family", "luck", "disaster", "health"].includes(e.kind) ? 2 : 0);
       all.push({ ...e, score });
     }

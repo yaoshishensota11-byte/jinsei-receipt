@@ -1,5 +1,6 @@
 // 感熱紙風のレシートを canvas に描く。PNG保存・共有もここで扱う。
-import { lifetimeIncomeJpy, type ReceiptData } from "../engine/result";
+import { lifetimeIncomeJpy, type ReceiptData, type ReceiptDetail } from "../engine/result";
+import { jaUnits } from "../engine/data";
 
 const W = 400;
 const PAD = 26;
@@ -67,6 +68,72 @@ interface Pen {
   changeY: number;
   /** 画面用の短いレシート（費目の説明や内訳を省く）。保存する画像は省かない */
   compact?: boolean;
+  /** 「詳細つきで保存」：レシートの下に、転機・選んだ道・10年ごとのお金を続ける */
+  detail?: ReceiptDetail;
+}
+
+/** 幅に収まるよう、1文字ずつ折り返す */
+function wrap(ctx: CanvasRenderingContext2D, s: string, size: number, maxW: number): string[] {
+  ctx.font = font(size);
+  const out: string[] = [];
+  let cur = "";
+  for (const ch of s) {
+    // 「。」「、」などは行の頭に来ないよう、前の行に入れる
+    if (ctx.measureText(cur + ch).width > maxW && cur && !"。、）」』！？".includes(ch)) {
+      out.push(cur);
+      cur = ch;
+    } else cur += ch;
+  }
+  if (cur) out.push(cur);
+  return out;
+}
+
+/** レシートの下に続ける明細 */
+function detailBlock(p: Pen, d: ReceiptData, det: ReceiptDetail): void {
+  const jp = d.currency.code === "JPY";
+  const short = (n: number) => `${n < 0 ? "-" : ""}${jaUnits(Math.abs(n))}${jp ? "円" : d.currency.nameJa}`;
+  const head = (t: string) => {
+    rule(p, "double");
+    p.y += 24;
+    text(p, t, W / 2, 15, { bold: true, align: "center" });
+    p.y += 8;
+  };
+  head("明細のつづき　転機となった出来事");
+  for (const t of det.turning) {
+    const amt = t.amount ? `${t.amount > 0 ? "+" : ""}${short(t.amount)}` : "";
+    const lines = wrap(p.ctx, t.text, 12, W - PAD * 2 - 44 - (amt ? 96 : 0));
+    p.y += 18;
+    text(p, `${t.age}歳`, PAD, 12, { color: GRAY });
+    if (amt) text(p, amt, W - PAD, 12, { color: t.amount! < 0 ? RED_INK : INK, align: "right" });
+    lines.forEach((ln, i) => {
+      if (i) p.y += 16;
+      text(p, ln, PAD + 44, 12);
+    });
+  }
+  p.y += 6;
+  head("選んだ道");
+  for (const c of det.choices) {
+    const lines = wrap(p.ctx, c.label, 12, W - PAD * 2 - 44);
+    p.y += 18;
+    text(p, `${c.age}歳`, PAD, 12, { color: GRAY });
+    lines.forEach((ln, i) => {
+      if (i) p.y += 16;
+      text(p, ln, PAD + 44, 12);
+    });
+  }
+  p.y += 6;
+  head("10年ごとのお金");
+  const cols = [PAD, PAD + 132, PAD + 232, W - PAD];
+  p.y += 18;
+  ["年齢", "収入", "支出", "残高"].forEach((h, i) => text(p, h, cols[i], 11, { color: GRAY, align: i ? "right" : "left" }));
+  for (const r of det.decades) {
+    p.y += 18;
+    text(p, r.label, cols[0], 12);
+    text(p, short(r.income), cols[1], 12, { align: "right" });
+    text(p, short(r.expense), cols[2], 12, { align: "right" });
+    text(p, short(r.balance), cols[3], 12, { align: "right", color: r.balance < 0 ? RED_INK : INK });
+  }
+  p.y += 10;
 }
 
 function text(p: Pen, s: string, x: number, size: number, opts: { bold?: boolean; align?: CanvasTextAlign; color?: string; maxW?: number } = {}): void {
@@ -347,6 +414,7 @@ function layout(p: Pen, d: ReceiptData): void {
     }
     p.y += 8;
   }
+  if (p.detail) detailBlock(p, d, p.detail);
   rule(p);
   p.y += 24;
   text(p, d.deathLine, W / 2, 14, { bold: true, align: "center", maxW: W - PAD * 2 });
@@ -377,11 +445,11 @@ function paperPath(ctx: CanvasRenderingContext2D, H: number): void {
   ctx.closePath();
 }
 
-export function drawReceipt(canvas: HTMLCanvasElement, d: ReceiptData, compact = false): void {
+export function drawReceipt(canvas: HTMLCanvasElement, d: ReceiptData, compact = false, detail?: ReceiptDetail): void {
   const dpr = Math.max(2, Math.ceil(window.devicePixelRatio || 1));
   const mctx = canvas.getContext("2d");
   if (!mctx) return;
-  const measure: Pen = { ctx: mctx, draw: false, y: 0, changeY: 0, compact };
+  const measure: Pen = { ctx: mctx, draw: false, y: 0, changeY: 0, compact, detail };
   layout(measure, d);
   const H = Math.ceil(measure.y);
 
@@ -411,24 +479,24 @@ export function drawReceipt(canvas: HTMLCanvasElement, d: ReceiptData, compact =
   ctx.fillStyle = g;
   ctx.fillRect(0, 0, W, H);
 
-  const pen: Pen = { ctx, draw: true, y: 0, changeY: 0, compact };
+  const pen: Pen = { ctx, draw: true, y: 0, changeY: 0, compact, detail };
   layout(pen, d);
   stamp(ctx, d, W - PAD - 62, pen.changeY + 36);
   ctx.restore();
 }
 
 // レシートに書く決まった文字（数字・記号を含む）
-const FIXED_TEXT = "借金うち親から受け継いだ代目家系のレシート稼ぎ／残したお金男性女性第一二三四五子その他（項目）〜人生商店LIFE STORE ─ 本日も一度きりの営業です来店閉店お客様No.小計お預かりお釣り約万円億（今日の為替で換算）同い年人の中で生涯収入上位%生涯で稼いだお金#人生のレシート—…　└¥0123456789,.-";
+const FIXED_TEXT = "明細のつづき転機となった出来事選んだ道10年ごとのお金年齢収入支出残高歳+借金うち親から受け継いだ代目家系のレシート稼ぎ／残したお金男性女性第一二三四五子その他（項目）〜人生商店LIFE STORE ─ 本日も一度きりの営業です来店閉店お客様No.小計お預かりお釣り約万円億（今日の為替で換算）同い年人の中で生涯収入上位%生涯で稼いだお金#人生のレシート—…　└¥0123456789,.-";
 
 /**
  * レシートで使う文字のフォントを、描く前に読み込む。
  * Webフォントは文字の種類ごとに分けて配られるため、まだ読み込んでいない文字を canvas に描くと、
  * iPhone の Safari ではその文字が描かれない（見出しやはんこの文字が消える）。
  */
-export async function loadReceiptFonts(d: ReceiptData, timeoutMs = 4000): Promise<void> {
+export async function loadReceiptFonts(d: ReceiptData, timeoutMs = 4000, detail?: ReceiptDetail): Promise<void> {
   const f = typeof document !== "undefined" ? document.fonts : undefined;
   if (!f) return;
-  const text = FIXED_TEXT + JSON.stringify(d);
+  const text = FIXED_TEXT + JSON.stringify(d) + (detail ? JSON.stringify(detail) : "");
   const loads = Promise.all(["400", "700"].map((w) => f.load(`${w} 16px "BIZ UDGothic"`, text))).then(() => undefined);
   await Promise.race([loads.catch(() => undefined), new Promise((r) => setTimeout(r, timeoutMs))]);
 }
@@ -445,6 +513,14 @@ export async function showReceipt(canvas: HTMLCanvasElement, d: ReceiptData, com
     };
     f.addEventListener("loadingdone", redraw);
   }
+}
+
+/** 詳細つきのレシートを描いて保存する（転機・選んだ道・10年ごとのお金を下に続ける） */
+export async function downloadDetailed(d: ReceiptData, detail: ReceiptDetail, filename: string): Promise<void> {
+  await loadReceiptFonts(d, 4000, detail);
+  const cv = document.createElement("canvas");
+  drawReceipt(cv, d, false, detail);
+  await downloadReceipt(cv, filename);
 }
 
 export function receiptBlob(canvas: HTMLCanvasElement): Promise<Blob> {

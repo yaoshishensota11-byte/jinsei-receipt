@@ -203,3 +203,47 @@ h1, h2 { margin: 0; line-height: 1.4; }
   padding: 0;
 }
 .title > .lang { align-self: flex-end; margin-bottom: 8px; }
+
+/* ── 年ごとの記録 ── */
+.years summary { list-style: none; display: flex; justify-content: space-between; align-items: baseline; cursor: pointer; }
+.years summary::-webkit-details-marker { display: none; }
+.years summary span { font-size: 13px; color: var(--accent); }
+.years[open] summary span { visibility: hidden; }
+.years table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 12px; }
+.years th, .years td { padding: 5px 4px; border-bottom: 1px dashed var(--line); text-align: left; vertical-align: top; }
+.years th { color: var(--sub); font-weight: 400; }
+.years td.num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.years td.neg { color: #8b1a1a; }
+.years .ev { font-size: 11px; color: #3a3630; }
+@media (max-width: 420px) { .years .ev { display: none; } }
+.actions + .note { margin-top: 0; }
+
+/* ── 印刷（紙・PDF） ── */
+@media print {
+  @page { size: A4; margin: 14mm; }
+  body { background: #fff; }
+  .wrap { max-width: none; padding: 0; }
+  .actions, .actions + .note, .btn, .lang, .foot a, .tip, .chart + .note { display: none !important; }
+  .panel { break-inside: avoid; box-shadow: none !important; border: 1px solid #ccc; margin: 0 0 4mm; }
+  /* レシートは左に置き、グラフや内訳はその右に並べる（紙を節約する） */
+  .receipt-card { float: left; width: 38%; margin: 0 4% 4mm 0; padding: 0; border: 0; box-shadow: none !important; background: none; }
+  .panel:not(.years-panel) { overflow: hidden; }
+  .years-panel { clear: both; break-inside: auto; }
+  .head { margin-bottom: 4mm; }
+  /* 紙では文字を小さめにし、項目は途中でページをまたいでよい（見出しだけ離れないように） */
+  body { font-size: 10pt; line-height: 1.5; }
+  .panel { break-inside: auto; padding: 3mm 4mm; }
+  .panel h2 { font-size: 12pt; break-after: avoid; }
+  .bars li, .timeline li, .choices li { break-inside: avoid; }
+  .bars li { margin: 1mm 0; }
+  .timeline li, .choices li { padding-top: 1mm; padding-bottom: 1mm; }
+  .years table { width: 100%; font-size: 8.5pt; }
+  .years th, .years td { padding: 1mm 1.5mm; }
+  .years td:first-child, .years th:first-child { white-space: nowrap; width: 12mm; }
+  .years td.num { width: 26mm; }
+  .years tr { break-inside: avoid; }
+  .years .ev { display: table-cell !important; }
+  .years summary span { display: none; }
+  #receipt { width: 100%; height: auto; display: block; }
+  .chart-svg svg { max-height: 60mm; }
+}

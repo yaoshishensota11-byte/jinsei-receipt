@@ -2,10 +2,10 @@ import { LifeScene } from "./ui/pixel";
 import { langPicker } from "./ui/lang";
 import { Life, jobLabel, cohort, kidFemale } from "./engine/sim";
 import { randomSeed, Rng, hashStr } from "./engine/rng";
-import { buildReceipt, detailUrl, shareIntentUrl, shareUrl, shareBase, newLife, childOf, estateFor, MAX_GEN } from "./engine/result";
+import { buildReceipt, buildDetail, detailUrl, shareIntentUrl, shareUrl, shareBase, newLife, childOf, estateFor, MAX_GEN } from "./engine/result";
 import { COUNTRIES, worldCountry, type Mode } from "./engine/world";
 import type { Choice, LifeEvent, YearRecord } from "./engine/types";
-import { showReceipt, downloadReceipt } from "./ui/receipt";
+import { showReceipt, downloadReceipt, downloadDetailed } from "./ui/receipt";
 import { compareMyIncome, topText } from "./engine/myincome";
 import { yen } from "./engine/data";
 
@@ -380,7 +380,10 @@ async function showResult(life: Life): Promise<void> {
       <button class="btn sub" id="png">PNGで保存</button>
       <a class="btn sub" id="x" href="${esc(shareIntentUrl(shareUrl(life, shareBase(location.origin, location.hostname)), data))}" target="_blank" rel="noopener">Xで共有</a>
     </div>
-    <a class="btn sub" href="${esc(url)}">詳しい明細を見る</a>
+    <div class="row2">
+      <button class="btn sub" id="pngDetail">詳細つきで保存</button>
+      <a class="btn sub" href="${esc(url)}">詳しい明細・印刷</a>
+    </div>
     ${heirBlock(life)}
     <details class="mine">
       <summary>自分の年収と比べてみる</summary>
@@ -398,6 +401,8 @@ async function showResult(life: Life): Promise<void> {
   full.className = "rc-full";
   await Promise.all([showReceipt(cv, data, true), showReceipt(full, data)]);
   root.querySelector<HTMLElement>("#png")!.onclick = () => downloadReceipt(full, `jinsei-receipt-${life.seed}.png`);
+  // 詳細つき：レシートの下に、転機・選んだ道・10年ごとのお金を続けた長い画像
+  root.querySelector<HTMLElement>("#pngDetail")!.onclick = () => downloadDetailed(data, buildDetail(life), `jinsei-receipt-${life.seed}-detail.png`).catch(() => {});
   root.querySelector<HTMLElement>("#rc-open")!.onclick = () => {
     const z = h(`<div class="rc-zoom" role="dialog" aria-label="レシート"><button class="rc-close" aria-label="閉じる">閉じる</button></div>`);
     z.append(full);

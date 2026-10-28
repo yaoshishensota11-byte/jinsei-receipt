@@ -1,10 +1,10 @@
 // 結果の詳細ページ（r.html#<code>）。URLのコードから人生を再現して描く。サーバー不要。
 import { langPicker } from "./ui/lang";
 import "./ui/detail.css";
-import { buildReceipt, decodeResult, isOldVersion, replayCode, shareIntentUrl, shareUrl, shareBase, turningPoints, yen } from "./engine/result";
+import { buildReceipt, buildDetail, choicesOf, decodeResult, isOldVersion, replayCode, shareIntentUrl, shareUrl, shareBase, turningPoints, yen } from "./engine/result";
 import { EXPENSE_LABEL, type ExpenseCat, type IncomeCat, type YearRecord } from "./engine/types";
 import type { Life } from "./engine/sim";
-import { showReceipt, downloadReceipt } from "./ui/receipt";
+import { showReceipt, downloadReceipt, downloadDetailed } from "./ui/receipt";
 
 const app = document.getElementById("app")!;
 
@@ -38,7 +38,7 @@ function showOld(): void {
     <section class="empty">
       <h1>このレシートは古い版のため表示できません</h1>
       <p>ゲームの内容が新しくなり、以前の版で発行されたレシートは同じ人生を再現できなくなりました。<br>お手数ですが、もう一度遊んでみてください。</p>
-      <p class="q">同じ一生でも、生まれた国で<br>稼げるお金はどれだけ違う？</p>
+      <p class="q">あなたは、どこで<br>お金を使う？</p>
       <a class="btn primary" href="./">もう一度生まれる</a>
     </section>`;
 }
@@ -164,7 +164,7 @@ function renderChart(box: HTMLElement, data: YearFlow[]): void {
 function render(l: Life): void {
   const s = l.summary();
   const d = buildReceipt(l);
-  const tps = turningPoints(l);
+  const tps = turningPoints(l, 8, false);
   const sexWord = s.sex === "male" ? "男性" : "女性";
   const total = Object.values(s.expenseTotal).reduce((a, b) => a + (b ?? 0), 0) || 1;
   const cats = (Object.entries(s.expenseTotal) as [ExpenseCat, number][])
@@ -190,8 +190,11 @@ function render(l: Life): void {
       <canvas id="receipt" aria-label="人生のレシート画像"></canvas>
       <div class="actions">
         <button type="button" class="btn" id="save">PNGで保存</button>
+        <button type="button" class="btn" id="saveDetail">詳細つきで保存</button>
+        <button type="button" class="btn" id="print">印刷・PDFで保存</button>
         <button type="button" class="btn dark" id="share">Xで共有</button>
       </div>
+      <p class="note">「詳細つきで保存」は、レシートの下に転機・選んだ道・10年ごとのお金を続けた画像です。「印刷・PDFで保存」は、このページ全体（年ごとの記録を含む）を紙やPDFにします。</p>
       <a class="btn primary wide" href="./">自分も生まれてみる</a>
     </section>
 
@@ -240,9 +243,26 @@ function render(l: Life): void {
       <h2>選んだ道</h2>
       ${
         s.choices.length
-          ? `<ul class="choices">${s.choices.map((c) => `<li><span class="age">${c.age}歳</span><span>${esc(c.label)}</span></li>`).join("")}</ul>`
+          ? `<ul class="choices">${choicesOf(l).map((c) => `<li><span class="age">${c.age}歳</span><span>${esc(c.label)}</span></li>`).join("")}</ul>`
           : `<p class="note">選択の場面はありませんでした。</p>`
       }
+    </section>
+
+    <section class="panel years-panel">
+      <details class="years" id="years">
+        <summary><h2>年ごとの記録</h2><span>開く</span></summary>
+        <table>
+          <thead><tr><th>年齢</th><th>収入</th><th>支出</th><th>残高</th><th class="ev">主な出来事</th></tr></thead>
+          <tbody>
+            ${flows(l.records)
+              .map((f, i) => {
+                const evs = l.records[i].events.filter((e) => e.major && !e.text.startsWith("【選択】")).map((e) => e.text);
+                return `<tr><td>${f.age}歳</td><td class="num">${fmt(f.income).replace(/（.*$/, "")}</td><td class="num">${fmt(f.expense).replace(/（.*$/, "")}</td><td class="num ${f.balance < 0 ? "neg" : ""}">${fmt(f.balance).replace(/（.*$/, "")}</td><td class="ev">${esc(evs.slice(0, 2).join(" ／ "))}</td></tr>`;
+              })
+              .join("")}
+          </tbody>
+        </table>
+      </details>
     </section>
 
     <footer class="foot">
@@ -254,6 +274,23 @@ function render(l: Life): void {
   void showReceipt(canvas, d);
   document.getElementById("save")!.addEventListener("click", () => {
     downloadReceipt(canvas, `jinsei-receipt-${d.receiptNo}.png`).catch(() => {});
+  });
+  document.getElementById("saveDetail")!.addEventListener("click", () => {
+    downloadDetailed(d, buildDetail(l), `jinsei-receipt-${d.receiptNo}-detail.png`).catch(() => {});
+  });
+  // 印刷するときは、年ごとの記録も開いて紙に出す
+  const years = document.getElementById("years") as HTMLDetailsElement;
+  let wasOpen = false;
+  window.addEventListener("beforeprint", () => {
+    wasOpen = years.open;
+    years.open = true;
+  });
+  window.addEventListener("afterprint", () => {
+    years.open = wasOpen;
+  });
+  document.getElementById("print")!.addEventListener("click", () => {
+    years.open = true;
+    window.print();
   });
   document.getElementById("share")!.addEventListener("click", () => {
     window.open(shareIntentUrl(shareUrl(l, shareBase(location.origin, location.hostname)), d), "_blank", "noopener");
