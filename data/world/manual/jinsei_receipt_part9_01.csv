@@ -1,0 +1,11 @@
+iso3,country_en,field,value,unit,year,source_name,source_url,note
+JPN,Japan,event_freq:jpn_tenkin,,annual_share,2017,労働政策研究・研修機構（JILPT）「企業の転勤の実態に関する調査」,https://www.jil.go.jp/institute/research/2017/174.html,正社員のうち1年間に転居をともなう転勤を経験した割合を示す直接の年次統計データは公開されていないため空欄
+JPN,Japan,event_freq:jpn_kaigo,,annual_share,2022,総務省「就業構造基本調査」,https://www.stat.go.jp/data/shugyou/2022/,40〜64歳の働く人のうち1年間に親の介護が新たに始まった割合を示す年率データは公表されていないため空欄
+JPN,Japan,event_freq:jpn_earthquake,,annual_share,2026,気象庁「震度データベース」,https://www.data.jma.go.jp/svd/eqdb/data/shindo/,住んでいる市区町村で1年間に震度6弱以上を観測した人の割合を全国一律で算出した公式の年率統計データがないため空欄
+JPN,Japan,event_freq:jpn_heavy_rain,,annual_share,2026,国土交通省「水害統計」,https://www.mlit.go.jp/river/toukei_chousa/kasen/jisseki/index.html,1年間に住宅が浸水被害を受けた世帯の割合について公式統計の世帯割合としての直接的な集計値がないため空欄
+JPN,Japan,event_freq:jpn_seishain,0.063,annual_share,2025,リクルートワークス研究所「全国就業実態パネル調査」,https://www.works-i.com/surveys/column/jpsedcolumn/detail011.html,非正規雇用者のうち前年に不本意非正規であった人が当年正規雇用に転換した割合。総務省労働力調査には該当する単一の年率割合が直接示されていないため近接する同調査の値を使用
+JPN,Japan,event_freq:jpn_chugaku_juken,0.20,current_share,2023,各種教育調査・報道（首都圏）,https://www.tsunagaru-exam.jp/rate/,首都圏（1都3県）の小学6年生のうち私立・国立中学校等を受験する割合の推定値。全国平均の公的一次資料による確実な数値が確認できないため首都圏の値を記載
+USA,United States of America,event_freq:usa_medical_bill,0.108,annual_share,2021,CDC National Health Statistics Reports,https://www.cdc.gov/nchs/data/nhsr/nhsr180.pdf,成人ではなく過去12ヶ月間に家族が医療費の支払いに問題があった人の割合。指定の救急外来での高額請求に完全に一致する個別指標の公的年次データはないため近接するCDCの医療費困難世帯の割合を使用
+USA,United States of America,event_freq:usa_student_loan,0.421,period_share,2024,National Center for Education Statistics (NCES) / Education Data Initiative,https://educationdata.org/college-enrollment-statistics,高校卒業者のうち直ちに4年制大学等に進学する割合。そのうち連邦学生ローンを借りる割合の正確な複合単一指標がないため進学率のみを記載
+USA,United States of America,event_freq:usa_layoff,0.10,annual_share,2026,U.S. Bureau of Labor Statistics (BLS) JOLTS,https://www.bls.gov/jlt/,月次レイオフ率約1.0%を基にした概算値。BLSによる公式な雇用者全体に対する単一の年次レイオフ率の直接集計値ではなく月次データの水準に基づく
+USA,United States of America,event_freq:usa_childcare,15636,currency,2025,Child Care Aware of America (CCAoA) "Child Care in America",https://info.childcareaware.org/price-and-supply-2025,0〜2歳の子どもをセンター型保育施設に預けた場合の年間平均価格（米ドル）。利用率の全国統計データが明確ではないため金額の中央値・平均値を記載
