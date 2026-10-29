@@ -9,3 +9,33 @@ BRA,Brazil,event_freq:bra_enem,,period_share,,INEP,,高校3年生に限った分
 DEU,Germany,event_freq:deu_ausbildung,0.50,period_share,2026,BIBB,https://www.bibb.de/en/77203.php,学校を出た若者のうちデュアル職業訓練に進む割合（概数）
 DEU,Germany,event_freq:deu_energy_price,1,years_count,2006-2025,Destatis,https://www.destatis.de/EN/Themes/Economy/Short-Term-Indicators/Basic-Data/vpi042j.html,過去20年で家庭用エネルギー・ガスの価格が前年比30%以上上がった年の数（2022年）
 DEU,Germany,event_freq:deu_kita,,current_share,,Destatis / DJI,,希望した親に対する割合がないため空欄（不足数は公表あり）
+IDN,Indonesia,event_freq:idn_jkn,63000000,count,2026,Kemenkes（ニュース経由）,https://www.kompas.tv/nasional/650000/menkes-ungkap-63-juta-peserta-bpJS-tak-aktif-tunggakan-iuran,（追加の回答）分子：保険料の滞納などで使えなくなっているJKN加入者の数。ニュース記事経由（二次情報）
+IDN,Indonesia,event_freq:idn_jkn,275000000,count,2024,Badan Pusat Statistik,https://www.bps.go.id/,（追加の回答）分母：全人口
+IDN,Indonesia,event_freq:idn_online_loan,16570000,count,2024,OJK（ブログ経由）,https://magisterakutansi.blogspot.com/2026/07/ojk-2024-fintech-lending-report-january.html,（追加の回答）分子：オンライン貸金の借り手（口座）の数。ブログ経由（二次情報）
+IDN,Indonesia,event_freq:idn_online_loan,200000000,count,2024,OJK,https://www.ojk.go.id/,（追加の回答）分母：成人人口の概数
+BRA,Brazil,event_freq:bra_price_rise,5.69,percent,2005,IBGE（latinometrics 経由）,https://www.latinometrics.com/economy/brazil/inflation,（追加の回答）2005年のIPCA上昇率（%）
+BRA,Brazil,event_freq:bra_price_rise,3.14,percent,2006,IBGE（latinometrics 経由）,https://www.latinometrics.com/economy/brazil/inflation,（追加の回答）2006年のIPCA上昇率（%）
+BRA,Brazil,event_freq:bra_price_rise,4.46,percent,2007,IBGE（latinometrics 経由）,https://www.latinometrics.com/economy/brazil/inflation,（追加の回答）2007年のIPCA上昇率（%）
+BRA,Brazil,event_freq:bra_price_rise,5.9,percent,2008,IBGE（latinometrics 経由）,https://www.latinometrics.com/economy/brazil/inflation,（追加の回答）2008年のIPCA上昇率（%）
+BRA,Brazil,event_freq:bra_price_rise,4.31,percent,2009,IBGE（latinometrics 経由）,https://www.latinometrics.com/economy/brazil/inflation,（追加の回答）2009年のIPCA上昇率（%）
+BRA,Brazil,event_freq:bra_price_rise,5.91,percent,2010,IBGE（latinometrics 経由）,https://www.latinometrics.com/economy/brazil/inflation,（追加の回答）2010年のIPCA上昇率（%）
+BRA,Brazil,event_freq:bra_price_rise,6.5,percent,2011,IBGE（latinometrics 経由）,https://www.latinometrics.com/economy/brazil/inflation,（追加の回答）2011年のIPCA上昇率（%）
+BRA,Brazil,event_freq:bra_price_rise,5.84,percent,2012,IBGE（latinometrics 経由）,https://www.latinometrics.com/economy/brazil/inflation,（追加の回答）2012年のIPCA上昇率（%）
+BRA,Brazil,event_freq:bra_price_rise,5.91,percent,2013,IBGE（latinometrics 経由）,https://www.latinometrics.com/economy/brazil/inflation,（追加の回答）2013年のIPCA上昇率（%）
+BRA,Brazil,event_freq:bra_price_rise,6.41,percent,2014,IBGE（latinometrics 経由）,https://www.latinometrics.com/economy/brazil/inflation,（追加の回答）2014年のIPCA上昇率（%）
+BRA,Brazil,event_freq:bra_price_rise,10.67,percent,2015,IBGE（latinometrics 経由）,https://www.latinometrics.com/economy/brazil/inflation,（追加の回答）2015年のIPCA上昇率（%）
+BRA,Brazil,event_freq:bra_price_rise,6.29,percent,2016,IBGE（latinometrics 経由）,https://www.latinometrics.com/economy/brazil/inflation,（追加の回答）2016年のIPCA上昇率（%）
+BRA,Brazil,event_freq:bra_price_rise,2.95,percent,2017,IBGE（latinometrics 経由）,https://www.latinometrics.com/economy/brazil/inflation,（追加の回答）2017年のIPCA上昇率（%）
+BRA,Brazil,event_freq:bra_price_rise,3.75,percent,2018,IBGE（latinometrics 経由）,https://www.latinometrics.com/economy/brazil/inflation,（追加の回答）2018年のIPCA上昇率（%）
+BRA,Brazil,event_freq:bra_price_rise,4.31,percent,2019,IBGE（latinometrics 経由）,https://www.latinometrics.com/economy/brazil/inflation,（追加の回答）2019年のIPCA上昇率（%）
+BRA,Brazil,event_freq:bra_price_rise,4.52,percent,2020,IBGE（latinometrics 経由）,https://www.latinometrics.com/economy/brazil/inflation,（追加の回答）2020年のIPCA上昇率（%）
+BRA,Brazil,event_freq:bra_price_rise,10.06,percent,2021,IBGE（latinometrics 経由）,https://www.latinometrics.com/economy/brazil/inflation,（追加の回答）2021年のIPCA上昇率（%）
+BRA,Brazil,event_freq:bra_price_rise,5.79,percent,2022,IBGE（latinometrics 経由）,https://www.latinometrics.com/economy/brazil/inflation,（追加の回答）2022年のIPCA上昇率（%）
+BRA,Brazil,event_freq:bra_price_rise,4.62,percent,2023,IBGE（latinometrics 経由）,https://www.latinometrics.com/economy/brazil/inflation,（追加の回答）2023年のIPCA上昇率（%）
+BRA,Brazil,event_freq:bra_price_rise,4.26,percent,2024,IBGE（latinometrics 経由）,https://www.latinometrics.com/economy/brazil/inflation,（追加の回答）2024年のIPCA上昇率（%）
+BRA,Brazil,event_freq:bra_sus_wait,679188,count,2023,Ministério da Saúde（ニュース経由）,https://brasil61.com/n/mais-de-679-mil-pessoas-no-brasil-aguardam-em-filas-de-cirurgias,（追加の回答）分子：SUSで手術を待っている人の数（専門医の受診待ちより狭い）
+BRA,Brazil,event_freq:bra_sus_wait,210000000,count,2023,IBGE,https://www.ibge.gov.br/,（追加の回答）分母：全人口
+BRA,Brazil,event_freq:bra_enem,1300000,count,2024,INEP,https://www.gov.br/inep/,（追加の回答）分子：ENEMを受けた高校3年生の数
+BRA,Brazil,event_freq:bra_enem,2000000,count,2024,Censo Escolar (INEP),https://www.gov.br/inep/,（追加の回答）分母：高校3年生の在籍者数
+DEU,Germany,event_freq:deu_kita,300000,count,2025,IW Köln（DJI・Destatisをもとに）,https://www.iwkoeln.de/fileadmin/user_upload/Studien/Report/PDF/2025/IW-Report_2025-Kital%C3%BCcke.pdf,（追加の回答）分子：3歳未満の保育所の不足数
+DEU,Germany,event_freq:deu_kita,2000000,count,2025,Destatis,https://www.destatis.de/,（追加の回答）分母：3歳未満の子どもの数
