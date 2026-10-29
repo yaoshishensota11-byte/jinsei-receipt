@@ -210,3 +210,12 @@
 | JPN | 0.098 | なし | 出生動向基本調査 2021（見合い・結婚相談所などの紹介） |
 
 取り込まなかった値：IDN（1930年以前に生まれた女性だけの値）、VNM（1995年の地域値）。
+
+## 第9部：国ごとの出来事の確率と、国のリスク（Gemini の Deep Research、2026年10月）
+
+| 項目 | 出典 | 反映した数 | 備考 |
+|---|---|---|---|
+| 国ごとの出来事の起きる確率（country_events.json の annualProb） | 各国の政府統計・国際機関（出来事ごとに basis に記載） | 110件のうち81件を統計で確認、そのうち37件の確率を直した | 判断の理由は manual/part9_review.md。反映は build/apply_event_freq.py。29件は公式の数字がなく推計のまま |
+| homicide_rate | UNODC、なければ WHO Global Health Estimates | 8か国 | 北朝鮮は公表なし |
+| ipv_past12m_women | WHO Violence Against Women Prevalence Estimates 2018、DHS | 7か国 | ロシア・ウズベキスタン・サウジアラビア・シリア・北朝鮮は掲載なし |
+| inflation_recent | IMF World Economic Outlook | ソマリア（2013〜2024年） | シリアは2010年までしかなく取り込まない。北朝鮮は公表なし |

@@ -2,3 +2,50 @@ iso3,country_en,field,value,unit,year,source_name,source_url,note
 MDG,Madagascar,homicide_rate,7.66,per100k,2015,UNODC Research Data Portal,https://dataunodc.un.org/,URLはトップページ
 CIV,Côte d'Ivoire,homicide_rate,4.87,per100k,2021,UNODC Research Data Portal,https://dataunodc.un.org/,URLはトップページ
 MLI,Mali,homicide_rate,10.82,per100k,2020,UNODC Research Data Portal,https://dataunodc.un.org/,URLはトップページ
+TCD,Chad,homicide_rate,7.3,per100k,2021,WHO Global Health Estimates,https://www.who.int/data/gho/data/indicators/indicator-details/GHO/gho-ghe-homicide-rates-per-100-000-population,UNODCに値がなくWHO GHEの推計
+SOM,Somalia,homicide_rate,4.3,per100k,2015,UNODC Research Data Portal,https://dataunodc.un.org/dp-intentional-homicide-victims,
+GIN,Guinea,homicide_rate,8.52,per100k,2020,WHO Global Health Estimates,https://www.who.int/data/gho/data/indicators/indicator-details/GHO/gho-ghe-homicide-rates-per-100-000-population,UNODCに値がなくWHO GHEの推計
+PRK,North Korea,homicide_rate,,per100k,,UNODC Research Data Portal,https://dataunodc.un.org/dp-intentional-homicide-victims,公式統計が開示されていないため空欄
+TGO,Togo,homicide_rate,9.0,per100k,2015,UNODC Research Data Portal,https://dataunodc.un.org/dp-intentional-homicide-victims,
+COG,Republic of the Congo,homicide_rate,9.3,per100k,2015,UNODC Research Data Portal,https://dataunodc.un.org/dp-intentional-homicide-victims,
+YEM,Yemen,ipv_past12m_women,0.19,share,2018,WHO Violence Against Women Prevalence Estimates 2018,https://www.who.int/publications/i/item/9789240022256,15〜49歳女性の推計値
+RUS,Russia,ipv_past12m_women,,share,,WHO Violence Against Women Prevalence Estimates 2018,https://www.who.int/publications/i/item/9789240022256,全国調査が掲載されていないため空欄
+IRN,Iran,ipv_past12m_women,0.15,share,2018,WHO Violence Against Women Prevalence Estimates 2018,https://www.who.int/publications/i/item/9789240022256,15〜49歳女性の推計値
+IRQ,Iraq,ipv_past12m_women,0.14,share,2018,WHO Violence Against Women Prevalence Estimates 2018 / MICS,https://microdata.worldbank.org/index.php/catalog/mics,MICS・WHOの調査にもとづく値
+UZB,Uzbekistan,ipv_past12m_women,,share,,DHS Program / WHO,https://dhsprogram.com/countries/Country-Main.cfm?ctry_id=45,比べられる調査がないため空欄
+DZA,Algeria,ipv_past12m_women,0.04,share,2018,WHO Violence Against Women Prevalence Estimates 2018,https://www.who.int/publications/i/item/9789240022256,15〜49歳女性の推計値
+SOM,Somalia,ipv_past12m_women,0.16,share,2018,WHO Violence Against Women Prevalence Estimates 2018,https://www.who.int/publications/i/item/9789240022256,15〜49歳女性の推計値
+SAU,Saudi Arabia,ipv_past12m_women,,share,,WHO Violence Against Women Prevalence Estimates 2018,https://www.who.int/publications/i/item/9789240022256,全国調査が報告されていないため空欄
+SYR,Syria,ipv_past12m_women,,share,,WHO Violence Against Women Prevalence Estimates 2018,https://www.who.int/publications/i/item/9789240022256,紛争で全国調査がないため空欄
+MYS,Malaysia,ipv_past12m_women,0.02,share,2018,WHO Violence Against Women Prevalence Estimates 2018,https://www.who.int/publications/i/item/9789240022256,15〜49歳女性の推計値
+PRK,North Korea,ipv_past12m_women,,share,,WHO Violence Against Women Prevalence Estimates 2018,https://www.who.int/publications/i/item/9789240022256,調査がないため空欄
+COG,Republic of the Congo,ipv_past12m_women,0.27,share,2011,DHS Program,https://dhsprogram.com/publications/publication-fr253-dhs-final-reports.cfm,DHS 2011の15〜49歳女性の過去12か月の配偶者暴力
+SYR,Syria,inflation_recent,7.6,percent,1995,IMF World Economic Outlook,https://www.imf.org/external/datamapper/PCPIPCH@WEO/SYR,年平均の消費者物価上昇率
+SYR,Syria,inflation_recent,8.8,percent,1996,IMF World Economic Outlook,https://www.imf.org/external/datamapper/PCPIPCH@WEO/SYR,年平均の消費者物価上昇率
+SYR,Syria,inflation_recent,2.2,percent,1997,IMF World Economic Outlook,https://www.imf.org/external/datamapper/PCPIPCH@WEO/SYR,年平均の消費者物価上昇率
+SYR,Syria,inflation_recent,-0.4,percent,1998,IMF World Economic Outlook,https://www.imf.org/external/datamapper/PCPIPCH@WEO/SYR,年平均の消費者物価上昇率
+SYR,Syria,inflation_recent,-2.1,percent,1999,IMF World Economic Outlook,https://www.imf.org/external/datamapper/PCPIPCH@WEO/SYR,年平均の消費者物価上昇率
+SYR,Syria,inflation_recent,-0.6,percent,2000,IMF World Economic Outlook,https://www.imf.org/external/datamapper/PCPIPCH@WEO/SYR,年平均の消費者物価上昇率
+SYR,Syria,inflation_recent,3.0,percent,2001,IMF World Economic Outlook,https://www.imf.org/external/datamapper/PCPIPCH@WEO/SYR,年平均の消費者物価上昇率
+SYR,Syria,inflation_recent,1.0,percent,2002,IMF World Economic Outlook,https://www.imf.org/external/datamapper/PCPIPCH@WEO/SYR,年平均の消費者物価上昇率
+SYR,Syria,inflation_recent,5.8,percent,2003,IMF World Economic Outlook,https://www.imf.org/external/datamapper/PCPIPCH@WEO/SYR,年平均の消費者物価上昇率
+SYR,Syria,inflation_recent,4.4,percent,2004,IMF World Economic Outlook,https://www.imf.org/external/datamapper/PCPIPCH@WEO/SYR,年平均の消費者物価上昇率
+SYR,Syria,inflation_recent,7.2,percent,2005,IMF World Economic Outlook,https://www.imf.org/external/datamapper/PCPIPCH@WEO/SYR,年平均の消費者物価上昇率
+SYR,Syria,inflation_recent,10.0,percent,2006,IMF World Economic Outlook,https://www.imf.org/external/datamapper/PCPIPCH@WEO/SYR,年平均の消費者物価上昇率
+SYR,Syria,inflation_recent,3.9,percent,2007,IMF World Economic Outlook,https://www.imf.org/external/datamapper/PCPIPCH@WEO/SYR,年平均の消費者物価上昇率
+SYR,Syria,inflation_recent,15.7,percent,2008,IMF World Economic Outlook,https://www.imf.org/external/datamapper/PCPIPCH@WEO/SYR,年平均の消費者物価上昇率
+SYR,Syria,inflation_recent,2.8,percent,2009,IMF World Economic Outlook,https://www.imf.org/external/datamapper/PCPIPCH@WEO/SYR,年平均の消費者物価上昇率
+SYR,Syria,inflation_recent,4.4,percent,2010,IMF World Economic Outlook,https://www.imf.org/external/datamapper/PCPIPCH@WEO/SYR,年平均の消費者物価上昇率
+SOM,Somalia,inflation_recent,4.5,percent,2013,IMF World Economic Outlook,https://www.imf.org/external/datamapper/PCPIPCH@WEO/SOM,年平均の消費者物価上昇率
+SOM,Somalia,inflation_recent,1.3,percent,2014,IMF World Economic Outlook,https://www.imf.org/external/datamapper/PCPIPCH@WEO/SOM,年平均の消費者物価上昇率
+SOM,Somalia,inflation_recent,0.8,percent,2015,IMF World Economic Outlook,https://www.imf.org/external/datamapper/PCPIPCH@WEO/SOM,年平均の消費者物価上昇率
+SOM,Somalia,inflation_recent,1.3,percent,2016,IMF World Economic Outlook,https://www.imf.org/external/datamapper/PCPIPCH@WEO/SOM,年平均の消費者物価上昇率
+SOM,Somalia,inflation_recent,6.1,percent,2017,IMF World Economic Outlook,https://www.imf.org/external/datamapper/PCPIPCH@WEO/SOM,年平均の消費者物価上昇率
+SOM,Somalia,inflation_recent,3.2,percent,2018,IMF World Economic Outlook,https://www.imf.org/external/datamapper/PCPIPCH@WEO/SOM,年平均の消費者物価上昇率
+SOM,Somalia,inflation_recent,3.1,percent,2019,IMF World Economic Outlook,https://www.imf.org/external/datamapper/PCPIPCH@WEO/SOM,年平均の消費者物価上昇率
+SOM,Somalia,inflation_recent,4.3,percent,2020,IMF World Economic Outlook,https://www.imf.org/external/datamapper/PCPIPCH@WEO/SOM,年平均の消費者物価上昇率
+SOM,Somalia,inflation_recent,4.6,percent,2021,IMF World Economic Outlook,https://www.imf.org/external/datamapper/PCPIPCH@WEO/SOM,年平均の消費者物価上昇率
+SOM,Somalia,inflation_recent,6.8,percent,2022,IMF World Economic Outlook,https://www.imf.org/external/datamapper/PCPIPCH@WEO/SOM,年平均の消費者物価上昇率
+SOM,Somalia,inflation_recent,6.2,percent,2023,IMF World Economic Outlook,https://www.imf.org/external/datamapper/PCPIPCH@WEO/SOM,年平均の消費者物価上昇率
+SOM,Somalia,inflation_recent,5.5,percent,2024,IMF World Economic Outlook,https://www.imf.org/external/datamapper/PCPIPCH@WEO/SOM,年平均の消費者物価上昇率
+PRK,North Korea,inflation_recent,,percent,,IMF World Economic Outlook,,公式のCPIが公表されていないため空欄

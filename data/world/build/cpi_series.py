@@ -16,6 +16,7 @@ for r in csv.DictReader((ROOT / "raw" / "wdi" / "fp_cpi_totl_zg.csv").open(encod
         series[iso][y] = round(float(r["fp_cpi_totl_zg"]), 2)
 for f in sorted((ROOT / "manual").glob("*.csv")):
     for r in csv.DictReader(f.open(encoding="utf-8-sig")):
+        # シリアは2010年（内戦の前）までの値しかないので、物価の表には入れるが、最新の値には使わない（apply_manual.py の REJECT）
         if r["field"] == "inflation_recent" and r["value"].strip() and r["iso3"] in series:
             series[r["iso3"]][int(r["year"][:4])] = round(float(r["value"]), 2)
 

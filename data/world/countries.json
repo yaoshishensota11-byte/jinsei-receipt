@@ -2632,6 +2632,11 @@
         "source": "UN World Marriage Data 2019",
         "url": "https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/undesa_pd_2019_wmd_marital_status.xlsx",
         "year": "2013"
+      },
+      "ipv_past12m_women": {
+        "source": "WHO Violence Against Women Prevalence Estimates 2018",
+        "url": "https://www.who.int/publications/i/item/9789240022256",
+        "year": "2018"
       }
     }
   },
@@ -3173,6 +3178,11 @@
         "source": "Numbeo Property Prices Index by Country",
         "url": "https://www.numbeo.com/property-investment/rankings_by_country.jsp",
         "year": "2026"
+      },
+      "ipv_past12m_women": {
+        "source": "WHO Violence Against Women Prevalence Estimates 2018",
+        "url": "https://www.who.int/publications/i/item/9789240022256",
+        "year": "2018"
       }
     }
   },
@@ -3282,6 +3292,11 @@
         "source": "Numbeo Property Prices Index by Country",
         "url": "https://www.numbeo.com/property-investment/rankings_by_country.jsp",
         "year": "2026"
+      },
+      "ipv_past12m_women": {
+        "source": "WHO Violence Against Women Prevalence Estimates 2018 / MICS",
+        "url": "https://microdata.worldbank.org/index.php/catalog/mics",
+        "year": "2018"
       }
     }
   },
@@ -3502,6 +3517,11 @@
         "source": "World Bank ICP 2021",
         "url": "https://api.worldbank.org/v2/sources/90/country/MDG/series/9060000?format=json&per_page=200",
         "year": "2021"
+      },
+      "homicide_rate": {
+        "source": "UNODC Research Data Portal",
+        "url": "https://dataunodc.un.org/",
+        "year": "2015"
       }
     }
   },
@@ -3609,6 +3629,11 @@
         "source": "計算値（平均月収・税率表・本人負担社会保険料率から）",
         "url": "https://www.cleiss.fr/docs/cotisations/cotedivoire.html",
         "year": "2025"
+      },
+      "homicide_rate": {
+        "source": "UNODC Research Data Portal",
+        "url": "https://dataunodc.un.org/",
+        "year": "2021"
       }
     }
   },
@@ -3938,6 +3963,11 @@
         "source": "World Bank ICP 2021",
         "url": "https://api.worldbank.org/v2/sources/90/country/MLI/series/9060000?format=json&per_page=200",
         "year": "2021"
+      },
+      "homicide_rate": {
+        "source": "UNODC Research Data Portal",
+        "url": "https://dataunodc.un.org/",
+        "year": "2020"
       }
     }
   },
@@ -4144,6 +4174,11 @@
         "source": "Numbeo Property Prices Index by Country",
         "url": "https://www.numbeo.com/property-investment/rankings_by_country.jsp",
         "year": "2026"
+      },
+      "ipv_past12m_women": {
+        "source": "WHO Violence Against Women Prevalence Estimates 2018",
+        "url": "https://www.who.int/publications/i/item/9789240022256",
+        "year": "2018"
       }
     }
   },
@@ -4455,6 +4490,11 @@
         "source": "World Bank ICP 2021",
         "url": "https://api.worldbank.org/v2/sources/90/country/TCD/series/9060000?format=json&per_page=200",
         "year": "2021"
+      },
+      "homicide_rate": {
+        "source": "WHO Global Health Estimates",
+        "url": "https://www.who.int/data/gho/data/indicators/indicator-details/GHO/gho-ghe-homicide-rates-per-100-000-population",
+        "year": "2021"
       }
     }
   },
@@ -4565,6 +4605,16 @@
         "source": "World Bank ICP 2021",
         "url": "https://api.worldbank.org/v2/sources/90/country/SOM/series/9060000?format=json&per_page=200",
         "year": "2021"
+      },
+      "homicide_rate": {
+        "source": "UNODC Research Data Portal",
+        "url": "https://dataunodc.un.org/dp-intentional-homicide-victims",
+        "year": "2015"
+      },
+      "ipv_past12m_women": {
+        "source": "WHO Violence Against Women Prevalence Estimates 2018",
+        "url": "https://www.who.int/publications/i/item/9789240022256",
+        "year": "2018"
       }
     }
   },
@@ -6629,6 +6679,11 @@
         "source": "World Bank ICP 2021",
         "url": "https://api.worldbank.org/v2/sources/90/country/GIN/series/9060000?format=json&per_page=200",
         "year": "2021"
+      },
+      "homicide_rate": {
+        "source": "WHO Global Health Estimates",
+        "url": "https://www.who.int/data/gho/data/indicators/indicator-details/GHO/gho-ghe-homicide-rates-per-100-000-population",
+        "year": "2020"
       }
     }
   },
@@ -6943,6 +6998,11 @@
         "source": "Numbeo Property Prices Index by Country",
         "url": "https://www.numbeo.com/property-investment/rankings_by_country.jsp",
         "year": "2026"
+      },
+      "ipv_past12m_women": {
+        "source": "WHO Violence Against Women Prevalence Estimates 2018",
+        "url": "https://www.who.int/publications/i/item/9789240022256",
+        "year": "2018"
       }
     }
   },
@@ -8565,6 +8625,11 @@
         "source": "World Bank ICP 2021",
         "url": "https://api.worldbank.org/v2/sources/90/country/TGO/series/9060000?format=json&per_page=200",
         "year": "2021"
+      },
+      "homicide_rate": {
+        "source": "UNODC Research Data Portal",
+        "url": "https://dataunodc.un.org/dp-intentional-homicide-victims",
+        "year": "2015"
       }
     }
   },
@@ -9860,6 +9925,16 @@
         "source": "World Bank ICP 2021",
         "url": "https://api.worldbank.org/v2/sources/90/country/COG/series/9060000?format=json&per_page=200",
         "year": "2021"
+      },
+      "homicide_rate": {
+        "source": "UNODC Research Data Portal",
+        "url": "https://dataunodc.un.org/dp-intentional-homicide-victims",
+        "year": "2015"
+      },
+      "ipv_past12m_women": {
+        "source": "DHS Program",
+        "url": "https://dhsprogram.com/publications/publication-fr253-dhs-final-reports.cfm",
+        "year": "2011"
       }
     }
   },

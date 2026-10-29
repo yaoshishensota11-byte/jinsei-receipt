@@ -44,6 +44,7 @@ skipped_old = []
 REJECT = {
     ("IDN", "arranged_marriage_share"): "1930年以前に生まれた女性だけの値",
     ("VNM", "arranged_marriage_share"): "1995年の紅河デルタ周辺の地域値で、今の結婚を表さない",
+    ("SYR", "inflation_recent"): "2010年（内戦の前）までしかなく、今の物価の高騰を表さない",
 }
 rejected = []
 
@@ -74,7 +75,8 @@ for r in rows:
         skipped_old.append(f"{iso} {field} {r['year']}")
         continue
     if (iso, field) in REJECT:
-        rejected.append(f"{iso} {field}（{REJECT[(iso, field)]}）")
+        if f"{iso} {field}（{REJECT[(iso, field)]}）" not in rejected:
+            rejected.append(f"{iso} {field}（{REJECT[(iso, field)]}）")
         continue
     c, k = by_iso.get(iso), risks.get(iso)
     if field == "marriage_payment_amount":

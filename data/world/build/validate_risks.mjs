@@ -34,7 +34,7 @@ for (const iso of Object.keys(risks)) if (!isos.has(iso)) fail(iso, 'risks entry
 
 // ---- events
 const TAGS = new Set(['*LIC', '*LMC', '*UMC', '*HIC', '*RURAL', '*URBAN', '*ALL']);
-const REQ = new Set(['working', 'married', 'hasKids', 'rural', 'urban', 'ownsHome', null]);
+const REQ = new Set(['working', 'married', 'hasKids', 'rural', 'urban', 'ownsHome', null, "newlywed", "dating", "mortgage", "renting", "notOwner", "student", "inUniv", "parentAway", "nonregular"]);
 const EFF = { cost: 'amount', income: 'amount', moveCost: 'amount', cashLossPct: 'frac', incomeDropPct: 'frac', careerMult: 'mult', health: 'mult', protectCash: 'bool' };
 const emoji = /\p{Extended_Pictographic}/u;
 const ids = new Set();
@@ -55,7 +55,8 @@ for (const e of events) {
   }
   if (!(Number.isInteger(e.minAge) && Number.isInteger(e.maxAge) && e.minAge >= 0 && e.minAge < e.maxAge && e.maxAge <= 110)) fail(id, 'ages');
   if (!(num(e.annualProb) && e.annualProb > 0 && e.annualProb <= 0.2)) fail(id, `annualProb ${e.annualProb}`);
-  if (!REQ.has(e.requires)) fail(id, `requires ${e.requires}`);
+  // 条件は「+」でつなげられる。kid:10-12 は「その年齢の子どもがいる」
+  if (!(e.requires ?? '').split('+').every((q) => REQ.has(q === '' ? null : q) || /^kid:\d+-\d+$/.test(q))) fail(id, `requires ${e.requires}`);
   for (const k of ['title', 'situation', 'basis']) if (typeof e[k] !== 'string' || !e[k] || emoji.test(e[k])) fail(id, k);
   if (typeof e.estimated !== 'boolean') fail(id, 'estimated');
   if (!Array.isArray(e.options) || e.options.length < 2 || e.options.length > 3) { fail(id, 'options count'); continue; }

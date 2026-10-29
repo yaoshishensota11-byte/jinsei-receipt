@@ -1544,7 +1544,7 @@ var risks_default = {
     inflationCrisisShare: 0.083,
     inflationRecent: 0.2018,
     homicidePer100k: 5.81,
-    ipvPast12mWomen: 0.18,
+    ipvPast12mWomen: 0.19,
     politicalStability: -2.51,
     conflictRisk: 0.4365,
     floodRisk: 0.216,
@@ -1554,13 +1554,11 @@ var risks_default = {
     years: {
       inflationRecent: 2025,
       homicide: 2013,
-      ipv: null,
+      ipv: "WHO VAW\u30DD\u30FC\u30BF\u30EB\u306E\u6700\u65B0\u63A8\u5B9A\uFF0815\u301C49\u6B73\u30FB\u904E\u53BB1\u5E74\uFF09",
       politicalStability: 2025,
       inform: "Mid 2026 v0.7.3"
     },
-    estimated: [
-      "ipvPast12mWomen"
-    ],
+    estimated: [],
     inform: {
       earthquake: 1.7,
       flood: 6,
@@ -1693,7 +1691,7 @@ var risks_default = {
     inflationCrisisShare: 0.114,
     inflationRecent: 0.422,
     homicidePer100k: 2.38,
-    ipvPast12mWomen: 0.18,
+    ipvPast12mWomen: 0.15,
     politicalStability: -1.69,
     conflictRisk: 0.3311,
     floodRisk: 0.4052,
@@ -1703,13 +1701,11 @@ var risks_default = {
     years: {
       inflationRecent: 2025,
       homicide: 2014,
-      ipv: null,
+      ipv: "WHO VAW\u30DD\u30FC\u30BF\u30EB\u306E\u6700\u65B0\u63A8\u5B9A\uFF0815\u301C49\u6B73\u30FB\u904E\u53BB1\u5E74\uFF09",
       politicalStability: 2025,
       inform: "Mid 2026 v0.7.3"
     },
-    estimated: [
-      "ipvPast12mWomen"
-    ],
+    estimated: [],
     inform: {
       earthquake: 9.3,
       flood: 7.4,
@@ -1724,7 +1720,7 @@ var risks_default = {
     inflationCrisisShare: 0.176,
     inflationRecent: 3e-3,
     homicidePer100k: 9.46,
-    ipvPast12mWomen: 0.16,
+    ipvPast12mWomen: 0.14,
     politicalStability: -1.87,
     conflictRisk: 0.0275,
     floodRisk: 0.8847,
@@ -1734,13 +1730,11 @@ var risks_default = {
     years: {
       inflationRecent: 2025,
       homicide: 2013,
-      ipv: null,
+      ipv: "WHO VAW\u30DD\u30FC\u30BF\u30EB\u306E\u6700\u65B0\u63A8\u5B9A\uFF0815\u301C49\u6B73\u30FB\u904E\u53BB1\u5E74\uFF09",
       politicalStability: 2025,
       inform: "Mid 2026 v0.7.3"
     },
-    estimated: [
-      "ipvPast12mWomen"
-    ],
+    estimated: [],
     inform: {
       earthquake: 5.1,
       flood: 9.6,
@@ -1783,7 +1777,7 @@ var risks_default = {
     inflationMean: 0.086,
     inflationCrisisShare: 0.029,
     inflationRecent: 0.081,
-    homicidePer100k: 8,
+    homicidePer100k: 7.66,
     ipvPast12mWomen: 0.146063,
     politicalStability: -0.52,
     conflictRisk: 11e-4,
@@ -1798,9 +1792,7 @@ var risks_default = {
       politicalStability: 2025,
       inform: "Mid 2026 v0.7.3"
     },
-    estimated: [
-      "homicidePer100k"
-    ],
+    estimated: [],
     inform: {
       earthquake: 0.1,
       flood: 6.3,
@@ -1814,7 +1806,7 @@ var risks_default = {
     inflationMean: 0.026,
     inflationCrisisShare: 0,
     inflationRecent: 1e-3,
-    homicidePer100k: 10,
+    homicidePer100k: 4.87,
     ipvPast12mWomen: 0.22,
     politicalStability: -0.72,
     conflictRisk: 19e-4,
@@ -1829,9 +1821,7 @@ var risks_default = {
       politicalStability: 2025,
       inform: "Mid 2026 v0.7.3"
     },
-    estimated: [
-      "homicidePer100k"
-    ],
+    estimated: [],
     inform: {
       earthquake: 0.1,
       flood: 4.8,
@@ -1903,7 +1893,7 @@ var risks_default = {
     inflationMean: 0.022,
     inflationCrisisShare: 0,
     inflationRecent: 0.033,
-    homicidePer100k: 10,
+    homicidePer100k: 10.82,
     ipvPast12mWomen: 0.215,
     politicalStability: -2.5,
     conflictRisk: 0.8318,
@@ -1918,9 +1908,7 @@ var risks_default = {
       politicalStability: 2025,
       inform: "Mid 2026 v0.7.3"
     },
-    estimated: [
-      "homicidePer100k"
-    ],
+    estimated: [],
     inform: {
       earthquake: 0.1,
       flood: 7.9,
@@ -1966,7 +1954,7 @@ var risks_default = {
     inflationCrisisShare: 0,
     inflationRecent: 0.014,
     homicidePer100k: 1.16,
-    ipvPast12mWomen: 0.09,
+    ipvPast12mWomen: 0.04,
     politicalStability: -0.66,
     conflictRisk: 3e-3,
     floodRisk: 0.0467,
@@ -1976,13 +1964,11 @@ var risks_default = {
     years: {
       inflationRecent: 2025,
       homicide: 2023,
-      ipv: null,
+      ipv: "WHO VAW\u30DD\u30FC\u30BF\u30EB\u306E\u6700\u65B0\u63A8\u5B9A\uFF0815\u301C49\u6B73\u30FB\u904E\u53BB1\u5E74\uFF09",
       politicalStability: 2025,
       inform: "Mid 2026 v0.7.3"
     },
-    estimated: [
-      "ipvPast12mWomen"
-    ],
+    estimated: [],
     inform: {
       earthquake: 7.9,
       flood: 3.6,
@@ -2054,7 +2040,7 @@ var risks_default = {
     inflationMean: 0.034,
     inflationCrisisShare: 0.029,
     inflationRecent: -0.039,
-    homicidePer100k: 9,
+    homicidePer100k: 7.3,
     ipvPast12mWomen: 0.175,
     politicalStability: -1.57,
     conflictRisk: 0.0692,
@@ -2069,9 +2055,7 @@ var risks_default = {
       politicalStability: 2025,
       inform: "Mid 2026 v0.7.3"
     },
-    estimated: [
-      "homicidePer100k"
-    ],
+    estimated: [],
     inform: {
       earthquake: 0.1,
       flood: 8.1,
@@ -2085,8 +2069,8 @@ var risks_default = {
     inflationMean: 0.08,
     inflationCrisisShare: 0,
     inflationRecent: 0.037,
-    homicidePer100k: 6,
-    ipvPast12mWomen: 0.22,
+    homicidePer100k: 4.3,
+    ipvPast12mWomen: 0.16,
     politicalStability: -2.17,
     conflictRisk: 0.2754,
     floodRisk: 0.4746,
@@ -2096,15 +2080,13 @@ var risks_default = {
     years: {
       inflationRecent: 2025,
       homicide: null,
-      ipv: null,
+      ipv: "WHO VAW\u30DD\u30FC\u30BF\u30EB\u306E\u6700\u65B0\u63A8\u5B9A\uFF0815\u301C49\u6B73\u30FB\u904E\u53BB1\u5E74\uFF09",
       politicalStability: 2025,
       inform: "Mid 2026 v0.7.3"
     },
     estimated: [
-      "homicidePer100k",
       "inflationCrisisShare",
-      "inflationMean",
-      "ipvPast12mWomen"
+      "inflationMean"
     ],
     inform: {
       earthquake: 1.3,
@@ -2619,7 +2601,7 @@ var risks_default = {
     inflationMean: 0.14,
     inflationCrisisShare: 0,
     inflationRecent: 0.036,
-    homicidePer100k: 9,
+    homicidePer100k: 8.52,
     ipvPast12mWomen: 0.196914,
     politicalStability: -0.73,
     conflictRisk: 36e-4,
@@ -2634,9 +2616,7 @@ var risks_default = {
       politicalStability: 2025,
       inform: "Mid 2026 v0.7.3"
     },
-    estimated: [
-      "homicidePer100k"
-    ],
+    estimated: [],
     inform: {
       earthquake: 0.1,
       flood: 5.5,
@@ -2709,7 +2689,7 @@ var risks_default = {
     inflationCrisisShare: 0,
     inflationRecent: 0.014,
     homicidePer100k: 0.73,
-    ipvPast12mWomen: 0.06,
+    ipvPast12mWomen: 0.02,
     politicalStability: 0.34,
     conflictRisk: 2e-4,
     floodRisk: 0.3144,
@@ -2719,13 +2699,11 @@ var risks_default = {
     years: {
       inflationRecent: 2025,
       homicide: 2023,
-      ipv: null,
+      ipv: "WHO VAW\u30DD\u30FC\u30BF\u30EB\u306E\u6700\u65B0\u63A8\u5B9A\uFF0815\u301C49\u6B73\u30FB\u904E\u53BB1\u5E74\uFF09",
       politicalStability: 2025,
       inform: "Mid 2026 v0.7.3"
     },
-    estimated: [
-      "ipvPast12mWomen"
-    ],
+    estimated: [],
     inform: {
       earthquake: 1.9,
       flood: 6.8,
@@ -3166,9 +3144,7 @@ var risks_default = {
       politicalStability: 2025,
       inform: "Mid 2026 v0.7.3"
     },
-    estimated: [
-      "homicidePer100k"
-    ],
+    estimated: [],
     inform: {
       earthquake: 0.1,
       flood: 3,
@@ -3501,8 +3477,8 @@ var risks_default = {
     inflationMean: 0.026,
     inflationCrisisShare: 0.03,
     inflationRecent: 0.024,
-    homicidePer100k: 10,
-    ipvPast12mWomen: 0.18,
+    homicidePer100k: 9.3,
+    ipvPast12mWomen: 0.27,
     politicalStability: -0.49,
     conflictRisk: 1e-3,
     floodRisk: 0.439,
@@ -3512,14 +3488,11 @@ var risks_default = {
     years: {
       inflationRecent: 2025,
       homicide: null,
-      ipv: null,
+      ipv: "WHO VAW\u30DD\u30FC\u30BF\u30EB\u306E\u6700\u65B0\u63A8\u5B9A\uFF0815\u301C49\u6B73\u30FB\u904E\u53BB1\u5E74\uFF09",
       politicalStability: 2025,
       inform: "Mid 2026 v0.7.3"
     },
-    estimated: [
-      "homicidePer100k",
-      "ipvPast12mWomen"
-    ],
+    estimated: [],
     inform: {
       earthquake: 0.1,
       flood: 7.6,
@@ -3712,8 +3685,8 @@ var country_events_default = [
         result: "\u8FD1\u304F\u306E\u65BD\u8A2D\u306B\u5165\u5C45\u3057\u3066\u3082\u3089\u3063\u305F\u3002"
       }
     ],
-    basis: "\u4ECB\u8B77\u30FB\u770B\u8B77\u3092\u7406\u7531\u3068\u3059\u308B\u96E2\u8077\u8005\u306F\u5E74\u7D0410\u4E07\u4EBA\uFF08\u7DCF\u52D9\u7701 \u5C31\u696D\u69CB\u9020\u57FA\u672C\u8ABF\u67FB2022\uFF09\u3002\u4ECB\u8B77\u3092\u3057\u306A\u304C\u3089\u50CD\u304F\u4EBA\u306F\u7D04365\u4E07\u4EBA",
-    estimated: true
+    basis: "\u4ECB\u8B77\u3092\u3057\u306A\u304C\u3089\u50CD\u304F\u4EBA\u306F\u7D04365\u4E07\u4EBA\u3001\u4ECB\u8B77\u306E\u305F\u3081\u306E\u96E2\u8077\u306F\u5E7410.6\u4E07\u4EBA\uFF08\u7DCF\u52D9\u7701 \u5C31\u696D\u69CB\u9020\u57FA\u672C\u8ABF\u67FB2022\uFF09\uFF08\u7D71\u8A08\u3067\u78BA\u8A8D\uFF09",
+    estimated: false
   },
   {
     id: "jpn_earthquake",
@@ -3770,7 +3743,7 @@ var country_events_default = [
     ],
     minAge: 0,
     maxAge: 100,
-    annualProb: 5e-3,
+    annualProb: 1e-3,
     requires: null,
     title: "\u8C6A\u96E8\u3067\u6D78\u6C34",
     situation: "\u7DDA\u72B6\u964D\u6C34\u5E2F\u306B\u3088\u308B\u5927\u96E8\u3067\u5DDD\u304C\u3042\u3075\u308C\u3001\u81EA\u5B85\u306E1\u968E\u304C\u6D78\u6C34\u3057\u305F\u3002",
@@ -3804,8 +3777,8 @@ var country_events_default = [
         result: "\u6D78\u6C34\u306E\u5FC3\u914D\u306E\u5C11\u306A\u3044\u5730\u57DF\u306B\u5F15\u3063\u8D8A\u3057\u305F\u3002"
       }
     ],
-    basis: "\u8FD1\u5E74\u306F\u6BCE\u5E74\u306E\u3088\u3046\u306B\u8C6A\u96E8\u707D\u5BB3\u304C\u767A\u751F\uFF08\u56FD\u571F\u4EA4\u901A\u7701 \u6C34\u5BB3\u7D71\u8A08\uFF09\u3002\u5E74\u7387\u306F\u6982\u7B97",
-    estimated: true
+    basis: "2023\u5E74\u306E\u6C34\u5BB3\u306E\u88AB\u5BB3\u5EFA\u7269\u306F\u7D043.1\u4E07\u68DF\u3067\u3001\u5168\u4F4F\u5B856,505\u4E07\u6238\u306E\u7D040.05%\uFF08\u56FD\u571F\u4EA4\u901A\u7701 \u6C34\u5BB3\u7D71\u8A08\uFF09\u3002\u5927\u304D\u306A\u6C34\u5BB3\u306E\u5E74\u3082\u542B\u3081\u3066\u5E740.1%\uFF08\u7D71\u8A08\u3067\u78BA\u8A8D\uFF09",
+    estimated: false
   },
   {
     id: "jpn_seishain",
@@ -3815,7 +3788,7 @@ var country_events_default = [
     minAge: 23,
     maxAge: 45,
     annualProb: 0.04,
-    requires: "working",
+    requires: "working+nonregular",
     title: "\u6B63\u793E\u54E1\u767B\u7528\u306E\u8A71",
     situation: "\u5951\u7D04\u793E\u54E1\u3068\u3057\u3066\u50CD\u304F\u8077\u5834\u3067\u3001\u6B63\u793E\u54E1\u767B\u7528\u8A66\u9A13\u3092\u53D7\u3051\u306A\u3044\u304B\u3068\u58F0\u3092\u304B\u3051\u3089\u308C\u305F\u3002",
     options: [
@@ -3856,8 +3829,8 @@ var country_events_default = [
         result: "\u5951\u7D04\u793E\u54E1\u306E\u307E\u307E\u50CD\u304F\u3053\u3068\u306B\u3057\u305F\u3002"
       }
     ],
-    basis: "\u975E\u6B63\u898F\u96C7\u7528\u306F\u96C7\u7528\u8005\u306E\u7D0437%\uFF08\u7DCF\u52D9\u7701 \u52B4\u50CD\u529B\u8ABF\u67FB\uFF09\u3002\u767B\u7528\u306E\u6A5F\u4F1A\u306E\u5E74\u7387\u306F\u6982\u7B97",
-    estimated: true
+    basis: "\u4E0D\u672C\u610F\u975E\u6B63\u898F\u304B\u3089\u6B63\u898F\u3078\u306E\u8EE2\u63DB\u306F\u5E746.3%\uFF08\u30EA\u30AF\u30EB\u30FC\u30C8\u30EF\u30FC\u30AF\u30B9\u7814\u7A76\u6240 \u5168\u56FD\u5C31\u696D\u5B9F\u614B\u30D1\u30CD\u30EB\u8ABF\u67FB\uFF09\uFF08\u7D71\u8A08\u3067\u78BA\u8A8D\uFF09",
+    estimated: false
   },
   {
     id: "jpn_chugaku_juken",
@@ -3940,8 +3913,8 @@ var country_events_default = [
         result: "\u4F55\u5EA6\u3082\u96FB\u8A71\u3057\u3066\u6E1B\u984D\u306B\u3053\u304E\u3064\u3051\u305F\u3002"
       }
     ],
-    basis: "\u7C73\u56FD\u306E\u6210\u4EBA\u306E\u7D044\u5272\u304C\u533B\u7642\u8CBB\u306E\u501F\u91D1\u3092\u62B1\u3048\u308B\uFF08KFF 2022\u8ABF\u67FB\uFF09",
-    estimated: true
+    basis: "\u904E\u53BB1\u5E74\u306B\u533B\u7642\u8CBB\u306E\u652F\u6255\u3044\u306B\u56F0\u3063\u305F\u5BB6\u65CF\u306E\u4EBA\u306F10.8%\uFF08CDC NHIS\uFF09\u3002\u6551\u6025\u5916\u6765\u306E\u9AD8\u984D\u8ACB\u6C42\u306F\u305D\u306E\u4E00\u90E8\uFF08\u7D71\u8A08\u3067\u78BA\u8A8D\uFF09",
+    estimated: false
   },
   {
     id: "usa_student_loan",
@@ -4130,7 +4103,7 @@ var country_events_default = [
     ],
     minAge: 0,
     maxAge: 100,
-    annualProb: 6e-3,
+    annualProb: 0.013,
     requires: null,
     title: "\u30CF\u30EA\u30B1\u30FC\u30F3\u30FB\u5C71\u706B\u4E8B\u3067\u907F\u96E3",
     situation: "\u5927\u578B\u306E\u30CF\u30EA\u30B1\u30FC\u30F3\u3084\u5C71\u706B\u4E8B\u304C\u8FEB\u308A\u3001\u5730\u57DF\u306B\u907F\u96E3\u547D\u4EE4\u304C\u51FA\u305F\u3002",
@@ -4164,8 +4137,8 @@ var country_events_default = [
         result: "\u5225\u306E\u5DDE\u3067\u66AE\u3089\u3057\u76F4\u3059\u3053\u3068\u306B\u3057\u305F\u3002"
       }
     ],
-    basis: "\u30D5\u30ED\u30EA\u30C0\u30FB\u30AB\u30EA\u30D5\u30A9\u30EB\u30CB\u30A2\u306A\u3069\u3067\u5927\u898F\u6A21\u707D\u5BB3\u304C\u591A\u767A\u3001\u4F4F\u5B85\u4FDD\u967A\u6599\u304C\u4E0A\u6607\uFF08\u5831\u9053\uFF09\u3002\u5168\u56FD\u5E73\u5747\u306E\u5E74\u7387\u306F\u6982\u7B97",
-    estimated: true
+    basis: "\u6210\u4EBA\u306E1.37%\u304C\u904E\u53BB1\u5E74\u306B\u81EA\u7136\u707D\u5BB3\u3067\u907F\u96E3\u3057\u305F\uFF08\u56FD\u52E2\u8ABF\u67FB\u5C40 Household Pulse Survey 2023\uFF09\uFF08\u7D71\u8A08\u3067\u78BA\u8A8D\uFF09",
+    estimated: false
   },
   {
     id: "chn_unfinished_flat",
@@ -4214,7 +4187,7 @@ var country_events_default = [
     ],
     minAge: 25,
     maxAge: 50,
-    annualProb: 0.05,
+    annualProb: 0.015,
     requires: "urban+kid:5-14",
     title: "\u6238\u7C4D\u3068\u5B50\u3069\u3082\u306E\u5B66\u6821",
     situation: "\u50CD\u3044\u3066\u3044\u308B\u90FD\u5E02\u306B\u6238\u7C4D\u304C\u306A\u3044\u305F\u3081\u3001\u5B50\u3069\u3082\u304C\u5730\u5143\u306E\u516C\u7ACB\u6821\u306B\u5165\u308B\u306B\u306F\u591A\u304F\u306E\u66F8\u985E\u3068\u6761\u4EF6\u304C\u5FC5\u8981\u3060\u3068\u5206\u304B\u3063\u305F\u3002",
@@ -4264,8 +4237,8 @@ var country_events_default = [
         result: "\u5BB6\u65CF\u3067\u6545\u90F7\u306E\u753A\u306B\u623B\u3063\u305F\u3002"
       }
     ],
-    basis: "\u6238\u7C4D\uFF08\u6238\u53E3\uFF09\u306E\u306A\u3044\u90FD\u5E02\u3067\u306F\u516C\u7ACB\u6821\u5165\u5B66\u306B\u6761\u4EF6\u304C\u3042\u308B\u3002\u8FB2\u6751\u306E\u7559\u5B88\u5150\u7AE5\u306F\u7D04700\u4E07\u4EBA\uFF08\u6C11\u653F\u90E8 2018\uFF09",
-    estimated: true
+    basis: "\u7FA9\u52D9\u6559\u80B2\u306E\u5B50\u306E8.4%\u304C\u6238\u7C4D\u304C\u5225\u306E\u5730\u57DF\u306B\u3042\u308B\u968F\u9077\u5B50\u5973\uFF08\u6559\u80B2\u90E8 2023\u5E74\u7D71\u8A08\u516C\u5831\uFF09\u3002\u4E00\u5EA6\u304D\u308A\u306E\u51FA\u6765\u4E8B\u3068\u3057\u306610\u5E74\u3067\u7D041\u5272\uFF08\u7D71\u8A08\u3067\u78BA\u8A8D\uFF09",
+    estimated: false
   },
   {
     id: "chn_gaokao",
@@ -4312,8 +4285,8 @@ var country_events_default = [
         result: "\u70B9\u6570\u3067\u5165\u308C\u308B\u5B66\u6821\u306B\u9032\u5B66\u3057\u305F\u3002"
       }
     ],
-    basis: "2024\u5E74\u306E\u9AD8\u8003\u53D7\u9A13\u8005\u306F\u7D041,342\u4E07\u4EBA\uFF08\u6559\u80B2\u90E8\uFF09",
-    estimated: true
+    basis: "\u9AD8\u8003\u53D7\u9A13\u80051,291\u4E07\u4EBA\u306B\u5BFE\u30574\u5E74\u5236\u5927\u5B66\uFF08\u672C\u79D1\uFF09\u306E\u5B9A\u54E1\u306F\u7D04478\u4E07\u4EBA\u306737%\uFF08\u6559\u80B2\u90E8 2023\u5E74\uFF09\uFF08\u7D71\u8A08\u3067\u78BA\u8A8D\uFF09",
+    estimated: false
   },
   {
     id: "chn_996",
@@ -4370,7 +4343,7 @@ var country_events_default = [
     ],
     minAge: 0,
     maxAge: 100,
-    annualProb: 0.01,
+    annualProb: 0.02,
     requires: "rural",
     title: "\u590F\u306E\u5927\u96E8\u3068\u6D2A\u6C34",
     situation: "\u590F\u306E\u8C6A\u96E8\u3067\u5DDD\u304C\u5897\u6C34\u3057\u3001\u6751\u306E\u7530\u7551\u3068\u5BB6\u304C\u6C34\u306B\u3064\u304B\u3063\u305F\u3002",
@@ -4408,8 +4381,8 @@ var country_events_default = [
         result: "\u753A\u306E\u5DE5\u5834\u3067\u50CD\u304F\u3053\u3068\u306B\u3057\u305F\u3002"
       }
     ],
-    basis: "\u9577\u6C5F\u30FB\u9EC4\u6CB3\u6D41\u57DF\u306A\u3069\u3067\u6BCE\u5E74\u306E\u3088\u3046\u306B\u6D2A\u6C34\u88AB\u5BB3\uFF08\u5FDC\u6025\u7BA1\u7406\u90E8\uFF09\u3002\u8FB2\u6751\u306E\u5E74\u7387\u306F\u6982\u7B97",
-    estimated: true
+    basis: "\u904E\u53BB10\u5E74\u306E\u5E74\u5E73\u5747\u306E\u88AB\u707D\u4EBA\u53E3\u306F\u7D046,200\u4E07\u4EBA\u3067\u8FB2\u6751\u4EBA\u53E3\u306E13%\uFF08\u5FDC\u6025\u7BA1\u7406\u90E8\uFF09\u3002\u8EFD\u3044\u5F71\u97FF\u3084\u307B\u304B\u306E\u707D\u5BB3\u3082\u542B\u3080\u6570\u3048\u65B9\u306A\u306E\u3067\u3001\u5BB6\u304C\u6C34\u306B\u3064\u304B\u308B\u5834\u9762\u3068\u3057\u3066\u5E742%\uFF08\u7D71\u8A08\u3067\u78BA\u8A8D\uFF09",
+    estimated: false
   },
   {
     id: "ind_monsoon_flood",
@@ -4456,8 +4429,8 @@ var country_events_default = [
         result: "\u89AA\u621A\u306E\u5BB6\u306B\u8EAB\u3092\u5BC4\u305B\u305F\u3002"
       }
     ],
-    basis: "\u30A2\u30C3\u30B5\u30E0\u30FB\u30D3\u30CF\u30FC\u30EB\u306A\u3069\u3067\u6BCE\u5E74\u6570\u767E\u4E07\u4EBA\u304C\u6D2A\u6C34\u306E\u5F71\u97FF\u3092\u53D7\u3051\u308B\uFF08NDMA\u3001\u5831\u9053\uFF09",
-    estimated: true
+    basis: "\u6D2A\u6C34\u306E\u88AB\u707D\u4EBA\u53E3\u306F\u5E74\u5E73\u5747\u7D043,234\u4E07\u4EBA\u3067\u4EBA\u53E3\u306E2.3%\uFF08\u4E2D\u592E\u6C34\u59D4\u54E1\u4F1A\uFF09\uFF08\u7D71\u8A08\u3067\u78BA\u8A8D\uFF09",
+    estimated: false
   },
   {
     id: "ind_entrance_exam",
@@ -4466,7 +4439,7 @@ var country_events_default = [
     ],
     minAge: 16,
     maxAge: 18,
-    annualProb: 0.15,
+    annualProb: 0.07,
     requires: "student",
     title: "\u5DE5\u5B66\u30FB\u533B\u5B66\u90E8\u306E\u5165\u8A66\u6E96\u5099",
     situation: "\u5468\u308A\u306E\u591A\u304F\u304C\u5DE5\u5B66\u7CFB\u5165\u8A66\uFF08JEE\uFF09\u3084\u533B\u5B66\u90E8\u5165\u8A66\uFF08NEET\uFF09\u306E\u4E88\u5099\u6821\u306B\u901A\u3044\u306F\u3058\u3081\u305F\u3002",
@@ -4508,8 +4481,8 @@ var country_events_default = [
         result: "\u5730\u5143\u306E\u5927\u5B66\u306B\u9032\u5B66\u3057\u305F\u3002"
       }
     ],
-    basis: "NEET\u306E\u53D7\u9A13\u8005\u306F\u5E74\u7D04230\u4E07\u4EBA\u3001JEE Main\u306F\u7D04120\u4E07\u4EBA\uFF08NTA 2024\uFF09",
-    estimated: true
+    basis: "JEE Main\u30FBNEET \u306E\u53D7\u9A13\u8005\u306F12\u5E74\u751F\u306E\u7D042\u5272\uFF08NTA\u30FBUDISE+\uFF09\uFF08\u7D71\u8A08\u3067\u78BA\u8A8D\uFF09",
+    estimated: false
   },
   {
     id: "ind_wedding_cost",
@@ -4558,7 +4531,7 @@ var country_events_default = [
     ],
     minAge: 20,
     maxAge: 45,
-    annualProb: 0.015,
+    annualProb: 3e-3,
     requires: "working",
     title: "\u6E7E\u5CB8\u8AF8\u56FD\u3078\u306E\u51FA\u7A3C\u304E",
     situation: "\u77E5\u4EBA\u304B\u3089\u3001\u30C9\u30D0\u30A4\u306E\u5EFA\u8A2D\u73FE\u5834\u306E\u4ED5\u4E8B\u3092\u7D39\u4ECB\u3059\u308B\u3068\u6301\u3061\u304B\u3051\u3089\u308C\u305F\u3002",
@@ -4600,8 +4573,8 @@ var country_events_default = [
         result: "\u5730\u5143\u3067\u50CD\u304D\u7D9A\u3051\u308B\u3053\u3068\u306B\u3057\u305F\u3002"
       }
     ],
-    basis: "\u6E7E\u5CB8\u5354\u529B\u4F1A\u8B70\uFF08GCC\uFF09\u8AF8\u56FD\u306E\u30A4\u30F3\u30C9\u4EBA\u52B4\u50CD\u8005\u306F\u7D04900\u4E07\u4EBA\uFF08\u5916\u52D9\u7701\u30FB\u30A4\u30F3\u30C9\u653F\u5E9C\uFF09",
-    estimated: true
+    basis: "\u6E7E\u5CB8\u306A\u3069\u3078\u306E\u51FA\u56FD\u8A31\u53EF\u306F\u5E7439.8\u4E07\u4EBA\uFF08\u5916\u52D9\u7701 2023\u5E74\uFF09\u300220\u301C45\u6B73\u306E\u5C31\u696D\u8005\u7D043\u5104\u4EBA\u306E\u7D040.13%\u3002\u8A98\u3044\u306E\u5834\u9762\u306A\u306E\u3067\u305D\u306E2\u500D\u307B\u3069\uFF08\u7D71\u8A08\u3067\u78BA\u8A8D\uFF09",
+    estimated: false
   },
   {
     id: "ind_crop_failure",
@@ -4692,8 +4665,8 @@ var country_events_default = [
         result: "\u6DF7\u96D1\u3059\u308B\u516C\u7ACB\u75C5\u9662\u3067\u9806\u756A\u3092\u5F85\u3063\u305F\u3002"
       }
     ],
-    basis: "\u533B\u7642\u8CBB\u306E\u81EA\u5DF1\u8CA0\u62C5\u5272\u5408\u306F\u7D044\u301C5\u5272\uFF08WHO GHED\uFF09",
-    estimated: true
+    basis: "1\u5E74\u306B\u4EBA\u53E3\u306E2.9%\u304C\u5165\u9662\u3057\u3001\u305D\u306E65%\u304C\u79C1\u7ACB\u75C5\u9662\uFF08NSS 75th round 2017-18\uFF09\uFF08\u7D71\u8A08\u3067\u78BA\u8A8D\uFF09",
+    estimated: false
   },
   {
     id: "nga_fuel_price",
@@ -4780,8 +4753,8 @@ var country_events_default = [
         result: "\u8CAF\u91D1\u306E\u4E00\u90E8\u3092\u7C73\u30C9\u30EB\u306B\u66FF\u3048\u305F\u3002"
       }
     ],
-    basis: "2023\u301C24\u5E74\u306B\u30CA\u30A4\u30E9\u306F\u5BFE\u30C9\u30EB\u3067\u7D047\u5272\u4E0B\u843D\uFF08\u4E2D\u592E\u9280\u884C\u516C\u5F0F\u30EC\u30FC\u30C8\uFF09",
-    estimated: true
+    basis: "\u904E\u53BB30\u5E74\u306E\u3046\u30615\u5E74\u3067\u30CA\u30A4\u30E9\u304C1\u5E74\u306B30%\u4EE5\u4E0A\u4E0B\u843D\uFF08\u4E2D\u592E\u9280\u884C\u30FBIMF\uFF09\uFF08\u7D71\u8A08\u3067\u78BA\u8A8D\uFF09",
+    estimated: false
   },
   {
     id: "nga_generator",
@@ -4790,7 +4763,7 @@ var country_events_default = [
     ],
     minAge: 18,
     maxAge: 80,
-    annualProb: 0.1,
+    annualProb: 0.02,
     requires: "urban",
     title: "\u505C\u96FB\u3068\u767A\u96FB\u6A5F",
     situation: "\u9001\u96FB\u7DB2\u306E\u505C\u96FB\u304C\u7D9A\u304D\u30011\u65E5\u306B\u6570\u6642\u9593\u3057\u304B\u96FB\u6C17\u304C\u6765\u306A\u3044\u3002",
@@ -4824,8 +4797,8 @@ var country_events_default = [
         result: "\u96FB\u6C17\u304C\u6765\u308B\u6642\u9593\u306B\u5408\u308F\u305B\u3066\u52D5\u304F\u3088\u3046\u306B\u3057\u305F\u3002"
       }
     ],
-    basis: "\u4F01\u696D\u306E\u591A\u304F\u304C\u81EA\u5BB6\u767A\u96FB\u306B\u983C\u308B\uFF08\u4E16\u754C\u9280\u884C \u4F01\u696D\u8ABF\u67FB\uFF09",
-    estimated: true
+    basis: "\u90FD\u5E02\u306E\u4E16\u5E2F\u306E52%\u304C\u81EA\u5BB6\u7528\u767A\u96FB\u6A5F\u3092\u6301\u3064\uFF08\u4E16\u754C\u9280\u884C LSMS 2018-19\uFF09\uFF08\u7D71\u8A08\u3067\u78BA\u8A8D\uFF09",
+    estimated: false
   },
   {
     id: "nga_japa",
@@ -4882,7 +4855,7 @@ var country_events_default = [
     ],
     minAge: 18,
     maxAge: 24,
-    annualProb: 0.1,
+    annualProb: 0.2,
     requires: "inUniv",
     title: "\u5927\u5B66\u6559\u54E1\u306E\u30B9\u30C8\u30E9\u30A4\u30AD",
     situation: "\u56FD\u7ACB\u5927\u5B66\u306E\u6559\u54E1\u7D44\u5408\u304C\u30B9\u30C8\u30E9\u30A4\u30AD\u306B\u5165\u308A\u3001\u6388\u696D\u304C\u4F55\u304B\u6708\u3082\u6B62\u307E\u3063\u305F\u3002",
@@ -4916,8 +4889,8 @@ var country_events_default = [
         result: "\u79C1\u7ACB\u5927\u5B66\u306B\u7DE8\u5165\u3057\u305F\u3002"
       }
     ],
-    basis: "2022\u5E74\u306E\u5927\u5B66\u6559\u54E1\u7D44\u5408\uFF08ASUU\uFF09\u306E\u30B9\u30C8\u306F\u7D048\u304B\u6708\u7D9A\u3044\u305F\uFF08\u5831\u9053\uFF09",
-    estimated: true
+    basis: "\u904E\u53BB20\u5E74\u306E\u3046\u306110\u5E74\u3067\u5927\u5B66\u6559\u54E1\u7D44\u5408\u306E\u30B9\u30C8\u30E9\u30A4\u30AD\u304C\u3042\u3063\u305F\uFF08\u4E8C\u6B21\u60C5\u5831\uFF09\u3002\u5728\u5B66\u4E2D\u306B\u4E00\u5EA6\u306F\u307B\u307C\u5FC5\u305A\u51FA\u4F1A\u3046\uFF08\u7D71\u8A08\u3067\u78BA\u8A8D\uFF09",
+    estimated: false
   },
   {
     id: "pak_flood",
@@ -5008,8 +4981,8 @@ var country_events_default = [
         result: "\u8CAF\u91D1\u306E\u4E00\u90E8\u3067\u91D1\u306E\u88C5\u8EAB\u5177\u3092\u8CB7\u3063\u305F\u3002"
       }
     ],
-    basis: "2023\u5E74\u306ECPI\u4E0A\u6607\u7387\u306F\u7D0430%\uFF08WDI\uFF09",
-    estimated: true
+    basis: "\u904E\u53BB30\u5E74\u306E\u3046\u30613\u5E74\u3067\u7269\u4FA1\u4E0A\u6607\u7387\u304C\u5E7420%\u3092\u8D85\u3048\u305F\uFF08\u4E16\u754C\u9280\u884C WDI\uFF09\uFF08\u7D71\u8A08\u3067\u78BA\u8A8D\uFF09",
+    estimated: false
   },
   {
     id: "pak_electricity_bill",
@@ -5108,8 +5081,8 @@ var country_events_default = [
         result: "\u56FD\u5185\u3067\u4ED5\u4E8B\u3092\u7D9A\u3051\u305F\u3002"
       }
     ],
-    basis: "\u6D77\u5916\u5C31\u52B4\u8005\u306E\u9001\u91D1\u306FGDP\u306E\u7D049%\uFF08WDI 2024\uFF09",
-    estimated: true
+    basis: "\u6D77\u5916\u5C31\u52B4\u306E\u767B\u9332\u306F\u5E74\u7D0486\u4E07\u4EBA\u3067\u5C31\u696D\u80057,121\u4E07\u4EBA\u306E1.2%\uFF08BEOE 2023\u5E74\u30FB\u7D71\u8A08\u5C40\uFF09\uFF08\u7D71\u8A08\u3067\u78BA\u8A8D\uFF09",
+    estimated: false
   },
   {
     id: "pak_heatwave",
@@ -5162,7 +5135,7 @@ var country_events_default = [
     ],
     minAge: 16,
     maxAge: 35,
-    annualProb: 0.05,
+    annualProb: 0.02,
     requires: null,
     title: "\u7E2B\u88FD\u5DE5\u5834\u306E\u6C42\u4EBA",
     situation: "\u30C0\u30C3\u30AB\u8FD1\u90CA\u306E\u7E2B\u88FD\u5DE5\u5834\u3067\u50CD\u304D\u624B\u3092\u52DF\u96C6\u3057\u3066\u3044\u308B\u3068\u3001\u6751\u3067\u8A71\u304C\u5E83\u307E\u3063\u305F\u3002",
@@ -5200,8 +5173,8 @@ var country_events_default = [
         result: "\u6751\u3067\u5BB6\u696D\u3092\u624B\u4F1D\u3044\u7D9A\u3051\u305F\u3002"
       }
     ],
-    basis: "\u7E2B\u88FD\u696D\u306F\u8F38\u51FA\u306E\u7D048\u5272\u3001\u52B4\u50CD\u8005\u306F\u7D04400\u4E07\u4EBA\uFF08\u30D0\u30F3\u30B0\u30E9\u30C7\u30B7\u30E5\u7E2B\u88FD\u696D\u8005\u30FB\u8F38\u51FA\u696D\u8005\u5354\u4F1A\uFF09",
-    estimated: true
+    basis: "\u7E2B\u88FD\u5DE5\u5834\u3067\u50CD\u304F\u4EBA\u306F\u7D04400\u4E07\u4EBA\u3067\u300115\u301C34\u6B73\u4EBA\u53E3\u306E\u7D047%\uFF08BGMEA\u30FB2022\u5E74\u56FD\u52E2\u8ABF\u67FB\uFF09\uFF08\u7D71\u8A08\u3067\u78BA\u8A8D\uFF09",
+    estimated: false
   },
   {
     id: "bgd_flood",
@@ -5244,8 +5217,8 @@ var country_events_default = [
         result: "\u30B5\u30A4\u30AF\u30ED\u30F3\u30B7\u30A7\u30EB\u30BF\u30FC\u306B\u907F\u96E3\u3057\u305F\u3002"
       }
     ],
-    basis: "\u56FD\u571F\u306E\u7D042\u5272\u304C\u6BCE\u5E74\u6D78\u6C34\u3059\u308B\uFF08\u30D0\u30F3\u30B0\u30E9\u30C7\u30B7\u30E5\u6C34\u958B\u767A\u5E81\uFF09",
-    estimated: true
+    basis: "1\u56DE\u306E\u6D2A\u6C34\u306E\u88AB\u707D\u8005\u306F580\u4E07\u301C730\u4E07\u4EBA\u3067\u4EBA\u53E3\u306E3\u301C4%\uFF08OCHA\u30FBUNICEF 2022\u30FB2024\u5E74\uFF09\uFF08\u7D71\u8A08\u3067\u78BA\u8A8D\uFF09",
+    estimated: false
   },
   {
     id: "bgd_cyclone",
@@ -5288,8 +5261,8 @@ var country_events_default = [
         result: "\u5C4B\u6839\u3092\u30ED\u30FC\u30D7\u3067\u7E1B\u3063\u3066\u5D50\u3092\u3084\u308A\u904E\u3054\u3057\u305F\u3002"
       }
     ],
-    basis: "\u65E9\u671F\u8B66\u5831\u3068\u30B7\u30A7\u30EB\u30BF\u30FC\u306E\u6574\u5099\u3067\u6B7B\u8005\u306F\u5927\u304D\u304F\u6E1B\u3063\u305F\u304C\u3001\u88AB\u5BB3\u306F\u6BCE\u5E74\u767A\u751F\uFF08\u9632\u707D\u30FB\u6551\u63F4\u7701\uFF09",
-    estimated: true
+    basis: "\u5927\u304D\u306A\u30B5\u30A4\u30AF\u30ED\u30F31\u56DE\u306E\u88AB\u707D\u8005\u306F240\u4E07\u301C260\u4E07\u4EBA\u3067\u3001\u304A\u304A\u3080\u306D2\u5E74\u306B\u4E00\u5EA6\uFF08OCHA 2020\u30FB2024\u5E74\uFF09\uFF08\u7D71\u8A08\u3067\u78BA\u8A8D\uFF09",
+    estimated: false
   },
   {
     id: "bgd_microcredit",
@@ -5332,8 +5305,8 @@ var country_events_default = [
         result: "\u4ECA\u306E\u66AE\u3089\u3057\u3092\u7D9A\u3051\u308B\u3053\u3068\u306B\u3057\u305F\u3002"
       }
     ],
-    basis: "\u30DE\u30A4\u30AF\u30ED\u30D5\u30A1\u30A4\u30CA\u30F3\u30B9\u306E\u5229\u7528\u8005\u306F\u7D044,000\u4E07\u4EBA\uFF08\u30DE\u30A4\u30AF\u30ED\u30AF\u30EC\u30B8\u30C3\u30C8\u898F\u5236\u5E81\uFF09",
-    estimated: true
+    basis: "\u30DE\u30A4\u30AF\u30ED\u30D5\u30A1\u30A4\u30CA\u30F3\u30B9\u306E\u501F\u308A\u624B\u306F\u7D043,217\u4E07\u4EBA\u306715\u301C64\u6B73\u306E28%\uFF08MRA 2024\u5E74\uFF09\uFF08\u7D71\u8A08\u3067\u78BA\u8A8D\uFF09",
+    estimated: false
   },
   {
     id: "bgd_gulf_work",
@@ -5342,7 +5315,7 @@ var country_events_default = [
     ],
     minAge: 20,
     maxAge: 40,
-    annualProb: 0.015,
+    annualProb: 0.025,
     requires: "working",
     title: "\u6D77\u5916\u3078\u306E\u51FA\u7A3C\u304E",
     situation: "\u4EF2\u4ECB\u696D\u8005\u304B\u3089\u3001\u30DE\u30EC\u30FC\u30B7\u30A2\u3084\u4E2D\u6771\u306E\u5DE5\u5834\u306E\u4ED5\u4E8B\u3092\u7D39\u4ECB\u3055\u308C\u305F\u3002",
@@ -5376,8 +5349,8 @@ var country_events_default = [
         result: "\u56FD\u5185\u3067\u50CD\u304D\u7D9A\u3051\u305F\u3002"
       }
     ],
-    basis: "\u6D77\u5916\u5C31\u52B4\u8005\u306F\u5E74\u7D04100\u4E07\u4EBA\u304C\u65B0\u305F\u306B\u51FA\u56FD\uFF08\u4EBA\u6750\u96C7\u7528\u8A13\u7DF4\u5C40 2023\uFF09",
-    estimated: true
+    basis: "\u6D77\u5916\u5C31\u52B4\u306E\u51FA\u56FD\u8005\u306F\u5E74113\u4E07\u301C131\u4E07\u4EBA\u3067\u5C31\u696D\u80057,080\u4E07\u4EBA\u306E\u7D041.7%\uFF08BMET\u30FB\u7D71\u8A08\u5C40 2022-23\u5E74\uFF09\u300220\u301C40\u6B73\u306B\u9650\u308C\u3070\u305D\u308C\u4EE5\u4E0A\uFF08\u7D71\u8A08\u3067\u78BA\u8A8D\uFF09",
+    estimated: false
   },
   {
     id: "idn_earthquake",
@@ -5386,7 +5359,7 @@ var country_events_default = [
     ],
     minAge: 0,
     maxAge: 100,
-    annualProb: 6e-3,
+    annualProb: 4e-3,
     requires: null,
     title: "\u5730\u9707\u3068\u6D25\u6CE2\u8B66\u5831",
     situation: "\u5F37\u3044\u5730\u9707\u304C\u8D77\u304D\u3001\u6CBF\u5CB8\u306B\u6D25\u6CE2\u8B66\u5831\u304C\u51FA\u305F\u3002",
@@ -5424,8 +5397,8 @@ var country_events_default = [
         result: "\u89AA\u621A\u306E\u3044\u308B\u753A\u306B\u79FB\u3063\u305F\u3002"
       }
     ],
-    basis: "\u4E16\u754C\u6709\u6570\u306E\u5730\u9707\u591A\u767A\u56FD\uFF08BMKG\uFF09\u30022018\u5E74\u30B9\u30E9\u30A6\u30A7\u30B7\u5730\u9707\u306A\u3069",
-    estimated: true
+    basis: "2022\u5E74\u30C1\u30A2\u30F3\u30B8\u30E5\u30FC\u30EB\u5730\u9707\u306E\u88AB\u707D\u8005\u306F\u7D0450\u4E07\u4EBA\u3067\u4EBA\u53E3\u306E0.2%\uFF08BNPB\uFF09\u3002\u307B\u304B\u306E\u5730\u9707\u3082\u542B\u3081\u3066\u5E740.4%\uFF08\u7D71\u8A08\u3067\u78BA\u8A8D\uFF09",
+    estimated: false
   },
   {
     id: "idn_jakarta_flood",
@@ -5434,7 +5407,7 @@ var country_events_default = [
     ],
     minAge: 0,
     maxAge: 100,
-    annualProb: 0.04,
+    annualProb: 0.02,
     requires: "urban",
     title: "\u96E8\u5B63\u306E\u51A0\u6C34",
     situation: "\u5927\u96E8\u3067\u4F4F\u3093\u3067\u3044\u308B\u5730\u533A\u304C\u51A0\u6C34\u3057\u3001\u6570\u65E5\u9593\u4ED5\u4E8B\u306B\u884C\u3051\u306A\u304B\u3063\u305F\u3002",
@@ -5472,8 +5445,8 @@ var country_events_default = [
         result: "\u5C11\u3057\u9AD8\u3044\u571F\u5730\u306E\u30A2\u30D1\u30FC\u30C8\u306B\u79FB\u3063\u305F\u3002"
       }
     ],
-    basis: "\u30B8\u30E3\u30AB\u30EB\u30BF\u306F\u5730\u76E4\u6C88\u4E0B\u3082\u3042\u308A\u51A0\u6C34\u304C\u983B\u767A\uFF08\u5831\u9053\uFF09\u3002\u9996\u90FD\u79FB\u8EE2\u8A08\u753B\u306E\u80CC\u666F\u306E\u4E00\u3064",
-    estimated: true
+    basis: "2020\u5E74\u306E\u30B8\u30E3\u30AB\u30EB\u30BF\u6D2A\u6C34\u306E\u907F\u96E3\u8005\u306F\u4EBA\u53E3\u306E0.3%\uFF08BNPB\uFF09\u3002\u51A0\u6C34\u3067\u4ED5\u4E8B\u306B\u884C\u3051\u306A\u3044\u4EBA\u306F\u305D\u308C\u3088\u308A\u591A\u3044\uFF08\u7D71\u8A08\u3067\u78BA\u8A8D\uFF09",
+    estimated: false
   },
   {
     id: "idn_haze",
@@ -5516,8 +5489,8 @@ var country_events_default = [
         result: "\u305B\u304D\u3092\u3057\u306A\u304C\u3089\u7551\u4ED5\u4E8B\u3092\u7D9A\u3051\u305F\u3002"
       }
     ],
-    basis: "\u30B9\u30DE\u30C8\u30E9\u30FB\u30AB\u30EA\u30DE\u30F3\u30BF\u30F3\u3067\u6CE5\u70AD\u706B\u707D\u306B\u3088\u308B\u7159\u5BB3\u304C\u7E70\u308A\u8FD4\u3057\u767A\u751F\uFF082015\u30012019\u5E74\u306A\u3069\uFF09",
-    estimated: true
+    basis: "2015\u5E74\u306E\u68EE\u6797\u706B\u707D\u306E\u7159\u306F\u7D044,300\u4E07\u4EBA\u306B\u5F71\u97FF\uFF08\u4E16\u754C\u9280\u884C\uFF09\u3002\u5927\u304D\u306A\u7159\u5BB3\u306F\u7D044\u5E74\u306B\u4E00\u5EA6\uFF08\u7D71\u8A08\u3067\u78BA\u8A8D\uFF09",
+    estimated: false
   },
   {
     id: "idn_jkn",
@@ -5560,8 +5533,8 @@ var country_events_default = [
         result: "\u4FDD\u967A\u6599\u306E\u5206\u3092\u5546\u58F2\u306B\u56DE\u3057\u305F\u3002"
       }
     ],
-    basis: "JKN\u306E\u52A0\u5165\u7387\u306F\u4EBA\u53E3\u306E\u7D0495%\u3060\u304C\u3001\u81EA\u55B6\u696D\u8005\u306E\u4FDD\u967A\u6599\u6EDE\u7D0D\u304C\u591A\u3044\uFF08BPJS Kesehatan\uFF09",
-    estimated: true
+    basis: "\u4FDD\u967A\u6599\u306E\u6EDE\u7D0D\u306A\u3069\u3067\u4F7F\u3048\u306A\u3044 JKN \u52A0\u5165\u8005\u306F\u7D046,300\u4E07\u4EBA\u3067\u4EBA\u53E3\u306E\u7D0423%\uFF08\u4FDD\u5065\u7701\u3001\u4E8C\u6B21\u60C5\u5831\uFF09\uFF08\u7D71\u8A08\u3067\u78BA\u8A8D\uFF09",
+    estimated: false
   },
   {
     id: "idn_online_loan",
@@ -5570,7 +5543,7 @@ var country_events_default = [
     ],
     minAge: 20,
     maxAge: 50,
-    annualProb: 0.03,
+    annualProb: 0.01,
     requires: null,
     title: "\u30B9\u30DE\u30DB\u306E\u5373\u65E5\u30ED\u30FC\u30F3",
     situation: "\u6025\u306A\u51FA\u8CBB\u304C\u3042\u308A\u3001\u30B9\u30DE\u30DB\u30A2\u30D7\u30EA\u306E\u5373\u65E5\u30ED\u30FC\u30F3\u306E\u5E83\u544A\u304C\u76EE\u306B\u5165\u3063\u305F\u3002",
@@ -5604,8 +5577,8 @@ var country_events_default = [
         result: "\u53D4\u7236\u306B\u304A\u91D1\u3092\u501F\u308A\u305F\u3002"
       }
     ],
-    basis: "\u30AA\u30F3\u30E9\u30A4\u30F3\u8CB8\u91D1\uFF08pinjol\uFF09\u306E\u5229\u7528\u3068\u9055\u6CD5\u696D\u8005\u306E\u554F\u984C\u304C\u62E1\u5927\uFF08\u91D1\u878D\u30B5\u30FC\u30D3\u30B9\u5E81 OJK\uFF09",
-    estimated: true
+    basis: "\u30AA\u30F3\u30E9\u30A4\u30F3\u8CB8\u91D1\u306E\u501F\u308A\u624B\u306F\u7D041,657\u4E07\u53E3\u5EA7\u3067\u6210\u4EBA\u7D042\u5104\u4EBA\u306E8%\uFF08OJK\u3001\u4E8C\u6B21\u60C5\u5831\uFF09\uFF08\u7D71\u8A08\u3067\u78BA\u8A8D\uFF09",
+    estimated: false
   },
   {
     id: "bra_price_rise",
@@ -5648,8 +5621,8 @@ var country_events_default = [
         result: "Tesouro Direto\u3067\u7269\u4FA1\u9023\u52D5\u50B5\u3092\u8CB7\u3063\u305F\u3002"
       }
     ],
-    basis: "1990\u5E74\u4EE3\u524D\u534A\u306F\u5E74\u6570\u5343%\u306E\u30A4\u30F3\u30D5\u30EC\u3002\u8FD1\u5E74\u3082\u5E744\u301C10%\u7A0B\u5EA6\uFF08WDI\uFF09",
-    estimated: true
+    basis: "2005\u301C2024\u5E74\u306E\u3046\u30615\u5E74\u3067IPCA\u306E\u4E0A\u6607\u7387\u304C6%\u3092\u8D85\u3048\u305F\uFF08IBGE\uFF09\uFF08\u7D71\u8A08\u3067\u78BA\u8A8D\uFF09",
+    estimated: false
   },
   {
     id: "bra_security",
@@ -5692,8 +5665,8 @@ var country_events_default = [
         result: "\u7A93\u306B\u683C\u5B50\u3092\u4ED8\u3051\u305F\u3002"
       }
     ],
-    basis: "\u6BBA\u4EBA\u7387\u306F\u4EBA\u53E310\u4E07\u4EBA\u3042\u305F\u308A\u7D0419\uFF08WDI 2023\uFF09\u3002\u6C11\u9593\u8B66\u5099\u3078\u306E\u652F\u51FA\u304C\u5927\u304D\u3044",
-    estimated: true
+    basis: "\u5168\u4E16\u5E2F\u306E4%\u304C\u904E\u53BB1\u5E74\u306B\u7A83\u76D7\u306E\u88AB\u5BB3\uFF08IBGE PNAD 2021\uFF09\uFF08\u7D71\u8A08\u3067\u78BA\u8A8D\uFF09",
+    estimated: false
   },
   {
     id: "bra_phone_theft",
@@ -5702,7 +5675,7 @@ var country_events_default = [
     ],
     minAge: 15,
     maxAge: 70,
-    annualProb: 0.06,
+    annualProb: 0.1,
     requires: "urban",
     title: "\u30B9\u30DE\u30DB\u306E\u3072\u3063\u305F\u304F\u308A",
     situation: "\u901A\u52E4\u4E2D\u306B\u30B9\u30DE\u30DB\u3092\u3072\u3063\u305F\u304F\u3089\u308C\u305F\u3002",
@@ -5736,8 +5709,8 @@ var country_events_default = [
         result: "\u4E2D\u53E4\u306E\u30B9\u30DE\u30DB\u3067\u5F53\u9762\u3057\u306E\u3050\u3053\u3068\u306B\u3057\u305F\u3002"
       }
     ],
-    basis: "\u30B5\u30F3\u30D1\u30A6\u30ED\u306A\u3069\u5927\u90FD\u5E02\u3067\u643A\u5E2F\u96FB\u8A71\u306E\u76D7\u96E3\u304C\u591A\u3044\uFF08\u30D6\u30E9\u30B8\u30EB\u516C\u5171\u5B89\u5168\u30D5\u30A9\u30FC\u30E9\u30E0\uFF09",
-    estimated: true
+    basis: "16\u6B73\u4EE5\u4E0A\u306E\u7D0410%\u304C\u904E\u53BB1\u5E74\u306B\u643A\u5E2F\u96FB\u8A71\u3092\u76D7\u307E\u308C\u305F\uFF08\u30D6\u30E9\u30B8\u30EB\u516C\u5171\u5B89\u5168\u30D5\u30A9\u30FC\u30E9\u30E0\u30FBDatafolha 2024\uFF09\uFF08\u7D71\u8A08\u3067\u78BA\u8A8D\uFF09",
+    estimated: false
   },
   {
     id: "bra_sus_wait",
@@ -5780,8 +5753,8 @@ var country_events_default = [
         result: "\u4E88\u7D04\u306E\u65E5\u307E\u3067\u5F85\u3063\u305F\u3002"
       }
     ],
-    basis: "\u4EBA\u53E3\u306E\u7D0425%\u304C\u6C11\u9593\u533B\u7642\u4FDD\u967A\u306B\u52A0\u5165\uFF08ANS\uFF09",
-    estimated: true
+    basis: "SUS\u3067\u624B\u8853\u3092\u5F85\u3064\u4EBA\u306F\u7D0468\u4E07\u4EBA\uFF08\u4FDD\u5065\u7701\u3001\u4E8C\u6B21\u60C5\u5831\uFF09\u3002\u5C02\u9580\u533B\u306E\u53D7\u8A3A\u5F85\u3061\u306F\u3055\u3089\u306B\u591A\u3044\uFF08\u7D71\u8A08\u3067\u78BA\u8A8D\uFF09",
+    estimated: false
   },
   {
     id: "bra_enem",
@@ -5828,8 +5801,8 @@ var country_events_default = [
         result: "\u79C1\u7ACB\u5927\u5B66\u306B\u5165\u5B66\u3057\u305F\u3002"
       }
     ],
-    basis: "ENEM\u306E\u53D7\u9A13\u8005\u306F\u5E74\u7D04400\u4E07\u4EBA\uFF08INEP 2024\uFF09",
-    estimated: true
+    basis: "\u9AD8\u68213\u5E74\u751F\u7D04200\u4E07\u4EBA\u306E\u3046\u3061\u7D04130\u4E07\u4EBA\u304CENEM\u3092\u53D7\u9A13\uFF08INEP 2024\u5E74\uFF09\uFF08\u7D71\u8A08\u3067\u78BA\u8A8D\uFF09",
+    estimated: false
   },
   {
     id: "deu_ausbildung",
@@ -5876,8 +5849,8 @@ var country_events_default = [
         result: "\u5927\u5B66\u9032\u5B66\u3092\u76EE\u6307\u3059\u3053\u3068\u306B\u3057\u305F\u3002"
       }
     ],
-    basis: "\u82E5\u8005\u306E\u7D04\u534A\u6570\u304C\u8077\u696D\u8A13\u7DF4\u306B\u9032\u3080\uFF08\u9023\u90A6\u8077\u696D\u6559\u80B2\u7814\u7A76\u6240 BIBB\uFF09",
-    estimated: true
+    basis: "\u5B66\u6821\u3092\u51FA\u305F\u82E5\u8005\u306E\u7D04\u534A\u6570\u304C\u30C7\u30E5\u30A2\u30EB\u8077\u696D\u8A13\u7DF4\u306B\u9032\u3080\uFF08BIBB\uFF09\uFF08\u7D71\u8A08\u3067\u78BA\u8A8D\uFF09",
+    estimated: false
   },
   {
     id: "deu_energy_price",
@@ -5920,8 +5893,8 @@ var country_events_default = [
         result: "\u88DC\u52A9\u91D1\u3092\u4F7F\u3063\u3066\u30D2\u30FC\u30C8\u30DD\u30F3\u30D7\u3092\u5165\u308C\u305F\u3002"
       }
     ],
-    basis: "2022\u5E74\u306E\u30A8\u30CD\u30EB\u30AE\u30FC\u5371\u6A5F\u3067\u5BB6\u5EAD\u306E\u30AC\u30B9\u6599\u91D1\u304C\u6025\u9A30\uFF08\u9023\u90A6\u7D71\u8A08\u5C40\uFF09",
-    estimated: true
+    basis: "\u904E\u53BB20\u5E74\u3067\u5BB6\u5EAD\u7528\u30A8\u30CD\u30EB\u30AE\u30FC\u4FA1\u683C\u304C1\u5E74\u306B30%\u4EE5\u4E0A\u4E0A\u304C\u3063\u305F\u306E\u306F2022\u5E74\u306E\u307F\uFF08\u9023\u90A6\u7D71\u8A08\u5C40\uFF09\uFF08\u7D71\u8A08\u3067\u78BA\u8A8D\uFF09",
+    estimated: false
   },
   {
     id: "deu_kita",
@@ -5968,8 +5941,8 @@ var country_events_default = [
         result: "\u30D9\u30D3\u30FC\u30B7\u30C3\u30BF\u30FC\u3092\u96C7\u3063\u3066\u8077\u5834\u306B\u623B\u3063\u305F\u3002"
       }
     ],
-    basis: "\u4FDD\u80B2\u6240\u306E\u5B9A\u54E1\u306F\u7D0430\u4E07\u4EBA\u5206\u4E0D\u8DB3\uFF08\u30C9\u30A4\u30C4\u7D4C\u6E08\u7814\u7A76\u6240 2023\uFF09",
-    estimated: true
+    basis: "3\u6B73\u672A\u6E80\u306E\u4FDD\u80B2\u6240\u306E\u4E0D\u8DB3\u306F\u7D0430\u4E07\u4EBA\u5206\u3067\u30013\u6B73\u672A\u6E80\u306E\u5B50\u306E\u7D0415%\uFF08IW\u30FB\u9023\u90A6\u7D71\u8A08\u5C40 2025\u5E74\uFF09\uFF08\u7D71\u8A08\u3067\u78BA\u8A8D\uFF09",
+    estimated: false
   },
   {
     id: "deu_flood",
@@ -6056,8 +6029,8 @@ var country_events_default = [
         result: "\u5BB6\u5177\u3092\u5DE5\u592B\u3057\u3066\u4ECA\u306E\u90E8\u5C4B\u3067\u66AE\u3089\u3057\u7D9A\u3051\u305F\u3002"
       }
     ],
-    basis: "\u30D9\u30EB\u30EA\u30F3\u30FB\u30DF\u30E5\u30F3\u30D8\u30F3\u306A\u3069\u3067\u5BB6\u8CC3\u304C\u9AD8\u9A30\uFF08\u9023\u90A6\u7D71\u8A08\u5C40\u3001\u5831\u9053\uFF09",
-    estimated: true
+    basis: "\u501F\u5BB6\u4E16\u5E2F\u306E38%\u304C\u904E\u53BB1\u5E74\u306B\u5F15\u3063\u8D8A\u3057\u3092\u5177\u4F53\u7684\u306B\u691C\u8A0E\uFF08\u30C9\u30A4\u30C4\u501F\u5BB6\u4EBA\u5354\u4F1A 2025\u5E74\uFF09\uFF08\u7D71\u8A08\u3067\u78BA\u8A8D\uFF09",
+    estimated: false
   },
   {
     id: "gbr_cost_of_living",
@@ -6104,8 +6077,8 @@ var country_events_default = [
         result: "\u9031\u672B\u306B\u914D\u9054\u306E\u4ED5\u4E8B\u3092\u59CB\u3081\u305F\u3002"
       }
     ],
-    basis: "2022\u301C23\u5E74\u306B\u7269\u4FA1\u4E0A\u6607\u7387\u304C\u7D0410%\u306B\u9054\u3057\u305F\uFF08ONS\uFF09",
-    estimated: true
+    basis: "\u904E\u53BB20\u5E74\u306E\u3046\u30612\u5E74\uFF082022\u30FB2023\u5E74\uFF09\u3067\u7269\u4FA1\u4E0A\u6607\u7387\u304C5%\u3092\u8D85\u3048\u305F\uFF08ONS\uFF09\uFF08\u7D71\u8A08\u3067\u78BA\u8A8D\uFF09",
+    estimated: false
   },
   {
     id: "gbr_nhs_wait",
@@ -6152,8 +6125,8 @@ var country_events_default = [
         result: "\u9806\u756A\u3092\u5F85\u3064\u3053\u3068\u306B\u3057\u305F\u3002"
       }
     ],
-    basis: "NHS\u306E\u5F85\u6A5F\u8005\u306F\u7D04760\u4E07\u4EF6\uFF08NHS England 2024\uFF09",
-    estimated: true
+    basis: "NHS England \u306E\u65B0\u898F\u7D39\u4ECB\u306F\u5E74\u7D042,360\u4E07\u4EF6\uFF082023\u5E74\uFF09\uFF08\u7D71\u8A08\u3067\u78BA\u8A8D\uFF09",
+    estimated: false
   },
   {
     id: "gbr_mortgage_rate",
@@ -6192,8 +6165,8 @@ var country_events_default = [
         result: "\u5BB6\u3092\u58F2\u308A\u3001\u8CC3\u8CB8\u306B\u79FB\u3063\u305F\u3002"
       }
     ],
-    basis: "2022\u5E74\u79CB\u4EE5\u964D\u3001\u4F4F\u5B85\u30ED\u30FC\u30F3\u91D1\u5229\u304C\u6025\u4E0A\u6607\uFF08\u30A4\u30F3\u30B0\u30E9\u30F3\u30C9\u9280\u884C\uFF09\u3002\u82F1\u56FD\u306F\u77ED\u671F\u56FA\u5B9A\u304C\u4E3B\u6D41",
-    estimated: true
+    basis: "\u4F4F\u5B85\u30ED\u30FC\u30F3\u4E16\u5E2F\u306E\u7D0418%\u304C\u6BCE\u5E74\u56FA\u5B9A\u91D1\u5229\u306E\u671F\u9593\u306E\u7D42\u308F\u308A\u3092\u8FCE\u3048\u308B\uFF08\u30A4\u30F3\u30B0\u30E9\u30F3\u30C9\u9280\u884C 2024\u5E74\uFF09\uFF08\u7D71\u8A08\u3067\u78BA\u8A8D\uFF09",
+    estimated: false
   },
   {
     id: "gbr_tuition",
@@ -6240,8 +6213,8 @@ var country_events_default = [
         result: "\u4F1A\u793E\u306E\u898B\u7FD2\u3044\u5236\u5EA6\u306B\u5165\u3063\u305F\u3002"
       }
     ],
-    basis: "\u5B66\u8CBB\u4E0A\u9650\u306F\u5E749,250\u30DD\u30F3\u30C9\uFF082024\uFF09\u30019,535\u30DD\u30F3\u30C9\uFF082025\uFF09\uFF08\u6559\u80B2\u7701\uFF09",
-    estimated: true
+    basis: "18\u6B73\u306E\u5927\u5B66\u9032\u5B66\u7387\u306F\u7D0432%\uFF08UCAS\uFF09\uFF08\u7D71\u8A08\u3067\u78BA\u8A8D\uFF09",
+    estimated: false
   },
   {
     id: "gbr_rent_rise",
@@ -6250,7 +6223,7 @@ var country_events_default = [
     ],
     minAge: 20,
     maxAge: 60,
-    annualProb: 0.08,
+    annualProb: 0.15,
     requires: "urban+renting",
     title: "\u5BB6\u8CC3\u306E\u5024\u4E0A\u3052",
     situation: "\u5927\u5BB6\u304B\u3089\u3001\u6765\u6708\u304B\u3089\u5BB6\u8CC3\u309215%\u4E0A\u3052\u308B\u3068\u901A\u77E5\u304C\u6765\u305F\u3002",
@@ -6284,8 +6257,8 @@ var country_events_default = [
         result: "\u90CA\u5916\u306E\u753A\u306B\u5F15\u3063\u8D8A\u3057\u305F\u3002"
       }
     ],
-    basis: "\u6C11\u9593\u8CC3\u8CB8\u306E\u5BB6\u8CC3\u306F2023\u301C24\u5E74\u306B\u524D\u5E74\u6BD4\u7D049%\u4E0A\u6607\uFF08ONS\uFF09",
-    estimated: true
+    basis: "\u6C11\u9593\u8CC3\u8CB8\u306E63%\u304C\u904E\u53BB1\u5E74\u306B\u5BB6\u8CC3\u3092\u4E0A\u3052\u3089\u308C\u305F\uFF08English Housing Survey\uFF09\u3002\u5834\u9762\u306F\u5927\u304D\u306A\u5024\u4E0A\u3052\uFF08\u7D71\u8A08\u3067\u78BA\u8A8D\uFF09",
+    estimated: false
   },
   {
     id: "fra_strike",
@@ -6294,7 +6267,7 @@ var country_events_default = [
     ],
     minAge: 18,
     maxAge: 70,
-    annualProb: 0.08,
+    annualProb: 0.2,
     requires: "urban",
     title: "\u4EA4\u901A\u6A5F\u95A2\u306E\u30B9\u30C8\u30E9\u30A4\u30AD",
     situation: "\u5E74\u91D1\u6539\u9769\u306B\u53CD\u5BFE\u3059\u308B\u30B9\u30C8\u30E9\u30A4\u30AD\u3067\u3001\u96FB\u8ECA\u3068\u5730\u4E0B\u9244\u304C\u307B\u3068\u3093\u3069\u52D5\u304B\u306A\u3044\u65E5\u304C\u7D9A\u3044\u305F\u3002",
@@ -6328,8 +6301,8 @@ var country_events_default = [
         result: "\u5728\u5B85\u3067\u3067\u304D\u306A\u3044\u4ED5\u4E8B\u306E\u65E5\u306F\u3001\u4F11\u307F\u3092\u53D6\u3063\u305F\u3002"
       }
     ],
-    basis: "2019\u301C20\u5E74\u30012023\u5E74\u306B\u5927\u898F\u6A21\u306A\u4EA4\u901A\u30B9\u30C8\u304C\u767A\u751F\uFF08\u5831\u9053\uFF09",
-    estimated: true
+    basis: "\u904E\u53BB20\u5E74\u306E\u3046\u306114\u5E74\u3067\u5168\u56FD\u898F\u6A21\u306E\u4EA4\u901A\u30B9\u30C8\u30E9\u30A4\u30AD\uFF08INSEE\u30FBSNCF\uFF09\uFF08\u7D71\u8A08\u3067\u78BA\u8A8D\uFF09",
+    estimated: false
   },
   {
     id: "fra_pension_age",
@@ -6338,7 +6311,7 @@ var country_events_default = [
     ],
     minAge: 55,
     maxAge: 62,
-    annualProb: 0.06,
+    annualProb: 0.2,
     requires: "working",
     title: "\u5E74\u91D1\u306E\u652F\u7D66\u958B\u59CB\u5E74\u9F62",
     situation: "\u5E74\u91D1\u6539\u9769\u3067\u3001\u5E74\u91D1\u3092\u6E80\u984D\u53D7\u3051\u53D6\u308C\u308B\u5E74\u9F62\u304C2\u5E74\u9045\u304F\u306A\u3063\u305F\u3002",
@@ -6376,8 +6349,8 @@ var country_events_default = [
         result: "\u4E88\u5B9A\u3069\u304A\u308A\u9000\u8077\u3057\u305F\u3002"
       }
     ],
-    basis: "2023\u5E74\u306E\u6539\u9769\u3067\u53D7\u7D66\u958B\u59CB\u5E74\u9F62\u304C62\u6B73\u304B\u308964\u6B73\u3078\u6BB5\u968E\u7684\u306B\u5F15\u304D\u4E0A\u3052\uFF08\u305D\u306E\u5F8C\u898B\u76F4\u3057\u8B70\u8AD6\uFF09",
-    estimated: true
+    basis: "\u904E\u53BB30\u5E74\u30676\u56DE\u306E\u5E74\u91D1\u6539\u9769\uFF081995\u30FB2003\u30FB2010\u30FB2014\u30FB2020\u30FB2023\u5E74\u3001\u52B4\u50CD\u7701\uFF09\uFF08\u7D71\u8A08\u3067\u78BA\u8A8D\uFF09",
+    estimated: false
   },
   {
     id: "fra_heatwave",
@@ -6386,7 +6359,7 @@ var country_events_default = [
     ],
     minAge: 60,
     maxAge: 100,
-    annualProb: 0.04,
+    annualProb: 0.15,
     requires: null,
     title: "\u590F\u306E\u731B\u6691",
     situation: "\u6C17\u6E2940\u5EA6\u8FD1\u3044\u71B1\u6CE2\u304C\u7D9A\u304D\u3001\u81EA\u5B85\u306B\u306F\u30A8\u30A2\u30B3\u30F3\u304C\u306A\u3044\u3002",
@@ -6420,8 +6393,8 @@ var country_events_default = [
         result: "\u663C\u9593\u306F\u56F3\u66F8\u9928\u3067\u904E\u3054\u3057\u305F\u3002"
       }
     ],
-    basis: "2003\u5E74\u306E\u71B1\u6CE2\u3067\u7D041\u4E075,000\u4EBA\u304C\u6B7B\u4EA1\u3002\u8FD1\u5E74\u3082\u71B1\u6CE2\u304C\u983B\u767A\uFF08\u516C\u8846\u885B\u751F\u5E81\uFF09",
-    estimated: true
+    basis: "\u904E\u53BB20\u5E74\u306E\u3046\u306119\u5E74\u3067\u71B1\u6CE2\u8B66\u5831\uFF08M\xE9t\xE9o-France\u30FB\u516C\u8846\u885B\u751F\u5E81\uFF09\uFF08\u7D71\u8A08\u3067\u78BA\u8A8D\uFF09",
+    estimated: false
   },
   {
     id: "fra_prepa",
@@ -6430,7 +6403,7 @@ var country_events_default = [
     ],
     minAge: 18,
     maxAge: 19,
-    annualProb: 0.12,
+    annualProb: 0.05,
     requires: "student",
     title: "\u30B0\u30E9\u30F3\u30BC\u30B3\u30FC\u30EB\u6E96\u5099\u7D1A",
     situation: "\u30D0\u30AB\u30ED\u30EC\u30A2\u306B\u5408\u683C\u3057\u3001\u5927\u5B66\u306B\u9032\u3080\u304B\u3001\u96E3\u95A2\u6821\u3092\u76EE\u6307\u3059\u6E96\u5099\u7D1A\uFF08\u30D7\u30EC\u30D1\uFF09\u306B\u9032\u3080\u304B\u9078\u3076\u3053\u3068\u306B\u306A\u3063\u305F\u3002",
@@ -6468,8 +6441,8 @@ var country_events_default = [
         result: "\u5927\u5B66\u306B\u5165\u5B66\u3057\u305F\u3002"
       }
     ],
-    basis: "\u6E96\u5099\u7D1A\u306E\u5728\u7C4D\u8005\u306F\u7D048\u4E07\u4EBA\uFF08\u9AD8\u7B49\u6559\u80B2\u7701\uFF09",
-    estimated: true
+    basis: "\u30D0\u30AB\u30ED\u30EC\u30A2\u5408\u683C\u8005\u7D0473\u4E07\u4EBA\u306E\u3046\u3061\u6E96\u5099\u7D1A\uFF08CPGE\uFF09\u306B\u9032\u3080\u306E\u306F\u7D044.3\u4E07\u4EBA\u3067\u7D046%\uFF08\u9AD8\u7B49\u6559\u80B2\u7701\uFF09\uFF08\u7D71\u8A08\u3067\u78BA\u8A8D\uFF09",
+    estimated: false
   },
   {
     id: "fra_creche",
@@ -6516,8 +6489,8 @@ var country_events_default = [
         result: "\u80B2\u5150\u4F11\u696D\u3092\u5EF6\u9577\u3057\u305F\u3002"
       }
     ],
-    basis: "3\u6B73\u672A\u6E80\u5150\u306E\u4FDD\u80B2\u5B9A\u54E1\u306F\u9700\u8981\u306B\u8DB3\u308A\u306A\u3044\uFF08\u5BB6\u65CF\u624B\u5F53\u5168\u56FD\u91D1\u5EAB CNAF\uFF09",
-    estimated: true
+    basis: "\u6BCD\u89AA\u306E37%\u304C\u4FDD\u80B2\u6240\u63A2\u3057\u306B\u5236\u7D04\u30FB\u4E0D\u6E80\u3092\u7D4C\u9A13\uFF08DREES\u30FB\u4E0A\u9662\u306E\u5831\u544A\u66F8\uFF09\uFF08\u7D71\u8A08\u3067\u78BA\u8A8D\uFF09",
+    estimated: false
   },
   {
     id: "mex_migrate_us",
@@ -6526,7 +6499,7 @@ var country_events_default = [
     ],
     minAge: 18,
     maxAge: 40,
-    annualProb: 0.015,
+    annualProb: 7e-3,
     requires: null,
     title: "\u7C73\u56FD\u3078\u50CD\u304D\u306B\u884C\u304F\u8A71",
     situation: "\u7C73\u56FD\u3067\u50CD\u304F\u3044\u3068\u3053\u304B\u3089\u3001\u8FB2\u5834\u306E\u4ED5\u4E8B\u304C\u3042\u308B\u3068\u9023\u7D61\u304C\u6765\u305F\u3002",
@@ -6568,8 +6541,8 @@ var country_events_default = [
         result: "\u5730\u5143\u3067\u50CD\u304D\u306A\u304C\u3089\u3001\u6642\u3005\u306E\u9001\u91D1\u3092\u53D7\u3051\u53D6\u3063\u305F\u3002"
       }
     ],
-    basis: "\u6D77\u5916\u304B\u3089\u306E\u9001\u91D1\u306FGDP\u306E\u7D044%\u3001\u5E74600\u5104\u30C9\u30EB\u8D85\uFF08\u30E1\u30AD\u30B7\u30B3\u9280\u884C 2024\uFF09",
-    estimated: true
+    basis: "2018\u301C2023\u5E74\u306E\u7D045\u5E74\u3067\u7D04107\u4E07\u4EBA\u304C\u7C73\u56FD\u3078\u79FB\u4F4F\u3001\u5E740.17%\uFF08INEGI ENADID 2023\uFF09\u300218\u301C40\u6B73\u306B\u9650\u308B\u3068\u5E740.4%\u524D\u5F8C\uFF08\u7D71\u8A08\u3067\u78BA\u8A8D\uFF09",
+    estimated: false
   },
   {
     id: "mex_security",
@@ -6578,7 +6551,7 @@ var country_events_default = [
     ],
     minAge: 20,
     maxAge: 70,
-    annualProb: 0.03,
+    annualProb: 0.05,
     requires: null,
     title: "\u5730\u57DF\u306E\u6CBB\u5B89\u306E\u60AA\u5316",
     situation: "\u5730\u5143\u3067\u72AF\u7F6A\u7D44\u7E54\u306B\u3088\u308B\u4E8B\u4EF6\u304C\u5897\u3048\u3001\u591C\u306E\u5916\u51FA\u3084\u5546\u58F2\u306B\u4E0D\u5B89\u3092\u611F\u3058\u308B\u3088\u3046\u306B\u306A\u3063\u305F\u3002",
@@ -6612,8 +6585,8 @@ var country_events_default = [
         result: "\u65E5\u304C\u66AE\u308C\u308B\u524D\u306B\u5E97\u3092\u9589\u3081\u308B\u3088\u3046\u306B\u3057\u305F\u3002"
       }
     ],
-    basis: "\u6BBA\u4EBA\u7387\u306F\u4EBA\u53E310\u4E07\u4EBA\u3042\u305F\u308A\u7D0425\uFF08WDI 2023\uFF09\u3002\u5DDE\u306B\u3088\u308B\u5DEE\u304C\u5927\u304D\u3044",
-    estimated: true
+    basis: "18\u6B73\u4EE5\u4E0A\u306E24%\u304C\u904E\u53BB1\u5E74\u306B\u72AF\u7F6A\u306E\u88AB\u5BB3\u3092\u53D7\u3051\u305F\uFF08INEGI ENVIPE 2025\uFF09\uFF08\u7D71\u8A08\u3067\u78BA\u8A8D\uFF09",
+    estimated: false
   },
   {
     id: "mex_formal_job",
@@ -6622,7 +6595,7 @@ var country_events_default = [
     ],
     minAge: 18,
     maxAge: 45,
-    annualProb: 0.06,
+    annualProb: 0.12,
     requires: "working",
     title: "\u793E\u4F1A\u4FDD\u967A\u306E\u3042\u308B\u4ED5\u4E8B",
     situation: "\u5C4B\u53F0\u306E\u4ED5\u4E8B\u3088\u308A\u7D66\u6599\u306F\u5C11\u3057\u4F4E\u3044\u304C\u3001\u793E\u4F1A\u4FDD\u967A\uFF08IMSS\uFF09\u306B\u5165\u308C\u308B\u5DE5\u5834\u306E\u4ED5\u4E8B\u3092\u7D39\u4ECB\u3055\u308C\u305F\u3002",
@@ -6664,8 +6637,8 @@ var country_events_default = [
         result: "\u5C4B\u53F0\u3092\u7D9A\u3051\u308B\u3053\u3068\u306B\u3057\u305F\u3002"
       }
     ],
-    basis: "\u5C31\u696D\u8005\u306E\u7D0455%\u304C\u30A4\u30F3\u30D5\u30A9\u30FC\u30DE\u30EB\u96C7\u7528\uFF08INEGI\uFF09",
-    estimated: true
+    basis: "\u30A4\u30F3\u30D5\u30A9\u30FC\u30DE\u30EB\u304B\u3089\u30D5\u30A9\u30FC\u30DE\u30EB\u306E\u4ED5\u4E8B\u3078\u5E7427%\u304C\u79FB\u308B\uFF08ENOE \u306E\u5206\u6790\uFF09\u3002\u50CD\u304F\u4EBA\u306E\u7D0455%\u304C\u30A4\u30F3\u30D5\u30A9\u30FC\u30DE\u30EB\uFF08\u7D71\u8A08\u3067\u78BA\u8A8D\uFF09",
+    estimated: false
   },
   {
     id: "mex_earthquake",
@@ -6674,7 +6647,7 @@ var country_events_default = [
     ],
     minAge: 0,
     maxAge: 100,
-    annualProb: 5e-3,
+    annualProb: 1e-3,
     requires: "urban",
     title: "\u5927\u5730\u9707",
     situation: "\u5F37\u3044\u5730\u9707\u304C\u8D77\u304D\u3001\u4F4F\u3093\u3067\u3044\u308B\u5EFA\u7269\u306E\u58C1\u306B\u3072\u3073\u304C\u5165\u3063\u305F\u3002",
@@ -6708,8 +6681,8 @@ var country_events_default = [
         result: "\u65B0\u3057\u3044\u5EFA\u7269\u306B\u79FB\u3063\u305F\u3002"
       }
     ],
-    basis: "1985\u5E74\u30012017\u5E74\u306B\u30E1\u30AD\u30B7\u30B3\u5E02\u3067\u5927\u5730\u9707\uFF08\u56FD\u7ACB\u5730\u9707\u5C40\uFF09",
-    estimated: true
+    basis: "2017\u5E749\u6708\u306E\u5730\u9707\u306E\u88AB\u5BB3\u4F4F\u5B85\u306F17.1\u4E07\u6238\u3067\u5168\u4F4F\u5B85\u306E0.5%\uFF08CENAPRED\uFF09\u3002\u5927\u304D\u306A\u88AB\u5BB3\u306F\u6570\u5341\u5E74\u306B\u4E00\u5EA6\uFF08\u7D71\u8A08\u3067\u78BA\u8A8D\uFF09",
+    estimated: false
   },
   {
     id: "mex_hurricane",
@@ -6718,7 +6691,7 @@ var country_events_default = [
     ],
     minAge: 0,
     maxAge: 100,
-    annualProb: 0.01,
+    annualProb: 0.015,
     requires: null,
     title: "\u30CF\u30EA\u30B1\u30FC\u30F3",
     situation: "\u5927\u578B\u306E\u30CF\u30EA\u30B1\u30FC\u30F3\u304C\u4E0A\u9678\u3057\u3001\u5C4B\u6839\u3068\u5BB6\u8CA1\u304C\u88AB\u5BB3\u3092\u53D7\u3051\u305F\u3002",
@@ -6752,8 +6725,8 @@ var country_events_default = [
         result: "\u652F\u63F4\u7269\u8CC7\u3092\u53D7\u3051\u53D6\u308A\u306A\u304C\u3089\u4EEE\u4F4F\u307E\u3044\u3092\u3057\u305F\u3002"
       }
     ],
-    basis: "2023\u5E74\u306E\u30CF\u30EA\u30B1\u30FC\u30F3\u30FB\u30AA\u30FC\u30C6\u30A3\u30B9\u3067\u30A2\u30AB\u30D7\u30EB\u30B3\u304C\u5927\u88AB\u5BB3\uFF08\u5831\u9053\uFF09",
-    estimated: true
+    basis: "2023\u5E74\u306B\u81EA\u7136\u707D\u5BB3\uFF08\u4E3B\u306B\u30CF\u30EA\u30B1\u30FC\u30F3\u30FB\u8C6A\u96E8\uFF09\u306E\u88AB\u5BB3\u3092\u53D7\u3051\u305F\u4EBA\u306F315\u4E07\u4EBA\u3067\u4EBA\u53E3\u306E2.5%\uFF08CENAPRED\uFF09\uFF08\u7D71\u8A08\u3067\u78BA\u8A8D\uFF09",
+    estimated: false
   },
   {
     id: "phl_ofw",
@@ -6762,7 +6735,7 @@ var country_events_default = [
     ],
     minAge: 22,
     maxAge: 45,
-    annualProb: 0.03,
+    annualProb: 0.01,
     requires: "working",
     title: "\u6D77\u5916\u5C31\u52B4\uFF08OFW\uFF09",
     situation: "\u4E2D\u6771\u306E\u75C5\u9662\u3084\u9999\u6E2F\u306E\u5BB6\u5EAD\u3067\u50CD\u304F\u4ED5\u4E8B\u306E\u52DF\u96C6\u304C\u3042\u308A\u3001\u5FDC\u52DF\u3059\u308B\u304B\u8003\u3048\u305F\u3002",
@@ -6804,8 +6777,8 @@ var country_events_default = [
         result: "\u30DE\u30CB\u30E9\u3067\u50CD\u304D\u7D9A\u3051\u305F\u3002"
       }
     ],
-    basis: "\u6D77\u5916\u5C31\u52B4\u8005\uFF08OFW\uFF09\u306F\u7D04200\u4E07\u4EBA\u3001\u9001\u91D1\u306FGDP\u306E\u7D049%\uFF08\u30D5\u30A3\u30EA\u30D4\u30F3\u7D71\u8A08\u5E81\u3001WDI\uFF09",
-    estimated: true
+    basis: "\u6D77\u5916\u3067\u50CD\u304F\u30D5\u30A3\u30EA\u30D4\u30F3\u4EBA\u306F\u7D04216\u4E07\u4EBA\u3067\u3001\u5C31\u696D\u8005\u306E\u7D044.5%\uFF08PSA Survey on Overseas Filipinos 2023\u3001\u4E8C\u6B21\u60C5\u5831\uFF09\uFF08\u7D71\u8A08\u3067\u78BA\u8A8D\uFF09",
+    estimated: false
   },
   {
     id: "phl_typhoon",
@@ -6848,8 +6821,8 @@ var country_events_default = [
         result: "\u4F53\u80B2\u9928\u3067\u652F\u63F4\u7269\u8CC7\u3092\u53D7\u3051\u53D6\u308A\u306A\u304C\u3089\u904E\u3054\u3057\u305F\u3002"
       }
     ],
-    basis: "\u5E74\u306B\u7D0420\u500B\u306E\u53F0\u98A8\u304C\u63A5\u8FD1\u30FB\u4E0A\u9678\u3059\u308B\uFF08PAGASA\uFF09",
-    estimated: true
+    basis: "2023\u5E74\u306B\u53F0\u98A8\u306E\u88AB\u5BB3\u3092\u53D7\u3051\u305F\u4EBA\u306F\u7D04864\u4E07\u4EBA\u3067\u4EBA\u53E3\u306E\u7D048%\uFF08EM-DAT\uFF09\uFF08\u7D71\u8A08\u3067\u78BA\u8A8D\uFF09",
+    estimated: false
   },
   {
     id: "phl_commute",
@@ -6902,7 +6875,7 @@ var country_events_default = [
     ],
     minAge: 0,
     maxAge: 90,
-    annualProb: 0.03,
+    annualProb: 0.05,
     requires: null,
     title: "\u5165\u9662\u306E\u524D\u6255\u3044\u91D1",
     situation: "\u5BB6\u65CF\u304C\u5165\u9662\u3059\u308B\u3053\u3068\u306B\u306A\u308A\u3001\u75C5\u9662\u304B\u3089\u524D\u6255\u3044\u91D1\u3092\u6C42\u3081\u3089\u308C\u305F\u3002",
@@ -6940,8 +6913,8 @@ var country_events_default = [
         result: "\u516C\u7ACB\u75C5\u9662\u306E\u5ECA\u4E0B\u3067\u9806\u756A\u3092\u5F85\u3063\u305F\u3002"
       }
     ],
-    basis: "\u533B\u7642\u8CBB\u306E\u81EA\u5DF1\u8CA0\u62C5\u5272\u5408\u306F\u7D044\u5272\uFF08WHO GHED\uFF09",
-    estimated: true
+    basis: "\u516C\u7684\u533B\u7642\u4FDD\u967A\uFF08PhilHealth\uFF09\u306E\u8ACB\u6C42\u306F\u5E74\u7D04940\u4E07\u4EF6\u3067\u4EBA\u53E3\u306E\u7D048%\uFF082024\u5E74\uFF09\u3002\u5BB6\u65CF\u306E\u8AB0\u304B\u306E\u5165\u9662\u306E\u5834\u9762\uFF08\u7D71\u8A08\u3067\u78BA\u8A8D\uFF09",
+    estimated: false
   },
   {
     id: "egy_pound_drop",
@@ -6984,8 +6957,8 @@ var country_events_default = [
         result: "\u8CAF\u91D1\u306E\u4E00\u90E8\u3067\u91D1\u3092\u8CB7\u3063\u305F\u3002"
       }
     ],
-    basis: "2016\u5E74\u30012022\u301C24\u5E74\u306B\u30DD\u30F3\u30C9\u304C\u5927\u5E45\u306B\u4E0B\u843D\uFF08\u4E2D\u592E\u9280\u884C\uFF09",
-    estimated: true
+    basis: "\u904E\u53BB30\u5E74\u306E\u3046\u30613\u5E74\u3067\u30A8\u30B8\u30D7\u30C8\u30FB\u30DD\u30F3\u30C9\u304C1\u5E74\u306B30%\u4EE5\u4E0A\u4E0B\u843D\uFF082016\u30FB2022\u30FB2024\u5E74\uFF09\uFF08\u7D71\u8A08\u3067\u78BA\u8A8D\uFF09",
+    estimated: false
   },
   {
     id: "egy_bread_subsidy",
@@ -6994,7 +6967,7 @@ var country_events_default = [
     ],
     minAge: 18,
     maxAge: 90,
-    annualProb: 0.05,
+    annualProb: 0.02,
     requires: null,
     title: "\u88DC\u52A9\u91D1\u4ED8\u304D\u30D1\u30F3\u306E\u5024\u4E0A\u3052",
     situation: "\u914D\u7D66\u30AB\u30FC\u30C9\u3067\u8CB7\u3048\u308B\u88DC\u52A9\u91D1\u4ED8\u304D\u30D1\u30F3\u306E\u5024\u6BB5\u304C\u5927\u304D\u304F\u5F15\u304D\u4E0A\u3052\u3089\u308C\u305F\u3002",
@@ -7032,8 +7005,8 @@ var country_events_default = [
         result: "\u591C\u306B\u914D\u9054\u306E\u4ED5\u4E8B\u3092\u59CB\u3081\u305F\u3002"
       }
     ],
-    basis: "2024\u5E74\u306B\u88DC\u52A9\u91D1\u4ED8\u304D\u30D1\u30F3\u306E\u4FA1\u683C\u304C4\u500D\u306B\u5F15\u304D\u4E0A\u3052\u3089\u308C\u305F\uFF08\u5831\u9053\uFF09",
-    estimated: true
+    basis: "\u4EBA\u53E3\u306E\u7D0455%\u304C\u88DC\u52A9\u91D1\u4ED8\u304D\u30D1\u30F3\u3092\u53D7\u7D66\u3002\u5024\u4E0A\u3052\u306F2024\u5E74\u304C36\u5E74\u3076\u308A\uFF08\u7C73\u56FD\u8FB2\u52D9\u7701\u306E\u5831\u544A\uFF09\uFF08\u7D71\u8A08\u3067\u78BA\u8A8D\uFF09",
+    estimated: false
   },
   {
     id: "egy_tutoring",
@@ -7042,7 +7015,7 @@ var country_events_default = [
     ],
     minAge: 40,
     maxAge: 60,
-    annualProb: 0.1,
+    annualProb: 0.2,
     requires: "kid:16-18",
     title: "\u9AD8\u6821\u5352\u696D\u8A66\u9A13\u3068\u5BB6\u5EAD\u6559\u5E2B",
     situation: "\u5B50\u3069\u3082\u304C\u9AD8\u6821\u5352\u696D\u8A66\u9A13\uFF08\u30B5\u30CA\u30A6\u30A7\u30A4\u30E4\u30FB\u30A2\u30F3\u30DE\uFF09\u3092\u63A7\u3048\u3001\u307B\u3068\u3093\u3069\u306E\u540C\u7D1A\u751F\u304C\u79C1\u587E\u306B\u901A\u3063\u3066\u3044\u308B\u3002",
@@ -7072,8 +7045,8 @@ var country_events_default = [
         result: "\u5BB6\u3067\u4E00\u7DD2\u306B\u904E\u53BB\u554F\u3092\u89E3\u3044\u305F\u3002"
       }
     ],
-    basis: "\u5BB6\u5EAD\u306E\u6559\u80B2\u8CBB\u306E\u591A\u304F\u304C\u79C1\u587E\u30FB\u5BB6\u5EAD\u6559\u5E2B\u306B\u4F7F\u308F\u308C\u308B\uFF08\u4E16\u754C\u9280\u884C\u30FB\u5831\u9053\uFF09",
-    estimated: true
+    basis: "\u9AD8\u6821\u751F\u306E42\u301C60%\u304C\u79C1\u587E\u30FB\u5BB6\u5EAD\u6559\u5E2B\u3092\u4F7F\u3046\uFF08CAPMAS \u306E\u5831\u544A\u3001\u4E8C\u6B21\u60C5\u5831\uFF09\uFF08\u7D71\u8A08\u3067\u78BA\u8A8D\uFF09",
+    estimated: false
   },
   {
     id: "egy_gulf_work",
@@ -7208,8 +7181,8 @@ var country_events_default = [
         result: "\u8CAF\u91D1\u3067\u725B\u3092\u8CB7\u3063\u305F\u3002"
       }
     ],
-    basis: "2024\u5E747\u6708\u306E\u5909\u52D5\u76F8\u5834\u5236\u79FB\u884C\u3067\u30D6\u30EB\u306F\u5BFE\u30C9\u30EB\u3067\u534A\u5206\u4EE5\u4E0B\u306B\uFF08\u4E2D\u592E\u9280\u884C\uFF09",
-    estimated: true
+    basis: "\u904E\u53BB30\u5E74\u3067\u30D6\u30EB\u304C1\u5E74\u306B30%\u4EE5\u4E0A\u4E0B\u304C\u3063\u305F\u306E\u306F2024\u5E74\u306E\u5909\u52D5\u76F8\u5834\u5236\u3078\u306E\u79FB\u884C\u306E\u307F\uFF08\u4E2D\u592E\u9280\u884C\uFF09\uFF08\u7D71\u8A08\u3067\u78BA\u8A8D\uFF09",
+    estimated: false
   },
   {
     id: "eth_drought",
@@ -7218,7 +7191,7 @@ var country_events_default = [
     ],
     minAge: 0,
     maxAge: 100,
-    annualProb: 0.06,
+    annualProb: 0.03,
     requires: "rural",
     title: "\u5E72\u3070\u3064",
     situation: "\u96E8\u5B63\u306E\u96E8\u304C\u307B\u3068\u3093\u3069\u964D\u3089\u305A\u3001\u5BB6\u755C\u304C\u5F31\u308A\u3001\u7551\u306F\u4E7E\u304D\u304D\u3063\u305F\u3002",
@@ -7248,8 +7221,8 @@ var country_events_default = [
         result: "\u914D\u7D66\u6240\u306B\u4E26\u3093\u3067\u7A40\u7269\u3092\u53D7\u3051\u53D6\u3063\u305F\u3002"
       }
     ],
-    basis: "2020\u301C23\u5E74\u306E\u5E72\u3070\u3064\u3067\u6771\u90E8\u30FB\u5357\u90E8\u306E\u6570\u767E\u4E07\u4EBA\u304C\u98DF\u6599\u652F\u63F4\u3092\u5FC5\u8981\u3068\u3057\u305F\uFF08OCHA\uFF09",
-    estimated: true
+    basis: "2023\u5E74\u306B\u5E72\u3070\u3064\u3067\u98DF\u6599\u652F\u63F4\u3092\u53D7\u3051\u305F\u4EBA\u306F\u7D041,100\u4E07\u4EBA\u3067\u8FB2\u6751\u4EBA\u53E3\u306E\u7D0410%\uFF08OCHA\uFF09\u3002\u5927\u304D\u306A\u5E72\u3070\u3064\u306F\u6570\u5E74\u306B\u4E00\u5EA6\uFF08\u7D71\u8A08\u3067\u78BA\u8A8D\uFF09",
+    estimated: false
   },
   {
     id: "eth_conflict_move",
@@ -7296,8 +7269,8 @@ var country_events_default = [
         result: "\u5BB6\u306B\u3068\u3069\u307E\u308A\u3001\u72B6\u6CC1\u304C\u843D\u3061\u7740\u304F\u306E\u3092\u5F85\u3063\u305F\u3002"
       }
     ],
-    basis: "2020\u301C22\u5E74\u306E\u30C6\u30A3\u30B0\u30E9\u30A4\u7D1B\u4E89\u306A\u3069\u3067\u56FD\u5185\u907F\u96E3\u6C11\u306F\u6570\u767E\u4E07\u4EBA\u898F\u6A21\uFF08UNHCR\u3001IDMC\uFF09",
-    estimated: true
+    basis: "2022\u5E74\u306B\u7D1B\u4E89\u3067\u65B0\u305F\u306B\u907F\u96E3\u3057\u305F\u4EBA\u306F\u7D04200\u4E07\u4EBA\u3067\u4EBA\u53E3\u306E\u7D041.5%\uFF08IDMC\uFF09\uFF08\u7D71\u8A08\u3067\u78BA\u8A8D\uFF09",
+    estimated: false
   },
   {
     id: "eth_cbhi",
@@ -7340,8 +7313,8 @@ var country_events_default = [
         result: "\u4F1A\u8CBB\u306E\u5206\u3092\u7A2E\u306E\u8CFC\u5165\u306B\u56DE\u3057\u305F\u3002"
       }
     ],
-    basis: "\u5730\u57DF\u533B\u7642\u4FDD\u967A\u306F\u5168\u56FD\u306E\u90E1\u306B\u62E1\u5927\u4E2D\uFF08\u30A8\u30C1\u30AA\u30D4\u30A2\u4FDD\u5065\u4FDD\u967A\u30B5\u30FC\u30D3\u30B9\uFF09",
-    estimated: true
+    basis: "\u5730\u57DF\u533B\u7642\u4FDD\u967A\u306E\u5B9F\u65BD\u5730\u57DF\u3067\u306E\u52A0\u5165\u7387\u306F\u7D0440%\uFF08\u7CFB\u7D71\u7684\u30EC\u30D3\u30E5\u30FC 2023\u5E74\uFF09\uFF08\u7D71\u8A08\u3067\u78BA\u8A8D\uFF09",
+    estimated: false
   },
   {
     id: "eth_gulf_work",
@@ -7388,8 +7361,8 @@ var country_events_default = [
         result: "\u30A2\u30C7\u30A3\u30B9\u30A2\u30D9\u30D0\u3067\u4ED5\u4E8B\u3092\u63A2\u3057\u305F\u3002"
       }
     ],
-    basis: "\u30B5\u30A6\u30B8\u30A2\u30E9\u30D3\u30A2\u306A\u3069\u3078\u306E\u5C31\u52B4\u304C\u591A\u304F\u3001\u653F\u5E9C\u304C\u6B63\u898F\u30EB\u30FC\u30C8\u306E\u6574\u5099\u3092\u9032\u3081\u3066\u3044\u308B\uFF08\u52B4\u50CD\u30FB\u6280\u80FD\u7701\uFF09",
-    estimated: true
+    basis: "\u6B63\u898F\u306E\u6D77\u5916\u5C31\u52B4\u306E\u51FA\u56FD\u306F\u5E74\u7D0418.8\u4E07\u4EBA\u306715\u301C34\u6B73\u4EBA\u53E3\u306E\u7D040.7%\uFF08\u52B4\u50CD\u30FB\u793E\u4F1A\u7701 2012\u5E74\uFF09\uFF08\u7D71\u8A08\u3067\u78BA\u8A8D\uFF09",
+    estimated: false
   },
   {
     id: "cod_displacement",
@@ -7398,7 +7371,7 @@ var country_events_default = [
     ],
     minAge: 0,
     maxAge: 100,
-    annualProb: 0.01,
+    annualProb: 0.015,
     requires: null,
     title: "\u6771\u90E8\u306E\u885D\u7A81\u306B\u3088\u308B\u907F\u96E3",
     situation: "\u4F4F\u3093\u3067\u3044\u308B\u5730\u57DF\u306E\u8FD1\u304F\u3067\u6B66\u88C5\u52E2\u529B\u306E\u885D\u7A81\u304C\u8D77\u304D\u3001\u4F4F\u6C11\u306E\u591A\u304F\u304C\u907F\u96E3\u3092\u306F\u3058\u3081\u305F\u3002",
@@ -7440,8 +7413,8 @@ var country_events_default = [
         result: "\u5225\u306E\u5DDE\u306E\u89AA\u621A\u306E\u5BB6\u306B\u79FB\u3063\u305F\u3002"
       }
     ],
-    basis: "\u56FD\u5185\u907F\u96E3\u6C11\u306F\u7D04700\u4E07\u4EBA\u3067\u3001\u591A\u304F\u304C\u6771\u90E8\u306E\u5317\u30AD\u30D6\u30FB\u5357\u30AD\u30D6\u30FB\u30A4\u30C8\u30A5\u30EA\u5DDE\uFF08UNHCR\u30FBIOM 2024\uFF09",
-    estimated: true
+    basis: "\u7D1B\u4E89\u306B\u3088\u308B\u65B0\u305F\u306A\u56FD\u5185\u907F\u96E3\u306F\u5E74\u5E73\u5747148\u4E07\u4EBA\u3067\u4EBA\u53E3\u306E1.6%\uFF08IDMC\u3001\u904E\u53BB10\u5E74\uFF09\uFF08\u7D71\u8A08\u3067\u78BA\u8A8D\uFF09",
+    estimated: false
   },
   {
     id: "cod_epidemic",
@@ -7488,8 +7461,8 @@ var country_events_default = [
         result: "\u3044\u3064\u3082\u3069\u304A\u308A\u5E02\u5834\u306B\u901A\u3063\u305F\u3002"
       }
     ],
-    basis: "\u30A8\u30DC\u30E9\u3001\u30B3\u30EC\u30E9\u3001\u306F\u3057\u304B\u3001\u30A8\u30E0\u30DD\u30C3\u30AF\u30B9\u306E\u6D41\u884C\u304C\u7E70\u308A\u8FD4\u3057\u767A\u751F\uFF08WHO\uFF09",
-    estimated: true
+    basis: "\u306F\u3057\u304B\u306A\u3069\u306E\u611F\u67D3\u75C7\u306E\u60A3\u8005\u306F\u5E7410\u4E07\u301C30\u4E07\u4EF6\uFF08WHO\u30FBCDC\uFF09\u3002\u6D41\u884C\u306E\u5831\u544A\u306F\u305D\u308C\u3088\u308A\u5E83\u304F\u8D77\u304D\u308B\uFF08\u7D71\u8A08\u3067\u78BA\u8A8D\uFF09",
+    estimated: false
   },
   {
     id: "cod_school_fees",
@@ -7532,8 +7505,8 @@ var country_events_default = [
         result: "\u4E0A\u306E\u5B50\u306F\u5E02\u5834\u306E\u624B\u4F1D\u3044\u3092\u3059\u308B\u3053\u3068\u306B\u306A\u3063\u305F\u3002"
       }
     ],
-    basis: "2019\u5E74\u304B\u3089\u521D\u7B49\u6559\u80B2\u306E\u7121\u511F\u5316\u3092\u958B\u59CB\uFF08\u6559\u80B2\u7701\uFF09\u3002\u6559\u5BA4\u3084\u6559\u54E1\u306E\u4E0D\u8DB3\u306F\u7D9A\u3044\u3066\u3044\u308B",
-    estimated: true
+    basis: "\u7121\u511F\u5316\u5F8C\u3082\u5C0F\u5B66\u751F\u306E\u3044\u308B\u4E16\u5E2F\u306E\u7D047\u5272\u304C\u5B66\u6821\u306E\u8CBB\u7528\u3092\u8CA0\u62C5\uFF08\u4E16\u754C\u9280\u884C\u30FB\u30E6\u30CD\u30B9\u30B3\uFF09\uFF08\u7D71\u8A08\u3067\u78BA\u8A8D\uFF09",
+    estimated: false
   },
   {
     id: "cod_mining",
@@ -7542,7 +7515,7 @@ var country_events_default = [
     ],
     minAge: 16,
     maxAge: 50,
-    annualProb: 0.03,
+    annualProb: 0.02,
     requires: "rural",
     title: "\u624B\u6398\u308A\u9271\u5C71\u306E\u4ED5\u4E8B",
     situation: "\u8FD1\u304F\u3067\u30B3\u30D0\u30EB\u30C8\u3084\u91D1\u306E\u624B\u6398\u308A\u9271\u5C71\u304C\u898B\u3064\u304B\u308A\u3001\u82E5\u8005\u304C\u50CD\u304D\u306B\u884C\u3063\u3066\u3044\u308B\u3002",
@@ -7576,8 +7549,8 @@ var country_events_default = [
         result: "\u7551\u4ED5\u4E8B\u3092\u7D9A\u3051\u305F\u3002"
       }
     ],
-    basis: "\u624B\u6398\u308A\u9271\u5C71\u306E\u52B4\u50CD\u8005\u306F100\u4E07\u4EBA\u4EE5\u4E0A\u3068\u63A8\u8A08\uFF08\u4E16\u754C\u9280\u884C\u3001OECD\uFF09",
-    estimated: true
+    basis: "\u624B\u6398\u308A\u9271\u5C71\u3067\u50CD\u304F\u4EBA\u306F\u7D04200\u4E07\u4EBA\u3067\u3001\u8FB2\u6751\u306E15\u301C64\u6B73\u306E\u7D041\u5272\uFF08\u4E16\u754C\u9280\u884C\uFF09\u3002\u9271\u5C71\u306F\u6771\u90E8\u30FB\u5357\u90E8\u306B\u96C6\u4E2D\uFF08\u7D71\u8A08\u3067\u78BA\u8A8D\uFF09",
+    estimated: false
   },
   {
     id: "cod_franc_drop",
@@ -7586,7 +7559,7 @@ var country_events_default = [
     ],
     minAge: 20,
     maxAge: 80,
-    annualProb: 0.04,
+    annualProb: 0.1,
     requires: null,
     title: "\u30B3\u30F3\u30B4\u30FB\u30D5\u30E9\u30F3\u306E\u4E0B\u843D",
     situation: "\u30D5\u30E9\u30F3\u306E\u4FA1\u5024\u304C\u4E0B\u304C\u308A\u3001\u5E02\u5834\u306E\u5024\u6BB5\u304C\u30C9\u30EB\u5EFA\u3066\u3067\u6C7A\u307E\u308B\u3088\u3046\u306B\u306A\u3063\u3066\u304D\u305F\u3002",
@@ -7620,8 +7593,8 @@ var country_events_default = [
         result: "\u5C11\u3057\u305A\u3064\u30C9\u30EB\u672D\u3092\u8CAF\u3081\u306F\u3058\u3081\u305F\u3002"
       }
     ],
-    basis: "\u7D4C\u6E08\u306E\u30C9\u30EB\u5316\u304C\u9032\u307F\u3001\u30D5\u30E9\u30F3\u306F2023\u5E74\u306B\u5BFE\u30C9\u30EB\u3067\u7D042\u5272\u4E0B\u843D\uFF08\u4E2D\u592E\u9280\u884C\uFF09",
-    estimated: true
+    basis: "\u904E\u53BB30\u5E74\u306E\u3046\u306111\u5E74\u3067\u30B3\u30F3\u30B4\u30FB\u30D5\u30E9\u30F3\u304C1\u5E74\u306B20%\u4EE5\u4E0A\u4E0B\u843D\uFF08\u4E2D\u592E\u9280\u884C\u30FBIMF\uFF09\uFF08\u7D71\u8A08\u3067\u78BA\u8A8D\uFF09",
+    estimated: false
   },
   {
     id: "vnm_motorbike",
@@ -7664,8 +7637,8 @@ var country_events_default = [
         result: "\u4E2D\u53E4\u306E\u30D0\u30A4\u30AF\u3092\u624B\u306B\u5165\u308C\u305F\u3002"
       }
     ],
-    basis: "\u30D0\u30A4\u30AF\u306E\u4FDD\u6709\u53F0\u6570\u306F\u7D047,000\u4E07\u53F0\uFF08\u4EA4\u901A\u904B\u8F38\u7701\uFF09",
-    estimated: true
+    basis: "\u4E16\u5E2F\u306E88.5%\u304C\u30D0\u30A4\u30AF\u3092\u6301\u3064\uFF08\u7D71\u8A08\u7DCF\u5C40 2019\u5E74\uFF09\uFF08\u7D71\u8A08\u3067\u78BA\u8A8D\uFF09",
+    estimated: false
   },
   {
     id: "vnm_land",
@@ -7718,7 +7691,7 @@ var country_events_default = [
     ],
     minAge: 0,
     maxAge: 100,
-    annualProb: 0.04,
+    annualProb: 0.015,
     requires: null,
     title: "\u53F0\u98A8\u3068\u6D2A\u6C34",
     situation: "\u53F0\u98A8\u306E\u3042\u3068\u306E\u5927\u96E8\u3067\u3001\u4E2D\u90E8\u306E\u6751\u304C\u6C34\u306B\u3064\u304B\u3063\u305F\u3002",
@@ -7752,8 +7725,8 @@ var country_events_default = [
         result: "\u6CE5\u3092\u304B\u304D\u51FA\u3057\u3066\u5143\u306E\u66AE\u3089\u3057\u306B\u623B\u3063\u305F\u3002"
       }
     ],
-    basis: "\u4E2D\u90E8\u306F\u6BCE\u5E74\u53F0\u98A8\u30FB\u6D2A\u6C34\u306E\u88AB\u5BB3\u3092\u53D7\u3051\u308B\uFF08\u9632\u707D\u7DCF\u5C40\uFF09",
-    estimated: true
+    basis: "\u53F0\u98A8\u30FB\u6D2A\u6C34\u306A\u3069\u306E\u88AB\u5BB3\u3092\u53D7\u3051\u308B\u4EBA\u306F\u5E74\u5E73\u5747\u7D04120\u4E07\u4EBA\u3067\u4EBA\u53E3\u306E\u7D041.2%\uFF08\u7D71\u8A08\u7DCF\u5C40\u30FB\u9632\u707D\u5F53\u5C40\uFF09\uFF08\u7D71\u8A08\u3067\u78BA\u8A8D\uFF09",
+    estimated: false
   },
   {
     id: "vnm_factory",
@@ -7762,7 +7735,7 @@ var country_events_default = [
     ],
     minAge: 18,
     maxAge: 35,
-    annualProb: 0.06,
+    annualProb: 0.04,
     requires: "rural",
     title: "\u5DE5\u696D\u56E3\u5730\u3078\u306E\u51FA\u7A3C\u304E",
     situation: "\u6751\u306E\u53CB\u4EBA\u304C\u30D3\u30F3\u30BA\u30AA\u30F3\u306E\u5DE5\u696D\u56E3\u5730\u3067\u50CD\u304D\u3001\u4ED5\u9001\u308A\u3092\u3057\u3066\u3044\u308B\u3068\u805E\u3044\u305F\u3002",
@@ -7796,8 +7769,8 @@ var country_events_default = [
         result: "\u6751\u306B\u6B8B\u3063\u3066\u7530\u3093\u307C\u3092\u7D9A\u3051\u305F\u3002"
       }
     ],
-    basis: "\u5DE5\u696D\u56E3\u5730\u306E\u52B4\u50CD\u8005\u306F\u7D04400\u4E07\u4EBA\uFF08\u8A08\u753B\u6295\u8CC7\u7701\uFF09",
-    estimated: true
+    basis: "\u8FB2\u6751\u306E18\u301C35\u6B73\u306E4.2%\u304C1\u5E74\u306B\u50CD\u304F\u305F\u3081\u306B\u307B\u304B\u306E\u7701\u3078\u79FB\u308B\uFF08\u7D71\u8A08\u7DCF\u5C40\u30FBUNFPA \u56FD\u5185\u79FB\u4F4F\u8ABF\u67FB\uFF09\uFF08\u7D71\u8A08\u3067\u78BA\u8A8D\uFF09",
+    estimated: false
   },
   {
     id: "vnm_extra_class",
@@ -7840,8 +7813,8 @@ var country_events_default = [
         result: "\u591C\u306B\u4E00\u7DD2\u306B\u5BBF\u984C\u3092\u3057\u305F\u3002"
       }
     ],
-    basis: "\u88DC\u7FD2\u6388\u696D\uFF08h\u1ECDc th\xEAm\uFF09\u306F\u5E83\u304F\u884C\u308F\u308C\u30012025\u5E74\u306B\u898F\u5236\u304C\u5F37\u5316\u3055\u308C\u305F\uFF08\u6559\u80B2\u8A13\u7DF4\u7701\uFF09",
-    estimated: true
+    basis: "\u88DC\u7FD2\u6388\u696D\u306E\u53C2\u52A0\u306F\u5C0F\u5B66\u682132%\u3001\u4E2D\u5B66\u682146%\u3001\u9AD8\u682163%\uFF08Young Lives \u8ABF\u67FB\uFF09\uFF08\u7D71\u8A08\u3067\u78BA\u8A8D\uFF09",
+    estimated: false
   },
   {
     id: "kor_hagwon",
@@ -7880,8 +7853,8 @@ var country_events_default = [
         result: "\u6570\u5B66\u306E\u587E\u3060\u3051\u306B\u901A\u308F\u305B\u305F\u3002"
       }
     ],
-    basis: "\u5C0F\u4E2D\u9AD8\u751F\u306E\u79C1\u6559\u80B2\u53C2\u52A0\u7387\u306F\u7D0480%\u3001\u7DCF\u984D\u7D0429\u5146\u30A6\u30A9\u30F3\uFF08\u7D71\u8A08\u5E81 2024\uFF09",
-    estimated: true
+    basis: "\u5C0F\u4E2D\u9AD8\u751F\u306E\u79C1\u6559\u80B2\u53C2\u52A0\u7387\u306F78.5%\uFF08\u7D71\u8A08\u5E81 2023\u5E74\uFF09\uFF08\u7D71\u8A08\u3067\u78BA\u8A8D\uFF09",
+    estimated: false
   },
   {
     id: "kor_jeonse",
@@ -7972,8 +7945,8 @@ var country_events_default = [
         result: "\u5165\u308C\u308B\u5927\u5B66\u306B\u9032\u5B66\u3057\u305F\u3002"
       }
     ],
-    basis: "\u30B9\u30CC\u30F3\u53D7\u9A13\u8005\u306E\u7D043\u5272\u304C\u6D6A\u4EBA\u751F\u306A\u3069\uFF08\u97D3\u56FD\u6559\u80B2\u8AB2\u7A0B\u8A55\u4FA1\u9662 2025\uFF09",
-    estimated: true
+    basis: "\u30B9\u30CC\u30F3\u53D7\u9A13\u8005\u306E35.4%\u304C\u5352\u696D\u751F\u306A\u3069\uFF08\u6559\u80B2\u90E8 2024\u5E74\u5EA6\uFF09\uFF08\u7D71\u8A08\u3067\u78BA\u8A8D\uFF09",
+    estimated: false
   },
   {
     id: "kor_early_retire",
@@ -8112,8 +8085,8 @@ var country_events_default = [
         result: "\u5C11\u3057\u305A\u3064\u8CAF\u3081\u308B\u3053\u3068\u306B\u3057\u305F\u3002"
       }
     ],
-    basis: "M-Pesa\u306F\u6210\u4EBA\u306E\u5927\u534A\u304C\u5229\u7528\u3057\u3001\u5C11\u984D\u306E\u30E2\u30D0\u30A4\u30EB\u878D\u8CC7\u304C\u5E83\u304F\u666E\u53CA\uFF08\u30B1\u30CB\u30A2\u4E2D\u592E\u9280\u884C FinAccess 2024\uFF09",
-    estimated: true
+    basis: "\u6210\u4EBA\u306E28%\u304C\u904E\u53BB1\u5E74\u306B\u653F\u5E9C\u306E\u30E2\u30D0\u30A4\u30EB\u878D\u8CC7\u3092\u5229\u7528\uFF08\u4E2D\u592E\u9280\u884C FinAccess 2024\uFF09\uFF08\u7D71\u8A08\u3067\u78BA\u8A8D\uFF09",
+    estimated: false
   },
   {
     id: "ken_drought",
@@ -8156,8 +8129,8 @@ var country_events_default = [
         result: "\u5BB6\u755C\u3092\u9023\u308C\u3066\u4F55\u65E5\u3082\u6B69\u3044\u305F\u3002"
       }
     ],
-    basis: "2020\u301C23\u5E74\u306E\u5E72\u3070\u3064\u3067\u5317\u90E8\u3092\u4E2D\u5FC3\u306B\u6570\u767E\u4E07\u4EBA\u304C\u98DF\u6599\u4E0D\u8DB3\u306B\uFF08\u56FD\u5BB6\u5E72\u3070\u3064\u7BA1\u7406\u5C40\uFF09",
-    estimated: true
+    basis: "\u4E7E\u71E5\u30FB\u534A\u4E7E\u71E5\u5730\u57DF\u306E\u4EBA\u53E3\u306E16%\u304C\u6025\u6027\u306E\u98DF\u6599\u4E0D\u8DB3\uFF08IPC\uFF09\uFF08\u7D71\u8A08\u3067\u78BA\u8A8D\uFF09",
+    estimated: false
   },
   {
     id: "ken_school_fees",
@@ -8288,8 +8261,8 @@ var country_events_default = [
         result: "\u5C11\u3057\u3060\u3051\u5BC4\u4ED8\u3057\u305F\u3002"
       }
     ],
-    basis: "\u533B\u7642\u8CBB\u3084\u5B66\u8CBB\u3092\u5730\u57DF\u3067\u96C6\u3081\u308B\u300C\u30CF\u30E9\u30F3\u30D9\u30FC\u300D\u306E\u6163\u7FD2\uFF08\u5831\u9053\uFF09",
-    estimated: true
+    basis: "\u6210\u4EBA\u306E28.5%\u304C\u904E\u53BB1\u5E74\u306B\u52A9\u3051\u5408\u3044\u30B0\u30EB\u30FC\u30D7\u3084\u5730\u57DF\u306E\u5BC4\u4ED8\u306B\u304A\u91D1\u3092\u51FA\u3057\u305F\uFF08\u4E2D\u592E\u9280\u884C FinAccess 2024\uFF09\uFF08\u7D71\u8A08\u3067\u78BA\u8A8D\uFF09",
+    estimated: false
   },
   {
     id: "gen_lic_malaria",
@@ -8298,7 +8271,7 @@ var country_events_default = [
     ],
     minAge: 0,
     maxAge: 100,
-    annualProb: 0.08,
+    annualProb: 0.12,
     requires: null,
     title: "\u30DE\u30E9\u30EA\u30A2\u306B\u304B\u304B\u308B",
     situation: "\u9AD8\u71B1\u304C\u51FA\u3066\u3001\u8A3A\u7642\u6240\u3067\u30DE\u30E9\u30EA\u30A2\u3068\u8A3A\u65AD\u3055\u308C\u305F\u3002",
@@ -8336,8 +8309,8 @@ var country_events_default = [
         result: "\u5E02\u5834\u3067\u8CB7\u3063\u305F\u85AC\u3092\u98F2\u3093\u3067\u4F11\u3093\u3060\u3002"
       }
     ],
-    basis: "\u30B5\u30CF\u30E9\u4EE5\u5357\u30A2\u30D5\u30EA\u30AB\u3067\u306F\u30DE\u30E9\u30EA\u30A2\u304C\u4E3B\u8981\u306A\u75C5\u6C17\u306E\u4E00\u3064\uFF08WHO World Malaria Report 2024\uFF09",
-    estimated: true
+    basis: "\u30DE\u30E9\u30EA\u30A2\u306F\u5E74\u7D042\u51046,300\u4E07\u4EF6\u3067\u3001\u5371\u967A\u306E\u3042\u308B\u5730\u57DF\u306E\u4EBA\u53E322\u5104\u4EBA\u306E\u7D0412%\uFF08WHO World Malaria Report 2024\uFF09\u3002\u4F4E\u6240\u5F97\u56FD\u306F\u3055\u3089\u306B\u9AD8\u3044\uFF08\u7D71\u8A08\u3067\u78BA\u8A8D\uFF09",
+    estimated: false
   },
   {
     id: "gen_savings_group",
@@ -8385,8 +8358,8 @@ var country_events_default = [
         result: "\u5BB6\u306E\u7F36\u306B\u8CAF\u3081\u308B\u3053\u3068\u306B\u3057\u305F\u3002"
       }
     ],
-    basis: "ROSCA\uFF08\u56DE\u8EE2\u578B\u8CAF\u84C4\u4FE1\u7528\u8B1B\uFF09\u306F\u4E16\u754C\u306E\u591A\u304F\u306E\u5730\u57DF\u3067\u4E00\u822C\u7684\uFF08\u4E16\u754C\u9280\u884C Global Findex\uFF09",
-    estimated: true
+    basis: "\u904E\u53BB1\u5E74\u306B\u7A4D\u7ACB\u30B0\u30EB\u30FC\u30D7\u3067\u8CAF\u3081\u305F\u6210\u4EBA\u306F\u4F4E\u6240\u5F97\u56FD21%\u3001\u4F4E\u4E2D\u6240\u5F97\u56FD13%\uFF08\u4E16\u754C\u9280\u884C Global Findex 2021\uFF09\uFF08\u7D71\u8A08\u3067\u78BA\u8A8D\uFF09",
+    estimated: false
   },
   {
     id: "gen_rural_harvest",
@@ -8523,7 +8496,7 @@ var country_events_default = [
     ],
     minAge: 25,
     maxAge: 75,
-    annualProb: 0.03,
+    annualProb: 0.06,
     requires: null,
     title: "\u89AA\u621A\u304B\u3089\u306E\u501F\u91D1\u306E\u983C\u307F",
     situation: "\u89AA\u621A\u304B\u3089\u3001\u5546\u58F2\u306E\u8CC7\u91D1\u3092\u5C11\u3057\u8CB8\u3057\u3066\u307B\u3057\u3044\u3068\u983C\u307E\u308C\u305F\u3002",
@@ -8557,8 +8530,8 @@ var country_events_default = [
         result: "\u4E8B\u60C5\u3092\u8A71\u3057\u3066\u65AD\u3063\u305F\u3002"
       }
     ],
-    basis: "\u5BB6\u65CF\u30FB\u89AA\u65CF\u9593\u306E\u91D1\u92AD\u306E\u8CB8\u3057\u501F\u308A\u306F\u4E16\u754C\u7684\u306B\u4E00\u822C\u7684\uFF08\u4E16\u754C\u9280\u884C Global Findex\uFF09",
-    estimated: true
+    basis: "\u904E\u53BB1\u5E74\u306B\u5BB6\u65CF\u30FB\u53CB\u4EBA\u304B\u3089\u304A\u91D1\u3092\u501F\u308A\u305F\u6210\u4EBA\u306F\u4F4E\u6240\u5F97\u56FD44%\u3001\u4F4E\u4E2D\u6240\u5F97\u56FD32%\uFF08\u4E16\u754C\u9280\u884C Global Findex 2021\uFF09\uFF08\u7D71\u8A08\u3067\u78BA\u8A8D\uFF09",
+    estimated: false
   },
   {
     id: "gen_hic_pension",
@@ -8605,8 +8578,8 @@ var country_events_default = [
         result: "\u7A4D\u7ACB\u306F\u3057\u306A\u3044\u3053\u3068\u306B\u3057\u305F\u3002"
       }
     ],
-    basis: "\u9AD8\u6240\u5F97\u56FD\u3067\u306F\u78BA\u5B9A\u62E0\u51FA\u578B\u5E74\u91D1\u30FB\u7A0E\u512A\u9047\u53E3\u5EA7\u304C\u666E\u53CA\uFF08OECD Pensions at a Glance\uFF09",
-    estimated: true
+    basis: "\u9AD8\u6240\u5F97\u56FD\u306E\u50CD\u304F\u4EBA\u306E\u7D0451%\u304C\u8077\u5834\u306E\u7A4D\u7ACB\u5E74\u91D1\u306B\u52A0\u5165\uFF08OECD Pensions at a Glance 2023\uFF09\uFF08\u7D71\u8A08\u3067\u78BA\u8A8D\uFF09",
+    estimated: false
   },
   {
     id: "gen_hic_burnout",
@@ -8616,7 +8589,7 @@ var country_events_default = [
     ],
     minAge: 25,
     maxAge: 60,
-    annualProb: 0.03,
+    annualProb: 0.05,
     requires: "working",
     title: "\u4ED5\u4E8B\u306E\u71C3\u3048\u5C3D\u304D",
     situation: "\u4ED5\u4E8B\u306E\u91CF\u304C\u5897\u3048\u7D9A\u3051\u3001\u671D\u8D77\u304D\u308B\u306E\u304C\u3064\u3089\u304F\u306A\u3063\u3066\u304D\u305F\u3002",
@@ -8654,8 +8627,8 @@ var country_events_default = [
         result: "\u306A\u3093\u3068\u304B\u6BCE\u65E5\u51FA\u52E4\u3092\u7D9A\u3051\u305F\u3002"
       }
     ],
-    basis: "\u9AD8\u6240\u5F97\u56FD\u306E\u52B4\u50CD\u8005\u306E\u7D042\u5272\u304C\u4ED5\u4E8B\u306E\u30B9\u30C8\u30EC\u30B9\u306B\u3088\u308B\u4E0D\u8ABF\u3092\u7D4C\u9A13\uFF08OECD\u30FBILO\u63A8\u8A08\u3001\u6982\u7B97\uFF09",
-    estimated: true
+    basis: "EU\u306E\u50CD\u304F\u4EBA\u306E44%\u304C\u904E\u53BB1\u5E74\u306B\u4ED5\u4E8B\u306E\u30B9\u30C8\u30EC\u30B9\u3084\u4E0D\u8ABF\u3092\u7D4C\u9A13\uFF08Eurofound 2022\uFF09\u3002\u71C3\u3048\u5C3D\u304D\u306F\u305D\u306E\u4E00\u90E8\uFF08\u7D71\u8A08\u3067\u78BA\u8A8D\uFF09",
+    estimated: false
   },
   {
     id: "gen_umc_lmc_gig",
@@ -8713,7 +8686,7 @@ var country_events_default = [
 ];
 
 // data/world/cpi_annual.json
-var cpi_annual_default = { AFG: { "2005": 12.69, "2006": 6.78, "2007": 8.68, "2008": 26.42, "2009": -6.81, "2010": 2.18, "2011": 11.8, "2012": 6.44, "2013": 7.39, "2014": 4.67, "2015": -0.66, "2016": 4.38, "2017": 4.98, "2018": 0.63, "2019": 2.3, "2020": 5.6, "2021": 5.13, "2022": 13.71, "2023": -4.64, "2024": -6.6 }, AGO: { "2000": 325, "2001": 152.56, "2002": 108.9, "2003": 98.22, "2004": 43.54, "2005": 22.95, "2006": 13.31, "2007": 12.25, "2008": 12.48, "2009": 13.73, "2010": 14.47, "2011": 13.48, "2012": 10.28, "2013": 8.78, "2014": 7.28, "2015": 9.36, "2016": 30.69, "2017": 29.84, "2018": 19.63, "2019": 17.08, "2020": 22.27, "2021": 25.75, "2022": 21.36, "2023": 13.64, "2024": 28.24, "2025": 20.16 }, ARG: { "2018": 34.28, "2019": 53.55, "2020": 42.02, "2021": 48.41, "2022": 72.43, "2023": 133.49, "2024": 219.88 }, AUS: { "2000": 4.46, "2001": 4.41, "2002": 2.98, "2003": 2.73, "2004": 2.34, "2005": 2.69, "2006": 3.56, "2007": 2.33, "2008": 4.35, "2009": 1.77, "2010": 2.92, "2011": 3.3, "2012": 1.76, "2013": 2.45, "2014": 2.49, "2015": 1.51, "2016": 1.28, "2017": 1.95, "2018": 1.91, "2019": 1.61, "2020": 0.85, "2021": 2.86, "2022": 6.59, "2023": 5.6, "2024": 3.17, "2025": 2.87 }, BDI: { "2000": 24.43, "2001": 9.3, "2002": -1.37, "2003": 10.65, "2004": 8.18, "2005": 13.25, "2006": 2.75, "2007": 8.41, "2008": 24.41, "2009": 10.56, "2010": 6.49, "2011": 9.59, "2012": 18.16, "2013": 7.94, "2014": 4.41, "2015": 5.54, "2016": 5.56, "2017": 16.05, "2018": -2.81, "2019": -0.69, "2020": 7.32, "2021": 8.4, "2022": 18.8, "2023": 26.94, "2024": 20.21, "2025": 34.13 }, BEN: { "2000": 4.17, "2001": 3.98, "2002": 2.49, "2003": 1.49, "2004": 0.87, "2005": 5.36, "2006": 3.78, "2007": 1.3, "2008": 7.95, "2009": 0.9, "2010": 2.21, "2011": 2.7, "2012": 6.74, "2013": 0.43, "2014": -0.55, "2015": 0.22, "2016": -0.79, "2017": 0.04, "2018": 0.92, "2019": 0.73, "2020": 3.02, "2021": 1.73, "2022": 1.35, "2023": 2.74, "2024": 1.16, "2025": 1.1 }, BFA: { "2000": -0.3, "2001": 5.01, "2002": 2.18, "2003": 2.03, "2004": -0.4, "2005": 6.42, "2006": 2.33, "2007": -0.23, "2008": 10.66, "2009": 2.61, "2010": -0.76, "2011": 2.76, "2012": 3.82, "2013": 0.53, "2014": -0.26, "2015": 0.72, "2016": 0.44, "2017": 1.48, "2018": 1.96, "2019": -3.23, "2020": 1.88, "2021": 3.65, "2022": 14.29, "2023": 0.74, "2024": 4.19, "2025": -0.59 }, BGD: { "2000": 2.21, "2001": 2.01, "2002": 3.33, "2003": 5.67, "2004": 7.59, "2005": 7.05, "2006": 6.77, "2007": 9.11, "2008": 8.9, "2009": 5.42, "2010": 8.13, "2011": 11.4, "2012": 6.22, "2013": 7.53, "2014": 6.99, "2015": 6.19, "2016": 5.51, "2017": 5.7, "2018": 5.54, "2019": 5.59, "2020": 5.69, "2021": 5.55, "2022": 7.7, "2023": 9.88, "2024": 10.47, "2025": 8.77 }, BOL: { "2000": 4.61, "2001": 1.59, "2002": 0.93, "2003": 3.34, "2004": 4.44, "2005": 5.39, "2006": 4.28, "2007": 8.71, "2008": 14.01, "2009": 3.35, "2010": 2.5, "2011": 9.88, "2012": 4.52, "2013": 5.74, "2014": 5.77, "2015": 4.06, "2016": 3.62, "2017": 2.82, "2018": 2.27, "2019": 1.84, "2020": 0.94, "2021": 0.74, "2022": 1.75, "2023": 2.58, "2024": 5.1, "2025": 19.52 }, BRA: { "2000": 7.04, "2001": 6.84, "2002": 8.45, "2003": 14.71, "2004": 6.6, "2005": 6.87, "2006": 4.18, "2007": 3.64, "2008": 5.68, "2009": 4.89, "2010": 5.04, "2011": 6.64, "2012": 5.4, "2013": 6.2, "2014": 6.33, "2015": 9.03, "2016": 8.74, "2017": 3.45, "2018": 3.66, "2019": 3.73, "2020": 3.21, "2021": 8.3, "2022": 9.28, "2023": 4.59, "2024": 4.37, "2025": 5.02 }, CAF: { "2000": 3.2, "2001": 3.83, "2002": 2.33, "2003": 4.13, "2004": -2.07, "2005": 2.88, "2006": 6.7, "2007": 0.96, "2008": 9.26, "2009": 3.52, "2010": 1.49, "2011": 1.19, "2012": 5.48, "2013": 6.99, "2014": 14.9, "2015": 1.4, "2016": 4.95, "2017": 4.18, "2018": 1.61, "2019": 2.69, "2020": 1.71, "2021": 4.26, "2022": 5.58, "2023": 2.98, "2024": 1.48, "2025": 1 }, CAN: { "2000": 2.72, "2001": 2.53, "2002": 2.26, "2003": 2.76, "2004": 1.86, "2005": 2.21, "2006": 2, "2007": 2.14, "2008": 2.37, "2009": 0.3, "2010": 1.78, "2011": 2.91, "2012": 1.52, "2013": 0.94, "2014": 1.91, "2015": 1.13, "2016": 1.43, "2017": 1.6, "2018": 2.27, "2019": 1.95, "2020": 0.72, "2021": 3.4, "2022": 6.8, "2023": 3.88, "2024": 2.38, "2025": 2.07 }, CHL: { "2000": 3.84, "2001": 3.57, "2002": 2.49, "2003": 2.81, "2004": 1.05, "2005": 3.05, "2006": 3.39, "2007": 4.41, "2008": 8.72, "2009": 0.35, "2010": 1.41, "2011": 3.34, "2012": 3.01, "2013": 1.79, "2014": 4.72, "2015": 4.35, "2016": 3.79, "2017": 2.18, "2018": 2.43, "2019": 2.56, "2020": 3.05, "2021": 4.52, "2022": 11.64, "2023": 7.58, "2024": 4.3, "2025": 4.21 }, CHN: { "2000": 0.35, "2001": 0.72, "2002": -0.73, "2003": 1.13, "2004": 3.82, "2005": 1.78, "2006": 1.65, "2007": 4.82, "2008": 5.93, "2009": -0.73, "2010": 3.18, "2011": 5.55, "2012": 2.62, "2013": 2.62, "2014": 1.92, "2015": 1.44, "2016": 2, "2017": 1.59, "2018": 2.07, "2019": 2.9, "2020": 2.42, "2021": 0.98, "2022": 1.97, "2023": 0.23, "2024": 0.22, "2025": 0.06 }, CIV: { "2000": 2.53, "2001": 4.36, "2002": 3.08, "2003": 3.3, "2004": 1.46, "2005": 3.89, "2006": 2.47, "2007": 1.89, "2008": 6.31, "2009": 1.02, "2010": 1.23, "2011": 4.91, "2012": 1.3, "2013": 2.58, "2014": 0.45, "2015": 1.25, "2016": 0.72, "2017": 0.69, "2018": 0.4, "2019": 0.79, "2020": 2.41, "2021": 4.16, "2022": 5.23, "2023": 4.37, "2024": 3.45, "2025": 0.13 }, CMR: { "2000": 1.23, "2001": 4.42, "2002": 2.83, "2003": 0.62, "2004": 0.23, "2005": 2.01, "2006": 5.12, "2007": 0.92, "2008": 5.34, "2009": 3.04, "2010": 1.28, "2011": 2.94, "2012": 2.74, "2013": 2.05, "2014": 1.85, "2015": 2.68, "2016": 0.87, "2017": 0.64, "2018": 1.07, "2019": 2.45, "2020": 2.44, "2021": 2.27, "2022": 6.25, "2023": 7.38, "2024": 4.53, "2025": 3.4 }, COD: { "2000": 513.91, "2001": 359.94, "2002": 31.52, "2003": 12.87, "2004": 3.99, "2005": 21.32, "2006": 13.05, "2007": 16.95, "2008": 17.3, "2009": 2.8, "2010": 7.1, "2011": 15.32, "2012": 9.72, "2013": 0.81, "2014": 1.24, "2015": 0.74, "2016": 2.89, "2022": 9.27, "2023": 19.89, "2024": 17.65, "2025": 7.41 }, COG: { "2000": -0.88, "2001": 0.06, "2002": 4.38, "2003": -0.63, "2004": 2.43, "2005": 3.09, "2006": 6.54, "2007": 2.65, "2008": 4.96, "2009": 4.42, "2010": 0.39, "2011": 1.76, "2012": 5.01, "2013": 4.63, "2014": 0.91, "2015": 3.17, "2016": 3.19, "2017": 0.45, "2018": 1.15, "2019": 2.21, "2020": 1.8, "2021": 1.72, "2022": 3.04, "2023": 4.3, "2024": 3.09, "2025": 2.4 }, COL: { "2000": 9.23, "2001": 7.97, "2002": 6.35, "2003": 7.13, "2004": 5.9, "2005": 5.05, "2006": 4.29, "2007": 5.54, "2008": 7, "2009": 4.2, "2010": 2.27, "2011": 3.42, "2012": 3.17, "2013": 2.02, "2014": 2.9, "2015": 4.99, "2016": 7.51, "2017": 4.31, "2018": 3.24, "2019": 3.52, "2020": 2.53, "2021": 3.5, "2022": 10.18, "2023": 11.74, "2024": 6.61, "2025": 5.14 }, DEU: { "2000": 1.44, "2001": 1.98, "2002": 1.42, "2003": 1.03, "2004": 1.67, "2005": 1.55, "2006": 1.58, "2007": 2.3, "2008": 2.63, "2009": 0.31, "2010": 1.1, "2011": 2.08, "2012": 2.01, "2013": 1.5, "2014": 0.91, "2015": 0.51, "2016": 0.49, "2017": 1.51, "2018": 1.73, "2019": 1.45, "2020": 0.14, "2021": 3.07, "2022": 6.87, "2023": 5.95, "2024": 2.26, "2025": 2.17 }, DOM: { "2000": 7.72, "2001": 8.88, "2002": 5.22, "2003": 27.45, "2004": 51.46, "2005": 4.19, "2006": 7.57, "2007": 6.14, "2008": 10.64, "2009": 1.44, "2010": 6.33, "2011": 5.8, "2012": 3.69, "2013": 4.83, "2014": 3, "2015": 0.84, "2016": 1.61, "2017": 3.28, "2018": 3.56, "2019": 1.81, "2020": 3.78, "2021": 8.24, "2022": 8.81, "2023": 4.79, "2024": 3.3, "2025": 3.87 }, DZA: { "2000": 0.34, "2001": 4.23, "2002": 1.42, "2003": 4.27, "2004": 3.96, "2005": 1.38, "2006": 2.31, "2007": 3.68, "2008": 4.86, "2009": 5.74, "2010": 3.91, "2011": 4.52, "2012": 8.89, "2013": 3.25, "2014": 2.92, "2015": 4.78, "2016": 6.4, "2017": 5.59, "2018": 4.27, "2019": 1.95, "2020": 2.42, "2021": 7.23, "2022": 9.27, "2023": 9.32, "2024": 4.05, "2025": 1.42 }, ECU: { "2000": 96.1, "2001": 37.68, "2002": 12.48, "2003": 7.93, "2004": 2.74, "2005": 2.17, "2006": 3.3, "2007": 2.28, "2008": 8.4, "2009": 5.16, "2010": 3.55, "2011": 4.47, "2012": 5.1, "2013": 2.72, "2014": 3.59, "2015": 3.97, "2016": 1.73, "2017": 0.42, "2018": -0.22, "2019": 0.27, "2020": -0.34, "2021": 0.13, "2022": 3.47, "2023": 2.22, "2024": 1.55, "2025": 0.71 }, EGY: { "2000": 2.68, "2001": 2.27, "2002": 2.74, "2003": 4.51, "2004": 11.27, "2005": 4.87, "2006": 7.64, "2007": 9.32, "2008": 18.32, "2009": 11.76, "2010": 11.27, "2011": 10.06, "2012": 7.11, "2013": 9.47, "2014": 10.07, "2015": 10.37, "2016": 13.81, "2017": 29.51, "2018": 14.4, "2019": 9.15, "2020": 5.04, "2021": 5.21, "2022": 13.9, "2023": 33.88, "2024": 28.27, "2025": 14.07 }, ESP: { "2000": 3.43, "2001": 3.59, "2002": 3.07, "2003": 3.04, "2004": 3.04, "2005": 3.37, "2006": 3.52, "2007": 2.79, "2008": 4.08, "2009": -0.29, "2010": 1.8, "2011": 3.2, "2012": 2.45, "2013": 1.41, "2014": -0.15, "2015": -0.5, "2016": -0.2, "2017": 1.96, "2018": 1.68, "2019": 0.7, "2020": -0.32, "2021": 3.09, "2022": 8.39, "2023": 3.53, "2024": 2.77, "2025": 2.67 }, ETH: { "2000": 0.66, "2001": -8.24, "2002": 0.68, "2003": 13.67, "2004": 3.33, "2005": 9.97, "2006": 12.3, "2007": 17.24, "2008": 44.36, "2009": 8.48, "2010": 8.15, "2011": 33.25, "2012": 23.6, "2013": 7.46, "2014": 6.89, "2015": 9.57, "2016": 6.63, "2017": 10.69, "2018": 13.83, "2019": 15.81, "2020": 20.36, "2021": 26.84, "2022": 33.89, "2023": 30.22, "2024": 21.04, "2025": 13.23 }, FRA: { "2000": 1.67, "2001": 1.64, "2002": 1.92, "2003": 2.1, "2004": 2.15, "2005": 1.74, "2006": 1.68, "2007": 1.49, "2008": 2.81, "2009": 0.09, "2010": 1.53, "2011": 2.11, "2012": 1.96, "2013": 0.86, "2014": 0.51, "2015": 0.04, "2016": 0.18, "2017": 1.03, "2018": 1.85, "2019": 1.11, "2020": 0.48, "2021": 1.64, "2022": 5.22, "2023": 4.88, "2024": 2, "2025": 0.94 }, GBR: { "2000": 1.18, "2001": 1.53, "2002": 1.52, "2003": 1.38, "2004": 1.39, "2005": 2.09, "2006": 2.46, "2007": 2.39, "2008": 3.52, "2009": 1.96, "2010": 2.49, "2011": 3.86, "2012": 2.57, "2013": 2.29, "2014": 1.45, "2015": 0.37, "2016": 1.01, "2017": 2.56, "2018": 2.29, "2019": 1.74, "2020": 0.99, "2021": 2.52, "2022": 7.92, "2023": 6.79, "2024": 3.27, "2025": 3.88 }, GHA: { "2000": 40.24, "2001": 41.51, "2002": 9.36, "2003": 29.77, "2004": 18.04, "2005": 15.44, "2006": 11.68, "2007": 10.73, "2008": 16.49, "2009": 19.25, "2010": 10.73, "2011": 8.73, "2012": 11.19, "2013": 11.67, "2014": 15.49, "2015": 17.15, "2016": 17.45, "2017": 12.37, "2018": 7.81, "2019": 7.14, "2020": 9.89, "2021": 9.97, "2022": 31.26, "2023": 38.11, "2024": 22.85, "2025": 14.2 }, GIN: { "2005": 31.37, "2006": 34.7, "2007": 18.18, "2008": 23.07, "2009": 4.68, "2010": 15.05, "2011": 21.32, "2012": 15.23, "2013": 11.89, "2014": 6.15, "2015": 11.78, "2016": 8.17, "2017": 8.91, "2018": 9.83, "2019": 9.47, "2020": 10.6, "2021": 12.6, "2022": 10.49, "2023": 7.8, "2024": 8.12, "2025": 3.57 }, GTM: { "2000": 5.98, "2001": 7.29, "2002": 8.13, "2003": 5.6, "2004": 7.58, "2005": 9.11, "2006": 6.56, "2007": 6.82, "2008": 11.36, "2009": 1.86, "2010": 3.86, "2011": 6.21, "2012": 3.78, "2013": 4.34, "2014": 3.42, "2015": 2.39, "2016": 4.45, "2017": 4.42, "2018": 3.75, "2019": 3.7, "2020": 3.21, "2021": 4.26, "2022": 6.89, "2023": 6.21, "2024": 2.87, "2025": 1.49 }, HND: { "2000": 11.05, "2001": 9.67, "2002": 7.69, "2003": 7.67, "2004": 8.11, "2005": 8.81, "2006": 5.58, "2007": 6.94, "2008": 11.4, "2009": 5.5, "2010": 4.7, "2011": 6.76, "2012": 5.2, "2013": 5.16, "2014": 6.13, "2015": 3.16, "2016": 2.72, "2017": 3.93, "2018": 4.35, "2019": 4.37, "2020": 3.47, "2021": 4.48, "2022": 9.09, "2023": 6.66, "2024": 4.61, "2025": 4.6 }, HTI: { "2000": 9.33, "2001": 13.32, "2002": 7.03, "2003": 28.7, "2004": 21.03, "2005": 13.97, "2006": 11.35, "2007": 6.56, "2008": 15.28, "2009": 0.39, "2010": 4.83, "2011": 6.33, "2012": 5.02, "2013": 4.77, "2014": 3.44, "2015": 6.73, "2016": 11.5, "2017": 10.68, "2018": 12.48, "2019": 18.7, "2020": 22.8, "2021": 16.84, "2022": 33.98, "2023": 36.81, "2024": 26.95, "2025": 28.64 }, IDN: { "2000": 3.69, "2001": 11.5, "2002": 11.9, "2003": 6.76, "2004": 6.06, "2005": 10.45, "2006": 13.11, "2007": 6.41, "2008": 10.23, "2009": 4.39, "2010": 5.13, "2011": 5.36, "2012": 4.28, "2013": 6.41, "2014": 6.39, "2015": 6.36, "2016": 3.53, "2017": 3.81, "2018": 3.2, "2019": 3.03, "2020": 1.92, "2021": 1.56, "2022": 4.21, "2023": 3.67, "2024": 2.18, "2025": 1.91 }, IND: { "2000": 4.01, "2001": 3.78, "2002": 4.3, "2003": 3.81, "2004": 3.77, "2005": 4.25, "2006": 5.8, "2007": 6.37, "2008": 8.35, "2009": 10.88, "2010": 11.99, "2011": 8.91, "2012": 9.48, "2013": 10.02, "2014": 6.67, "2015": 4.91, "2016": 4.95, "2017": 3.33, "2018": 3.94, "2019": 3.73, "2020": 6.62, "2021": 5.13, "2022": 6.7, "2023": 5.65, "2024": 4.95, "2025": 2.4 }, IRN: { "2000": 14.48, "2001": 11.27, "2002": 14.34, "2003": 16.47, "2004": 14.76, "2005": 13.43, "2006": 10.02, "2007": 17.34, "2008": 25.41, "2009": 13.55, "2010": 10.09, "2011": 26.29, "2012": 27.26, "2013": 36.6, "2014": 16.61, "2015": 12.48, "2016": 7.25, "2017": 8.04, "2018": 18.01, "2019": 39.91, "2020": 30.59, "2021": 43.39, "2022": 43.49, "2023": 44.58, "2024": 32.46, "2025": 42.17 }, IRQ: { "2000": 4.98, "2001": 16.37, "2002": 19.32, "2003": 33.62, "2004": 26.96, "2005": 36.96, "2006": 53.23, "2007": -10.07, "2008": 12.66, "2009": 6.87, "2010": 2.43, "2011": 5.6, "2012": 6.09, "2013": 1.88, "2014": 2.24, "2015": 1.39, "2016": 0.56, "2017": 0.18, "2018": 0.37, "2019": -0.2, "2020": 0.57, "2021": 6.04, "2022": 4.99, "2023": 4.36, "2024": 2.61, "2025": 0.3 }, ISR: { "2000": 1.03, "2001": 1.12, "2002": 5.8, "2003": 0.71, "2004": -0.42, "2005": 1.34, "2006": 2.05, "2007": 0.47, "2008": 4.53, "2009": 3.37, "2010": 2.7, "2011": 3.49, "2012": 1.68, "2013": 1.59, "2014": 0.47, "2015": -0.62, "2016": -0.54, "2017": 0.25, "2018": 0.81, "2019": 0.82, "2020": -0.58, "2021": 1.48, "2022": 4.41, "2023": 4.23, "2024": 3.07, "2025": 3.04 }, ITA: { "2000": 2.54, "2001": 2.79, "2002": 2.47, "2003": 2.67, "2004": 2.21, "2005": 1.99, "2006": 2.09, "2007": 1.83, "2008": 3.35, "2009": 0.77, "2010": 1.53, "2011": 2.78, "2012": 3.04, "2013": 1.22, "2014": 0.24, "2015": 0.04, "2016": -0.09, "2017": 1.23, "2018": 1.14, "2019": 0.61, "2020": -0.14, "2021": 1.87, "2022": 8.2, "2023": 5.62, "2024": 0.98, "2025": 1.53 }, JOR: { "2000": 0.67, "2001": 1.77, "2002": 1.83, "2003": 1.63, "2004": 3.36, "2005": 3.49, "2006": 6.25, "2007": 4.74, "2008": 13.97, "2009": -0.74, "2010": 4.85, "2011": 4.16, "2012": 4.52, "2013": 4.82, "2014": 2.9, "2015": -0.88, "2016": -0.78, "2017": 3.32, "2018": 4.46, "2019": 0.76, "2020": 0.33, "2021": 1.35, "2022": 4.23, "2023": 2.08, "2024": 1.56, "2025": 1.77 }, JPN: { "2000": -0.68, "2001": -0.74, "2002": -0.92, "2003": -0.26, "2004": -0.01, "2005": -0.28, "2006": 0.25, "2007": 0.06, "2008": 1.38, "2009": -1.35, "2010": -0.73, "2011": -0.27, "2012": -0.04, "2013": 0.34, "2014": 2.76, "2015": 0.8, "2016": -0.13, "2017": 0.48, "2018": 0.99, "2019": 0.47, "2020": -0.03, "2021": -0.23, "2022": 2.5, "2023": 3.27, "2024": 2.74, "2025": 3.17 }, KAZ: { "2000": 13.18, "2001": 8.35, "2002": 5.84, "2003": 6.44, "2004": 6.88, "2005": 7.58, "2006": 8.72, "2007": 10.85, "2008": 17.14, "2009": 7.32, "2010": 7.4, "2011": 8.45, "2012": 5.2, "2013": 5.94, "2014": 6.85, "2015": 6.68, "2016": 14.36, "2017": 7.44, "2018": 6.16, "2019": 5.33, "2020": 6.8, "2021": 7.96, "2022": 14.99, "2023": 14.52, "2024": 8.68, "2025": 11.38 }, KEN: { "2000": 9.98, "2001": 5.74, "2002": 1.96, "2003": 9.82, "2004": 11.62, "2005": 10.31, "2006": 14.45, "2007": 9.76, "2008": 26.24, "2009": 9.23, "2010": 3.96, "2011": 14.02, "2012": 9.38, "2013": 5.72, "2014": 6.88, "2015": 6.58, "2016": 6.3, "2017": 8.01, "2018": 4.69, "2019": 5.24, "2020": 5.41, "2021": 6.11, "2022": 7.66, "2023": 7.67, "2024": 4.49, "2025": 4.07 }, KHM: { "2000": -0.79, "2001": -0.6, "2002": 0.21, "2003": 0.94, "2004": 4.32, "2005": 6.62, "2006": 5.81, "2007": 8.71, "2008": 24.1, "2009": -1.24, "2010": 4, "2011": 5.48, "2012": 2.93, "2013": 2.94, "2014": 3.86, "2015": 1.22, "2016": 3.02, "2017": 2.91, "2018": 2.46, "2019": 1.94, "2020": 2.94, "2021": 2.92, "2022": 5.34, "2023": 2.13, "2024": 0.81, "2025": 2.35 }, KOR: { "2000": 2.26, "2001": 4.07, "2002": 2.76, "2003": 3.51, "2004": 3.59, "2005": 2.75, "2006": 2.24, "2007": 2.53, "2008": 4.67, "2009": 2.76, "2010": 2.94, "2011": 4.03, "2012": 2.19, "2013": 1.3, "2014": 1.27, "2015": 0.71, "2016": 0.97, "2017": 1.94, "2018": 1.48, "2019": 0.38, "2020": 0.54, "2021": 2.5, "2022": 5.09, "2023": 3.6, "2024": 2.32, "2025": 2.12 }, LKA: { "2000": 6.18, "2001": 14.16, "2002": 9.55, "2003": 6.31, "2004": 7.58, "2005": 11.64, "2006": 10.02, "2007": 15.84, "2008": 22.56, "2009": 3.46, "2010": 6.22, "2011": 6.72, "2012": 7.54, "2013": 6.91, "2014": 3.18, "2015": 3.77, "2016": 3.96, "2017": 7.7, "2018": 2.14, "2019": 3.53, "2020": 6.15, "2021": 7.01, "2022": 49.72, "2023": 16.54, "2024": -0.43, "2025": -4.76 }, MAR: { "2000": 1.89, "2001": 0.62, "2002": 2.8, "2003": 1.17, "2004": 1.49, "2005": 0.98, "2006": 3.28, "2007": 2.04, "2008": 3.71, "2009": 0.97, "2010": 0.99, "2011": 0.91, "2012": 1.29, "2013": 1.88, "2014": 0.44, "2015": 1.56, "2016": 1.64, "2017": 0.75, "2018": 1.8, "2019": 0.3, "2020": 0.71, "2021": 1.4, "2022": 6.66, "2023": 6.09, "2024": 0.99, "2025": 0.7 }, MDG: { "2000": 11.86, "2001": 7.92, "2002": 16.5, "2003": -1.7, "2004": 13.96, "2005": 18.36, "2006": 10.77, "2007": 10.29, "2008": 9.3, "2009": 8.95, "2010": 9.25, "2011": 9.48, "2012": 5.71, "2013": 5.83, "2014": 6.08, "2015": 7.4, "2016": 6.04, "2017": 8.59, "2018": 8.6, "2019": 5.63, "2020": 4.19, "2021": 5.81, "2022": 8.16, "2023": 9.87, "2024": 7.61, "2025": 8.05 }, MEX: { "2000": 9.49, "2001": 6.37, "2002": 5.03, "2003": 4.55, "2004": 4.69, "2005": 3.99, "2006": 3.63, "2007": 3.97, "2008": 5.12, "2009": 5.3, "2010": 4.16, "2011": 3.41, "2012": 4.11, "2013": 3.81, "2014": 4.02, "2015": 2.72, "2016": 2.82, "2017": 6.04, "2018": 4.9, "2019": 3.64, "2020": 3.4, "2021": 5.69, "2022": 7.9, "2023": 5.53, "2024": 4.72, "2025": 3.81 }, MLI: { "2000": -0.68, "2001": 5.19, "2002": 5.03, "2003": -1.35, "2004": -3.1, "2005": 6.4, "2006": 1.54, "2007": 1.41, "2008": 9.17, "2009": 2.46, "2010": 1.11, "2011": 2.96, "2012": 5.32, "2013": -0.61, "2014": 0.88, "2015": 1.45, "2016": -1.8, "2017": 1.76, "2018": 0.3, "2019": -1.66, "2020": 0.44, "2021": 3.93, "2022": 9.62, "2023": 2.06, "2024": 3.21, "2025": 3.28 }, MMR: { "2000": -0.11, "2001": 21.1, "2002": 57.07, "2003": 36.59, "2004": 4.53, "2005": 9.37, "2006": 20, "2007": 35.02, "2008": 26.8, "2009": 1.47, "2010": 7.72, "2011": 5.02, "2012": 1.47, "2013": 5.64, "2014": 4.95, "2015": 9.45, "2016": 6.93, "2017": 4.57, "2018": 6.87, "2019": 8.83, "2022": 27.2, "2023": 27.6, "2024": 29.6, "2025": 21.1 }, MOZ: { "2005": 6.43, "2006": 13.25, "2007": 8.49, "2008": 14.5, "2009": 3.79, "2010": 12.43, "2011": 11.17, "2012": 2.6, "2013": 4.26, "2014": 2.56, "2015": 3.55, "2016": 17.42, "2017": 15.11, "2018": 3.91, "2019": 2.8, "2020": 3.48, "2021": 6.41, "2022": 10.28, "2023": 7.13, "2024": 4.08, "2025": 4.37 }, MWI: { "2000": 29.58, "2001": 22.7, "2002": 14.74, "2003": 9.58, "2004": 11.43, "2005": 15.41, "2006": 13.97, "2007": 7.95, "2008": 8.71, "2009": 8.42, "2010": 7.41, "2011": 7.62, "2012": 21.27, "2013": 27.28, "2014": 23.79, "2015": 21.87, "2016": 21.71, "2017": 11.54, "2018": 12.42, "2019": 9.37, "2020": 8.63, "2021": 9.33, "2022": 20.95, "2023": 28.79, "2024": 32.18, "2025": 28.37 }, MYS: { "2000": 1.53, "2001": 1.42, "2002": 1.81, "2003": 1.09, "2004": 1.42, "2005": 2.98, "2006": 3.61, "2007": 2.03, "2008": 5.44, "2009": 0.58, "2010": 1.62, "2011": 3.17, "2012": 1.66, "2013": 2.11, "2014": 3.14, "2015": 2.1, "2016": 2.09, "2017": 3.87, "2018": 0.88, "2019": 0.66, "2020": -1.14, "2021": 2.48, "2022": 3.38, "2023": 2.49, "2024": 1.83, "2025": 1.38 }, NER: { "2000": 2.9, "2001": 4.01, "2002": 2.63, "2003": -1.61, "2004": 0.26, "2005": 7.8, "2006": 0.04, "2007": 0.05, "2008": 11.31, "2009": 0.58, "2010": 0.8, "2011": 2.94, "2012": 0.46, "2013": 2.3, "2014": -0.93, "2015": -0.58, "2016": 1.65, "2017": 2.8, "2018": 2.97, "2019": -2.49, "2020": 2.9, "2021": 3.84, "2022": 4.23, "2023": 3.7, "2024": 9.07, "2025": -4.45 }, NGA: { "2000": 6.93, "2001": 18.87, "2002": 12.88, "2003": 14.03, "2004": 15, "2005": 17.86, "2006": 8.23, "2007": 5.39, "2008": 11.58, "2009": 12.54, "2010": 13.74, "2011": 10.83, "2012": 12.22, "2013": 8.5, "2014": 8.05, "2015": 9.01, "2016": 15.7, "2017": 16.5, "2018": 12.1, "2019": 11.4, "2020": 13.25, "2021": 16.95, "2022": 18.85, "2023": 24.66, "2024": 33.24, "2025": 23.01 }, NPL: { "2000": 2.48, "2001": 2.69, "2002": 3.03, "2003": 5.71, "2004": 2.84, "2005": 6.84, "2006": 6.92, "2007": 2.27, "2008": 9.91, "2009": 11.09, "2010": 9.33, "2011": 9.23, "2012": 9.46, "2013": 9.04, "2014": 8.36, "2015": 7.87, "2016": 8.79, "2017": 2.78, "2018": 4.41, "2019": 5.57, "2020": 5.06, "2021": 4.13, "2022": 7.67, "2023": 7.12, "2024": 4.69, "2025": 2.65 }, PAK: { "2000": 4.37, "2001": 3.15, "2002": 3.29, "2003": 2.91, "2004": 7.44, "2005": 9.06, "2006": 7.92, "2007": 7.6, "2008": 20.29, "2009": 13.65, "2010": 12.94, "2011": 11.92, "2012": 9.68, "2013": 7.69, "2014": 7.19, "2015": 2.53, "2016": 3.77, "2017": 4.09, "2018": 5.08, "2019": 10.58, "2020": 9.74, "2021": 9.5, "2022": 19.87, "2023": 30.77, "2024": 12.63, "2025": 3.55 }, PER: { "2000": 3.76, "2001": 1.98, "2002": 0.19, "2003": 2.26, "2004": 3.66, "2005": 1.62, "2006": 2, "2007": 1.78, "2008": 5.79, "2009": 2.94, "2010": 1.53, "2011": 3.37, "2012": 3.61, "2013": 2.77, "2014": 3.41, "2015": 3.4, "2016": 3.56, "2017": 2.99, "2018": 1.51, "2019": 2.25, "2020": 2, "2021": 4.27, "2022": 8.33, "2023": 6.46, "2024": 2.01, "2025": 1.53 }, PHL: { "2000": 3.98, "2001": 5.35, "2002": 2.72, "2003": 2.29, "2004": 4.83, "2005": 6.52, "2006": 5.49, "2007": 2.9, "2008": 8.26, "2009": 4.22, "2010": 3.79, "2011": 4.72, "2012": 3.03, "2013": 2.58, "2014": 3.6, "2015": 0.67, "2016": 1.25, "2017": 2.85, "2018": 5.31, "2019": 2.39, "2020": 2.39, "2021": 3.93, "2022": 5.82, "2023": 5.98, "2024": 3.21, "2025": 1.66 }, PNG: { "2000": 15.6, "2001": 9.3, "2002": 11.8, "2003": 14.71, "2004": 2.16, "2005": 1.78, "2006": 2.37, "2007": 0.91, "2008": 10.76, "2009": 6.92, "2010": 6.01, "2011": 4.44, "2012": 4.54, "2013": 4.96, "2014": 5.22, "2015": 6, "2016": 6.67, "2017": 5.42, "2018": 4.37, "2019": 3.93, "2020": 4.87, "2021": 4.48, "2022": 5.25, "2023": 2.3, "2024": 0.6, "2025": 4.42 }, POL: { "2000": 9.9, "2001": 5.41, "2002": 1.91, "2003": 0.68, "2004": 3.38, "2005": 2.18, "2006": 1.28, "2007": 2.46, "2008": 4.16, "2009": 3.8, "2010": 2.58, "2011": 4.24, "2012": 3.56, "2013": 0.99, "2014": 0.05, "2015": -0.87, "2016": -0.66, "2017": 2.08, "2018": 1.81, "2019": 2.23, "2020": 3.37, "2021": 5.06, "2022": 14.43, "2023": 11.53, "2024": 3.79, "2025": 3.81 }, PRK: {}, RUS: { "2000": 20.8, "2001": 21.48, "2002": 15.79, "2003": 13.66, "2004": 10.89, "2005": 12.69, "2006": 9.67, "2007": 9.01, "2008": 14.11, "2009": 11.65, "2010": 6.85, "2011": 8.44, "2012": 5.07, "2013": 6.75, "2014": 7.82, "2015": 15.53, "2016": 7.04, "2017": 3.68, "2018": 2.88, "2019": 4.47, "2020": 3.38, "2021": 6.69, "2022": 13.74, "2023": 5.87, "2024": 8.43, "2025": 8.72 }, RWA: { "2000": 3.9, "2001": 3.34, "2002": 1.99, "2003": 7.45, "2004": 12.25, "2005": 9.01, "2006": 8.88, "2007": 9.08, "2008": 15.44, "2009": 12.94, "2010": -0.25, "2011": 3.08, "2012": 10.27, "2013": 5.92, "2014": 2.35, "2015": 2.53, "2016": 7.17, "2017": 8.28, "2018": -0.31, "2019": 3.35, "2020": 9.85, "2021": -0.39, "2022": 17.69, "2023": 19.79, "2024": 1.77, "2025": 5.91 }, SAU: { "2000": -1.12, "2001": -1.12, "2002": 0.25, "2003": 0.61, "2004": 0.52, "2005": 0.48, "2006": 2.21, "2007": 4.17, "2008": 9.87, "2009": 5.06, "2010": 5.34, "2011": 5.83, "2012": 2.87, "2013": 3.12, "2014": 1.84, "2015": 1.18, "2016": 2.92, "2017": -0.86, "2018": 2.47, "2019": -2.04, "2020": 3.19, "2021": 3.13, "2022": 2.54, "2023": 2.47, "2024": 1.5, "2025": 2.04 }, SDN: { "2000": 7.12, "2001": 1.94, "2002": 22.22, "2003": 6.49, "2004": 9.66, "2005": 8.51, "2006": 7.2, "2007": 14.75, "2008": 14.3, "2009": 11.26, "2010": 12.98, "2011": 18.1, "2012": 35.56, "2013": 36.52, "2014": 36.91, "2015": 16.91, "2016": 17.75, "2017": 32.35, "2018": 63.29, "2019": 50.99, "2020": 163.26, "2021": 359.09, "2022": 138.81 }, SEN: { "2000": 0.73, "2001": 2.97, "2002": 2.34, "2003": -0.05, "2004": 0.51, "2005": 1.71, "2006": 2.11, "2007": 5.85, "2008": 7.35, "2009": -2.25, "2010": 1.23, "2011": 3.4, "2012": 1.42, "2013": 0.71, "2014": -1.09, "2015": 0.14, "2016": 0.84, "2017": 1.32, "2018": 0.46, "2019": 1.76, "2020": 2.54, "2021": 2.18, "2022": 9.7, "2023": 5.94, "2024": 0.8, "2025": 1.46 }, SLE: { "2007": 11.65, "2008": 8.21, "2009": 7.47, "2010": 7.19, "2011": 6.79, "2012": 6.59, "2013": 5.52, "2014": 4.64, "2015": 6.69, "2016": 10.89, "2017": 18.22, "2018": 16.03, "2019": 14.8, "2020": 13.45, "2021": 11.87, "2022": 27.21, "2023": 47.64, "2024": 28.63, "2025": 7.49 }, SOM: { "2022": 6.78, "2023": 6.17, "2024": 5.53, "2025": 3.7 }, SSD: { "2009": 5.01, "2010": 1.17, "2011": 46.85, "2012": 45.53, "2013": -0.06, "2014": 1.67, "2015": 52.77, "2016": 380, "2017": 187.85, "2018": 83.5, "2019": 87.24, "2020": 29.68, "2021": 10.52, "2022": -6.69, "2023": 2.38, "2024": 91.44 }, SYR: { "2000": -3.85, "2001": 3, "2002": -0.13, "2003": 5.8, "2004": 4.43, "2005": 7.24, "2006": 10.02, "2007": 3.91, "2008": 15.75, "2009": 2.92, "2010": 4.4, "2011": 4.75, "2012": 36.7, "2013": 40.03, "2014": 10.93, "2015": 38.46, "2016": 47.71, "2017": 18.08, "2018": 0.94, "2019": 13.42 }, TCD: { "2000": 3.82, "2001": 12.43, "2002": 5.19, "2003": -1.75, "2004": -5.36, "2005": 7.89, "2006": 8.04, "2007": -8.97, "2008": 10.3, "2009": 9.95, "2010": -2.08, "2011": 2.03, "2012": 7.52, "2013": 0.22, "2014": 1.68, "2015": 4.38, "2016": -0.79, "2017": -1.54, "2018": 4.27, "2019": -0.97, "2020": 4.46, "2021": -0.77, "2022": 5.79, "2023": 10.84, "2024": 8.9, "2025": -3.91 }, TGO: { "2000": 1.86, "2001": 3.92, "2002": 3.06, "2003": -0.93, "2004": 0.39, "2005": 6.78, "2006": 2.23, "2007": 0.95, "2008": 8.69, "2009": 3.71, "2010": 1.45, "2011": 3.56, "2012": 2.58, "2013": 1.83, "2014": 0.19, "2015": 2.58, "2016": 1.29, "2017": -0.98, "2018": 0.93, "2019": 0.67, "2020": 1.7, "2021": 4.19, "2022": 7.97, "2023": 5.49, "2024": 2.86, "2025": 0.43 }, THA: { "2000": 1.59, "2001": 1.63, "2002": 0.7, "2003": 1.8, "2004": 2.76, "2005": 4.54, "2006": 4.64, "2007": 2.24, "2008": 5.47, "2009": -0.85, "2010": 3.25, "2011": 3.81, "2012": 3.01, "2013": 2.19, "2014": 1.89, "2015": -0.9, "2016": 0.19, "2017": 0.66, "2018": 1.07, "2019": 0.71, "2020": -0.85, "2021": 1.23, "2022": 6.08, "2023": 1.23, "2024": 0.4, "2025": -0.13 }, TJK: { "2001": 38.59, "2002": 12.25, "2003": 16.3, "2004": 7.14, "2005": 7.09, "2006": 10.01, "2007": 13.15, "2008": 20.47, "2009": 6.45, "2010": 6.45, "2011": 12.43, "2012": 5.83, "2013": 5.01, "2014": 6.1, "2015": 5.71, "2016": 6, "2017": 7.31, "2018": 3.84, "2019": 7.77, "2020": 8.58, "2021": 8.97, "2022": 6.61, "2023": 3.58, "2024": 3.48, "2025": 3.39 }, TUR: { "2000": 54.92, "2001": 54.4, "2002": 44.96, "2003": 21.6, "2004": 8.6, "2005": 8.18, "2006": 9.6, "2007": 8.76, "2008": 10.44, "2009": 6.25, "2010": 8.57, "2011": 6.47, "2012": 8.89, "2013": 7.49, "2014": 8.85, "2015": 7.67, "2016": 7.78, "2017": 11.14, "2018": 16.33, "2019": 15.18, "2020": 12.28, "2021": 19.6, "2022": 72.31, "2023": 53.86, "2024": 58.51, "2025": 34.88 }, TZA: { "2000": 5.92, "2001": 5.15, "2002": 5.32, "2003": 5.3, "2004": 4.74, "2005": 5.03, "2006": 7.25, "2007": 7.03, "2008": 10.28, "2009": 12.14, "2010": 6.2, "2011": 12.69, "2012": 16, "2013": 7.87, "2014": 6.13, "2015": 5.59, "2016": 5.17, "2017": 5.32, "2018": 3.49, "2019": 3.46, "2020": 3.29, "2021": 3.69, "2022": 4.35, "2023": 3.8, "2024": 3.06, "2025": 3.33 }, UGA: { "2000": 3.39, "2001": 1.87, "2002": -0.29, "2003": 8.68, "2004": 3.72, "2005": 8.45, "2006": 7.31, "2007": 6.14, "2008": 12.05, "2009": 13.02, "2010": 3.98, "2011": 16.56, "2012": 12.68, "2013": 4.91, "2014": 3.08, "2015": 5.59, "2016": 5.71, "2017": 5.21, "2018": 2.62, "2019": 2.87, "2020": 3.31, "2021": 2.2, "2022": 7.2, "2023": 5.35, "2024": 3.32, "2025": 3.58 }, UKR: { "2000": 28.2, "2001": 11.96, "2002": 0.76, "2003": 5.18, "2004": 9.05, "2005": 13.57, "2006": 9.05, "2007": 12.84, "2008": 25.23, "2009": 15.88, "2010": 9.37, "2011": 7.96, "2012": 0.57, "2013": -0.24, "2014": 12.07, "2015": 48.7, "2016": 13.91, "2017": 14.44, "2018": 10.95, "2019": 7.89, "2020": 2.73, "2021": 9.36, "2022": 20.18, "2023": 12.85, "2024": 6.5, "2025": 12.73 }, USA: { "2000": 3.38, "2001": 2.83, "2002": 1.59, "2003": 2.27, "2004": 2.68, "2005": 3.39, "2006": 3.23, "2007": 2.85, "2008": 3.84, "2009": -0.36, "2010": 1.64, "2011": 3.16, "2012": 2.07, "2013": 1.46, "2014": 1.62, "2015": 0.12, "2016": 1.26, "2017": 2.13, "2018": 2.44, "2019": 1.81, "2020": 1.23, "2021": 4.7, "2022": 8, "2023": 4.12, "2024": 2.95 }, UZB: { "2011": 13.78, "2012": 13.21, "2013": 11.84, "2014": 9.28, "2015": 8.75, "2016": 8.13, "2017": 13.88, "2018": 17.52, "2019": 14.53, "2020": 12.87, "2021": 10.85, "2022": 11.45, "2023": 9.96, "2024": 9.63, "2025": 8.8 }, VEN: { "2009": 27.08, "2010": 28.19, "2011": 26.09, "2012": 21.07, "2013": 40.64, "2014": 62.17, "2015": 121.74, "2016": 254.95, "2022": 186.54, "2023": 337.46, "2024": 49.36, "2025": 251.95 }, VNM: { "2000": -1.71, "2001": -0.43, "2002": 3.83, "2003": 3.23, "2004": 7.75, "2005": 8.28, "2006": 7.42, "2007": 8.34, "2008": 23.12, "2009": 6.72, "2010": 9.21, "2011": 18.68, "2012": 9.09, "2013": 6.59, "2014": 4.08, "2015": 0.63, "2016": 2.67, "2017": 3.52, "2018": 3.54, "2019": 2.8, "2020": 3.22, "2021": 1.83, "2022": 3.16, "2023": 3.25, "2024": 3.62, "2025": 3.31 }, YEM: { "2000": 4.59, "2001": 11.91, "2002": 12.24, "2003": 10.83, "2004": 12.52, "2005": 11.81, "2006": 10.84, "2007": 7.91, "2008": 18.98, "2009": 5.41, "2010": 11.17, "2011": 19.54, "2012": 9.89, "2013": 10.97, "2014": 8.1, "2022": 36.44, "2023": 17.58, "2024": 26.56, "2025": 20.18 }, ZAF: { "2000": 5.34, "2001": 5.7, "2002": 9.49, "2003": 5.68, "2004": -0.69, "2005": 2.06, "2006": 3.24, "2007": 6.18, "2008": 9.91, "2009": 7.24, "2010": 4.07, "2011": 5, "2012": 5.74, "2013": 5.78, "2014": 6.13, "2015": 4.52, "2016": 6.6, "2017": 5.19, "2018": 4.51, "2019": 4.1, "2020": 3.23, "2021": 4.62, "2022": 7.04, "2023": 6.08, "2024": 4.36, "2025": 3.21 }, ZMB: { "2000": 26.03, "2001": 21.39, "2002": 22.23, "2003": 21.4, "2004": 17.97, "2005": 18.32, "2006": 9.02, "2007": 10.66, "2008": 12.45, "2009": 13.4, "2010": 8.5, "2011": 6.43, "2012": 6.58, "2013": 6.98, "2014": 7.81, "2015": 10.11, "2016": 17.87, "2017": 6.58, "2018": 7.49, "2019": 9.15, "2020": 15.73, "2021": 22.02, "2022": 10.99, "2023": 10.88, "2024": 14.99, "2025": 13.91 }, ZWE: { "2010": 3.02, "2011": 3.47, "2012": 3.73, "2013": 1.63, "2014": -0.2, "2015": -2.43, "2016": -1.54, "2017": 0.89, "2018": 10.62, "2019": 255.3, "2020": 557.2, "2021": 98.55, "2022": 104.71 } };
+var cpi_annual_default = { AFG: { "2005": 12.69, "2006": 6.78, "2007": 8.68, "2008": 26.42, "2009": -6.81, "2010": 2.18, "2011": 11.8, "2012": 6.44, "2013": 7.39, "2014": 4.67, "2015": -0.66, "2016": 4.38, "2017": 4.98, "2018": 0.63, "2019": 2.3, "2020": 5.6, "2021": 5.13, "2022": 13.71, "2023": -4.64, "2024": -6.6 }, AGO: { "2000": 325, "2001": 152.56, "2002": 108.9, "2003": 98.22, "2004": 43.54, "2005": 22.95, "2006": 13.31, "2007": 12.25, "2008": 12.48, "2009": 13.73, "2010": 14.47, "2011": 13.48, "2012": 10.28, "2013": 8.78, "2014": 7.28, "2015": 9.36, "2016": 30.69, "2017": 29.84, "2018": 19.63, "2019": 17.08, "2020": 22.27, "2021": 25.75, "2022": 21.36, "2023": 13.64, "2024": 28.24, "2025": 20.16 }, ARG: { "2018": 34.28, "2019": 53.55, "2020": 42.02, "2021": 48.41, "2022": 72.43, "2023": 133.49, "2024": 219.88 }, AUS: { "2000": 4.46, "2001": 4.41, "2002": 2.98, "2003": 2.73, "2004": 2.34, "2005": 2.69, "2006": 3.56, "2007": 2.33, "2008": 4.35, "2009": 1.77, "2010": 2.92, "2011": 3.3, "2012": 1.76, "2013": 2.45, "2014": 2.49, "2015": 1.51, "2016": 1.28, "2017": 1.95, "2018": 1.91, "2019": 1.61, "2020": 0.85, "2021": 2.86, "2022": 6.59, "2023": 5.6, "2024": 3.17, "2025": 2.87 }, BDI: { "2000": 24.43, "2001": 9.3, "2002": -1.37, "2003": 10.65, "2004": 8.18, "2005": 13.25, "2006": 2.75, "2007": 8.41, "2008": 24.41, "2009": 10.56, "2010": 6.49, "2011": 9.59, "2012": 18.16, "2013": 7.94, "2014": 4.41, "2015": 5.54, "2016": 5.56, "2017": 16.05, "2018": -2.81, "2019": -0.69, "2020": 7.32, "2021": 8.4, "2022": 18.8, "2023": 26.94, "2024": 20.21, "2025": 34.13 }, BEN: { "2000": 4.17, "2001": 3.98, "2002": 2.49, "2003": 1.49, "2004": 0.87, "2005": 5.36, "2006": 3.78, "2007": 1.3, "2008": 7.95, "2009": 0.9, "2010": 2.21, "2011": 2.7, "2012": 6.74, "2013": 0.43, "2014": -0.55, "2015": 0.22, "2016": -0.79, "2017": 0.04, "2018": 0.92, "2019": 0.73, "2020": 3.02, "2021": 1.73, "2022": 1.35, "2023": 2.74, "2024": 1.16, "2025": 1.1 }, BFA: { "2000": -0.3, "2001": 5.01, "2002": 2.18, "2003": 2.03, "2004": -0.4, "2005": 6.42, "2006": 2.33, "2007": -0.23, "2008": 10.66, "2009": 2.61, "2010": -0.76, "2011": 2.76, "2012": 3.82, "2013": 0.53, "2014": -0.26, "2015": 0.72, "2016": 0.44, "2017": 1.48, "2018": 1.96, "2019": -3.23, "2020": 1.88, "2021": 3.65, "2022": 14.29, "2023": 0.74, "2024": 4.19, "2025": -0.59 }, BGD: { "2000": 2.21, "2001": 2.01, "2002": 3.33, "2003": 5.67, "2004": 7.59, "2005": 7.05, "2006": 6.77, "2007": 9.11, "2008": 8.9, "2009": 5.42, "2010": 8.13, "2011": 11.4, "2012": 6.22, "2013": 7.53, "2014": 6.99, "2015": 6.19, "2016": 5.51, "2017": 5.7, "2018": 5.54, "2019": 5.59, "2020": 5.69, "2021": 5.55, "2022": 7.7, "2023": 9.88, "2024": 10.47, "2025": 8.77 }, BOL: { "2000": 4.61, "2001": 1.59, "2002": 0.93, "2003": 3.34, "2004": 4.44, "2005": 5.39, "2006": 4.28, "2007": 8.71, "2008": 14.01, "2009": 3.35, "2010": 2.5, "2011": 9.88, "2012": 4.52, "2013": 5.74, "2014": 5.77, "2015": 4.06, "2016": 3.62, "2017": 2.82, "2018": 2.27, "2019": 1.84, "2020": 0.94, "2021": 0.74, "2022": 1.75, "2023": 2.58, "2024": 5.1, "2025": 19.52 }, BRA: { "2000": 7.04, "2001": 6.84, "2002": 8.45, "2003": 14.71, "2004": 6.6, "2005": 6.87, "2006": 4.18, "2007": 3.64, "2008": 5.68, "2009": 4.89, "2010": 5.04, "2011": 6.64, "2012": 5.4, "2013": 6.2, "2014": 6.33, "2015": 9.03, "2016": 8.74, "2017": 3.45, "2018": 3.66, "2019": 3.73, "2020": 3.21, "2021": 8.3, "2022": 9.28, "2023": 4.59, "2024": 4.37, "2025": 5.02 }, CAF: { "2000": 3.2, "2001": 3.83, "2002": 2.33, "2003": 4.13, "2004": -2.07, "2005": 2.88, "2006": 6.7, "2007": 0.96, "2008": 9.26, "2009": 3.52, "2010": 1.49, "2011": 1.19, "2012": 5.48, "2013": 6.99, "2014": 14.9, "2015": 1.4, "2016": 4.95, "2017": 4.18, "2018": 1.61, "2019": 2.69, "2020": 1.71, "2021": 4.26, "2022": 5.58, "2023": 2.98, "2024": 1.48, "2025": 1 }, CAN: { "2000": 2.72, "2001": 2.53, "2002": 2.26, "2003": 2.76, "2004": 1.86, "2005": 2.21, "2006": 2, "2007": 2.14, "2008": 2.37, "2009": 0.3, "2010": 1.78, "2011": 2.91, "2012": 1.52, "2013": 0.94, "2014": 1.91, "2015": 1.13, "2016": 1.43, "2017": 1.6, "2018": 2.27, "2019": 1.95, "2020": 0.72, "2021": 3.4, "2022": 6.8, "2023": 3.88, "2024": 2.38, "2025": 2.07 }, CHL: { "2000": 3.84, "2001": 3.57, "2002": 2.49, "2003": 2.81, "2004": 1.05, "2005": 3.05, "2006": 3.39, "2007": 4.41, "2008": 8.72, "2009": 0.35, "2010": 1.41, "2011": 3.34, "2012": 3.01, "2013": 1.79, "2014": 4.72, "2015": 4.35, "2016": 3.79, "2017": 2.18, "2018": 2.43, "2019": 2.56, "2020": 3.05, "2021": 4.52, "2022": 11.64, "2023": 7.58, "2024": 4.3, "2025": 4.21 }, CHN: { "2000": 0.35, "2001": 0.72, "2002": -0.73, "2003": 1.13, "2004": 3.82, "2005": 1.78, "2006": 1.65, "2007": 4.82, "2008": 5.93, "2009": -0.73, "2010": 3.18, "2011": 5.55, "2012": 2.62, "2013": 2.62, "2014": 1.92, "2015": 1.44, "2016": 2, "2017": 1.59, "2018": 2.07, "2019": 2.9, "2020": 2.42, "2021": 0.98, "2022": 1.97, "2023": 0.23, "2024": 0.22, "2025": 0.06 }, CIV: { "2000": 2.53, "2001": 4.36, "2002": 3.08, "2003": 3.3, "2004": 1.46, "2005": 3.89, "2006": 2.47, "2007": 1.89, "2008": 6.31, "2009": 1.02, "2010": 1.23, "2011": 4.91, "2012": 1.3, "2013": 2.58, "2014": 0.45, "2015": 1.25, "2016": 0.72, "2017": 0.69, "2018": 0.4, "2019": 0.79, "2020": 2.41, "2021": 4.16, "2022": 5.23, "2023": 4.37, "2024": 3.45, "2025": 0.13 }, CMR: { "2000": 1.23, "2001": 4.42, "2002": 2.83, "2003": 0.62, "2004": 0.23, "2005": 2.01, "2006": 5.12, "2007": 0.92, "2008": 5.34, "2009": 3.04, "2010": 1.28, "2011": 2.94, "2012": 2.74, "2013": 2.05, "2014": 1.85, "2015": 2.68, "2016": 0.87, "2017": 0.64, "2018": 1.07, "2019": 2.45, "2020": 2.44, "2021": 2.27, "2022": 6.25, "2023": 7.38, "2024": 4.53, "2025": 3.4 }, COD: { "2000": 513.91, "2001": 359.94, "2002": 31.52, "2003": 12.87, "2004": 3.99, "2005": 21.32, "2006": 13.05, "2007": 16.95, "2008": 17.3, "2009": 2.8, "2010": 7.1, "2011": 15.32, "2012": 9.72, "2013": 0.81, "2014": 1.24, "2015": 0.74, "2016": 2.89, "2022": 9.27, "2023": 19.89, "2024": 17.65, "2025": 7.41 }, COG: { "2000": -0.88, "2001": 0.06, "2002": 4.38, "2003": -0.63, "2004": 2.43, "2005": 3.09, "2006": 6.54, "2007": 2.65, "2008": 4.96, "2009": 4.42, "2010": 0.39, "2011": 1.76, "2012": 5.01, "2013": 4.63, "2014": 0.91, "2015": 3.17, "2016": 3.19, "2017": 0.45, "2018": 1.15, "2019": 2.21, "2020": 1.8, "2021": 1.72, "2022": 3.04, "2023": 4.3, "2024": 3.09, "2025": 2.4 }, COL: { "2000": 9.23, "2001": 7.97, "2002": 6.35, "2003": 7.13, "2004": 5.9, "2005": 5.05, "2006": 4.29, "2007": 5.54, "2008": 7, "2009": 4.2, "2010": 2.27, "2011": 3.42, "2012": 3.17, "2013": 2.02, "2014": 2.9, "2015": 4.99, "2016": 7.51, "2017": 4.31, "2018": 3.24, "2019": 3.52, "2020": 2.53, "2021": 3.5, "2022": 10.18, "2023": 11.74, "2024": 6.61, "2025": 5.14 }, DEU: { "2000": 1.44, "2001": 1.98, "2002": 1.42, "2003": 1.03, "2004": 1.67, "2005": 1.55, "2006": 1.58, "2007": 2.3, "2008": 2.63, "2009": 0.31, "2010": 1.1, "2011": 2.08, "2012": 2.01, "2013": 1.5, "2014": 0.91, "2015": 0.51, "2016": 0.49, "2017": 1.51, "2018": 1.73, "2019": 1.45, "2020": 0.14, "2021": 3.07, "2022": 6.87, "2023": 5.95, "2024": 2.26, "2025": 2.17 }, DOM: { "2000": 7.72, "2001": 8.88, "2002": 5.22, "2003": 27.45, "2004": 51.46, "2005": 4.19, "2006": 7.57, "2007": 6.14, "2008": 10.64, "2009": 1.44, "2010": 6.33, "2011": 5.8, "2012": 3.69, "2013": 4.83, "2014": 3, "2015": 0.84, "2016": 1.61, "2017": 3.28, "2018": 3.56, "2019": 1.81, "2020": 3.78, "2021": 8.24, "2022": 8.81, "2023": 4.79, "2024": 3.3, "2025": 3.87 }, DZA: { "2000": 0.34, "2001": 4.23, "2002": 1.42, "2003": 4.27, "2004": 3.96, "2005": 1.38, "2006": 2.31, "2007": 3.68, "2008": 4.86, "2009": 5.74, "2010": 3.91, "2011": 4.52, "2012": 8.89, "2013": 3.25, "2014": 2.92, "2015": 4.78, "2016": 6.4, "2017": 5.59, "2018": 4.27, "2019": 1.95, "2020": 2.42, "2021": 7.23, "2022": 9.27, "2023": 9.32, "2024": 4.05, "2025": 1.42 }, ECU: { "2000": 96.1, "2001": 37.68, "2002": 12.48, "2003": 7.93, "2004": 2.74, "2005": 2.17, "2006": 3.3, "2007": 2.28, "2008": 8.4, "2009": 5.16, "2010": 3.55, "2011": 4.47, "2012": 5.1, "2013": 2.72, "2014": 3.59, "2015": 3.97, "2016": 1.73, "2017": 0.42, "2018": -0.22, "2019": 0.27, "2020": -0.34, "2021": 0.13, "2022": 3.47, "2023": 2.22, "2024": 1.55, "2025": 0.71 }, EGY: { "2000": 2.68, "2001": 2.27, "2002": 2.74, "2003": 4.51, "2004": 11.27, "2005": 4.87, "2006": 7.64, "2007": 9.32, "2008": 18.32, "2009": 11.76, "2010": 11.27, "2011": 10.06, "2012": 7.11, "2013": 9.47, "2014": 10.07, "2015": 10.37, "2016": 13.81, "2017": 29.51, "2018": 14.4, "2019": 9.15, "2020": 5.04, "2021": 5.21, "2022": 13.9, "2023": 33.88, "2024": 28.27, "2025": 14.07 }, ESP: { "2000": 3.43, "2001": 3.59, "2002": 3.07, "2003": 3.04, "2004": 3.04, "2005": 3.37, "2006": 3.52, "2007": 2.79, "2008": 4.08, "2009": -0.29, "2010": 1.8, "2011": 3.2, "2012": 2.45, "2013": 1.41, "2014": -0.15, "2015": -0.5, "2016": -0.2, "2017": 1.96, "2018": 1.68, "2019": 0.7, "2020": -0.32, "2021": 3.09, "2022": 8.39, "2023": 3.53, "2024": 2.77, "2025": 2.67 }, ETH: { "2000": 0.66, "2001": -8.24, "2002": 0.68, "2003": 13.67, "2004": 3.33, "2005": 9.97, "2006": 12.3, "2007": 17.24, "2008": 44.36, "2009": 8.48, "2010": 8.15, "2011": 33.25, "2012": 23.6, "2013": 7.46, "2014": 6.89, "2015": 9.57, "2016": 6.63, "2017": 10.69, "2018": 13.83, "2019": 15.81, "2020": 20.36, "2021": 26.84, "2022": 33.89, "2023": 30.22, "2024": 21.04, "2025": 13.23 }, FRA: { "2000": 1.67, "2001": 1.64, "2002": 1.92, "2003": 2.1, "2004": 2.15, "2005": 1.74, "2006": 1.68, "2007": 1.49, "2008": 2.81, "2009": 0.09, "2010": 1.53, "2011": 2.11, "2012": 1.96, "2013": 0.86, "2014": 0.51, "2015": 0.04, "2016": 0.18, "2017": 1.03, "2018": 1.85, "2019": 1.11, "2020": 0.48, "2021": 1.64, "2022": 5.22, "2023": 4.88, "2024": 2, "2025": 0.94 }, GBR: { "2000": 1.18, "2001": 1.53, "2002": 1.52, "2003": 1.38, "2004": 1.39, "2005": 2.09, "2006": 2.46, "2007": 2.39, "2008": 3.52, "2009": 1.96, "2010": 2.49, "2011": 3.86, "2012": 2.57, "2013": 2.29, "2014": 1.45, "2015": 0.37, "2016": 1.01, "2017": 2.56, "2018": 2.29, "2019": 1.74, "2020": 0.99, "2021": 2.52, "2022": 7.92, "2023": 6.79, "2024": 3.27, "2025": 3.88 }, GHA: { "2000": 40.24, "2001": 41.51, "2002": 9.36, "2003": 29.77, "2004": 18.04, "2005": 15.44, "2006": 11.68, "2007": 10.73, "2008": 16.49, "2009": 19.25, "2010": 10.73, "2011": 8.73, "2012": 11.19, "2013": 11.67, "2014": 15.49, "2015": 17.15, "2016": 17.45, "2017": 12.37, "2018": 7.81, "2019": 7.14, "2020": 9.89, "2021": 9.97, "2022": 31.26, "2023": 38.11, "2024": 22.85, "2025": 14.2 }, GIN: { "2005": 31.37, "2006": 34.7, "2007": 18.18, "2008": 23.07, "2009": 4.68, "2010": 15.05, "2011": 21.32, "2012": 15.23, "2013": 11.89, "2014": 6.15, "2015": 11.78, "2016": 8.17, "2017": 8.91, "2018": 9.83, "2019": 9.47, "2020": 10.6, "2021": 12.6, "2022": 10.49, "2023": 7.8, "2024": 8.12, "2025": 3.57 }, GTM: { "2000": 5.98, "2001": 7.29, "2002": 8.13, "2003": 5.6, "2004": 7.58, "2005": 9.11, "2006": 6.56, "2007": 6.82, "2008": 11.36, "2009": 1.86, "2010": 3.86, "2011": 6.21, "2012": 3.78, "2013": 4.34, "2014": 3.42, "2015": 2.39, "2016": 4.45, "2017": 4.42, "2018": 3.75, "2019": 3.7, "2020": 3.21, "2021": 4.26, "2022": 6.89, "2023": 6.21, "2024": 2.87, "2025": 1.49 }, HND: { "2000": 11.05, "2001": 9.67, "2002": 7.69, "2003": 7.67, "2004": 8.11, "2005": 8.81, "2006": 5.58, "2007": 6.94, "2008": 11.4, "2009": 5.5, "2010": 4.7, "2011": 6.76, "2012": 5.2, "2013": 5.16, "2014": 6.13, "2015": 3.16, "2016": 2.72, "2017": 3.93, "2018": 4.35, "2019": 4.37, "2020": 3.47, "2021": 4.48, "2022": 9.09, "2023": 6.66, "2024": 4.61, "2025": 4.6 }, HTI: { "2000": 9.33, "2001": 13.32, "2002": 7.03, "2003": 28.7, "2004": 21.03, "2005": 13.97, "2006": 11.35, "2007": 6.56, "2008": 15.28, "2009": 0.39, "2010": 4.83, "2011": 6.33, "2012": 5.02, "2013": 4.77, "2014": 3.44, "2015": 6.73, "2016": 11.5, "2017": 10.68, "2018": 12.48, "2019": 18.7, "2020": 22.8, "2021": 16.84, "2022": 33.98, "2023": 36.81, "2024": 26.95, "2025": 28.64 }, IDN: { "2000": 3.69, "2001": 11.5, "2002": 11.9, "2003": 6.76, "2004": 6.06, "2005": 10.45, "2006": 13.11, "2007": 6.41, "2008": 10.23, "2009": 4.39, "2010": 5.13, "2011": 5.36, "2012": 4.28, "2013": 6.41, "2014": 6.39, "2015": 6.36, "2016": 3.53, "2017": 3.81, "2018": 3.2, "2019": 3.03, "2020": 1.92, "2021": 1.56, "2022": 4.21, "2023": 3.67, "2024": 2.18, "2025": 1.91 }, IND: { "2000": 4.01, "2001": 3.78, "2002": 4.3, "2003": 3.81, "2004": 3.77, "2005": 4.25, "2006": 5.8, "2007": 6.37, "2008": 8.35, "2009": 10.88, "2010": 11.99, "2011": 8.91, "2012": 9.48, "2013": 10.02, "2014": 6.67, "2015": 4.91, "2016": 4.95, "2017": 3.33, "2018": 3.94, "2019": 3.73, "2020": 6.62, "2021": 5.13, "2022": 6.7, "2023": 5.65, "2024": 4.95, "2025": 2.4 }, IRN: { "2000": 14.48, "2001": 11.27, "2002": 14.34, "2003": 16.47, "2004": 14.76, "2005": 13.43, "2006": 10.02, "2007": 17.34, "2008": 25.41, "2009": 13.55, "2010": 10.09, "2011": 26.29, "2012": 27.26, "2013": 36.6, "2014": 16.61, "2015": 12.48, "2016": 7.25, "2017": 8.04, "2018": 18.01, "2019": 39.91, "2020": 30.59, "2021": 43.39, "2022": 43.49, "2023": 44.58, "2024": 32.46, "2025": 42.17 }, IRQ: { "2000": 4.98, "2001": 16.37, "2002": 19.32, "2003": 33.62, "2004": 26.96, "2005": 36.96, "2006": 53.23, "2007": -10.07, "2008": 12.66, "2009": 6.87, "2010": 2.43, "2011": 5.6, "2012": 6.09, "2013": 1.88, "2014": 2.24, "2015": 1.39, "2016": 0.56, "2017": 0.18, "2018": 0.37, "2019": -0.2, "2020": 0.57, "2021": 6.04, "2022": 4.99, "2023": 4.36, "2024": 2.61, "2025": 0.3 }, ISR: { "2000": 1.03, "2001": 1.12, "2002": 5.8, "2003": 0.71, "2004": -0.42, "2005": 1.34, "2006": 2.05, "2007": 0.47, "2008": 4.53, "2009": 3.37, "2010": 2.7, "2011": 3.49, "2012": 1.68, "2013": 1.59, "2014": 0.47, "2015": -0.62, "2016": -0.54, "2017": 0.25, "2018": 0.81, "2019": 0.82, "2020": -0.58, "2021": 1.48, "2022": 4.41, "2023": 4.23, "2024": 3.07, "2025": 3.04 }, ITA: { "2000": 2.54, "2001": 2.79, "2002": 2.47, "2003": 2.67, "2004": 2.21, "2005": 1.99, "2006": 2.09, "2007": 1.83, "2008": 3.35, "2009": 0.77, "2010": 1.53, "2011": 2.78, "2012": 3.04, "2013": 1.22, "2014": 0.24, "2015": 0.04, "2016": -0.09, "2017": 1.23, "2018": 1.14, "2019": 0.61, "2020": -0.14, "2021": 1.87, "2022": 8.2, "2023": 5.62, "2024": 0.98, "2025": 1.53 }, JOR: { "2000": 0.67, "2001": 1.77, "2002": 1.83, "2003": 1.63, "2004": 3.36, "2005": 3.49, "2006": 6.25, "2007": 4.74, "2008": 13.97, "2009": -0.74, "2010": 4.85, "2011": 4.16, "2012": 4.52, "2013": 4.82, "2014": 2.9, "2015": -0.88, "2016": -0.78, "2017": 3.32, "2018": 4.46, "2019": 0.76, "2020": 0.33, "2021": 1.35, "2022": 4.23, "2023": 2.08, "2024": 1.56, "2025": 1.77 }, JPN: { "2000": -0.68, "2001": -0.74, "2002": -0.92, "2003": -0.26, "2004": -0.01, "2005": -0.28, "2006": 0.25, "2007": 0.06, "2008": 1.38, "2009": -1.35, "2010": -0.73, "2011": -0.27, "2012": -0.04, "2013": 0.34, "2014": 2.76, "2015": 0.8, "2016": -0.13, "2017": 0.48, "2018": 0.99, "2019": 0.47, "2020": -0.03, "2021": -0.23, "2022": 2.5, "2023": 3.27, "2024": 2.74, "2025": 3.17 }, KAZ: { "2000": 13.18, "2001": 8.35, "2002": 5.84, "2003": 6.44, "2004": 6.88, "2005": 7.58, "2006": 8.72, "2007": 10.85, "2008": 17.14, "2009": 7.32, "2010": 7.4, "2011": 8.45, "2012": 5.2, "2013": 5.94, "2014": 6.85, "2015": 6.68, "2016": 14.36, "2017": 7.44, "2018": 6.16, "2019": 5.33, "2020": 6.8, "2021": 7.96, "2022": 14.99, "2023": 14.52, "2024": 8.68, "2025": 11.38 }, KEN: { "2000": 9.98, "2001": 5.74, "2002": 1.96, "2003": 9.82, "2004": 11.62, "2005": 10.31, "2006": 14.45, "2007": 9.76, "2008": 26.24, "2009": 9.23, "2010": 3.96, "2011": 14.02, "2012": 9.38, "2013": 5.72, "2014": 6.88, "2015": 6.58, "2016": 6.3, "2017": 8.01, "2018": 4.69, "2019": 5.24, "2020": 5.41, "2021": 6.11, "2022": 7.66, "2023": 7.67, "2024": 4.49, "2025": 4.07 }, KHM: { "2000": -0.79, "2001": -0.6, "2002": 0.21, "2003": 0.94, "2004": 4.32, "2005": 6.62, "2006": 5.81, "2007": 8.71, "2008": 24.1, "2009": -1.24, "2010": 4, "2011": 5.48, "2012": 2.93, "2013": 2.94, "2014": 3.86, "2015": 1.22, "2016": 3.02, "2017": 2.91, "2018": 2.46, "2019": 1.94, "2020": 2.94, "2021": 2.92, "2022": 5.34, "2023": 2.13, "2024": 0.81, "2025": 2.35 }, KOR: { "2000": 2.26, "2001": 4.07, "2002": 2.76, "2003": 3.51, "2004": 3.59, "2005": 2.75, "2006": 2.24, "2007": 2.53, "2008": 4.67, "2009": 2.76, "2010": 2.94, "2011": 4.03, "2012": 2.19, "2013": 1.3, "2014": 1.27, "2015": 0.71, "2016": 0.97, "2017": 1.94, "2018": 1.48, "2019": 0.38, "2020": 0.54, "2021": 2.5, "2022": 5.09, "2023": 3.6, "2024": 2.32, "2025": 2.12 }, LKA: { "2000": 6.18, "2001": 14.16, "2002": 9.55, "2003": 6.31, "2004": 7.58, "2005": 11.64, "2006": 10.02, "2007": 15.84, "2008": 22.56, "2009": 3.46, "2010": 6.22, "2011": 6.72, "2012": 7.54, "2013": 6.91, "2014": 3.18, "2015": 3.77, "2016": 3.96, "2017": 7.7, "2018": 2.14, "2019": 3.53, "2020": 6.15, "2021": 7.01, "2022": 49.72, "2023": 16.54, "2024": -0.43, "2025": -4.76 }, MAR: { "2000": 1.89, "2001": 0.62, "2002": 2.8, "2003": 1.17, "2004": 1.49, "2005": 0.98, "2006": 3.28, "2007": 2.04, "2008": 3.71, "2009": 0.97, "2010": 0.99, "2011": 0.91, "2012": 1.29, "2013": 1.88, "2014": 0.44, "2015": 1.56, "2016": 1.64, "2017": 0.75, "2018": 1.8, "2019": 0.3, "2020": 0.71, "2021": 1.4, "2022": 6.66, "2023": 6.09, "2024": 0.99, "2025": 0.7 }, MDG: { "2000": 11.86, "2001": 7.92, "2002": 16.5, "2003": -1.7, "2004": 13.96, "2005": 18.36, "2006": 10.77, "2007": 10.29, "2008": 9.3, "2009": 8.95, "2010": 9.25, "2011": 9.48, "2012": 5.71, "2013": 5.83, "2014": 6.08, "2015": 7.4, "2016": 6.04, "2017": 8.59, "2018": 8.6, "2019": 5.63, "2020": 4.19, "2021": 5.81, "2022": 8.16, "2023": 9.87, "2024": 7.61, "2025": 8.05 }, MEX: { "2000": 9.49, "2001": 6.37, "2002": 5.03, "2003": 4.55, "2004": 4.69, "2005": 3.99, "2006": 3.63, "2007": 3.97, "2008": 5.12, "2009": 5.3, "2010": 4.16, "2011": 3.41, "2012": 4.11, "2013": 3.81, "2014": 4.02, "2015": 2.72, "2016": 2.82, "2017": 6.04, "2018": 4.9, "2019": 3.64, "2020": 3.4, "2021": 5.69, "2022": 7.9, "2023": 5.53, "2024": 4.72, "2025": 3.81 }, MLI: { "2000": -0.68, "2001": 5.19, "2002": 5.03, "2003": -1.35, "2004": -3.1, "2005": 6.4, "2006": 1.54, "2007": 1.41, "2008": 9.17, "2009": 2.46, "2010": 1.11, "2011": 2.96, "2012": 5.32, "2013": -0.61, "2014": 0.88, "2015": 1.45, "2016": -1.8, "2017": 1.76, "2018": 0.3, "2019": -1.66, "2020": 0.44, "2021": 3.93, "2022": 9.62, "2023": 2.06, "2024": 3.21, "2025": 3.28 }, MMR: { "2000": -0.11, "2001": 21.1, "2002": 57.07, "2003": 36.59, "2004": 4.53, "2005": 9.37, "2006": 20, "2007": 35.02, "2008": 26.8, "2009": 1.47, "2010": 7.72, "2011": 5.02, "2012": 1.47, "2013": 5.64, "2014": 4.95, "2015": 9.45, "2016": 6.93, "2017": 4.57, "2018": 6.87, "2019": 8.83, "2022": 27.2, "2023": 27.6, "2024": 29.6, "2025": 21.1 }, MOZ: { "2005": 6.43, "2006": 13.25, "2007": 8.49, "2008": 14.5, "2009": 3.79, "2010": 12.43, "2011": 11.17, "2012": 2.6, "2013": 4.26, "2014": 2.56, "2015": 3.55, "2016": 17.42, "2017": 15.11, "2018": 3.91, "2019": 2.8, "2020": 3.48, "2021": 6.41, "2022": 10.28, "2023": 7.13, "2024": 4.08, "2025": 4.37 }, MWI: { "2000": 29.58, "2001": 22.7, "2002": 14.74, "2003": 9.58, "2004": 11.43, "2005": 15.41, "2006": 13.97, "2007": 7.95, "2008": 8.71, "2009": 8.42, "2010": 7.41, "2011": 7.62, "2012": 21.27, "2013": 27.28, "2014": 23.79, "2015": 21.87, "2016": 21.71, "2017": 11.54, "2018": 12.42, "2019": 9.37, "2020": 8.63, "2021": 9.33, "2022": 20.95, "2023": 28.79, "2024": 32.18, "2025": 28.37 }, MYS: { "2000": 1.53, "2001": 1.42, "2002": 1.81, "2003": 1.09, "2004": 1.42, "2005": 2.98, "2006": 3.61, "2007": 2.03, "2008": 5.44, "2009": 0.58, "2010": 1.62, "2011": 3.17, "2012": 1.66, "2013": 2.11, "2014": 3.14, "2015": 2.1, "2016": 2.09, "2017": 3.87, "2018": 0.88, "2019": 0.66, "2020": -1.14, "2021": 2.48, "2022": 3.38, "2023": 2.49, "2024": 1.83, "2025": 1.38 }, NER: { "2000": 2.9, "2001": 4.01, "2002": 2.63, "2003": -1.61, "2004": 0.26, "2005": 7.8, "2006": 0.04, "2007": 0.05, "2008": 11.31, "2009": 0.58, "2010": 0.8, "2011": 2.94, "2012": 0.46, "2013": 2.3, "2014": -0.93, "2015": -0.58, "2016": 1.65, "2017": 2.8, "2018": 2.97, "2019": -2.49, "2020": 2.9, "2021": 3.84, "2022": 4.23, "2023": 3.7, "2024": 9.07, "2025": -4.45 }, NGA: { "2000": 6.93, "2001": 18.87, "2002": 12.88, "2003": 14.03, "2004": 15, "2005": 17.86, "2006": 8.23, "2007": 5.39, "2008": 11.58, "2009": 12.54, "2010": 13.74, "2011": 10.83, "2012": 12.22, "2013": 8.5, "2014": 8.05, "2015": 9.01, "2016": 15.7, "2017": 16.5, "2018": 12.1, "2019": 11.4, "2020": 13.25, "2021": 16.95, "2022": 18.85, "2023": 24.66, "2024": 33.24, "2025": 23.01 }, NPL: { "2000": 2.48, "2001": 2.69, "2002": 3.03, "2003": 5.71, "2004": 2.84, "2005": 6.84, "2006": 6.92, "2007": 2.27, "2008": 9.91, "2009": 11.09, "2010": 9.33, "2011": 9.23, "2012": 9.46, "2013": 9.04, "2014": 8.36, "2015": 7.87, "2016": 8.79, "2017": 2.78, "2018": 4.41, "2019": 5.57, "2020": 5.06, "2021": 4.13, "2022": 7.67, "2023": 7.12, "2024": 4.69, "2025": 2.65 }, PAK: { "2000": 4.37, "2001": 3.15, "2002": 3.29, "2003": 2.91, "2004": 7.44, "2005": 9.06, "2006": 7.92, "2007": 7.6, "2008": 20.29, "2009": 13.65, "2010": 12.94, "2011": 11.92, "2012": 9.68, "2013": 7.69, "2014": 7.19, "2015": 2.53, "2016": 3.77, "2017": 4.09, "2018": 5.08, "2019": 10.58, "2020": 9.74, "2021": 9.5, "2022": 19.87, "2023": 30.77, "2024": 12.63, "2025": 3.55 }, PER: { "2000": 3.76, "2001": 1.98, "2002": 0.19, "2003": 2.26, "2004": 3.66, "2005": 1.62, "2006": 2, "2007": 1.78, "2008": 5.79, "2009": 2.94, "2010": 1.53, "2011": 3.37, "2012": 3.61, "2013": 2.77, "2014": 3.41, "2015": 3.4, "2016": 3.56, "2017": 2.99, "2018": 1.51, "2019": 2.25, "2020": 2, "2021": 4.27, "2022": 8.33, "2023": 6.46, "2024": 2.01, "2025": 1.53 }, PHL: { "2000": 3.98, "2001": 5.35, "2002": 2.72, "2003": 2.29, "2004": 4.83, "2005": 6.52, "2006": 5.49, "2007": 2.9, "2008": 8.26, "2009": 4.22, "2010": 3.79, "2011": 4.72, "2012": 3.03, "2013": 2.58, "2014": 3.6, "2015": 0.67, "2016": 1.25, "2017": 2.85, "2018": 5.31, "2019": 2.39, "2020": 2.39, "2021": 3.93, "2022": 5.82, "2023": 5.98, "2024": 3.21, "2025": 1.66 }, PNG: { "2000": 15.6, "2001": 9.3, "2002": 11.8, "2003": 14.71, "2004": 2.16, "2005": 1.78, "2006": 2.37, "2007": 0.91, "2008": 10.76, "2009": 6.92, "2010": 6.01, "2011": 4.44, "2012": 4.54, "2013": 4.96, "2014": 5.22, "2015": 6, "2016": 6.67, "2017": 5.42, "2018": 4.37, "2019": 3.93, "2020": 4.87, "2021": 4.48, "2022": 5.25, "2023": 2.3, "2024": 0.6, "2025": 4.42 }, POL: { "2000": 9.9, "2001": 5.41, "2002": 1.91, "2003": 0.68, "2004": 3.38, "2005": 2.18, "2006": 1.28, "2007": 2.46, "2008": 4.16, "2009": 3.8, "2010": 2.58, "2011": 4.24, "2012": 3.56, "2013": 0.99, "2014": 0.05, "2015": -0.87, "2016": -0.66, "2017": 2.08, "2018": 1.81, "2019": 2.23, "2020": 3.37, "2021": 5.06, "2022": 14.43, "2023": 11.53, "2024": 3.79, "2025": 3.81 }, PRK: {}, RUS: { "2000": 20.8, "2001": 21.48, "2002": 15.79, "2003": 13.66, "2004": 10.89, "2005": 12.69, "2006": 9.67, "2007": 9.01, "2008": 14.11, "2009": 11.65, "2010": 6.85, "2011": 8.44, "2012": 5.07, "2013": 6.75, "2014": 7.82, "2015": 15.53, "2016": 7.04, "2017": 3.68, "2018": 2.88, "2019": 4.47, "2020": 3.38, "2021": 6.69, "2022": 13.74, "2023": 5.87, "2024": 8.43, "2025": 8.72 }, RWA: { "2000": 3.9, "2001": 3.34, "2002": 1.99, "2003": 7.45, "2004": 12.25, "2005": 9.01, "2006": 8.88, "2007": 9.08, "2008": 15.44, "2009": 12.94, "2010": -0.25, "2011": 3.08, "2012": 10.27, "2013": 5.92, "2014": 2.35, "2015": 2.53, "2016": 7.17, "2017": 8.28, "2018": -0.31, "2019": 3.35, "2020": 9.85, "2021": -0.39, "2022": 17.69, "2023": 19.79, "2024": 1.77, "2025": 5.91 }, SAU: { "2000": -1.12, "2001": -1.12, "2002": 0.25, "2003": 0.61, "2004": 0.52, "2005": 0.48, "2006": 2.21, "2007": 4.17, "2008": 9.87, "2009": 5.06, "2010": 5.34, "2011": 5.83, "2012": 2.87, "2013": 3.12, "2014": 1.84, "2015": 1.18, "2016": 2.92, "2017": -0.86, "2018": 2.47, "2019": -2.04, "2020": 3.19, "2021": 3.13, "2022": 2.54, "2023": 2.47, "2024": 1.5, "2025": 2.04 }, SDN: { "2000": 7.12, "2001": 1.94, "2002": 22.22, "2003": 6.49, "2004": 9.66, "2005": 8.51, "2006": 7.2, "2007": 14.75, "2008": 14.3, "2009": 11.26, "2010": 12.98, "2011": 18.1, "2012": 35.56, "2013": 36.52, "2014": 36.91, "2015": 16.91, "2016": 17.75, "2017": 32.35, "2018": 63.29, "2019": 50.99, "2020": 163.26, "2021": 359.09, "2022": 138.81 }, SEN: { "2000": 0.73, "2001": 2.97, "2002": 2.34, "2003": -0.05, "2004": 0.51, "2005": 1.71, "2006": 2.11, "2007": 5.85, "2008": 7.35, "2009": -2.25, "2010": 1.23, "2011": 3.4, "2012": 1.42, "2013": 0.71, "2014": -1.09, "2015": 0.14, "2016": 0.84, "2017": 1.32, "2018": 0.46, "2019": 1.76, "2020": 2.54, "2021": 2.18, "2022": 9.7, "2023": 5.94, "2024": 0.8, "2025": 1.46 }, SLE: { "2007": 11.65, "2008": 8.21, "2009": 7.47, "2010": 7.19, "2011": 6.79, "2012": 6.59, "2013": 5.52, "2014": 4.64, "2015": 6.69, "2016": 10.89, "2017": 18.22, "2018": 16.03, "2019": 14.8, "2020": 13.45, "2021": 11.87, "2022": 27.21, "2023": 47.64, "2024": 28.63, "2025": 7.49 }, SOM: { "2013": 4.5, "2014": 1.3, "2015": 0.8, "2016": 1.3, "2017": 6.1, "2018": 3.2, "2019": 3.1, "2020": 4.3, "2021": 4.6, "2022": 6.8, "2023": 6.2, "2024": 5.5, "2025": 3.7 }, SSD: { "2009": 5.01, "2010": 1.17, "2011": 46.85, "2012": 45.53, "2013": -0.06, "2014": 1.67, "2015": 52.77, "2016": 380, "2017": 187.85, "2018": 83.5, "2019": 87.24, "2020": 29.68, "2021": 10.52, "2022": -6.69, "2023": 2.38, "2024": 91.44 }, SYR: { "1995": 7.6, "1996": 8.8, "1997": 2.2, "1998": -0.4, "1999": -2.1, "2000": -0.6, "2001": 3, "2002": 1, "2003": 5.8, "2004": 4.4, "2005": 7.2, "2006": 10, "2007": 3.9, "2008": 15.7, "2009": 2.8, "2010": 4.4, "2011": 4.75, "2012": 36.7, "2013": 40.03, "2014": 10.93, "2015": 38.46, "2016": 47.71, "2017": 18.08, "2018": 0.94, "2019": 13.42 }, TCD: { "2000": 3.82, "2001": 12.43, "2002": 5.19, "2003": -1.75, "2004": -5.36, "2005": 7.89, "2006": 8.04, "2007": -8.97, "2008": 10.3, "2009": 9.95, "2010": -2.08, "2011": 2.03, "2012": 7.52, "2013": 0.22, "2014": 1.68, "2015": 4.38, "2016": -0.79, "2017": -1.54, "2018": 4.27, "2019": -0.97, "2020": 4.46, "2021": -0.77, "2022": 5.79, "2023": 10.84, "2024": 8.9, "2025": -3.91 }, TGO: { "2000": 1.86, "2001": 3.92, "2002": 3.06, "2003": -0.93, "2004": 0.39, "2005": 6.78, "2006": 2.23, "2007": 0.95, "2008": 8.69, "2009": 3.71, "2010": 1.45, "2011": 3.56, "2012": 2.58, "2013": 1.83, "2014": 0.19, "2015": 2.58, "2016": 1.29, "2017": -0.98, "2018": 0.93, "2019": 0.67, "2020": 1.7, "2021": 4.19, "2022": 7.97, "2023": 5.49, "2024": 2.86, "2025": 0.43 }, THA: { "2000": 1.59, "2001": 1.63, "2002": 0.7, "2003": 1.8, "2004": 2.76, "2005": 4.54, "2006": 4.64, "2007": 2.24, "2008": 5.47, "2009": -0.85, "2010": 3.25, "2011": 3.81, "2012": 3.01, "2013": 2.19, "2014": 1.89, "2015": -0.9, "2016": 0.19, "2017": 0.66, "2018": 1.07, "2019": 0.71, "2020": -0.85, "2021": 1.23, "2022": 6.08, "2023": 1.23, "2024": 0.4, "2025": -0.13 }, TJK: { "2001": 38.59, "2002": 12.25, "2003": 16.3, "2004": 7.14, "2005": 7.09, "2006": 10.01, "2007": 13.15, "2008": 20.47, "2009": 6.45, "2010": 6.45, "2011": 12.43, "2012": 5.83, "2013": 5.01, "2014": 6.1, "2015": 5.71, "2016": 6, "2017": 7.31, "2018": 3.84, "2019": 7.77, "2020": 8.58, "2021": 8.97, "2022": 6.61, "2023": 3.58, "2024": 3.48, "2025": 3.39 }, TUR: { "2000": 54.92, "2001": 54.4, "2002": 44.96, "2003": 21.6, "2004": 8.6, "2005": 8.18, "2006": 9.6, "2007": 8.76, "2008": 10.44, "2009": 6.25, "2010": 8.57, "2011": 6.47, "2012": 8.89, "2013": 7.49, "2014": 8.85, "2015": 7.67, "2016": 7.78, "2017": 11.14, "2018": 16.33, "2019": 15.18, "2020": 12.28, "2021": 19.6, "2022": 72.31, "2023": 53.86, "2024": 58.51, "2025": 34.88 }, TZA: { "2000": 5.92, "2001": 5.15, "2002": 5.32, "2003": 5.3, "2004": 4.74, "2005": 5.03, "2006": 7.25, "2007": 7.03, "2008": 10.28, "2009": 12.14, "2010": 6.2, "2011": 12.69, "2012": 16, "2013": 7.87, "2014": 6.13, "2015": 5.59, "2016": 5.17, "2017": 5.32, "2018": 3.49, "2019": 3.46, "2020": 3.29, "2021": 3.69, "2022": 4.35, "2023": 3.8, "2024": 3.06, "2025": 3.33 }, UGA: { "2000": 3.39, "2001": 1.87, "2002": -0.29, "2003": 8.68, "2004": 3.72, "2005": 8.45, "2006": 7.31, "2007": 6.14, "2008": 12.05, "2009": 13.02, "2010": 3.98, "2011": 16.56, "2012": 12.68, "2013": 4.91, "2014": 3.08, "2015": 5.59, "2016": 5.71, "2017": 5.21, "2018": 2.62, "2019": 2.87, "2020": 3.31, "2021": 2.2, "2022": 7.2, "2023": 5.35, "2024": 3.32, "2025": 3.58 }, UKR: { "2000": 28.2, "2001": 11.96, "2002": 0.76, "2003": 5.18, "2004": 9.05, "2005": 13.57, "2006": 9.05, "2007": 12.84, "2008": 25.23, "2009": 15.88, "2010": 9.37, "2011": 7.96, "2012": 0.57, "2013": -0.24, "2014": 12.07, "2015": 48.7, "2016": 13.91, "2017": 14.44, "2018": 10.95, "2019": 7.89, "2020": 2.73, "2021": 9.36, "2022": 20.18, "2023": 12.85, "2024": 6.5, "2025": 12.73 }, USA: { "2000": 3.38, "2001": 2.83, "2002": 1.59, "2003": 2.27, "2004": 2.68, "2005": 3.39, "2006": 3.23, "2007": 2.85, "2008": 3.84, "2009": -0.36, "2010": 1.64, "2011": 3.16, "2012": 2.07, "2013": 1.46, "2014": 1.62, "2015": 0.12, "2016": 1.26, "2017": 2.13, "2018": 2.44, "2019": 1.81, "2020": 1.23, "2021": 4.7, "2022": 8, "2023": 4.12, "2024": 2.95 }, UZB: { "2011": 13.78, "2012": 13.21, "2013": 11.84, "2014": 9.28, "2015": 8.75, "2016": 8.13, "2017": 13.88, "2018": 17.52, "2019": 14.53, "2020": 12.87, "2021": 10.85, "2022": 11.45, "2023": 9.96, "2024": 9.63, "2025": 8.8 }, VEN: { "2009": 27.08, "2010": 28.19, "2011": 26.09, "2012": 21.07, "2013": 40.64, "2014": 62.17, "2015": 121.74, "2016": 254.95, "2022": 186.54, "2023": 337.46, "2024": 49.36, "2025": 251.95 }, VNM: { "2000": -1.71, "2001": -0.43, "2002": 3.83, "2003": 3.23, "2004": 7.75, "2005": 8.28, "2006": 7.42, "2007": 8.34, "2008": 23.12, "2009": 6.72, "2010": 9.21, "2011": 18.68, "2012": 9.09, "2013": 6.59, "2014": 4.08, "2015": 0.63, "2016": 2.67, "2017": 3.52, "2018": 3.54, "2019": 2.8, "2020": 3.22, "2021": 1.83, "2022": 3.16, "2023": 3.25, "2024": 3.62, "2025": 3.31 }, YEM: { "2000": 4.59, "2001": 11.91, "2002": 12.24, "2003": 10.83, "2004": 12.52, "2005": 11.81, "2006": 10.84, "2007": 7.91, "2008": 18.98, "2009": 5.41, "2010": 11.17, "2011": 19.54, "2012": 9.89, "2013": 10.97, "2014": 8.1, "2022": 36.44, "2023": 17.58, "2024": 26.56, "2025": 20.18 }, ZAF: { "2000": 5.34, "2001": 5.7, "2002": 9.49, "2003": 5.68, "2004": -0.69, "2005": 2.06, "2006": 3.24, "2007": 6.18, "2008": 9.91, "2009": 7.24, "2010": 4.07, "2011": 5, "2012": 5.74, "2013": 5.78, "2014": 6.13, "2015": 4.52, "2016": 6.6, "2017": 5.19, "2018": 4.51, "2019": 4.1, "2020": 3.23, "2021": 4.62, "2022": 7.04, "2023": 6.08, "2024": 4.36, "2025": 3.21 }, ZMB: { "2000": 26.03, "2001": 21.39, "2002": 22.23, "2003": 21.4, "2004": 17.97, "2005": 18.32, "2006": 9.02, "2007": 10.66, "2008": 12.45, "2009": 13.4, "2010": 8.5, "2011": 6.43, "2012": 6.58, "2013": 6.98, "2014": 7.81, "2015": 10.11, "2016": 17.87, "2017": 6.58, "2018": 7.49, "2019": 9.15, "2020": 15.73, "2021": 22.02, "2022": 10.99, "2023": 10.88, "2024": 14.99, "2025": 13.91 }, ZWE: { "2010": 3.02, "2011": 3.47, "2012": 3.73, "2013": 1.63, "2014": -0.2, "2015": -2.43, "2016": -1.54, "2017": 0.89, "2018": 10.62, "2019": 255.3, "2020": 557.2, "2021": 98.55, "2022": 104.71 } };
 
 // src/engine/risks.ts
 var RISKS = risks_default;
@@ -8879,6 +8852,8 @@ function requirement(q, l) {
       return true;
     case "working":
       return l.job !== "none" && l.job !== "retired" && l.school === "done";
+    case "nonregular":
+      return l.job === "nonregular";
     case "married":
       return !!l.partner?.alive;
     case "newlywed":
@@ -16326,6 +16301,11 @@ var countries_default = [
         source: "UN World Marriage Data 2019",
         url: "https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/undesa_pd_2019_wmd_marital_status.xlsx",
         year: "2013"
+      },
+      ipv_past12m_women: {
+        source: "WHO Violence Against Women Prevalence Estimates 2018",
+        url: "https://www.who.int/publications/i/item/9789240022256",
+        year: "2018"
       }
     }
   },
@@ -16867,6 +16847,11 @@ var countries_default = [
         source: "Numbeo Property Prices Index by Country",
         url: "https://www.numbeo.com/property-investment/rankings_by_country.jsp",
         year: "2026"
+      },
+      ipv_past12m_women: {
+        source: "WHO Violence Against Women Prevalence Estimates 2018",
+        url: "https://www.who.int/publications/i/item/9789240022256",
+        year: "2018"
       }
     }
   },
@@ -16976,6 +16961,11 @@ var countries_default = [
         source: "Numbeo Property Prices Index by Country",
         url: "https://www.numbeo.com/property-investment/rankings_by_country.jsp",
         year: "2026"
+      },
+      ipv_past12m_women: {
+        source: "WHO Violence Against Women Prevalence Estimates 2018 / MICS",
+        url: "https://microdata.worldbank.org/index.php/catalog/mics",
+        year: "2018"
       }
     }
   },
@@ -17196,6 +17186,11 @@ var countries_default = [
         source: "World Bank ICP 2021",
         url: "https://api.worldbank.org/v2/sources/90/country/MDG/series/9060000?format=json&per_page=200",
         year: "2021"
+      },
+      homicide_rate: {
+        source: "UNODC Research Data Portal",
+        url: "https://dataunodc.un.org/",
+        year: "2015"
       }
     }
   },
@@ -17303,6 +17298,11 @@ var countries_default = [
         source: "\u8A08\u7B97\u5024\uFF08\u5E73\u5747\u6708\u53CE\u30FB\u7A0E\u7387\u8868\u30FB\u672C\u4EBA\u8CA0\u62C5\u793E\u4F1A\u4FDD\u967A\u6599\u7387\u304B\u3089\uFF09",
         url: "https://www.cleiss.fr/docs/cotisations/cotedivoire.html",
         year: "2025"
+      },
+      homicide_rate: {
+        source: "UNODC Research Data Portal",
+        url: "https://dataunodc.un.org/",
+        year: "2021"
       }
     }
   },
@@ -17632,6 +17632,11 @@ var countries_default = [
         source: "World Bank ICP 2021",
         url: "https://api.worldbank.org/v2/sources/90/country/MLI/series/9060000?format=json&per_page=200",
         year: "2021"
+      },
+      homicide_rate: {
+        source: "UNODC Research Data Portal",
+        url: "https://dataunodc.un.org/",
+        year: "2020"
       }
     }
   },
@@ -17838,6 +17843,11 @@ var countries_default = [
         source: "Numbeo Property Prices Index by Country",
         url: "https://www.numbeo.com/property-investment/rankings_by_country.jsp",
         year: "2026"
+      },
+      ipv_past12m_women: {
+        source: "WHO Violence Against Women Prevalence Estimates 2018",
+        url: "https://www.who.int/publications/i/item/9789240022256",
+        year: "2018"
       }
     }
   },
@@ -18149,6 +18159,11 @@ var countries_default = [
         source: "World Bank ICP 2021",
         url: "https://api.worldbank.org/v2/sources/90/country/TCD/series/9060000?format=json&per_page=200",
         year: "2021"
+      },
+      homicide_rate: {
+        source: "WHO Global Health Estimates",
+        url: "https://www.who.int/data/gho/data/indicators/indicator-details/GHO/gho-ghe-homicide-rates-per-100-000-population",
+        year: "2021"
       }
     }
   },
@@ -18259,6 +18274,16 @@ var countries_default = [
         source: "World Bank ICP 2021",
         url: "https://api.worldbank.org/v2/sources/90/country/SOM/series/9060000?format=json&per_page=200",
         year: "2021"
+      },
+      homicide_rate: {
+        source: "UNODC Research Data Portal",
+        url: "https://dataunodc.un.org/dp-intentional-homicide-victims",
+        year: "2015"
+      },
+      ipv_past12m_women: {
+        source: "WHO Violence Against Women Prevalence Estimates 2018",
+        url: "https://www.who.int/publications/i/item/9789240022256",
+        year: "2018"
       }
     }
   },
@@ -20323,6 +20348,11 @@ var countries_default = [
         source: "World Bank ICP 2021",
         url: "https://api.worldbank.org/v2/sources/90/country/GIN/series/9060000?format=json&per_page=200",
         year: "2021"
+      },
+      homicide_rate: {
+        source: "WHO Global Health Estimates",
+        url: "https://www.who.int/data/gho/data/indicators/indicator-details/GHO/gho-ghe-homicide-rates-per-100-000-population",
+        year: "2020"
       }
     }
   },
@@ -20637,6 +20667,11 @@ var countries_default = [
         source: "Numbeo Property Prices Index by Country",
         url: "https://www.numbeo.com/property-investment/rankings_by_country.jsp",
         year: "2026"
+      },
+      ipv_past12m_women: {
+        source: "WHO Violence Against Women Prevalence Estimates 2018",
+        url: "https://www.who.int/publications/i/item/9789240022256",
+        year: "2018"
       }
     }
   },
@@ -22259,6 +22294,11 @@ var countries_default = [
         source: "World Bank ICP 2021",
         url: "https://api.worldbank.org/v2/sources/90/country/TGO/series/9060000?format=json&per_page=200",
         year: "2021"
+      },
+      homicide_rate: {
+        source: "UNODC Research Data Portal",
+        url: "https://dataunodc.un.org/dp-intentional-homicide-victims",
+        year: "2015"
       }
     }
   },
@@ -23554,6 +23594,16 @@ var countries_default = [
         source: "World Bank ICP 2021",
         url: "https://api.worldbank.org/v2/sources/90/country/COG/series/9060000?format=json&per_page=200",
         year: "2021"
+      },
+      homicide_rate: {
+        source: "UNODC Research Data Portal",
+        url: "https://dataunodc.un.org/dp-intentional-homicide-victims",
+        year: "2015"
+      },
+      ipv_past12m_women: {
+        source: "DHS Program",
+        url: "https://dhsprogram.com/publications/publication-fr253-dhs-final-reports.cfm",
+        year: "2011"
       }
     }
   },
@@ -23997,7 +24047,7 @@ var EXPENSE_LABEL = {
 };
 
 // src/engine/result.ts
-var CODEC_VERSION = "9";
+var CODEC_VERSION = "10";
 function picksOf(l) {
   return l.choiceLog.flatMap((c) => c.alloc ? [c.alloc.save, c.alloc.invest, c.alloc.family, c.alloc.self] : [c.pickIndex ?? 0]);
 }

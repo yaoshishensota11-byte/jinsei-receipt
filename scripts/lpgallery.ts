@@ -53,7 +53,10 @@ const PICKS: Pick[] = [
     title: "アメリカで高い給料、それでも残らない",
     mode: "m",
     test: (l) => l.D.iso3 === "USA" && (l.summary().incomeTotal.salary ?? 0) * l.D.currency.jpyPerUnit > 3e8 && l.summary().finalBalance < 1e5,
-    line: (l) => `生涯で稼いだお金は${yenS(l, l.summary().incomeTotal.salary ?? 0)}。それでも最後は${yenS(l, l.summary().finalBalance)}。`,
+    line: (l) => {
+      const f = l.summary().finalBalance;
+      return `生涯で稼いだお金は${yenS(l, l.summary().incomeTotal.salary ?? 0)}。それでも最後は${f < 0 ? `${yenS(l, -f)}の借金` : yenS(l, f)}。`;
+    },
   },
 ];
 

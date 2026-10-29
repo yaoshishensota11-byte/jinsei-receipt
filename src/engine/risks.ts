@@ -248,6 +248,8 @@ function requirement(q: string, l: Life): boolean {
       return true;
     case "working":
       return l.job !== "none" && l.job !== "retired" && l.school === "done";
+    case "nonregular":
+      return l.job === "nonregular";
     case "married":
       return !!l.partner?.alive;
     case "newlywed":
