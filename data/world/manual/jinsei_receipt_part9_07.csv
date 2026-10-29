@@ -12,3 +12,10 @@ MEX,Mexico,event_freq:mex_hurricane,514,count,2023,CENAPRED,https://www.cenapred
 PHL,Philippines,event_freq:phl_ofw,2160000,count,2023,PSA Survey on Overseas Filipinos（Wikipedia経由）,https://en.wikipedia.org/wiki/Overseas_Filipino_Worker,今海外で働いている人の総数（ストック）。二次情報
 PHL,Philippines,event_freq:phl_typhoon,,count,,NDRRMC,,年平均の被災者数の公式集計がないため空欄
 PHL,Philippines,event_freq:phl_commute,,current_share,,PSA,,片道1時間以上の割合の公式統計がないため空欄
+MEX,Mexico,event_freq:mex_earthquake,171494,count,2017,CENAPRED / SEDATU,https://www.gob.mx/cenapred/articulos/sismos-de-septiembre-de-2017-el-costo-de-los-danos,（追加の回答）分子：2017年9月の地震で被害を受けた住宅の数（死者は369人）
+MEX,Mexico,event_freq:mex_earthquake,34149692,count,2020,INEGI Censo 2020,https://www.inegi.org.mx/programas/ccpv/2020/,（追加の回答）分母：全住宅数
+MEX,Mexico,event_freq:mex_hurricane,3154802,count,2023,CENAPRED Impacto socioeconómico de los desastres,https://www.cenapred.unam.mx/PublicacionesWebGobMX/buscar_buscaSubcategoria?categoria=Series+especiales+%2F&subcategoria=Impacto+Socioecon%26oacute%3Bmico+de+los+desastres+en+M%26eacute%3Bxico&palabraClave=de+los+Desastres+en,（追加の回答）分子：2023年に自然災害（主にハリケーン・豪雨）の被害を受けた人の数
+MEX,Mexico,event_freq:mex_hurricane,126014024,count,2020,INEGI Censo 2020,https://www.inegi.org.mx/programas/ccpv/2020/,（追加の回答）分母：全人口
+PHL,Philippines,event_freq:phl_typhoon,8642000,count,2023,EM-DAT,https://www.emdat.be/,（追加の回答）分子：2023年に台風・暴風雨の被害を受けた人の数
+PHL,Philippines,event_freq:phl_typhoon,109035343,count,2020,PSA 2020 Census,https://psa.gov.ph/content/2020-census-population-and-housing-2020-cph-population-counts-declared-official-president,（追加の回答）分母：全人口
+PHL,Philippines,event_freq:phl_commute,5100000,count,2017,JICA,https://openjicareport.jica.go.jp/,（追加の回答）マニラ首都圏の1日の通勤・通学トリップ数。片道1時間以上の割合ではないため使えない
