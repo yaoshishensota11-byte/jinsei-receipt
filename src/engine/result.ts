@@ -6,7 +6,7 @@ import { pickCountry, type Mode } from "./world";
 import { streamRng } from "./rng";
 import { EXPENSE_LABEL, type ExpenseCat, type LifeEvent } from "./types";
 
-export const CODEC_VERSION = "7";
+export const CODEC_VERSION = "8";
 
 export interface ReceiptItem {
   label: string;
@@ -44,10 +44,10 @@ export interface ReceiptData {
 
 /** 選択の並び（options の何番目か）を作る */
 export function picksOf(l: Life): number[] {
-  return l.choiceLog.map((c) => c.pickIndex ?? 0);
+  return l.choiceLog.flatMap((c) => (c.alloc ? [c.alloc.save, c.alloc.invest, c.alloc.family, c.alloc.self] : [c.pickIndex ?? 0]));
 }
 
-// 版7（子どもからの電話、親が残した家の選択を追加）：`7.<モード j|m|w>.<シード>.<選んだ番号の並び>`。国はモードとシードから決まる
+// 版8（お金の振り分けを追加。振り分けは「貯金・投資・家族・自分」の割合を10%単位で4けたで入れる）：`8.<モード j|m|w>.<シード>.<選んだ番号の並び>`。国はモードとシードから決まる
 // 子どもに生まれ直したときは、後ろに「~<何番目の子か>.<選んだ番号の並び>」を代ごとに足す（3代目まで）
 export function encodeResult(l: Life): string {
   const picks = picksOf(l).join("");
@@ -63,7 +63,7 @@ export interface Decoded {
 }
 
 export function decodeResult(code: string): Decoded | null {
-  const m = /^(\d+)\.([jmw])\.([a-z0-9-]{1,40})\.([0-9]{0,120})((?:~\d\.[0-9]{0,120}){0,2})$/.exec(code.trim());
+  const m = /^(\d+)\.([jmw])\.([a-z0-9-]{1,40})\.([0-9]{0,240})((?:~\d\.[0-9]{0,240}){0,2})$/.exec(code.trim());
   if (!m || m[1] !== CODEC_VERSION) return null;
   const next = m[5]
     .split("~")
@@ -120,6 +120,8 @@ export function childOf(l: Life, idx: number): Life {
     sibs: l.kids.map((o, j) => ({ sex: (kidFemale(l.seed, j) ? "female" : "male") as "female" | "male", born: o.born - k.born })).filter((_, j) => j !== idx),
     estate: Math.max(0, total - home) / n,
     debt: Math.max(0, -total) / n,
+    // 前の代が教育にお金をかけた子は、勉強の得意さが少し上がる（家計の教育費と進学の統計にもとづく、ゆるい効き目）
+    eduBoost: Math.min(0.12, ((k.eduSpend ?? 0) / l.y(3_000_000)) * 0.1),
     homeShare: home / n,
     hadHome: l.homeValue > 0,
     lineage,
@@ -163,6 +165,11 @@ export function playPicks(l: Life, picks: number[]): Life {
   let i = 0;
   let guard = 0;
   while (!l.dead && guard++ < 500) {
+    if (l.pending?.alloc) {
+      const [save, invest, family, self] = [picks[i++] ?? 0, picks[i++] ?? 0, picks[i++] ?? 0, picks[i++] ?? 0];
+      l.chooseAlloc({ living: 0, save, invest, family, self });
+      continue;
+    }
     if (l.pending) {
       const idx = Math.min(picks[i++] ?? 0, l.pending.options.length - 1);
       l.choose(l.pending.options[idx].id);

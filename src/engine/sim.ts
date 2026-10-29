@@ -21,6 +21,7 @@ import type {
   LifeSummary,
   Sex,
   YearRecord,
+  Alloc,
 } from "./types";
 
 export const MAX_AGE = 110;
@@ -86,6 +87,8 @@ export interface Heritage {
   homeShare: number;
   /** 前の代のあなたは家を持っていた */
   hadHome: boolean;
+  /** 前の代が「家族」に振り分けて、この子の教育にかけたお金による、勉強の得意さの上乗せ（0〜0.12） */
+  eduBoost?: number;
   /** これまでの代（古い順） */
   lineage: LineageEntry[];
 }
@@ -149,7 +152,15 @@ export class Life {
   deathCause = "";
   pending: Choice | null = null;
   records: YearRecord[] = [];
-  choiceLog: { id: ChoiceId; optionId: string; label: string; age: number; pickIndex: number }[] = [];
+  choiceLog: { id: ChoiceId; optionId: string; label: string; age: number; pickIndex: number; alloc?: Alloc }[] = [];
+  /** お金の振り分け（25〜60歳、5年に一度決める。決めるまでは null で、今までどおり余ったお金は貯金になる） */
+  alloc: Alloc | null = null;
+  /** 去年の「自由に使えるお金」（手取りから、出ていったお金を引いた残り） */
+  lastFree = 0;
+  /** 自分の学びに回したお金のたまり（一定の額ごとに、給料が上がるかどうかが決まる） */
+  selfFund = 0;
+  /** 振り分けの「自分」で給料が上がった回数（一生で3回まで） */
+  selfRaises = 0;
 
   // 生まれ
   sex: Sex;
@@ -217,6 +228,8 @@ export class Life {
     otherAge?: number;
     /** もう一人の親と一緒になった年（自分の年齢）。パートナーを見分けるのに使う */
     otherSince?: number;
+    /** お金の振り分けで、この子の教育に回したお金（現地通貨） */
+    eduSpend?: number;
   }[] = [];
   /** パートナーが亡くなった年（一緒になった年 → 亡くなった年。どちらも自分の年齢） */
   partnerDeaths: Record<number, number> = {};
@@ -279,7 +292,7 @@ export class Life {
     }
     const bandIdx = bands.indexOf(this.band);
     // 家庭の所得と学力の相関はゆるく入れる（決定論にはしない）
-    this.aptitude = Math.min(1, Math.max(0, r.normal(0.42 + bandIdx * 0.04, 0.22)));
+    this.aptitude = Math.min(1, Math.max(0, r.normal(0.42 + bandIdx * 0.04, 0.22) + (heir?.eduBoost ?? 0)));
     this.thrift = r.range(0.88, 1.22);
     // きょうだいの数はその国の出生率に合わせる
     const tfr = this.D.inst?.tfr ?? 1.9;
@@ -427,9 +440,26 @@ export class Life {
     return rec;
   }
 
+  /** お金の振り分けを決める（割合は10%きざみ、合計10） */
+  chooseAlloc(al: Alloc, optionId = "custom"): void {
+    const c = this.pending;
+    if (!c || !c.alloc) throw new Error("振り分けの場面ではありません");
+    const v = normAlloc(al);
+    this.pending = null;
+    const label = allocLabel(v);
+    this.choiceLog.push({ id: "alloc", optionId, label, age: this.age, pickIndex: -1, alloc: v });
+    this.preEvents.push({ age: this.age, kind: "choice", text: `【選択】お金の振り分け：${label}`, major: false });
+    this.alloc = v;
+  }
+
   choose(optionId: string): void {
     const c = this.pending;
     if (!c) throw new Error("選択場面ではありません");
+    if (c.alloc) {
+      const i = c.options.findIndex((o) => o.id === optionId);
+      if (i < 0) throw new Error(`不明な選択肢: ${optionId}`);
+      return this.chooseAlloc(optionId === "same" && c.alloc.last ? c.alloc.last : c.alloc.presets[i], optionId);
+    }
     const opt = c.options.find((o) => o.id === optionId);
     if (!opt) throw new Error(`不明な選択肢: ${optionId}`);
     this.pending = null;
@@ -559,6 +589,8 @@ export class Life {
     if (!this.made("parentCare") && this.made("careerShift") && (this.careTriggered || a >= 58))
       return buildChoice(this, "parentCare");
     if (!this.made("retire") && a >= 60 && this.made("parentCare")) return buildChoice(this, "retire");
+    // お金の振り分け：25〜60歳で5年に一度（大きな分かれ道のあと）
+    if (a >= 25 && a <= 60 && a % 5 === 0 && this.school === "done" && !this.choiceLog.some((c) => c.id === "alloc" && c.age === a)) return allocChoice(this);
     // 結婚の話を待っている間に、別の形で結婚した場合は、その話は消える
     while (this.sceneQueue.length && this.partner && ["meet", "propose", "arranged", "betrothed"].includes(this.sceneQueue[0].id)) this.sceneQueue.shift();
     const sc = this.sceneQueue[0];
@@ -635,6 +667,7 @@ export class Life {
     const h = this.heir;
     if (h) this.log("life", `${this.year}年、${this.region.label}に、${h.gen - 1}代目のあなたの${h.nth}（${s}）として生まれた。家庭の年収は${this.band.label}。`, undefined, true);
     else this.log("life", `${this.year}年、${this.region.label}に${s}として生まれた。家庭の年収は${this.band.label}。`, undefined, true);
+    if (h && (h.eduBoost ?? 0) >= 0.03) this.log("family", `${h.gen - 1}代目のあなたは、教育のためのお金を用意してくれていた。`, undefined, true);
     const olders = this.sibs.filter((x) => x.born < 0);
     if (olders.length) {
       const words = olders.map((x) => `${-x.born}歳の${x.sex === "male" ? "兄" : "姉"}`);
@@ -1164,6 +1197,57 @@ export class Life {
     if (!h.estate && !h.homeShare && !h.debt) this.log("money", "親の遺産はほとんどなかった。");
   }
 
+  /**
+   * お金の振り分け：その年に余ったお金（手取りから、出ていったお金を引いた残り）を、決めた割合で使う。
+   * 効き目はゲームがすでに使っている統計の範囲だけにする（投資は国の株式の利回り、貯金は預金金利と物価、
+   * 学びは「学び直し」と同じ確率、家族は子どもの教育費・親への仕送り）。
+   */
+  private allocYear(): void {
+    const c = this.cur!;
+    const inc = (c.income.salary ?? 0) + (c.income.partner ?? 0) + (c.income.pension ?? 0);
+    const out = Object.values(c.expense).reduce((t, v) => t + (v ?? 0), 0);
+    const free = inc - out;
+    this.lastFree = free;
+    const al = this.alloc;
+    if (!al || free <= 0 || this.cash <= 0) return;
+    const pot = Math.min(free, this.cash);
+    const part = (n: number) => (pot * n) / 10;
+    if (al.living) this.spend("fun", part(al.living));
+    if (al.invest) {
+      const v = Math.min(this.cash, part(al.invest));
+      this.cash -= v;
+      this.invest += v;
+    }
+    if (al.family) {
+      const v = part(al.family);
+      const a = this.age;
+      const kids = this.kids.filter((k) => a - k.born >= 0 && a - k.born < 22);
+      if (kids.length) {
+        this.spend("kids", v);
+        for (const k of kids) k.eduSpend = (k.eduSpend ?? 0) + v / kids.length;
+      } else if (this.parents.some((p) => p.alive)) {
+        // 親への仕送り（多くの国で、働く子が親を支えている）
+        this.spend("care", v);
+      }
+    }
+    if (al.self && this.age < 65) {
+      this.spend("selfEdu", part(al.self));
+      this.selfFund += part(al.self);
+      // 学び直しの費用（40万円×3年ぶん、または年収の半分の大きいほう）がたまったら、給料が上がるかが決まる。
+      // 「学び直し」の選択と同じ確率（半々で＋15%）。1年に1回まで、一生で3回まで
+      const unit = Math.max(this.y(1_200_000), this.salaryOf(this.age) * 0.5);
+      if (this.selfFund >= unit && this.selfRaises < 3) {
+        this.selfFund -= unit;
+        if (this.rng("allocSelf").chance(0.5)) {
+          this.selfRaises++;
+          this.careerMult *= 1.15;
+          this.log("work", "学びに使ったお金で身につけたことが評価され、給料が上がった。", undefined, true);
+        } else this.log("work", "学び続けたが、すぐには給料に結びつかなかった。");
+      }
+      this.selfFund = Math.min(this.selfFund, unit);
+    }
+  }
+
   /** 親が残した家に住む（家賃がかからなくなる） */
   moveIntoHeldHouse(): void {
     this.home = "own";
@@ -1360,6 +1444,7 @@ export class Life {
         this.cash += w;
       }
     }
+    this.allocYear();
     if (this.cash > 0) this.cash += this.cash * this.D.ev.depositRate;
     if (this.cash < 0) {
       if (this.invest > 0) {
@@ -2217,4 +2302,66 @@ export function rankOf(sorted: number[], v: number): number {
   let lo = 0;
   while (lo < sorted.length && sorted[lo] <= v) lo++;
   return 1 - lo / sorted.length;
+}
+
+// ───────────────────────── お金の振り分け ─────────────────────────
+
+/** 振り分けの「型」（options と同じ順。割合は10%きざみ） */
+const ALLOC_PRESETS: { id: string; label: string; desc: string; a: Alloc }[] = [
+  { id: "p0", label: "堅実", desc: "暮らし4・貯金4・投資1・家族1。物価が上がると貯金は目減りする。", a: { living: 4, save: 4, invest: 1, family: 1, self: 0 } },
+  { id: "p1", label: "投資を重視", desc: "暮らし3・貯金1・投資5・家族1。増える年も減る年もある。", a: { living: 3, save: 1, invest: 5, family: 1, self: 0 } },
+  { id: "p2", label: "家族を重視", desc: "暮らし3・貯金2・投資1・家族4。子どもの教育や親への仕送りに回す。", a: { living: 3, save: 2, invest: 1, family: 4, self: 0 } },
+  { id: "p3", label: "自分に投資", desc: "暮らし3・貯金2・投資1・家族1・自分3。学び直しで給料が上がることも、上がらないことも。", a: { living: 3, save: 2, invest: 1, family: 1, self: 3 } },
+  { id: "p4", label: "今を楽しむ", desc: "暮らし8・貯金1・家族1。旅行や趣味にお金を使う。残るお金は少ない。", a: { living: 8, save: 1, invest: 0, family: 1, self: 0 } },
+];
+
+/** 割合を10%きざみ・合計10にそろえる（暮らしは残り） */
+export function normAlloc(a: Alloc): Alloc {
+  const c = (n: number) => Math.max(0, Math.min(9, Math.round(n || 0)));
+  let save = c(a.save);
+  let invest = c(a.invest);
+  let family = c(a.family);
+  let self = c(a.self);
+  // 合計が10を超えたら、後ろから減らす
+  for (const k of ["self", "family", "invest", "save"] as const) {
+    const over = save + invest + family + self - 10;
+    if (over <= 0) break;
+    if (k === "self") self -= Math.min(self, over);
+    if (k === "family") family -= Math.min(family, over);
+    if (k === "invest") invest -= Math.min(invest, over);
+    if (k === "save") save -= Math.min(save, over);
+  }
+  return { living: 10 - save - invest - family - self, save, invest, family, self };
+}
+
+export const ALLOC_LABEL: Record<keyof Alloc, string> = { living: "暮らし", save: "貯金", invest: "投資", family: "家族", self: "自分" };
+
+/** 「暮らし40%・貯金40%・投資10%・家族10%」 */
+export function allocLabel(a: Alloc): string {
+  return (Object.keys(ALLOC_LABEL) as (keyof Alloc)[])
+    .filter((k) => a[k] > 0)
+    .map((k) => `${ALLOC_LABEL[k]}${a[k] * 10}%`)
+    .join("・");
+}
+
+function allocChoice(l: Life): Choice {
+  const a = l.age;
+  const last = l.alloc;
+  const kidsNow = l.kids.some((k) => a - k.born >= 0 && a - k.born < 22);
+  const familyTo = kidsNow ? "kids" : l.parents.some((p) => p.alive) ? "parents" : "none";
+  const free = l.lastFree;
+  const situation =
+    free > 0
+      ? `${a}歳。去年、自由に使えたお金（手取りから、出ていったお金を引いた残り）は約${l.D.fmt(free)}。これから5年、どこに使う？`
+      : `${a}歳。去年は、手取りより出ていくお金のほうが多かった。これから5年、余りが出た年は、どこに使う？`;
+  const options = ALLOC_PRESETS.map(({ id, label, desc }) => ({ id, label, desc }));
+  if (last) options.push({ id: "same", label: "前回と同じ", desc: allocLabel(last) });
+  return {
+    id: "alloc",
+    age: a,
+    title: "お金の振り分け",
+    situation,
+    options,
+    alloc: { free, last, presets: [...ALLOC_PRESETS.map((p) => p.a), ...(last ? [last] : [])], familyTo },
+  };
 }

@@ -53,9 +53,9 @@ await p.evaluate(async () => {
       <div class="og-wel">いらっしゃいませ。</div>
       <h1>あなたは、どこで<br>お金を使う？<i></i></h1>
       <div class="og-rows">
-        <div class="og-r"><span>アメリカ</span><span class="og-d"></span><b>3.91億円</b></div>
-        <div class="og-r og-jp"><span>日本</span><span class="og-d"></span><b>1.66億円</b></div>
-        <div class="og-r"><span>エチオピア</span><span class="og-d"></span><b>409万円</b></div>
+        <div class="og-r"><span>アメリカ</span><span class="og-d"></span><b>3.93億円</b></div>
+        <div class="og-r og-jp"><span>日本</span><span class="og-d"></span><b>1.67億円</b></div>
+        <div class="og-r"><span>エチオピア</span><span class="og-d"></span><b>412万円</b></div>
         <small>生涯で稼ぐお金（本人・中央値）※ゲーム内の試算</small>
       </div>
     </div>

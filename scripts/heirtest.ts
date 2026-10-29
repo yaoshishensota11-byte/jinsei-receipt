@@ -48,8 +48,10 @@ for (const c of COUNTRIES) {
           homes++;
           // 親が残した家は、18歳を過ぎたら「住む」か「売る」を決めている（家の価値が消えていない）
           const lived = evs.some((e) => /親が残した家(に、そのまま住み続ける|に移り住んだ)/.test(e.t));
-          if (ch.age >= 19 && ch.heldHouse > 0) problems.push(`${tag}: 親が残した家が決まらないまま`);
-          if (ch.age >= 19 && !lived && !soldHouse) problems.push(`${tag}: 親が残した家を住むか売るか選んでいない`);
+          // 親と同じ年に亡くなったときは、決める年がない（家の価値は残ったお金に入っている）
+          const hadTime = ch.age >= 19 && ch.age > h.parentDies;
+          if (hadTime && ch.heldHouse > 0) problems.push(`${tag}: 親が残した家が決まらないまま`);
+          if (hadTime && !lived && !soldHouse) problems.push(`${tag}: 親が残した家を住むか売るか選んでいない`);
           if (lived) houseLive++;
           if (soldHouse) houseSell++;
         }

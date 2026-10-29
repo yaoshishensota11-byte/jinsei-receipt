@@ -17,6 +17,7 @@ const choiceCounts: number[] = [];
 const optionHits = new Map<string, number>();
 let events = 0;
 let heirLives = 0;
+let customAlloc = 0;
 let heirDebts = 0;
 
 function check(l: Life, tag: string) {
@@ -42,7 +43,12 @@ for (let i = 0; i < N; i++) {
   let guard = 0;
   try {
     while (!l.dead && guard++ < 400) {
-      if (l.pending) {
+      if (l.pending?.alloc && i % 2 === 1) {
+        // お金の振り分けを、型ではなく細かく決めた場合（URLから再現できるかを下で確かめる）
+        l.chooseAlloc({ living: 0, save: r.int(0, 6), invest: r.int(0, 6), family: r.int(0, 5), self: r.int(0, 4) });
+        picks.push("__custom");
+        customAlloc++;
+      } else if (l.pending) {
         if (l.pending.options.length === 0) problems.push(`${seed}: ${l.pending.id} の選択肢が空`);
         if (l.pending.options.some((o) => !o.label || !o.desc)) problems.push(`${seed}: ${l.pending.id} に空の選択肢`);
         const o = r.pick(l.pending.options);
@@ -55,8 +61,11 @@ for (let i = 0; i < N; i++) {
     check(l, seed);
     const s = l.summary();
     // 再現性
-    const again = replay(seed, picks, l.D, MODE).summary();
-    if (again.finalBalance !== s.finalBalance || again.deathAge !== s.deathAge) problems.push(`${seed}: 再現できない`);
+    if (!picks.includes("__custom")) {
+      const again = replay(seed, picks, l.D, MODE).summary();
+      if (again.finalBalance !== s.finalBalance || again.deathAge !== s.deathAge) problems.push(`${seed}: 再現できない`);
+    }
+    if (l.choiceLog.filter((c) => c.id === "alloc").length && l.age >= 61 && l.school === "done" && !l.choiceLog.some((c) => c.id === "alloc" && c.age === 60)) problems.push(`${seed}: 60歳の振り分けがない`);
     const dec = decodeResult(encodeResult(l));
     const viaUrl = dec && replayByIndex(dec.seed, dec.picks, dec.mode).summary();
     if (!viaUrl || viaUrl.finalBalance !== s.finalBalance) problems.push(`${seed}: URLから再現できない`);
@@ -116,6 +125,7 @@ if (MODE !== "j") {
 const t1 = Date.now();
 const c = cohort();
 console.log(`比較集団 ${c.income.length}人 ${Date.now() - t1}ms / 例: 中央値の順位 ${(rankOf(c.income, q(incomes, 0.5)) * 100).toFixed(0)}%`);
+console.log(`お金の振り分けを細かく決めた回数 ${customAlloc}`);
 console.log(`子どもに生まれ直した人生 ${heirLives}人（2・3代目）、うち借金を引き継いだ ${heirDebts}人`);
 if (process.argv.includes("--options")) console.log([...optionHits.entries()].sort().map(([k, v]) => `${k}=${v}`).join("  "));
 if (process.argv.includes("--sample")) {

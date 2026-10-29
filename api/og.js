@@ -11550,6 +11550,14 @@ var Life = class {
     this.pending = null;
     this.records = [];
     this.choiceLog = [];
+    /** お金の振り分け（25〜60歳、5年に一度決める。決めるまでは null で、今までどおり余ったお金は貯金になる） */
+    this.alloc = null;
+    /** 去年の「自由に使えるお金」（手取りから、出ていったお金を引いた残り） */
+    this.lastFree = 0;
+    /** 自分の学びに回したお金のたまり（一定の額ごとに、給料が上がるかどうかが決まる） */
+    this.selfFund = 0;
+    /** 振り分けの「自分」で給料が上がった回数（一生で3回まで） */
+    this.selfRaises = 0;
     /** きょうだい一人ずつ。born は本人が何歳のときに生まれたか（兄姉はマイナス） */
     this.sibs = [];
     // 学校と仕事
@@ -11695,7 +11703,7 @@ var Life = class {
       this.band = bands.find((b) => b.id === heir.bandId) ?? this.band;
     }
     const bandIdx = bands.indexOf(this.band);
-    this.aptitude = Math.min(1, Math.max(0, r.normal(0.42 + bandIdx * 0.04, 0.22)));
+    this.aptitude = Math.min(1, Math.max(0, r.normal(0.42 + bandIdx * 0.04, 0.22) + (heir?.eduBoost ?? 0)));
     this.thrift = r.range(0.88, 1.22);
     const tfr = this.D.inst?.tfr ?? 1.9;
     this.siblings = tfr < 2.2 ? r.weighted([0, 1, 2], [0.22, 0.55, 0.23]) : Math.min(7, Math.max(0, Math.round(r.normal(tfr - 1, 1.3))));
@@ -11823,9 +11831,25 @@ var Life = class {
     if (!this.dead) this.age++;
     return rec;
   }
+  /** お金の振り分けを決める（割合は10%きざみ、合計10） */
+  chooseAlloc(al, optionId = "custom") {
+    const c = this.pending;
+    if (!c || !c.alloc) throw new Error("\u632F\u308A\u5206\u3051\u306E\u5834\u9762\u3067\u306F\u3042\u308A\u307E\u305B\u3093");
+    const v = normAlloc(al);
+    this.pending = null;
+    const label = allocLabel(v);
+    this.choiceLog.push({ id: "alloc", optionId, label, age: this.age, pickIndex: -1, alloc: v });
+    this.preEvents.push({ age: this.age, kind: "choice", text: `\u3010\u9078\u629E\u3011\u304A\u91D1\u306E\u632F\u308A\u5206\u3051\uFF1A${label}`, major: false });
+    this.alloc = v;
+  }
   choose(optionId) {
     const c = this.pending;
     if (!c) throw new Error("\u9078\u629E\u5834\u9762\u3067\u306F\u3042\u308A\u307E\u305B\u3093");
+    if (c.alloc) {
+      const i = c.options.findIndex((o) => o.id === optionId);
+      if (i < 0) throw new Error(`\u4E0D\u660E\u306A\u9078\u629E\u80A2: ${optionId}`);
+      return this.chooseAlloc(optionId === "same" && c.alloc.last ? c.alloc.last : c.alloc.presets[i], optionId);
+    }
     const opt2 = c.options.find((o) => o.id === optionId);
     if (!opt2) throw new Error(`\u4E0D\u660E\u306A\u9078\u629E\u80A2: ${optionId}`);
     this.pending = null;
@@ -11899,6 +11923,7 @@ var Life = class {
     if (!this.made("parentCare") && this.made("careerShift") && (this.careTriggered || a >= 58))
       return buildChoice(this, "parentCare");
     if (!this.made("retire") && a >= 60 && this.made("parentCare")) return buildChoice(this, "retire");
+    if (a >= 25 && a <= 60 && a % 5 === 0 && this.school === "done" && !this.choiceLog.some((c) => c.id === "alloc" && c.age === a)) return allocChoice(this);
     while (this.sceneQueue.length && this.partner && ["meet", "propose", "arranged", "betrothed"].includes(this.sceneQueue[0].id)) this.sceneQueue.shift();
     const sc = this.sceneQueue[0];
     if (sc)
@@ -11965,6 +11990,7 @@ var Life = class {
     const h = this.heir;
     if (h) this.log("life", `${this.year}\u5E74\u3001${this.region.label}\u306B\u3001${h.gen - 1}\u4EE3\u76EE\u306E\u3042\u306A\u305F\u306E${h.nth}\uFF08${s}\uFF09\u3068\u3057\u3066\u751F\u307E\u308C\u305F\u3002\u5BB6\u5EAD\u306E\u5E74\u53CE\u306F${this.band.label}\u3002`, void 0, true);
     else this.log("life", `${this.year}\u5E74\u3001${this.region.label}\u306B${s}\u3068\u3057\u3066\u751F\u307E\u308C\u305F\u3002\u5BB6\u5EAD\u306E\u5E74\u53CE\u306F${this.band.label}\u3002`, void 0, true);
+    if (h && (h.eduBoost ?? 0) >= 0.03) this.log("family", `${h.gen - 1}\u4EE3\u76EE\u306E\u3042\u306A\u305F\u306F\u3001\u6559\u80B2\u306E\u305F\u3081\u306E\u304A\u91D1\u3092\u7528\u610F\u3057\u3066\u304F\u308C\u3066\u3044\u305F\u3002`, void 0, true);
     const olders = this.sibs.filter((x) => x.born < 0);
     if (olders.length) {
       const words = olders.map((x) => `${-x.born}\u6B73\u306E${x.sex === "male" ? "\u5144" : "\u59C9"}`);
@@ -12417,6 +12443,53 @@ var Life = class {
     }
     if (!h.estate && !h.homeShare && !h.debt) this.log("money", "\u89AA\u306E\u907A\u7523\u306F\u307B\u3068\u3093\u3069\u306A\u304B\u3063\u305F\u3002");
   }
+  /**
+   * お金の振り分け：その年に余ったお金（手取りから、出ていったお金を引いた残り）を、決めた割合で使う。
+   * 効き目はゲームがすでに使っている統計の範囲だけにする（投資は国の株式の利回り、貯金は預金金利と物価、
+   * 学びは「学び直し」と同じ確率、家族は子どもの教育費・親への仕送り）。
+   */
+  allocYear() {
+    const c = this.cur;
+    const inc = (c.income.salary ?? 0) + (c.income.partner ?? 0) + (c.income.pension ?? 0);
+    const out = Object.values(c.expense).reduce((t, v) => t + (v ?? 0), 0);
+    const free = inc - out;
+    this.lastFree = free;
+    const al = this.alloc;
+    if (!al || free <= 0 || this.cash <= 0) return;
+    const pot = Math.min(free, this.cash);
+    const part = (n) => pot * n / 10;
+    if (al.living) this.spend("fun", part(al.living));
+    if (al.invest) {
+      const v = Math.min(this.cash, part(al.invest));
+      this.cash -= v;
+      this.invest += v;
+    }
+    if (al.family) {
+      const v = part(al.family);
+      const a = this.age;
+      const kids = this.kids.filter((k) => a - k.born >= 0 && a - k.born < 22);
+      if (kids.length) {
+        this.spend("kids", v);
+        for (const k of kids) k.eduSpend = (k.eduSpend ?? 0) + v / kids.length;
+      } else if (this.parents.some((p) => p.alive)) {
+        this.spend("care", v);
+      }
+    }
+    if (al.self && this.age < 65) {
+      this.spend("selfEdu", part(al.self));
+      this.selfFund += part(al.self);
+      const unit = Math.max(this.y(12e5), this.salaryOf(this.age) * 0.5);
+      if (this.selfFund >= unit && this.selfRaises < 3) {
+        this.selfFund -= unit;
+        if (this.rng("allocSelf").chance(0.5)) {
+          this.selfRaises++;
+          this.careerMult *= 1.15;
+          this.log("work", "\u5B66\u3073\u306B\u4F7F\u3063\u305F\u304A\u91D1\u3067\u8EAB\u306B\u3064\u3051\u305F\u3053\u3068\u304C\u8A55\u4FA1\u3055\u308C\u3001\u7D66\u6599\u304C\u4E0A\u304C\u3063\u305F\u3002", void 0, true);
+        } else this.log("work", "\u5B66\u3073\u7D9A\u3051\u305F\u304C\u3001\u3059\u3050\u306B\u306F\u7D66\u6599\u306B\u7D50\u3073\u3064\u304B\u306A\u304B\u3063\u305F\u3002");
+      }
+      this.selfFund = Math.min(this.selfFund, unit);
+    }
+  }
   /** 親が残した家に住む（家賃がかからなくなる） */
   moveIntoHeldHouse() {
     this.home = "own";
@@ -12591,6 +12664,7 @@ var Life = class {
         this.cash += w;
       }
     }
+    this.allocYear();
     if (this.cash > 0) this.cash += this.cash * this.D.ev.depositRate;
     if (this.cash < 0) {
       if (this.invest > 0) {
@@ -13355,6 +13429,51 @@ function rankOf(sorted, v) {
   let lo = 0;
   while (lo < sorted.length && sorted[lo] <= v) lo++;
   return 1 - lo / sorted.length;
+}
+var ALLOC_PRESETS = [
+  { id: "p0", label: "\u5805\u5B9F", desc: "\u66AE\u3089\u30574\u30FB\u8CAF\u91D14\u30FB\u6295\u8CC71\u30FB\u5BB6\u65CF1\u3002\u7269\u4FA1\u304C\u4E0A\u304C\u308B\u3068\u8CAF\u91D1\u306F\u76EE\u6E1B\u308A\u3059\u308B\u3002", a: { living: 4, save: 4, invest: 1, family: 1, self: 0 } },
+  { id: "p1", label: "\u6295\u8CC7\u3092\u91CD\u8996", desc: "\u66AE\u3089\u30573\u30FB\u8CAF\u91D11\u30FB\u6295\u8CC75\u30FB\u5BB6\u65CF1\u3002\u5897\u3048\u308B\u5E74\u3082\u6E1B\u308B\u5E74\u3082\u3042\u308B\u3002", a: { living: 3, save: 1, invest: 5, family: 1, self: 0 } },
+  { id: "p2", label: "\u5BB6\u65CF\u3092\u91CD\u8996", desc: "\u66AE\u3089\u30573\u30FB\u8CAF\u91D12\u30FB\u6295\u8CC71\u30FB\u5BB6\u65CF4\u3002\u5B50\u3069\u3082\u306E\u6559\u80B2\u3084\u89AA\u3078\u306E\u4ED5\u9001\u308A\u306B\u56DE\u3059\u3002", a: { living: 3, save: 2, invest: 1, family: 4, self: 0 } },
+  { id: "p3", label: "\u81EA\u5206\u306B\u6295\u8CC7", desc: "\u66AE\u3089\u30573\u30FB\u8CAF\u91D12\u30FB\u6295\u8CC71\u30FB\u5BB6\u65CF1\u30FB\u81EA\u52063\u3002\u5B66\u3073\u76F4\u3057\u3067\u7D66\u6599\u304C\u4E0A\u304C\u308B\u3053\u3068\u3082\u3001\u4E0A\u304C\u3089\u306A\u3044\u3053\u3068\u3082\u3002", a: { living: 3, save: 2, invest: 1, family: 1, self: 3 } },
+  { id: "p4", label: "\u4ECA\u3092\u697D\u3057\u3080", desc: "\u66AE\u3089\u30578\u30FB\u8CAF\u91D11\u30FB\u5BB6\u65CF1\u3002\u65C5\u884C\u3084\u8DA3\u5473\u306B\u304A\u91D1\u3092\u4F7F\u3046\u3002\u6B8B\u308B\u304A\u91D1\u306F\u5C11\u306A\u3044\u3002", a: { living: 8, save: 1, invest: 0, family: 1, self: 0 } }
+];
+function normAlloc(a) {
+  const c = (n) => Math.max(0, Math.min(9, Math.round(n || 0)));
+  let save = c(a.save);
+  let invest = c(a.invest);
+  let family = c(a.family);
+  let self = c(a.self);
+  for (const k of ["self", "family", "invest", "save"]) {
+    const over = save + invest + family + self - 10;
+    if (over <= 0) break;
+    if (k === "self") self -= Math.min(self, over);
+    if (k === "family") family -= Math.min(family, over);
+    if (k === "invest") invest -= Math.min(invest, over);
+    if (k === "save") save -= Math.min(save, over);
+  }
+  return { living: 10 - save - invest - family - self, save, invest, family, self };
+}
+var ALLOC_LABEL = { living: "\u66AE\u3089\u3057", save: "\u8CAF\u91D1", invest: "\u6295\u8CC7", family: "\u5BB6\u65CF", self: "\u81EA\u5206" };
+function allocLabel(a) {
+  return Object.keys(ALLOC_LABEL).filter((k) => a[k] > 0).map((k) => `${ALLOC_LABEL[k]}${a[k] * 10}%`).join("\u30FB");
+}
+function allocChoice(l) {
+  const a = l.age;
+  const last = l.alloc;
+  const kidsNow = l.kids.some((k) => a - k.born >= 0 && a - k.born < 22);
+  const familyTo = kidsNow ? "kids" : l.parents.some((p) => p.alive) ? "parents" : "none";
+  const free = l.lastFree;
+  const situation = free > 0 ? `${a}\u6B73\u3002\u53BB\u5E74\u3001\u81EA\u7531\u306B\u4F7F\u3048\u305F\u304A\u91D1\uFF08\u624B\u53D6\u308A\u304B\u3089\u3001\u51FA\u3066\u3044\u3063\u305F\u304A\u91D1\u3092\u5F15\u3044\u305F\u6B8B\u308A\uFF09\u306F\u7D04${l.D.fmt(free)}\u3002\u3053\u308C\u304B\u30895\u5E74\u3001\u3069\u3053\u306B\u4F7F\u3046\uFF1F` : `${a}\u6B73\u3002\u53BB\u5E74\u306F\u3001\u624B\u53D6\u308A\u3088\u308A\u51FA\u3066\u3044\u304F\u304A\u91D1\u306E\u307B\u3046\u304C\u591A\u304B\u3063\u305F\u3002\u3053\u308C\u304B\u30895\u5E74\u3001\u4F59\u308A\u304C\u51FA\u305F\u5E74\u306F\u3001\u3069\u3053\u306B\u4F7F\u3046\uFF1F`;
+  const options = ALLOC_PRESETS.map(({ id, label, desc }) => ({ id, label, desc }));
+  if (last) options.push({ id: "same", label: "\u524D\u56DE\u3068\u540C\u3058", desc: allocLabel(last) });
+  return {
+    id: "alloc",
+    age: a,
+    title: "\u304A\u91D1\u306E\u632F\u308A\u5206\u3051",
+    situation,
+    options,
+    alloc: { free, last, presets: [...ALLOC_PRESETS.map((p) => p.a), ...last ? [last] : []], familyTo }
+  };
 }
 
 // data/world/countries.json
@@ -23662,16 +23781,16 @@ var EXPENSE_LABEL = {
 };
 
 // src/engine/result.ts
-var CODEC_VERSION = "7";
+var CODEC_VERSION = "8";
 function picksOf(l) {
-  return l.choiceLog.map((c) => c.pickIndex ?? 0);
+  return l.choiceLog.flatMap((c) => c.alloc ? [c.alloc.save, c.alloc.invest, c.alloc.family, c.alloc.self] : [c.pickIndex ?? 0]);
 }
 function encodeResult(l) {
   const picks = picksOf(l).join("");
   return l.heir ? `${l.heir.code}~${l.heir.idx}.${picks}` : `${CODEC_VERSION}.${l.mode}.${l.seed}.${picks}`;
 }
 function decodeResult(code) {
-  const m = /^(\d+)\.([jmw])\.([a-z0-9-]{1,40})\.([0-9]{0,120})((?:~\d\.[0-9]{0,120}){0,2})$/.exec(code.trim());
+  const m = /^(\d+)\.([jmw])\.([a-z0-9-]{1,40})\.([0-9]{0,240})((?:~\d\.[0-9]{0,240}){0,2})$/.exec(code.trim());
   if (!m || m[1] !== CODEC_VERSION) return null;
   const next = m[5].split("~").slice(1).map((x) => {
     const [i, p] = x.split(".");
@@ -23717,6 +23836,8 @@ function childOf(l, idx) {
     sibs: l.kids.map((o, j) => ({ sex: kidFemale(l.seed, j) ? "female" : "male", born: o.born - k.born })).filter((_, j) => j !== idx),
     estate: Math.max(0, total - home) / n,
     debt: Math.max(0, -total) / n,
+    // 前の代が教育にお金をかけた子は、勉強の得意さが少し上がる（家計の教育費と進学の統計にもとづく、ゆるい効き目）
+    eduBoost: Math.min(0.12, (k.eduSpend ?? 0) / l.y(3e6) * 0.1),
     homeShare: home / n,
     hadHome: l.homeValue > 0,
     lineage
@@ -23741,6 +23862,11 @@ function playPicks(l, picks) {
   let i = 0;
   let guard = 0;
   while (!l.dead && guard++ < 500) {
+    if (l.pending?.alloc) {
+      const [save, invest, family, self] = [picks[i++] ?? 0, picks[i++] ?? 0, picks[i++] ?? 0, picks[i++] ?? 0];
+      l.chooseAlloc({ living: 0, save, invest, family, self });
+      continue;
+    }
     if (l.pending) {
       const idx = Math.min(picks[i++] ?? 0, l.pending.options.length - 1);
       l.choose(l.pending.options[idx].id);

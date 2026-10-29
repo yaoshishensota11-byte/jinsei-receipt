@@ -99,6 +99,27 @@ export interface Choice {
   title: string;
   situation: string;
   options: ChoiceOption[];
+  /** お金の振り分け（割合を選ぶ場面）。options は「型」 */
+  alloc?: AllocInfo;
+}
+
+/** お金の振り分けの割合（10%きざみ。合計10） */
+export interface Alloc {
+  living: number;
+  save: number;
+  invest: number;
+  family: number;
+  self: number;
+}
+export interface AllocInfo {
+  /** 去年の「自由に使えるお金」（現地通貨） */
+  free: number;
+  /** 前回の振り分け（初めてなら null） */
+  last: Alloc | null;
+  /** 型ごとの割合（options と同じ順） */
+  presets: Alloc[];
+  /** 家族に回すお金の行き先（子どもの教育／親への仕送り／なし） */
+  familyTo: "kids" | "parents" | "none";
 }
 
 export type ChoiceId =
@@ -110,6 +131,7 @@ export type ChoiceId =
   | "careerShift"
   | "parentCare"
   | "retire"
+  | "alloc"
   | `micro:${string}`
   | `ev:${string}`;
 

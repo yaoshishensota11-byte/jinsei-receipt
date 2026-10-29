@@ -1,10 +1,10 @@
 import { LifeScene } from "./ui/pixel";
 import { langPicker } from "./ui/lang";
-import { Life, jobLabel, cohort, kidFemale } from "./engine/sim";
+import { Life, jobLabel, cohort, kidFemale, ALLOC_LABEL } from "./engine/sim";
 import { randomSeed, Rng, hashStr } from "./engine/rng";
 import { buildReceipt, buildDetail, detailUrl, shareIntentUrl, shareUrl, shareBase, newLife, childOf, estateFor, MAX_GEN } from "./engine/result";
 import { COUNTRIES, worldCountry, type Mode } from "./engine/world";
-import type { Choice, LifeEvent, YearRecord } from "./engine/types";
+import type { Alloc, Choice, LifeEvent, YearRecord } from "./engine/types";
 import { showReceipt, downloadReceipt, downloadDetailed } from "./ui/receipt";
 import { compareMyIncome, topText } from "./engine/myincome";
 import { yen } from "./engine/data";
@@ -303,9 +303,10 @@ class Game {
   private openChoice(c: Choice): void {
     this.choosing = true;
     this.ctrl.querySelectorAll("button").forEach((b) => b.classList.toggle("on", b.dataset.s === "0"));
+    if (c.alloc) return this.openAlloc(c);
     const micro = c.id.startsWith("micro:");
     const event = c.id.startsWith("ev:");
-    const n = this.life.choiceLog.filter((x) => !x.id.startsWith("micro:") && !x.id.startsWith("ev:")).length + 1;
+    const n = this.life.choiceLog.filter((x) => !x.id.startsWith("micro:") && !x.id.startsWith("ev:") && x.id !== "alloc").length + 1;
     const bg = h(`<div class="sheet-bg"><div class="sheet${micro ? " small" : ""}">
       <div class="tag">${micro ? "小さな選択" : event ? "人生の出来事" : `分かれ道 ${n} / 8`} ・ ${c.age}歳</div>
       <h2>${esc(c.title)}</h2>
@@ -326,6 +327,100 @@ class Game {
     if (AUTO) {
       const r = new Rng(hashStr(this.life.seed + c.id));
       setTimeout(() => pick(r.pick(c.options).id), 300);
+    }
+  }
+
+  /** お金の振り分け：型を選び、必要ならタップして細かく調整する */
+  private openAlloc(c: Choice): void {
+    const info = c.alloc!;
+    const keys: (keyof Alloc)[] = ["living", "save", "invest", "family", "self"];
+    const familyNote =
+      info.familyTo === "kids" ? "子どもの教育費。子どもの進学や、子どもに生まれ直したときのはじまりに効く" : info.familyTo === "parents" ? "親への仕送り" : "回す相手がいないので、貯金と同じになる";
+    const note: Record<keyof Alloc, string> = {
+      living: "ゆとりのある暮らし（趣味・交際）。残るお金は減る",
+      save: "現金で持つ。物価が上がると目減りする",
+      invest: "国の株式の利回りで、増える年も減る年もある",
+      family: familyNote,
+      self: "学び直しの費用。給料が上がることも、上がらないことも",
+    };
+    let cur: Alloc = { ...(info.last ?? info.presets[0]) };
+    let picked = info.last ? "same" : "p0";
+    const bg = h(`<div class="sheet-bg"><div class="sheet alloc">
+      <div class="tag">お金の振り分け ・ ${c.age}歳（5年に一度）</div>
+      <h2>${esc(c.title)}</h2>
+      <p class="sit">${esc(c.situation)}</p>
+      <div class="al-bar" aria-hidden="true"></div>
+      <div class="al-legend"></div>
+      <div class="al-presets">${c.options.map((o) => `<button class="opt" data-id="${esc(o.id)}"><b>${esc(o.label)}</b><span>${esc(o.desc)}</span></button>`).join("")}</div>
+      <button class="al-tune-btn" type="button" aria-expanded="false">細かく調整する</button>
+      <div class="al-tune" hidden>
+        ${keys
+          .map(
+            (k) => `<label class="al-row al-${k}"><span class="al-name">${ALLOC_LABEL[k]}</span>${
+              k === "living" ? `<span class="al-rest">残り</span>` : `<input type="range" min="0" max="9" step="1" data-k="${k}" aria-label="${ALLOC_LABEL[k]}" />`
+            }<b class="al-val" data-v="${k}"></b><small>${esc(note[k])}</small></label>`,
+          )
+          .join("")}
+      </div>
+      <button class="btn" id="allocGo">この割合で決める</button>
+    </div></div>`);
+    document.body.append(bg);
+    const draw = () => {
+      bg.querySelector<HTMLElement>(".al-bar")!.innerHTML = keys
+        .filter((k) => cur[k] > 0)
+        .map((k) => `<i class="al-${k}" style="flex:${cur[k]}">${cur[k] >= 2 ? `${ALLOC_LABEL[k]}${cur[k] * 10}%` : ""}</i>`)
+        .join("");
+      bg.querySelector<HTMLElement>(".al-legend")!.textContent = keys
+        .filter((k) => cur[k] > 0)
+        .map((k) => `${ALLOC_LABEL[k]}${cur[k] * 10}%`)
+        .join("・");
+      bg.querySelectorAll<HTMLInputElement>(".al-tune input").forEach((inp) => (inp.value = String(cur[inp.dataset.k as keyof Alloc])));
+      bg.querySelectorAll<HTMLElement>(".al-val").forEach((el) => (el.textContent = `${cur[el.dataset.v as keyof Alloc] * 10}%`));
+      bg.querySelectorAll<HTMLElement>(".al-presets .opt").forEach((b) => b.classList.toggle("picked", b.dataset.id === picked));
+    };
+    bg.querySelectorAll<HTMLElement>(".al-presets .opt").forEach((b) => {
+      b.onclick = () => {
+        const i = c.options.findIndex((o) => o.id === b.dataset.id);
+        cur = { ...info.presets[i] };
+        picked = b.dataset.id!;
+        draw();
+      };
+    });
+    const tuneBtn = bg.querySelector<HTMLButtonElement>(".al-tune-btn")!;
+    tuneBtn.onclick = () => {
+      const box = bg.querySelector<HTMLElement>(".al-tune")!;
+      box.hidden = !box.hidden;
+      tuneBtn.setAttribute("aria-expanded", String(!box.hidden));
+      tuneBtn.textContent = box.hidden ? "細かく調整する" : "調整を閉じる";
+      if (!box.hidden) box.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    };
+    // スライダー：合計が100%を超えないよう、動かしたものを止める。暮らしは残り
+    bg.querySelectorAll<HTMLInputElement>(".al-tune input").forEach((inp) => {
+      inp.oninput = () => {
+        const k = inp.dataset.k as keyof Alloc;
+        const others = keys.filter((x) => x !== k && x !== "living").reduce((t, x) => t + cur[x], 0);
+        cur[k] = Math.min(Number(inp.value), 10 - others);
+        cur.living = 10 - others - cur[k];
+        picked = "";
+        draw();
+      };
+    });
+    draw();
+    const go = () => {
+      bg.remove();
+      this.life.chooseAlloc(cur, picked || "custom");
+      this.choosing = false;
+      this.setSpeed(this.lastSpeed);
+    };
+    bg.querySelector<HTMLElement>("#allocGo")!.onclick = go;
+    if (AUTO) {
+      const r = new Rng(hashStr(this.life.seed + c.id + c.age));
+      setTimeout(() => {
+        const i = r.int(0, c.options.length - 1);
+        cur = { ...info.presets[i] };
+        picked = c.options[i].id;
+        go();
+      }, 300);
     }
   }
 
