@@ -7,7 +7,7 @@ type Res = { statusCode: number; setHeader(k: string, v: string): void; end(body
 
 export default function handler(req: Req, res: Res): void {
   const code = decodeURIComponent(new URL(req.url ?? "/", "http://x").searchParams.get("c") ?? "");
-  const host = String(req.headers["x-forwarded-host"] ?? req.headers.host ?? "tomo-project-ivory.vercel.app");
+  const host = String(req.headers["x-forwarded-host"] ?? req.headers.host ?? "jinsei-receipt.vercel.app");
   const proto = String(req.headers["x-forwarded-proto"] ?? "https");
   res.statusCode = 200;
   res.setHeader("Content-Type", "text/html; charset=utf-8");

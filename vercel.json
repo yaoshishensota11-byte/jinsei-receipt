@@ -1,4 +1,12 @@
 {
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "tomo-project-ivory.vercel.app" }],
+      "destination": "https://jinsei-receipt.vercel.app/:path*",
+      "permanent": true
+    }
+  ],
   "rewrites": [{ "source": "/s/:code", "destination": "/api/share?c=:code" }],
   "functions": { "api/og.js": { "maxDuration": 20 } }
 }

@@ -191,7 +191,7 @@ export function shareUrl(l: Life, base: string): string {
 
 /** 共有URLの土台。翻訳（translate.goog）を通して見ているときも、もとのサイトのURLにする */
 export function shareBase(origin: string, hostname: string): string {
-  return hostname.endsWith(".translate.goog") ? "https://tomo-project-ivory.vercel.app" : origin;
+  return hostname.endsWith(".translate.goog") ? "https://jinsei-receipt.vercel.app" : origin;
 }
 
 function dateOf(seed: string, year: number, stream: string): string {
