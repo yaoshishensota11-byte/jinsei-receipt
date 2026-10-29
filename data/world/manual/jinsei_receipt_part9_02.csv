@@ -1,0 +1,10 @@
+iso3,country_en,field,value,unit,year,source_name,source_url,note
+USA,United States of America,event_freq:usa_hurricane_wildfire,0.0137,annual_share,2023,U.S. Census Bureau Household Pulse Survey Phase 3.9,https://www.census.gov/data/tables/2023/demo/hhp/hhp59.html,18歳以上の成人のうち過去1年間に自然災害により一時避難を余儀なくされた人の割合
+CHN,China,event_freq:chn_unfinished_flat,,annual_share,2023,,,工事停止物件（爛尾楼）の購入世帯割合に関する政府一次統計は非公表のため空欄
+CHN,China,event_freq:chn_hukou_school,0.0841,current_share,2023,Ministry of Education of the People's Republic of China,http://www.moe.gov.cn/jyb_sjzl/sjzl_fztjgb/202410/t20241024_1159002.html,義務教育段階の全在校生（1.61億人）に占める進城務工人員随遷子女（1353.99万人）の割合
+CHN,China,event_freq:chn_gaokao,0.3704,period_share,2023,Ministry of Education of the People's Republic of China,http://www.moe.gov.cn/jyb_sjzl/sjzl_fztjgb/202410/t20241024_1159002.html,普通本科の入学定員（478.16万人）÷ 高考受験者数（1291万人）
+CHN,China,event_freq:chn_996,,current_share,2023,,,国家統計局は企業就業者の週平均労働時間（49.0時間）のみ公表。週60時間以上の割合は未公表のため空欄
+CHN,China,event_freq:chn_flood,0.1300,annual_share,2023,Ministry of Emergency Management of the People's Republic of China,http://www.mem.gov.cn/,過去10年平均の年間被災人口（約6200万人）÷ 農村常住人口（約4.77億人）。URLはトップページ
+IND,India,event_freq:ind_monsoon_flood,0.0229,annual_share,2020,Central Water Commission,https://cwc.gov.in/,年平均の洪水被災人口（約3234万人）÷ 総人口（約14.1億人）。URLはトップページ
+IND,India,event_freq:ind_entrance_exam,0.2000,period_share,2023,National Testing Agency / Ministry of Education UDISE+,https://nta.ac.in/,JEE Main（約122万人）とNEET（約204万人）の重複を除いた受験者（推計約300万人）÷ Class 12在籍者（約1500万人）。重複の除き方はGeminiの推計
+IND,India,event_freq:ind_wedding_cost,,lifetime_share,2023,,,結婚費用のための借金世帯の割合を示す全国一次統計がないため空欄
