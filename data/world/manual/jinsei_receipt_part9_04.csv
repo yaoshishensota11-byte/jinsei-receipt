@@ -9,3 +9,25 @@ BGD,Bangladesh,event_freq:bgd_gulf_work,,annual_share,2024,Bureau of Manpower Em
 IDN,Indonesia,event_freq:idn_earthquake,,annual_share,2021,Badan Nasional Penanggulangan Bencana (BNPB),https://gis.bnpb.go.id/,年平均の割合の公式値がないため空欄
 IDN,Indonesia,event_freq:idn_jakarta_flood,0.98,period_share,2021,BNPB / ResearchGate,https://www.researchgate.net/figure/Flood-Vulnerability-Map-of-DKI-Jakarta-from-Indonesias-BNPB-National-Disaster_fig5_393646573,ジャカルタの洪水リスク域の面積割合。1年間に実際に浸水した住民の割合ではない
 IDN,Indonesia,event_freq:idn_haze,,years_count,2019,BNPB / Ministry of Environment and Forestry,,煙害の年数・影響人口の公式な集計がないため空欄
+PAK,Pakistan,event_freq:pak_gulf_work,862625,count,2023,Bureau of Emigration and Overseas Employment (BEOE),https://beoe.gov.pk/reports-and-statistics,（追加の回答）分子：1年間に海外就労に登録した人の数（2023年）。2022年は832339人
+PAK,Pakistan,event_freq:pak_gulf_work,71210000,count,2021,Pakistan Bureau of Statistics Labour Force Survey 2020-21,https://www.pbs.gov.pk/content/labor-force-survey-2020-21,（追加の回答）分母：パキスタンの就業者数。回答には 82700000 の行もあったが、note と合わないため使わない
+BGD,Bangladesh,event_freq:bgd_garment_job,4000000,count,2023,BGMEA,https://www.bgmea.com.bd/page/AboutGarmentsIndustry,（追加の回答）分子：縫製工場で働く人の数。業界団体の値
+BGD,Bangladesh,event_freq:bgd_garment_job,56800000,count,2022,Bangladesh Bureau of Statistics Census 2022,https://bbs.gov.bd/,（追加の回答）分母：15〜34歳の人口
+BGD,Bangladesh,event_freq:bgd_flood,5800000,count,2024,UNICEF / Ministry of Disaster Management and Relief,https://www.unicef.org/emergencies/bangladesh-floods-2024,（追加の回答）分子：2024年8月の東部洪水の被災者数（1回の洪水）
+BGD,Bangladesh,event_freq:bgd_flood,7300000,count,2022,UN OCHA,https://www.unocha.org/bangladesh,（追加の回答）分子：2022年北東部の洪水の被災者数（1回の洪水）
+BGD,Bangladesh,event_freq:bgd_flood,169828911,count,2022,Bangladesh Bureau of Statistics,https://bbs.gov.bd/,（追加の回答）分母：全人口（2022年国勢調査）
+BGD,Bangladesh,event_freq:bgd_cyclone,2600000,count,2024,UN OCHA,https://www.unocha.org/bangladesh,（追加の回答）分子：2024年サイクロン・レマルの被災者数
+BGD,Bangladesh,event_freq:bgd_cyclone,2400000,count,2020,UN OCHA,https://www.unocha.org/bangladesh,（追加の回答）分子：2020年サイクロン・アンファンの被災者数
+BGD,Bangladesh,event_freq:bgd_microcredit,32170000,count,2024,Microcredit Regulatory Authority (MRA),https://mra.gov.bd/,（追加の回答）分子：マイクロファイナンス機関から借りている人の数（2024年6月）
+BGD,Bangladesh,event_freq:bgd_microcredit,114000000,count,2022,World Bank WDI,https://data.worldbank.org/indicator/SP.POP.1564.TO,（追加の回答）分母：15〜64歳の人口
+BGD,Bangladesh,event_freq:bgd_gulf_work,1305453,count,2023,BMET,https://www.bmet.gov.bd/,（追加の回答）分子：1年間に海外就労で出国した人の数（2023年）
+BGD,Bangladesh,event_freq:bgd_gulf_work,1135873,count,2022,BMET,https://www.bmet.gov.bd/,（追加の回答）分子：同（2022年）
+BGD,Bangladesh,event_freq:bgd_gulf_work,617209,count,2021,BMET,https://www.bmet.gov.bd/,（追加の回答）分子：同（2021年、感染症の影響で少ない）
+BGD,Bangladesh,event_freq:bgd_gulf_work,70800000,count,2022,Bangladesh Bureau of Statistics Labour Force Survey 2022,https://bbs.gov.bd/,（追加の回答）分母：就業者数
+IDN,Indonesia,event_freq:idn_earthquake,500000,count,2022,BNPB,https://gis.bnpb.go.id/,（追加の回答）分子：2022年チアンジュール地震の被災・避難者数（1回の地震）
+IDN,Indonesia,event_freq:idn_earthquake,275500000,count,2022,Badan Pusat Statistik,https://www.bps.go.id/,（追加の回答）分母：全人口
+IDN,Indonesia,event_freq:idn_jakarta_flood,31000,count,2020,BNPB,https://gis.bnpb.go.id/,（追加の回答）分子：2020年ジャカルタ洪水の避難・被災者数
+IDN,Indonesia,event_freq:idn_jakarta_flood,10560000,count,2020,Badan Pusat Statistik DKI Jakarta,https://jakarta.bps.go.id/,（追加の回答）分母：ジャカルタの人口
+IDN,Indonesia,event_freq:idn_haze,43000000,count,2015,World Bank,https://www.worldbank.org/en/news/feature/2015/12/01/indonesias-fire-and-haze-crisis,（追加の回答）分子：2015年の森林火災の煙の影響を受けた人の推計
+IDN,Indonesia,event_freq:idn_haze,920000,count,2019,UNICEF / BNPB,https://www.unicef.org/press-releases/nearly-10-million-children-at-risk-from-air-pollution-indonesia-fires,（追加の回答）分子：2019年に煙で急性呼吸器感染症の症状を訴えた人の数（影響を受けた人よりずっと狭い数え方）
+IDN,Indonesia,event_freq:idn_haze,270000000,count,2019,Badan Pusat Statistik,https://www.bps.go.id/,（追加の回答）分母：全人口
