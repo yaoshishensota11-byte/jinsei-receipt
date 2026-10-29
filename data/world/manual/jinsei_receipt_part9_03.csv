@@ -1,0 +1,12 @@
+iso3,country_en,field,value,unit,year,source_name,source_url,note
+IND,India,event_freq:ind_crop_failure,,annual_share,2019,Ministry of Statistics and Programme Implementation (MoSPI),https://mospi.gov.in/sites/default/files/NSS7733/77th_V_I_Final.pdf,NSS 77th round の報告書に全国の集計値がないため空欄
+IND,India,event_freq:ind_private_hospital,0.650,current_share,2017-2018,National Sample Survey Office (NSSO 75th Round),https://pmc.ncbi.nlm.nih.gov/articles/PMC9275032/,過去1年間の入院者のうち私立病院を使った人の割合。学術論文がNSSの値を引用
+IND,India,event_freq:ind_private_hospital,0.029,annual_share,2017-2018,National Sample Survey Office (NSSO 75th Round),https://pmc.ncbi.nlm.nih.gov/articles/PMC9275032/,全人口のうち過去1年間に入院した人の割合（回答の note から分けた行）
+NGA,Nigeria,event_freq:nga_fuel_price,,years_count,2006-2025,National Bureau of Statistics (NBS),https://www.nigerianstat.gov.ng/,過去20年の公式の価格系列が不連続のため空欄
+NGA,Nigeria,event_freq:nga_naira_drop,5,years_count,1996-2025,Central Bank of Nigeria / IMF International Financial Statistics,https://en.wikipedia.org/wiki/List_of_strikes_in_Nigeria,過去30年で対米ドルの公式レートが1年に30%以上下がった年の数。URLが内容と合わない（ストライキの一覧）ため要確認
+NGA,Nigeria,event_freq:nga_generator,0.520,current_share,2018-2019,World Bank LSMS-ISA / Nigeria National Bureau of Statistics,https://microdata.worldbank.org/index.php/catalog/3823,都市の世帯のうち自家用発電機を持っている・使っている世帯の割合
+NGA,Nigeria,event_freq:nga_japa,,annual_share,2023,National Bureau of Statistics / UK Home Office,https://www.gov.uk/government/organisations/home-office,22〜40歳の年間移住者と人口を対応させた公式統計がないため空欄
+NGA,Nigeria,event_freq:nga_asuu_strike,10,years_count,2006-2025,ASUU（二次情報）,https://en.wikipedia.org/wiki/Academic_Staff_Union_of_Universities,過去20年でASUUの全国ストライキがあった年の数。二次情報
+PAK,Pakistan,event_freq:pak_flood,,annual_share,2014-2023,National Disaster Management Authority (NDMA) Pakistan,https://ndma.gov.pk/,農村人口に限った10年平均の被災率が未公表のため空欄
+PAK,Pakistan,event_freq:pak_inflation,3,years_count,1996-2025,World Bank WDI / IMF,https://data.worldbank.org/indicator/FP.CPI.TOTL.ZG?locations=PK,過去30年で消費者物価の上昇率が年20%を超えた年の数
+PAK,Pakistan,event_freq:pak_electricity_bill,,annual_share,2021-2022,Pakistan Bureau of Statistics (HIES),https://www.pbs.gov.pk/,電気代が家計の10%を超える都市世帯の割合が未公表のため空欄
