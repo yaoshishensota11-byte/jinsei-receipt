@@ -304,8 +304,8 @@
     "result": "地元の中学校に進むことにした。"
    }
   ],
-  "basis": "首都圏の私立・国立中学受験率は約2割（首都圏模試センター 2024）",
-  "estimated": true
+  "basis": "首都圏の小学6年生の中学受験率は18.1%（首都圏模試センター 2026年入試）。全国はそれより低い（統計で確認）",
+  "estimated": false
  },
  {
   "id": "usa_medical_bill",
@@ -412,8 +412,8 @@
     "result": "高校を出てすぐに働きはじめた。"
    }
   ],
-  "basis": "学士取得者の約半数が学生ローンを利用、平均残高は約3万ドル（College Board 2023）",
-  "estimated": true
+  "basis": "高校卒業後すぐ4年制大学へ進む人は45%（NCES 2022）、学部生の34%が連邦学生ローンを借りる（NPSAS 2019-20）（統計で確認）",
+  "estimated": false
  },
  {
   "id": "usa_layoff",
@@ -422,7 +422,7 @@
   ],
   "minAge": 25,
   "maxAge": 62,
-  "annualProb": 0.03,
+  "annualProb": 0.02,
   "requires": "working",
   "title": "突然のレイオフ",
   "situation": "会社の業績悪化で、部署ごと解雇されることになった。",
@@ -480,8 +480,8 @@
     "result": "車に荷物を積んで別の州へ移った。"
    }
   ],
-  "basis": "米国の非自発的離職（レイオフ・解雇）は年に雇用者の1割前後（BLS JOLTS）。大規模なものは概算で年3%",
-  "estimated": true
+  "basis": "会社の閉鎖や仕事の減少で職を失った人は3年で740万人、20歳以上の就業者の年約1.5%（BLS Displaced Worker Survey 2023-25）（統計で確認）",
+  "estimated": false
  },
  {
   "id": "usa_childcare",
@@ -528,8 +528,8 @@
     "result": "パートタイムに切り替えた。"
    }
   ],
-  "basis": "保育料は全米平均で年1万ドル超（Child Care Aware of America 2023）。米国には全国的な育児休業給付がない",
-  "estimated": true
+  "basis": "幼稚園前の5歳以下の55%が親以外の保育を使い、そのうち66%が保育施設（NCES 2023）（統計で確認）",
+  "estimated": false
  },
  {
   "id": "usa_hurricane_wildfire",
@@ -612,8 +612,8 @@
     "result": "購入契約を整理し、賃貸暮らしを続けた。"
    }
   ],
-  "basis": "2022年に工事停止物件で住宅ローン返済を拒否する動きが各地に広がった（報道）。2021年以降、住宅価格は下落傾向",
-  "estimated": true
+  "basis": "工事が遅れた住宅の引き渡し支援は2024年末までに373万戸で、全国の世帯の約0.8%（住房和城乡建设部・国勢調査）（統計で確認）",
+  "estimated": false
  },
  {
   "id": "chn_hukou_school",
@@ -1110,7 +1110,7 @@
   ],
   "minAge": 18,
   "maxAge": 70,
-  "annualProb": 0.04,
+  "annualProb": 0.1,
   "requires": "working",
   "title": "ガソリン代の高騰",
   "situation": "燃料補助金が打ち切られ、ガソリンと交通費が一気に値上がりした。",
@@ -1144,8 +1144,8 @@
     "result": "食費を削って交通費に回した。"
    }
   ],
-  "basis": "2023年の補助金撤廃でガソリン価格が約3倍に（報道）",
-  "estimated": true
+  "basis": "燃料補助金の打ち切りなどで、ガソリン価格が1年に5割以上上がった年が20年で少なくとも3回（2016・2023・2024年、NBS ほか）（統計で確認）",
+  "estimated": false
  },
  {
   "id": "nga_naira_drop",
@@ -1372,8 +1372,8 @@
     "result": "カラチの親戚の家に移った。"
    }
   ],
-  "basis": "2022年の洪水で約3,300万人が被災（国家防災管理局）",
-  "estimated": true
+  "basis": "洪水の被災者は2010年2,025万人、2022年3,300万人など、年平均約460万人で農村人口の約3%（NDMA・2023年国勢調査）（統計で確認）",
+  "estimated": false
  },
  {
   "id": "pak_inflation",
@@ -2416,8 +2416,8 @@
     "result": "別の町で暮らし直すことにした。"
    }
   ],
-  "basis": "2021年のアール渓谷などの洪水で180人以上が亡くなった（報道）",
-  "estimated": true
+  "basis": "洪水・大雨などの保険金の件数は2022〜2025年の平均で年約14.5万件、住宅4,290万戸の約0.3%（GDV・連邦統計局）（統計で確認）",
+  "estimated": false
  },
  {
   "id": "deu_wohnung",
@@ -3490,7 +3490,7 @@
   ],
   "minAge": 22,
   "maxAge": 45,
-  "annualProb": 0.02,
+  "annualProb": 0.03,
   "requires": "working",
   "title": "湾岸諸国での仕事",
   "situation": "サウジアラビアの会社から、技術者として働かないかと誘われた。",
@@ -3528,8 +3528,8 @@
     "result": "カイロで働き続けた。"
    }
   ],
-  "basis": "海外からの送金は年約200〜300億ドル（中央銀行）",
-  "estimated": true
+  "basis": "アラブ諸国で働くための許可は年88.8万件で、賃金で働く人2,104万人の約4%（CAPMAS 2023年）（統計で確認）",
+  "estimated": false
  },
  {
   "id": "egy_marriage_home",
@@ -4116,8 +4116,8 @@
     "result": "銀行に預けたままにした。"
    }
   ],
-  "basis": "土地は代表的な資産運用先で、2022年には一部地域で価格が急落（報道）",
-  "estimated": true
+  "basis": "土地と住宅の取引は年約54万件で、全国の世帯の約1.9%（建設省・統計総局 2024年）（統計で確認）",
+  "estimated": false
  },
  {
   "id": "vnm_typhoon_flood",
@@ -4332,8 +4332,8 @@
     "result": "月払いの部屋を借りた。"
    }
   ],
-  "basis": "2022〜23年にチョンセ詐欺・保証金未返還が社会問題化（国土交通部）",
-  "estimated": true
+  "basis": "賃貸世帯の約4割がチョンセ（2020年）。今の家に住んで2年以下の世帯は30%（国土交通部 住居実態調査 2024）（統計で確認）",
+  "estimated": false
  },
  {
   "id": "kor_suneung",
@@ -4390,7 +4390,7 @@
   ],
   "minAge": 48,
   "maxAge": 56,
-  "annualProb": 0.05,
+  "annualProb": 0.02,
   "requires": "working",
   "title": "早期退職の勧め",
   "situation": "会社から希望退職の募集があり、上司から応募を勧められた。",
@@ -4428,8 +4428,8 @@
     "result": "会社に残ることにした。"
    }
   ],
-  "basis": "主な職場からの退職年齢は平均約49歳（統計庁 2023）",
-  "estimated": true
+  "basis": "55〜64歳で一番長く勤めた職場を離れた人の11.8%が、勧告退職・名誉退職・整理解雇（統計庁 2025年）（統計で確認）",
+  "estimated": false
  },
  {
   "id": "kor_wedding_home",
@@ -4476,8 +4476,8 @@
     "result": "あと数年お金を貯めることにした。"
    }
   ],
-  "basis": "住宅費の高さは結婚・出産をためらう主な理由の一つ（保健社会研究院）",
-  "estimated": true
+  "basis": "結婚しない理由に「結婚資金の不足」を挙げた人は31%（統計庁 社会調査 2024年）（統計で確認）",
+  "estimated": false
  },
  {
   "id": "ken_mpesa_loan",
@@ -4604,8 +4604,8 @@
     "result": "近くの学校に通わせた。"
    }
   ],
-  "basis": "中等教育の授業料は無償だが寮費などの負担は大きい（教育省）",
-  "estimated": true
+  "basis": "中等学校の生徒の約3割が全寮制の学校に通う（2014年の報告、二次情報）（統計で確認）",
+  "estimated": false
  },
  {
   "id": "ken_fuel_tax",
@@ -4803,7 +4803,7 @@
   ],
   "minAge": 18,
   "maxAge": 70,
-  "annualProb": 0.05,
+  "annualProb": 0.1,
   "requires": "rural",
   "title": "不作の年",
   "situation": "天候不順で収穫が例年より大きく減った。",
@@ -4837,8 +4837,8 @@
     "result": "収穫期まで町で働いた。"
    }
   ],
-  "basis": "農家の収入は天候の影響を強く受ける（FAO）",
-  "estimated": true
+  "basis": "1年に干ばつ・不規則な雨にあった農家は、マラウイ61%、ウガンダ36%、ナイジェリア3%（世界銀行 LSMS-ISA）（統計で確認）",
+  "estimated": false
  },
  {
   "id": "gen_urban_rent",
@@ -4921,8 +4921,8 @@
     "result": "後になって詐欺だと気づいた。"
    }
   ],
-  "basis": "電話・SMSによる詐欺被害は各国で増加（各国警察・報道）",
-  "estimated": true
+  "basis": "16歳以上の7.1%が1年に詐欺の被害にあう（英国統計局 イングランド・ウェールズ犯罪調査 2025年）（統計で確認）",
+  "estimated": false
  },
  {
   "id": "gen_relative_loan",
@@ -5073,7 +5073,7 @@
   ],
   "minAge": 18,
   "maxAge": 45,
-  "annualProb": 0.05,
+  "annualProb": 0.02,
   "requires": "urban",
   "title": "配達アプリの仕事",
   "situation": "スマホの配達アプリに登録すれば、すぐに働けると聞いた。",
@@ -5115,7 +5115,7 @@
     "result": "職業訓練校に通いはじめた。"
    }
   ],
-  "basis": "新興国の都市部でプラットフォーム労働が急増（ILO World Employment and Social Outlook 2021）",
-  "estimated": true
+  "basis": "アプリを通して働く人は、ブラジルで民間の働く人の1.9%（IBGE 2024年）、インドで1.5%（NITI Aayog）（統計で確認）",
+  "estimated": false
  }
 ]

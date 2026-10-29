@@ -219,3 +219,9 @@
 | homicide_rate | UNODC、なければ WHO Global Health Estimates | 8か国 | 北朝鮮は公表なし |
 | ipv_past12m_women | WHO Violence Against Women Prevalence Estimates 2018、DHS | 7か国 | ロシア・ウズベキスタン・サウジアラビア・シリア・北朝鮮は掲載なし |
 | inflation_recent | IMF World Economic Outlook | ソマリア（2013〜2024年） | シリアは2010年までしかなく取り込まない。北朝鮮は公表なし |
+
+## 第10部：推計のまま残っていた出来事の確率（ChatGPT の Deep Research、2026年10月）
+
+| 項目 | 出典 | 反映した数 | 備考 |
+|---|---|---|---|
+| 国ごとの出来事の起きる確率（country_events.json の annualProb） | 各国の政府統計・国際機関（出来事ごとに basis に記載） | 29件のうち17件を統計で確認、そのうち6件の確率を直した | 判断の理由は manual/part10_review.md。反映は build/apply_event_freq.py。これで110件のうち98件が統計で確認済み、12件は推計のまま |

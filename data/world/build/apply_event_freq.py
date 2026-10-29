@@ -1,5 +1,5 @@
-"""第9部（Gemini の Deep Research）で確かめた、国ごとの出来事の確率を country_events.json に反映する。
-判断の理由は data/world/manual/part9_review.md。値は manual/jinsei_receipt_part9_*.csv の数字から計算した。
+"""第9部（Gemini の Deep Research）と第10部（ChatGPT の Deep Research）で確かめた、国ごとの出来事の確率を country_events.json に反映する。
+判断の理由は data/world/manual/part9_review.md・part10_review.md。値は manual/jinsei_receipt_part9_*.csv・part10_*.csv の数字から計算した。
 何度実行しても同じ結果になる。使い方: python3 -I data/world/build/apply_event_freq.py
 """
 import json, pathlib
@@ -104,6 +104,13 @@ CHECKED = {
     "deu_flood": (None, "洪水・大雨などの保険金の件数は2022〜2025年の平均で年約14.5万件、住宅4,290万戸の約0.3%（GDV・連邦統計局）"),
     "egy_gulf_work": (0.03, "アラブ諸国で働くための許可は年88.8万件で、賃金で働く人2,104万人の約4%（CAPMAS 2023年）"),
     "vnm_land": (None, "土地と住宅の取引は年約54万件で、全国の世帯の約1.9%（建設省・統計総局 2024年）"),
+    "kor_jeonse": (None, "賃貸世帯の約4割がチョンセ（2020年）。今の家に住んで2年以下の世帯は30%（国土交通部 住居実態調査 2024）"),
+    "kor_early_retire": (0.02, "55〜64歳で一番長く勤めた職場を離れた人の11.8%が、勧告退職・名誉退職・整理解雇（統計庁 2025年）"),
+    "kor_wedding_home": (None, "結婚しない理由に「結婚資金の不足」を挙げた人は31%（統計庁 社会調査 2024年）"),
+    "ken_school_fees": (None, "中等学校の生徒の約3割が全寮制の学校に通う（2014年の報告、二次情報）"),
+    "gen_rural_harvest": (0.1, "1年に干ばつ・不規則な雨にあった農家は、マラウイ61%、ウガンダ36%、ナイジェリア3%（世界銀行 LSMS-ISA）"),
+    "gen_scam_call": (None, "16歳以上の7.1%が1年に詐欺の被害にあう（英国統計局 イングランド・ウェールズ犯罪調査 2025年）"),
+    "gen_umc_lmc_gig": (0.02, "アプリを通して働く人は、ブラジルで民間の働く人の1.9%（IBGE 2024年）、インドで1.5%（NITI Aayog）"),
 }
 
 # 出る条件を直したもの（状況と合わない人に出ていた）
