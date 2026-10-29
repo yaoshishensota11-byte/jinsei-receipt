@@ -8,4 +8,4 @@
 ときどき「この作業が残っていますが、どうしますか？」とユーザーに聞く（区切りのよいところで、1回の返答につき1つまで）。
 
 - 保留：新しい出来事の候補（専門家の話し合いで「すぐ入れてよい」14件・「条件つき」13件。医師・留学、交通事故、ひとり親など）。統計が見つかったものだけ足す。日本でしか起きない出来事は日本だけに入れる。
-- 調査待ち：国ごとの出来事110件の確率と、国のリスク18か国の推計値（依頼文は data/world/manual/prompts/part9a〜h_prompt.md、Perplexity 用）。結果のCSVが届いたら country-data-research の手順で取り込む。
+- 調査待ち：国ごとの出来事110件の確率と、国のリスク18か国の推計値（依頼文は data/world/manual/prompts/part9a〜h_prompt.md。Gemini の Deep Research で調べる）。結果のCSVが届いたら country-data-research の手順で取り込む。

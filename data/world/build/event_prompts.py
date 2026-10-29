@@ -1,4 +1,4 @@
-# 国ごとの出来事（country_events.json）の「起きる確率」を統計で確かめるための、調査依頼文（Perplexity 向け）を作る。
+# 国ごとの出来事（country_events.json）の「起きる確率」を統計で確かめるための、調査依頼文（Gemini Deep Research・Perplexity 向け）を作る。
 # 使い方: python3 -I data/world/build/event_prompts.py  → data/world/manual/prompts/part9{a..h}_prompt.md
 # 出来事ごとに「何の割合を調べれば確率に直せるか」を STAT に書く。返ってきた CSV は field=event_freq:<id> で取り込む。
 import json, os
@@ -229,7 +229,7 @@ def main():
         total += n
         text = HEAD.replace("{tasks}", body)
         name = "・".join("共通の出来事" if i == "*" else EN.get(i, i) for i in isos)
-        md = f"# 第9部{key}：国ごとの出来事の確率（{name}、{n}件）\n\nPerplexity（Research モード）に、下のコードブロックをそのまま貼る。返ってきたCSVは jinsei_receipt_part9{key}.csv として保存する。\n\n```\n{text}```\n{FOOT}"
+        md = f"# 第9部{key}：国ごとの出来事の確率（{name}、{n}件）\n\nGemini の Deep Research（または Perplexity の Research モード）に、下のコードブロックをそのまま貼る。返ってきたCSVは jinsei_receipt_part9{key}.csv として保存する。\n\n```\n{text}```\n{FOOT}"
         with open(os.path.join(out_dir, f"part9{key}_prompt.md"), "w", encoding="utf-8") as f:
             f.write(md)
         print(f"part9{key}: {n}件")

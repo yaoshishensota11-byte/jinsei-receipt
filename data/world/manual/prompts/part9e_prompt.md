@@ -1,6 +1,6 @@
 # 第9部e：国ごとの出来事の確率（Mexico・Philippines・Egypt、14件）
 
-Perplexity（Research モード）に、下のコードブロックをそのまま貼る。返ってきたCSVは jinsei_receipt_part9e.csv として保存する。
+Gemini の Deep Research（または Perplexity の Research モード）に、下のコードブロックをそのまま貼る。返ってきたCSVは jinsei_receipt_part9e.csv として保存する。
 
 ```
 [Role]

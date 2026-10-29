@@ -1,6 +1,6 @@
 # 第9部h：国のリスクで推計のまま残っている値（18か国）
 
-Perplexity（Research モード）に、下のコードブロックをそのまま貼る。返ってきたCSVは jinsei_receipt_part9h.csv として保存する。
+Gemini の Deep Research（または Perplexity の Research モード）に、下のコードブロックをそのまま貼る。返ってきたCSVは jinsei_receipt_part9h.csv として保存する。
 
 ```
 [Role]

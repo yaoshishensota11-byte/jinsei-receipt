@@ -1,6 +1,6 @@
 # 第9部f：国ごとの出来事の確率（Ethiopia・Democratic Republic of the Congo・Viet Nam、15件）
 
-Perplexity（Research モード）に、下のコードブロックをそのまま貼る。返ってきたCSVは jinsei_receipt_part9f.csv として保存する。
+Gemini の Deep Research（または Perplexity の Research モード）に、下のコードブロックをそのまま貼る。返ってきたCSVは jinsei_receipt_part9f.csv として保存する。
 
 ```
 [Role]
