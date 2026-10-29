@@ -1,0 +1,12 @@
+iso3,country_en,field,value,unit,year,source_name,source_url,note
+PHL,Philippines,event_freq:phl_hospital_deposit,,annual_share,,,,全国の公的統計がないため空欄
+EGY,Egypt,event_freq:egy_pound_drop,3,years_count,1996-2026,IMF / Central Bank of Egypt,https://www.imf.org,過去30年で対米ドルが1年に30%以上下がった年の数（2016・2022・2024年など）。URLはトップページ
+EGY,Egypt,event_freq:egy_bread_subsidy,0.55,current_share,2024,USDA Foreign Agricultural Service,https://apps.fas.usda.gov/newgainapi/api/Report/DownloadReportByFileName?fileName=Egypt%20Increases%20Price%20for%20Subsidized%20Bread%20for%20First%20Time%20in%2036%20Years_Cairo_Egypt_EG2024-0013.pdf,補助金付きパン（スマートカード）を受け取っている人の割合（人口の約55%）
+EGY,Egypt,event_freq:egy_bread_subsidy,1,years_count,1994-2024,USDA Foreign Agricultural Service,https://apps.fas.usda.gov/newgainapi/api/Report/DownloadReportByFileName?fileName=Egypt%20Increases%20Price%20for%20Subsidized%20Bread%20for%20First%20Time%20in%2036%20Years_Cairo_Egypt_EG2024-0013.pdf,過去30年で補助金付きパンの価格が上がった年の数（2024年に36年ぶりの値上げ）
+EGY,Egypt,event_freq:egy_tutoring,0.42,current_share,2026,Egyptian Streets（CAPMASの報告をもとに）,https://egyptianstreets.com/2026/04/09/why-private-tutoring-rules-egypts-education/,高校生のうち私塾・家庭教師を使っている割合の下限（42〜60%）。ニュース経由（二次情報）
+EGY,Egypt,event_freq:egy_gulf_work,,annual_share,,,,公的な年間の統計がないため空欄
+EGY,Egypt,event_freq:egy_marriage_home,,period_share,,,,全国の公的統計がないため空欄
+ETH,Ethiopia,event_freq:eth_birr_float,1,years_count,1995-2024,National Bank of Ethiopia / Ahram Online,https://english.ahram.org.eg/News/528147.aspx,過去30年でブルが1年に30%以上下がった年の数（2024年）。ニュース経由
+ETH,Ethiopia,event_freq:eth_drought,,annual_share,,UN OCHA,https://www.unocha.org,10年平均の値がないため空欄
+ETH,Ethiopia,event_freq:eth_conflict_move,,annual_share,,IDMC,https://www.internal-displacement.org/countries/ethiopia/,10年平均の値がないため空欄（年ごとの新規避難者数はIDMCにある）
+ETH,Ethiopia,event_freq:eth_cbhi,0.40,current_share,2023,Global Health Action（系統的レビュー）,https://www.tandfonline.com/doi/full/10.1080/16549716.2023.2189764,CBHIが行われている地域の人口のうち加入している割合（約40.1%）
