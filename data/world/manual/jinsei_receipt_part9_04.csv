@@ -1,0 +1,11 @@
+iso3,country_en,field,value,unit,year,source_name,source_url,note
+PAK,Pakistan,event_freq:pak_gulf_work,,annual_share,2024,Bureau of Emigration and Overseas Employment (BEOE) Year Book,https://ophrd.gov.pk/SiteImage/Misc/files/Year%20Book%202024-25.pdf,20〜45歳の就業者を分母とした割合がないため空欄（年間の登録者数は年報にあるはず）
+PAK,Pakistan,event_freq:pak_heatwave,,years_count,2024,Pakistan Meteorological Department (PMD),,過去10年の熱波の年数をまとめた公式資料がないため空欄
+BGD,Bangladesh,event_freq:bgd_garment_job,,current_share,2022,Bangladesh Bureau of Statistics (BBS),https://rawshot.ai/statistic/bangladesh-textile-industry,16〜35歳に限った割合がないため空欄。URLは民間のまとめサイト
+BGD,Bangladesh,event_freq:bgd_flood,0.70,annual_share,2021,Concern Worldwide / Ministry of Disaster Management and Relief,https://concernusa.org/news/bangladesh-underwater-humanitarian-crisis/,国土または人口の約70%が毎年何らかの洪水の影響を受けるという報告値。NGOの記事で、過去10年平均の被災人口割合ではない（二次情報）
+BGD,Bangladesh,event_freq:bgd_cyclone,,annual_share,2024,Bangladesh Meteorological Department,,公式の10年平均がないため空欄
+BGD,Bangladesh,event_freq:bgd_microcredit,,current_share,2021,World Bank Global Findex Database,https://www.unepfi.org/wordpress/wp-content/uploads/2023/02/Findex-Data-Book-2021.pdf,農村の成人に限った値がないため空欄
+BGD,Bangladesh,event_freq:bgd_gulf_work,,annual_share,2024,Bureau of Manpower Employment and Training (BMET),https://www.rmmru.org/newsite/wp-content/uploads/2023/09/Migration-Trends-Report-2022.pdf,年間の出国者数はあるが割合の公式値がないため空欄
+IDN,Indonesia,event_freq:idn_earthquake,,annual_share,2021,Badan Nasional Penanggulangan Bencana (BNPB),https://gis.bnpb.go.id/,年平均の割合の公式値がないため空欄
+IDN,Indonesia,event_freq:idn_jakarta_flood,0.98,period_share,2021,BNPB / ResearchGate,https://www.researchgate.net/figure/Flood-Vulnerability-Map-of-DKI-Jakarta-from-Indonesias-BNPB-National-Disaster_fig5_393646573,ジャカルタの洪水リスク域の面積割合。1年間に実際に浸水した住民の割合ではない
+IDN,Indonesia,event_freq:idn_haze,,years_count,2019,BNPB / Ministry of Environment and Forestry,,煙害の年数・影響人口の公式な集計がないため空欄
