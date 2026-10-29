@@ -1,0 +1,4 @@
+iso3,country_en,field,value,unit,year,source_name,source_url,note
+MDG,Madagascar,homicide_rate,7.66,per100k,2015,UNODC Research Data Portal,https://dataunodc.un.org/,URLはトップページ
+CIV,Côte d'Ivoire,homicide_rate,4.87,per100k,2021,UNODC Research Data Portal,https://dataunodc.un.org/,URLはトップページ
+MLI,Mali,homicide_rate,10.82,per100k,2020,UNODC Research Data Portal,https://dataunodc.un.org/,URLはトップページ
