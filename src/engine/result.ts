@@ -225,7 +225,7 @@ function memoFor(l: Life, cat: ExpenseCat, amount: number): string {
       if (l.coLiveParents || l.home === "parents" || has("実家に戻った") || has("実家に移り住んだ")) return "実家に助けられた";
       return "家賃を払い続けた";
     case "kids":
-      return s.kids > 0 ? `子ども${s.kids}人分。いちばん高い買い物` : "—";
+      return s.kids > 0 ? `子ども${s.kids}人分の教育と暮らし` : "—";
     case "food":
       return "毎日のごはん";
     case "utilities":
@@ -237,11 +237,11 @@ function memoFor(l: Life, cat: ExpenseCat, amount: number): string {
     case "care":
       return has("要介護") && !l.choiceLog.some((c) => c.id === "parentCare" && ["facility", "home", "liveIn", "quit", "share"].includes(c.optionId))
         ? "自分の介護サービス"
-        : "親の介護、そして自分の";
+        : "親の介護と、自分の介護";
     case "fun":
       return l.lottery ? "宝くじ代を含む" : "趣味と付き合い";
     case "events":
-      return has("災害") || has("地震") ? "災害の修理を含む" : "冠婚葬祭と臨時の出費";
+      return has("災害") || has("地震") ? "災害の修理を含む" : "お祝いやお葬式など";
     case "selfEdu":
       return l.choiceLog.some((c) => /loan|night/.test(c.optionId)) ? "奨学金と学費" : "学び直しの費用";
     case "love": {

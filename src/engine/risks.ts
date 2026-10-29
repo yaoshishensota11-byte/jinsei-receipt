@@ -149,7 +149,7 @@ export function riskYear(l: Life, r: Rng): void {
       r.pick([
         l.vary("theft1", ["家に泥棒が入り、家電と現金を盗まれた。", "留守のあいだに空き巣に入られた。"]),
         l.vary("theft2", ["道でスマホと財布を奪われた。", "バスの中で財布をすられた。"]),
-        l.vary("theft3", ["仕事道具を盗まれ、買い直した。", "自転車（バイク）を盗まれ、買い直した。"]),
+        l.vary("theft3", ["仕事道具を盗まれ、買い直した。", "自転車を盗まれ、買い直した。"]),
       ]),
       -c,
     );
@@ -342,10 +342,12 @@ export function countryEventScene(l: Life, r: Rng): Scene | null {
         label: o.label,
         desc: o.desc,
         apply: (l: Life) => {
-          // 手元のお金が減る出来事でも、お金がなければ取られない（そのときは一言そえる）
+          // 手元のお金が減る出来事でも、お金がなければ減らない。結果の文が「減った」「取られた」と言うときだけ、一言そえる
           const nothing = (o.effects ?? []).some((x) => x.type === "cashLossPct") && l.cash <= 0;
           const m = applyEffects(l, o.effects ?? []);
-          l.logPre("life", (o.result || `${o.label}ことにした。`) + (nothing ? "ただ、手元にお金がなく、取られるものはなかった。" : ""), m || undefined);
+          const result = o.result || `${o.label}ことにした。`;
+          const note = !nothing ? "" : /詐欺|だまさ|取られ/.test(result) ? "ただ、手元にお金がなく、取られずに済んだ。" : /減|値段|値上|物価|倍/.test(result) ? "ただ、もともと貯金はほとんどなかった。" : "";
+          l.logPre("life", result + note, m || undefined);
         },
       })),
     };

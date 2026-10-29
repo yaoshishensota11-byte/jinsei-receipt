@@ -41,7 +41,7 @@ export function kidsScene(l: Life): Scene {
       },
       {
         id: "later",
-        label: "しばらくは二人で",
+        label: "しばらくはふたりで",
         desc: "仕事や貯金に集中できる。先に延ばすほど授かりにくくなる。",
         apply: (l, r) => {
           l.kidsPlan = "later";
@@ -62,7 +62,7 @@ export function kidsScene(l: Life): Scene {
   };
 }
 
-/** 「しばらくは二人で」から数年たったとき */
+/** 「しばらくはふたりで」から数年たったとき */
 export function kidsAgainScene(): Scene {
   return {
     id: "kidsAgain",
@@ -82,7 +82,7 @@ export function kidsAgainScene(): Scene {
       },
       {
         id: "none",
-        label: "やっぱり二人で生きる",
+        label: "やっぱりふたりで生きる",
         desc: "今の暮らしを続けられる。あとで気持ちが変わることもある。",
         apply: (l) => {
           l.kidsPlan = "none";

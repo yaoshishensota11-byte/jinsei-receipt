@@ -475,7 +475,7 @@ export const MICROS: Micro[] = [
     min: 55,
     max: 85,
     when: (l) => l.kids.some((k) => l.age - k.born >= 25),
-    title: "孫への援助",
+    title: "子ども夫婦への援助",
     situation: () => "子ども夫婦が家を買うらしい。援助してほしそうだ。",
     options: [
       { id: "a", label: "まとまった額を援助する", desc: "子どもは助かる。自分の老後資金が減る。", apply: (l) => { const c = Math.min(Math.max(0, l.cash) * 0.3, l.y(3_000_000)); l.spend("kids", c); l.logPre("family", "子ども夫婦に住宅資金を援助した。", -c); } },

@@ -193,13 +193,13 @@ export function loveScene(l: Life): Scene {
 export function arrangedScene(l: Life): Scene {
   const jp = l.D.isJapan;
   const who = l.sex === "male" ? "女性" : "男性";
-  const job = l.sex === "male" ? "近くの町で働く" : "親戚の知り合いで、仕事が安定している";
+  const job = l.sex === "male" ? "近くの町で働く" : "親戚の紹介で、仕事が安定している";
   return {
     id: "arranged",
     title: jp ? "お見合いの話" : "縁談",
     situation: jp
       ? `親の知り合いから、お見合いの話が来た。相手は${job}${who}。`
-      : `家族が縁談を持ってきた。相手は${job}${who}で、家どうしの話はまとまりかけている。${customLine(l)}`,
+      : `家族が縁談を持ってきた。相手は${job}${who}。家どうしの話は、まとまりかけている。${customLine(l)}`,
     options: [
       {
         id: "accept",

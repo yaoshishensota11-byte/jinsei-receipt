@@ -173,9 +173,11 @@ function build(c: WorldCountry): CountryData {
     max: i === 4 ? m * 2 : (m + means[i + 1]) / 2,
     share: 0.2,
   }));
+  // データの上の呼び名（「その他の都市」）は、文の中で不自然にならない言い方に直して見せる
+  const PLACE_LABEL: Record<string, string> = { その他の都市: "地方の都市", その他の農村部: "ほかの地域の農村" };
   const regions: Region[] = c.places.map((p, i) => ({
     id: `p${i}`,
-    label: p.nameJa,
+    label: PLACE_LABEL[p.nameJa] ?? p.nameJa,
     birthShare: p.share,
     wageIndex: clamp(p.incomeIndex, 0.35, 2.5),
     rentIndex: clamp(p.incomeIndex, 0.35, 2.5),

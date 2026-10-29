@@ -3869,7 +3869,7 @@ var country_events_default = [
     annualProb: 0.03,
     requires: "kid:10-12",
     title: "\u4E2D\u5B66\u53D7\u9A13",
-    situation: "\u5B50\u3069\u3082\u306E\u540C\u7D1A\u751F\u306E\u591A\u304F\u304C\u587E\u306B\u901A\u3044\u59CB\u3081\u3001\u4E2D\u5B66\u53D7\u9A13\u3092\u3059\u308B\u304B\u5BB6\u65CF\u3067\u8A71\u3057\u5408\u3063\u305F\u3002",
+    situation: "\u5B50\u3069\u3082\u306E\u540C\u7D1A\u751F\u306E\u591A\u304F\u304C\u587E\u306B\u901A\u3044\u306F\u3058\u3081\u3001\u4E2D\u5B66\u53D7\u9A13\u3092\u3059\u308B\u304B\u5BB6\u65CF\u3067\u8A71\u3057\u5408\u3063\u305F\u3002",
     options: [
       {
         id: "a",
@@ -3989,7 +3989,7 @@ var country_events_default = [
       },
       {
         id: "c",
-        label: "\u3059\u3050\u306B\u50CD\u304D\u59CB\u3081\u308B",
+        label: "\u3059\u3050\u306B\u50CD\u304D\u306F\u3058\u3081\u308B",
         desc: "\u501F\u91D1\u306F\u306A\u3044\u3002\u6607\u9032\u3067\u304D\u308B\u8077\u306F\u9650\u3089\u308C\u3084\u3059\u3044\u3002",
         effects: [
           {
@@ -4001,7 +4001,7 @@ var country_events_default = [
             value: 5e5
           }
         ],
-        result: "\u9AD8\u6821\u3092\u51FA\u3066\u3059\u3050\u306B\u50CD\u304D\u59CB\u3081\u305F\u3002"
+        result: "\u9AD8\u6821\u3092\u51FA\u3066\u3059\u3050\u306B\u50CD\u304D\u306F\u3058\u3081\u305F\u3002"
       }
     ],
     basis: "\u5B66\u58EB\u53D6\u5F97\u8005\u306E\u7D04\u534A\u6570\u304C\u5B66\u751F\u30ED\u30FC\u30F3\u3092\u5229\u7528\u3001\u5E73\u5747\u6B8B\u9AD8\u306F\u7D043\u4E07\u30C9\u30EB\uFF08College Board 2023\uFF09",
@@ -4133,7 +4133,7 @@ var country_events_default = [
     annualProb: 6e-3,
     requires: null,
     title: "\u30CF\u30EA\u30B1\u30FC\u30F3\u30FB\u5C71\u706B\u4E8B\u3067\u907F\u96E3",
-    situation: "\u5927\u578B\u306E\u30CF\u30EA\u30B1\u30FC\u30F3\uFF08\u307E\u305F\u306F\u5C71\u706B\u4E8B\uFF09\u304C\u8FD1\u3065\u304D\u3001\u5730\u57DF\u306B\u907F\u96E3\u547D\u4EE4\u304C\u51FA\u305F\u3002",
+    situation: "\u5927\u578B\u306E\u30CF\u30EA\u30B1\u30FC\u30F3\u3084\u5C71\u706B\u4E8B\u304C\u8FEB\u308A\u3001\u5730\u57DF\u306B\u907F\u96E3\u547D\u4EE4\u304C\u51FA\u305F\u3002",
     options: [
       {
         id: "a",
@@ -4293,7 +4293,7 @@ var country_events_default = [
             value: 1.04
           }
         ],
-        result: "\u5FA9\u8AAD\uFF08\u6D6A\u4EBA\uFF09\u30AF\u30E9\u30B9\u306B\u901A\u3044\u59CB\u3081\u305F\u3002"
+        result: "\u5FA9\u8AAD\uFF08\u6D6A\u4EBA\uFF09\u30AF\u30E9\u30B9\u306B\u901A\u3044\u306F\u3058\u3081\u305F\u3002"
       },
       {
         id: "b",
@@ -4469,7 +4469,7 @@ var country_events_default = [
     annualProb: 0.15,
     requires: "student",
     title: "\u5DE5\u5B66\u30FB\u533B\u5B66\u90E8\u306E\u5165\u8A66\u6E96\u5099",
-    situation: "\u5468\u308A\u306E\u591A\u304F\u304C\u5DE5\u5B66\u7CFB\u5165\u8A66\uFF08JEE\uFF09\u3084\u533B\u5B66\u90E8\u5165\u8A66\uFF08NEET\uFF09\u306E\u4E88\u5099\u6821\u306B\u901A\u3044\u59CB\u3081\u305F\u3002",
+    situation: "\u5468\u308A\u306E\u591A\u304F\u304C\u5DE5\u5B66\u7CFB\u5165\u8A66\uFF08JEE\uFF09\u3084\u533B\u5B66\u90E8\u5165\u8A66\uFF08NEET\uFF09\u306E\u4E88\u5099\u6821\u306B\u901A\u3044\u306F\u3058\u3081\u305F\u3002",
     options: [
       {
         id: "a",
@@ -5089,7 +5089,7 @@ var country_events_default = [
             value: 1.02
           }
         ],
-        result: "\u30EA\u30E4\u30C9\u3067\u904B\u8EE2\u624B\u3068\u3057\u3066\u50CD\u304D\u59CB\u3081\u305F\u3002"
+        result: "\u30EA\u30E4\u30C9\u3067\u904B\u8EE2\u624B\u3068\u3057\u3066\u50CD\u304D\u306F\u3058\u3081\u305F\u3002"
       },
       {
         id: "b",
@@ -5137,7 +5137,7 @@ var country_events_default = [
             value: 0.99
           }
         ],
-        result: "\u663C\u9593\u306F\u4F11\u307F\u3001\u591C\u660E\u3051\u306B\u50CD\u3044\u305F\u3002"
+        result: "\u6691\u3044\u663C\u9593\u306F\u4F11\u307F\u3001\u671D\u306E\u6DBC\u3057\u3044\u3046\u3061\u306B\u50CD\u3044\u305F\u3002"
       },
       {
         id: "b",
@@ -5185,7 +5185,7 @@ var country_events_default = [
             value: 1.02
           }
         ],
-        result: "\u30AC\u30B8\u30D7\u30FC\u30EB\u306E\u5DE5\u5834\u3067\u50CD\u304D\u59CB\u3081\u305F\u3002"
+        result: "\u30AC\u30B8\u30D7\u30FC\u30EB\u306E\u5DE5\u5834\u3067\u50CD\u304D\u306F\u3058\u3081\u305F\u3002"
       },
       {
         id: "b",
@@ -5809,7 +5809,7 @@ var country_events_default = [
             value: 1.04
           }
         ],
-        result: "\u4E88\u5099\u6821\u306B\u901A\u3044\u59CB\u3081\u305F\u3002"
+        result: "\u4E88\u5099\u6821\u306B\u901A\u3044\u306F\u3058\u3081\u305F\u3002"
       },
       {
         id: "b",
@@ -5862,7 +5862,7 @@ var country_events_default = [
       {
         id: "b",
         label: "\u30A2\u30D3\u30C8\u30A5\u30FC\u30A2\u3092\u53D6\u3063\u3066\u5927\u5B66\u3078",
-        desc: "\u5C02\u9580\u8077\u3078\u306E\u9053\u304C\u958B\u3051\u308B\u3002\u50CD\u304D\u59CB\u3081\u308B\u306E\u304C\u9045\u308C\u308B\u3002",
+        desc: "\u5C02\u9580\u8077\u3078\u306E\u9053\u304C\u958B\u3051\u308B\u3002\u50CD\u304D\u306F\u3058\u3081\u308B\u306E\u304C\u9045\u308C\u308B\u3002",
         effects: [
           {
             type: "cost",
@@ -6325,7 +6325,7 @@ var country_events_default = [
             value: 0.02
           }
         ],
-        result: "\u5BB6\u304B\u3089\u50CD\u3051\u306A\u3044\u65E5\u306F\u4F11\u307F\u3092\u53D6\u3063\u305F\u3002"
+        result: "\u5728\u5B85\u3067\u3067\u304D\u306A\u3044\u4ED5\u4E8B\u306E\u65E5\u306F\u3001\u4F11\u307F\u3092\u53D6\u3063\u305F\u3002"
       }
     ],
     basis: "2019\u301C20\u5E74\u30012023\u5E74\u306B\u5927\u898F\u6A21\u306A\u4EA4\u901A\u30B9\u30C8\u304C\u767A\u751F\uFF08\u5831\u9053\uFF09",
@@ -6549,7 +6549,7 @@ var country_events_default = [
             value: 1.03
           }
         ],
-        result: "\u56FD\u5883\u3092\u8D8A\u3048\u3001\u8FB2\u5834\u3067\u50CD\u304D\u59CB\u3081\u305F\u3002"
+        result: "\u56FD\u5883\u3092\u8D8A\u3048\u3001\u8FB2\u5834\u3067\u50CD\u304D\u306F\u3058\u3081\u305F\u3002"
       },
       {
         id: "b",
@@ -6645,7 +6645,7 @@ var country_events_default = [
             value: 0.05
           }
         ],
-        result: "\u5DE5\u5834\u3067\u50CD\u304D\u59CB\u3081\u3001IMSS\u306B\u52A0\u5165\u3057\u305F\u3002"
+        result: "\u5DE5\u5834\u3067\u50CD\u304D\u306F\u3058\u3081\u3001IMSS\u306B\u52A0\u5165\u3057\u305F\u3002"
       },
       {
         id: "b",
@@ -7101,7 +7101,7 @@ var country_events_default = [
             value: 1.2
           }
         ],
-        result: "\u30B8\u30C3\u30C0\u306E\u4F1A\u793E\u3067\u50CD\u304D\u59CB\u3081\u305F\u3002"
+        result: "\u30B8\u30C3\u30C0\u306E\u4F1A\u793E\u3067\u50CD\u304D\u306F\u3058\u3081\u305F\u3002"
       },
       {
         id: "b",
@@ -7261,7 +7261,7 @@ var country_events_default = [
     annualProb: 8e-3,
     requires: null,
     title: "\u5730\u57DF\u306E\u885D\u7A81\u306B\u3088\u308B\u907F\u96E3",
-    situation: "\u4F4F\u3093\u3067\u3044\u308B\u5730\u57DF\u3067\u6B66\u529B\u885D\u7A81\u304C\u8D77\u304D\u3001\u591A\u304F\u306E\u5BB6\u65CF\u304C\u753A\u3092\u96E2\u308C\u59CB\u3081\u305F\u3002",
+    situation: "\u4F4F\u3093\u3067\u3044\u308B\u5730\u57DF\u3067\u6B66\u529B\u885D\u7A81\u304C\u8D77\u304D\u3001\u591A\u304F\u306E\u5BB6\u65CF\u304C\u753A\u3092\u96E2\u308C\u306F\u3058\u3081\u305F\u3002",
     options: [
       {
         id: "a",
@@ -7401,7 +7401,7 @@ var country_events_default = [
     annualProb: 0.01,
     requires: null,
     title: "\u6771\u90E8\u306E\u885D\u7A81\u306B\u3088\u308B\u907F\u96E3",
-    situation: "\u4F4F\u3093\u3067\u3044\u308B\u5730\u57DF\u306E\u8FD1\u304F\u3067\u6B66\u88C5\u52E2\u529B\u306E\u885D\u7A81\u304C\u8D77\u304D\u3001\u4F4F\u6C11\u306E\u591A\u304F\u304C\u907F\u96E3\u3092\u59CB\u3081\u305F\u3002",
+    situation: "\u4F4F\u3093\u3067\u3044\u308B\u5730\u57DF\u306E\u8FD1\u304F\u3067\u6B66\u88C5\u52E2\u529B\u306E\u885D\u7A81\u304C\u8D77\u304D\u3001\u4F4F\u6C11\u306E\u591A\u304F\u304C\u907F\u96E3\u3092\u306F\u3058\u3081\u305F\u3002",
     options: [
       {
         id: "a",
@@ -7453,7 +7453,7 @@ var country_events_default = [
     annualProb: 0.02,
     requires: null,
     title: "\u611F\u67D3\u75C7\u306E\u6D41\u884C",
-    situation: "\u5730\u57DF\u3067\u30B3\u30EC\u30E9\uFF08\u307E\u305F\u306F\u30A8\u30E0\u30DD\u30C3\u30AF\u30B9\uFF09\u306E\u6D41\u884C\u304C\u5831\u544A\u3055\u308C\u305F\u3002",
+    situation: "\u5730\u57DF\u3067\u3001\u30B3\u30EC\u30E9\u306A\u3069\u306E\u611F\u67D3\u75C7\u306E\u6D41\u884C\u304C\u5831\u544A\u3055\u308C\u305F\u3002",
     options: [
       {
         id: "a",
@@ -7545,7 +7545,7 @@ var country_events_default = [
     annualProb: 0.03,
     requires: "rural",
     title: "\u624B\u6398\u308A\u9271\u5C71\u306E\u4ED5\u4E8B",
-    situation: "\u8FD1\u304F\u3067\u30B3\u30D0\u30EB\u30C8\uFF08\u307E\u305F\u306F\u91D1\uFF09\u306E\u624B\u6398\u308A\u9271\u5C71\u304C\u898B\u3064\u304B\u308A\u3001\u82E5\u8005\u304C\u50CD\u304D\u306B\u884C\u3063\u3066\u3044\u308B\u3002",
+    situation: "\u8FD1\u304F\u3067\u30B3\u30D0\u30EB\u30C8\u3084\u91D1\u306E\u624B\u6398\u308A\u9271\u5C71\u304C\u898B\u3064\u304B\u308A\u3001\u82E5\u8005\u304C\u50CD\u304D\u306B\u884C\u3063\u3066\u3044\u308B\u3002",
     options: [
       {
         id: "a",
@@ -7617,7 +7617,7 @@ var country_events_default = [
             value: true
           }
         ],
-        result: "\u5C11\u3057\u305A\u3064\u30C9\u30EB\u672D\u3092\u8CAF\u3081\u59CB\u3081\u305F\u3002"
+        result: "\u5C11\u3057\u305A\u3064\u30C9\u30EB\u672D\u3092\u8CAF\u3081\u306F\u3058\u3081\u305F\u3002"
       }
     ],
     basis: "\u7D4C\u6E08\u306E\u30C9\u30EB\u5316\u304C\u9032\u307F\u3001\u30D5\u30E9\u30F3\u306F2023\u5E74\u306B\u5BFE\u30C9\u30EB\u3067\u7D042\u5272\u4E0B\u843D\uFF08\u4E2D\u592E\u9280\u884C\uFF09",
@@ -7649,7 +7649,7 @@ var country_events_default = [
             value: 1.02
           }
         ],
-        result: "\u65B0\u3057\u3044\u30D0\u30A4\u30AF\u3067\u901A\u3044\u59CB\u3081\u305F\u3002"
+        result: "\u65B0\u3057\u3044\u30D0\u30A4\u30AF\u3067\u901A\u3044\u306F\u3058\u3081\u305F\u3002"
       },
       {
         id: "b",
@@ -7781,7 +7781,7 @@ var country_events_default = [
             value: 1.07
           }
         ],
-        result: "\u96FB\u5B50\u90E8\u54C1\u306E\u5DE5\u5834\u3067\u50CD\u304D\u59CB\u3081\u305F\u3002"
+        result: "\u96FB\u5B50\u90E8\u54C1\u306E\u5DE5\u5834\u3067\u50CD\u304D\u306F\u3058\u3081\u305F\u3002"
       },
       {
         id: "b",
@@ -8366,7 +8366,7 @@ var country_events_default = [
             value: 1.02
           }
         ],
-        result: "\u6708\u306B\u4E00\u5EA6\u306E\u96C6\u307E\u308A\u306B\u53C2\u52A0\u3057\u59CB\u3081\u305F\u3002"
+        result: "\u6708\u306B\u4E00\u5EA6\u306E\u96C6\u307E\u308A\u306B\u53C2\u52A0\u3057\u306F\u3058\u3081\u305F\u3002"
       },
       {
         id: "b",
@@ -8704,7 +8704,7 @@ var country_events_default = [
             value: 1.04
           }
         ],
-        result: "\u8077\u696D\u8A13\u7DF4\u6821\u306B\u901A\u3044\u59CB\u3081\u305F\u3002"
+        result: "\u8077\u696D\u8A13\u7DF4\u6821\u306B\u901A\u3044\u306F\u3058\u3081\u305F\u3002"
       }
     ],
     basis: "\u65B0\u8208\u56FD\u306E\u90FD\u5E02\u90E8\u3067\u30D7\u30E9\u30C3\u30C8\u30D5\u30A9\u30FC\u30E0\u52B4\u50CD\u304C\u6025\u5897\uFF08ILO World Employment and Social Outlook 2021\uFF09",
@@ -8817,7 +8817,7 @@ function riskYear(l, r) {
       r.pick([
         l.vary("theft1", ["\u5BB6\u306B\u6CE5\u68D2\u304C\u5165\u308A\u3001\u5BB6\u96FB\u3068\u73FE\u91D1\u3092\u76D7\u307E\u308C\u305F\u3002", "\u7559\u5B88\u306E\u3042\u3044\u3060\u306B\u7A7A\u304D\u5DE3\u306B\u5165\u3089\u308C\u305F\u3002"]),
         l.vary("theft2", ["\u9053\u3067\u30B9\u30DE\u30DB\u3068\u8CA1\u5E03\u3092\u596A\u308F\u308C\u305F\u3002", "\u30D0\u30B9\u306E\u4E2D\u3067\u8CA1\u5E03\u3092\u3059\u3089\u308C\u305F\u3002"]),
-        l.vary("theft3", ["\u4ED5\u4E8B\u9053\u5177\u3092\u76D7\u307E\u308C\u3001\u8CB7\u3044\u76F4\u3057\u305F\u3002", "\u81EA\u8EE2\u8ECA\uFF08\u30D0\u30A4\u30AF\uFF09\u3092\u76D7\u307E\u308C\u3001\u8CB7\u3044\u76F4\u3057\u305F\u3002"])
+        l.vary("theft3", ["\u4ED5\u4E8B\u9053\u5177\u3092\u76D7\u307E\u308C\u3001\u8CB7\u3044\u76F4\u3057\u305F\u3002", "\u81EA\u8EE2\u8ECA\u3092\u76D7\u307E\u308C\u3001\u8CB7\u3044\u76F4\u3057\u305F\u3002"])
       ]),
       -c
     );
@@ -8972,7 +8972,9 @@ function countryEventScene(l, r) {
         apply: (l2) => {
           const nothing = (o.effects ?? []).some((x) => x.type === "cashLossPct") && l2.cash <= 0;
           const m = applyEffects(l2, o.effects ?? []);
-          l2.logPre("life", (o.result || `${o.label}\u3053\u3068\u306B\u3057\u305F\u3002`) + (nothing ? "\u305F\u3060\u3001\u624B\u5143\u306B\u304A\u91D1\u304C\u306A\u304F\u3001\u53D6\u3089\u308C\u308B\u3082\u306E\u306F\u306A\u304B\u3063\u305F\u3002" : ""), m || void 0);
+          const result = o.result || `${o.label}\u3053\u3068\u306B\u3057\u305F\u3002`;
+          const note = !nothing ? "" : /詐欺|だまさ|取られ/.test(result) ? "\u305F\u3060\u3001\u624B\u5143\u306B\u304A\u91D1\u304C\u306A\u304F\u3001\u53D6\u3089\u308C\u305A\u306B\u6E08\u3093\u3060\u3002" : /減|値段|値上|物価|倍/.test(result) ? "\u305F\u3060\u3001\u3082\u3068\u3082\u3068\u8CAF\u91D1\u306F\u307B\u3068\u3093\u3069\u306A\u304B\u3063\u305F\u3002" : "";
+          l2.logPre("life", result + note, m || void 0);
         }
       }))
     };
@@ -9587,7 +9589,7 @@ var MICROS = [
     min: 55,
     max: 85,
     when: (l) => l.kids.some((k) => l.age - k.born >= 25),
-    title: "\u5B6B\u3078\u306E\u63F4\u52A9",
+    title: "\u5B50\u3069\u3082\u592B\u5A66\u3078\u306E\u63F4\u52A9",
     situation: () => "\u5B50\u3069\u3082\u592B\u5A66\u304C\u5BB6\u3092\u8CB7\u3046\u3089\u3057\u3044\u3002\u63F4\u52A9\u3057\u3066\u307B\u3057\u305D\u3046\u3060\u3002",
     options: [
       { id: "a", label: "\u307E\u3068\u307E\u3063\u305F\u984D\u3092\u63F4\u52A9\u3059\u308B", desc: "\u5B50\u3069\u3082\u306F\u52A9\u304B\u308B\u3002\u81EA\u5206\u306E\u8001\u5F8C\u8CC7\u91D1\u304C\u6E1B\u308B\u3002", apply: (l) => {
@@ -9719,7 +9721,7 @@ function kidsScene(l) {
       },
       {
         id: "later",
-        label: "\u3057\u3070\u3089\u304F\u306F\u4E8C\u4EBA\u3067",
+        label: "\u3057\u3070\u3089\u304F\u306F\u3075\u305F\u308A\u3067",
         desc: "\u4ED5\u4E8B\u3084\u8CAF\u91D1\u306B\u96C6\u4E2D\u3067\u304D\u308B\u3002\u5148\u306B\u5EF6\u3070\u3059\u307B\u3069\u6388\u304B\u308A\u306B\u304F\u304F\u306A\u308B\u3002",
         apply: (l2, r) => {
           l2.kidsPlan = "later";
@@ -9758,7 +9760,7 @@ function kidsAgainScene() {
       },
       {
         id: "none",
-        label: "\u3084\u3063\u3071\u308A\u4E8C\u4EBA\u3067\u751F\u304D\u308B",
+        label: "\u3084\u3063\u3071\u308A\u3075\u305F\u308A\u3067\u751F\u304D\u308B",
         desc: "\u4ECA\u306E\u66AE\u3089\u3057\u3092\u7D9A\u3051\u3089\u308C\u308B\u3002\u3042\u3068\u3067\u6C17\u6301\u3061\u304C\u5909\u308F\u308B\u3053\u3068\u3082\u3042\u308B\u3002",
         apply: (l) => {
           l.kidsPlan = "none";
@@ -11284,11 +11286,11 @@ function loveScene(l) {
 function arrangedScene(l) {
   const jp2 = l.D.isJapan;
   const who = l.sex === "male" ? "\u5973\u6027" : "\u7537\u6027";
-  const job = l.sex === "male" ? "\u8FD1\u304F\u306E\u753A\u3067\u50CD\u304F" : "\u89AA\u621A\u306E\u77E5\u308A\u5408\u3044\u3067\u3001\u4ED5\u4E8B\u304C\u5B89\u5B9A\u3057\u3066\u3044\u308B";
+  const job = l.sex === "male" ? "\u8FD1\u304F\u306E\u753A\u3067\u50CD\u304F" : "\u89AA\u621A\u306E\u7D39\u4ECB\u3067\u3001\u4ED5\u4E8B\u304C\u5B89\u5B9A\u3057\u3066\u3044\u308B";
   return {
     id: "arranged",
     title: jp2 ? "\u304A\u898B\u5408\u3044\u306E\u8A71" : "\u7E01\u8AC7",
-    situation: jp2 ? `\u89AA\u306E\u77E5\u308A\u5408\u3044\u304B\u3089\u3001\u304A\u898B\u5408\u3044\u306E\u8A71\u304C\u6765\u305F\u3002\u76F8\u624B\u306F${job}${who}\u3002` : `\u5BB6\u65CF\u304C\u7E01\u8AC7\u3092\u6301\u3063\u3066\u304D\u305F\u3002\u76F8\u624B\u306F${job}${who}\u3067\u3001\u5BB6\u3069\u3046\u3057\u306E\u8A71\u306F\u307E\u3068\u307E\u308A\u304B\u3051\u3066\u3044\u308B\u3002${customLine(l)}`,
+    situation: jp2 ? `\u89AA\u306E\u77E5\u308A\u5408\u3044\u304B\u3089\u3001\u304A\u898B\u5408\u3044\u306E\u8A71\u304C\u6765\u305F\u3002\u76F8\u624B\u306F${job}${who}\u3002` : `\u5BB6\u65CF\u304C\u7E01\u8AC7\u3092\u6301\u3063\u3066\u304D\u305F\u3002\u76F8\u624B\u306F${job}${who}\u3002\u5BB6\u3069\u3046\u3057\u306E\u8A71\u306F\u3001\u307E\u3068\u307E\u308A\u304B\u3051\u3066\u3044\u308B\u3002${customLine(l)}`,
     options: [
       {
         id: "accept",
@@ -12130,14 +12132,23 @@ var Life = class {
   birthEvents() {
     const s = this.sex === "male" ? "\u7537\u306E\u5B50" : "\u5973\u306E\u5B50";
     const h = this.heir;
-    if (h) this.log("life", `${this.year}\u5E74\u3001${this.region.label}\u306B\u3001${h.gen - 1}\u4EE3\u76EE\u306E\u3042\u306A\u305F\u306E${h.nth}\uFF08${s}\uFF09\u3068\u3057\u3066\u751F\u307E\u308C\u305F\u3002\u5BB6\u5EAD\u306E\u5E74\u53CE\u306F${this.band.label}\u3002`, void 0, true);
-    else this.log("life", `${this.year}\u5E74\u3001${this.region.label}\u306B${s}\u3068\u3057\u3066\u751F\u307E\u308C\u305F\u3002\u5BB6\u5EAD\u306E\u5E74\u53CE\u306F${this.band.label}\u3002`, void 0, true);
+    if (h) this.log("life", `${this.year}\u5E74\u3001${this.region.label}\u306B\u3001${h.gen - 1}\u4EE3\u76EE\u306E\u3042\u306A\u305F\u306E${h.nth}\uFF08${s}\uFF09\u3068\u3057\u3066\u751F\u307E\u308C\u305F\u3002${this.bandSentence()}`, void 0, true);
+    else this.log("life", `${this.year}\u5E74\u3001${this.region.label}\u306B${s}\u3068\u3057\u3066\u751F\u307E\u308C\u305F\u3002${this.bandSentence()}`, void 0, true);
     if (h && (h.eduBoost ?? 0) >= 0.03) this.log("family", `${h.gen - 1}\u4EE3\u76EE\u306E\u3042\u306A\u305F\u306F\u3001\u6559\u80B2\u306E\u305F\u3081\u306E\u304A\u91D1\u3092\u7528\u610F\u3057\u3066\u304F\u308C\u3066\u3044\u305F\u3002`, void 0, true);
-    const olders = this.sibs.filter((x) => x.born < 0);
-    if (olders.length) {
-      const words = olders.map((x) => `${-x.born}\u6B73\u306E${x.sex === "male" ? "\u5144" : "\u59C9"}`);
-      this.log("family", `\u5BB6\u306B\u306F${words.join("\u3068")}\u304C\u3044\u308B\u3002`);
-    }
+    const olders = this.sibs.filter((x) => x.born < 0).sort((a, b) => a.born - b.born);
+    const group = (sex, word) => {
+      const g = olders.filter((x) => x.sex === sex);
+      if (!g.length) return "";
+      return g.length === 1 ? `${word}\uFF08${-g[0].born}\u6B73\uFF09` : `${word}${g.length}\u4EBA\uFF08${g.map((x) => `${-x.born}\u6B73`).join("\u30FB")}\uFF09`;
+    };
+    const words = [group("male", "\u5144"), group("female", "\u59C9")].filter(Boolean);
+    if (words.length) this.log("family", `\u5BB6\u306B\u306F${words.join("\u3068\u3001")}\u304C\u3044\u308B\u3002`);
+  }
+  /** 生まれた家庭の年収の文（日本は「家庭の年収は400万円未満。」、ほかの国は「ふつうの家庭で、年収は約30万ペソ。」） */
+  bandSentence() {
+    const m = /^(.*?)（年収 (.*)）$/.exec(this.band.label);
+    if (m) return `${m[1]}\u3067\u3001\u5E74\u53CE\u306F${m[2]}\u3002`;
+    return `\u5BB6\u5EAD\u306E\u5E74\u53CE\u306F${this.band.label.replace(/^年収/, "")}\u3002`;
   }
   schoolYear(r) {
     const a = this.age;
@@ -12337,12 +12348,12 @@ var Life = class {
     this.dating = false;
     this.noMarry = false;
     this.kidsPlan = "undecided";
-    this.log("family", `${text}\uFF08\u76F8\u624B\u306F${pAge}\u6B73\uFF09`, void 0, true);
+    this.log("family", `${text.replace(/。$/, "")}\uFF08\u76F8\u624B\u306F${pAge}\u6B73\uFF09\u3002`, void 0, true);
     this.queueScene(kidsScene(this));
     if (ceremony ?? r.chance(0.5)) {
       const net = this.D.living.weddingCost * 0.45;
       this.spend("love", net);
-      this.log("money", "\u7D50\u5A5A\u5F0F\u3092\u6319\u3052\u305F\u3002\u3054\u795D\u5100\u3067\u534A\u5206\u307B\u3069\u623B\u3063\u305F\u3002", -net);
+      this.log("money", "\u7D50\u5A5A\u5F0F\u3092\u6319\u3052\u305F\u3002\u8CBB\u7528\u306E\u534A\u5206\u307B\u3069\u306F\u3001\u3054\u795D\u5100\u3067\u623B\u3063\u3066\u304D\u305F\u3002", -net);
     }
     if (this.home === "parents" && this.school === "done") this.home = "rent";
   }
@@ -12608,7 +12619,7 @@ var Life = class {
       this.heldHouse = h.homeShare;
       if (a < 18) {
         const other2 = this.parents[h.parentIdx === 0 ? 1 : 0].alive;
-        this.log("life", other2 ? "\u89AA\u304C\u6B8B\u3057\u305F\u5BB6\u3067\u3001\u305D\u306E\u307E\u307E\u66AE\u3089\u3057\u7D9A\u3051\u305F\u3002" : "\u89AA\u304C\u6B8B\u3057\u305F\u5BB6\u306B\u3001\u89AA\u305B\u304D\u306B\u898B\u5B88\u3089\u308C\u306A\u304C\u3089\u4F4F\u307F\u7D9A\u3051\u305F\u3002", void 0, true);
+        this.log("life", other2 ? "\u89AA\u304C\u6B8B\u3057\u305F\u5BB6\u3067\u3001\u305D\u306E\u307E\u307E\u66AE\u3089\u3057\u7D9A\u3051\u305F\u3002" : "\u89AA\u304C\u6B8B\u3057\u305F\u5BB6\u306B\u3001\u89AA\u621A\u306B\u898B\u5B88\u3089\u308C\u306A\u304C\u3089\u4F4F\u307F\u7D9A\u3051\u305F\u3002", void 0, true);
       } else this.queueScene(heldHouseScene(this));
     }
     if (!h.estate && !h.homeShare && !h.debt) this.log("money", "\u89AA\u306E\u907A\u7523\u306F\u307B\u3068\u3093\u3069\u306A\u304B\u3063\u305F\u3002");
@@ -12794,7 +12805,7 @@ var Life = class {
       const pen = this.pensionAnnual();
       this.addIncome("pension", pen);
       if (a === this.pensionStart)
-        this.log("money", pen > 0 ? `\u5E74\u91D1\u3092\u53D7\u3051\u53D6\u308A\u306F\u3058\u3081\u305F\uFF08\u5E74${this.D.fmt(pen)}\uFF09\u3002` : "\u5E74\u91D1\u306B\u306F\u5165\u3063\u3066\u3044\u306A\u304B\u3063\u305F\u3002\u3053\u308C\u304B\u3089\u306F\u8CAF\u3048\u3068\u5BB6\u65CF\u304C\u983C\u308A\u3002", void 0, true);
+        this.log("money", pen > 0 ? `\u5E74\u91D1\u3092\u53D7\u3051\u53D6\u308A\u306F\u3058\u3081\u305F\u3002\u5E74\u306B${this.D.fmt(pen)}\u3002` : "\u5E74\u91D1\u306B\u306F\u5165\u3063\u3066\u3044\u306A\u304B\u3063\u305F\u3002\u3053\u308C\u304B\u3089\u306F\u8CAF\u3048\u3068\u5BB6\u65CF\u304C\u983C\u308A\u3002", void 0, true);
     }
     if (this.partner?.alive && this.partner.age >= 65) this.addIncome("partner", this.partnerPension());
     if (this.widowed && a >= 60 && this.D.isJapan) this.addIncome("pension", this.D.ev.pensionMonthly.kosei_avg * 12 * 0.35);
@@ -13125,7 +13136,7 @@ function buildChoice(l, id) {
           opt("univ_loan", "\u5968\u5B66\u91D1\u3092\u501F\u308A\u3066\u5927\u5B66\u3078", "\u5927\u5352\u306E\u9053\u304C\u958B\u304F\u3002\u6570\u767E\u4E07\u5186\u306E\u8FD4\u6E08\u3068\u3001\u30A2\u30EB\u30D0\u30A4\u30C8\u6F2C\u3051\u306E\u65E5\u3005\u3002"),
           opt("univ_night", "\u50CD\u304D\u306A\u304C\u3089\u591C\u9593\u306E\u5927\u5B66\u3078", "\u501F\u91D1\u306F\u5C11\u306A\u3044\u3002\u5352\u696D\u307E\u3067\u305F\u3069\u308A\u7740\u3051\u308B\u304B\u306F\u4F53\u529B\u6B21\u7B2C\u3002"),
           opt("voc_loan", "\u5968\u5B66\u91D1\u3067\u5C02\u9580\u5B66\u6821\u3078", "2\u5E74\u3067\u624B\u306B\u8077\u3002\u696D\u754C\u306B\u3088\u3063\u3066\u7D66\u6599\u306E\u5DEE\u304C\u5927\u304D\u3044\u3002"),
-          opt("job", "\u5C31\u8077\u3059\u308B", "\u3059\u3050\u306B\u7A3C\u3052\u308B\u3002\u9AD8\u5352\u306E\u7D66\u6599\u30AB\u30FC\u30D6\u306B\u306A\u308B\u3002")
+          opt("job", "\u5C31\u8077\u3059\u308B", "\u3059\u3050\u306B\u7A3C\u3052\u308B\u3002\u7D66\u6599\u306F\u9AD8\u5352\u306E\u6C34\u6E96\u3067\u4E0A\u304C\u3063\u3066\u3044\u304F\u3002")
         );
       } else {
         situation = "\u5927\u5B66\u306B\u884C\u304F\u306A\u3089\u5B66\u8CBB\u306F\u89AA\u304C\u51FA\u3057\u3066\u304F\u308C\u308B\u3089\u3057\u3044\u3002";
@@ -13164,7 +13175,7 @@ function buildChoice(l, id) {
       options.push(
         opt("index", "\u6BCE\u6708\u30B3\u30C4\u30B3\u30C4\u7A4D\u7ACB\u6295\u8CC7", "\u9577\u304F\u7D9A\u3051\u308C\u3070\u5897\u3048\u3084\u3059\u3044\u3002\u66B4\u843D\u306E\u5E74\u306F\u8CC7\u7523\u304C\u76EE\u6E1B\u308A\u3059\u308B\u3002"),
         opt("stocks", "\u500B\u5225\u682A\u3067\u653B\u3081\u308B", "\u5927\u304D\u304F\u5897\u3048\u308B\u3053\u3068\u3082\u3001\u5927\u304D\u304F\u6E1B\u308B\u3053\u3068\u3082\u3042\u308B\u3002"),
-        opt("deposit", "\u8CAF\u91D1\u3060\u3051\u306B\u3059\u308B", "\u5143\u672C\u306F\u6E1B\u3089\u306A\u3044\u3002\u30A4\u30F3\u30D5\u30EC\u306B\u306F\u5F31\u304F\u3001\u307B\u307C\u5897\u3048\u306A\u3044\u3002"),
+        opt("deposit", "\u8CAF\u91D1\u3060\u3051\u306B\u3059\u308B", "\u91D1\u984D\u306F\u6E1B\u3089\u306A\u3044\u3002\u7269\u4FA1\u304C\u4E0A\u304C\u308B\u3068\u76EE\u6E1B\u308A\u3057\u3001\u307B\u307C\u5897\u3048\u306A\u3044\u3002"),
         opt("self", "\u81EA\u5206\u306B\u6295\u8CC7\u3059\u308B\uFF08\u8CC7\u683C\u30FB\u30B9\u30AD\u30EB\uFF09", "\u6570\u5E74\u9593\u306E\u51FA\u8CBB\u3002\u53CE\u5165\u304C\u4E0A\u304C\u308B\u4FDD\u8A3C\u306F\u306A\u3044\u3002")
       );
       break;
@@ -13173,7 +13184,7 @@ function buildChoice(l, id) {
       title = "\u7D50\u5A5A\u3068\u4F4F\u307E\u3044";
       const p = l.partner;
       if (p) {
-        situation = `\u7D50\u5A5A\u3057\u3066${a - l.partnerSince}\u5E74\u3002\u5B50\u3069\u3082\u306F${l.kids.length}\u4EBA\u3002\u4F4F\u307E\u3044\u3092\u3069\u3046\u3059\u308B\uFF1F`;
+        situation = `\u7D50\u5A5A\u3057\u3066${a - l.partnerSince}\u5E74\u3002${l.kids.length ? `\u5B50\u3069\u3082\u306F${l.kids.length}\u4EBA\u3002` : ""}\u4F4F\u307E\u3044\u3092\u3069\u3046\u3059\u308B\uFF1F`;
         options.push(
           opt("rent", "\u8CC3\u8CB8\u306E\u307E\u307E\u66AE\u3089\u3059", "\u8EAB\u8EFD\u306B\u5F15\u3063\u8D8A\u305B\u308B\u3002\u5BB6\u8CC3\u306F\u4E00\u751F\u304B\u304B\u308B\u3002"),
           opt("buy", "\u5BB6\u3092\u8CB7\u3046\uFF0835\u5E74\u30ED\u30FC\u30F3\uFF09", "\u8001\u5F8C\u306E\u5BB6\u8CC3\u306F\u304B\u304B\u3089\u306A\u3044\u3002\u707D\u5BB3\u3084\u4FEE\u7E55\u306E\u30EA\u30B9\u30AF\u3001\u30ED\u30FC\u30F3\u8FD4\u6E08\u304C\u7D9A\u304F\u3002")
@@ -13184,7 +13195,7 @@ function buildChoice(l, id) {
         if (met) {
           situation = l.dating ? `\u4ED8\u304D\u5408\u3063\u3066${Math.max(1, a - l.datingSince)}\u5E74\u306E\u604B\u4EBA\u304B\u3089\u3001\u5C06\u6765\u306E\u8A71\u3092\u3055\u308C\u305F\u3002` : "\u4ED8\u304D\u5408\u3063\u3066\u3044\u308B\u4EBA\u304B\u3089\u3001\u5C06\u6765\u306E\u8A71\u3092\u3055\u308C\u305F\u3002";
           options.push(
-            opt("marryRent", "\u7D50\u5A5A\u3057\u3066\u8CC3\u8CB8\u3067\u66AE\u3089\u3059", "\u4E8C\u4EBA\u306E\u53CE\u5165\u3067\u66AE\u3089\u3057\u304C\u5B89\u5B9A\u3057\u3084\u3059\u3044\u3002\u51FA\u8CBB\u3082\u5897\u3048\u308B\u3002"),
+            opt("marryRent", "\u7D50\u5A5A\u3057\u3066\u8CC3\u8CB8\u3067\u66AE\u3089\u3059", "\u3075\u305F\u308A\u306E\u53CE\u5165\u3067\u66AE\u3089\u3057\u304C\u5B89\u5B9A\u3057\u3084\u3059\u3044\u3002\u51FA\u8CBB\u3082\u5897\u3048\u308B\u3002"),
             opt("marryBuy", "\u7D50\u5A5A\u3057\u3066\u5BB6\u3092\u8CB7\u3046", "\u6301\u3061\u5BB6\u3067\u843D\u3061\u7740\u3051\u308B\u3002\u30ED\u30FC\u30F3\u304C\u9577\u304F\u7D9A\u304F\u3002"),
             opt("single", "\u7D50\u5A5A\u306F\u3057\u306A\u3044", "\u81EA\u7531\u306B\u4F7F\u3048\u308B\u304A\u91D1\u3068\u6642\u9593\u3002\u8001\u5F8C\u306F\u4E00\u4EBA\u3067\u5099\u3048\u308B\u3002")
           );
@@ -13204,7 +13215,7 @@ function buildChoice(l, id) {
       title = "\u8EE2\u8077\u30FB\u72EC\u7ACB";
       const j = l.job;
       if (j === "big" || j === "sme" || j === "civil") {
-        situation = `${a}\u6B73\u3001${jobLabel(j)}${l.manager ? "\u306E\u7BA1\u7406\u8077" : ""}\u3002\u5E74\u53CE\u306F${l.D.fmt(l.salaryOf(a))}\u307B\u3069\u3002`;
+        situation = `${a}\u6B73\u3001${l.manager ? jobLabel(j).replace(/の正社員$/, "") + "\u306E\u7BA1\u7406\u8077" : jobLabel(j)}\u3002\u5E74\u53CE\u306F${l.D.fmt(l.salaryOf(a))}\u307B\u3069\u3002`;
         options.push(
           opt("stay", "\u4ECA\u306E\u8077\u5834\u306B\u6B8B\u308B", "\u6607\u9032\u306E\u30C1\u30E3\u30F3\u30B9\u306F\u3042\u308B\u3002\u4F1A\u793E\u306E\u90FD\u5408\u306B\u632F\u308A\u56DE\u3055\u308C\u308B\u3053\u3068\u3082\u3002"),
           opt("change", "\u8EE2\u8077\u3059\u308B", "\u7D66\u6599\u304C\u4E0A\u304C\u308B\u304B\u3082\u3057\u308C\u306A\u3044\u3057\u3001\u4E0B\u304C\u308B\u304B\u3082\u3057\u308C\u306A\u3044\u3002"),
@@ -13270,7 +13281,7 @@ function buildChoice(l, id) {
     case "retire": {
       title = "\u9000\u8077\u306E\u6642\u671F";
       const working2 = l.job !== "none" && l.job !== "retired";
-      situation = working2 ? `${a}\u6B73\u3002\u4F1A\u793E\u54E1\u306A\u3089\u5B9A\u5E74\u306E\u5E74\u3002\u8CAF\u3048\u306F${l.D.fmt(l.balance)}\u3002` : `${a}\u6B73\u3002\u8CAF\u3048\u306F${l.D.fmt(l.balance)}\u3002${l.D.isJapan ? "\u5E74\u91D1\u306F65\u6B73\u304B\u3089\u3002" : ""}`;
+      situation = working2 ? `${a}\u6B73\u3002\u4F1A\u793E\u54E1\u306A\u3089\u5B9A\u5E74\u306E\u5E74\u3002${savingsText(l)}` : `${a}\u6B73\u3002${savingsText(l)}${l.D.isJapan ? "\u5E74\u91D1\u306F65\u6B73\u304B\u3089\u3002" : ""}`;
       if (working2) {
         options.push(
           opt("r60", "60\u6B73\u3067\u5F15\u9000\u3059\u308B", "\u81EA\u7531\u306A\u6642\u9593\u304C\u5897\u3048\u308B\u3002\u5E74\u91D1\u307E\u30675\u5E74\u306F\u8CAF\u3048\u3067\u66AE\u3089\u3059\u3002"),
@@ -13290,6 +13301,9 @@ function buildChoice(l, id) {
   }
   if (options.length === 0) options.push(opt("default", "\u6D41\u308C\u306B\u4EFB\u305B\u308B", "\u7279\u306B\u4F55\u3082\u5909\u3048\u306A\u3044\u3002"));
   return { id, age: a, title, situation, options };
+}
+function savingsText(l) {
+  return l.balance >= 0 ? `\u8CAF\u3048\u306F${l.D.fmt(l.balance)}\u3002` : `\u8CAF\u3048\u306F\u306A\u304F\u3001\u501F\u91D1\u304C${l.D.fmt(-l.balance)}\u3042\u308B\u3002`;
 }
 function jobLabel(j) {
   return {
@@ -13524,7 +13538,7 @@ function applyChoice(l, id, o, r) {
         const v = l.region.id === "tokyo" ? r.range(l.y(1e7), l.y(4e7)) : l.region.id === "rural" ? r.chance(0.4) ? 0 : r.range(l.y(1e6), l.y(6e6)) : r.range(l.y(3e6), l.y(15e6));
         const share = v / (l.siblings + 1);
         l.addIncome("windfall", share);
-        l.logPre("money", v > 0 ? `\u5B9F\u5BB6\u3092\u58F2\u3063\u305F\u3002\u624B\u5143\u306B${l.D.fmt(share)}\u3002` : "\u5B9F\u5BB6\u306F\u8CB7\u3044\u624B\u304C\u3064\u304B\u305A\u3001\u89E3\u4F53\u8CBB\u3060\u3051\u304B\u304B\u3063\u305F\u3002", v > 0 ? share : -l.y(15e5), true);
+        l.logPre("money", v > 0 ? l.siblings > 0 ? "\u5B9F\u5BB6\u3092\u58F2\u308A\u3001\u304D\u3087\u3046\u3060\u3044\u3067\u5206\u3051\u305F\u3002" : "\u5B9F\u5BB6\u3092\u58F2\u3063\u305F\u3002" : "\u5B9F\u5BB6\u306F\u8CB7\u3044\u624B\u304C\u3064\u304B\u305A\u3001\u89E3\u4F53\u8CBB\u3060\u3051\u304B\u304B\u3063\u305F\u3002", v > 0 ? share : -l.y(15e5), true);
         if (v === 0) l.spend("housing", l.y(15e5));
       } else if (o === "keepHouse") {
         l.keepHouseCost = true;
@@ -23890,9 +23904,10 @@ function build(c) {
     max: i === 4 ? m * 2 : (m + means[i + 1]) / 2,
     share: 0.2
   }));
+  const PLACE_LABEL = { \u305D\u306E\u4ED6\u306E\u90FD\u5E02: "\u5730\u65B9\u306E\u90FD\u5E02", \u305D\u306E\u4ED6\u306E\u8FB2\u6751\u90E8: "\u307B\u304B\u306E\u5730\u57DF\u306E\u8FB2\u6751" };
   const regions = c.places.map((p, i) => ({
     id: `p${i}`,
-    label: p.nameJa,
+    label: PLACE_LABEL[p.nameJa] ?? p.nameJa,
     birthShare: p.share,
     wageIndex: clamp(p.incomeIndex, 0.35, 2.5),
     rentIndex: clamp(p.incomeIndex, 0.35, 2.5),
@@ -24104,7 +24119,7 @@ function memoFor(l, cat, amount) {
       if (l.coLiveParents || l.home === "parents" || has("\u5B9F\u5BB6\u306B\u623B\u3063\u305F") || has("\u5B9F\u5BB6\u306B\u79FB\u308A\u4F4F\u3093\u3060")) return "\u5B9F\u5BB6\u306B\u52A9\u3051\u3089\u308C\u305F";
       return "\u5BB6\u8CC3\u3092\u6255\u3044\u7D9A\u3051\u305F";
     case "kids":
-      return s.kids > 0 ? `\u5B50\u3069\u3082${s.kids}\u4EBA\u5206\u3002\u3044\u3061\u3070\u3093\u9AD8\u3044\u8CB7\u3044\u7269` : "\u2014";
+      return s.kids > 0 ? `\u5B50\u3069\u3082${s.kids}\u4EBA\u5206\u306E\u6559\u80B2\u3068\u66AE\u3089\u3057` : "\u2014";
     case "food":
       return "\u6BCE\u65E5\u306E\u3054\u306F\u3093";
     case "utilities":
@@ -24114,11 +24129,11 @@ function memoFor(l, cat, amount) {
     case "medical":
       return has("\u304C\u3093") ? "\u304C\u3093\u6CBB\u7642\u3092\u542B\u3080" : has("\u5165\u9662") ? "\u5165\u9662\u3082\u7D4C\u9A13\u3057\u305F" : "\u901A\u9662\u3068\u85AC";
     case "care":
-      return has("\u8981\u4ECB\u8B77") && !l.choiceLog.some((c) => c.id === "parentCare" && ["facility", "home", "liveIn", "quit", "share"].includes(c.optionId)) ? "\u81EA\u5206\u306E\u4ECB\u8B77\u30B5\u30FC\u30D3\u30B9" : "\u89AA\u306E\u4ECB\u8B77\u3001\u305D\u3057\u3066\u81EA\u5206\u306E";
+      return has("\u8981\u4ECB\u8B77") && !l.choiceLog.some((c) => c.id === "parentCare" && ["facility", "home", "liveIn", "quit", "share"].includes(c.optionId)) ? "\u81EA\u5206\u306E\u4ECB\u8B77\u30B5\u30FC\u30D3\u30B9" : "\u89AA\u306E\u4ECB\u8B77\u3068\u3001\u81EA\u5206\u306E\u4ECB\u8B77";
     case "fun":
       return l.lottery ? "\u5B9D\u304F\u3058\u4EE3\u3092\u542B\u3080" : "\u8DA3\u5473\u3068\u4ED8\u304D\u5408\u3044";
     case "events":
-      return has("\u707D\u5BB3") || has("\u5730\u9707") ? "\u707D\u5BB3\u306E\u4FEE\u7406\u3092\u542B\u3080" : "\u51A0\u5A5A\u846C\u796D\u3068\u81E8\u6642\u306E\u51FA\u8CBB";
+      return has("\u707D\u5BB3") || has("\u5730\u9707") ? "\u707D\u5BB3\u306E\u4FEE\u7406\u3092\u542B\u3080" : "\u304A\u795D\u3044\u3084\u304A\u846C\u5F0F\u306A\u3069";
     case "selfEdu":
       return l.choiceLog.some((c) => /loan|night/.test(c.optionId)) ? "\u5968\u5B66\u91D1\u3068\u5B66\u8CBB" : "\u5B66\u3073\u76F4\u3057\u306E\u8CBB\u7528";
     case "love": {

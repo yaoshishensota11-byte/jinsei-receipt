@@ -408,7 +408,7 @@ class Game {
     const info = c.alloc!;
     const keys: (keyof Alloc)[] = ["living", "save", "invest", "family", "self"];
     const familyNote =
-      info.familyTo === "kids" ? "子どもの教育費。子どもの進学や、子どもに生まれ直したときのはじまりに効く" : info.familyTo === "parents" ? "親への仕送り" : "回す相手がいないので、貯金と同じになる";
+      info.familyTo === "kids" ? "子どもの教育費。子どもの進学を助け、その子に生まれ直したときにも役立つ" : info.familyTo === "parents" ? "親への仕送り" : "回す相手がいないので、貯金と同じになる";
     const note: Record<keyof Alloc, string> = {
       living: "ゆとりのある暮らし（趣味・交際）。残るお金は減る",
       save: "現金で持つ。物価が上がると目減りする",

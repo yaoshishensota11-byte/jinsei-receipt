@@ -71,7 +71,7 @@ export function voicesFor(l: Life, prev: Snap | null, rec: YearRecord): Voice[] 
     if (t === "cancer" || t === "heartBrain") close ? say(close, pick(t, ["お金のことは、なんとかなる。まずは治そう。", "無理しないで。ゆっくり休んで。"])) : self("一人で病院に通うのは、心細い。");
     else if (t === "jobLoss") close ? say(close, pick(t, ["次の仕事、一緒に探そう。", "しばらくは、切りつめてやっていこう。"])) : self("家賃、来月も払えるだろうか。");
     else if (t === "disaster") say(close || "近所の人", pick(t, ["みんな無事で、よかった。", "片づけ、手伝うよ。"]));
-    else if (t === "displaced") say(homeKid >= 0 ? kidName(homeKid) : close || "家族", "いつ、家に帰れるの？");
+    else if (t === "displaced") homeKid >= 0 ? say(kidName(homeKid), "いつ、家に帰れるの？") : say(close || "家族", "早く、家に戻れるといいね。");
     else if (t === "inflation") {
       const line = pick(t, ["また値上がりしてる……。", "先月と同じ買い物で、こんなに違うなんて。"]);
       close ? say(close, line) : self(line);
@@ -92,7 +92,7 @@ export function voicesFor(l: Life, prev: Snap | null, rec: YearRecord): Voice[] 
   }
   if (!prev.working && isWorking(l.job) && a < 32 && !prev.retired) say(dad || mom, pick("job", ["最初の給料、大事に使いなよ。", "体だけは、壊さないようにね。"]));
   if (prev.home === "parents" && l.home !== "parents" && mom) say(mom, pick("leave", ["たまには、帰ってきなさいよ。", "ちゃんと、ご飯を食べるんだよ。"]));
-  if (!prev.partner && pt) say(pt, pick("partner", ["これから、よろしくね。", "二人で、なんとかやっていこう。"]));
+  if (!prev.partner && pt) say(pt, pick("partner", ["これから、よろしくね。", "ふたりで、なんとかやっていこう。"]));
   if (l.kids.length > prev.kids) pt ? say(pt, pick("kid", ["名前、どうしようか。", "ちっちゃいね……。", "これから、もっと働かないとね。"])) : self("この子を、守らないと。");
   l.kids.forEach((k, i) => {
     if (a - k.born === 6 && kidShownHome(l, k, a)) say(kidName(i), "いってきます！");

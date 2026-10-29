@@ -687,14 +687,25 @@ export class Life {
   private birthEvents(): void {
     const s = this.sex === "male" ? "男の子" : "女の子";
     const h = this.heir;
-    if (h) this.log("life", `${this.year}年、${this.region.label}に、${h.gen - 1}代目のあなたの${h.nth}（${s}）として生まれた。家庭の年収は${this.band.label}。`, undefined, true);
-    else this.log("life", `${this.year}年、${this.region.label}に${s}として生まれた。家庭の年収は${this.band.label}。`, undefined, true);
+    if (h) this.log("life", `${this.year}年、${this.region.label}に、${h.gen - 1}代目のあなたの${h.nth}（${s}）として生まれた。${this.bandSentence()}`, undefined, true);
+    else this.log("life", `${this.year}年、${this.region.label}に${s}として生まれた。${this.bandSentence()}`, undefined, true);
     if (h && (h.eduBoost ?? 0) >= 0.03) this.log("family", `${h.gen - 1}代目のあなたは、教育のためのお金を用意してくれていた。`, undefined, true);
-    const olders = this.sibs.filter((x) => x.born < 0);
-    if (olders.length) {
-      const words = olders.map((x) => `${-x.born}歳の${x.sex === "male" ? "兄" : "姉"}`);
-      this.log("family", `家には${words.join("と")}がいる。`);
-    }
+    // 兄と姉に分けて、年上から書く（「家には兄2人（5歳・3歳）と、姉（2歳）がいる。」）
+    const olders = this.sibs.filter((x) => x.born < 0).sort((a, b) => a.born - b.born);
+    const group = (sex: Sex, word: string) => {
+      const g = olders.filter((x) => x.sex === sex);
+      if (!g.length) return "";
+      return g.length === 1 ? `${word}（${-g[0].born}歳）` : `${word}${g.length}人（${g.map((x) => `${-x.born}歳`).join("・")}）`;
+    };
+    const words = [group("male", "兄"), group("female", "姉")].filter(Boolean);
+    if (words.length) this.log("family", `家には${words.join("と、")}がいる。`);
+  }
+
+  /** 生まれた家庭の年収の文（日本は「家庭の年収は400万円未満。」、ほかの国は「ふつうの家庭で、年収は約30万ペソ。」） */
+  private bandSentence(): string {
+    const m = /^(.*?)（年収 (.*)）$/.exec(this.band.label);
+    if (m) return `${m[1]}で、年収は${m[2]}。`;
+    return `家庭の年収は${this.band.label.replace(/^年収/, "")}。`;
   }
 
   private schoolYear(r: Rng): void {
@@ -931,12 +942,12 @@ export class Life {
     this.dating = false;
     this.noMarry = false;
     this.kidsPlan = "undecided";
-    this.log("family", `${text}（相手は${pAge}歳）`, undefined, true);
+    this.log("family", `${text.replace(/。$/, "")}（相手は${pAge}歳）。`, undefined, true);
     this.queueScene(kidsScene(this));
     if (ceremony ?? r.chance(0.5)) {
       const net = this.D.living.weddingCost * 0.45;
       this.spend("love", net);
-      this.log("money", "結婚式を挙げた。ご祝儀で半分ほど戻った。", -net);
+      this.log("money", "結婚式を挙げた。費用の半分ほどは、ご祝儀で戻ってきた。", -net);
     }
     if (this.home === "parents" && this.school === "done") this.home = "rent";
   }
@@ -1247,7 +1258,7 @@ export class Life {
       this.heldHouse = h.homeShare;
       if (a < 18) {
         const other = this.parents[h.parentIdx === 0 ? 1 : 0].alive;
-        this.log("life", other ? "親が残した家で、そのまま暮らし続けた。" : "親が残した家に、親せきに見守られながら住み続けた。", undefined, true);
+        this.log("life", other ? "親が残した家で、そのまま暮らし続けた。" : "親が残した家に、親戚に見守られながら住み続けた。", undefined, true);
       } else this.queueScene(heldHouseScene(this));
     }
     if (!h.estate && !h.homeShare && !h.debt) this.log("money", "親の遺産はほとんどなかった。");
@@ -1453,7 +1464,7 @@ export class Life {
       const pen = this.pensionAnnual();
       this.addIncome("pension", pen);
       if (a === this.pensionStart)
-        this.log("money", pen > 0 ? `年金を受け取りはじめた（年${this.D.fmt(pen)}）。` : "年金には入っていなかった。これからは貯えと家族が頼り。", undefined, true);
+        this.log("money", pen > 0 ? `年金を受け取りはじめた。年に${this.D.fmt(pen)}。` : "年金には入っていなかった。これからは貯えと家族が頼り。", undefined, true);
     }
     if (this.partner?.alive && this.partner.age >= 65) this.addIncome("partner", this.partnerPension());
     if (this.widowed && a >= 60 && this.D.isJapan) this.addIncome("pension", this.D.ev.pensionMonthly.kosei_avg * 12 * 0.35);
@@ -1854,7 +1865,7 @@ export function buildChoice(l: Life, id: ChoiceId): Choice {
           opt("univ_loan", "奨学金を借りて大学へ", "大卒の道が開く。数百万円の返済と、アルバイト漬けの日々。"),
           opt("univ_night", "働きながら夜間の大学へ", "借金は少ない。卒業までたどり着けるかは体力次第。"),
           opt("voc_loan", "奨学金で専門学校へ", "2年で手に職。業界によって給料の差が大きい。"),
-          opt("job", "就職する", "すぐに稼げる。高卒の給料カーブになる。"),
+          opt("job", "就職する", "すぐに稼げる。給料は高卒の水準で上がっていく。"),
         );
       } else {
         situation = "大学に行くなら学費は親が出してくれるらしい。";
@@ -1893,7 +1904,7 @@ export function buildChoice(l: Life, id: ChoiceId): Choice {
       options.push(
         opt("index", "毎月コツコツ積立投資", "長く続ければ増えやすい。暴落の年は資産が目減りする。"),
         opt("stocks", "個別株で攻める", "大きく増えることも、大きく減ることもある。"),
-        opt("deposit", "貯金だけにする", "元本は減らない。インフレには弱く、ほぼ増えない。"),
+        opt("deposit", "貯金だけにする", "金額は減らない。物価が上がると目減りし、ほぼ増えない。"),
         opt("self", "自分に投資する（資格・スキル）", "数年間の出費。収入が上がる保証はない。"),
       );
       break;
@@ -1902,7 +1913,7 @@ export function buildChoice(l: Life, id: ChoiceId): Choice {
       title = "結婚と住まい";
       const p = l.partner;
       if (p) {
-        situation = `結婚して${a - l.partnerSince}年。子どもは${l.kids.length}人。住まいをどうする？`;
+        situation = `結婚して${a - l.partnerSince}年。${l.kids.length ? `子どもは${l.kids.length}人。` : ""}住まいをどうする？`;
         options.push(
           opt("rent", "賃貸のまま暮らす", "身軽に引っ越せる。家賃は一生かかる。"),
           opt("buy", "家を買う（35年ローン）", "老後の家賃はかからない。災害や修繕のリスク、ローン返済が続く。"),
@@ -1913,7 +1924,7 @@ export function buildChoice(l: Life, id: ChoiceId): Choice {
         if (met) {
           situation = l.dating ? `付き合って${Math.max(1, a - l.datingSince)}年の恋人から、将来の話をされた。` : "付き合っている人から、将来の話をされた。";
           options.push(
-            opt("marryRent", "結婚して賃貸で暮らす", "二人の収入で暮らしが安定しやすい。出費も増える。"),
+            opt("marryRent", "結婚して賃貸で暮らす", "ふたりの収入で暮らしが安定しやすい。出費も増える。"),
             opt("marryBuy", "結婚して家を買う", "持ち家で落ち着ける。ローンが長く続く。"),
             opt("single", "結婚はしない", "自由に使えるお金と時間。老後は一人で備える。"),
           );
@@ -1933,7 +1944,7 @@ export function buildChoice(l: Life, id: ChoiceId): Choice {
       title = "転職・独立";
       const j = l.job;
       if (j === "big" || j === "sme" || j === "civil") {
-        situation = `${a}歳、${jobLabel(j)}${l.manager ? "の管理職" : ""}。年収は${l.D.fmt(l.salaryOf(a))}ほど。`;
+        situation = `${a}歳、${l.manager ? jobLabel(j).replace(/の正社員$/, "") + "の管理職" : jobLabel(j)}。年収は${l.D.fmt(l.salaryOf(a))}ほど。`;
         options.push(
           opt("stay", "今の職場に残る", "昇進のチャンスはある。会社の都合に振り回されることも。"),
           opt("change", "転職する", "給料が上がるかもしれないし、下がるかもしれない。"),
@@ -2006,8 +2017,8 @@ export function buildChoice(l: Life, id: ChoiceId): Choice {
       title = "退職の時期";
       const working = l.job !== "none" && l.job !== "retired";
       situation = working
-        ? `${a}歳。会社員なら定年の年。貯えは${l.D.fmt(l.balance)}。`
-        : `${a}歳。貯えは${l.D.fmt(l.balance)}。${l.D.isJapan ? "年金は65歳から。" : ""}`;
+        ? `${a}歳。会社員なら定年の年。${savingsText(l)}`
+        : `${a}歳。${savingsText(l)}${l.D.isJapan ? "年金は65歳から。" : ""}`;
       if (working) {
         options.push(
           opt("r60", "60歳で引退する", "自由な時間が増える。年金まで5年は貯えで暮らす。"),
@@ -2027,6 +2038,11 @@ export function buildChoice(l: Life, id: ChoiceId): Choice {
   }
   if (options.length === 0) options.push(opt("default", "流れに任せる", "特に何も変えない。"));
   return { id, age: a, title, situation, options };
+}
+
+/** 「貯えは300万円。」／貯えがマイナスなら「貯えはなく、借金が80万円ある。」 */
+function savingsText(l: Life): string {
+  return l.balance >= 0 ? `貯えは${l.D.fmt(l.balance)}。` : `貯えはなく、借金が${l.D.fmt(-l.balance)}ある。`;
 }
 
 export function jobLabel(j: Job): string {
@@ -2266,7 +2282,7 @@ function applyChoice(l: Life, id: ChoiceId, o: string, r: Rng): void {
         const v = l.region.id === "tokyo" ? r.range(l.y(10_000_000), l.y(40_000_000)) : l.region.id === "rural" ? (r.chance(0.4) ? 0 : r.range(l.y(1_000_000), l.y(6_000_000))) : r.range(l.y(3_000_000), l.y(15_000_000));
         const share = v / (l.siblings + 1);
         l.addIncome("windfall", share);
-        l.logPre("money", v > 0 ? `実家を売った。手元に${l.D.fmt(share)}。` : "実家は買い手がつかず、解体費だけかかった。", v > 0 ? share : -l.y(1_500_000), true);
+        l.logPre("money", v > 0 ? (l.siblings > 0 ? "実家を売り、きょうだいで分けた。" : "実家を売った。") : "実家は買い手がつかず、解体費だけかかった。", v > 0 ? share : -l.y(1_500_000), true);
         if (v === 0) l.spend("housing", l.y(1_500_000));
       } else if (o === "keepHouse") {
         l.keepHouseCost = true;
