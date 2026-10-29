@@ -9,3 +9,8 @@ USA,United States of America,event_freq:usa_medical_bill,0.108,annual_share,2021
 USA,United States of America,event_freq:usa_student_loan,0.421,period_share,2024,National Center for Education Statistics (NCES) / Education Data Initiative,https://educationdata.org/college-enrollment-statistics,高校卒業者のうち直ちに4年制大学等に進学する割合。そのうち連邦学生ローンを借りる割合の正確な複合単一指標がないため進学率のみを記載
 USA,United States of America,event_freq:usa_layoff,0.10,annual_share,2026,U.S. Bureau of Labor Statistics (BLS) JOLTS,https://www.bls.gov/jlt/,月次レイオフ率約1.0%を基にした概算値。BLSによる公式な雇用者全体に対する単一の年次レイオフ率の直接集計値ではなく月次データの水準に基づく
 USA,United States of America,event_freq:usa_childcare,15636,currency,2025,Child Care Aware of America (CCAoA) "Child Care in America",https://info.childcareaware.org/price-and-supply-2025,0〜2歳の子どもをセンター型保育施設に預けた場合の年間平均価格（米ドル）。利用率の全国統計データが明確ではないため金額の中央値・平均値を記載
+JPN,Japan,event_freq:jpn_tenkin,5827,count,2017,労働政策研究・研修機構（JILPT）「企業の転勤の実態に関する調査」,https://www.jil.go.jp/institute/research/2017/174.html,（追加の回答）正社員調査の有効回収数。転勤の割合ではないため使えない
+JPN,Japan,event_freq:jpn_kaigo,106000,count,2022,総務省「就業構造基本調査」,https://www.stat.go.jp/data/shugyou/2022/,（追加の回答）過去1年間に家族の介護・看護を理由に前職を辞めた人の数
+JPN,Japan,event_freq:jpn_kaigo,3646000,count,2022,総務省「就業構造基本調査」,https://www.stat.go.jp/data/shugyou/2022/,（追加の回答）介護をしながら働いている人の数
+JPN,Japan,event_freq:jpn_earthquake,43,count,2026,気象庁の過去の地震情報（tenki.jp 経由）,https://earthquake.tenki.jp/bousai/earthquake/entries/level-6-minus/index.html,（追加の回答）2006〜2026年に震度6弱以上を観測した地震の回数。二次情報（気象庁のデータを転載したサイト）
+JPN,Japan,event_freq:jpn_heavy_rain,31401,count,2023,国土交通省「水害統計」,https://www.mlit.go.jp/report/press/content/001766898.pdf,（追加の回答）2023年の水害による被害建物棟数。全国の総住宅数は65047000戸（2023年住宅・土地統計調査）
