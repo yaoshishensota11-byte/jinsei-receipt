@@ -21,6 +21,8 @@ description: 人生のレシートの国別データで「推定値」のまま�
    - **計算が必要な項目**（税・社会保険料の実効負担率など）は、計算まで頼むと失敗しやすい。材料（平均賃金・税率表・保険料率）だけを集めてもらい、計算は apply_manual.py で行う。
    - 優先順位は「遊んだ結果への効き目」で決める：毎年の手取りや支出に効く項目（税、家賃、物価）＞一度きりの出費（学費、住宅価格）＞まれな出来事の確率。
    - 日本の国内統計（data/*.json）がある項目は、日本を対象から外す。
+   - **Perplexity に頼むとき**：ファイルは作れないので、CSVは ```csv のコードブロックで出してもらう。1回に15件前後までに分け、出典は [1] ではなくURLそのものを書かせる。Research モードを使ってもらう。
+   - **国ごとの出来事の確率**（country_events.json の annualProb）は、data/world/build/event_prompts.py の STAT に「何の割合を調べるか」を書き、`python3 -I data/world/build/event_prompts.py` で依頼文を作る（field は event_freq:<出来事のID>。unit は annual_share・period_share・lifetime_share・current_share・years_count・count・currency）。年率への直し方は取り込むときに人が決め、basis に出典と計算を書いて estimated を外す。
 3. [template.md](template.md) をもとに、5層（Role / Context / Task / Constraints / Output Format）のプロンプトを作る。
    - 国はISO3と英語名を並べる（英語名は data/world/country_names_en.json）。
    - 項目ごとに「定義・出典・調べ方・単位」を書く。
