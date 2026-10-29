@@ -511,6 +511,7 @@ export class Life {
     const a = this.age;
     const share = Math.max(0, this.cash) * 0.5;
     this.log("family", text, -share, true);
+    this.mark("divorce");
     this.spend("events", share);
     if (this.kids.some((k) => a - k.born < 18) && this.sex === "male") this.childSupport = true;
     this.partner = null;
@@ -636,6 +637,12 @@ export class Life {
     c.balance = Math.round(this.balance);
     c.invested = Math.round(this.invest);
     c.debt = Math.round(this.loan + this.scholarship);
+  }
+
+  /** 章のまとめで「同い年の人と比べる」ための出来事の印（[印, 年齢]）。乱数や記録には影響しない */
+  tags: [string, number][] = [];
+  mark(tag: string): void {
+    this.tags.push([tag, this.age]);
   }
 
   log(kind: EventKind, text: string, amount?: number, major = false): void {
@@ -822,6 +829,7 @@ export class Life {
       else if (r.chance(this.D.qx(p.sex, p.age) * 0.9)) {
         p.alive = false;
         this.log("family", `パートナーが${p.age}歳で亡くなった。`, -this.D.living.funeralCost, true);
+        this.mark("partnerDeath");
         this.spend("events", this.D.living.funeralCost);
         this.widowed = true;
         this.partnerDeaths[this.partnerSince] = a;
@@ -997,10 +1005,12 @@ export class Life {
           this.log("work", this.job === "big" ? "早期退職を迫られ、会社を辞めた。割増退職金が出た。" : "勤め先が経営不振で人員削減。職を失った。", sev, true);
           this.addIncome("windfall", sev);
           this.loseJob(a);
+          this.mark("jobLoss");
         }
       } else if (this.job === "nonregular" && !this.postRetireWork) {
         if (r.chance(0.06 * layoffMult)) {
           this.log("work", "契約が更新されず、次の仕事を探した。");
+          this.mark("jobLoss");
           this.unemployedUntil = a + 1;
           this.job = "none";
         } else if (a < 45 && r.chance(0.025)) {
@@ -1112,6 +1122,7 @@ export class Life {
       if (careEnding || r.chance(this.D.qx(sex, pa))) {
         p.alive = false;
         this.log("family", `${i === 0 ? "父" : "母"}が${pa}歳で亡くなった。`, -this.D.living.funeralCost / (this.siblings + 1), true);
+        this.mark("parentDeath");
         this.spend("events", this.D.living.funeralCost / (this.siblings + 1));
         if (careEnding) this.careMode = "";
         if (!this.parents.some((x) => x.alive) && !this.heir) {
@@ -1169,12 +1180,14 @@ export class Life {
     if (h.otherDies === a && this.parents[other].alive) {
       this.parents[other].alive = false;
       this.log("family", `${word(other)}が${this.parents[other].age + a}歳で亡くなった。`, undefined, true);
+      this.mark("parentDeath");
     }
     const me = this.parents[h.parentIdx];
     if (h.parentDies !== a || !me.alive) return;
     me.alive = false;
     const share = this.D.living.funeralCost / (this.siblings + 1);
     this.log("family", `${word(h.parentIdx)}（${h.gen - 1}代目のあなた）が${me.age + a}歳で亡くなった。`, a >= 18 ? -share : undefined, true);
+    this.mark("parentDeath");
     if (a >= 18) this.spend("events", share);
     if (h.estate > 0) {
       this.addIncome("windfall", h.estate);
@@ -1293,6 +1306,7 @@ export class Life {
       const cost = r.range(this.y(400_000), this.y(1_500_000));
       this.spend("medical", cost);
       this.log("health", "がんが見つかり、治療を受けた。", -cost, true);
+      this.mark("cancer");
       if (this.job !== "none" && this.job !== "retired" && r.chance(0.2)) {
         this.log("work", "治療のため仕事を辞めた。");
         this.loseJob(a);
@@ -1302,6 +1316,7 @@ export class Life {
       const cost = r.range(this.y(300_000), this.y(1_000_000));
       this.spend("medical", cost);
       this.log("health", r.chance(0.5) ? "心臓の病気で入院した。" : "脳の血管の病気で入院した。", -cost, true);
+      this.mark("heartBrain");
       this.illMult = Math.min(1.6, this.illMult * 1.12);
     } else if (r.chance(0.012)) {
       const cost = r.range(this.y(50_000), this.y(300_000));
@@ -1311,6 +1326,7 @@ export class Life {
     if (!this.selfCare && a >= 65 && r.chance(this.D.careNeed(a) / 6)) {
       this.selfCare = true;
       this.log("health", "要介護の認定を受けた。介護サービスを使いはじめた。", undefined, true);
+      this.mark("care");
     }
     if (this.selfCare) this.spend("care", r.range(this.y(600_000), this.y(1_200_000)));
   }
@@ -1344,6 +1360,7 @@ export class Life {
       const dmg = own ? r.range(this.y(1_500_000), this.y(8_000_000)) : r.range(this.y(200_000), this.y(800_000));
       this.spend("events", dmg);
       this.log("disaster", own ? "大きな地震で家が被害を受け、修理した。" : "大きな災害で家財を失った。", -dmg, true);
+      this.mark("disaster");
     }
     // 車
     if (a >= 22 && this.school === "done" && !this.frugal && !this.welfare && r.chance(this.regionFactor(REGION_CAR, 0.35, 0.55) * Math.min(1, this.D.k * 3) / 9) && a < 80) {
@@ -2278,21 +2295,35 @@ export function autoplayLife(l: Life): Life {
   return l;
 }
 
-const cohortCache = new Map<string, { income: number[]; balance: number[] }>();
-/** 同じ国・同い年の比較集団（固定シード）。誰が遊んでも同じ集団と比べる */
-export function cohort(country: CountryData = JAPAN, n = 300): { income: number[]; balance: number[] } {
+/** 比べる集団の一人ぶん（章のまとめで使う）。bal は各年の年末の貯え */
+export interface CohortLife {
+  tags: [string, number][];
+  bal: number[];
+  death: number;
+}
+export interface Cohort {
+  income: number[];
+  balance: number[];
+  lives: CohortLife[];
+}
+const cohortCache = new Map<string, Cohort>();
+/** 同じ国に生まれた300人（自動で選んだ人生）。同い年との比較に使う */
+export function cohort(country: CountryData = JAPAN, n = 300): Cohort {
   const hit = cohortCache.get(country.iso3);
   if (hit) return hit;
   const income: number[] = [];
   const balance: number[] = [];
+  const lives: CohortLife[] = [];
   for (let i = 0; i < n; i++) {
-    const s = autoplay(`cohort-${BIRTH_YEAR}-${country.iso3}-${i}`, country).summary();
+    const l = autoplay(`cohort-${BIRTH_YEAR}-${country.iso3}-${i}`, country);
+    const s = l.summary();
     income.push(s.lifetimeIncome);
     balance.push(s.finalBalance);
+    lives.push({ tags: l.tags, bal: l.records.map((r) => r.balance), death: l.age });
   }
   income.sort((a, b) => a - b);
   balance.sort((a, b) => a - b);
-  const c = { income, balance };
+  const c = { income, balance, lives };
   cohortCache.set(country.iso3, c);
   return c;
 }

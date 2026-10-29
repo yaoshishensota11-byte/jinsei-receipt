@@ -47,7 +47,7 @@ await p.evaluate(async () => {
     </style>`,
   );
   document.body.innerHTML = `<div class="og">
-    <div class="og-bar"><img src="/icon-192.png" alt="">人生のレシート<span class="og-lamp"></span><span class="og-free">無料・登録なし・約10分</span></div>
+    <div class="og-bar"><img src="/icon-192.png" alt="">人生のレシート<span class="og-lamp"></span><span class="og-free">無料・登録なし・約20分</span></div>
     <div class="og-paper">
       <div class="og-shop"><b>人生商店</b><span>LIFE STORE</span></div>
       <div class="og-wel">いらっしゃいませ。</div>

@@ -3,7 +3,8 @@ import { langPicker } from "./ui/lang";
 import "./ui/detail.css";
 import { buildReceipt, buildDetail, choicesOf, decodeResult, isOldVersion, replayCode, shareIntentUrl, shareUrl, shareBase, turningPoints, yen } from "./engine/result";
 import { EXPENSE_LABEL, type ExpenseCat, type IncomeCat, type YearRecord } from "./engine/types";
-import type { Life } from "./engine/sim";
+import { cohort, type Life } from "./engine/sim";
+import { CHAPTERS, chapterSummary, oneIn } from "./engine/chapters";
 import { showReceipt, downloadReceipt, downloadDetailed } from "./ui/receipt";
 
 const app = document.getElementById("app")!;
@@ -182,6 +183,24 @@ function worksheet(l: Life, cats: [ExpenseCat, number][]): string {
   </section>`;
 }
 
+/** 章ごとの「起きなかったこと」 */
+function chapters(l: Life): string {
+  const co = cohort(l.D);
+  return `<div class="chaps">${CHAPTERS.filter((c) => c.from <= l.age)
+    .map((c) => {
+      const s = chapterSummary(l, c, co);
+      const lines = [
+        l.dead && s.end === l.age
+          ? `あなたは${s.end}歳で亡くなった。この国で同じ年に生まれた人のうち、${s.end}歳までに亡くなるのは<b>${esc(oneIn(s.deathShare))}</b>。`
+          : `この国で同じ年に生まれた人のうち、${s.end}歳までに亡くなるのは<b>${esc(oneIn(s.deathShare))}</b>。`,
+        ...s.missed.map((m) => `${s.n}人のうち<b>${m.count}人</b>が、${esc(m.text)}。`),
+        ...s.rare.map((m) => `＊あなたは${esc(m.text)}。${s.n}人のうち<b>${m.count}人</b>だけだった。`),
+      ];
+      return `<div class="chap"><h3>第${c.no}章 ${esc(c.title)}<span>${c.from}〜${s.end}歳</span></h3><ul>${lines.map((x) => `<li>${x}</li>`).join("")}</ul></div>`;
+    })
+    .join("")}</div>`;
+}
+
 function render(l: Life): void {
   const s = l.summary();
   const d = buildReceipt(l);
@@ -268,6 +287,13 @@ function render(l: Life): void {
           ? `<ul class="choices">${choicesOf(l).map((c) => `<li><span class="age">${c.age}歳</span><span>${esc(c.label)}</span></li>`).join("")}</ul>`
           : `<p class="note">選択の場面はありませんでした。</p>`
       }
+    </section>
+
+    <section class="panel">
+      <h2>章ごとの、起きなかったこと</h2>
+      <p class="note">同じ国に生まれた人と比べて、あなたに起きなかったこと・めずらしく起きたこと。</p>
+      ${chapters(l)}
+      <p class="note">亡くなる割合は、その国の平均寿命と生命表からの推計。比べる人たちは、同じ統計で動かしたゲームの中の人生です。</p>
     </section>
 
     <section class="panel years-panel">

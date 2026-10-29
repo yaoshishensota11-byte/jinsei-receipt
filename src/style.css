@@ -780,3 +780,155 @@ button {
   image-rendering: pixelated;
   border-bottom: 1px dashed var(--line);
 }
+
+/* ── 家族の声 ── */
+.voice {
+  display: flex;
+  gap: 10px;
+  padding: 8px 12px;
+  font-size: 14px;
+  line-height: 1.6;
+  animation: pop 0.35s ease-out;
+}
+.voice .a {
+  flex: none;
+  width: 34px;
+  color: var(--sub);
+  font-size: 12px;
+  padding-top: 2px;
+}
+.voice .t {
+  flex: 1;
+  min-width: 0;
+  background: #fff;
+  border: 1.5px solid var(--line);
+  border-radius: 4px 14px 14px 14px;
+  padding: 7px 12px;
+}
+.voice .t b {
+  display: block;
+  font-size: 11px;
+  color: var(--sub);
+  font-weight: 700;
+}
+.voice.inner .t {
+  background: transparent;
+  border-style: dashed;
+  color: var(--sub);
+}
+
+/* ── 章の区切り ── */
+.chap-line {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 10px 4px 4px;
+  border-top: 2px solid var(--ink);
+  font-weight: 700;
+  font-size: 15px;
+}
+.chap-line b {
+  color: var(--red);
+}
+.chap-line span {
+  margin-left: auto;
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--sub);
+}
+.sheet.chapter h3 {
+  font-size: 13px;
+  margin: 16px 0 6px;
+  padding-bottom: 4px;
+  border-bottom: 1.5px dashed var(--line);
+}
+.ch-money {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  margin-top: 8px;
+}
+.ch-money div {
+  background: var(--bg);
+  border-radius: 8px;
+  padding: 7px 8px;
+  min-width: 0;
+}
+.ch-money label {
+  display: block;
+  font-size: 11px;
+  color: var(--sub);
+}
+.ch-money b {
+  display: block;
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+.ch-money small {
+  display: block;
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--sub);
+}
+.ch-money b.minus {
+  color: var(--minus);
+}
+.ch-rank {
+  margin: 8px 0 0;
+  font-size: 13px;
+}
+.ch-rank b {
+  color: var(--red);
+}
+.ch-ev,
+.ch-cmp {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 13.5px;
+  line-height: 1.65;
+}
+.ch-ev li {
+  display: flex;
+  gap: 8px;
+  padding: 2px 0;
+}
+.ch-ev span {
+  flex: none;
+  width: 34px;
+  color: var(--sub);
+  font-size: 12px;
+  padding-top: 1px;
+}
+.ch-cmp li {
+  padding: 3px 0 3px 14px;
+  position: relative;
+}
+.ch-cmp li::before {
+  content: "−";
+  position: absolute;
+  left: 0;
+  color: var(--sub);
+}
+.ch-cmp.rare li::before {
+  content: "＊";
+  color: var(--red);
+}
+.ch-cmp b {
+  color: var(--red);
+}
+.ch-note {
+  font-size: 11.5px;
+  color: var(--sub);
+  line-height: 1.6;
+  margin: 12px 0 12px;
+}
+.ch-next {
+  text-align: center;
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+}
+.ch-next b {
+  margin: 0;
+}

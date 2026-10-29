@@ -8,12 +8,14 @@ import type { Alloc, Choice, LifeEvent, YearRecord } from "./engine/types";
 import { showReceipt, downloadReceipt, downloadDetailed } from "./ui/receipt";
 import { compareMyIncome, topText } from "./engine/myincome";
 import { yen } from "./engine/data";
+import { CHAPTERS, chapterSummary, oneIn, type Chapter } from "./engine/chapters";
+import { snap, voicesFor, type Snap, type Voice } from "./engine/voices";
 
-// 1年の長さは出来事の数で変える。何も起きない年はすぐ過ぎ、出来事の多い年はじっくり見せる。
-// 選択（大きな8回＋小さな選択）を含めて、等倍で1プレイ約10分。
 // 1年が進む時間は、出来事があってもなくても同じ（速さを変えるのは画面下の倍速ボタンだけ）。
-// 3.2秒は、これまで出来事の数で変えていたときの1年の平均に合わせた長さ
+// 家族の声がある年だけ、声1つにつき少し長くする。章の区切りでは止まってまとめを見せる。
+// 選択・家族の声・章のまとめを含めて、等倍で1プレイ20〜30分ほど。
 const YEAR_MS = 3_200;
+const VOICE_MS = 1_600;
 
 const SPEEDS = [1, 2, 3, 4, 5] as const;
 
@@ -47,7 +49,7 @@ function showTitle(): void {
         <p>あなたは今年生まれる赤ちゃん。<br>どこの国のどんな家庭に生まれるかは、生まれるまで分かりません。</p>
         <p>大きな分かれ道が8回と、日々の小さな選択がいくつも。最後に、人生のお会計をどうぞ。</p>
         <div class="dash"></div>
-        <div class="meta">所要時間 約10分（倍速で短縮できます）<br>賃金・家計・寿命・進学などは公的統計がもと</div>
+        <div class="meta">所要時間 約20分（倍速で短縮できます）<br>賃金・家計・寿命・進学などは公的統計がもと</div>
       </div>
       <div class="modes">
         <div class="modes-h">どこに生まれますか？</div>
@@ -135,10 +137,16 @@ class Game {
   get playMs(): number {
     const small = this.life.choiceLog.filter((c) => c.id.startsWith("micro:")).length;
     const ev = this.life.choiceLog.filter((c) => c.id.startsWith("ev:")).length;
-    return this.autoMs + (this.life.choiceLog.length - small - ev) * 20_000 + small * 6_000 + ev * 10_000;
+    return this.autoMs + (this.life.choiceLog.length - small - ev) * 20_000 + small * 6_000 + ev * 10_000 + this.chapters * 40_000;
   }
   private current: YearRecord | null = null;
   private shown = 0;
+  /** 家族の声（その年のぶん）と、前の年の終わりの様子 */
+  private voices: Voice[] = [];
+  private vShown = 0;
+  private snap: Snap | null = null;
+  /** 見せた章のまとめの数 */
+  chapters = 0;
   private raf = 0;
   private prev = 0;
   private choosing = false;
@@ -225,7 +233,12 @@ class Game {
       this.current = rec;
       this.shown = 0;
       this.yearT = 0;
-      this.yearMs = YEAR_MS;
+      this.voices = voicesFor(this.life, this.snap, rec);
+      this.snap = snap(this.life);
+      this.vShown = 0;
+      this.yearMs = YEAR_MS + this.voices.length * VOICE_MS;
+      const ch = CHAPTERS.find((c) => c.from === rec.age);
+      if (ch) this.feed.prepend(h(`<div class="chap-line"><b>第${ch.no}章</b>${esc(ch.title)}<span>${ch.from}${ch.no < CHAPTERS.length ? `〜${ch.to}` : ""}歳</span></div>`));
       this.autoMs += this.yearMs;
       this.renderHud();
       this.scene.update(this.life, [], rec.age);
@@ -234,16 +247,21 @@ class Game {
     const rec = this.current;
     const n = rec.events.length;
     // その年の出来事を、1年の中で順番に見せる
-    while (this.shown < n && this.yearT >= ((this.shown + 0.5) / Math.max(n, 1)) * this.yearMs * 0.8) {
+    while (this.shown < n && this.yearT >= ((this.shown + 0.5) / Math.max(n, 1)) * YEAR_MS * 0.8) {
       this.pushEvent(rec.events[this.shown++]);
       // 出来事が出たら、ドット絵の表情もその時点の出来事に合わせる
       this.scene.update(this.life, rec.events.slice(0, this.shown), rec.age);
     }
+    // 家族の声は、その年の出来事のあとに
+    while (this.vShown < this.voices.length && this.yearT >= YEAR_MS * 0.8 + (this.vShown + 0.2) * VOICE_MS) this.pushVoice(this.voices[this.vShown++], rec.age);
     (this.hud.querySelector("#prog") as HTMLElement).style.width = `${Math.min(100, (this.yearT / this.yearMs) * 100)}%`;
     if (this.yearT >= this.yearMs) {
       while (this.shown < n) this.pushEvent(rec.events[this.shown++]);
+      while (this.vShown < this.voices.length) this.pushVoice(this.voices[this.vShown++], rec.age);
       this.current = null;
-      if (this.life.dead) this.finish();
+      if (this.life.dead) return this.finish();
+      const ch = CHAPTERS.find((c) => c.to === rec.age);
+      if (ch) this.openChapter(ch);
     }
   }
 
@@ -278,6 +296,57 @@ class Game {
     while (this.feed.children.length > 80) this.feed.lastElementChild!.remove();
     if (reading) this.feed.scrollTop += el.getBoundingClientRect().height + parseFloat(getComputedStyle(this.feed).rowGap || "0");
     else this.feed.scrollTop = 0;
+  }
+
+  private pushVoice(v: Voice, age: number): void {
+    const reading = this.feed.scrollTop > 40;
+    const el = h(`<div class="voice${v.who === "心の声" ? " inner" : ""}"><div class="a">${age}歳</div><div class="t"><b>${esc(v.who)}</b>「${esc(v.text)}」</div></div>`);
+    this.feed.prepend(el);
+    if (reading) this.feed.scrollTop += el.getBoundingClientRect().height;
+    else this.feed.scrollTop = 0;
+  }
+
+  /** 章のまとめ。その時期のお金・出来事と、同じ国に生まれた人と比べた「起きなかったこと」 */
+  private openChapter(ch: Chapter): void {
+    this.choosing = true;
+    this.chapters++;
+    this.ctrl.querySelectorAll("button").forEach((b) => b.classList.toggle("on", b.dataset.s === "0"));
+    const l = this.life;
+    const s = chapterSummary(l, ch, cohort(l.D));
+    const money = (v: number) => esc(l.D.fmt(v, false)) + (l.D.isJapan ? "" : `<small>約${esc(yenShort(l.D.toJpy(v)))}</small>`);
+    const next = CHAPTERS[ch.no];
+    const evs = s.events.slice(-5);
+    const bg = h(`<div class="sheet-bg"><div class="sheet chapter">
+      <div class="tag">第${ch.no}章 おわり ・ ${ch.from}〜${s.end}歳</div>
+      <h2>${esc(ch.title)}</h2>
+      ${
+        s.income > 0
+          ? `<div class="ch-money">
+        <div><label>稼いだお金</label><b>${money(s.income)}</b></div>
+        <div><label>出ていったお金</label><b>${money(s.expense)}</b></div>
+        <div><label>${s.end}歳の貯え</label><b class="${s.endBal < 0 ? "minus" : ""}">${money(s.endBal)}</b></div>
+      </div>${s.rank !== null ? `<p class="ch-rank">同じ国に生まれた${s.n}人の中で、貯えは<b>上位${Math.max(1, Math.round(s.rank * 100))}%</b></p>` : ""}`
+          : ""
+      }
+      ${evs.length ? `<h3>この章の出来事</h3><ul class="ch-ev">${evs.map((e) => `<li><span>${e.age}歳</span>${esc(e.text)}</li>`).join("")}</ul>` : ""}
+      <h3>あなたに起きなかったこと</h3>
+      <ul class="ch-cmp">
+        <li>この国で同じ年に生まれた人のうち、${s.end}歳までに亡くなるのは<b>${esc(oneIn(s.deathShare))}</b>。</li>
+        ${s.missed.map((m) => `<li>同じ国に生まれた${s.n}人のうち<b>${m.count}人</b>が、${esc(m.text)}。</li>`).join("")}
+      </ul>
+      ${s.rare.length ? `<h3>あなたに起きた、めずらしいこと</h3><ul class="ch-cmp rare">${s.rare.map((m) => `<li>${esc(m.text)}。同じ国の${s.n}人のうち、<b>${m.count}人</b>だけだった。</li>`).join("")}</ul>` : ""}
+      <p class="ch-note">亡くなる割合は、その国の平均寿命と生命表からの推計。${s.n}人は、同じ統計で動かしたゲームの中の人生です。</p>
+      <button class="opt ch-next"><b>${next ? `第${next.no}章「${esc(next.title)}」へ` : "つづける"}</b></button>
+    </div></div>`);
+    document.body.append(bg);
+    const go = () => {
+      if (!bg.isConnected) return;
+      bg.remove();
+      this.choosing = false;
+      this.setSpeed(this.lastSpeed);
+    };
+    bg.querySelector<HTMLElement>(".ch-next")!.onclick = go;
+    if (AUTO) setTimeout(go, 300);
   }
 
   private renderLog(): void {

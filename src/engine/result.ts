@@ -261,7 +261,7 @@ function memoFor(l: Life, cat: ExpenseCat, amount: number): string {
 /** withCohort=false なら、同い年との比較（300人を動かすので重い）を省く。共有画像を作るときに使う */
 export function buildReceipt(l: Life, withCohort = true): ReceiptData {
   const s = l.summary();
-  const c = withCohort ? cohort(l.D) : { income: [], balance: [] };
+  const c = withCohort ? cohort(l.D) : { income: [], balance: [], lives: [] };
   const order: ExpenseCat[] = ["housing", "food", "tax", "kids", "car", "fun", "other", "utilities", "medical", "care", "selfEdu", "events", "love", "inflation"];
   const items: ReceiptItem[] = order
     .map((k) => ({ label: EXPENSE_LABEL[k], amount: Math.round(s.expenseTotal[k] ?? 0), memo: memoFor(l, k, s.expenseTotal[k] ?? 0) }))

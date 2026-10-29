@@ -103,6 +103,7 @@ export function riskYear(l: Life, r: Rng): void {
     if (p >= 0.25) {
       if (l.inflSpell === 0) {
         l.inflSpellFrom = infl.year;
+        if (cash > 0) l.mark("inflation");
         const tenths = Math.round(lossRate * 10);
         l.log(
           "money",
@@ -129,6 +130,7 @@ export function riskYear(l: Life, r: Rng): void {
     const loss = cash * r.range(0.3, 0.7) * (l.protectCash ? 0.4 : 1);
     l.spend("inflation", loss);
     l.log("money", `物価が急に跳ね上がり、通貨の価値が下がった。貯金の価値が${Math.round((loss / cash) * 10)}割ほど減った。`, -loss, true);
+    l.mark("inflation");
   } else if (cash > 0 && k.inflationMean > 0.08) {
     const rate = Math.min(0.2, (k.inflationMean - 0.05) * 0.6) * (l.protectCash ? 0.3 : 1);
     l.spend("inflation", cash * rate);
@@ -143,6 +145,7 @@ export function riskYear(l: Life, r: Rng): void {
     const c = l.y(r.range(30_000, 300_000));
     l.spend("other", c);
     l.log("money", r.pick(["家に泥棒が入り、家電と現金を盗まれた。", "道でスマホと財布を奪われた。", "仕事道具を盗まれ、買い直した。"]), -c);
+    l.mark("theft");
   }
 
   // 政情不安（政治の安定度が低い国ほど）
@@ -150,6 +153,7 @@ export function riskYear(l: Life, r: Rng): void {
     const lost = l.salaryOf(a) * 0.25;
     l.spend("other", lost);
     l.log("work", "政情が不安定になり、デモや封鎖で仕事が数か月止まった。", -lost, true);
+    l.mark("unrest");
   }
 
   // 紛争による避難
@@ -158,6 +162,7 @@ export function riskYear(l: Life, r: Rng): void {
     l.spend("housing", c);
     if (l.home === "own") l.home = "rent";
     l.log("disaster", "地域で武力衝突が起き、家族で避難した。暮らしを立て直すのに時間がかかった。", -c, true);
+    l.mark("displaced");
   }
 
   // 感染症の流行
@@ -165,6 +170,7 @@ export function riskYear(l: Life, r: Rng): void {
     const c = l.y(r.range(20_000, 150_000)) + (l.job !== "none" && l.job !== "retired" ? l.salaryOf(a) * 0.15 : 0);
     l.spend("medical", c);
     l.log("health", "感染症が流行し、家族が寝込んだ。しばらく働けなかった。", -c);
+    l.mark("epidemic");
   }
 
   // 干ばつ（農村部）
@@ -172,6 +178,7 @@ export function riskYear(l: Life, r: Rng): void {
     const c = Math.max(l.salaryOf(a), l.y(500_000)) * 0.3;
     l.spend("other", c);
     l.log("disaster", "雨が降らず、作物がほとんど育たなかった。食べ物の値段も上がった。", -c, true);
+    l.mark("drought");
   }
 
   // 洪水・地震（日本の地震は既存の災害で扱うので、日本以外のみ）
@@ -180,10 +187,12 @@ export function riskYear(l: Life, r: Rng): void {
       const c = l.y(r.range(100_000, 600_000));
       l.spend("events", c);
       l.log("disaster", "大雨で川があふれ、家が浸水した。", -c, true);
+      l.mark("disaster");
     } else if (r.chance(k.earthquakeRisk * 0.004)) {
       const c = l.y(r.range(300_000, 2_000_000));
       l.spend("events", c);
       l.log("disaster", "大きな地震で家が壊れ、修理が必要になった。", -c, true);
+      l.mark("disaster");
     }
   }
 }

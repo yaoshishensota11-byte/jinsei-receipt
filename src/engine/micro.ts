@@ -381,6 +381,7 @@ export const MICROS: Micro[] = [
             if (c > 0) {
               l.spend("other", c);
               l.logPre("money", "電話は詐欺だった。渡したお金は戻らなかった。", -c, true);
+              l.mark("scam");
             } else l.logPre("money", "用意できるお金がなく、渡さずに済んだ。あとで詐欺の電話だったと分かった。");
           } else {
             const c = Math.min(Math.max(0, l.cash) * 0.5, l.y(500_000));
@@ -478,7 +479,7 @@ export const MICROS: Micro[] = [
     situation: () => "「役所の者です。医療費の払い戻しがあるので、今からATMへ行ってください」と電話がかかってきた。",
     options: [
       { id: "a", label: "電話を切って役所に確かめる", desc: "落ち着いて確かめる。手間はかかる。", apply: (l) => { l.logPre("life", "役所に確かめると、そんな払い戻しはなかった。詐欺の電話だった。"); } },
-      { id: "b", label: "言われたとおりATMへ行く", desc: "本当ならお金が戻る。だまされることも。", apply: (l, r) => { if (r.chance(0.9)) { const c = Math.min(Math.max(0, l.cash), l.y(1_000_000)); if (c > 0) { l.spend("other", c); l.logPre("money", "電話は詐欺だった。振り込んだお金は戻らなかった。", -c, true); } else l.logPre("money", "口座にお金がなく、振り込めなかった。あとで詐欺の電話だったと分かった。"); } else l.logPre("money", "本当に払い戻しの手続きだった。"); } },
+      { id: "b", label: "言われたとおりATMへ行く", desc: "本当ならお金が戻る。だまされることも。", apply: (l, r) => { if (r.chance(0.9)) { const c = Math.min(Math.max(0, l.cash), l.y(1_000_000)); if (c > 0) { l.spend("other", c); l.logPre("money", "電話は詐欺だった。振り込んだお金は戻らなかった。", -c, true); l.mark("scam"); } else l.logPre("money", "口座にお金がなく、振り込めなかった。あとで詐欺の電話だったと分かった。"); } else l.logPre("money", "本当に払い戻しの手続きだった。"); } },
     ],
   },
   {

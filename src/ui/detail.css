@@ -262,3 +262,11 @@ h1, h2 { margin: 0; line-height: 1.4; }
   .worksheet li p { margin: 0 0 2mm; font-size: 11pt; font-weight: 700; }
   .worksheet .ws-lines i { display: block; height: 9mm; border-bottom: 1px dashed #999; }
 }
+
+/* 章ごとの、起きなかったこと */
+.chaps { display: grid; gap: 10px; margin: 10px 0; }
+.chap h3 { display: flex; align-items: baseline; gap: 8px; font-size: 14px; margin: 0 0 4px; }
+.chap h3 span { margin-left: auto; font-size: 12px; font-weight: 400; color: #6b665c; }
+.chap ul { margin: 0; padding-left: 1.2em; font-size: 13px; line-height: 1.7; }
+.chap b { color: #c8302c; }
+@media print { .chap { break-inside: avoid; } }
