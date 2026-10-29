@@ -172,6 +172,22 @@
       .earn .total { display: flex; justify-content: space-between; margin-top: 10px; padding-top: 10px; border-top: 2px dashed var(--faint); font-weight: 700; }
       .earn .total b { color: var(--red); font-size: 20px; }
       .cap { margin-top: 10px; font-size: 12px; color: var(--sub); line-height: 1.7; }
+      /* 3代のレシート：親の稼ぎの差が、子・孫にどれだけ残るか */
+      .gens { margin-top: 26px; border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink); padding: 12px 0 14px; }
+      .gens .hd, .gr { display: grid; grid-template-columns: 1fr 64px 64px; gap: 8px; align-items: baseline; }
+      .gens .hd { font-size: 12px; color: var(--sub); padding-bottom: 6px; border-bottom: 2px dashed var(--faint); }
+      .gens .hd span:not(:first-child), .gr b { text-align: right; }
+      .gr { padding: 9px 0 4px; opacity: 0; transform: translateY(6px); transition: opacity 0.4s, transform 0.4s; }
+      .gr.on { opacity: 1; transform: none; }
+      .gr .cn { font-size: 15px; }
+      .gr b { font-variant-numeric: tabular-nums; font-size: 17px; }
+      .gr b.g3 { font-size: 15px; font-weight: 400; color: var(--sub); }
+      .gr .bar { grid-column: 1 / -1; height: 6px; background: var(--paper-2); border-radius: 3px; overflow: hidden; }
+      .gr .bar i { display: block; height: 100%; width: 0; background: var(--ink); border-radius: 3px; transition: width 1.4s cubic-bezier(0.2, 0.7, 0.2, 1); }
+      .gr.hot .cn, .gr.hot b:not(.g3) { color: var(--red); font-weight: 700; }
+      .gr.hot .bar i { background: var(--red); }
+      .gens .note { margin-top: 12px; padding-top: 10px; border-top: 2px dashed var(--faint); font-size: 14px; line-height: 1.75; }
+      .gens .note b { color: var(--red); }
 
       .cta {
         display: inline-flex; align-items: center; justify-content: center; gap: 10px;
@@ -336,7 +352,7 @@
 
       @media (prefers-reduced-motion: reduce) {
         *, *::before, *::after { animation: none !important; transition: none !important; }
-        .rv, .tile, .er, .sec-sprite { opacity: 1 !important; transform: none !important; }
+        .rv, .tile, .er, .gr, .sec-sprite { opacity: 1 !important; transform: none !important; }
         .pr, .q .ln > span { clip-path: none !important; }
         .rc img { transform: none !important; }
         .stamp { opacity: 0.82; transform: rotate(-12deg); }
@@ -504,10 +520,26 @@
         </div>
       </section>
 
+      <!-- ───── 3代のレシート（scripts/genstats.ts の集計。docs/generations.md） ───── -->
+      <section class="sec">
+        <div class="lh"><span>No.06</span><span>3代のレシート</span><span class="dots"></span><b>88か国</b></div>
+        <h2 class="rv"><span class="nw">親の稼ぎの差は、</span><span class="nw">孫まで残る？</span></h2>
+        <p class="lead rv">結果の画面から、自分の子どもに生まれ直せます（3代目まで）。各国160家系を3代目まで動かし、親の稼ぎが上半分の家と下半分の家とで、子と孫の稼ぎが何倍ちがったかを数えました。</p>
+        <div class="gens">
+          <div class="hd"><span>国の所得水準</span><span>子の差</span><span>孫の差</span></div>
+          <div class="gr hot" data-v="1.28"><span class="cn">低所得国</span><b>1.28倍</b><b class="g3">1.28倍</b><span class="bar"><i></i></span></div>
+          <div class="gr hot" data-v="1.25"><span class="cn">低中所得国</span><b>1.25倍</b><b class="g3">1.29倍</b><span class="bar"><i></i></span></div>
+          <div class="gr" data-v="1.11"><span class="cn">高中所得国</span><b>1.11倍</b><b class="g3">1.19倍</b><span class="bar"><i></i></span></div>
+          <div class="gr" data-v="1.03"><span class="cn">高所得国</span><b>1.03倍</b><b class="g3">0.98倍</b><span class="bar"><i></i></span></div>
+          <p class="note">所得の低い国ほど、親の稼ぎの差が<b>子にも孫にも残りやすい</b>。高所得国では、孫の代にはほぼ差がなくなりました。</p>
+        </div>
+        <p class="cap">「子の差」は、上半分の家の子が下半分の家の子の何倍稼いだか（1倍なら差なし）。バーはその1倍からの開き。日本などの高所得国は一番下の行です。ゲームの中の試算で、実際の親子を追った統計ではありません。ただ、「所得の低い国ほど親子の所得の結びつきが強い」という世界銀行の研究と同じ向きの結果です。家系の数が少ないため、国ごとの数字はぶれが大きく、所得水準ごとの平均で示しています。</p>
+      </section>
+
       <!-- ───── 授業で ───── -->
       <section class="sec">
         <span class="peek r top sec-sprite" data-sprite="uniform" aria-hidden="true"></span>
-        <div class="lh"><span>No.06</span><span>授業で使う方へ</span><span class="dots"></span><b>¥0</b></div>
+        <div class="lh"><span>No.07</span><span>授業で使う方へ</span><span class="dots"></span><b>¥0</b></div>
         <h2 class="rv"><span class="nw">授業でも、</span><span class="nw">そのまま使えます。</span></h2>
         <p class="lead rv">1回の体験は約10分。一人ひとりが自分の人生を体験し、結果を持ち寄って話し合えます。</p>
         <div class="items">
@@ -530,7 +562,7 @@
 
       <!-- ───── よくある質問 ───── -->
       <section class="sec">
-        <div class="lh"><span>No.07</span><span>よくある質問</span><span class="dots"></span><b>5件</b></div>
+        <div class="lh"><span>No.08</span><span>よくある質問</span><span class="dots"></span><b>5件</b></div>
         <h2 class="rv">よくある質問</h2>
         <div class="faq" style="margin-top: 14px">
           <details><summary><span>無料ですか？ 登録は必要ですか？</span></summary><p>無料です。登録やログインも必要ありません。ブラウザで開くだけで遊べます。</p></details>
@@ -544,7 +576,7 @@
       <!-- ───── ご意見 ───── -->
       <section class="sec" id="feedback" hidden>
         <span class="peek l top sec-sprite" data-sprite="grandma" aria-hidden="true"></span>
-        <div class="lh"><span>No.08</span><span>ご意見箱</span><span class="dots"></span><b>受付中</b></div>
+        <div class="lh"><span>No.09</span><span>ご意見箱</span><span class="dots"></span><b>受付中</b></div>
         <h2 class="rv"><span class="nw">遊んでみた感想を、</span><span class="nw">聞かせてください。</span></h2>
         <p class="lead rv">よかったところ、分かりにくかったところ、直してほしいところ。ひとことでも、これからの改善に使わせていただきます。</p>
         <form class="fb" id="fbForm" novalidate>
@@ -769,6 +801,20 @@
             }
           }, { threshold: 0.5 }).observe(cv);
         }
+      })();
+
+      // ───── 3代のレシート：1倍からの開きを、上から順に伸ばす ─────
+      (function () {
+        const rows = [...document.querySelectorAll(".gr")];
+        const max = Math.max(...rows.map((r) => Number(r.dataset.v) - 1));
+        onSeen([document.querySelector(".gens")], () =>
+          rows.forEach((r, i) =>
+            setTimeout(() => {
+              on(r);
+              r.querySelector(".bar i").style.width = Math.max(1.2, ((Number(r.dataset.v) - 1) / max) * 100) + "%";
+            }, still ? 0 : i * 220),
+          ),
+        );
       })();
 
       // ───── 3枚のレシート：レジから出てくる ─────
