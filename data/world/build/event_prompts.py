@@ -238,3 +238,76 @@ def main():
 
 
 main()
+
+
+# ───── Gemini（Deep Research）向け：短く、記号（```）を使わず、10件ずつに分ける ─────
+GEMINI_HEAD = """あなたは国際統計の調査アシスタントです。政府・国際機関・大学の一次資料を調べ、出典URL付きで表にまとめてください。推測で数字を埋めないでください。
+
+背景：私は、生まれた国によってお金の一生が変わる教育用のブラウザゲームを作っています。ゲームの中で起きる出来事の確率を、統計で確かめたいと考えています。確率への計算は私がするので、あなたは「対象の人のうち、どのくらいの割合がそれを経験するか」が分かる数字と出典を集めてください。
+
+調べてほしいこと（番号順に）：
+{tasks}
+
+守ってほしいこと：
+・見つからないときは数字を空欄にし、理由を書く。ぴったりの数字がなければ、いちばん近い数字を入れ、何が違うか（対象の年齢・期間など）を書く。
+・数字ごとに、実際に確認したページのURLとデータの年を書く。ニュースやWikipediaは、一次資料がないときだけ使い「二次情報」と書く。
+・割合は小数で書く（45.3%なら0.453）。
+・英語とその国の言葉の両方で検索する。
+
+出力：最後に、次の9列の表を1つだけ出してください。1行に1つの数字です。
+列：iso3／country_en／field／value／unit／year／source_name／source_url／note
+・field は「event_freq:番号の前の英字のID」（例 event_freq:jpn_tenkin）
+・unit は annual_share（1年に経験する割合）、period_share（数年間の割合）、lifetime_share（生涯・ある年齢までの割合）、current_share（今その状態の割合）、years_count（過去N年のうち起きた年の数）、count（人数・件数）、currency（金額）のどれか
+・note には、対象の人（成人・働く人・農村の世帯など）と、期間や定義の違いを書く
+表のあとに、見つからなかった項目とその理由を短く書いてください。"""
+
+
+RISK_GEMINI = """あなたは国際統計の調査アシスタントです。国際機関・政府の一次データを調べ、出典URL付きで表にまとめてください。推測で数字を埋めないでください。
+
+背景：私は、生まれた国によってお金の一生が変わる教育用のブラウザゲームを作っています。下の国の値がまだ推計のままなので、公的統計に置き換えたいと考えています。
+
+調べてほしいこと（番号順に）：
+1. homicide_rate：故意の殺人の被害者数（人口10万人あたり）。出典は UNODC、なければ WHO Global Health Estimates。対象：Madagascar（MDG）、Côte d'Ivoire（CIV）、Mali（MLI）、Chad（TCD）、Somalia（SOM）、Guinea（GIN）、North Korea（PRK）、Togo（TGO）、Republic of the Congo（COG）
+2. ipv_past12m_women：過去12か月にパートナーから身体的・性的暴力を受けた女性の割合（15〜49歳）。出典は WHO Violence Against Women Prevalence Estimates 2018、なければ DHS。対象：Yemen（YEM）、Russia（RUS）、Iran（IRN）、Iraq（IRQ）、Uzbekistan（UZB）、Algeria（DZA）、Somalia（SOM）、Saudi Arabia（SAU）、Syria（SYR）、Malaysia（MYS）、North Korea（PRK）、Republic of the Congo（COG）
+3. inflation_recent：消費者物価の上昇率（年平均、%）。1995年から最新年まで1年1行。出典は IMF World Economic Outlook、なければ World Bank、各国の中央銀行。対象：Somalia（SOM）、North Korea（PRK）、Syria（SYR）
+
+守ってほしいこと：
+・見つからないときは数字を空欄にし、理由を書く。定義が違う数字しかないときは、その数字を入れて違いを書く。
+・数字ごとに、実際に確認したページのURLとデータの年を書く。ニュースやWikipediaは、一次資料がないときだけ使い「二次情報」と書く。
+・2の割合は小数で書く（18.3%なら0.183）。1は10万人あたりの数、3は%のまま（12.5など）。
+・コンゴ共和国（COG）とコンゴ民主共和国（COD）、北朝鮮（PRK）と韓国（KOR）を取り違えない。
+
+出力：最後に、次の9列の表を1つだけ出してください。1行に1つの数字です。
+列：iso3／country_en／field／value／unit／year／source_name／source_url／note
+・unit は 1が per100k、2が share、3が percent
+表のあとに、見つからなかった国とその理由を短く書いてください。"""
+
+
+def gemini_tasks(events):
+    out = []
+    for i, e in enumerate(events, 1):
+        tags = e["iso3"]
+        if all(t.startswith("*") for t in tags):
+            where = "所得水準ごとの平均。iso3 は LIC／LMC／UMC／HIC"
+        else:
+            where = EN.get(tags[0], tags[0])
+        out.append(f"{i}. {e['id']}（{where}）：{STAT[e['id']]}")
+    return "\n".join(out)
+
+
+def gemini_main():
+    out_dir = os.path.join(ROOT, "manual", "prompts")
+    evs = list(EVENTS.values())
+    size = 10
+    parts = [evs[i : i + size] for i in range(0, len(evs), size)]
+    lines = ["# 第9部：国ごとの出来事の確率（Gemini の Deep Research 用）", "", f"全{len(evs)}件を{len(parts)}回に分けています。1回分ずつ、新しいチャットで「Deep Research」を選んでから、区切り線の間の文をそのまま貼ってください。", ""]
+    for n, chunk in enumerate(parts, 1):
+        names = "・".join(dict.fromkeys(("共通" if e["iso3"][0].startswith("*") else EN.get(e["iso3"][0], e["iso3"][0])) for e in chunk))
+        lines += [f"## {n}回目（{names}）", "", "----- ここから -----", GEMINI_HEAD.replace("{tasks}", gemini_tasks(chunk)), "----- ここまで -----", ""]
+    lines += [f"## {len(parts) + 1}回目（国のリスク：治安・パートナーからの暴力・物価）", "", "----- ここから -----", RISK_GEMINI, "----- ここまで -----", ""]
+    with open(os.path.join(out_dir, "part9_gemini.md"), "w", encoding="utf-8") as f:
+        f.write("\n".join(lines))
+    print(f"part9_gemini.md: {len(parts)}回")
+
+
+gemini_main()
