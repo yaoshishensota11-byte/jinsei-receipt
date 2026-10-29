@@ -40,8 +40,8 @@ Perplexity（Research モード）に、下のコードブロックをそのま�
    iso3,country_en,field,value,unit,year,source_name,source_url,note
    unit は (1) per100k、(2) share、(3) percent とすること。
    例：
-   MLI,Mali,homicide_rate,10.2,per100k,2019,WHO Global Health Estimates,https://...,UNODC に未掲載のため WHO の値
-   SYR,Syrian Arab Republic,inflation_recent,93.5,percent,2023,Central Bank of Syria,https://...,
+   MLI,Mali,homicide_rate,XX.X,per100k,20XX,WHO Global Health Estimates,https://（数字を確認したページ）,UNODC に未掲載のため WHO の値
+   SYR,Syrian Arab Republic,inflation_recent,XX.X,percent,20XX,Central Bank of Syria,https://（数字を確認したページ）,
 2. CSVのあとに、日本語で短い要約を書くこと：
    - 項目ごとの取得状況（取得できた国の数／対象の国の数）
    - 取得できなかった国と、その理由

@@ -100,8 +100,8 @@ Perplexity（Research モード）に、下のコードブロックをそのま�
    iso3,country_en,field,value,unit,year,source_name,source_url,note
    field は「event_freq:出来事のID」（例：event_freq:jpn_tenkin）とすること。
    例：
-   JPN,Japan,event_freq:jpn_tenkin,0.031,annual_share,2017,JILPT,https://www.jil.go.jp/...,対象：正社員。過去1年に転居をともなう転勤をした人の割合
-   USA,United States,event_freq:usa_layoff,0.12,annual_share,2023,BLS JOLTS,https://www.bls.gov/...,対象：雇用者。Layoffs and discharges の年合計 ÷ 平均雇用者数
+   JPN,Japan,event_freq:jpn_tenkin,0.0XX,annual_share,20XX,JILPT,https://www.jil.go.jp/（数字を確認したページ）,対象：正社員。過去1年に転居をともなう転勤をした人の割合
+   USA,United States,event_freq:usa_layoff,0.XX,annual_share,20XX,BLS JOLTS,https://www.bls.gov/（数字を確認したページ）,対象：雇用者。Layoffs and discharges の年合計 ÷ 平均雇用者数
 2. CSVのあとに、日本語で短い要約を書くこと：
    - 数字が見つかった出来事／見つからなかった出来事と、その理由
    - 指定と定義が違う数字の一覧
