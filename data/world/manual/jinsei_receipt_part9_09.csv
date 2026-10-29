@@ -1,0 +1,17 @@
+iso3,country_en,field,value,unit,year,source_name,source_url,note
+ETH,Ethiopia,event_freq:eth_gulf_work,188000,count,2012,MoLSA / IOM（論文経由）,https://www.researchgate.net/publication/387974683_The_Migration_of_Ethiopian_Women_to_Gulf_Countries_for,分子：正規の手続きで海外就労に出た人の数（主に中東・湾岸）
+ETH,Ethiopia,event_freq:eth_gulf_work,27600000,count,2012,World Bank,https://data.worldbank.org/indicator/SP.POP.1539.TO?locations=ET,分母：15〜34歳の人口
+COD,Democratic Republic of the Congo,event_freq:cod_displacement,1480000,count,2014-2023,IDMC GRID 2024,https://www.internal-displacement.org/global-report/grid2024/,分子：紛争による新規の国内避難の年平均（過去10年）
+COD,Democratic Republic of the Congo,event_freq:cod_displacement,95000000,count,2023,World Bank,https://data.worldbank.org/indicator/SP.POP.TOTL?locations=CD,分母：全人口
+COD,Democratic Republic of the Congo,event_freq:cod_epidemic,162000,count,2022,WHO / CDC MMWR,https://www.cdc.gov/mmwr/volumes/72/wr/mm7246a3.htm,分子：年間の感染症の患者数の目安（はしかなど。2019年は約33万件）
+COD,Democratic Republic of the Congo,event_freq:cod_epidemic,95000000,count,2022,World Bank,https://data.worldbank.org/indicator/SP.POP.TOTL?locations=CD,分母：全人口
+COD,Democratic Republic of the Congo,event_freq:cod_school_fees,0.70,current_share,2020,World Bank / UNESCO,https://openknowledge.worldbank.org/server/api/core/bitstreams/2c3a7b8d-66d5-4ee4-ac3e-249ca46e4ca4/content,小学生のいる世帯のうち学校に関わる費用を払っている世帯の割合（無償化後も約7割）
+COD,Democratic Republic of the Congo,event_freq:cod_school_fees,27,currency,2018,World Bank / UNESCO,https://openknowledge.worldbank.org/server/api/core/bitstreams/2c3a7b8d-66d5-4ee4-ac3e-249ca46e4ca4/content,小学生1人あたりの家庭の年間負担（米ドル）
+COD,Democratic Republic of the Congo,event_freq:cod_mining,2000000,count,2020,World Bank / IGF（書籍経由）,https://press-files.anu.edu.au/downloads/press/p112091/pdf/ch105.pdf,分子：手掘りの鉱山で働く人の推計
+COD,Democratic Republic of the Congo,event_freq:cod_mining,21000000,count,2020,World Bank,https://data.worldbank.org/indicator/SP.RUR.TOTL?locations=CD,分母：農村の15〜64歳人口の推計
+COD,Democratic Republic of the Congo,event_freq:cod_franc_drop,11,years_count,1995-2024,Banque Centrale du Congo / IMF,https://www.imf.org/en/Publications/CR/Issues/2024/07/15/Democratic-Republic-of-the-Congo-2024-Article-IV-Consultation,過去30年でコンゴ・フランが1年に20%以上下がった年の数（1998・1999・2000・2002・2008・2009・2016・2017・2020・2023・2024年）
+VNM,Viet Nam,event_freq:vnm_motorbike,0.885,current_share,2019,General Statistics Office of Viet Nam,https://www.gso.gov.vn/en/homepage/,バイクを持っている世帯の割合（全世帯）。URLはトップページ
+VNM,Viet Nam,event_freq:vnm_land,,count,,,,年齢別の土地購入の統計がないため空欄
+VNM,Viet Nam,event_freq:vnm_typhoon_flood,1200000,count,2022,GSO / Vietnam Disaster Management Authority,https://thongkecaobang.gso.gov.vn/bao-cao-tinh-hinh-kinh-te-xa-hoi-thang/bao-cao-tinh-hinh-kinh-te-xa-hoi-thang-10-va-10-thang-nam-2025-tinh-cao-bang-1395.html,分子：台風・洪水などで被害を受けた人の年平均の推計。URLはカオバン省の月報で、全国の値か確かめが必要
+VNM,Viet Nam,event_freq:vnm_typhoon_flood,98000000,count,2022,General Statistics Office of Viet Nam,https://www.gso.gov.vn/en/homepage/,分母：全人口
+VNM,Viet Nam,event_freq:vnm_factory,0.042,annual_share,2019,GSO / UNFPA Viet Nam Internal Migration Survey,https://www.gso.gov.vn/en/homepage/,農村の18〜35歳のうち、1年間に働くためにほかの省・工業団地の都市へ移った人の割合。URLはトップページ
