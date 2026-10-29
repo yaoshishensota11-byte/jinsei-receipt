@@ -8,3 +8,4 @@ CHN,China,event_freq:chn_flood,0.1300,annual_share,2023,Ministry of Emergency Ma
 IND,India,event_freq:ind_monsoon_flood,0.0229,annual_share,2020,Central Water Commission,https://cwc.gov.in/,年平均の洪水被災人口（約3234万人）÷ 総人口（約14.1億人）。URLはトップページ
 IND,India,event_freq:ind_entrance_exam,0.2000,period_share,2023,National Testing Agency / Ministry of Education UDISE+,https://nta.ac.in/,JEE Main（約122万人）とNEET（約204万人）の重複を除いた受験者（推計約300万人）÷ Class 12在籍者（約1500万人）。重複の除き方はGeminiの推計
 IND,India,event_freq:ind_wedding_cost,,lifetime_share,2023,,,結婚費用のための借金世帯の割合を示す全国一次統計がないため空欄
+IND,India,event_freq:ind_gulf_work,398317,count,2023,"Ministry of External Affairs, Government of India",https://www.mea.gov.in/rajya-sabha.htm?dtl/38615/QUESTION_DIARY_NO_404_ANNUAL_MIGRATION_RATE_OF_INDIANS_TO_FOREIGN_COUNTRIES,（追加の回答）湾岸諸国などECR対象国へ1年間に出国許可（Emigration Clearance）を受けた労働者の数。20〜45歳の就業者数は未取得
