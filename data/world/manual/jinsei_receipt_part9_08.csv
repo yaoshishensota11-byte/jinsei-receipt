@@ -10,3 +10,12 @@ ETH,Ethiopia,event_freq:eth_birr_float,1,years_count,1995-2024,National Bank of 
 ETH,Ethiopia,event_freq:eth_drought,,annual_share,,UN OCHA,https://www.unocha.org,10年平均の値がないため空欄
 ETH,Ethiopia,event_freq:eth_conflict_move,,annual_share,,IDMC,https://www.internal-displacement.org/countries/ethiopia/,10年平均の値がないため空欄（年ごとの新規避難者数はIDMCにある）
 ETH,Ethiopia,event_freq:eth_cbhi,0.40,current_share,2023,Global Health Action（系統的レビュー）,https://www.tandfonline.com/doi/full/10.1080/16549716.2023.2189764,CBHIが行われている地域の人口のうち加入している割合（約40.1%）
+PHL,Philippines,event_freq:phl_hospital_deposit,9396020,count,2024,PhilHealth Transparency Portal,https://philhealth.open.gov.ph/,（追加の回答）分子：1年間のPhilHealthの請求処理件数
+PHL,Philippines,event_freq:phl_hospital_deposit,112884800,count,2024,Philippine Statistics Authority（BatasKo経由）,https://batasko.com/data/health,（追加の回答）分母：全人口
+EGY,Egypt,event_freq:egy_gulf_work,1213,count,2020,CAPMAS National Data Archive,https://metadata.capmas.gov.eg/en/index.php/catalog/599,（追加の回答）出国・移住の承認を得た人の数とされるが、実際の出稼ぎ（年数十万人規模）と桁が合わない。使わない
+EGY,Egypt,event_freq:egy_gulf_work,26080000,count,2024,CAPMAS（Ahram Online経由）,https://english.ahram.org.eg/NewsContentP/1/545223/Egypt/Egypt%E2%80%99s-annual-unemployment-rate-drops-to--percent.aspx,（追加の回答）分母：就業者数
+EGY,Egypt,event_freq:egy_marriage_home,936700,count,2024,CAPMAS（Ahram Online経由）,https://english.ahram.org.eg/NewsContentP/1/557770/Egypt/Egypt-sees--drop-in-marriages-rise-in-divorces-i.aspx,（追加の回答）1年間の結婚件数。借金の割合は取れず
+ETH,Ethiopia,event_freq:eth_drought,11000000,count,2023,UN OCHA,https://www.unocha.org/publications/report/ethiopia/ethiopia-drought-snapshot-4-april-2023,（追加の回答）分子：2023年に干ばつで食料支援の対象になった人の数（大きな干ばつの年）
+ETH,Ethiopia,event_freq:eth_drought,106000000,count,2024,World Bank（Trading Economics経由）,https://tradingeconomics.com/ethiopia/rural-population-percent-of-total-population-wb-data.html,（追加の回答）分母：農村人口
+ETH,Ethiopia,event_freq:eth_conflict_move,2000000,count,2022,IDMC,https://www.internal-displacement.org/countries/ethiopia/,（追加の回答）分子：2022年に紛争で新たに国内避難民になった人の数
+ETH,Ethiopia,event_freq:eth_conflict_move,135500000,count,2025,UNFPA,https://www.unfpa.org/data/world-population/et,（追加の回答）分母：全人口
