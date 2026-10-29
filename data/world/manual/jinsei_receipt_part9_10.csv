@@ -1,0 +1,13 @@
+iso3,country_en,field,value,unit,year,source_name,source_url,note
+VNM,Viet Nam,event_freq:vnm_extra_class,0.63,current_share,2008,Young Lives Survey（論文）,https://www.researchgate.net/publication/236209885_Do_extra_classes_improve_cognitive_test_scores_Evidence_from_Vietnam,補習授業の参加割合（小学校32%、中学校46%、高校63%）。古い調査
+KOR,Republic of Korea,event_freq:kor_hagwon,0.785,current_share,2023,統計庁 私教育費調査（ハンギョレ経由）,https://japan.hani.co.kr/arti/politics/49443.html,小中高生の私教育参加率（小85.2%、中76.2%、高66.0%）
+KOR,Republic of Korea,event_freq:kor_jeonse,0.212,current_share,2026,国土交通部（毎日経済経由）,https://www.mk.co.kr/jp/realestate/12185153,ソウルのオフィステルの賃貸契約のうちチョンセの割合。賃貸世帯全体の値ではない
+KOR,Republic of Korea,event_freq:kor_jeonse,0.478,current_share,2026,国土交通部（ニュース経由）,https://finance.biggo.jp/news/05c25adc-cbe7-4e9a-a50f-3aeed5e45a0b,ソウルの賃貸契約のうち新規契約の割合（回答の field は kor_jeonse_new）
+KOR,Republic of Korea,event_freq:kor_suneung,157368,count,2023,KICE / 教育部,https://www.scribd.com/document/831659009/MOE-12-07-Results-of-2024-CSAT-Announced,分子：2024年度スヌンを受けた高校卒業生・高卒認定者の数
+KOR,Republic of Korea,event_freq:kor_suneung,444870,count,2023,KICE / 教育部,https://www.scribd.com/document/831659009/MOE-12-07-Results-of-2024-CSAT-Announced,分母：2024年度スヌンの受験者数（卒業生などは35.4%）
+KOR,Republic of Korea,event_freq:kor_early_retire,,,,,,公的統計が見つからないため空欄
+KOR,Republic of Korea,event_freq:kor_wedding_home,,,,,,公的統計が見つからないため空欄
+KEN,Kenya,event_freq:ken_mpesa_loan,0.28,annual_share,2024,Central Bank of Kenya FinAccess 2024,https://www.centralbank.go.ke/wp-content/uploads/2024/12/2024-FINACCESS-HOUSEHOLD-SURVEY-MAIN-REPORT.pdf,成人のうち政府のモバイル融資（Hustler Fund）を使った人の割合。M-Shwari などを含めたモバイル融資全体はもっと多い
+KEN,Kenya,event_freq:ken_drought,0.16,current_share,2026,IPC / NDMA,https://www.ipcinfo.org/fileadmin/user_upload/ipcinfo/docs/IPC_Kenya_Acute_Food_Insecurity_Acute_Malnutrition_Jul2026_Jan2027_Report.pdf,乾燥・半乾燥地域（ASAL）の人口のうち急性の食料不足（Phase 3以上）の人の割合
+KEN,Kenya,event_freq:ken_school_fees,75798,currency,2023,Kenya Ministry of Education（教員向けサイト経由）,https://teacher.co.ke/2023-fee-structure-for-day-and-boarding-secondary-schools-revealed/,公立の全寮制中等学校（Category A）の年間の学費・寮費（ケニア・シリング）
+KEN,Kenya,event_freq:ken_fuel_tax,,,,,,価格の連続データがないため空欄
