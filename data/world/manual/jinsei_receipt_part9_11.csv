@@ -1,0 +1,14 @@
+iso3,country_en,field,value,unit,year,source_name,source_url,note
+KEN,Kenya,event_freq:ken_harambee,0.285,annual_share,2024,Central Bank of Kenya FinAccess 2024,https://www.centralbank.go.ke/wp-content/uploads/2024/12/2024-FINACCESS-HOUSEHOLD-SURVEY-MAIN-REPORT.pdf,18歳以上のうち過去1年に助け合いグループ・地域の寄付集めにお金を出した人の割合
+WLD,World,event_freq:gen_lic_malaria,263000000,count,2023,WHO World Malaria Report 2024（ブログ経由）,https://www.malariaworld.org/blogs/world-malaria-report-2024-addressing-inequity-in-the-global-malaria-response,分子：世界のマラリアの年間推計症例数（低所得国だけの値ではない）
+WLD,World,event_freq:gen_lic_malaria,2200000000,count,2023,WHO World Malaria Report 2024（ブログ経由）,https://www.malariaworld.org/blogs/world-malaria-report-2024-addressing-inequity-in-the-global-malaria-response,分母：マラリアの危険がある地域の人口
+LIC,Low income,event_freq:gen_savings_group,0.210,annual_share,2021,World Bank Global Findex 2021,https://www.worldbank.org/en/publication/globalfindex,15歳以上のうち過去1年に積立グループで貯めた人の割合
+LMC,Lower middle income,event_freq:gen_savings_group,0.130,annual_share,2021,World Bank Global Findex 2021,https://www.worldbank.org/en/publication/globalfindex,同上
+LIC,Low income,event_freq:gen_relative_loan,0.440,annual_share,2021,World Bank Global Findex 2021,https://databank.worldbank.org/metadataglossary/global-financial-development/series/GFDD.AI.18,15歳以上のうち過去1年に家族・友人からお金を借りた人の割合
+LMC,Lower middle income,event_freq:gen_relative_loan,0.320,annual_share,2021,World Bank Global Findex 2021,https://databank.worldbank.org/metadataglossary/global-financial-development/series/GFDD.AI.18,同上
+HIC,High income,event_freq:gen_hic_pension,0.510,current_share,2023,OECD Pensions at a Glance 2023,https://www.oecd.org/en/publications/oecd-pensions-at-a-glance-2023_678055dd-en.html,高所得国の働く人のうち職場の私的年金・確定拠出年金などに入っている割合
+EU27,European Union,event_freq:gen_hic_burnout,0.440,annual_share,2022,Eurofound EWCTS,https://www.eurofound.europa.eu/en/surveys/european-working-conditions-surveys-ewcs,EUの働く人のうち過去1年に仕事のストレスや健康の不調を経験した割合（燃え尽きより広い）
+,,event_freq:gen_rural_harvest,,,,,,所得水準ごとの統合値がないため空欄
+,,event_freq:gen_urban_rent,,,,,,国際比較できる統計がないため空欄
+,,event_freq:gen_scam_call,,,,,,金銭被害の割合の比較できる統計がないため空欄
+,,event_freq:gen_umc_lmc_gig,,,,,,中所得国の都市に限った割合がないため空欄
