@@ -1,0 +1,14 @@
+iso3,country_en,field,value,unit,year,source_name,source_url,note
+FRA,France,event_freq:fra_prepa,42948,count,2025,SIES（ブログ経由）,https://voieprepa.com/blog/cpge-france-statistiques-2026/,分子：CPGE第1学年の新入生の数。二次情報
+FRA,France,event_freq:fra_prepa,732000,count,2024,DEPP,https://www.education.gouv.fr/depp/la-plus-value-de-la-premiere-annee-de-cpge-scientifiques-sur-les-performances-en-mathematiques-et-en-4844,分母：バカロレア合格者の数（概数）
+FRA,France,event_freq:fra_creche,0.37,current_share,2015,DREES / Sénat,https://www.senat.fr/rap/r14-473/r14-47312.html,保育の手段や保育所探しに制約・不満があった母親の割合。上院の報告書（2014〜15年度）で、回答の年2022は誤り
+MEX,Mexico,event_freq:mex_migrate_us,1072331,count,2023,INEGI ENADID 2023,https://cuentame.inegi.org.mx/explora/poblacion/migracion/,分子：2018年8月〜2023年10月の約5年間に米国へ移住した人の数（全年齢）
+MEX,Mexico,event_freq:mex_migrate_us,126014024,count,2020,INEGI,https://cuentame.inegi.org.mx/explora/poblacion/migracion/,分母：全人口
+MEX,Mexico,event_freq:mex_security,0.24135,annual_share,2024,INEGI ENVIPE 2025,https://www.inegi.org.mx/contenidos/saladeprensa/boletines/2025/ENVIPE/ENVIPE_25.pdf,18歳以上のうち過去1年に犯罪の被害を受けた人の割合（10万人あたり24135人）
+MEX,Mexico,event_freq:mex_security,23100000,count,2024,INEGI ENVIPE 2025,https://www.inegi.org.mx/contenidos/saladeprensa/boletines/2025/ENVIPE/ENVIPE_25.pdf,18歳以上の犯罪被害者の数
+MEX,Mexico,event_freq:mex_formal_job,0.27,annual_share,2017,ENOEをもとにした学術論文,https://www.scielo.org.mx/scielo.php?script=sci_arttext&pid=S0186-72102023000200379,インフォーマルからフォーマルの仕事へ1年間に移った割合（ENOE 2016-2017の分析）
+MEX,Mexico,event_freq:mex_earthquake,,count,,CENAPRED,,被災人口の公式な集計がないため空欄
+MEX,Mexico,event_freq:mex_hurricane,514,count,2023,CENAPRED,https://www.cenapred.gob.mx/es/Publicaciones/archivos/504-RESUMENEJECUTIVOIMPACTO2023.PDF,気象災害（ハリケーン・豪雨など）の年間死者数。被害を受けた人の数ではない
+PHL,Philippines,event_freq:phl_ofw,2160000,count,2023,PSA Survey on Overseas Filipinos（Wikipedia経由）,https://en.wikipedia.org/wiki/Overseas_Filipino_Worker,今海外で働いている人の総数（ストック）。二次情報
+PHL,Philippines,event_freq:phl_typhoon,,count,,NDRRMC,,年平均の被災者数の公式集計がないため空欄
+PHL,Philippines,event_freq:phl_commute,,current_share,,PSA,,片道1時間以上の割合の公式統計がないため空欄
