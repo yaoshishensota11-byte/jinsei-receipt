@@ -165,14 +165,20 @@ const data = await p.evaluate(async () => {
     { key: "lucky", label: "宝くじ・遺産", test: (l, r, t) => pix.specialOf(r.events) === "lucky" },
     { key: "elder", label: "老後", test: (l, r) => r.age === 76 },
   ];
+  // 日本ならではの場面（七五三・ランドセル）は日本から、ほかの場面は国が重ならないよう、いろいろな国の人生から選ぶ
+  const JAPAN_ONLY = new Set(["kimono", "hakama", "randoseru"]);
+  const usedCountry = new Set();
   const cast = {};
   const s2 = sceneOf(210);
-  for (let i = 0; i < 600 && Object.keys(cast).length < WANT.length; i++) {
-    const mode = i % 3 === 0 ? "w" : "j";
+  for (let i = 0; i < 3000 && Object.keys(cast).length < WANT.length; i++) {
+    const mode = i % 4 === 0 ? "j" : "w";
     for (const { l, rec } of years(`lpcast${i}`, mode)) {
       const t = textOf(rec).join("\n");
       for (const w of WANT) {
         if (cast[w.key] || !w.test(l, rec, t)) continue;
+        if (JAPAN_ONLY.has(w.key) !== (l.D.iso3 === "JPN")) continue;
+        if (!JAPAN_ONLY.has(w.key) && usedCountry.has(l.D.iso3)) continue;
+        if (!JAPAN_ONLY.has(w.key)) usedCountry.add(l.D.iso3);
         s2.update(l, rec.events, rec.age);
         cast[w.key] = { label: w.label, country: l.D.nameJa, age: rec.age, frames: snap(s2) };
       }

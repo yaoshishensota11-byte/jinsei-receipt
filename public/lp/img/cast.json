@@ -1,63 +1,27 @@
 [
  {
-  "key": "baby",
-  "label": "生まれた",
-  "country": "マダガスカル",
-  "age": 0
- },
- {
-  "key": "uniform",
-  "label": "中学・高校",
-  "country": "マダガスカル",
-  "age": 15
- },
- {
-  "key": "abroad",
-  "label": "海外へ出稼ぎ",
-  "country": "マダガスカル",
-  "age": 21
- },
- {
-  "key": "lucky",
-  "label": "宝くじ・遺産",
-  "country": "マダガスカル",
-  "age": 40
- },
- {
-  "key": "disaster",
-  "label": "災害",
-  "country": "マダガスカル",
-  "age": 50
- },
- {
   "key": "hakama",
   "label": "七五三（はかま）",
   "country": "日本",
   "age": 5
  },
  {
-  "key": "hospital",
-  "label": "入院",
-  "country": "日本",
-  "age": 74
- },
- {
-  "key": "elder",
-  "label": "老後",
-  "country": "日本",
-  "age": 76
+  "key": "baby",
+  "label": "生まれた",
+  "country": "イラン",
+  "age": 0
  },
  {
   "key": "kinder",
   "label": "保育園・幼稚園",
-  "country": "日本",
+  "country": "インドネシア",
   "age": 3
  },
  {
-  "key": "wedding",
-  "label": "結婚式",
-  "country": "日本",
-  "age": 30
+  "key": "uniform",
+  "label": "中学・高校",
+  "country": "パキスタン",
+  "age": 15
  },
  {
   "key": "kimono",
@@ -74,13 +38,49 @@
  {
   "key": "toddle",
   "label": "はじめて歩いた",
-  "country": "日本",
+  "country": "インド",
   "age": 1
+ },
+ {
+  "key": "lucky",
+  "label": "宝くじ・遺産",
+  "country": "スーダン",
+  "age": 57
+ },
+ {
+  "key": "abroad",
+  "label": "海外へ出稼ぎ",
+  "country": "モロッコ",
+  "age": 24
+ },
+ {
+  "key": "wedding",
+  "label": "結婚式",
+  "country": "エチオピア",
+  "age": 24
+ },
+ {
+  "key": "disaster",
+  "label": "災害",
+  "country": "ウガンダ",
+  "age": 18
+ },
+ {
+  "key": "elder",
+  "label": "老後",
+  "country": "カナダ",
+  "age": 76
+ },
+ {
+  "key": "hospital",
+  "label": "入院",
+  "country": "アメリカ合衆国",
+  "age": 59
  },
  {
   "key": "family",
   "label": "子育て",
-  "country": "日本",
-  "age": 41
+  "country": "アフガニスタン",
+  "age": 36
  }
 ]
