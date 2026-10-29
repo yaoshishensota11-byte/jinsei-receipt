@@ -1,13 +1,11 @@
 iso3,country_en,field,value,unit,year,source_name,source_url,note
-DEU,Germany,event_freq:deu_flood,10200000,count,2024,GDV,https://www.gdv.de/gdv/themen/schaden-unfall/elementarversicherung-starkregen-hochwasser-102-millionen-wohngebaeude-geschuetzt-183424,自然災害保険（Elementarversicherung）に入っている住宅の棟数。被害を受けた数ではない
-DEU,Germany,event_freq:deu_flood,19500000,count,2024,GDV,https://www.gdv.de/gdv/themen/schaden-unfall/elementarversicherung-starkregen-hochwasser-102-millionen-wohngebaeude-geschuetzt-183424,全住宅の棟数
-DEU,Germany,event_freq:deu_wohnung,0.38,annual_share,2025,Deutscher Mieterbund Mietenreport 2025,https://mieterbund.de/app/uploads/2025/11/Mietenreport_2025_final03Nov.pdf,全借家世帯のうち過去1年間に引っ越しを具体的に検討・探した割合。都市の子育て世帯に限った値ではない。借家人団体の調査
-GBR,United Kingdom,event_freq:gbr_cost_of_living,2,years_count,2006-2025,Office for National Statistics (ONS),https://www.ons.gov.uk/economy/inflationandpriceindices,過去20年でCPIの年平均上昇率が5%を超えた年の数（2022年9.05%、2023年7.23%）
-GBR,United Kingdom,event_freq:gbr_nhs_wait,23600000,count,2023,NHS England,https://www.england.nhs.uk/statistics/statistical-work-areas/rtt-waiting-times/,分子：年間の新規紹介（Referrals）の件数。1人が何件も紹介されることがある
-GBR,United Kingdom,event_freq:gbr_nhs_wait,57106211,count,2023,Office for National Statistics (ONS),https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates,分母：イングランドの人口
-GBR,United Kingdom,event_freq:gbr_mortgage_rate,0.18,annual_share,2024,Bank of England Financial Stability Report July 2024,https://www.bankofengland.co.uk/financial-stability-report/2024/july-2024,住宅ローンのある世帯のうち1年以内に固定金利の期間が終わる世帯の割合
-GBR,United Kingdom,event_freq:gbr_tuition,0.316,annual_share,2026,UCAS,https://www.ucas.com/data-and-analysis/undergraduate-statistics-and-reports,18歳人口の大学進学率（entry rate）
-GBR,United Kingdom,event_freq:gbr_rent_rise,0.63,annual_share,2024,English Housing Survey,https://www.gov.uk/government/collections/english-housing-survey,民間賃貸世帯のうち過去1年間に家賃を上げられた世帯の割合
-FRA,France,event_freq:fra_strike,14,years_count,2005-2024,INSEE / SNCF,https://www.insee.fr/fr/statistiques/2119633,過去20年のうち全国規模の交通ストライキがあった年の数
-FRA,France,event_freq:fra_pension_age,6,years_count,1995-2024,Ministère du Travail,https://travail-emploi.gouv.fr/retraite/les-reformes-de-la-retraite/,過去30年で年金の支給開始年齢や満額の条件が変わった改革の年（1995・2003・2010・2014・2020・2023年）
-FRA,France,event_freq:fra_heatwave,19,years_count,2005-2024,Météo-France / Santé publique France,https://www.santepubliquefrance.fr/les-actualites/2024/bilan-epidemiologique-des-vagues-de-chaleur-de-l-ete-2024,過去20年のうち熱波警報（オレンジ・赤）が出た年の数
+IDN,Indonesia,event_freq:idn_jkn,,current_share,,BPJS Kesehatan,,自営業・インフォーマルに限った未加入・滞納の割合の公式値がないため空欄
+IDN,Indonesia,event_freq:idn_online_loan,,annual_share,,OJK,,成人の利用割合の公式値がないため空欄
+BRA,Brazil,event_freq:bra_price_rise,,years_count,,IBGE / WDI,,年数の集計がないため空欄（WDIの年ごとの値から数えられるはず）
+BRA,Brazil,event_freq:bra_security,0.04,annual_share,2021,IBGE,https://agenciadenoticias.ibge.gov.br/en/agencia-news/2184-news-agency/news/35791-in-2021-4-0-of-brazilian-housing-units-had-at-least-one-victim-of-a-theft,全世帯のうち過去1年に窃盗の被害者がいた世帯の割合（PNAD 2021）
+BRA,Brazil,event_freq:bra_phone_theft,0.10,annual_share,2024,Fórum Brasileiro de Segurança Pública (FBSP) / Datafolha,https://www.cnnbrasil.com.br/nacional/quase-10-dos-brasileiros-tiveram-celular-roubado-ou-furtado-em-um-ano-diz-datafolha/,16歳以上のうち過去1年に携帯電話を盗まれた・奪われた人の割合。ニュース記事経由（二次情報）
+BRA,Brazil,event_freq:bra_sus_wait,,annual_share,,Ministério da Saúde,,全国の統一統計がないため空欄
+BRA,Brazil,event_freq:bra_enem,,period_share,,INEP,,高校3年生に限った分母がないため空欄
+DEU,Germany,event_freq:deu_ausbildung,0.50,period_share,2026,BIBB,https://www.bibb.de/en/77203.php,学校を出た若者のうちデュアル職業訓練に進む割合（概数）
+DEU,Germany,event_freq:deu_energy_price,1,years_count,2006-2025,Destatis,https://www.destatis.de/EN/Themes/Economy/Short-Term-Indicators/Basic-Data/vpi042j.html,過去20年で家庭用エネルギー・ガスの価格が前年比30%以上上がった年の数（2022年）
+DEU,Germany,event_freq:deu_kita,,current_share,,Destatis / DJI,,希望した親に対する割合がないため空欄（不足数は公表あり）
