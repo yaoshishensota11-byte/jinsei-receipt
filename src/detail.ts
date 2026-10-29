@@ -161,6 +161,27 @@ function renderChart(box: HTMLElement, data: YearFlow[]): void {
   }).observe(holder);
 }
 
+/** 印刷用のワークシート「この人生で考えたいこと」（画面には出さず、ワークシートつきで印刷するときだけ紙に出す） */
+function worksheet(l: Life, cats: [ExpenseCat, number][]): string {
+  const s = l.summary();
+  const top = cats[0];
+  const choice = choicesOf(l).find((c) => /働き方|進路|結婚|住まい|介護/.test(c.label)) ?? choicesOf(l)[0];
+  const country = l.D.isJapan ? "日本" : l.D.nameJa;
+  const lines = (n: number) => `<div class="ws-lines">${"<i></i>".repeat(n)}</div>`;
+  const qs = [
+    top ? `この人生で一番お金がかかったのは「${EXPENSE_LABEL[top[0]]}」（${fmt(top[1])}）でした。なぜだと思いますか？` : "この人生で、一番お金がかかったのは何でしたか？",
+    choice ? `${choice.age}歳の分かれ道「${choice.label}」で、別の道を選んでいたら、何が変わったと思いますか？` : "分かれ道で別の道を選んでいたら、何が変わったと思いますか？",
+    `もし${country}ではなく、ほかの国に生まれていたら、この人生はどう変わったと思いますか？`,
+    `この人が生涯で稼いだお金は${fmt(s.incomeTotal.salary ?? 0)}でした。あなたなら、どこでお金を使いますか？`,
+  ];
+  return `<section class="worksheet" aria-hidden="true">
+    <h2>この人生で考えたいこと</h2>
+    <p class="ws-who">${esc(country)}・${esc(s.regionLabel)}生まれ／${s.deathAge}歳で閉店（${esc(s.deathCause)}）</p>
+    <p class="ws-name"><i></i>年<i></i>組<i></i>番　名前<i class="nm"></i></p>
+    <ol>${qs.map((q) => `<li><p>${esc(q)}</p>${lines(4)}</li>`).join("")}</ol>
+  </section>`;
+}
+
 function render(l: Life): void {
   const s = l.summary();
   const d = buildReceipt(l);
@@ -192,9 +213,10 @@ function render(l: Life): void {
         <button type="button" class="btn" id="save">PNGで保存</button>
         <button type="button" class="btn" id="saveDetail">詳細つきで保存</button>
         <button type="button" class="btn" id="print">印刷・PDFで保存</button>
+        <button type="button" class="btn" id="printSheet">ワークシートつきで印刷</button>
         <button type="button" class="btn dark" id="share">Xで共有</button>
       </div>
-      <p class="note">「詳細つきで保存」は、レシートの下に転機・選んだ道・10年ごとのお金を続けた画像です。「印刷・PDFで保存」は、このページ全体（年ごとの記録を含む）を紙やPDFにします。</p>
+      <p class="note">「詳細つきで保存」は、レシートの下に転機・選んだ道・10年ごとのお金を続けた画像です。「印刷・PDFで保存」は、このページ全体（年ごとの記録を含む）を紙やPDFにします。「ワークシートつきで印刷」は、それに授業などで書きこめる「この人生で考えたいこと」のページを足します。</p>
       <a class="btn primary wide" href="./">自分も生まれてみる</a>
     </section>
 
@@ -265,6 +287,8 @@ function render(l: Life): void {
       </details>
     </section>
 
+    ${worksheet(l, cats)}
+
     <footer class="foot">
       <a class="btn primary wide" href="./">自分も生まれてみる</a>
       <p>このページの人生は、URLの中の番号だけから毎回同じように再現されています。<br>金額は公的統計をもとにした架空の試算です。</p>
@@ -290,6 +314,17 @@ function render(l: Life): void {
   });
   document.getElementById("print")!.addEventListener("click", () => {
     years.open = true;
+    window.print();
+  });
+  // ワークシートつき：ふだんの印刷はそのままにして、このボタンのときだけワークシートのページを足す
+  document.getElementById("printSheet")!.addEventListener("click", () => {
+    years.open = true;
+    document.body.classList.add("with-sheet");
+    const done = () => {
+      document.body.classList.remove("with-sheet");
+      window.removeEventListener("afterprint", done);
+    };
+    window.addEventListener("afterprint", done);
     window.print();
   });
   document.getElementById("share")!.addEventListener("click", () => {

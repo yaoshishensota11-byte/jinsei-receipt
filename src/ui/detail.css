@@ -247,3 +247,18 @@ h1, h2 { margin: 0; line-height: 1.4; }
   #receipt { width: 100%; height: auto; display: block; }
   .chart-svg svg { max-height: 60mm; }
 }
+
+/* ── ワークシート（ワークシートつきで印刷するときだけ出す） ── */
+.worksheet { display: none; }
+@media print {
+  body.with-sheet .worksheet { display: block; break-before: page; }
+  .worksheet h2 { font-size: 16pt; margin: 0 0 2mm; }
+  .worksheet .ws-who { margin: 0 0 4mm; font-size: 10pt; color: #555; }
+  .worksheet .ws-name { display: flex; align-items: flex-end; gap: 1.5mm; margin: 0 0 6mm; font-size: 10pt; }
+  .worksheet .ws-name i { display: block; width: 12mm; height: 6mm; border-bottom: 1px solid #333; }
+  .worksheet .ws-name i.nm { flex: 1; }
+  .worksheet ol { margin: 0; padding-left: 6mm; }
+  .worksheet li { margin: 0 0 6mm; break-inside: avoid; }
+  .worksheet li p { margin: 0 0 2mm; font-size: 11pt; font-weight: 700; }
+  .worksheet .ws-lines i { display: block; height: 9mm; border-bottom: 1px dashed #999; }
+}
