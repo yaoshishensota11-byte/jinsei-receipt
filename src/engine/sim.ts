@@ -6,7 +6,7 @@ import { MICROS } from "./micro";
 import { riskYear, countryEventScene, ipvHazard } from "./risks";
 import { kidsScene, kidsAgainScene, fertilityScene, strainScene, dvScene, heldHouseScene, type Scene } from "./scenes";
 import { drawMarriageMode, meetScene, loveScene, arrangedScene, betrothedScene, type MarriageMode } from "./marriage";
-import { leaveHomeScene, kidLeaveScene, kidAtHome } from "./home";
+import { leaveHomeScene, kidLeaveScene, kidAtHome, kidShownHome } from "./home";
 import { earlyEvents } from "./early";
 import type {
   Choice,
@@ -224,6 +224,8 @@ export class Life {
     stayHome?: boolean;
     /** 家を出た年齢（自分の年齢） */
     leftAge?: number;
+    /** 巣立ちの場面で、どうするかを決めた */
+    leaveAsked?: boolean;
     /** 生まれたときの、もう一人の親（パートナー）の年齢 */
     otherAge?: number;
     /** もう一人の親と一緒になった年（自分の年齢）。パートナーを見分けるのに使う */
@@ -356,7 +358,7 @@ export class Life {
     const out = ["自分"];
     const p = this.partner;
     if (p && p.alive) out.push(p.sex === "male" ? "夫" : "妻");
-    const kidsHome = this.kids.filter((k) => kidAtHome(k, a)).length;
+    const kidsHome = this.kids.filter((k) => kidShownHome(this, k, a)).length;
     if (kidsHome) out.push(`子ども${kidsHome}人`);
     if (this.home === "parents") {
       if (this.parents[0].alive) out.push("父");
@@ -545,9 +547,9 @@ export class Life {
     return {
       id: `micro:${m.id}`,
       age: a,
-      title: m.title,
+      title: m.titleOf?.(this) ?? m.title,
       situation: m.situation(this),
-      options: m.options.filter((o) => !o.when || o.when(this)).map(({ id, label, desc }) => ({ id, label, desc })),
+      options: m.options.filter((o) => !o.when || o.when(this)).map((o) => ({ id: o.id, label: o.labelOf?.(this) ?? o.label, desc: o.descOf?.(this) ?? o.desc })),
     };
   }
 
@@ -593,14 +595,15 @@ export class Life {
     // お金の振り分け：25〜60歳で5年に一度（大きな分かれ道のあと）
     if (a >= 25 && a <= 60 && a % 5 === 0 && this.school === "done" && !this.choiceLog.some((c) => c.id === "alloc" && c.age === a)) return allocChoice(this);
     // 結婚の話を待っている間に、別の形で結婚した場合は、その話は消える
-    while (this.sceneQueue.length && this.partner && ["meet", "propose", "arranged", "betrothed"].includes(this.sceneQueue[0].id)) this.sceneQueue.shift();
+    // 順番を待つあいだに状況が変わり、もう合わなくなった場面も消す
+    while (this.sceneQueue.length && ((this.partner && ["meet", "propose", "arranged", "betrothed"].includes(this.sceneQueue[0].id)) || this.sceneQueue[0].stillValid?.(this) === false)) this.sceneQueue.shift();
     const sc = this.sceneQueue[0];
     if (sc)
       return {
         id: `ev:${sc.id}`,
         age: a,
         title: sc.title,
-        situation: sc.situation,
+        situation: sc.situationOf?.(this) ?? sc.situation,
         options: sc.options.map(({ id, label, desc }) => ({ id, label, desc })),
       };
     return this.microChoice();
@@ -637,6 +640,18 @@ export class Life {
     c.balance = Math.round(this.balance);
     c.invested = Math.round(this.invest);
     c.debt = Math.round(this.loan + this.scholarship);
+  }
+
+  /** 乱数を使わずに言い回しを選ぶ（同じ文ばかりにならないように）。記録の中身や共有URLには影響しない */
+  vary(key: string, lines: string[]): string {
+    return lines[hashStr(`${this.seed}|${key}|${this.age}`) % lines.length];
+  }
+  /** 前にその知らせを出した年齢。within 年以内に出していれば true（「また」をつけるため） */
+  private saidAt = new Map<string, number>();
+  again(key: string, within: number): boolean {
+    const p = this.saidAt.get(key);
+    this.saidAt.set(key, this.age);
+    return p !== undefined && this.age - p <= within;
   }
 
   /** 章のまとめで「同い年の人と比べる」ための出来事の印（[印, 年齢]）。乱数や記録には影響しない */
@@ -876,6 +891,12 @@ export class Life {
     }
   }
   childSupport = false;
+  /** 離婚した相手のもとで暮らしている子どもか（養育費を払っている父親の、前の結婚の子ども） */
+  kidWithEx(k: Life["kids"][number]): boolean {
+    return this.childSupport && !(this.partner?.alive && k.otherSince === this.partnerSince);
+  }
+  /** 車を初めて買った年齢（持っていなければ -1） */
+  carSince = -1;
   widowed = false;
 
   private kidsTarget(r: Rng): number {
@@ -958,7 +979,24 @@ export class Life {
     const a = this.age;
     const world = streamRng("world", "economy", this.year); // 景気は同い年みんな共通
     const recession = world.chance(0.1);
-    if (recession && a >= 18) this.log("money", "景気が後退した。");
+    if (recession && a >= 18) {
+      const working = this.job !== "none" && this.job !== "retired";
+      this.log(
+        "money",
+        this.again("recession", 1)
+          ? this.vary("recession2", ["不景気が続いている。", "景気は、なかなか上向かない。", "今年も景気は悪いままだった。"])
+          : this.vary("recession", [
+              "景気が後退した。",
+              "景気が悪くなり、求人が減った。",
+              "不景気のニュースが続いた。",
+              "景気が冷えこみ、街の人通りが減った。",
+              "物が売れなくなり、景気が後退した。",
+              "景気の先行きが暗くなり、みんな財布のひもを固くした。",
+              working ? "景気が後退し、勤め先の業績も落ちこんだ。" : "景気が後退し、まわりでも仕事を失う人が出た。",
+              working ? "不景気で、ボーナスや残業代が減るという話が出た。" : "不景気で、店じまいする店が増えた。",
+            ]),
+      );
+    }
 
     if (this.job === "none" && this.school === "done" && this.made("firstJob") && a < this.retireAge) {
       if (a >= this.unemployedUntil && this.unemployedUntil >= 0) {
@@ -966,7 +1004,12 @@ export class Life {
         this.job = back;
         this.careerMult = Math.max(0.65, this.careerMult * 0.85);
         this.unemployedUntil = -1;
-        this.log("work", back === "sme" ? "中小企業の正社員として働きはじめた。" : "非正規の仕事で働きはじめた。");
+        this.log(
+          "work",
+          back === "sme"
+            ? this.vary("backSme", ["中小企業の正社員として働きはじめた。", "仕事が見つかり、中小企業の正社員になった。"])
+            : this.vary("backNonreg", ["非正規の仕事で働きはじめた。", "派遣やパートの仕事を見つけて、働きはじめた。", "契約社員として、また働きはじめた。", "短期の仕事をつないで、働きはじめた。"]),
+        );
       }
     }
 
@@ -1009,7 +1052,7 @@ export class Life {
         }
       } else if (this.job === "nonregular" && !this.postRetireWork) {
         if (r.chance(0.06 * layoffMult)) {
-          this.log("work", "契約が更新されず、次の仕事を探した。");
+          this.log("work", this.vary("noRenew", ["契約が更新されず、次の仕事を探した。", "契約期間が終わり、仕事がなくなった。", "人手が足りたからと、契約を打ち切られた。"]));
           this.mark("jobLoss");
           this.unemployedUntil = a + 1;
           this.job = "none";
@@ -1041,7 +1084,7 @@ export class Life {
         }
       } else if (this.job === "freelance") {
         if (r.chance(0.03 * layoffMult)) {
-          this.log("work", "大口の取引先を失い、収入が減った。");
+          this.log("work", this.vary("lostClient", ["大口の取引先を失い、収入が減った。", "長く続いた取引が終わり、収入が減った。", "注文が減り、売り上げが落ちた。"]));
           this.careerMult *= 0.8;
         }
       }
@@ -1255,7 +1298,7 @@ export class Life {
           this.selfRaises++;
           this.careerMult *= 1.15;
           this.log("work", "学びに使ったお金で身につけたことが評価され、給料が上がった。", undefined, true);
-        } else this.log("work", "学び続けたが、すぐには給料に結びつかなかった。");
+        } else this.log("work", this.vary("studyNo", ["学び続けたが、すぐには給料に結びつかなかった。", "勉強は続けているが、まだ仕事には生かせていない。", "資格の勉強を続けた。給料は変わらなかった。"]));
       }
       this.selfFund = Math.min(this.selfFund, unit);
     }
@@ -1368,12 +1411,32 @@ export class Life {
       const used = liquid < this.y(2_000_000);
       const c = used ? r.range(this.y(400_000), this.y(1_000_000)) : r.range(this.y(1_500_000), this.y(3_200_000));
       this.spend("car", c);
-      this.log("money", used ? "中古車に買い替えた。" : "車を買い替えた。", -c);
+      const first = this.carSince < 0;
+      if (first) this.carSince = a;
+      this.log(
+        "money",
+        first
+          ? used
+            ? "中古車を買った。"
+            : "車を買った。"
+          : used
+            ? this.vary("carUsed", ["中古車に買い替えた。", "古い車を下取りに出して、中古車に乗り換えた。", "車が故障続きになり、中古車に買い替えた。"])
+            : this.vary("carNew", ["車を買い替えた。", "長く乗った車を手放し、新しい車にした。", "家族の暮らしに合わせて、車を買い替えた。"]),
+        -c,
+      );
     }
     if (a >= 25 && !this.tight && !this.frugal && r.chance(0.04)) {
       const c = r.range(this.y(150_000), this.y(600_000));
       this.spend("fun", c);
-      this.log("money", r.pick(["家族で海外旅行に行った。", "趣味に思い切って使った。", "家電をまとめて買い替えた。"]), -c);
+      this.log(
+        "money",
+        r.pick([
+          this.vary("splurge1", ["家族で海外旅行に行った。", "思い切って遠くへ旅行した。", "温泉旅行でのんびり過ごした。"]),
+          this.vary("splurge2", ["趣味に思い切って使った。", "ずっと欲しかったものを買った。", "習いごとを始め、道具をそろえた。"]),
+          this.vary("splurge3", ["家電をまとめて買い替えた。", "古くなった家具を買い替えた。", "冷蔵庫と洗濯機が続けて壊れ、買い替えた。"]),
+        ]),
+        -c,
+      );
     }
   }
 
@@ -1452,8 +1515,9 @@ export class Life {
       const g = this.invest * Math.max(-0.7, ret);
       this.invest += g;
       this.cur!.income.invest = (this.cur!.income.invest ?? 0) + g;
-      if (this.investStyle === "stocks" && ret > 0.45) this.log("luck", "持っていた株が大きく値上がりした。", g, true);
-      if (ret < -0.25) this.log("money", "株価が大きく下がり、資産が目減りした。", g);
+      if (this.investStyle === "stocks" && ret > 0.45) this.log("luck", this.vary("stockUp", ["持っていた株が大きく値上がりした。", "株が大きく上がり、資産がふくらんだ。", "買っておいた株の値段が、一年で大きく伸びた。"]), g, true);
+      if (ret < -0.25)
+        this.log("money", this.again("stockDown", 2) ? this.vary("stockDown2", ["株価がまた大きく下がった。", "株価の下落が続き、資産がさらに減った。"]) : this.vary("stockDown", ["株価が大きく下がり、資産が目減りした。", "株が暴落し、資産が大きく減った。", "株価が急落した。売らずに持ち続けた。"]), g);
       // 65歳から少しずつ取り崩す
       if (a >= 65 && this.cash < 0) {
         const w = Math.min(this.invest, -this.cash + this.y(500_000));
@@ -1489,7 +1553,9 @@ export class Life {
           const text = this.D.isJapan
             ? "貯えが尽き、生活保護を受けはじめた。"
             : a < 65
-              ? "借金が返せなくなり、親戚に助けを求めた。しばらく援助を受けて暮らす。"
+              ? this.again("aid", 8)
+                ? this.vary("aid2", ["また借金が返せなくなり、親戚の援助を受けることになった。", "再び暮らしが立ち行かなくなり、親戚を頼った。"])
+                : this.vary("aid", ["借金が返せなくなり、親戚に助けを求めた。しばらく援助を受けて暮らす。", "返済が追いつかなくなり、親戚の援助で暮らすことになった。"])
               : this.kids.length
                 ? "貯えが尽き、子どもたちの仕送りに頼って暮らすようになった。"
                 : "貯えが尽き、親戚や地域の支えで暮らすようになった。";
@@ -1501,13 +1567,21 @@ export class Life {
     }
     if (this.welfare && !this.D.isJapan && a < 65 && this.cash + this.invest > 0) {
       this.welfare = false;
-      this.log("money", "援助を受けずに暮らせるようになった。");
+      this.log("money", this.vary("welfareOff", ["援助を受けずに暮らせるようになった。", "なんとか自分の稼ぎで暮らせるようになった。", "親戚に頼らずにやっていけるようになった。"]));
     }
     // 家計が苦しいときは節約する
     const wasFrugal = this.frugal;
     this.frugal = this.cash + this.invest < -this.y(1_000_000) && this.school === "done";
-    if (this.frugal && !wasFrugal) this.log("money", "家計が赤字続きになり、節約生活を始めた。");
-    if (!this.frugal && wasFrugal) this.log("money", "家計が立ち直った。");
+    // 1〜2年で行ったり来たりするときは、毎回は知らせない
+    if (this.frugal && !wasFrugal && !this.again("frugalFlip", 2))
+      this.log(
+        "money",
+        this.again("frugal", 6)
+          ? this.vary("frugal2", ["また家計が赤字になり、節約生活に戻った。", "貯えが再びマイナスになり、出費を削った。", "家計がまた苦しくなった。"])
+          : this.vary("frugal", ["家計が赤字続きになり、節約生活を始めた。", "貯えがマイナスになり、出費を大きく削ることにした。", "借金がふくらみ、暮らしを見直した。"]),
+      );
+    if (!this.frugal && wasFrugal && !this.again("recoverFlip", 2))
+      this.log("money", this.again("recover", 6) ? this.vary("recover2", ["家計がまた持ち直した。", "どうにか赤字から抜け出した。"]) : this.vary("recover", ["家計が立ち直った。", "赤字から抜け出し、ひと息ついた。", "借金が減り、家計が落ち着いた。"]));
   }
 
   private livingCosts(r: Rng): void {
@@ -1579,7 +1653,13 @@ export class Life {
       // 最低限の暮らしの水準。所得の低い国では日本よりずっと低い
       const minimum = ((fam ? this.y(1_700_000) : this.y(1_000_000)) + kidsLiving * this.y(300_000)) * (this.D.isJapan ? 1 : 0.45);
       const capped = Math.max(minimum * (this.home === "parents" ? 0.55 : 1), Math.min(annual, budget));
-      if (capped < annual * 0.97 && !this.tight) this.log("money", "家計を切りつめて暮らすようになった。");
+      if (capped < annual * 0.97 && !this.tight)
+        this.log(
+          "money",
+          this.again("tight", 6)
+            ? this.vary("tight2", ["また、家計を切りつめる暮らしに戻った。", "出費がかさみ、再びやりくりが厳しくなった。", "今年もまた、外食や買い物を控えた。", "安い店を回って、食費を抑えた。", "使っていない契約を解約して、出費を減らした。"])
+            : this.vary("tight", ["家計を切りつめて暮らすようになった。", "外食や買い物を減らして、やりくりするようになった。", "収入に合わせて、暮らしを小さくした。", "家計簿をつけて、出費を見直した。"]),
+        );
       this.tight = capped < annual * 0.97;
       annual = capped;
     } else this.tight = false;
@@ -1878,8 +1958,9 @@ export function buildChoice(l: Life, id: ChoiceId): Choice {
       break;
     }
     case "parentCare": {
-      title = "親の介護への向き合い方";
       const alive = l.parents.some((x) => x.alive);
+      // 両親がすでに亡くなっていれば、介護ではなく、実家とこれからの備えの話になる
+      title = alive ? "親の介護への向き合い方" : l.heir ? "これからの備え" : "空き家になった実家";
       if (!alive && l.heir) {
         // 子どもに生まれ直した人は、親の家とお金の整理を、親が亡くなった年に済ませている
         situation = "両親はすでに他界している。親が残したものの整理は、亡くなったときに済ませた。これから、自分の老後にどう備える？";

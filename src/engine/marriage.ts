@@ -87,6 +87,9 @@ function customLine(l: Life): string {
 
 /** 気になる人ができたとき（付き合うかどうか） */
 export function meetScene(l: Life): Scene {
+  return { ...meetSceneAt(l), situationOf: (l) => meetSceneAt(l).situation };
+}
+function meetSceneAt(l: Life): Scene {
   const a = l.age;
   const again = l.widowed || l.partnerSince >= 0;
   const where = again
@@ -95,7 +98,9 @@ export function meetScene(l: Life): Scene {
       ? "結婚はしないと決めていたが、ある日、いい人に出会った。"
       : a < 23 && l.school !== "done"
         ? "同じ学校に、気になる人ができた。"
-        : ["職場に、気の合う人ができた。", "友だちの紹介で会った人と、話が弾んだ。", "趣味の集まりで、気になる人ができた。"][a % 3];
+        : l.job !== "none" && l.job !== "retired"
+          ? ["職場に、気の合う人ができた。", "友だちの紹介で会った人と、話が弾んだ。", "趣味の集まりで、気になる人ができた。"][a % 3]
+          : ["友だちの紹介で会った人と、話が弾んだ。", "趣味の集まりで、気になる人ができた。", "近所に、よく話す人ができた。"][a % 3];
   return {
     id: "meet",
     title: "出会い",
@@ -122,7 +127,7 @@ export function meetScene(l: Life): Scene {
         desc: "気楽な関係のまま。この先どうなるかは分からない。",
         apply: (l, r) => {
           l.marriageDelayUntil = l.age + r.int(1, 2);
-          l.logPre("family", "友だちのままでいることにした。");
+          l.logPre("family", l.vary("friends", ["友だちのままでいることにした。", "いい人だったが、付き合うまでには至らなかった。", "気持ちを伝えず、友だちのままでいた。"]));
         },
       },
       {
@@ -131,7 +136,7 @@ export function meetScene(l: Life): Scene {
         desc: "仕事や勉強、趣味に打ち込める。出会いはしばらく遠のく。",
         apply: (l, r) => {
           l.marriageDelayUntil = l.age + r.int(3, 5);
-          l.logPre("family", "今は恋愛より自分のことを優先すると決めた。");
+          l.logPre("family", l.vary("self", ["今は恋愛より自分のことを優先すると決めた。", "今は仕事や自分の時間を大事にしたいと思った。", "誘いは断り、自分のペースで暮らすことにした。"]));
         },
       },
     ],

@@ -3663,7 +3663,7 @@ var country_events_default = [
     minAge: 40,
     maxAge: 65,
     annualProb: 0.01,
-    requires: "working",
+    requires: "working+parentAway",
     title: "\u89AA\u306E\u4ECB\u8B77",
     situation: "\u96E2\u308C\u3066\u66AE\u3089\u3059\u89AA\u304C\u5012\u308C\u3001\u65E5\u5E38\u751F\u6D3B\u306B\u4ECB\u52A9\u304C\u5FC5\u8981\u306B\u306A\u3063\u305F\u3002",
     options: [
@@ -3867,7 +3867,7 @@ var country_events_default = [
     minAge: 35,
     maxAge: 55,
     annualProb: 0.03,
-    requires: "hasKids",
+    requires: "kid:10-12",
     title: "\u4E2D\u5B66\u53D7\u9A13",
     situation: "\u5B50\u3069\u3082\u306E\u540C\u7D1A\u751F\u306E\u591A\u304F\u304C\u587E\u306B\u901A\u3044\u59CB\u3081\u3001\u4E2D\u5B66\u53D7\u9A13\u3092\u3059\u308B\u304B\u5BB6\u65CF\u3067\u8A71\u3057\u5408\u3063\u305F\u3002",
     options: [
@@ -3951,7 +3951,7 @@ var country_events_default = [
     minAge: 18,
     maxAge: 19,
     annualProb: 0.15,
-    requires: null,
+    requires: "student",
     title: "\u5927\u5B66\u9032\u5B66\u3068\u5B66\u751F\u30ED\u30FC\u30F3",
     situation: "\u5927\u5B66\u306E\u5408\u683C\u901A\u77E5\u304C\u5C4A\u3044\u305F\u3002\u5B66\u8CBB\u306F\u5E74\u306B\u6570\u4E07\u30C9\u30EB\u304B\u304B\u308B\u3002",
     options: [
@@ -4083,7 +4083,7 @@ var country_events_default = [
     minAge: 24,
     maxAge: 45,
     annualProb: 0.08,
-    requires: "hasKids",
+    requires: "kid:0-2",
     title: "\u4FDD\u80B2\u6599\u306E\u9AD8\u3055",
     situation: "\u7523\u4F11\u304C\u660E\u3051\u305F\u304C\u3001\u8FD1\u304F\u306E\u4FDD\u80B2\u65BD\u8A2D\u306E\u6599\u91D1\u306F\u6708\u306B1,000\u30C9\u30EB\u3092\u8D85\u3048\u3066\u3044\u305F\u3002",
     options: [
@@ -4175,7 +4175,7 @@ var country_events_default = [
     minAge: 25,
     maxAge: 50,
     annualProb: 0.01,
-    requires: null,
+    requires: "notOwner",
     title: "\u5DE5\u4E8B\u304C\u6B62\u307E\u3063\u305F\u30DE\u30F3\u30B7\u30E7\u30F3",
     situation: "\u982D\u91D1\u3092\u6255\u3063\u3066\u4E88\u7D04\u8CFC\u5165\u3057\u305F\u30DE\u30F3\u30B7\u30E7\u30F3\u306E\u5DE5\u4E8B\u304C\u3001\u958B\u767A\u4F1A\u793E\u306E\u8CC7\u91D1\u96E3\u3067\u6B62\u307E\u3063\u305F\u3002",
     options: [
@@ -4215,7 +4215,7 @@ var country_events_default = [
     minAge: 25,
     maxAge: 50,
     annualProb: 0.05,
-    requires: "hasKids",
+    requires: "urban+kid:5-14",
     title: "\u6238\u7C4D\u3068\u5B50\u3069\u3082\u306E\u5B66\u6821",
     situation: "\u50CD\u3044\u3066\u3044\u308B\u90FD\u5E02\u306B\u6238\u7C4D\u304C\u306A\u3044\u305F\u3081\u3001\u5B50\u3069\u3082\u304C\u5730\u5143\u306E\u516C\u7ACB\u6821\u306B\u5165\u308B\u306B\u306F\u591A\u304F\u306E\u66F8\u985E\u3068\u6761\u4EF6\u304C\u5FC5\u8981\u3060\u3068\u5206\u304B\u3063\u305F\u3002",
     options: [
@@ -4275,7 +4275,7 @@ var country_events_default = [
     minAge: 17,
     maxAge: 18,
     annualProb: 0.2,
-    requires: null,
+    requires: "student",
     title: "\u9AD8\u8003\u306E\u7D50\u679C",
     situation: "\u5168\u56FD\u7D71\u4E00\u306E\u5927\u5B66\u5165\u8A66\u300C\u9AD8\u8003\u300D\u306E\u70B9\u6570\u304C\u767A\u8868\u3055\u308C\u3001\u5FD7\u671B\u6821\u306B\u306F\u5C4A\u304B\u306A\u304B\u3063\u305F\u3002",
     options: [
@@ -4323,7 +4323,7 @@ var country_events_default = [
     minAge: 22,
     maxAge: 40,
     annualProb: 0.05,
-    requires: "urban",
+    requires: "urban+working",
     title: "\u9577\u6642\u9593\u52B4\u50CD\u306E\u8077\u5834",
     situation: "\u52E4\u3081\u5148\u3067\u3001\u671D9\u6642\u304B\u3089\u591C9\u6642\u307E\u3067\u90316\u65E5\u50CD\u304F\u3053\u3068\u304C\u5F53\u305F\u308A\u524D\u306B\u306A\u3063\u3066\u304D\u305F\u3002",
     options: [
@@ -4467,7 +4467,7 @@ var country_events_default = [
     minAge: 16,
     maxAge: 18,
     annualProb: 0.15,
-    requires: null,
+    requires: "student",
     title: "\u5DE5\u5B66\u30FB\u533B\u5B66\u90E8\u306E\u5165\u8A66\u6E96\u5099",
     situation: "\u5468\u308A\u306E\u591A\u304F\u304C\u5DE5\u5B66\u7CFB\u5165\u8A66\uFF08JEE\uFF09\u3084\u533B\u5B66\u90E8\u5165\u8A66\uFF08NEET\uFF09\u306E\u4E88\u5099\u6821\u306B\u901A\u3044\u59CB\u3081\u305F\u3002",
     options: [
@@ -4519,7 +4519,7 @@ var country_events_default = [
     minAge: 20,
     maxAge: 35,
     annualProb: 0.08,
-    requires: null,
+    requires: "newlywed",
     title: "\u7D50\u5A5A\u5F0F\u306E\u8CBB\u7528",
     situation: "\u7D50\u5A5A\u304C\u6C7A\u307E\u308A\u3001\u89AA\u65CF\u304B\u3089\u76DB\u5927\u306A\u5F0F\u3092\u6319\u3052\u308B\u3088\u3046\u671F\u5F85\u3055\u308C\u3066\u3044\u308B\u3002",
     options: [
@@ -4883,7 +4883,7 @@ var country_events_default = [
     minAge: 18,
     maxAge: 24,
     annualProb: 0.1,
-    requires: null,
+    requires: "inUniv",
     title: "\u5927\u5B66\u6559\u54E1\u306E\u30B9\u30C8\u30E9\u30A4\u30AD",
     situation: "\u56FD\u7ACB\u5927\u5B66\u306E\u6559\u54E1\u7D44\u5408\u304C\u30B9\u30C8\u30E9\u30A4\u30AD\u306B\u5165\u308A\u3001\u6388\u696D\u304C\u4F55\u304B\u6708\u3082\u6B62\u307E\u3063\u305F\u3002",
     options: [
@@ -5021,7 +5021,7 @@ var country_events_default = [
     annualProb: 0.06,
     requires: "urban",
     title: "\u96FB\u6C17\u4EE3\u306E\u8ACB\u6C42\u984D",
-    situation: "\u6599\u91D1\u6539\u5B9A\u3067\u3001\u6BCE\u6708\u306E\u96FB\u6C17\u4EE3\u304C\u5BB6\u8CC3\u306B\u8FD1\u3044\u984D\u306B\u306A\u3063\u305F\u3002",
+    situation: "\u6599\u91D1\u6539\u5B9A\u3067\u3001\u6BCE\u6708\u306E\u96FB\u6C17\u4EE3\u304C\u53CE\u5165\u306E1\u5272\u3092\u8D85\u3048\u308B\u307B\u3069\u306B\u306A\u3063\u305F\u3002",
     options: [
       {
         id: "a",
@@ -5791,7 +5791,7 @@ var country_events_default = [
     minAge: 17,
     maxAge: 18,
     annualProb: 0.15,
-    requires: null,
+    requires: "student",
     title: "\u5168\u56FD\u9AD8\u6821\u8A66\u9A13\uFF08ENEM\uFF09",
     situation: "ENEM\u306E\u70B9\u6570\u3067\u56FD\u7ACB\u5927\u5B66\u306B\u5165\u308C\u308B\u304B\u304C\u6C7A\u307E\u308B\u3002\u7D50\u679C\u306F\u5C11\u3057\u8DB3\u308A\u306A\u304B\u3063\u305F\u3002",
     options: [
@@ -5839,7 +5839,7 @@ var country_events_default = [
     minAge: 16,
     maxAge: 19,
     annualProb: 0.18,
-    requires: null,
+    requires: "student",
     title: "\u8077\u696D\u8A13\u7DF4\u304B\u5927\u5B66\u304B",
     situation: "\u5B66\u6821\u3092\u51FA\u305F\u3042\u3068\u3001\u8077\u696D\u8A13\u7DF4\uFF08\u30C7\u30E5\u30A2\u30EB\u30B7\u30B9\u30C6\u30E0\uFF09\u306B\u9032\u3080\u304B\u3001\u5927\u5B66\u3092\u76EE\u6307\u3059\u304B\u3092\u6C7A\u3081\u308B\u6642\u671F\u304C\u6765\u305F\u3002",
     options: [
@@ -5931,7 +5931,7 @@ var country_events_default = [
     minAge: 25,
     maxAge: 45,
     annualProb: 0.08,
-    requires: "hasKids",
+    requires: "kid:0-2",
     title: "\u4FDD\u80B2\u6240\u306E\u7A7A\u304D\u5F85\u3061",
     situation: "\u80B2\u5150\u4F11\u696D\u304C\u7D42\u308F\u308B\u304C\u3001\u8FD1\u304F\u306E\u4FDD\u80B2\u6240\uFF08Kita\uFF09\u306B\u7A7A\u304D\u304C\u306A\u3044\u3002",
     options: [
@@ -6019,7 +6019,7 @@ var country_events_default = [
     minAge: 20,
     maxAge: 50,
     annualProb: 0.06,
-    requires: "urban",
+    requires: "urban+renting+kid:0-17",
     title: "\u90FD\u5E02\u306E\u4F4F\u307E\u3044\u63A2\u3057",
     situation: "\u5BB6\u65CF\u304C\u5897\u3048\u3066\u5F15\u3063\u8D8A\u3057\u305F\u3044\u304C\u3001\u90FD\u5E02\u90E8\u306E\u8CC3\u8CB8\u7269\u4EF6\u306E\u5185\u898B\u306B\u306F\u4F55\u5341\u4EBA\u3082\u96C6\u307E\u308B\u3002",
     options: [
@@ -6163,7 +6163,7 @@ var country_events_default = [
     minAge: 28,
     maxAge: 65,
     annualProb: 0.08,
-    requires: "ownsHome",
+    requires: "mortgage",
     title: "\u4F4F\u5B85\u30ED\u30FC\u30F3\u91D1\u5229\u306E\u66F4\u65B0",
     situation: "2\u5E74\u56FA\u5B9A\u306E\u4F4F\u5B85\u30ED\u30FC\u30F3\u91D1\u5229\u304C\u7D42\u308F\u308A\u3001\u65B0\u3057\u3044\u91D1\u5229\u306F\u4EE5\u524D\u306E2\u500D\u4EE5\u4E0A\u306B\u306A\u3063\u305F\u3002",
     options: [
@@ -6203,7 +6203,7 @@ var country_events_default = [
     minAge: 18,
     maxAge: 19,
     annualProb: 0.15,
-    requires: null,
+    requires: "student",
     title: "\u5927\u5B66\u306E\u5B66\u8CBB\u3068\u5B66\u751F\u30ED\u30FC\u30F3",
     situation: "\u30A4\u30F3\u30B0\u30E9\u30F3\u30C9\u306E\u5927\u5B66\u306E\u5B66\u8CBB\u306F\u5E749,000\u30DD\u30F3\u30C9\u8D85\u3002\u5B66\u751F\u30ED\u30FC\u30F3\u3092\u4F7F\u3063\u3066\u9032\u5B66\u3059\u308B\u304B\u8003\u3048\u305F\u3002",
     options: [
@@ -6251,7 +6251,7 @@ var country_events_default = [
     minAge: 20,
     maxAge: 60,
     annualProb: 0.08,
-    requires: "urban",
+    requires: "urban+renting",
     title: "\u5BB6\u8CC3\u306E\u5024\u4E0A\u3052",
     situation: "\u5927\u5BB6\u304B\u3089\u3001\u6765\u6708\u304B\u3089\u5BB6\u8CC3\u309215%\u4E0A\u3052\u308B\u3068\u901A\u77E5\u304C\u6765\u305F\u3002",
     options: [
@@ -6431,7 +6431,7 @@ var country_events_default = [
     minAge: 18,
     maxAge: 19,
     annualProb: 0.12,
-    requires: null,
+    requires: "student",
     title: "\u30B0\u30E9\u30F3\u30BC\u30B3\u30FC\u30EB\u6E96\u5099\u7D1A",
     situation: "\u30D0\u30AB\u30ED\u30EC\u30A2\u306B\u5408\u683C\u3057\u3001\u5927\u5B66\u306B\u9032\u3080\u304B\u3001\u96E3\u95A2\u6821\u3092\u76EE\u6307\u3059\u6E96\u5099\u7D1A\uFF08\u30D7\u30EC\u30D1\uFF09\u306B\u9032\u3080\u304B\u9078\u3076\u3053\u3068\u306B\u306A\u3063\u305F\u3002",
     options: [
@@ -6479,7 +6479,7 @@ var country_events_default = [
     minAge: 25,
     maxAge: 45,
     annualProb: 0.08,
-    requires: "hasKids",
+    requires: "kid:0-2",
     title: "\u4FDD\u80B2\u6240\u306E\u7533\u3057\u8FBC\u307F",
     situation: "\u516C\u7ACB\u4FDD\u80B2\u6240\uFF08\u30AF\u30EC\u30C3\u30B7\u30E5\uFF09\u306B\u7533\u3057\u8FBC\u3093\u3060\u304C\u3001\u7A7A\u304D\u304C\u51FA\u308B\u306E\u306F1\u5E74\u5F8C\u3068\u8A00\u308F\u308C\u305F\u3002",
     options: [
@@ -7043,7 +7043,7 @@ var country_events_default = [
     minAge: 40,
     maxAge: 60,
     annualProb: 0.1,
-    requires: "hasKids",
+    requires: "kid:16-18",
     title: "\u9AD8\u6821\u5352\u696D\u8A66\u9A13\u3068\u5BB6\u5EAD\u6559\u5E2B",
     situation: "\u5B50\u3069\u3082\u304C\u9AD8\u6821\u5352\u696D\u8A66\u9A13\uFF08\u30B5\u30CA\u30A6\u30A7\u30A4\u30E4\u30FB\u30A2\u30F3\u30DE\uFF09\u3092\u63A7\u3048\u3001\u307B\u3068\u3093\u3069\u306E\u540C\u7D1A\u751F\u304C\u79C1\u587E\u306B\u901A\u3063\u3066\u3044\u308B\u3002",
     options: [
@@ -7131,7 +7131,7 @@ var country_events_default = [
     minAge: 22,
     maxAge: 33,
     annualProb: 0.08,
-    requires: null,
+    requires: "newlywed",
     title: "\u7D50\u5A5A\u3068\u65B0\u5C45\u306E\u6E96\u5099",
     situation: "\u5A5A\u7D04\u304C\u6C7A\u307E\u308A\u3001\u6163\u7FD2\u3068\u3057\u3066\u65B0\u90CE\u5074\u304C\u4F4F\u307E\u3044\u3068\u5BB6\u5177\u3092\u305D\u308D\u3048\u308B\u3053\u3068\u3092\u671F\u5F85\u3055\u308C\u3066\u3044\u308B\u3002",
     options: [
@@ -7499,7 +7499,7 @@ var country_events_default = [
     minAge: 25,
     maxAge: 55,
     annualProb: 0.1,
-    requires: "hasKids",
+    requires: "kid:6-14",
     title: "\u5B66\u6821\u306E\u8CBB\u7528",
     situation: "\u5C0F\u5B66\u6821\u306F\u7121\u511F\u5316\u3055\u308C\u305F\u304C\u3001\u5236\u670D\u3084\u6559\u6750\u3001\u6559\u54E1\u3078\u306E\u8B1D\u793C\u306A\u3069\u306E\u51FA\u8CBB\u304C\u7D9A\u304F\u3002",
     options: [
@@ -7807,7 +7807,7 @@ var country_events_default = [
     minAge: 30,
     maxAge: 55,
     annualProb: 0.1,
-    requires: "hasKids",
+    requires: "kid:7-17",
     title: "\u88DC\u7FD2\u6388\u696D",
     situation: "\u5B50\u3069\u3082\u306E\u62C5\u4EFB\u306E\u5148\u751F\u304C\u653E\u8AB2\u5F8C\u306E\u88DC\u7FD2\u6388\u696D\u3092\u958B\u3044\u3066\u304A\u308A\u3001\u307B\u3068\u3093\u3069\u306E\u540C\u7D1A\u751F\u304C\u901A\u3063\u3066\u3044\u308B\u3002",
     options: [
@@ -7851,7 +7851,7 @@ var country_events_default = [
     minAge: 30,
     maxAge: 55,
     annualProb: 0.12,
-    requires: "hasKids",
+    requires: "kid:7-17",
     title: "\u5B66\u7FD2\u587E\uFF08\u30CF\u30B0\u30A9\u30F3\uFF09",
     situation: "\u5B50\u3069\u3082\u306E\u53CB\u4EBA\u306E\u307B\u3068\u3093\u3069\u304C\u653E\u8AB2\u5F8C\u306B\u8907\u6570\u306E\u587E\u306B\u901A\u3063\u3066\u3044\u308B\u3002",
     options: [
@@ -7891,7 +7891,7 @@ var country_events_default = [
     minAge: 25,
     maxAge: 45,
     annualProb: 0.05,
-    requires: null,
+    requires: "notOwner",
     title: "\u30C1\u30E7\u30F3\u30BB\uFF08\u4F1D\u8CB0\uFF09\u5951\u7D04",
     situation: "\u65B0\u3057\u3044\u90E8\u5C4B\u3092\u3001\u307E\u3068\u307E\u3063\u305F\u4FDD\u8A3C\u91D1\u3092\u9810\u3051\u3066\u5BB6\u8CC3\u306E\u304B\u304B\u3089\u306A\u3044\u300C\u30C1\u30E7\u30F3\u30BB\u300D\u3067\u501F\u308A\u308B\u304B\u3001\u6708\u6255\u3044\u306E\u5BB6\u8CC3\u306B\u3059\u308B\u304B\u8FF7\u3063\u305F\u3002",
     options: [
@@ -7935,7 +7935,7 @@ var country_events_default = [
     minAge: 18,
     maxAge: 19,
     annualProb: 0.15,
-    requires: null,
+    requires: "student",
     title: "\u4FEE\u5B66\u80FD\u529B\u8A66\u9A13\uFF08\u30B9\u30CC\u30F3\uFF09",
     situation: "\u5927\u5B66\u4FEE\u5B66\u80FD\u529B\u8A66\u9A13\u306E\u7D50\u679C\u304C\u51FA\u3066\u3001\u5FD7\u671B\u5927\u5B66\u306B\u306F\u5C4A\u304B\u306A\u304B\u3063\u305F\u3002",
     options: [
@@ -8031,7 +8031,7 @@ var country_events_default = [
     minAge: 28,
     maxAge: 36,
     annualProb: 0.06,
-    requires: null,
+    requires: "dating",
     title: "\u7D50\u5A5A\u3068\u65B0\u5C45",
     situation: "\u7D50\u5A5A\u3092\u8003\u3048\u3066\u3044\u308B\u304C\u3001\u30BD\u30A6\u30EB\u306E\u4F4F\u5B85\u4FA1\u683C\u304C\u9AD8\u304F\u3001\u65B0\u5C45\u306E\u6E96\u5099\u304C\u96E3\u3057\u3044\u3002",
     options: [
@@ -8167,7 +8167,7 @@ var country_events_default = [
     minAge: 35,
     maxAge: 60,
     annualProb: 0.1,
-    requires: "hasKids",
+    requires: "kid:13-14",
     title: "\u4E2D\u7B49\u5B66\u6821\u306E\u8CBB\u7528",
     situation: "\u5B50\u3069\u3082\u304C\u5168\u5BEE\u5236\u306E\u4E2D\u7B49\u5B66\u6821\u306B\u5408\u683C\u3057\u305F\u304C\u3001\u5BEE\u8CBB\u3084\u5236\u670D\u306E\u8CBB\u7528\u304C\u5FC5\u8981\u306B\u306A\u3063\u305F\u3002",
     options: [
@@ -8440,7 +8440,7 @@ var country_events_default = [
     minAge: 20,
     maxAge: 60,
     annualProb: 0.04,
-    requires: "urban",
+    requires: "urban+renting",
     title: "\u5927\u5BB6\u304B\u3089\u306E\u9000\u53BB\u901A\u77E5",
     situation: "\u5EFA\u7269\u306E\u5EFA\u3066\u66FF\u3048\u306E\u305F\u3081\u3001\u534A\u5E74\u4EE5\u5185\u306B\u90E8\u5C4B\u3092\u51FA\u308B\u3088\u3046\u5927\u5BB6\u304B\u3089\u544A\u3052\u3089\u308C\u305F\u3002",
     options: [
@@ -8812,13 +8812,21 @@ function riskYear(l, r) {
   if (r.chance(Math.min(0.08, 6e-3 + k.homicidePer100k * 18e-4))) {
     const c = l.y(r.range(3e4, 3e5));
     l.spend("other", c);
-    l.log("money", r.pick(["\u5BB6\u306B\u6CE5\u68D2\u304C\u5165\u308A\u3001\u5BB6\u96FB\u3068\u73FE\u91D1\u3092\u76D7\u307E\u308C\u305F\u3002", "\u9053\u3067\u30B9\u30DE\u30DB\u3068\u8CA1\u5E03\u3092\u596A\u308F\u308C\u305F\u3002", "\u4ED5\u4E8B\u9053\u5177\u3092\u76D7\u307E\u308C\u3001\u8CB7\u3044\u76F4\u3057\u305F\u3002"]), -c);
+    l.log(
+      "money",
+      r.pick([
+        l.vary("theft1", ["\u5BB6\u306B\u6CE5\u68D2\u304C\u5165\u308A\u3001\u5BB6\u96FB\u3068\u73FE\u91D1\u3092\u76D7\u307E\u308C\u305F\u3002", "\u7559\u5B88\u306E\u3042\u3044\u3060\u306B\u7A7A\u304D\u5DE3\u306B\u5165\u3089\u308C\u305F\u3002"]),
+        l.vary("theft2", ["\u9053\u3067\u30B9\u30DE\u30DB\u3068\u8CA1\u5E03\u3092\u596A\u308F\u308C\u305F\u3002", "\u30D0\u30B9\u306E\u4E2D\u3067\u8CA1\u5E03\u3092\u3059\u3089\u308C\u305F\u3002"]),
+        l.vary("theft3", ["\u4ED5\u4E8B\u9053\u5177\u3092\u76D7\u307E\u308C\u3001\u8CB7\u3044\u76F4\u3057\u305F\u3002", "\u81EA\u8EE2\u8ECA\uFF08\u30D0\u30A4\u30AF\uFF09\u3092\u76D7\u307E\u308C\u3001\u8CB7\u3044\u76F4\u3057\u305F\u3002"])
+      ]),
+      -c
+    );
     l.mark("theft");
   }
   if (k.politicalStability < -0.5 && l.job !== "none" && l.job !== "retired" && r.chance(0.02 * -k.politicalStability)) {
     const lost = l.salaryOf(a) * 0.25;
     l.spend("other", lost);
-    l.log("work", "\u653F\u60C5\u304C\u4E0D\u5B89\u5B9A\u306B\u306A\u308A\u3001\u30C7\u30E2\u3084\u5C01\u9396\u3067\u4ED5\u4E8B\u304C\u6570\u304B\u6708\u6B62\u307E\u3063\u305F\u3002", -lost, true);
+    l.log("work", l.vary("unrest", ["\u653F\u60C5\u304C\u4E0D\u5B89\u5B9A\u306B\u306A\u308A\u3001\u30C7\u30E2\u3084\u5C01\u9396\u3067\u4ED5\u4E8B\u304C\u6570\u304B\u6708\u6B62\u307E\u3063\u305F\u3002", "\u6297\u8B70\u30C7\u30E2\u3067\u9053\u8DEF\u304C\u5C01\u9396\u3055\u308C\u3001\u3057\u3070\u3089\u304F\u50CD\u304D\u306B\u51FA\u3089\u308C\u306A\u304B\u3063\u305F\u3002", "\u653F\u6CBB\u306E\u6DF7\u4E71\u3067\u3001\u52E4\u3081\u5148\u304C\u6570\u304B\u6708\u9589\u307E\u3063\u305F\u3002"]), -lost, true);
     l.mark("unrest");
   }
   if (k.conflictRisk > 0 && r.chance(k.conflictRisk * 0.012)) {
@@ -8837,7 +8845,7 @@ function riskYear(l, r) {
   if (l.region.urban === false && !l.D.isJapan && r.chance(k.droughtRisk * 0.035)) {
     const c = Math.max(l.salaryOf(a), l.y(5e5)) * 0.3;
     l.spend("other", c);
-    l.log("disaster", "\u96E8\u304C\u964D\u3089\u305A\u3001\u4F5C\u7269\u304C\u307B\u3068\u3093\u3069\u80B2\u305F\u306A\u304B\u3063\u305F\u3002\u98DF\u3079\u7269\u306E\u5024\u6BB5\u3082\u4E0A\u304C\u3063\u305F\u3002", -c, true);
+    l.log("disaster", l.vary("drought", ["\u96E8\u304C\u964D\u3089\u305A\u3001\u4F5C\u7269\u304C\u307B\u3068\u3093\u3069\u80B2\u305F\u306A\u304B\u3063\u305F\u3002\u98DF\u3079\u7269\u306E\u5024\u6BB5\u3082\u4E0A\u304C\u3063\u305F\u3002", "\u65E5\u7167\u308A\u304C\u7D9A\u304D\u3001\u7551\u304C\u67AF\u308C\u305F\u3002\u5BB6\u755C\u306E\u6C34\u306B\u3082\u56F0\u3063\u305F\u3002", "\u96E8\u5B63\u306B\u96E8\u304C\u5C11\u306A\u304F\u3001\u53CE\u7A6B\u304C\u534A\u5206\u307B\u3069\u306B\u306A\u3063\u305F\u3002"]), -c, true);
     l.mark("drought");
   }
   if (!l.D.isJapan) {
@@ -8861,21 +8869,46 @@ function matches(e, l) {
   const place = tags.has(l.D.iso3) || tags.has("*ALL") || tags.has("*" + ig) || tags.has("*RURAL") && l.region.urban === false || tags.has("*URBAN") && l.region.urban !== false;
   if (!place) return false;
   if (l.age < e.minAge || l.age > e.maxAge) return false;
-  switch (e.requires) {
+  return (e.requires ?? "").split("+").every((q) => requirement(q, l));
+}
+function requirement(q, l) {
+  const kid = /^kid:(\d+)-(\d+)$/.exec(q);
+  if (kid) return l.kids.some((x) => l.age - x.born >= Number(kid[1]) && l.age - x.born <= Number(kid[2]) && !l.kidWithEx(x));
+  switch (q) {
+    case "":
+      return true;
     case "working":
       return l.job !== "none" && l.job !== "retired" && l.school === "done";
     case "married":
-      return !!l.partner;
+      return !!l.partner?.alive;
+    case "newlywed":
+      return !!l.partner?.alive && l.age - l.partnerSince <= 1;
+    case "dating":
+      return l.dating && !l.partner;
     case "hasKids":
-      return l.kids.some((x) => l.age - x.born < 18);
+      return l.kids.some((x) => l.age - x.born < 18 && !l.kidWithEx(x));
     case "rural":
       return l.region.urban === false;
     case "urban":
       return l.region.urban !== false;
     case "ownsHome":
       return l.home === "own";
+    case "mortgage":
+      return l.home === "own" && l.loan > 0;
+    case "renting":
+      return l.home === "rent";
+    case "notOwner":
+      return l.home !== "own";
+    // 高校などに在学中（大学入試・進路の話）
+    case "student":
+      return l.school === "hs" || l.school === "hs_night" || l.school === "kosen";
+    case "inUniv":
+      return l.school === "univ" || l.school === "univ_work" || l.school === "univ_night" || l.school === "grad";
+    // 離れて暮らす親が生きている
+    case "parentAway":
+      return l.home !== "parents" && l.parents.some((p) => p.alive);
     default:
-      return true;
+      throw new Error(`\u56FD\u3054\u3068\u306E\u51FA\u6765\u4E8B\u306E\u6761\u4EF6\u304C\u5206\u304B\u3089\u306A\u3044: ${q}`);
   }
 }
 function applyEffects(l, effects) {
@@ -8931,6 +8964,7 @@ function countryEventScene(l, r) {
       id: `c_${e.id}`,
       title: e.title,
       situation: e.situation,
+      stillValid: (l2) => (e.requires ?? "").split("+").every((q) => requirement(q, l2)),
       options: e.options.map((o) => ({
         id: o.id,
         label: o.label,
@@ -9403,20 +9437,38 @@ var MICROS = [
     min: 30,
     max: 65,
     when: (l) => working(l) && (l.D.k > 0.25 || l.region.urban === true),
+    // 車を持っていない人には「買うかどうか」、持っている人には「買い替えるかどうか」として出す
     title: "\u8ECA\u306E\u8CB7\u3044\u66FF\u3048",
-    situation: () => "\u8ECA\u304C\u53E4\u304F\u306A\u3063\u3066\u304D\u305F\u3002\u65B0\u8ECA\u306E\u30AB\u30BF\u30ED\u30B0\u3092\u898B\u3066\u3044\u308B\u3002",
+    titleOf: (l) => l.carSince < 0 ? "\u8ECA\u3092\u8CB7\u3046\uFF1F" : "\u8ECA\u306E\u8CB7\u3044\u66FF\u3048",
+    situation: (l) => l.carSince < 0 ? "\u901A\u52E4\u3084\u8CB7\u3044\u7269\u306B\u3001\u8ECA\u304C\u3042\u308C\u3070\u4FBF\u5229\u3060\u3068\u611F\u3058\u308B\u3002\u65B0\u8ECA\u306E\u30AB\u30BF\u30ED\u30B0\u3092\u898B\u3066\u3044\u308B\u3002" : "\u8ECA\u304C\u53E4\u304F\u306A\u3063\u3066\u304D\u305F\u3002\u65B0\u8ECA\u306E\u30AB\u30BF\u30ED\u30B0\u3092\u898B\u3066\u3044\u308B\u3002",
     options: [
-      { id: "a", label: "\u65B0\u8ECA\u3092\u8CB7\u3046", desc: "\u5FEB\u9069\u3067\u5B89\u5168\u3002\u5927\u304D\u306A\u51FA\u8CBB\u3002", apply: (l) => {
-        const c = l.y(28e5);
-        l.spend("car", c);
-        l.logPre("money", "\u65B0\u8ECA\u306B\u8CB7\u3044\u66FF\u3048\u305F\u3002", -c);
-      } },
-      { id: "b", label: "\u4E57\u308A\u3064\u3076\u3059", desc: "\u304A\u91D1\u304C\u6D6E\u304F\u3002\u6545\u969C\u306E\u4FEE\u7406\u4EE3\u304C\u304B\u304B\u308B\u304B\u3082\u3002", apply: (l, r) => {
-        if (r.chance(0.4)) {
-          l.spend("car", l.y(25e4));
-          l.logPre("money", "\u53E4\u3044\u8ECA\u304C\u6545\u969C\u3057\u3001\u4FEE\u7406\u4EE3\u304C\u304B\u304B\u3063\u305F\u3002", -l.y(25e4));
-        } else l.logPre("money", "\u53E4\u3044\u8ECA\u3092\u5927\u4E8B\u306B\u4E57\u308A\u7D9A\u3051\u305F\u3002");
-      } }
+      {
+        id: "a",
+        label: "\u65B0\u8ECA\u3092\u8CB7\u3046",
+        desc: "\u5FEB\u9069\u3067\u5B89\u5168\u3002\u5927\u304D\u306A\u51FA\u8CBB\u3002",
+        apply: (l) => {
+          const c = l.y(28e5);
+          l.spend("car", c);
+          const first = l.carSince < 0;
+          if (first) l.carSince = l.age;
+          l.logPre("money", first ? "\u65B0\u8ECA\u3092\u8CB7\u3063\u305F\u3002" : "\u65B0\u8ECA\u306B\u8CB7\u3044\u66FF\u3048\u305F\u3002", -c);
+        }
+      },
+      {
+        id: "b",
+        label: "\u4E57\u308A\u3064\u3076\u3059",
+        labelOf: (l) => l.carSince < 0 ? "\u4ECA\u306F\u8CB7\u308F\u306A\u3044" : "\u4E57\u308A\u3064\u3076\u3059",
+        desc: "\u304A\u91D1\u304C\u6D6E\u304F\u3002\u6545\u969C\u306E\u4FEE\u7406\u4EE3\u304C\u304B\u304B\u308B\u304B\u3082\u3002",
+        descOf: (l) => l.carSince < 0 ? "\u304A\u91D1\u304C\u6D6E\u304F\u3002\u96FB\u8ECA\u3084\u30D0\u30B9\u3001\u81EA\u8EE2\u8ECA\u3067\u3084\u308A\u304F\u308A\u3059\u308B\u3002" : "\u304A\u91D1\u304C\u6D6E\u304F\u3002\u6545\u969C\u306E\u4FEE\u7406\u4EE3\u304C\u304B\u304B\u308B\u304B\u3082\u3002",
+        apply: (l, r) => {
+          const broke = r.chance(0.4);
+          if (l.carSince < 0) l.logPre("money", "\u8ECA\u306F\u8CB7\u308F\u305A\u306B\u66AE\u3089\u3059\u3053\u3068\u306B\u3057\u305F\u3002");
+          else if (broke) {
+            l.spend("car", l.y(25e4));
+            l.logPre("money", "\u53E4\u3044\u8ECA\u304C\u6545\u969C\u3057\u3001\u4FEE\u7406\u4EE3\u304C\u304B\u304B\u3063\u305F\u3002", -l.y(25e4));
+          } else l.logPre("money", "\u53E4\u3044\u8ECA\u3092\u5927\u4E8B\u306B\u4E57\u308A\u7D9A\u3051\u305F\u3002");
+        }
+      }
     ]
   },
   {
@@ -9433,10 +9485,10 @@ var MICROS = [
         if (r.chance(0.08)) {
           l.illMult *= 0.92;
           l.logPre("health", "\u691C\u67FB\u3067\u5C0F\u3055\u306A\u7570\u5E38\u304C\u898B\u3064\u304B\u308A\u3001\u65E9\u3081\u306B\u6CBB\u7642\u3067\u304D\u305F\u3002", -l.y(4e4), true);
-        } else l.logPre("health", "\u691C\u67FB\u3092\u53D7\u3051\u305F\u3002\u7570\u5E38\u306F\u306A\u304B\u3063\u305F\u3002", -l.y(4e4));
+        } else l.logPre("health", l.vary("dockOk", ["\u691C\u67FB\u3092\u53D7\u3051\u305F\u3002\u7570\u5E38\u306F\u306A\u304B\u3063\u305F\u3002", "\u7CBE\u5BC6\u691C\u67FB\u306E\u7D50\u679C\u306F\u3001\u7570\u5E38\u306A\u3057\u3060\u3063\u305F\u3002", "\u691C\u67FB\u3092\u53D7\u3051\u305F\u3002\u5C11\u3057\u6570\u5024\u304C\u6C17\u306B\u306A\u308B\u304C\u3001\u6CBB\u7642\u306F\u3044\u3089\u306A\u3044\u3068\u8A00\u308F\u308C\u305F\u3002"]), -l.y(4e4));
       } },
       { id: "b", label: "\u53D7\u3051\u306A\u3044", desc: "\u304A\u91D1\u3068\u6642\u9593\u304C\u6D6E\u304F\u3002\u898B\u9003\u3059\u304B\u3082\u3057\u308C\u306A\u3044\u3002", apply: (l) => {
-        l.logPre("health", "\u691C\u67FB\u306F\u53D7\u3051\u306A\u304B\u3063\u305F\u3002");
+        l.logPre("health", l.vary("dockNo", ["\u691C\u67FB\u306F\u53D7\u3051\u306A\u304B\u3063\u305F\u3002", "\u5FD9\u3057\u3055\u3092\u7406\u7531\u306B\u3001\u691C\u67FB\u306F\u898B\u9001\u3063\u305F\u3002", "\u4ECA\u5E74\u3082\u691C\u67FB\u306B\u306F\u884C\u304B\u306A\u304B\u3063\u305F\u3002"]));
       } }
     ]
   },
@@ -9446,8 +9498,9 @@ var MICROS = [
     max: 90,
     when: (l) => l.kids.length > 0,
     title: "\u77E5\u3089\u306A\u3044\u756A\u53F7\u304B\u3089\u306E\u96FB\u8A71",
+    // 名乗る続柄は、実際にいる子どもに合わせる（本当に子どもからの電話のこともあるため）
     situation: (l) => [
-      "\u300C\u606F\u5B50\u3060\u3051\u3069\u3001\u4F1A\u793E\u306E\u304A\u91D1\u3092\u306A\u304F\u3057\u3066\u2026\u4ECA\u65E5\u4E2D\u306B\u5FC5\u8981\u306A\u3093\u3060\u300D\u3068\u3001\u77E5\u3089\u306A\u3044\u756A\u53F7\u304B\u3089\u96FB\u8A71\u304C\u304B\u304B\u3063\u3066\u304D\u305F\u3002",
+      l.kids.some((_, i) => !kidFemale(l.seed, i)) ? "\u300C\u606F\u5B50\u3060\u3051\u3069\u3001\u4F1A\u793E\u306E\u304A\u91D1\u3092\u306A\u304F\u3057\u3066\u2026\u4ECA\u65E5\u4E2D\u306B\u5FC5\u8981\u306A\u3093\u3060\u300D\u3068\u3001\u77E5\u3089\u306A\u3044\u756A\u53F7\u304B\u3089\u96FB\u8A71\u304C\u304B\u304B\u3063\u3066\u304D\u305F\u3002" : "\u300C\u5A18\u3060\u3051\u3069\u3001\u4F1A\u793E\u306E\u304A\u91D1\u3092\u306A\u304F\u3057\u3066\u2026\u4ECA\u65E5\u4E2D\u306B\u5FC5\u8981\u306A\u306E\u300D\u3068\u3001\u77E5\u3089\u306A\u3044\u756A\u53F7\u304B\u3089\u96FB\u8A71\u304C\u304B\u304B\u3063\u3066\u304D\u305F\u3002",
       `\u300C${l.sex === "female" ? "\u304A\u6BCD\u3055\u3093" : "\u304A\u7236\u3055\u3093"}\uFF1F \u79C1\u3002\u30B9\u30DE\u30DB\u304C\u58CA\u308C\u3066\u53CB\u3060\u3061\u306E\u96FB\u8A71\u304B\u3089\u2026\u5BB6\u8CC3\u304C\u6255\u3048\u306A\u304F\u3066\u300D\u3068\u96FB\u8A71\u304C\u304B\u304B\u3063\u3066\u304D\u305F\u3002`,
       "\u300C\u4E8B\u6545\u3092\u8D77\u3053\u3057\u3066\u3057\u307E\u3063\u3066\u3001\u793A\u8AC7\u91D1\u304C\u3059\u3050\u8981\u308B\u3093\u3060\u300D\u3068\u3001\u6CE3\u304D\u305D\u3046\u306A\u58F0\u3067\u96FB\u8A71\u304C\u304B\u304B\u3063\u3066\u304D\u305F\u3002"
     ][hashPick(l.seed + "call" + l.age, 3)],
@@ -11137,9 +11190,12 @@ function customLine(l) {
   return n.payment === "none" || n.paymentYears <= 0 ? "" : `${l.D.isJapan ? "" : `${l.D.nameJa}\u3067\u306F`}${PAY_WORD[n.payment]}\u3002`;
 }
 function meetScene(l) {
+  return { ...meetSceneAt(l), situationOf: (l2) => meetSceneAt(l2).situation };
+}
+function meetSceneAt(l) {
   const a = l.age;
   const again = l.widowed || l.partnerSince >= 0;
-  const where = again ? "\u3072\u3068\u308A\u306E\u66AE\u3089\u3057\u306B\u3082\u6163\u308C\u305F\u3053\u308D\u3001\u6C17\u306B\u306A\u308B\u4EBA\u304C\u3067\u304D\u305F\u3002" : l.noMarry ? "\u7D50\u5A5A\u306F\u3057\u306A\u3044\u3068\u6C7A\u3081\u3066\u3044\u305F\u304C\u3001\u3042\u308B\u65E5\u3001\u3044\u3044\u4EBA\u306B\u51FA\u4F1A\u3063\u305F\u3002" : a < 23 && l.school !== "done" ? "\u540C\u3058\u5B66\u6821\u306B\u3001\u6C17\u306B\u306A\u308B\u4EBA\u304C\u3067\u304D\u305F\u3002" : ["\u8077\u5834\u306B\u3001\u6C17\u306E\u5408\u3046\u4EBA\u304C\u3067\u304D\u305F\u3002", "\u53CB\u3060\u3061\u306E\u7D39\u4ECB\u3067\u4F1A\u3063\u305F\u4EBA\u3068\u3001\u8A71\u304C\u5F3E\u3093\u3060\u3002", "\u8DA3\u5473\u306E\u96C6\u307E\u308A\u3067\u3001\u6C17\u306B\u306A\u308B\u4EBA\u304C\u3067\u304D\u305F\u3002"][a % 3];
+  const where = again ? "\u3072\u3068\u308A\u306E\u66AE\u3089\u3057\u306B\u3082\u6163\u308C\u305F\u3053\u308D\u3001\u6C17\u306B\u306A\u308B\u4EBA\u304C\u3067\u304D\u305F\u3002" : l.noMarry ? "\u7D50\u5A5A\u306F\u3057\u306A\u3044\u3068\u6C7A\u3081\u3066\u3044\u305F\u304C\u3001\u3042\u308B\u65E5\u3001\u3044\u3044\u4EBA\u306B\u51FA\u4F1A\u3063\u305F\u3002" : a < 23 && l.school !== "done" ? "\u540C\u3058\u5B66\u6821\u306B\u3001\u6C17\u306B\u306A\u308B\u4EBA\u304C\u3067\u304D\u305F\u3002" : l.job !== "none" && l.job !== "retired" ? ["\u8077\u5834\u306B\u3001\u6C17\u306E\u5408\u3046\u4EBA\u304C\u3067\u304D\u305F\u3002", "\u53CB\u3060\u3061\u306E\u7D39\u4ECB\u3067\u4F1A\u3063\u305F\u4EBA\u3068\u3001\u8A71\u304C\u5F3E\u3093\u3060\u3002", "\u8DA3\u5473\u306E\u96C6\u307E\u308A\u3067\u3001\u6C17\u306B\u306A\u308B\u4EBA\u304C\u3067\u304D\u305F\u3002"][a % 3] : ["\u53CB\u3060\u3061\u306E\u7D39\u4ECB\u3067\u4F1A\u3063\u305F\u4EBA\u3068\u3001\u8A71\u304C\u5F3E\u3093\u3060\u3002", "\u8DA3\u5473\u306E\u96C6\u307E\u308A\u3067\u3001\u6C17\u306B\u306A\u308B\u4EBA\u304C\u3067\u304D\u305F\u3002", "\u8FD1\u6240\u306B\u3001\u3088\u304F\u8A71\u3059\u4EBA\u304C\u3067\u304D\u305F\u3002"][a % 3];
   return {
     id: "meet",
     title: "\u51FA\u4F1A\u3044",
@@ -11166,7 +11222,7 @@ function meetScene(l) {
         desc: "\u6C17\u697D\u306A\u95A2\u4FC2\u306E\u307E\u307E\u3002\u3053\u306E\u5148\u3069\u3046\u306A\u308B\u304B\u306F\u5206\u304B\u3089\u306A\u3044\u3002",
         apply: (l2, r) => {
           l2.marriageDelayUntil = l2.age + r.int(1, 2);
-          l2.logPre("family", "\u53CB\u3060\u3061\u306E\u307E\u307E\u3067\u3044\u308B\u3053\u3068\u306B\u3057\u305F\u3002");
+          l2.logPre("family", l2.vary("friends", ["\u53CB\u3060\u3061\u306E\u307E\u307E\u3067\u3044\u308B\u3053\u3068\u306B\u3057\u305F\u3002", "\u3044\u3044\u4EBA\u3060\u3063\u305F\u304C\u3001\u4ED8\u304D\u5408\u3046\u307E\u3067\u306B\u306F\u81F3\u3089\u306A\u304B\u3063\u305F\u3002", "\u6C17\u6301\u3061\u3092\u4F1D\u3048\u305A\u3001\u53CB\u3060\u3061\u306E\u307E\u307E\u3067\u3044\u305F\u3002"]));
         }
       },
       {
@@ -11175,7 +11231,7 @@ function meetScene(l) {
         desc: "\u4ED5\u4E8B\u3084\u52C9\u5F37\u3001\u8DA3\u5473\u306B\u6253\u3061\u8FBC\u3081\u308B\u3002\u51FA\u4F1A\u3044\u306F\u3057\u3070\u3089\u304F\u9060\u306E\u304F\u3002",
         apply: (l2, r) => {
           l2.marriageDelayUntil = l2.age + r.int(3, 5);
-          l2.logPre("family", "\u4ECA\u306F\u604B\u611B\u3088\u308A\u81EA\u5206\u306E\u3053\u3068\u3092\u512A\u5148\u3059\u308B\u3068\u6C7A\u3081\u305F\u3002");
+          l2.logPre("family", l2.vary("self", ["\u4ECA\u306F\u604B\u611B\u3088\u308A\u81EA\u5206\u306E\u3053\u3068\u3092\u512A\u5148\u3059\u308B\u3068\u6C7A\u3081\u305F\u3002", "\u4ECA\u306F\u4ED5\u4E8B\u3084\u81EA\u5206\u306E\u6642\u9593\u3092\u5927\u4E8B\u306B\u3057\u305F\u3044\u3068\u601D\u3063\u305F\u3002", "\u8A98\u3044\u306F\u65AD\u308A\u3001\u81EA\u5206\u306E\u30DA\u30FC\u30B9\u3067\u66AE\u3089\u3059\u3053\u3068\u306B\u3057\u305F\u3002"]));
         }
       }
     ]
@@ -11302,6 +11358,13 @@ function kidAtHome(k, age) {
   const ka = age - k.born;
   return ka < (k.univ ? 22 : 18) || !!k.stayHome;
 }
+function kidShownHome(l, k, age) {
+  if (k.leftAge !== void 0 || l.kidWithEx(k)) return false;
+  const ka = age - k.born;
+  if (ka < 0) return false;
+  const t = k.univ ? 22 : 18;
+  return ka < t || !!k.stayHome || !k.leaveAsked && ka <= t + 2;
+}
 function leaveHomeScene(l, later) {
   return {
     id: "leaveHome",
@@ -11332,8 +11395,54 @@ function leaveHomeScene(l, later) {
 function kidLeaveScene(l, idx) {
   const k = l.kids[idx];
   const word = k.univ ? "\u5927\u5B66\u3092\u5352\u696D\u3057\u3066\u50CD\u304D\u306F\u3058\u3081\u305F" : "\u9AD8\u6821\u3092\u51FA\u3066\u50CD\u304D\u306F\u3058\u3081\u305F";
+  const ex = l.kidWithEx(k);
+  const stillValid = (l2) => k.leftAge === void 0 && !k.leaveAsked && l2.kidWithEx(k) === ex;
+  if (ex)
+    return {
+      id: "kidLeave",
+      stillValid,
+      title: "\u96E2\u308C\u3066\u66AE\u3089\u3059\u5B50\u3069\u3082\u306E\u5DE3\u7ACB\u3061",
+      situation: `\u5225\u308C\u305F\u76F8\u624B\u306E\u3082\u3068\u3067\u80B2\u3063\u305F\u5B50\u3069\u3082\u304C\u3001${word}\u3068\u77E5\u3089\u305B\u3066\u304D\u305F\u3002`,
+      options: [
+        {
+          id: "leave",
+          label: "\u304A\u795D\u3044\u306E\u8A00\u8449\u3092\u9001\u308B",
+          desc: "\u304A\u91D1\u306F\u304B\u304B\u3089\u306A\u3044\u3002",
+          apply: (l2) => {
+            k.leftAge = l2.age;
+            k.leaveAsked = true;
+            l2.logPre("family", "\u96E2\u308C\u3066\u66AE\u3089\u3059\u5B50\u3069\u3082\u306B\u3001\u304A\u795D\u3044\u306E\u8A00\u8449\u3092\u9001\u3063\u305F\u3002", void 0, true);
+          }
+        },
+        {
+          id: "stay",
+          label: "\u5C31\u8077\u795D\u3044\u3092\u9001\u308B",
+          desc: "\u5C11\u3057\u304A\u91D1\u304C\u304B\u304B\u308B\u3002",
+          apply: (l2) => {
+            const c = l2.y(5e4);
+            l2.spend("kids", c);
+            k.leftAge = l2.age;
+            k.leaveAsked = true;
+            l2.logPre("family", "\u96E2\u308C\u3066\u66AE\u3089\u3059\u5B50\u3069\u3082\u306B\u3001\u5C31\u8077\u795D\u3044\u3092\u9001\u3063\u305F\u3002", -c);
+          }
+        },
+        {
+          id: "help",
+          label: "\u5F15\u3063\u8D8A\u3057\u3068\u5F53\u9762\u306E\u751F\u6D3B\u8CBB\u3092\u51FA\u3057\u3066\u3042\u3052\u308B",
+          desc: "\u5B50\u3069\u3082\u306F\u5B89\u5FC3\u3057\u3066\u4E00\u4EBA\u7ACB\u3061\u3067\u304D\u308B\u3002\u307E\u3068\u307E\u3063\u305F\u304A\u91D1\u304C\u304B\u304B\u308B\u3002",
+          apply: (l2) => {
+            const c = l2.y(5e5);
+            l2.spend("kids", c);
+            k.leftAge = l2.age;
+            k.leaveAsked = true;
+            l2.logPre("family", "\u96E2\u308C\u3066\u66AE\u3089\u3059\u5B50\u3069\u3082\u306E\u3001\u5F15\u3063\u8D8A\u3057\u3068\u5F53\u9762\u306E\u751F\u6D3B\u8CBB\u3092\u51FA\u3057\u305F\u3002", -c, true);
+          }
+        }
+      ]
+    };
   return {
     id: "kidLeave",
+    stillValid,
     title: "\u5B50\u3069\u3082\u306E\u5DE3\u7ACB\u3061",
     situation: `\u5B50\u3069\u3082\u304C${word}\u3002\u3053\u308C\u304B\u3089\u3069\u3053\u3067\u66AE\u3089\u3059\uFF1F`,
     options: [
@@ -11343,6 +11452,7 @@ function kidLeaveScene(l, idx) {
         desc: "\u5B50\u3069\u3082\u306F\u81EA\u5206\u306E\u529B\u3067\u66AE\u3089\u3057\u306F\u3058\u3081\u308B\u3002\u5BB6\u8A08\u306F\u8EFD\u304F\u306A\u308B\u3002",
         apply: (l2) => {
           k.leftAge = l2.age;
+          k.leaveAsked = true;
           l2.logPre("family", "\u5B50\u3069\u3082\u304C\u5BB6\u3092\u51FA\u3066\u3001\u4E00\u4EBA\u7ACB\u3061\u3057\u305F\u3002", void 0, true);
         }
       },
@@ -11352,6 +11462,7 @@ function kidLeaveScene(l, idx) {
         desc: "\u5B50\u3069\u3082\u306F\u8CAF\u91D1\u3057\u3084\u3059\u304F\u3001\u5BB6\u306B\u3082\u304A\u91D1\u3092\u5165\u308C\u3066\u304F\u308C\u308B\u3002\u66AE\u3089\u3057\u306E\u8CBB\u7528\u306F\u305D\u306E\u3076\u3093\u304B\u304B\u308B\u3002",
         apply: (l2) => {
           k.stayHome = true;
+          k.leaveAsked = true;
           l2.logPre("family", "\u5B50\u3069\u3082\u306F\u5B9F\u5BB6\u304B\u3089\u4ED5\u4E8B\u306B\u901A\u3044\u3001\u5BB6\u306B\u304A\u91D1\u3092\u5165\u308C\u3066\u304F\u308C\u308B\u3053\u3068\u306B\u306A\u3063\u305F\u3002");
         }
       },
@@ -11363,6 +11474,7 @@ function kidLeaveScene(l, idx) {
           const c = l2.y(5e5);
           l2.spend("kids", c);
           k.leftAge = l2.age;
+          k.leaveAsked = true;
           l2.logPre("family", "\u5F15\u3063\u8D8A\u3057\u3068\u5F53\u9762\u306E\u751F\u6D3B\u8CBB\u3092\u51FA\u3057\u3066\u3001\u5B50\u3069\u3082\u306E\u4E00\u4EBA\u7ACB\u3061\u3092\u652F\u3048\u305F\u3002", -c, true);
         }
       }
@@ -11697,11 +11809,15 @@ var Life = class {
     this.seniorWorkUntil = -1;
     /** 選択前後に起きた出来事を、その年の記録に入れるためのバッファ */
     this.preEvents = [];
+    /** 前にその知らせを出した年齢。within 年以内に出していれば true（「また」をつけるため） */
+    this.saidAt = /* @__PURE__ */ new Map();
     /** 章のまとめで「同い年の人と比べる」ための出来事の印（[印, 年齢]）。乱数や記録には影響しない */
     this.tags = [];
     this.hsGraduated = false;
     this.privateUni = false;
     this.childSupport = false;
+    /** 車を初めて買った年齢（持っていなければ -1） */
+    this.carSince = -1;
     this.widowed = false;
     this._kidsTarget = -1;
     this.careParent = 0;
@@ -11781,7 +11897,7 @@ var Life = class {
     const out = ["\u81EA\u5206"];
     const p = this.partner;
     if (p && p.alive) out.push(p.sex === "male" ? "\u592B" : "\u59BB");
-    const kidsHome = this.kids.filter((k) => kidAtHome(k, a)).length;
+    const kidsHome = this.kids.filter((k) => kidShownHome(this, k, a)).length;
     if (kidsHome) out.push(`\u5B50\u3069\u3082${kidsHome}\u4EBA`);
     if (this.home === "parents") {
       if (this.parents[0].alive) out.push("\u7236");
@@ -11919,9 +12035,9 @@ var Life = class {
     return {
       id: `micro:${m.id}`,
       age: a,
-      title: m.title,
+      title: m.titleOf?.(this) ?? m.title,
       situation: m.situation(this),
-      options: m.options.filter((o) => !o.when || o.when(this)).map(({ id, label, desc }) => ({ id, label, desc }))
+      options: m.options.filter((o) => !o.when || o.when(this)).map((o) => ({ id: o.id, label: o.labelOf?.(this) ?? o.label, desc: o.descOf?.(this) ?? o.desc }))
     };
   }
   made(id) {
@@ -11945,14 +12061,14 @@ var Life = class {
       return buildChoice(this, "parentCare");
     if (!this.made("retire") && a >= 60 && this.made("parentCare")) return buildChoice(this, "retire");
     if (a >= 25 && a <= 60 && a % 5 === 0 && this.school === "done" && !this.choiceLog.some((c) => c.id === "alloc" && c.age === a)) return allocChoice(this);
-    while (this.sceneQueue.length && this.partner && ["meet", "propose", "arranged", "betrothed"].includes(this.sceneQueue[0].id)) this.sceneQueue.shift();
+    while (this.sceneQueue.length && (this.partner && ["meet", "propose", "arranged", "betrothed"].includes(this.sceneQueue[0].id) || this.sceneQueue[0].stillValid?.(this) === false)) this.sceneQueue.shift();
     const sc = this.sceneQueue[0];
     if (sc)
       return {
         id: `ev:${sc.id}`,
         age: a,
         title: sc.title,
-        situation: sc.situation,
+        situation: sc.situationOf?.(this) ?? sc.situation,
         options: sc.options.map(({ id, label, desc }) => ({ id, label, desc }))
       };
     return this.microChoice();
@@ -11984,6 +12100,15 @@ var Life = class {
     c.balance = Math.round(this.balance);
     c.invested = Math.round(this.invest);
     c.debt = Math.round(this.loan + this.scholarship);
+  }
+  /** 乱数を使わずに言い回しを選ぶ（同じ文ばかりにならないように）。記録の中身や共有URLには影響しない */
+  vary(key, lines) {
+    return lines[hashStr(`${this.seed}|${key}|${this.age}`) % lines.length];
+  }
+  again(key, within) {
+    const p = this.saidAt.get(key);
+    this.saidAt.set(key, this.age);
+    return p !== void 0 && this.age - p <= within;
   }
   mark(tag) {
     this.tags.push([tag, this.age]);
@@ -12191,6 +12316,10 @@ var Life = class {
       }
     }
   }
+  /** 離婚した相手のもとで暮らしている子どもか（養育費を払っている父親の、前の結婚の子ども） */
+  kidWithEx(k) {
+    return this.childSupport && !(this.partner?.alive && k.otherSince === this.partnerSince);
+  }
   kidsTarget(r) {
     if (this._kidsTarget >= 0) return this._kidsTarget;
     const kr = this.rng("kidsTarget", 0);
@@ -12259,14 +12388,32 @@ var Life = class {
     const a = this.age;
     const world = streamRng("world", "economy", this.year);
     const recession = world.chance(0.1);
-    if (recession && a >= 18) this.log("money", "\u666F\u6C17\u304C\u5F8C\u9000\u3057\u305F\u3002");
+    if (recession && a >= 18) {
+      const working2 = this.job !== "none" && this.job !== "retired";
+      this.log(
+        "money",
+        this.again("recession", 1) ? this.vary("recession2", ["\u4E0D\u666F\u6C17\u304C\u7D9A\u3044\u3066\u3044\u308B\u3002", "\u666F\u6C17\u306F\u3001\u306A\u304B\u306A\u304B\u4E0A\u5411\u304B\u306A\u3044\u3002", "\u4ECA\u5E74\u3082\u666F\u6C17\u306F\u60AA\u3044\u307E\u307E\u3060\u3063\u305F\u3002"]) : this.vary("recession", [
+          "\u666F\u6C17\u304C\u5F8C\u9000\u3057\u305F\u3002",
+          "\u666F\u6C17\u304C\u60AA\u304F\u306A\u308A\u3001\u6C42\u4EBA\u304C\u6E1B\u3063\u305F\u3002",
+          "\u4E0D\u666F\u6C17\u306E\u30CB\u30E5\u30FC\u30B9\u304C\u7D9A\u3044\u305F\u3002",
+          "\u666F\u6C17\u304C\u51B7\u3048\u3053\u307F\u3001\u8857\u306E\u4EBA\u901A\u308A\u304C\u6E1B\u3063\u305F\u3002",
+          "\u7269\u304C\u58F2\u308C\u306A\u304F\u306A\u308A\u3001\u666F\u6C17\u304C\u5F8C\u9000\u3057\u305F\u3002",
+          "\u666F\u6C17\u306E\u5148\u884C\u304D\u304C\u6697\u304F\u306A\u308A\u3001\u307F\u3093\u306A\u8CA1\u5E03\u306E\u3072\u3082\u3092\u56FA\u304F\u3057\u305F\u3002",
+          working2 ? "\u666F\u6C17\u304C\u5F8C\u9000\u3057\u3001\u52E4\u3081\u5148\u306E\u696D\u7E3E\u3082\u843D\u3061\u3053\u3093\u3060\u3002" : "\u666F\u6C17\u304C\u5F8C\u9000\u3057\u3001\u307E\u308F\u308A\u3067\u3082\u4ED5\u4E8B\u3092\u5931\u3046\u4EBA\u304C\u51FA\u305F\u3002",
+          working2 ? "\u4E0D\u666F\u6C17\u3067\u3001\u30DC\u30FC\u30CA\u30B9\u3084\u6B8B\u696D\u4EE3\u304C\u6E1B\u308B\u3068\u3044\u3046\u8A71\u304C\u51FA\u305F\u3002" : "\u4E0D\u666F\u6C17\u3067\u3001\u5E97\u3058\u307E\u3044\u3059\u308B\u5E97\u304C\u5897\u3048\u305F\u3002"
+        ])
+      );
+    }
     if (this.job === "none" && this.school === "done" && this.made("firstJob") && a < this.retireAge) {
       if (a >= this.unemployedUntil && this.unemployedUntil >= 0) {
         const back = r.chance(0.35) ? "sme" : "nonregular";
         this.job = back;
         this.careerMult = Math.max(0.65, this.careerMult * 0.85);
         this.unemployedUntil = -1;
-        this.log("work", back === "sme" ? "\u4E2D\u5C0F\u4F01\u696D\u306E\u6B63\u793E\u54E1\u3068\u3057\u3066\u50CD\u304D\u306F\u3058\u3081\u305F\u3002" : "\u975E\u6B63\u898F\u306E\u4ED5\u4E8B\u3067\u50CD\u304D\u306F\u3058\u3081\u305F\u3002");
+        this.log(
+          "work",
+          back === "sme" ? this.vary("backSme", ["\u4E2D\u5C0F\u4F01\u696D\u306E\u6B63\u793E\u54E1\u3068\u3057\u3066\u50CD\u304D\u306F\u3058\u3081\u305F\u3002", "\u4ED5\u4E8B\u304C\u898B\u3064\u304B\u308A\u3001\u4E2D\u5C0F\u4F01\u696D\u306E\u6B63\u793E\u54E1\u306B\u306A\u3063\u305F\u3002"]) : this.vary("backNonreg", ["\u975E\u6B63\u898F\u306E\u4ED5\u4E8B\u3067\u50CD\u304D\u306F\u3058\u3081\u305F\u3002", "\u6D3E\u9063\u3084\u30D1\u30FC\u30C8\u306E\u4ED5\u4E8B\u3092\u898B\u3064\u3051\u3066\u3001\u50CD\u304D\u306F\u3058\u3081\u305F\u3002", "\u5951\u7D04\u793E\u54E1\u3068\u3057\u3066\u3001\u307E\u305F\u50CD\u304D\u306F\u3058\u3081\u305F\u3002", "\u77ED\u671F\u306E\u4ED5\u4E8B\u3092\u3064\u306A\u3044\u3067\u3001\u50CD\u304D\u306F\u3058\u3081\u305F\u3002"])
+        );
       }
     }
     if (this.job !== "none" && this.job !== "retired") {
@@ -12303,7 +12450,7 @@ var Life = class {
         }
       } else if (this.job === "nonregular" && !this.postRetireWork) {
         if (r.chance(0.06 * layoffMult)) {
-          this.log("work", "\u5951\u7D04\u304C\u66F4\u65B0\u3055\u308C\u305A\u3001\u6B21\u306E\u4ED5\u4E8B\u3092\u63A2\u3057\u305F\u3002");
+          this.log("work", this.vary("noRenew", ["\u5951\u7D04\u304C\u66F4\u65B0\u3055\u308C\u305A\u3001\u6B21\u306E\u4ED5\u4E8B\u3092\u63A2\u3057\u305F\u3002", "\u5951\u7D04\u671F\u9593\u304C\u7D42\u308F\u308A\u3001\u4ED5\u4E8B\u304C\u306A\u304F\u306A\u3063\u305F\u3002", "\u4EBA\u624B\u304C\u8DB3\u308A\u305F\u304B\u3089\u3068\u3001\u5951\u7D04\u3092\u6253\u3061\u5207\u3089\u308C\u305F\u3002"]));
           this.mark("jobLoss");
           this.unemployedUntil = a + 1;
           this.job = "none";
@@ -12335,7 +12482,7 @@ var Life = class {
         }
       } else if (this.job === "freelance") {
         if (r.chance(0.03 * layoffMult)) {
-          this.log("work", "\u5927\u53E3\u306E\u53D6\u5F15\u5148\u3092\u5931\u3044\u3001\u53CE\u5165\u304C\u6E1B\u3063\u305F\u3002");
+          this.log("work", this.vary("lostClient", ["\u5927\u53E3\u306E\u53D6\u5F15\u5148\u3092\u5931\u3044\u3001\u53CE\u5165\u304C\u6E1B\u3063\u305F\u3002", "\u9577\u304F\u7D9A\u3044\u305F\u53D6\u5F15\u304C\u7D42\u308F\u308A\u3001\u53CE\u5165\u304C\u6E1B\u3063\u305F\u3002", "\u6CE8\u6587\u304C\u6E1B\u308A\u3001\u58F2\u308A\u4E0A\u3052\u304C\u843D\u3061\u305F\u3002"]));
           this.careerMult *= 0.8;
         }
       }
@@ -12515,7 +12662,7 @@ var Life = class {
           this.selfRaises++;
           this.careerMult *= 1.15;
           this.log("work", "\u5B66\u3073\u306B\u4F7F\u3063\u305F\u304A\u91D1\u3067\u8EAB\u306B\u3064\u3051\u305F\u3053\u3068\u304C\u8A55\u4FA1\u3055\u308C\u3001\u7D66\u6599\u304C\u4E0A\u304C\u3063\u305F\u3002", void 0, true);
-        } else this.log("work", "\u5B66\u3073\u7D9A\u3051\u305F\u304C\u3001\u3059\u3050\u306B\u306F\u7D66\u6599\u306B\u7D50\u3073\u3064\u304B\u306A\u304B\u3063\u305F\u3002");
+        } else this.log("work", this.vary("studyNo", ["\u5B66\u3073\u7D9A\u3051\u305F\u304C\u3001\u3059\u3050\u306B\u306F\u7D66\u6599\u306B\u7D50\u3073\u3064\u304B\u306A\u304B\u3063\u305F\u3002", "\u52C9\u5F37\u306F\u7D9A\u3051\u3066\u3044\u308B\u304C\u3001\u307E\u3060\u4ED5\u4E8B\u306B\u306F\u751F\u304B\u305B\u3066\u3044\u306A\u3044\u3002", "\u8CC7\u683C\u306E\u52C9\u5F37\u3092\u7D9A\u3051\u305F\u3002\u7D66\u6599\u306F\u5909\u308F\u3089\u306A\u304B\u3063\u305F\u3002"]));
       }
       this.selfFund = Math.min(this.selfFund, unit);
     }
@@ -12622,12 +12769,26 @@ var Life = class {
       const used = liquid < this.y(2e6);
       const c = used ? r.range(this.y(4e5), this.y(1e6)) : r.range(this.y(15e5), this.y(32e5));
       this.spend("car", c);
-      this.log("money", used ? "\u4E2D\u53E4\u8ECA\u306B\u8CB7\u3044\u66FF\u3048\u305F\u3002" : "\u8ECA\u3092\u8CB7\u3044\u66FF\u3048\u305F\u3002", -c);
+      const first = this.carSince < 0;
+      if (first) this.carSince = a;
+      this.log(
+        "money",
+        first ? used ? "\u4E2D\u53E4\u8ECA\u3092\u8CB7\u3063\u305F\u3002" : "\u8ECA\u3092\u8CB7\u3063\u305F\u3002" : used ? this.vary("carUsed", ["\u4E2D\u53E4\u8ECA\u306B\u8CB7\u3044\u66FF\u3048\u305F\u3002", "\u53E4\u3044\u8ECA\u3092\u4E0B\u53D6\u308A\u306B\u51FA\u3057\u3066\u3001\u4E2D\u53E4\u8ECA\u306B\u4E57\u308A\u63DB\u3048\u305F\u3002", "\u8ECA\u304C\u6545\u969C\u7D9A\u304D\u306B\u306A\u308A\u3001\u4E2D\u53E4\u8ECA\u306B\u8CB7\u3044\u66FF\u3048\u305F\u3002"]) : this.vary("carNew", ["\u8ECA\u3092\u8CB7\u3044\u66FF\u3048\u305F\u3002", "\u9577\u304F\u4E57\u3063\u305F\u8ECA\u3092\u624B\u653E\u3057\u3001\u65B0\u3057\u3044\u8ECA\u306B\u3057\u305F\u3002", "\u5BB6\u65CF\u306E\u66AE\u3089\u3057\u306B\u5408\u308F\u305B\u3066\u3001\u8ECA\u3092\u8CB7\u3044\u66FF\u3048\u305F\u3002"]),
+        -c
+      );
     }
     if (a >= 25 && !this.tight && !this.frugal && r.chance(0.04)) {
       const c = r.range(this.y(15e4), this.y(6e5));
       this.spend("fun", c);
-      this.log("money", r.pick(["\u5BB6\u65CF\u3067\u6D77\u5916\u65C5\u884C\u306B\u884C\u3063\u305F\u3002", "\u8DA3\u5473\u306B\u601D\u3044\u5207\u3063\u3066\u4F7F\u3063\u305F\u3002", "\u5BB6\u96FB\u3092\u307E\u3068\u3081\u3066\u8CB7\u3044\u66FF\u3048\u305F\u3002"]), -c);
+      this.log(
+        "money",
+        r.pick([
+          this.vary("splurge1", ["\u5BB6\u65CF\u3067\u6D77\u5916\u65C5\u884C\u306B\u884C\u3063\u305F\u3002", "\u601D\u3044\u5207\u3063\u3066\u9060\u304F\u3078\u65C5\u884C\u3057\u305F\u3002", "\u6E29\u6CC9\u65C5\u884C\u3067\u306E\u3093\u3073\u308A\u904E\u3054\u3057\u305F\u3002"]),
+          this.vary("splurge2", ["\u8DA3\u5473\u306B\u601D\u3044\u5207\u3063\u3066\u4F7F\u3063\u305F\u3002", "\u305A\u3063\u3068\u6B32\u3057\u304B\u3063\u305F\u3082\u306E\u3092\u8CB7\u3063\u305F\u3002", "\u7FD2\u3044\u3054\u3068\u3092\u59CB\u3081\u3001\u9053\u5177\u3092\u305D\u308D\u3048\u305F\u3002"]),
+          this.vary("splurge3", ["\u5BB6\u96FB\u3092\u307E\u3068\u3081\u3066\u8CB7\u3044\u66FF\u3048\u305F\u3002", "\u53E4\u304F\u306A\u3063\u305F\u5BB6\u5177\u3092\u8CB7\u3044\u66FF\u3048\u305F\u3002", "\u51B7\u8535\u5EAB\u3068\u6D17\u6FEF\u6A5F\u304C\u7D9A\u3051\u3066\u58CA\u308C\u3001\u8CB7\u3044\u66FF\u3048\u305F\u3002"])
+        ]),
+        -c
+      );
     }
   }
   // ── お金の流れ
@@ -12690,8 +12851,9 @@ var Life = class {
       const g = this.invest * Math.max(-0.7, ret);
       this.invest += g;
       this.cur.income.invest = (this.cur.income.invest ?? 0) + g;
-      if (this.investStyle === "stocks" && ret > 0.45) this.log("luck", "\u6301\u3063\u3066\u3044\u305F\u682A\u304C\u5927\u304D\u304F\u5024\u4E0A\u304C\u308A\u3057\u305F\u3002", g, true);
-      if (ret < -0.25) this.log("money", "\u682A\u4FA1\u304C\u5927\u304D\u304F\u4E0B\u304C\u308A\u3001\u8CC7\u7523\u304C\u76EE\u6E1B\u308A\u3057\u305F\u3002", g);
+      if (this.investStyle === "stocks" && ret > 0.45) this.log("luck", this.vary("stockUp", ["\u6301\u3063\u3066\u3044\u305F\u682A\u304C\u5927\u304D\u304F\u5024\u4E0A\u304C\u308A\u3057\u305F\u3002", "\u682A\u304C\u5927\u304D\u304F\u4E0A\u304C\u308A\u3001\u8CC7\u7523\u304C\u3075\u304F\u3089\u3093\u3060\u3002", "\u8CB7\u3063\u3066\u304A\u3044\u305F\u682A\u306E\u5024\u6BB5\u304C\u3001\u4E00\u5E74\u3067\u5927\u304D\u304F\u4F38\u3073\u305F\u3002"]), g, true);
+      if (ret < -0.25)
+        this.log("money", this.again("stockDown", 2) ? this.vary("stockDown2", ["\u682A\u4FA1\u304C\u307E\u305F\u5927\u304D\u304F\u4E0B\u304C\u3063\u305F\u3002", "\u682A\u4FA1\u306E\u4E0B\u843D\u304C\u7D9A\u304D\u3001\u8CC7\u7523\u304C\u3055\u3089\u306B\u6E1B\u3063\u305F\u3002"]) : this.vary("stockDown", ["\u682A\u4FA1\u304C\u5927\u304D\u304F\u4E0B\u304C\u308A\u3001\u8CC7\u7523\u304C\u76EE\u6E1B\u308A\u3057\u305F\u3002", "\u682A\u304C\u66B4\u843D\u3057\u3001\u8CC7\u7523\u304C\u5927\u304D\u304F\u6E1B\u3063\u305F\u3002", "\u682A\u4FA1\u304C\u6025\u843D\u3057\u305F\u3002\u58F2\u3089\u305A\u306B\u6301\u3061\u7D9A\u3051\u305F\u3002"]), g);
       if (a >= 65 && this.cash < 0) {
         const w = Math.min(this.invest, -this.cash + this.y(5e5));
         this.invest -= w;
@@ -12721,7 +12883,7 @@ var Life = class {
       const gap = exp - inc;
       if (gap > 0) {
         if (!this.welfare) {
-          const text = this.D.isJapan ? "\u8CAF\u3048\u304C\u5C3D\u304D\u3001\u751F\u6D3B\u4FDD\u8B77\u3092\u53D7\u3051\u306F\u3058\u3081\u305F\u3002" : a < 65 ? "\u501F\u91D1\u304C\u8FD4\u305B\u306A\u304F\u306A\u308A\u3001\u89AA\u621A\u306B\u52A9\u3051\u3092\u6C42\u3081\u305F\u3002\u3057\u3070\u3089\u304F\u63F4\u52A9\u3092\u53D7\u3051\u3066\u66AE\u3089\u3059\u3002" : this.kids.length ? "\u8CAF\u3048\u304C\u5C3D\u304D\u3001\u5B50\u3069\u3082\u305F\u3061\u306E\u4ED5\u9001\u308A\u306B\u983C\u3063\u3066\u66AE\u3089\u3059\u3088\u3046\u306B\u306A\u3063\u305F\u3002" : "\u8CAF\u3048\u304C\u5C3D\u304D\u3001\u89AA\u621A\u3084\u5730\u57DF\u306E\u652F\u3048\u3067\u66AE\u3089\u3059\u3088\u3046\u306B\u306A\u3063\u305F\u3002";
+          const text = this.D.isJapan ? "\u8CAF\u3048\u304C\u5C3D\u304D\u3001\u751F\u6D3B\u4FDD\u8B77\u3092\u53D7\u3051\u306F\u3058\u3081\u305F\u3002" : a < 65 ? this.again("aid", 8) ? this.vary("aid2", ["\u307E\u305F\u501F\u91D1\u304C\u8FD4\u305B\u306A\u304F\u306A\u308A\u3001\u89AA\u621A\u306E\u63F4\u52A9\u3092\u53D7\u3051\u308B\u3053\u3068\u306B\u306A\u3063\u305F\u3002", "\u518D\u3073\u66AE\u3089\u3057\u304C\u7ACB\u3061\u884C\u304B\u306A\u304F\u306A\u308A\u3001\u89AA\u621A\u3092\u983C\u3063\u305F\u3002"]) : this.vary("aid", ["\u501F\u91D1\u304C\u8FD4\u305B\u306A\u304F\u306A\u308A\u3001\u89AA\u621A\u306B\u52A9\u3051\u3092\u6C42\u3081\u305F\u3002\u3057\u3070\u3089\u304F\u63F4\u52A9\u3092\u53D7\u3051\u3066\u66AE\u3089\u3059\u3002", "\u8FD4\u6E08\u304C\u8FFD\u3044\u3064\u304B\u306A\u304F\u306A\u308A\u3001\u89AA\u621A\u306E\u63F4\u52A9\u3067\u66AE\u3089\u3059\u3053\u3068\u306B\u306A\u3063\u305F\u3002"]) : this.kids.length ? "\u8CAF\u3048\u304C\u5C3D\u304D\u3001\u5B50\u3069\u3082\u305F\u3061\u306E\u4ED5\u9001\u308A\u306B\u983C\u3063\u3066\u66AE\u3089\u3059\u3088\u3046\u306B\u306A\u3063\u305F\u3002" : "\u8CAF\u3048\u304C\u5C3D\u304D\u3001\u89AA\u621A\u3084\u5730\u57DF\u306E\u652F\u3048\u3067\u66AE\u3089\u3059\u3088\u3046\u306B\u306A\u3063\u305F\u3002";
           this.log("money", text, void 0, true);
         }
         this.welfare = true;
@@ -12730,12 +12892,17 @@ var Life = class {
     }
     if (this.welfare && !this.D.isJapan && a < 65 && this.cash + this.invest > 0) {
       this.welfare = false;
-      this.log("money", "\u63F4\u52A9\u3092\u53D7\u3051\u305A\u306B\u66AE\u3089\u305B\u308B\u3088\u3046\u306B\u306A\u3063\u305F\u3002");
+      this.log("money", this.vary("welfareOff", ["\u63F4\u52A9\u3092\u53D7\u3051\u305A\u306B\u66AE\u3089\u305B\u308B\u3088\u3046\u306B\u306A\u3063\u305F\u3002", "\u306A\u3093\u3068\u304B\u81EA\u5206\u306E\u7A3C\u304E\u3067\u66AE\u3089\u305B\u308B\u3088\u3046\u306B\u306A\u3063\u305F\u3002", "\u89AA\u621A\u306B\u983C\u3089\u305A\u306B\u3084\u3063\u3066\u3044\u3051\u308B\u3088\u3046\u306B\u306A\u3063\u305F\u3002"]));
     }
     const wasFrugal = this.frugal;
     this.frugal = this.cash + this.invest < -this.y(1e6) && this.school === "done";
-    if (this.frugal && !wasFrugal) this.log("money", "\u5BB6\u8A08\u304C\u8D64\u5B57\u7D9A\u304D\u306B\u306A\u308A\u3001\u7BC0\u7D04\u751F\u6D3B\u3092\u59CB\u3081\u305F\u3002");
-    if (!this.frugal && wasFrugal) this.log("money", "\u5BB6\u8A08\u304C\u7ACB\u3061\u76F4\u3063\u305F\u3002");
+    if (this.frugal && !wasFrugal && !this.again("frugalFlip", 2))
+      this.log(
+        "money",
+        this.again("frugal", 6) ? this.vary("frugal2", ["\u307E\u305F\u5BB6\u8A08\u304C\u8D64\u5B57\u306B\u306A\u308A\u3001\u7BC0\u7D04\u751F\u6D3B\u306B\u623B\u3063\u305F\u3002", "\u8CAF\u3048\u304C\u518D\u3073\u30DE\u30A4\u30CA\u30B9\u306B\u306A\u308A\u3001\u51FA\u8CBB\u3092\u524A\u3063\u305F\u3002", "\u5BB6\u8A08\u304C\u307E\u305F\u82E6\u3057\u304F\u306A\u3063\u305F\u3002"]) : this.vary("frugal", ["\u5BB6\u8A08\u304C\u8D64\u5B57\u7D9A\u304D\u306B\u306A\u308A\u3001\u7BC0\u7D04\u751F\u6D3B\u3092\u59CB\u3081\u305F\u3002", "\u8CAF\u3048\u304C\u30DE\u30A4\u30CA\u30B9\u306B\u306A\u308A\u3001\u51FA\u8CBB\u3092\u5927\u304D\u304F\u524A\u308B\u3053\u3068\u306B\u3057\u305F\u3002", "\u501F\u91D1\u304C\u3075\u304F\u3089\u307F\u3001\u66AE\u3089\u3057\u3092\u898B\u76F4\u3057\u305F\u3002"])
+      );
+    if (!this.frugal && wasFrugal && !this.again("recoverFlip", 2))
+      this.log("money", this.again("recover", 6) ? this.vary("recover2", ["\u5BB6\u8A08\u304C\u307E\u305F\u6301\u3061\u76F4\u3057\u305F\u3002", "\u3069\u3046\u306B\u304B\u8D64\u5B57\u304B\u3089\u629C\u3051\u51FA\u3057\u305F\u3002"]) : this.vary("recover", ["\u5BB6\u8A08\u304C\u7ACB\u3061\u76F4\u3063\u305F\u3002", "\u8D64\u5B57\u304B\u3089\u629C\u3051\u51FA\u3057\u3001\u3072\u3068\u606F\u3064\u3044\u305F\u3002", "\u501F\u91D1\u304C\u6E1B\u308A\u3001\u5BB6\u8A08\u304C\u843D\u3061\u7740\u3044\u305F\u3002"]));
   }
   livingCosts(r) {
     const a = this.age;
@@ -12793,7 +12960,11 @@ var Life = class {
       const budget = disp - 0.04 * Math.max(0, liquid) - spentSoFar - upcoming + Math.max(0, liquid) * 0.3;
       const minimum = ((fam ? this.y(17e5) : this.y(1e6)) + kidsLiving * this.y(3e5)) * (this.D.isJapan ? 1 : 0.45);
       const capped = Math.max(minimum * (this.home === "parents" ? 0.55 : 1), Math.min(annual, budget));
-      if (capped < annual * 0.97 && !this.tight) this.log("money", "\u5BB6\u8A08\u3092\u5207\u308A\u3064\u3081\u3066\u66AE\u3089\u3059\u3088\u3046\u306B\u306A\u3063\u305F\u3002");
+      if (capped < annual * 0.97 && !this.tight)
+        this.log(
+          "money",
+          this.again("tight", 6) ? this.vary("tight2", ["\u307E\u305F\u3001\u5BB6\u8A08\u3092\u5207\u308A\u3064\u3081\u308B\u66AE\u3089\u3057\u306B\u623B\u3063\u305F\u3002", "\u51FA\u8CBB\u304C\u304B\u3055\u307F\u3001\u518D\u3073\u3084\u308A\u304F\u308A\u304C\u53B3\u3057\u304F\u306A\u3063\u305F\u3002", "\u4ECA\u5E74\u3082\u307E\u305F\u3001\u5916\u98DF\u3084\u8CB7\u3044\u7269\u3092\u63A7\u3048\u305F\u3002", "\u5B89\u3044\u5E97\u3092\u56DE\u3063\u3066\u3001\u98DF\u8CBB\u3092\u6291\u3048\u305F\u3002", "\u4F7F\u3063\u3066\u3044\u306A\u3044\u5951\u7D04\u3092\u89E3\u7D04\u3057\u3066\u3001\u51FA\u8CBB\u3092\u6E1B\u3089\u3057\u305F\u3002"]) : this.vary("tight", ["\u5BB6\u8A08\u3092\u5207\u308A\u3064\u3081\u3066\u66AE\u3089\u3059\u3088\u3046\u306B\u306A\u3063\u305F\u3002", "\u5916\u98DF\u3084\u8CB7\u3044\u7269\u3092\u6E1B\u3089\u3057\u3066\u3001\u3084\u308A\u304F\u308A\u3059\u308B\u3088\u3046\u306B\u306A\u3063\u305F\u3002", "\u53CE\u5165\u306B\u5408\u308F\u305B\u3066\u3001\u66AE\u3089\u3057\u3092\u5C0F\u3055\u304F\u3057\u305F\u3002", "\u5BB6\u8A08\u7C3F\u3092\u3064\u3051\u3066\u3001\u51FA\u8CBB\u3092\u898B\u76F4\u3057\u305F\u3002"])
+        );
       this.tight = capped < annual * 0.97;
       annual = capped;
     } else this.tight = false;
@@ -13065,8 +13236,8 @@ function buildChoice(l, id) {
       break;
     }
     case "parentCare": {
-      title = "\u89AA\u306E\u4ECB\u8B77\u3078\u306E\u5411\u304D\u5408\u3044\u65B9";
       const alive = l.parents.some((x) => x.alive);
+      title = alive ? "\u89AA\u306E\u4ECB\u8B77\u3078\u306E\u5411\u304D\u5408\u3044\u65B9" : l.heir ? "\u3053\u308C\u304B\u3089\u306E\u5099\u3048" : "\u7A7A\u304D\u5BB6\u306B\u306A\u3063\u305F\u5B9F\u5BB6";
       if (!alive && l.heir) {
         situation = "\u4E21\u89AA\u306F\u3059\u3067\u306B\u4ED6\u754C\u3057\u3066\u3044\u308B\u3002\u89AA\u304C\u6B8B\u3057\u305F\u3082\u306E\u306E\u6574\u7406\u306F\u3001\u4EA1\u304F\u306A\u3063\u305F\u3068\u304D\u306B\u6E08\u307E\u305B\u305F\u3002\u3053\u308C\u304B\u3089\u3001\u81EA\u5206\u306E\u8001\u5F8C\u306B\u3069\u3046\u5099\u3048\u308B\uFF1F";
         options.push(
@@ -23818,7 +23989,7 @@ var EXPENSE_LABEL = {
 };
 
 // src/engine/result.ts
-var CODEC_VERSION = "8";
+var CODEC_VERSION = "9";
 function picksOf(l) {
   return l.choiceLog.flatMap((c) => c.alloc ? [c.alloc.save, c.alloc.invest, c.alloc.family, c.alloc.self] : [c.pickIndex ?? 0]);
 }
@@ -23827,7 +23998,7 @@ function encodeResult(l) {
   return l.heir ? `${l.heir.code}~${l.heir.idx}.${picks}` : `${CODEC_VERSION}.${l.mode}.${l.seed}.${picks}`;
 }
 function decodeResult(code) {
-  const m = /^(\d+)\.([jmw])\.([a-z0-9-]{1,40})\.([0-9]{0,240})((?:~\d\.[0-9]{0,240}){0,2})$/.exec(code.trim());
+  const m = /^(\d+)\.([jmw])\.([A-Za-z0-9-]{1,40})\.([0-9]{0,240})((?:~\d\.[0-9]{0,240}){0,2})$/.exec(code.trim());
   if (!m || m[1] !== CODEC_VERSION) return null;
   const next = m[5].split("~").slice(1).map((x) => {
     const [i, p] = x.split(".");

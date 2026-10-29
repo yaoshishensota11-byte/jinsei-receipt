@@ -8,6 +8,9 @@ export interface MicroOption {
   id: string;
   label: string;
   desc: string;
+  /** 状況によって言い方を変えるとき */
+  labelOf?: (l: Life) => string;
+  descOf?: (l: Life) => string;
   /** この条件のときだけ出す選択肢 */
   when?: (l: Life) => boolean;
   apply: (l: Life, r: Rng) => void;
@@ -20,6 +23,8 @@ export interface Micro {
   /** 10年空ければ、もう一度出てよい */
   repeat?: boolean;
   title: string;
+  /** 状況によって題を変えるとき */
+  titleOf?: (l: Life) => string;
   situation: (l: Life) => string;
   options: MicroOption[];
 }
@@ -325,11 +330,39 @@ export const MICROS: Micro[] = [
     min: 30,
     max: 65,
     when: (l) => working(l) && (l.D.k > 0.25 || l.region.urban === true),
+    // 車を持っていない人には「買うかどうか」、持っている人には「買い替えるかどうか」として出す
     title: "車の買い替え",
-    situation: () => "車が古くなってきた。新車のカタログを見ている。",
+    titleOf: (l) => (l.carSince < 0 ? "車を買う？" : "車の買い替え"),
+    situation: (l) => (l.carSince < 0 ? "通勤や買い物に、車があれば便利だと感じる。新車のカタログを見ている。" : "車が古くなってきた。新車のカタログを見ている。"),
     options: [
-      { id: "a", label: "新車を買う", desc: "快適で安全。大きな出費。", apply: (l) => { const c = l.y(2_800_000); l.spend("car", c); l.logPre("money", "新車に買い替えた。", -c); } },
-      { id: "b", label: "乗りつぶす", desc: "お金が浮く。故障の修理代がかかるかも。", apply: (l, r) => { if (r.chance(0.4)) { l.spend("car", l.y(250_000)); l.logPre("money", "古い車が故障し、修理代がかかった。", -l.y(250_000)); } else l.logPre("money", "古い車を大事に乗り続けた。"); } },
+      {
+        id: "a",
+        label: "新車を買う",
+        desc: "快適で安全。大きな出費。",
+        apply: (l) => {
+          const c = l.y(2_800_000);
+          l.spend("car", c);
+          const first = l.carSince < 0;
+          if (first) l.carSince = l.age;
+          l.logPre("money", first ? "新車を買った。" : "新車に買い替えた。", -c);
+        },
+      },
+      {
+        id: "b",
+        label: "乗りつぶす",
+        labelOf: (l) => (l.carSince < 0 ? "今は買わない" : "乗りつぶす"),
+        desc: "お金が浮く。故障の修理代がかかるかも。",
+        descOf: (l) => (l.carSince < 0 ? "お金が浮く。電車やバス、自転車でやりくりする。" : "お金が浮く。故障の修理代がかかるかも。"),
+        apply: (l, r) => {
+          // 乱数の使い方は、車があってもなくても同じにする（共有URLの再現のため）
+          const broke = r.chance(0.4);
+          if (l.carSince < 0) l.logPre("money", "車は買わずに暮らすことにした。");
+          else if (broke) {
+            l.spend("car", l.y(250_000));
+            l.logPre("money", "古い車が故障し、修理代がかかった。", -l.y(250_000));
+          } else l.logPre("money", "古い車を大事に乗り続けた。");
+        },
+      },
     ],
   },
   {
@@ -340,8 +373,8 @@ export const MICROS: Micro[] = [
     title: "精密検査",
     situation: (l) => `精密検査（${l.D.fmt(l.y(40_000), false)}）を受けるか迷っている。`,
     options: [
-      { id: "a", label: "受ける", desc: "病気を早く見つけられる。費用がかかる。", apply: (l, r) => { l.spend("medical", l.y(40_000)); l.earlyCheckUntil = l.age + 5; if (r.chance(0.08)) { l.illMult *= 0.92; l.logPre("health", "検査で小さな異常が見つかり、早めに治療できた。", -l.y(40_000), true); } else l.logPre("health", "検査を受けた。異常はなかった。", -l.y(40_000)); } },
-      { id: "b", label: "受けない", desc: "お金と時間が浮く。見逃すかもしれない。", apply: (l) => { l.logPre("health", "検査は受けなかった。"); } },
+      { id: "a", label: "受ける", desc: "病気を早く見つけられる。費用がかかる。", apply: (l, r) => { l.spend("medical", l.y(40_000)); l.earlyCheckUntil = l.age + 5; if (r.chance(0.08)) { l.illMult *= 0.92; l.logPre("health", "検査で小さな異常が見つかり、早めに治療できた。", -l.y(40_000), true); } else l.logPre("health", l.vary("dockOk", ["検査を受けた。異常はなかった。", "精密検査の結果は、異常なしだった。", "検査を受けた。少し数値が気になるが、治療はいらないと言われた。"]), -l.y(40_000)); } },
+      { id: "b", label: "受けない", desc: "お金と時間が浮く。見逃すかもしれない。", apply: (l) => { l.logPre("health", l.vary("dockNo", ["検査は受けなかった。", "忙しさを理由に、検査は見送った。", "今年も検査には行かなかった。"])); } },
     ],
   },
   {
@@ -350,9 +383,12 @@ export const MICROS: Micro[] = [
     max: 90,
     when: (l) => l.kids.length > 0,
     title: "知らない番号からの電話",
+    // 名乗る続柄は、実際にいる子どもに合わせる（本当に子どもからの電話のこともあるため）
     situation: (l) =>
       [
-        "「息子だけど、会社のお金をなくして…今日中に必要なんだ」と、知らない番号から電話がかかってきた。",
+        l.kids.some((_, i) => !kidFemale(l.seed, i))
+          ? "「息子だけど、会社のお金をなくして…今日中に必要なんだ」と、知らない番号から電話がかかってきた。"
+          : "「娘だけど、会社のお金をなくして…今日中に必要なの」と、知らない番号から電話がかかってきた。",
         `「${l.sex === "female" ? "お母さん" : "お父さん"}？ 私。スマホが壊れて友だちの電話から…家賃が払えなくて」と電話がかかってきた。`,
         "「事故を起こしてしまって、示談金がすぐ要るんだ」と、泣きそうな声で電話がかかってきた。",
       ][hashPick(l.seed + "call" + l.age, 3)],

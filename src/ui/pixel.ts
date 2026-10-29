@@ -1,6 +1,7 @@
 // 「暮らしの風景」：上の欄の下に、ドット絵の自分と家族、住まいを描く帯。
 // 画像は使わず、すべて小さな四角（1マス＝数ピクセル）で描く。年齢・服装・家族・その年の出来事で絵が変わる。
-import type { Life } from "../engine/sim";
+import { kidFemale, type Life } from "../engine/sim";
+import { kidShownHome } from "../engine/home";
 import type { LifeEvent } from "../engine/types";
 
 const CELL = 3; // 1マスの大きさ（CSSピクセル）
@@ -149,9 +150,8 @@ function cast(l: Life, mood: Mood, a: number): Person[] {
   // 巣立つ前の子ども
   l.kids.forEach((k, i) => {
     const ka = a - k.born;
-    const home = k.leftAge === undefined && (ka < (k.univ ? 22 : 18) || k.stayHome);
-    if (!home || ka < 0) return;
-    right.push({ stage: stageOf(ka), female: pick([true, false], seed + "kid" + i), outfit: ka < 2 ? "onesie" : ka < 12 ? "kid" : ka < 18 ? "uniform" : "casual", mood: mood === "joy" ? "joy" : mood === "sad" ? "sad" : "smile", skin, hair: pick(HAIRS, seed + "kh" + i), shirt: pick(SHIRTS, seed + "ks" + i) });
+    if (!kidShownHome(l, k, a)) return;
+    right.push({ stage: stageOf(ka), female: kidFemale(l.seed, i), outfit: ka < 2 ? "onesie" : ka < 12 ? "kid" : ka < 18 ? "uniform" : "casual", mood: mood === "joy" ? "joy" : mood === "sad" ? "sad" : "smile", skin, hair: pick(HAIRS, seed + "kh" + i), shirt: pick(SHIRTS, seed + "ks" + i) });
   });
   return [...left, me, ...right].slice(0, 7);
 }

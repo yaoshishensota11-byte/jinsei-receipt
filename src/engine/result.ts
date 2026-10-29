@@ -6,7 +6,7 @@ import { pickCountry, type Mode } from "./world";
 import { streamRng } from "./rng";
 import { EXPENSE_LABEL, type ExpenseCat, type LifeEvent } from "./types";
 
-export const CODEC_VERSION = "8";
+export const CODEC_VERSION = "9";
 
 export interface ReceiptItem {
   label: string;
@@ -63,7 +63,7 @@ export interface Decoded {
 }
 
 export function decodeResult(code: string): Decoded | null {
-  const m = /^(\d+)\.([jmw])\.([a-z0-9-]{1,40})\.([0-9]{0,240})((?:~\d\.[0-9]{0,240}){0,2})$/.exec(code.trim());
+  const m = /^(\d+)\.([jmw])\.([A-Za-z0-9-]{1,40})\.([0-9]{0,240})((?:~\d\.[0-9]{0,240}){0,2})$/.exec(code.trim());
   if (!m || m[1] !== CODEC_VERSION) return null;
   const next = m[5]
     .split("~")

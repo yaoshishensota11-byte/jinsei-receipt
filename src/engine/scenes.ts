@@ -14,6 +14,10 @@ export interface Scene {
   title: string;
   situation: string;
   options: SceneOption[];
+  /** 順番待ちのあいだに状況が変わって、もう合わなくなったら出さない（例：入試の前に学校をやめた） */
+  stillValid?: (l: Life) => boolean;
+  /** 出す時点の状況で、説明の文を作り直すとき */
+  situationOf?: (l: Life) => string;
 }
 
 /** 結婚した直後：子どもをどうするか */

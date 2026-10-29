@@ -237,6 +237,7 @@ function render(l: Life): void {
       </div>
       <p class="note">「詳細つきで保存」は、レシートの下に転機・選んだ道・10年ごとのお金を続けた画像です。「印刷・PDFで保存」は、このページ全体（年ごとの記録を含む）を紙やPDFにします。「ワークシートつきで印刷」は、それに授業などで書きこめる「この人生で考えたいこと」のページを足します。</p>
       <a class="btn primary wide" href="./">自分も生まれてみる</a>
+      <a class="btn wide" href="/lp/">人生のレシート 公式ページへ</a>
     </section>
 
     <section class="panel">
@@ -317,6 +318,7 @@ function render(l: Life): void {
 
     <footer class="foot">
       <a class="btn primary wide" href="./">自分も生まれてみる</a>
+      <a class="btn wide" href="/lp/">人生のレシート 公式ページへ</a>
       <p>このページの人生は、URLの中の番号だけから毎回同じように再現されています。<br>金額は公的統計をもとにした架空の試算です。</p>
     </footer>`;
 

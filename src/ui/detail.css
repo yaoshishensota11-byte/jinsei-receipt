@@ -270,3 +270,4 @@ h1, h2 { margin: 0; line-height: 1.4; }
 .chap ul { margin: 0; padding-left: 1.2em; font-size: 13px; line-height: 1.7; }
 .chap b { color: #c8302c; }
 @media print { .chap { break-inside: avoid; } }
+.receipt-card .btn.wide + .btn.wide { margin-top: 8px; }

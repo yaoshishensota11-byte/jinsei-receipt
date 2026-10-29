@@ -111,7 +111,9 @@
 npm install
 npm run dev                         # http://localhost:5173
 npm run build                       # dist/ に静的サイトを出力（Vercel はそのままデプロイ可）
-npx tsx scripts/simtest.ts 300 w    # 内部高速モードで300人生（j=日本 m=主要国 w=世界）。異常値・空の選択肢・再現性を検査
+npx tsx scripts/simtest.ts 300 w    # 内部高速モードで300人生（j=日本 m=主要国 w=世界）。異常値・空の選択肢・再現性・紹介ページのリンクを検査
+npx tsx scripts/consistencytest.ts 3000  # 出来事・選択・家族の声が、その時の状況と食い違っていないか（持っていない車、家にいない子ども など）
+npx tsx scripts/voicetest.ts 300         # 家族の声の数と内容
 npx vite --port 5199 & npm run test:ui -- 10 60   # ブラウザで10回、60倍速＋自動選択で完走テスト（3モードを順番に）
 ```
 
@@ -135,6 +137,8 @@ src/
     rng.ts / types.ts   シード付き乱数 / 型定義
   ui/receipt.ts         レシートのcanvas描画とPNG保存
 scripts/simtest.ts      エンジンの自動テストプレイ（モード指定可）
+scripts/consistencytest.ts  出来事と状況の食い違いのテスト
+scripts/voicetest.ts    家族の声のテスト
 scripts/uitest.mjs      ブラウザでの自動テストプレイ（Playwright）
 ```
 

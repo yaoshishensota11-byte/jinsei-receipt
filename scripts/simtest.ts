@@ -142,6 +142,20 @@ if (process.argv.includes("--sample")) {
     if (!dec) problems.push(`紹介ページの「${g.key}」のURLが古い版（scripts/lpgallery.ts で作り直す）`);
     else if (!replayByIndex(dec.seed, dec.picks, dec.mode).records.length) problems.push(`紹介ページの「${g.key}」を再現できない`);
   }
+  // 紹介ページ「3枚のレシート」（compare.json）と、ページに書いてある /s/ のリンクすべて
+  const compare = JSON.parse(fs.readFileSync(new URL("../public/lp/img/compare.json", import.meta.url), "utf8")) as { iso: string; code: string; deathAge: number }[];
+  const html = fs.readFileSync(new URL("../public/lp/index.html", import.meta.url), "utf8");
+  const links = [...html.matchAll(/\/s\/([^"'\s<]+)/g)].map((m) => ({ key: m[1].slice(0, 20), code: m[1], deathAge: -1 }));
+  for (const c of [...compare.map((x) => ({ key: x.iso, code: x.code, deathAge: x.deathAge })), ...links]) {
+    const dec = decodeResult(c.code);
+    if (!dec) {
+      problems.push(`紹介ページのレシート「${c.key}」のURLが読めない`);
+      continue;
+    }
+    const l = replayCode(dec);
+    if (!l || !l.records.length) problems.push(`紹介ページのレシート「${c.key}」を再現できない`);
+    else if (c.deathAge >= 0 && l.age !== c.deathAge) problems.push(`紹介ページのレシート「${c.key}」が別の人生になる（${c.deathAge}歳→${l.age}歳）`);
+  }
 }
 
 if (problems.length) {

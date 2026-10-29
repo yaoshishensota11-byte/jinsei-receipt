@@ -71,7 +71,7 @@
   "minAge": 40,
   "maxAge": 65,
   "annualProb": 0.01,
-  "requires": "working",
+  "requires": "working+parentAway",
   "title": "親の介護",
   "situation": "離れて暮らす親が倒れ、日常生活に介助が必要になった。",
   "options": [
@@ -275,7 +275,7 @@
   "minAge": 35,
   "maxAge": 55,
   "annualProb": 0.03,
-  "requires": "hasKids",
+  "requires": "kid:10-12",
   "title": "中学受験",
   "situation": "子どもの同級生の多くが塾に通い始め、中学受験をするか家族で話し合った。",
   "options": [
@@ -359,7 +359,7 @@
   "minAge": 18,
   "maxAge": 19,
   "annualProb": 0.15,
-  "requires": null,
+  "requires": "student",
   "title": "大学進学と学生ローン",
   "situation": "大学の合格通知が届いた。学費は年に数万ドルかかる。",
   "options": [
@@ -491,7 +491,7 @@
   "minAge": 24,
   "maxAge": 45,
   "annualProb": 0.08,
-  "requires": "hasKids",
+  "requires": "kid:0-2",
   "title": "保育料の高さ",
   "situation": "産休が明けたが、近くの保育施設の料金は月に1,000ドルを超えていた。",
   "options": [
@@ -583,7 +583,7 @@
   "minAge": 25,
   "maxAge": 50,
   "annualProb": 0.01,
-  "requires": null,
+  "requires": "notOwner",
   "title": "工事が止まったマンション",
   "situation": "頭金を払って予約購入したマンションの工事が、開発会社の資金難で止まった。",
   "options": [
@@ -623,7 +623,7 @@
   "minAge": 25,
   "maxAge": 50,
   "annualProb": 0.05,
-  "requires": "hasKids",
+  "requires": "urban+kid:5-14",
   "title": "戸籍と子どもの学校",
   "situation": "働いている都市に戸籍がないため、子どもが地元の公立校に入るには多くの書類と条件が必要だと分かった。",
   "options": [
@@ -683,7 +683,7 @@
   "minAge": 17,
   "maxAge": 18,
   "annualProb": 0.2,
-  "requires": null,
+  "requires": "student",
   "title": "高考の結果",
   "situation": "全国統一の大学入試「高考」の点数が発表され、志望校には届かなかった。",
   "options": [
@@ -731,7 +731,7 @@
   "minAge": 22,
   "maxAge": 40,
   "annualProb": 0.05,
-  "requires": "urban",
+  "requires": "urban+working",
   "title": "長時間労働の職場",
   "situation": "勤め先で、朝9時から夜9時まで週6日働くことが当たり前になってきた。",
   "options": [
@@ -875,7 +875,7 @@
   "minAge": 16,
   "maxAge": 18,
   "annualProb": 0.15,
-  "requires": null,
+  "requires": "student",
   "title": "工学・医学部の入試準備",
   "situation": "周りの多くが工学系入試（JEE）や医学部入試（NEET）の予備校に通い始めた。",
   "options": [
@@ -927,7 +927,7 @@
   "minAge": 20,
   "maxAge": 35,
   "annualProb": 0.08,
-  "requires": null,
+  "requires": "newlywed",
   "title": "結婚式の費用",
   "situation": "結婚が決まり、親族から盛大な式を挙げるよう期待されている。",
   "options": [
@@ -1291,7 +1291,7 @@
   "minAge": 18,
   "maxAge": 24,
   "annualProb": 0.1,
-  "requires": null,
+  "requires": "inUniv",
   "title": "大学教員のストライキ",
   "situation": "国立大学の教員組合がストライキに入り、授業が何か月も止まった。",
   "options": [
@@ -1429,7 +1429,7 @@
   "annualProb": 0.06,
   "requires": "urban",
   "title": "電気代の請求額",
-  "situation": "料金改定で、毎月の電気代が家賃に近い額になった。",
+  "situation": "料金改定で、毎月の電気代が収入の1割を超えるほどになった。",
   "options": [
    {
     "id": "a",
@@ -2199,7 +2199,7 @@
   "minAge": 17,
   "maxAge": 18,
   "annualProb": 0.15,
-  "requires": null,
+  "requires": "student",
   "title": "全国高校試験（ENEM）",
   "situation": "ENEMの点数で国立大学に入れるかが決まる。結果は少し足りなかった。",
   "options": [
@@ -2247,7 +2247,7 @@
   "minAge": 16,
   "maxAge": 19,
   "annualProb": 0.18,
-  "requires": null,
+  "requires": "student",
   "title": "職業訓練か大学か",
   "situation": "学校を出たあと、職業訓練（デュアルシステム）に進むか、大学を目指すかを決める時期が来た。",
   "options": [
@@ -2339,7 +2339,7 @@
   "minAge": 25,
   "maxAge": 45,
   "annualProb": 0.08,
-  "requires": "hasKids",
+  "requires": "kid:0-2",
   "title": "保育所の空き待ち",
   "situation": "育児休業が終わるが、近くの保育所（Kita）に空きがない。",
   "options": [
@@ -2427,7 +2427,7 @@
   "minAge": 20,
   "maxAge": 50,
   "annualProb": 0.06,
-  "requires": "urban",
+  "requires": "urban+renting+kid:0-17",
   "title": "都市の住まい探し",
   "situation": "家族が増えて引っ越したいが、都市部の賃貸物件の内見には何十人も集まる。",
   "options": [
@@ -2571,7 +2571,7 @@
   "minAge": 28,
   "maxAge": 65,
   "annualProb": 0.08,
-  "requires": "ownsHome",
+  "requires": "mortgage",
   "title": "住宅ローン金利の更新",
   "situation": "2年固定の住宅ローン金利が終わり、新しい金利は以前の2倍以上になった。",
   "options": [
@@ -2611,7 +2611,7 @@
   "minAge": 18,
   "maxAge": 19,
   "annualProb": 0.15,
-  "requires": null,
+  "requires": "student",
   "title": "大学の学費と学生ローン",
   "situation": "イングランドの大学の学費は年9,000ポンド超。学生ローンを使って進学するか考えた。",
   "options": [
@@ -2659,7 +2659,7 @@
   "minAge": 20,
   "maxAge": 60,
   "annualProb": 0.08,
-  "requires": "urban",
+  "requires": "urban+renting",
   "title": "家賃の値上げ",
   "situation": "大家から、来月から家賃を15%上げると通知が来た。",
   "options": [
@@ -2839,7 +2839,7 @@
   "minAge": 18,
   "maxAge": 19,
   "annualProb": 0.12,
-  "requires": null,
+  "requires": "student",
   "title": "グランゼコール準備級",
   "situation": "バカロレアに合格し、大学に進むか、難関校を目指す準備級（プレパ）に進むか選ぶことになった。",
   "options": [
@@ -2887,7 +2887,7 @@
   "minAge": 25,
   "maxAge": 45,
   "annualProb": 0.08,
-  "requires": "hasKids",
+  "requires": "kid:0-2",
   "title": "保育所の申し込み",
   "situation": "公立保育所（クレッシュ）に申し込んだが、空きが出るのは1年後と言われた。",
   "options": [
@@ -3451,7 +3451,7 @@
   "minAge": 40,
   "maxAge": 60,
   "annualProb": 0.1,
-  "requires": "hasKids",
+  "requires": "kid:16-18",
   "title": "高校卒業試験と家庭教師",
   "situation": "子どもが高校卒業試験（サナウェイヤ・アンマ）を控え、ほとんどの同級生が私塾に通っている。",
   "options": [
@@ -3539,7 +3539,7 @@
   "minAge": 22,
   "maxAge": 33,
   "annualProb": 0.08,
-  "requires": null,
+  "requires": "newlywed",
   "title": "結婚と新居の準備",
   "situation": "婚約が決まり、慣習として新郎側が住まいと家具をそろえることを期待されている。",
   "options": [
@@ -3907,7 +3907,7 @@
   "minAge": 25,
   "maxAge": 55,
   "annualProb": 0.1,
-  "requires": "hasKids",
+  "requires": "kid:6-14",
   "title": "学校の費用",
   "situation": "小学校は無償化されたが、制服や教材、教員への謝礼などの出費が続く。",
   "options": [
@@ -4215,7 +4215,7 @@
   "minAge": 30,
   "maxAge": 55,
   "annualProb": 0.1,
-  "requires": "hasKids",
+  "requires": "kid:7-17",
   "title": "補習授業",
   "situation": "子どもの担任の先生が放課後の補習授業を開いており、ほとんどの同級生が通っている。",
   "options": [
@@ -4259,7 +4259,7 @@
   "minAge": 30,
   "maxAge": 55,
   "annualProb": 0.12,
-  "requires": "hasKids",
+  "requires": "kid:7-17",
   "title": "学習塾（ハグォン）",
   "situation": "子どもの友人のほとんどが放課後に複数の塾に通っている。",
   "options": [
@@ -4299,7 +4299,7 @@
   "minAge": 25,
   "maxAge": 45,
   "annualProb": 0.05,
-  "requires": null,
+  "requires": "notOwner",
   "title": "チョンセ（伝貰）契約",
   "situation": "新しい部屋を、まとまった保証金を預けて家賃のかからない「チョンセ」で借りるか、月払いの家賃にするか迷った。",
   "options": [
@@ -4343,7 +4343,7 @@
   "minAge": 18,
   "maxAge": 19,
   "annualProb": 0.15,
-  "requires": null,
+  "requires": "student",
   "title": "修学能力試験（スヌン）",
   "situation": "大学修学能力試験の結果が出て、志望大学には届かなかった。",
   "options": [
@@ -4439,7 +4439,7 @@
   "minAge": 28,
   "maxAge": 36,
   "annualProb": 0.06,
-  "requires": null,
+  "requires": "dating",
   "title": "結婚と新居",
   "situation": "結婚を考えているが、ソウルの住宅価格が高く、新居の準備が難しい。",
   "options": [
@@ -4575,7 +4575,7 @@
   "minAge": 35,
   "maxAge": 60,
   "annualProb": 0.1,
-  "requires": "hasKids",
+  "requires": "kid:13-14",
   "title": "中等学校の費用",
   "situation": "子どもが全寮制の中等学校に合格したが、寮費や制服の費用が必要になった。",
   "options": [
@@ -4848,7 +4848,7 @@
   "minAge": 20,
   "maxAge": 60,
   "annualProb": 0.04,
-  "requires": "urban",
+  "requires": "urban+renting",
   "title": "大家からの退去通知",
   "situation": "建物の建て替えのため、半年以内に部屋を出るよう大家から告げられた。",
   "options": [

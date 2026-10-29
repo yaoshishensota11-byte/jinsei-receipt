@@ -2,7 +2,7 @@
 // 数字や出来事は変えない（統計どおりの人生に、言葉だけを足す）。乱数は使わず、種と年齢から決めるので、記録や共有URLには影響しない。
 import type { Life } from "./sim";
 import type { YearRecord } from "./types";
-import { kidAtHome } from "./home";
+import { kidShownHome } from "./home";
 import { kidFemale } from "./sim";
 import { hashStr } from "./rng";
 
@@ -15,7 +15,8 @@ export interface Voice {
 export interface Snap {
   partner: boolean;
   kids: number;
-  kidsHome: number;
+  /** 一緒に暮らしている子ども（何番目の子か） */
+  kidsHome: number[];
   working: boolean;
   retired: boolean;
   home: string;
@@ -29,7 +30,7 @@ export function snap(l: Life): Snap {
   return {
     partner: !!l.partner?.alive,
     kids: l.kids.length,
-    kidsHome: l.kids.filter((k) => kidAtHome(k, l.age)).length,
+    kidsHome: l.kids.map((k, i) => (kidShownHome(l, k, l.age) ? i : -1)).filter((i) => i >= 0),
     working: isWorking(l.job),
     retired: l.job === "retired",
     home: l.home,
@@ -45,8 +46,15 @@ export function voicesFor(l: Life, prev: Snap | null, rec: YearRecord): Voice[] 
   const mom = l.parents[1].alive ? "母" : l.parents[0].alive ? "父" : "";
   const dad = l.parents[0].alive ? "父" : mom;
   const pt = l.partner?.alive ? (l.partner.sex === "male" ? "夫" : "妻") : "";
-  const kidName = (i: number) => `${["長", "次", "三", "四", "五"][i] ?? ""}${kidFemale(l.seed, i) ? "女" : "男"}`;
+  // 長女・次女…は、男女それぞれで数える
+  const kidName = (i: number) => {
+    const f = kidFemale(l.seed, i);
+    const nth = l.kids.slice(0, i).filter((_, j) => kidFemale(l.seed, j) === f).length;
+    return `${["長", "次", "三", "四", "五"][nth] ?? "末"}${f ? "女" : "男"}`;
+  };
   const out: Voice[] = [];
+  // 一緒に暮らしている子ども（いちばん上）
+  const homeKid = l.kids.findIndex((k) => kidShownHome(l, k, a));
   const say = (who: string, text: string) => who && out.length < 2 && out.push({ who, text });
   const self = (text: string) => out.length < 2 && out.push({ who: "心の声", text });
 
@@ -63,7 +71,7 @@ export function voicesFor(l: Life, prev: Snap | null, rec: YearRecord): Voice[] 
     if (t === "cancer" || t === "heartBrain") close ? say(close, pick(t, ["お金のことは、なんとかなる。まずは治そう。", "無理しないで。ゆっくり休んで。"])) : self("一人で病院に通うのは、心細い。");
     else if (t === "jobLoss") close ? say(close, pick(t, ["次の仕事、一緒に探そう。", "しばらくは、切りつめてやっていこう。"])) : self("家賃、来月も払えるだろうか。");
     else if (t === "disaster") say(close || "近所の人", pick(t, ["みんな無事で、よかった。", "片づけ、手伝うよ。"]));
-    else if (t === "displaced") say(l.kids.length ? kidName(0) : close || "家族", "いつ、家に帰れるの？");
+    else if (t === "displaced") say(homeKid >= 0 ? kidName(homeKid) : close || "家族", "いつ、家に帰れるの？");
     else if (t === "inflation") {
       const line = pick(t, ["また値上がりしてる……。", "先月と同じ買い物で、こんなに違うなんて。"]);
       close ? say(close, line) : self(line);
@@ -87,11 +95,12 @@ export function voicesFor(l: Life, prev: Snap | null, rec: YearRecord): Voice[] 
   if (!prev.partner && pt) say(pt, pick("partner", ["これから、よろしくね。", "二人で、なんとかやっていこう。"]));
   if (l.kids.length > prev.kids) pt ? say(pt, pick("kid", ["名前、どうしようか。", "ちっちゃいね……。", "これから、もっと働かないとね。"])) : self("この子を、守らないと。");
   l.kids.forEach((k, i) => {
-    if (a - k.born === 6) say(kidName(i), "いってきます！");
+    if (a - k.born === 6 && kidShownHome(l, k, a)) say(kidName(i), "いってきます！");
   });
-  const kidsHome = l.kids.filter((k) => kidAtHome(k, a)).length;
-  if (kidsHome < prev.kidsHome && l.kids.length === prev.kids) say(kidName(l.kids.findIndex((k) => !kidAtHome(k, a))), pick("kidleave", ["今までありがとう。たまに帰るね。", "部屋、そのままにしておいてね。"]));
-  if (!prev.abroad && l.abroad) say(l.kids.length ? kidName(0) : close || "家族", "次は、いつ帰ってくるの？");
+  // 去年まで一緒に暮らしていて、今年家を出た子ども
+  const gone = prev.kidsHome.find((i) => !kidShownHome(l, l.kids[i], a) && l.kids[i].leftAge !== undefined);
+  if (gone !== undefined) say(kidName(gone), pick("kidleave", ["今までありがとう。たまに帰るね。", "部屋、そのままにしておいてね。"]));
+  if (!prev.abroad && l.abroad) say(homeKid >= 0 ? kidName(homeKid) : close || "家族", "次は、いつ帰ってくるの？");
   if (!prev.retired && l.job === "retired") pt ? say(pt, "長いあいだ、おつかれさま。") : self("明日から、目覚ましをかけなくていい。");
 
   // 何もない年は、ときどき家計の話

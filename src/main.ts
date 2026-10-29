@@ -12,9 +12,11 @@ import { CHAPTERS, chapterSummary, oneIn, type Chapter } from "./engine/chapters
 import { snap, voicesFor, type Snap, type Voice } from "./engine/voices";
 
 // 1年が進む時間は、出来事があってもなくても同じ（速さを変えるのは画面下の倍速ボタンだけ）。
-// 家族の声がある年だけ、声1つにつき少し長くする。章の区切りでは止まってまとめを見せる。
+// 出来事が多い年と、家族の声がある年は、そのぶん少し長くする。章の区切りでは止まってまとめを見せる。
 // 選択・家族の声・章のまとめを含めて、等倍で1プレイ20〜30分ほど。
-const YEAR_MS = 3_200;
+const YEAR_MS = 4_200;
+/** 出来事が多い年は、3つ目から1つにつき少し長くする */
+const EVENT_MS = 700;
 const VOICE_MS = 1_600;
 
 const SPEEDS = [1, 2, 3, 4, 5] as const;
@@ -131,6 +133,7 @@ class Game {
   lastSpeed = 1;
   private yearT = 0; // 今の年の経過ms
   private yearMs = YEAR_MS; // 今の年の長さms
+  private evMs = YEAR_MS; // そのうち、出来事を見せる長さms
   /** 等倍での自動進行の合計時間（テストでプレイ時間の目安を出すため） */
   autoMs = 0;
   /** 等倍で遊んだときの目安（選択は大きな分かれ道20秒・小さな選択6秒と見込む） */
@@ -236,7 +239,8 @@ class Game {
       this.voices = voicesFor(this.life, this.snap, rec);
       this.snap = snap(this.life);
       this.vShown = 0;
-      this.yearMs = YEAR_MS + this.voices.length * VOICE_MS;
+      this.evMs = YEAR_MS + Math.max(0, rec.events.length - 2) * EVENT_MS;
+      this.yearMs = this.evMs + this.voices.length * VOICE_MS;
       const ch = CHAPTERS.find((c) => c.from === rec.age);
       if (ch) this.feed.prepend(h(`<div class="chap-line"><b>第${ch.no}章</b>${esc(ch.title)}<span>${ch.from}${ch.no < CHAPTERS.length ? `〜${ch.to}` : ""}歳</span></div>`));
       this.autoMs += this.yearMs;
@@ -247,13 +251,13 @@ class Game {
     const rec = this.current;
     const n = rec.events.length;
     // その年の出来事を、1年の中で順番に見せる
-    while (this.shown < n && this.yearT >= ((this.shown + 0.5) / Math.max(n, 1)) * YEAR_MS * 0.8) {
+    while (this.shown < n && this.yearT >= ((this.shown + 0.5) / Math.max(n, 1)) * this.evMs * 0.8) {
       this.pushEvent(rec.events[this.shown++]);
       // 出来事が出たら、ドット絵の表情もその時点の出来事に合わせる
       this.scene.update(this.life, rec.events.slice(0, this.shown), rec.age);
     }
     // 家族の声は、その年の出来事のあとに
-    while (this.vShown < this.voices.length && this.yearT >= YEAR_MS * 0.8 + (this.vShown + 0.2) * VOICE_MS) this.pushVoice(this.voices[this.vShown++], rec.age);
+    while (this.vShown < this.voices.length && this.yearT >= this.evMs * 0.8 + (this.vShown + 0.2) * VOICE_MS) this.pushVoice(this.voices[this.vShown++], rec.age);
     (this.hud.querySelector("#prog") as HTMLElement).style.width = `${Math.min(100, (this.yearT / this.yearMs) * 100)}%`;
     if (this.yearT >= this.yearMs) {
       while (this.shown < n) this.pushEvent(rec.events[this.shown++]);
@@ -556,6 +560,7 @@ async function showResult(life: Life): Promise<void> {
       <p class="mine-note">入力した年収は、どこにも送られません。ゲームの中の世界・日本で、25〜59歳の働く人の年収と比べています（統計をもとにした試算）。</p>
     </details>
     <button class="btn" id="again">もう一度生まれる</button>
+    <a class="btn sub lp-link" href="/lp/">人生のレシート 公式ページへ</a>
   </div>`);
   app.innerHTML = "";
   app.append(root);

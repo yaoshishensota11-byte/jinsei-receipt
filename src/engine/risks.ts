@@ -144,7 +144,15 @@ export function riskYear(l: Life, r: Rng): void {
   if (r.chance(Math.min(0.08, 0.006 + k.homicidePer100k * 0.0018))) {
     const c = l.y(r.range(30_000, 300_000));
     l.spend("other", c);
-    l.log("money", r.pick(["家に泥棒が入り、家電と現金を盗まれた。", "道でスマホと財布を奪われた。", "仕事道具を盗まれ、買い直した。"]), -c);
+    l.log(
+      "money",
+      r.pick([
+        l.vary("theft1", ["家に泥棒が入り、家電と現金を盗まれた。", "留守のあいだに空き巣に入られた。"]),
+        l.vary("theft2", ["道でスマホと財布を奪われた。", "バスの中で財布をすられた。"]),
+        l.vary("theft3", ["仕事道具を盗まれ、買い直した。", "自転車（バイク）を盗まれ、買い直した。"]),
+      ]),
+      -c,
+    );
     l.mark("theft");
   }
 
@@ -152,7 +160,7 @@ export function riskYear(l: Life, r: Rng): void {
   if (k.politicalStability < -0.5 && l.job !== "none" && l.job !== "retired" && r.chance(0.02 * -k.politicalStability)) {
     const lost = l.salaryOf(a) * 0.25;
     l.spend("other", lost);
-    l.log("work", "政情が不安定になり、デモや封鎖で仕事が数か月止まった。", -lost, true);
+    l.log("work", l.vary("unrest", ["政情が不安定になり、デモや封鎖で仕事が数か月止まった。", "抗議デモで道路が封鎖され、しばらく働きに出られなかった。", "政治の混乱で、勤め先が数か月閉まった。"]), -lost, true);
     l.mark("unrest");
   }
 
@@ -177,7 +185,7 @@ export function riskYear(l: Life, r: Rng): void {
   if (l.region.urban === false && !l.D.isJapan && r.chance(k.droughtRisk * 0.035)) {
     const c = Math.max(l.salaryOf(a), l.y(500_000)) * 0.3;
     l.spend("other", c);
-    l.log("disaster", "雨が降らず、作物がほとんど育たなかった。食べ物の値段も上がった。", -c, true);
+    l.log("disaster", l.vary("drought", ["雨が降らず、作物がほとんど育たなかった。食べ物の値段も上がった。", "日照りが続き、畑が枯れた。家畜の水にも困った。", "雨季に雨が少なく、収穫が半分ほどになった。"]), -c, true);
     l.mark("drought");
   }
 
@@ -227,21 +235,49 @@ function matches(e: CountryEvent, l: Life): boolean {
     (tags.has("*URBAN") && l.region.urban !== false);
   if (!place) return false;
   if (l.age < e.minAge || l.age > e.maxAge) return false;
-  switch (e.requires) {
+  // 条件は「+」でつなげられる（すべて満たすときだけ起きる）
+  return (e.requires ?? "").split("+").every((q) => requirement(q, l));
+}
+
+/** 出来事が起きる条件。状況と食い違う出来事（持っていない家の話、いない子どもの話など）を出さないため */
+function requirement(q: string, l: Life): boolean {
+  const kid = /^kid:(\d+)-(\d+)$/.exec(q);
+  if (kid) return l.kids.some((x) => l.age - x.born >= Number(kid[1]) && l.age - x.born <= Number(kid[2]) && !l.kidWithEx(x));
+  switch (q) {
+    case "":
+      return true;
     case "working":
       return l.job !== "none" && l.job !== "retired" && l.school === "done";
     case "married":
-      return !!l.partner;
+      return !!l.partner?.alive;
+    case "newlywed":
+      return !!l.partner?.alive && l.age - l.partnerSince <= 1;
+    case "dating":
+      return l.dating && !l.partner;
     case "hasKids":
-      return l.kids.some((x) => l.age - x.born < 18);
+      return l.kids.some((x) => l.age - x.born < 18 && !l.kidWithEx(x));
     case "rural":
       return l.region.urban === false;
     case "urban":
       return l.region.urban !== false;
     case "ownsHome":
       return l.home === "own";
+    case "mortgage":
+      return l.home === "own" && l.loan > 0;
+    case "renting":
+      return l.home === "rent";
+    case "notOwner":
+      return l.home !== "own";
+    // 高校などに在学中（大学入試・進路の話）
+    case "student":
+      return l.school === "hs" || l.school === "hs_night" || l.school === "kosen";
+    case "inUniv":
+      return l.school === "univ" || l.school === "univ_work" || l.school === "univ_night" || l.school === "grad";
+    // 離れて暮らす親が生きている
+    case "parentAway":
+      return l.home !== "parents" && l.parents.some((p) => p.alive);
     default:
-      return true;
+      throw new Error(`国ごとの出来事の条件が分からない: ${q}`);
   }
 }
 
@@ -300,6 +336,7 @@ export function countryEventScene(l: Life, r: Rng): Scene | null {
       id: `c_${e.id}`,
       title: e.title,
       situation: e.situation,
+      stillValid: (l) => (e.requires ?? "").split("+").every((q) => requirement(q, l)),
       options: e.options.map((o) => ({
         id: o.id,
         label: o.label,

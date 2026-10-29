@@ -13,6 +13,16 @@ export function kidAtHome(k: Kid, age: number): boolean {
   return ka < (k.univ ? 22 : 18) || !!k.stayHome;
 }
 
+/** 画面で「一緒に暮らしている」と見せるか。巣立つ年齢になっても、巣立ちの場面で決めるまでは家にいる（長くて2年）。
+ *  離婚した相手のもとで暮らす子どもは数えない。お金の計算は kidAtHome のまま（共有URLの再現のため） */
+export function kidShownHome(l: Life, k: Kid, age: number): boolean {
+  if (k.leftAge !== undefined || l.kidWithEx(k)) return false;
+  const ka = age - k.born;
+  if (ka < 0) return false;
+  const t = k.univ ? 22 : 18;
+  return ka < t || !!k.stayHome || (!k.leaveAsked && ka <= t + 2);
+}
+
 /** 自分が実家を出るか。later は、実家から通って働いていて貯金がたまってきたとき */
 export function leaveHomeScene(l: Life, later: boolean): Scene {
   return {
@@ -48,8 +58,57 @@ export function leaveHomeScene(l: Life, later: boolean): Scene {
 export function kidLeaveScene(l: Life, idx: number): Scene {
   const k = l.kids[idx];
   const word = k.univ ? "大学を卒業して働きはじめた" : "高校を出て働きはじめた";
+  // 離婚した相手のもとで暮らしている子ども。選択肢の数と乱数の使い方は同じにする
+  // 順番を待つあいだに、すでに家を出ていたら出さない
+  // 待つあいだに離婚して、子どもが相手のもとで暮らすようになった場合も、合わなくなるので出さない
+  const ex = l.kidWithEx(k);
+  const stillValid = (l: Life) => k.leftAge === undefined && !k.leaveAsked && l.kidWithEx(k) === ex;
+  if (ex)
+    return {
+      id: "kidLeave",
+      stillValid,
+      title: "離れて暮らす子どもの巣立ち",
+      situation: `別れた相手のもとで育った子どもが、${word}と知らせてきた。`,
+      options: [
+        {
+          id: "leave",
+          label: "お祝いの言葉を送る",
+          desc: "お金はかからない。",
+          apply: (l) => {
+            k.leftAge = l.age;
+            k.leaveAsked = true;
+            l.logPre("family", "離れて暮らす子どもに、お祝いの言葉を送った。", undefined, true);
+          },
+        },
+        {
+          id: "stay",
+          label: "就職祝いを送る",
+          desc: "少しお金がかかる。",
+          apply: (l) => {
+            const c = l.y(50_000);
+            l.spend("kids", c);
+            k.leftAge = l.age;
+            k.leaveAsked = true;
+            l.logPre("family", "離れて暮らす子どもに、就職祝いを送った。", -c);
+          },
+        },
+        {
+          id: "help",
+          label: "引っ越しと当面の生活費を出してあげる",
+          desc: "子どもは安心して一人立ちできる。まとまったお金がかかる。",
+          apply: (l) => {
+            const c = l.y(500_000);
+            l.spend("kids", c);
+            k.leftAge = l.age;
+            k.leaveAsked = true;
+            l.logPre("family", "離れて暮らす子どもの、引っ越しと当面の生活費を出した。", -c, true);
+          },
+        },
+      ],
+    };
   return {
     id: "kidLeave",
+    stillValid,
     title: "子どもの巣立ち",
     situation: `子どもが${word}。これからどこで暮らす？`,
     options: [
@@ -59,6 +118,7 @@ export function kidLeaveScene(l: Life, idx: number): Scene {
         desc: "子どもは自分の力で暮らしはじめる。家計は軽くなる。",
         apply: (l) => {
           k.leftAge = l.age;
+          k.leaveAsked = true;
           l.logPre("family", "子どもが家を出て、一人立ちした。", undefined, true);
         },
       },
@@ -68,6 +128,7 @@ export function kidLeaveScene(l: Life, idx: number): Scene {
         desc: "子どもは貯金しやすく、家にもお金を入れてくれる。暮らしの費用はそのぶんかかる。",
         apply: (l) => {
           k.stayHome = true;
+          k.leaveAsked = true;
           l.logPre("family", "子どもは実家から仕事に通い、家にお金を入れてくれることになった。");
         },
       },
@@ -79,6 +140,7 @@ export function kidLeaveScene(l: Life, idx: number): Scene {
           const c = l.y(500_000);
           l.spend("kids", c);
           k.leftAge = l.age;
+          k.leaveAsked = true;
           l.logPre("family", "引っ越しと当面の生活費を出して、子どもの一人立ちを支えた。", -c, true);
         },
       },
