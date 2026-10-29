@@ -93,6 +93,12 @@ CHECKED = {
     "ken_harambee": (None, "成人の28.5%が過去1年に助け合いグループや地域の寄付にお金を出した（中央銀行 FinAccess 2024）"),
     "gen_savings_group": (None, "過去1年に積立グループで貯めた成人は低所得国21%、低中所得国13%（世界銀行 Global Findex 2021）"),
     "gen_hic_pension": (None, "高所得国の働く人の約51%が職場の積立年金に加入（OECD Pensions at a Glance 2023）"),
+    # 第10部（ChatGPT の Deep Research）。判断は manual/part10_review.md
+    "usa_layoff": (0.02, "会社の閉鎖や仕事の減少で職を失った人は3年で740万人、20歳以上の就業者の年約1.5%（BLS Displaced Worker Survey 2023-25）"),
+    "jpn_chugaku_juken": (None, "首都圏の小学6年生の中学受験率は18.1%（首都圏模試センター 2026年入試）。全国はそれより低い"),
+    "usa_student_loan": (None, "高校卒業後すぐ4年制大学へ進む人は45%（NCES 2022）、学部生の34%が連邦学生ローンを借りる（NPSAS 2019-20）"),
+    "usa_childcare": (None, "幼稚園前の5歳以下の55%が親以外の保育を使い、そのうち66%が保育施設（NCES 2023）"),
+    "chn_unfinished_flat": (None, "工事が遅れた住宅の引き渡し支援は2024年末までに373万戸で、全国の世帯の約0.8%（住房和城乡建设部・国勢調査）"),
 }
 
 # 出る条件を直したもの（状況と合わない人に出ていた）
