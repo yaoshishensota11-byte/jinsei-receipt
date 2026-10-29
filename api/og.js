@@ -8776,6 +8776,7 @@ function riskYear(l, r) {
     if (p >= 0.25) {
       if (l.inflSpell === 0) {
         l.inflSpellFrom = infl.year;
+        if (cash > 0) l.mark("inflation");
         const tenths = Math.round(lossRate * 10);
         l.log(
           "money",
@@ -8799,6 +8800,7 @@ function riskYear(l, r) {
     const loss = cash * r.range(0.3, 0.7) * (l.protectCash ? 0.4 : 1);
     l.spend("inflation", loss);
     l.log("money", `\u7269\u4FA1\u304C\u6025\u306B\u8DF3\u306D\u4E0A\u304C\u308A\u3001\u901A\u8CA8\u306E\u4FA1\u5024\u304C\u4E0B\u304C\u3063\u305F\u3002\u8CAF\u91D1\u306E\u4FA1\u5024\u304C${Math.round(loss / cash * 10)}\u5272\u307B\u3069\u6E1B\u3063\u305F\u3002`, -loss, true);
+    l.mark("inflation");
   } else if (cash > 0 && k.inflationMean > 0.08) {
     const rate = Math.min(0.2, (k.inflationMean - 0.05) * 0.6) * (l.protectCash ? 0.3 : 1);
     l.spend("inflation", cash * rate);
@@ -8811,37 +8813,44 @@ function riskYear(l, r) {
     const c = l.y(r.range(3e4, 3e5));
     l.spend("other", c);
     l.log("money", r.pick(["\u5BB6\u306B\u6CE5\u68D2\u304C\u5165\u308A\u3001\u5BB6\u96FB\u3068\u73FE\u91D1\u3092\u76D7\u307E\u308C\u305F\u3002", "\u9053\u3067\u30B9\u30DE\u30DB\u3068\u8CA1\u5E03\u3092\u596A\u308F\u308C\u305F\u3002", "\u4ED5\u4E8B\u9053\u5177\u3092\u76D7\u307E\u308C\u3001\u8CB7\u3044\u76F4\u3057\u305F\u3002"]), -c);
+    l.mark("theft");
   }
   if (k.politicalStability < -0.5 && l.job !== "none" && l.job !== "retired" && r.chance(0.02 * -k.politicalStability)) {
     const lost = l.salaryOf(a) * 0.25;
     l.spend("other", lost);
     l.log("work", "\u653F\u60C5\u304C\u4E0D\u5B89\u5B9A\u306B\u306A\u308A\u3001\u30C7\u30E2\u3084\u5C01\u9396\u3067\u4ED5\u4E8B\u304C\u6570\u304B\u6708\u6B62\u307E\u3063\u305F\u3002", -lost, true);
+    l.mark("unrest");
   }
   if (k.conflictRisk > 0 && r.chance(k.conflictRisk * 0.012)) {
     const c = l.y(r.range(2e5, 8e5)) + Math.max(0, l.cash) * 0.3;
     l.spend("housing", c);
     if (l.home === "own") l.home = "rent";
     l.log("disaster", "\u5730\u57DF\u3067\u6B66\u529B\u885D\u7A81\u304C\u8D77\u304D\u3001\u5BB6\u65CF\u3067\u907F\u96E3\u3057\u305F\u3002\u66AE\u3089\u3057\u3092\u7ACB\u3066\u76F4\u3059\u306E\u306B\u6642\u9593\u304C\u304B\u304B\u3063\u305F\u3002", -c, true);
+    l.mark("displaced");
   }
   if (r.chance(k.epidemicRisk * 0.015)) {
     const c = l.y(r.range(2e4, 15e4)) + (l.job !== "none" && l.job !== "retired" ? l.salaryOf(a) * 0.15 : 0);
     l.spend("medical", c);
     l.log("health", "\u611F\u67D3\u75C7\u304C\u6D41\u884C\u3057\u3001\u5BB6\u65CF\u304C\u5BDD\u8FBC\u3093\u3060\u3002\u3057\u3070\u3089\u304F\u50CD\u3051\u306A\u304B\u3063\u305F\u3002", -c);
+    l.mark("epidemic");
   }
   if (l.region.urban === false && !l.D.isJapan && r.chance(k.droughtRisk * 0.035)) {
     const c = Math.max(l.salaryOf(a), l.y(5e5)) * 0.3;
     l.spend("other", c);
     l.log("disaster", "\u96E8\u304C\u964D\u3089\u305A\u3001\u4F5C\u7269\u304C\u307B\u3068\u3093\u3069\u80B2\u305F\u306A\u304B\u3063\u305F\u3002\u98DF\u3079\u7269\u306E\u5024\u6BB5\u3082\u4E0A\u304C\u3063\u305F\u3002", -c, true);
+    l.mark("drought");
   }
   if (!l.D.isJapan) {
     if (r.chance(k.floodRisk * 0.015)) {
       const c = l.y(r.range(1e5, 6e5));
       l.spend("events", c);
       l.log("disaster", "\u5927\u96E8\u3067\u5DDD\u304C\u3042\u3075\u308C\u3001\u5BB6\u304C\u6D78\u6C34\u3057\u305F\u3002", -c, true);
+      l.mark("disaster");
     } else if (r.chance(k.earthquakeRisk * 4e-3)) {
       const c = l.y(r.range(3e5, 2e6));
       l.spend("events", c);
       l.log("disaster", "\u5927\u304D\u306A\u5730\u9707\u3067\u5BB6\u304C\u58CA\u308C\u3001\u4FEE\u7406\u304C\u5FC5\u8981\u306B\u306A\u3063\u305F\u3002", -c, true);
+      l.mark("disaster");
     }
   }
 }
@@ -9467,6 +9476,7 @@ var MICROS = [
             if (c > 0) {
               l.spend("other", c);
               l.logPre("money", "\u96FB\u8A71\u306F\u8A50\u6B3A\u3060\u3063\u305F\u3002\u6E21\u3057\u305F\u304A\u91D1\u306F\u623B\u3089\u306A\u304B\u3063\u305F\u3002", -c, true);
+              l.mark("scam");
             } else l.logPre("money", "\u7528\u610F\u3067\u304D\u308B\u304A\u91D1\u304C\u306A\u304F\u3001\u6E21\u3055\u305A\u306B\u6E08\u3093\u3060\u3002\u3042\u3068\u3067\u8A50\u6B3A\u306E\u96FB\u8A71\u3060\u3063\u305F\u3068\u5206\u304B\u3063\u305F\u3002");
           } else {
             const c = Math.min(Math.max(0, l.cash) * 0.5, l.y(5e5));
@@ -9592,6 +9602,7 @@ var MICROS = [
           if (c > 0) {
             l.spend("other", c);
             l.logPre("money", "\u96FB\u8A71\u306F\u8A50\u6B3A\u3060\u3063\u305F\u3002\u632F\u308A\u8FBC\u3093\u3060\u304A\u91D1\u306F\u623B\u3089\u306A\u304B\u3063\u305F\u3002", -c, true);
+            l.mark("scam");
           } else l.logPre("money", "\u53E3\u5EA7\u306B\u304A\u91D1\u304C\u306A\u304F\u3001\u632F\u308A\u8FBC\u3081\u306A\u304B\u3063\u305F\u3002\u3042\u3068\u3067\u8A50\u6B3A\u306E\u96FB\u8A71\u3060\u3063\u305F\u3068\u5206\u304B\u3063\u305F\u3002");
         } else l.logPre("money", "\u672C\u5F53\u306B\u6255\u3044\u623B\u3057\u306E\u624B\u7D9A\u304D\u3060\u3063\u305F\u3002");
       } }
@@ -11679,6 +11690,8 @@ var Life = class {
     this.seniorWorkUntil = -1;
     /** 選択前後に起きた出来事を、その年の記録に入れるためのバッファ */
     this.preEvents = [];
+    /** 章のまとめで「同い年の人と比べる」ための出来事の印（[印, 年齢]）。乱数や記録には影響しない */
+    this.tags = [];
     this.hsGraduated = false;
     this.privateUni = false;
     this.childSupport = false;
@@ -11873,6 +11886,7 @@ var Life = class {
     const a = this.age;
     const share = Math.max(0, this.cash) * 0.5;
     this.log("family", text, -share, true);
+    this.mark("divorce");
     this.spend("events", share);
     if (this.kids.some((k) => a - k.born < 18) && this.sex === "male") this.childSupport = true;
     this.partner = null;
@@ -11963,6 +11977,9 @@ var Life = class {
     c.balance = Math.round(this.balance);
     c.invested = Math.round(this.invest);
     c.debt = Math.round(this.loan + this.scholarship);
+  }
+  mark(tag) {
+    this.tags.push([tag, this.age]);
   }
   log(kind, text, amount, major = false) {
     this.cur ? this.cur.events.push({ age: this.age, kind, text, amount, major }) : this.preEvents.push({ age: this.age, kind, text, amount, major });
@@ -12128,6 +12145,7 @@ var Life = class {
       } else if (r.chance(this.D.qx(p.sex, p.age) * 0.9)) {
         p.alive = false;
         this.log("family", `\u30D1\u30FC\u30C8\u30CA\u30FC\u304C${p.age}\u6B73\u3067\u4EA1\u304F\u306A\u3063\u305F\u3002`, -this.D.living.funeralCost, true);
+        this.mark("partnerDeath");
         this.spend("events", this.D.living.funeralCost);
         this.widowed = true;
         this.partnerDeaths[this.partnerSince] = a;
@@ -12274,10 +12292,12 @@ var Life = class {
           this.log("work", this.job === "big" ? "\u65E9\u671F\u9000\u8077\u3092\u8FEB\u3089\u308C\u3001\u4F1A\u793E\u3092\u8F9E\u3081\u305F\u3002\u5272\u5897\u9000\u8077\u91D1\u304C\u51FA\u305F\u3002" : "\u52E4\u3081\u5148\u304C\u7D4C\u55B6\u4E0D\u632F\u3067\u4EBA\u54E1\u524A\u6E1B\u3002\u8077\u3092\u5931\u3063\u305F\u3002", sev, true);
           this.addIncome("windfall", sev);
           this.loseJob(a);
+          this.mark("jobLoss");
         }
       } else if (this.job === "nonregular" && !this.postRetireWork) {
         if (r.chance(0.06 * layoffMult)) {
           this.log("work", "\u5951\u7D04\u304C\u66F4\u65B0\u3055\u308C\u305A\u3001\u6B21\u306E\u4ED5\u4E8B\u3092\u63A2\u3057\u305F\u3002");
+          this.mark("jobLoss");
           this.unemployedUntil = a + 1;
           this.job = "none";
         } else if (a < 45 && r.chance(0.025)) {
@@ -12377,6 +12397,7 @@ var Life = class {
       if (careEnding || r.chance(this.D.qx(sex, pa))) {
         p.alive = false;
         this.log("family", `${i === 0 ? "\u7236" : "\u6BCD"}\u304C${pa}\u6B73\u3067\u4EA1\u304F\u306A\u3063\u305F\u3002`, -this.D.living.funeralCost / (this.siblings + 1), true);
+        this.mark("parentDeath");
         this.spend("events", this.D.living.funeralCost / (this.siblings + 1));
         if (careEnding) this.careMode = "";
         if (!this.parents.some((x) => x.alive) && !this.heir) {
@@ -12417,12 +12438,14 @@ var Life = class {
     if (h.otherDies === a && this.parents[other].alive) {
       this.parents[other].alive = false;
       this.log("family", `${word(other)}\u304C${this.parents[other].age + a}\u6B73\u3067\u4EA1\u304F\u306A\u3063\u305F\u3002`, void 0, true);
+      this.mark("parentDeath");
     }
     const me = this.parents[h.parentIdx];
     if (h.parentDies !== a || !me.alive) return;
     me.alive = false;
     const share = this.D.living.funeralCost / (this.siblings + 1);
     this.log("family", `${word(h.parentIdx)}\uFF08${h.gen - 1}\u4EE3\u76EE\u306E\u3042\u306A\u305F\uFF09\u304C${me.age + a}\u6B73\u3067\u4EA1\u304F\u306A\u3063\u305F\u3002`, a >= 18 ? -share : void 0, true);
+    this.mark("parentDeath");
     if (a >= 18) this.spend("events", share);
     if (h.estate > 0) {
       this.addIncome("windfall", h.estate);
@@ -12533,6 +12556,7 @@ var Life = class {
       const cost = r.range(this.y(4e5), this.y(15e5));
       this.spend("medical", cost);
       this.log("health", "\u304C\u3093\u304C\u898B\u3064\u304B\u308A\u3001\u6CBB\u7642\u3092\u53D7\u3051\u305F\u3002", -cost, true);
+      this.mark("cancer");
       if (this.job !== "none" && this.job !== "retired" && r.chance(0.2)) {
         this.log("work", "\u6CBB\u7642\u306E\u305F\u3081\u4ED5\u4E8B\u3092\u8F9E\u3081\u305F\u3002");
         this.loseJob(a);
@@ -12542,6 +12566,7 @@ var Life = class {
       const cost = r.range(this.y(3e5), this.y(1e6));
       this.spend("medical", cost);
       this.log("health", r.chance(0.5) ? "\u5FC3\u81D3\u306E\u75C5\u6C17\u3067\u5165\u9662\u3057\u305F\u3002" : "\u8133\u306E\u8840\u7BA1\u306E\u75C5\u6C17\u3067\u5165\u9662\u3057\u305F\u3002", -cost, true);
+      this.mark("heartBrain");
       this.illMult = Math.min(1.6, this.illMult * 1.12);
     } else if (r.chance(0.012)) {
       const cost = r.range(this.y(5e4), this.y(3e5));
@@ -12551,6 +12576,7 @@ var Life = class {
     if (!this.selfCare && a >= 65 && r.chance(this.D.careNeed(a) / 6)) {
       this.selfCare = true;
       this.log("health", "\u8981\u4ECB\u8B77\u306E\u8A8D\u5B9A\u3092\u53D7\u3051\u305F\u3002\u4ECB\u8B77\u30B5\u30FC\u30D3\u30B9\u3092\u4F7F\u3044\u306F\u3058\u3081\u305F\u3002", void 0, true);
+      this.mark("care");
     }
     if (this.selfCare) this.spend("care", r.range(this.y(6e5), this.y(12e5)));
   }
@@ -12582,6 +12608,7 @@ var Life = class {
       const dmg = own ? r.range(this.y(15e5), this.y(8e6)) : r.range(this.y(2e5), this.y(8e5));
       this.spend("events", dmg);
       this.log("disaster", own ? "\u5927\u304D\u306A\u5730\u9707\u3067\u5BB6\u304C\u88AB\u5BB3\u3092\u53D7\u3051\u3001\u4FEE\u7406\u3057\u305F\u3002" : "\u5927\u304D\u306A\u707D\u5BB3\u3067\u5BB6\u8CA1\u3092\u5931\u3063\u305F\u3002", -dmg, true);
+      this.mark("disaster");
     }
     if (a >= 22 && this.school === "done" && !this.frugal && !this.welfare && r.chance(this.regionFactor(REGION_CAR, 0.35, 0.55) * Math.min(1, this.D.k * 3) / 9) && a < 80) {
       const liquid = this.cash + this.invest;
@@ -13414,14 +13441,17 @@ function cohort(country = JAPAN, n = 300) {
   if (hit) return hit;
   const income = [];
   const balance = [];
+  const lives = [];
   for (let i = 0; i < n; i++) {
-    const s = autoplay(`cohort-${BIRTH_YEAR}-${country.iso3}-${i}`, country).summary();
+    const l = autoplay(`cohort-${BIRTH_YEAR}-${country.iso3}-${i}`, country);
+    const s = l.summary();
     income.push(s.lifetimeIncome);
     balance.push(s.finalBalance);
+    lives.push({ tags: l.tags, bal: l.records.map((r) => r.balance), death: l.age });
   }
   income.sort((a, b) => a - b);
   balance.sort((a, b) => a - b);
-  const c = { income, balance };
+  const c = { income, balance, lives };
   cohortCache.set(country.iso3, c);
   return c;
 }
@@ -23935,7 +23965,7 @@ function memoFor(l, cat, amount) {
 }
 function buildReceipt(l, withCohort = true) {
   const s = l.summary();
-  const c = withCohort ? cohort(l.D) : { income: [], balance: [] };
+  const c = withCohort ? cohort(l.D) : { income: [], balance: [], lives: [] };
   const order = ["housing", "food", "tax", "kids", "car", "fun", "other", "utilities", "medical", "care", "selfEdu", "events", "love", "inflation"];
   const items = order.map((k) => ({ label: EXPENSE_LABEL[k], amount: Math.round(s.expenseTotal[k] ?? 0), memo: memoFor(l, k, s.expenseTotal[k] ?? 0) })).filter((it) => l.D.toJpy(it.amount) >= 1e4).sort((a, b) => b.amount - a.amount);
   const subtotal = items.reduce((t, i) => t + i.amount, 0);
