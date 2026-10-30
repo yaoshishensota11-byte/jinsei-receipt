@@ -1,0 +1,16 @@
+iso3,country_en,field,value,unit,year,source_name,source_url,note
+JPN,Japan,hs_club_members:baseball_m,128357,count,2023,日本高等学校野球連盟の発表（琉球新報の報道経由）,https://ryukyushimpo.jp/tag/日本高野連,硬式野球部の部員数（5月末、全学年）。高野連のサイトは開けず、二次情報
+JPN,Japan,hs_club_members:soccer_m,137925,count,2025,全国高等学校体育連盟「令和7年度 加盟・登録状況」,https://www.zen-koutairen.com/pdf/reg-reiwa07.pdf,男子サッカー部員（全学年、全日制＋定通制、10月現在）
+JPN,Japan,hs_club_members:soccer_f,9048,count,2025,全国高等学校体育連盟「令和7年度 加盟・登録状況」,https://www.zen-koutairen.com/pdf/reg-reiwa07.pdf,女子サッカー部員
+JPN,Japan,hs_club_members:basketball_m,86687,count,2025,全国高等学校体育連盟「令和7年度 加盟・登録状況」,https://www.zen-koutairen.com/pdf/reg-reiwa07.pdf,男子バスケットボール部員
+JPN,Japan,hs_club_members:basketball_f,48579,count,2025,全国高等学校体育連盟「令和7年度 加盟・登録状況」,https://www.zen-koutairen.com/pdf/reg-reiwa07.pdf,女子バスケットボール部員
+JPN,Japan,hs_club_members:volleyball_m,55939,count,2025,全国高等学校体育連盟「令和7年度 加盟・登録状況」,https://www.zen-koutairen.com/pdf/reg-reiwa07.pdf,男子バレーボール部員
+JPN,Japan,hs_club_members:volleyball_f,55377,count,2025,全国高等学校体育連盟「令和7年度 加盟・登録状況」,https://www.zen-koutairen.com/pdf/reg-reiwa07.pdf,女子バレーボール部員
+JPN,Japan,hs_club_members:sumo_m,752,count,2025,全国高等学校体育連盟「令和7年度 加盟・登録状況」,https://www.zen-koutairen.com/pdf/reg-reiwa07.pdf,相撲部員（男子のみ）
+JPN,Japan,hs_club_members:golf,,count,2025,全国高等学校体育連盟「令和7年度 加盟・登録状況」,https://www.zen-koutairen.com/pdf/reg-reiwa07.pdf,ゴルフは高体連の専門部にない（高校ゴルフ連盟は別。未調査）
+JPN,Japan,pro_min_salary:jleague,4800000,JPY,2026,Jリーグ プレスリリース（2024年9月24日 理事会決定）,https://www.jleague.jp/corporate/pressrelease/article/15233,プロ契約の基本報酬の下限：J1 480万円・J2 360万円・J3 240万円（2026年7月から）。初年度の上限は1,200万円。各クラブのプロ選手は20名以上
+JPN,Japan,pro_entrants:jleague,,count,2025,Jリーグ,https://www.jleague.jp/,1年に新しくプロ契約した人数の公式の集計は見つからず
+JPN,Japan,pro_salary:sumo,1100000,JPY,2025,報道（女性自身ほか、日本相撲協会の規定を引いたもの）,https://www.jprime.jp/articles/-/5291,十両の月給110万円（横綱300万円）。幕下以下は月給なし（場所手当のみ）。2027年初場所から十両120万円に上がる（2026年7月の理事会）。協会の規定そのものは未確認、二次情報
+JPN,Japan,pro_entrants:sumo,,count,2025,日本相撲協会,https://www.sumo.or.jp/,1年の新弟子検査の合格者数の集計は見つからず（場所ごとの報道のみ）
+JPN,Japan,pro_entrants:golf_f,21,count,不明,報道（現代ビジネス）,https://gendai.media/articles/-/119072,女子プロテスト：受験698人のうち合格21人。何年の値か記事から分からない。二次情報
+JPN,Japan,pro_entrants:bleague,11,count,2026,報道（熊本日日新聞、共同通信）,https://kumanichi.com/articles/2026468,Bプレミアの第1回ドラフトで指名されたのは11人。ドラフト以外の入団は含まない。二次情報
