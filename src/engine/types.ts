@@ -120,6 +120,8 @@ export interface AllocInfo {
   presets: Alloc[];
   /** 家族に回すお金の行き先（子どもの教育／親への仕送り／なし） */
   familyTo: "kids" | "parents" | "none";
+  /** 口座がなく投資できない（投資の目盛りを出さない） */
+  noInvest?: boolean;
 }
 
 export type ChoiceId =

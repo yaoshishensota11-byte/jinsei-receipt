@@ -64,11 +64,13 @@ var life_stats_default = {
     years: {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
+      accountShare: "2021",
       socialAssistanceQ1: "2011",
       socialProtection: "2019",
       childLabour: "2023"
     },
     maternalDeathsPer100kBirths: 521,
+    accountShare: 0.0965,
     socialAssistanceQ1: 0.1247,
     socialProtection: 0.075,
     childLabour: 0.193
@@ -92,11 +94,13 @@ var life_stats_default = {
     years: {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
+      accountShare: "2024",
       socialAssistanceQ1: "2022",
       socialProtection: "2021",
       childLabour: "2017"
     },
     maternalDeathsPer100kBirths: 33,
+    accountShare: 0.8174,
     socialAssistanceQ1: 0.6886,
     socialProtection: 0.659,
     childLabour: 0.02
@@ -106,9 +110,11 @@ var life_stats_default = {
     years: {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
+      accountShare: "2024",
       socialProtection: "2022"
     },
     maternalDeathsPer100kBirths: 2,
+    accountShare: 0.9801,
     socialProtection: 0.94
   },
   BDI: {
@@ -130,11 +136,13 @@ var life_stats_default = {
     years: {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
+      accountShare: "2024",
       socialAssistanceQ1: "2021",
       socialProtection: "2020",
       childLabour: "2022"
     },
     maternalDeathsPer100kBirths: 518,
+    accountShare: 0.5184,
     socialAssistanceQ1: 0.0441,
     socialProtection: 0.084,
     childLabour: 0.199
@@ -144,11 +152,13 @@ var life_stats_default = {
     years: {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
+      accountShare: "2024",
       socialAssistanceQ1: "2021",
       socialProtection: "2021",
       childLabour: "2022"
     },
     maternalDeathsPer100kBirths: 242,
+    accountShare: 0.5143,
     socialAssistanceQ1: 0.4704,
     socialProtection: 0.097,
     childLabour: 0.206
@@ -158,6 +168,7 @@ var life_stats_default = {
     years: {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
+      accountShare: "2024",
       socialAssistanceQ1: "2022",
       socialProtection: "2021",
       childLabour: "2025",
@@ -166,6 +177,7 @@ var life_stats_default = {
       alcoholUseDisorder: "2016"
     },
     maternalDeathsPer100kBirths: 115,
+    accountShare: 0.4328,
     socialAssistanceQ1: 0.6934,
     socialProtection: 0.22,
     childLabour: 0.092,
@@ -192,11 +204,13 @@ var life_stats_default = {
     years: {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
+      accountShare: "2024",
       socialAssistanceQ1: "2021",
       socialProtection: "2021",
       childLabour: "2019"
     },
     maternalDeathsPer100kBirths: 146,
+    accountShare: 0.5685,
     socialAssistanceQ1: 0.9934,
     socialProtection: 0.384,
     childLabour: 0.136
@@ -206,6 +220,7 @@ var life_stats_default = {
     years: {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
+      accountShare: "2024",
       socialAssistanceQ1: "2022",
       socialProtection: "2022",
       childLabour: "2022",
@@ -215,6 +230,7 @@ var life_stats_default = {
       alcoholUseDisorder: "2016"
     },
     maternalDeathsPer100kBirths: 67,
+    accountShare: 0.8638,
     socialAssistanceQ1: 0.6428,
     socialProtection: 0.712,
     childLabour: 0.021,
@@ -254,9 +270,11 @@ var life_stats_default = {
     years: {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
+      accountShare: "2024",
       socialProtection: "2022"
     },
     maternalDeathsPer100kBirths: 12,
+    accountShare: 0.984,
     socialProtection: 0.956
   },
   CHL: {
@@ -264,11 +282,13 @@ var life_stats_default = {
     years: {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
+      accountShare: "2024",
       socialAssistanceQ1: "2022",
       socialProtection: "2022",
       childLabour: "2012"
     },
     maternalDeathsPer100kBirths: 10,
+    accountShare: 0.8507,
     socialAssistanceQ1: 0.9278,
     socialProtection: 0.753,
     childLabour: 0.059
@@ -278,6 +298,7 @@ var life_stats_default = {
     years: {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
+      accountShare: "2024",
       socialAssistanceQ1: "2013",
       socialProtection: "2021",
       sicknessBenefit: "2023",
@@ -285,6 +306,7 @@ var life_stats_default = {
       alcoholUseDisorder: "2016"
     },
     maternalDeathsPer100kBirths: 16,
+    accountShare: 0.8938,
     socialAssistanceQ1: 0.6504,
     socialProtection: 0.756,
     sicknessBenefit: 0.5,
@@ -310,11 +332,13 @@ var life_stats_default = {
     years: {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
+      accountShare: "2024",
       socialAssistanceQ1: "2021",
       socialProtection: "2022",
       childLabour: "2022"
     },
     maternalDeathsPer100kBirths: 359,
+    accountShare: 0.5757,
     socialAssistanceQ1: 0.0341,
     socialProtection: 0.121,
     childLabour: 0.13
@@ -324,11 +348,13 @@ var life_stats_default = {
     years: {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
+      accountShare: "2024",
       socialAssistanceQ1: "2021",
       socialProtection: "2022",
       childLabour: "2014"
     },
     maternalDeathsPer100kBirths: 258,
+    accountShare: 0.6087,
     socialAssistanceQ1: 0.1279,
     socialProtection: 0.1,
     childLabour: 0.389
@@ -338,6 +364,7 @@ var life_stats_default = {
     years: {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
+      accountShare: "2024",
       socialAssistanceQ1: "2012",
       socialProtection: "2022",
       childLabour: "2024",
@@ -346,6 +373,7 @@ var life_stats_default = {
       alcoholUseDisorder: "2016"
     },
     maternalDeathsPer100kBirths: 427,
+    accountShare: 0.3921,
     socialAssistanceQ1: 0.0483,
     socialProtection: 0.052,
     childLabour: 0.119,
@@ -372,9 +400,11 @@ var life_stats_default = {
     years: {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
+      accountShare: "2024",
       childLabour: "2015"
     },
     maternalDeathsPer100kBirths: 241,
+    accountShare: 0.5558,
     childLabour: 0.141
   },
   COL: {
@@ -382,11 +412,13 @@ var life_stats_default = {
     years: {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
+      accountShare: "2024",
       socialAssistanceQ1: "2022",
       socialProtection: "2025",
       childLabour: "2024"
     },
     maternalDeathsPer100kBirths: 59,
+    accountShare: 0.5706,
     socialAssistanceQ1: 0.5404,
     socialProtection: 0.583,
     childLabour: 0.029
@@ -396,6 +428,7 @@ var life_stats_default = {
     years: {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
+      accountShare: "2024",
       socialProtection: "2022",
       singleParentPoverty: "2020",
       sicknessBenefit: "2023",
@@ -403,6 +436,7 @@ var life_stats_default = {
       alcoholUseDisorder: "2016"
     },
     maternalDeathsPer100kBirths: 4,
+    accountShare: 0.983,
     socialProtection: 1,
     singleParentPoverty: 0.2906,
     sicknessBenefit: 1,
@@ -428,11 +462,13 @@ var life_stats_default = {
     years: {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
+      accountShare: "2024",
       socialAssistanceQ1: "2021",
       socialProtection: "2022",
       childLabour: "2019"
     },
     maternalDeathsPer100kBirths: 124,
+    accountShare: 0.6478,
     socialAssistanceQ1: 0.5696,
     socialProtection: 0.61,
     childLabour: 0.038
@@ -442,10 +478,12 @@ var life_stats_default = {
     years: {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
+      accountShare: "2024",
       socialProtection: "2021",
       childLabour: "2019"
     },
     maternalDeathsPer100kBirths: 62,
+    accountShare: 0.3529,
     socialProtection: 0.602,
     childLabour: 0.025
   },
@@ -454,10 +492,12 @@ var life_stats_default = {
     years: {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
+      accountShare: "2024",
       socialAssistanceQ1: "2022",
       socialProtection: "2021"
     },
     maternalDeathsPer100kBirths: 55,
+    accountShare: 0.6451,
     socialAssistanceQ1: 0.5645,
     socialProtection: 0.468
   },
@@ -466,6 +506,7 @@ var life_stats_default = {
     years: {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
+      accountShare: "2024",
       socialAssistanceQ1: "2019",
       socialProtection: "2022",
       childLabour: "2023",
@@ -474,6 +515,7 @@ var life_stats_default = {
       alcoholUseDisorder: "2016"
     },
     maternalDeathsPer100kBirths: 17,
+    accountShare: 0.4311,
     socialAssistanceQ1: 0.9409,
     socialProtection: 0.366,
     childLabour: 0.114,
@@ -500,9 +542,11 @@ var life_stats_default = {
     years: {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
+      accountShare: "2024",
       socialProtection: "2022"
     },
     maternalDeathsPer100kBirths: 3,
+    accountShare: 0.9838,
     socialProtection: 0.781
   },
   ETH: {
@@ -510,6 +554,7 @@ var life_stats_default = {
     years: {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
+      accountShare: "2024",
       socialAssistanceQ1: "2018",
       socialProtection: "2024",
       sicknessBenefit: "2023",
@@ -517,6 +562,7 @@ var life_stats_default = {
       alcoholUseDisorder: "2016"
     },
     maternalDeathsPer100kBirths: 195,
+    accountShare: 0.4883,
     socialAssistanceQ1: 0.3001,
     socialProtection: 0.115,
     sicknessBenefit: 0.5,
@@ -542,6 +588,7 @@ var life_stats_default = {
     years: {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
+      accountShare: "2024",
       socialProtection: "2021",
       singleParentPoverty: "2021",
       sicknessBenefit: "2023",
@@ -549,6 +596,7 @@ var life_stats_default = {
       alcoholUseDisorder: "2016"
     },
     maternalDeathsPer100kBirths: 7,
+    accountShare: 0.9919,
     socialProtection: 0.994,
     singleParentPoverty: 0.3115,
     sicknessBenefit: 1,
@@ -574,6 +622,7 @@ var life_stats_default = {
     years: {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
+      accountShare: "2024",
       socialProtection: "2023",
       singleParentPoverty: "2021",
       sicknessBenefit: "2023",
@@ -581,6 +630,7 @@ var life_stats_default = {
       alcoholUseDisorder: "2016"
     },
     maternalDeathsPer100kBirths: 8,
+    accountShare: 0.9928,
     socialProtection: 0.936,
     singleParentPoverty: 0.2667,
     sicknessBenefit: 0.5,
@@ -606,11 +656,13 @@ var life_stats_default = {
     years: {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
+      accountShare: "2024",
       socialAssistanceQ1: "2016",
       socialProtection: "2022",
       childLabour: "2018"
     },
     maternalDeathsPer100kBirths: 234,
+    accountShare: 0.8124,
     socialAssistanceQ1: 0.3951,
     socialProtection: 0.252,
     childLabour: 0.201
@@ -620,11 +672,13 @@ var life_stats_default = {
     years: {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
+      accountShare: "2024",
       socialAssistanceQ1: "2018",
       socialProtection: "2021",
       childLabour: "2016"
     },
     maternalDeathsPer100kBirths: 494,
+    accountShare: 0.3605,
     socialAssistanceQ1: 0.0779,
     socialProtection: 0.037,
     childLabour: 0.242
@@ -634,10 +688,12 @@ var life_stats_default = {
     years: {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
+      accountShare: "2024",
       socialAssistanceQ1: "2014",
       socialProtection: "2022"
     },
     maternalDeathsPer100kBirths: 94,
+    accountShare: 0.3828,
     socialAssistanceQ1: 0.7165,
     socialProtection: 0.121
   },
@@ -646,11 +702,13 @@ var life_stats_default = {
     years: {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
+      accountShare: "2024",
       socialAssistanceQ1: "2019",
       socialProtection: "2022",
       childLabour: "2023"
     },
     maternalDeathsPer100kBirths: 47,
+    accountShare: 0.4244,
     socialAssistanceQ1: 0.5039,
     socialProtection: 0.301,
     childLabour: 0.288
@@ -672,6 +730,7 @@ var life_stats_default = {
     years: {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
+      accountShare: "2024",
       socialAssistanceQ1: "2022",
       socialProtection: "2021",
       sicknessBenefit: "2023",
@@ -679,6 +738,7 @@ var life_stats_default = {
       alcoholUseDisorder: "2016"
     },
     maternalDeathsPer100kBirths: 140,
+    accountShare: 0.5633,
     socialAssistanceQ1: 0.6939,
     socialProtection: 0.543,
     sicknessBenefit: 0.5,
@@ -704,6 +764,7 @@ var life_stats_default = {
     years: {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
+      accountShare: "2024",
       socialAssistanceQ1: "2011",
       socialProtection: "2025",
       sicknessBenefit: "2023",
@@ -711,6 +772,7 @@ var life_stats_default = {
       alcoholUseDisorder: "2016"
     },
     maternalDeathsPer100kBirths: 80,
+    accountShare: 0.8902,
     socialAssistanceQ1: 0.9276,
     socialProtection: 0.643,
     sicknessBenefit: 1,
@@ -736,10 +798,12 @@ var life_stats_default = {
     years: {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
+      accountShare: "2024",
       socialAssistanceQ1: "2020",
       socialProtection: "2023"
     },
     maternalDeathsPer100kBirths: 16,
+    accountShare: 0.9106,
     socialAssistanceQ1: 0.8977,
     socialProtection: 1
   },
@@ -748,11 +812,13 @@ var life_stats_default = {
     years: {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
+      accountShare: "2024",
       socialAssistanceQ1: "2012",
       socialProtection: "2022",
       childLabour: "2018"
     },
     maternalDeathsPer100kBirths: 66,
+    accountShare: 0.3016,
     socialAssistanceQ1: 0.8612,
     socialProtection: 0.417,
     childLabour: 0.045
@@ -762,9 +828,11 @@ var life_stats_default = {
     years: {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
+      accountShare: "2024",
       socialProtection: "2022"
     },
     maternalDeathsPer100kBirths: 2,
+    accountShare: 0.8927,
     socialProtection: 1
   },
   ITA: {
@@ -772,9 +840,11 @@ var life_stats_default = {
     years: {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
+      accountShare: "2024",
       socialProtection: "2022"
     },
     maternalDeathsPer100kBirths: 6,
+    accountShare: 0.8602,
     socialProtection: 0.888
   },
   JOR: {
@@ -782,11 +852,13 @@ var life_stats_default = {
     years: {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
+      accountShare: "2024",
       socialAssistanceQ1: "2010",
       socialProtection: "2022",
       childLabour: "2016"
     },
     maternalDeathsPer100kBirths: 31,
+    accountShare: 0.4646,
     socialAssistanceQ1: 0.8331,
     socialProtection: 0.288,
     childLabour: 0.017
@@ -796,6 +868,7 @@ var life_stats_default = {
     years: {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
+      accountShare: "2024",
       socialProtection: "2020",
       singleParentPoverty: "2021",
       sicknessBenefit: "2023",
@@ -803,6 +876,7 @@ var life_stats_default = {
       alcoholUseDisorder: "2016"
     },
     maternalDeathsPer100kBirths: 3,
+    accountShare: 0.9852,
     socialProtection: 0.946,
     singleParentPoverty: 0.4446,
     sicknessBenefit: 1,
@@ -828,11 +902,13 @@ var life_stats_default = {
     years: {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
+      accountShare: "2024",
       socialAssistanceQ1: "2021",
       socialProtection: "2023",
       childLabour: "2024"
     },
     maternalDeathsPer100kBirths: 10,
+    accountShare: 0.8705,
     socialAssistanceQ1: 0.4108,
     socialProtection: 0.943,
     childLabour: 0.075
@@ -842,6 +918,7 @@ var life_stats_default = {
     years: {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
+      accountShare: "2024",
       socialAssistanceQ1: "2015",
       socialProtection: "2021",
       sicknessBenefit: "2023",
@@ -849,6 +926,7 @@ var life_stats_default = {
       alcoholUseDisorder: "2016"
     },
     maternalDeathsPer100kBirths: 149,
+    accountShare: 0.9012,
     socialAssistanceQ1: 0.3451,
     socialProtection: 0.09,
     sicknessBenefit: 0.5,
@@ -874,10 +952,12 @@ var life_stats_default = {
     years: {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
+      accountShare: "2024",
       socialProtection: "2022",
       childLabour: "2012"
     },
     maternalDeathsPer100kBirths: 137,
+    accountShare: 0.3903,
     socialProtection: 0.208,
     childLabour: 0.126
   },
@@ -886,6 +966,7 @@ var life_stats_default = {
     years: {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
+      accountShare: "2024",
       socialProtection: "2022",
       singleParentPoverty: "2022",
       sicknessBenefit: "2023",
@@ -893,6 +974,7 @@ var life_stats_default = {
       alcoholUseDisorder: "2016"
     },
     maternalDeathsPer100kBirths: 4,
+    accountShare: 0.9689,
     socialProtection: 0.802,
     singleParentPoverty: 0.2956,
     sicknessBenefit: 0,
@@ -918,11 +1000,13 @@ var life_stats_default = {
     years: {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
+      accountShare: "2024",
       socialAssistanceQ1: "2019",
       socialProtection: "2021",
       childLabour: "2016"
     },
     maternalDeathsPer100kBirths: 18,
+    accountShare: 0.8169,
     socialAssistanceQ1: 0.4882,
     socialProtection: 0.413,
     childLabour: 8e-3
@@ -932,10 +1016,12 @@ var life_stats_default = {
     years: {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
+      accountShare: "2024",
       socialAssistanceQ1: "2009",
       socialProtection: "2019"
     },
     maternalDeathsPer100kBirths: 70,
+    accountShare: 0.4439,
     socialAssistanceQ1: 0.5011,
     socialProtection: 0.205
   },
@@ -944,10 +1030,12 @@ var life_stats_default = {
     years: {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
+      accountShare: "2024",
       socialProtection: "2022",
       childLabour: "2018"
     },
     maternalDeathsPer100kBirths: 445,
+    accountShare: 0.2445,
     socialProtection: 0.154,
     childLabour: 0.367
   },
@@ -956,6 +1044,7 @@ var life_stats_default = {
     years: {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
+      accountShare: "2024",
       socialAssistanceQ1: "2022",
       socialProtection: "2022",
       childLabour: "2022",
@@ -965,6 +1054,7 @@ var life_stats_default = {
       alcoholUseDisorder: "2016"
     },
     maternalDeathsPer100kBirths: 42,
+    accountShare: 0.5303,
     socialAssistanceQ1: 0.5158,
     socialProtection: 0.808,
     childLabour: 0.06,
@@ -992,11 +1082,13 @@ var life_stats_default = {
     years: {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
+      accountShare: "2024",
       socialAssistanceQ1: "2021",
       socialProtection: "2022",
       childLabour: "2020"
     },
     maternalDeathsPer100kBirths: 367,
+    accountShare: 0.5475,
     socialAssistanceQ1: 0.4095,
     socialProtection: 0.126,
     childLabour: 0.227
@@ -1006,11 +1098,13 @@ var life_stats_default = {
     years: {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
+      accountShare: "2021",
       socialAssistanceQ1: "2017",
       socialProtection: "2019",
       childLabour: "2015"
     },
     maternalDeathsPer100kBirths: 185,
+    accountShare: 0.4779,
     socialAssistanceQ1: 0.1038,
     socialProtection: 0.063,
     childLabour: 0.099
@@ -1020,10 +1114,12 @@ var life_stats_default = {
     years: {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
+      accountShare: "2024",
       socialAssistanceQ1: "2019",
       socialProtection: "2022"
     },
     maternalDeathsPer100kBirths: 99,
+    accountShare: 0.5439,
     socialAssistanceQ1: 0.0394,
     socialProtection: 0.06
   },
@@ -1032,11 +1128,13 @@ var life_stats_default = {
     years: {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
+      accountShare: "2024",
       socialAssistanceQ1: "2019",
       socialProtection: "2022",
       childLabour: "2020"
     },
     maternalDeathsPer100kBirths: 225,
+    accountShare: 0.5037,
     socialAssistanceQ1: 0.4243,
     socialProtection: 0.199,
     childLabour: 0.14
@@ -1046,10 +1144,12 @@ var life_stats_default = {
     years: {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
+      accountShare: "2024",
       socialAssistanceQ1: "2016",
       socialProtection: "2023"
     },
     maternalDeathsPer100kBirths: 26,
+    accountShare: 0.8869,
     socialAssistanceQ1: 0.9763,
     socialProtection: 0.292
   },
@@ -1058,11 +1158,13 @@ var life_stats_default = {
     years: {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
+      accountShare: "2024",
       socialAssistanceQ1: "2021",
       socialProtection: "2015",
       childLabour: "2022"
     },
     maternalDeathsPer100kBirths: 350,
+    accountShare: 0.1483,
     socialAssistanceQ1: 0.2364,
     socialProtection: 0.206,
     childLabour: 0.427
@@ -1072,6 +1174,7 @@ var life_stats_default = {
     years: {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
+      accountShare: "2024",
       socialAssistanceQ1: "2018",
       socialProtection: "2022",
       childLabour: "2021",
@@ -1080,6 +1183,7 @@ var life_stats_default = {
       alcoholUseDisorder: "2016"
     },
     maternalDeathsPer100kBirths: 993,
+    accountShare: 0.6326,
     socialAssistanceQ1: 0.277,
     socialProtection: 0.148,
     childLabour: 0.315,
@@ -1106,11 +1210,13 @@ var life_stats_default = {
     years: {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
+      accountShare: "2024",
       socialAssistanceQ1: "2010",
       socialProtection: "2022",
       childLabour: "2017"
     },
     maternalDeathsPer100kBirths: 142,
+    accountShare: 0.5999,
     socialAssistanceQ1: 0.4895,
     socialProtection: 0.21,
     childLabour: 0.1
@@ -1120,6 +1226,7 @@ var life_stats_default = {
     years: {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
+      accountShare: "2024",
       socialAssistanceQ1: "2018",
       socialProtection: "2022",
       sicknessBenefit: "2023",
@@ -1127,6 +1234,7 @@ var life_stats_default = {
       alcoholUseDisorder: "2016"
     },
     maternalDeathsPer100kBirths: 155,
+    accountShare: 0.273,
     socialAssistanceQ1: 0.2065,
     socialProtection: 0.202,
     sicknessBenefit: 0.5,
@@ -1152,11 +1260,13 @@ var life_stats_default = {
     years: {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
+      accountShare: "2024",
       socialAssistanceQ1: "2022",
       socialProtection: "2024",
       childLabour: "2015"
     },
     maternalDeathsPer100kBirths: 51,
+    accountShare: 0.5931,
     socialAssistanceQ1: 0.9531,
     socialProtection: 0.301,
     childLabour: 0.145
@@ -1166,6 +1276,7 @@ var life_stats_default = {
     years: {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
+      accountShare: "2024",
       socialAssistanceQ1: "2018",
       socialProtection: "2022",
       sicknessBenefit: "2023",
@@ -1173,6 +1284,7 @@ var life_stats_default = {
       alcoholUseDisorder: "2016"
     },
     maternalDeathsPer100kBirths: 84,
+    accountShare: 0.5018,
     socialAssistanceQ1: 0.5724,
     socialProtection: 0.349,
     sicknessBenefit: 1,
@@ -1210,10 +1322,12 @@ var life_stats_default = {
     years: {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
+      accountShare: "2024",
       socialAssistanceQ1: "2019",
       socialProtection: "2023"
     },
     maternalDeathsPer100kBirths: 2,
+    accountShare: 0.8614,
     socialAssistanceQ1: 0.7179,
     socialProtection: 0.842
   },
@@ -1232,10 +1346,12 @@ var life_stats_default = {
     years: {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
+      accountShare: "2024",
       socialAssistanceQ1: "2017",
       socialProtection: "2022"
     },
     maternalDeathsPer100kBirths: 9,
+    accountShare: 0.7934,
     socialAssistanceQ1: 0.7756,
     socialProtection: 0.954
   },
@@ -1258,9 +1374,11 @@ var life_stats_default = {
     years: {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
+      accountShare: "2024",
       socialProtection: "2022"
     },
     maternalDeathsPer100kBirths: 7,
+    accountShare: 0.7884,
     socialProtection: 0.64
   },
   SDN: {
@@ -1282,11 +1400,13 @@ var life_stats_default = {
     years: {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
+      accountShare: "2024",
       socialAssistanceQ1: "2021",
       socialProtection: "2022",
       childLabour: "2016"
     },
     maternalDeathsPer100kBirths: 237,
+    accountShare: 0.7646,
     socialAssistanceQ1: 0.3911,
     socialProtection: 0.199,
     childLabour: 0.228
@@ -1296,11 +1416,13 @@ var life_stats_default = {
     years: {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
+      accountShare: "2024",
       socialAssistanceQ1: "2018",
       socialProtection: "2019",
       childLabour: "2017"
     },
     maternalDeathsPer100kBirths: 354,
+    accountShare: 0.3862,
     socialAssistanceQ1: 0.2134,
     socialProtection: 0.044,
     childLabour: 0.252
@@ -1322,10 +1444,12 @@ var life_stats_default = {
     years: {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
+      accountShare: "2021",
       socialAssistanceQ1: "2009",
       socialProtection: "2023"
     },
     maternalDeathsPer100kBirths: 692,
+    accountShare: 0.0583,
     socialAssistanceQ1: 0.0337,
     socialProtection: 0
   },
@@ -1342,11 +1466,13 @@ var life_stats_default = {
     years: {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
+      accountShare: "2024",
       socialAssistanceQ1: "2022",
       socialProtection: "2022",
       childLabour: "2019"
     },
     maternalDeathsPer100kBirths: 748,
+    accountShare: 0.209,
     socialAssistanceQ1: 0.0667,
     socialProtection: 0.025,
     childLabour: 0.39
@@ -1356,11 +1482,13 @@ var life_stats_default = {
     years: {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
+      accountShare: "2024",
       socialAssistanceQ1: "2021",
       socialProtection: "2022",
       childLabour: "2022"
     },
     maternalDeathsPer100kBirths: 349,
+    accountShare: 0.5743,
     socialAssistanceQ1: 0.1724,
     socialProtection: 0.387,
     childLabour: 0.269
@@ -1370,10 +1498,12 @@ var life_stats_default = {
     years: {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
+      accountShare: "2024",
       socialAssistanceQ1: "2021",
       socialProtection: "2020"
     },
     maternalDeathsPer100kBirths: 34,
+    accountShare: 0.9182,
     socialAssistanceQ1: 0.9708,
     socialProtection: 0.701
   },
@@ -1382,10 +1512,12 @@ var life_stats_default = {
     years: {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
+      accountShare: "2024",
       socialAssistanceQ1: "2011",
       socialProtection: "2023"
     },
     maternalDeathsPer100kBirths: 14,
+    accountShare: 0.5452,
     socialAssistanceQ1: 0.1304,
     socialProtection: 0.341
   },
@@ -1394,11 +1526,13 @@ var life_stats_default = {
     years: {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
+      accountShare: "2024",
       socialAssistanceQ1: "2019",
       socialProtection: "2022",
       childLabour: "2022"
     },
     maternalDeathsPer100kBirths: 15,
+    accountShare: 0.8155,
     socialAssistanceQ1: 0.3961,
     socialProtection: 0.64,
     childLabour: 0.059
@@ -1408,11 +1542,13 @@ var life_stats_default = {
     years: {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
+      accountShare: "2024",
       socialAssistanceQ1: "2014",
       socialProtection: "2021",
       childLabour: "2014"
     },
     maternalDeathsPer100kBirths: 276,
+    accountShare: 0.5983,
     socialAssistanceQ1: 0.0867,
     socialProtection: 0.114,
     childLabour: 0.248
@@ -1422,11 +1558,13 @@ var life_stats_default = {
     years: {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
+      accountShare: "2024",
       socialAssistanceQ1: "2016",
       socialProtection: "2022",
       childLabour: "2021"
     },
     maternalDeathsPer100kBirths: 170,
+    accountShare: 0.7283,
     socialAssistanceQ1: 46e-4,
     socialProtection: 0.031,
     childLabour: 0.408
@@ -1436,11 +1574,13 @@ var life_stats_default = {
     years: {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
+      accountShare: "2024",
       socialAssistanceQ1: "2020",
       socialProtection: "2019",
       childLabour: "2015"
     },
     maternalDeathsPer100kBirths: 15,
+    accountShare: 0.8758,
     socialAssistanceQ1: 0.3342,
     socialProtection: 0.73,
     childLabour: 0.04
@@ -1450,6 +1590,7 @@ var life_stats_default = {
     years: {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
+      accountShare: "2024",
       socialProtection: "2023",
       singleParentPoverty: "2022",
       sicknessBenefit: "2023",
@@ -1457,6 +1598,7 @@ var life_stats_default = {
       alcoholUseDisorder: "2016"
     },
     maternalDeathsPer100kBirths: 17,
+    accountShare: 0.9702,
     socialProtection: 0.788,
     singleParentPoverty: 0.4963,
     sicknessBenefit: 0,
@@ -1482,11 +1624,13 @@ var life_stats_default = {
     years: {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
+      accountShare: "2024",
       socialAssistanceQ1: "2018",
       socialProtection: "2022",
       childLabour: "2022"
     },
     maternalDeathsPer100kBirths: 26,
+    accountShare: 0.5966,
     socialAssistanceQ1: 0.1026,
     socialProtection: 0.56,
     childLabour: 0.206
@@ -1496,10 +1640,12 @@ var life_stats_default = {
     years: {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
+      accountShare: "2024",
       socialAssistanceQ1: "2006",
       socialProtection: "2019"
     },
     maternalDeathsPer100kBirths: 227,
+    accountShare: 0.8732,
     socialAssistanceQ1: 0.05,
     socialProtection: 0.308
   },
@@ -1508,6 +1654,7 @@ var life_stats_default = {
     years: {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
+      accountShare: "2024",
       socialAssistanceQ1: "2020",
       socialProtection: "2022",
       childLabour: "2021",
@@ -1516,6 +1663,7 @@ var life_stats_default = {
       alcoholUseDisorder: "2016"
     },
     maternalDeathsPer100kBirths: 48,
+    accountShare: 0.7055,
     socialAssistanceQ1: 0.8855,
     socialProtection: 0.383,
     childLabour: 0.069,
@@ -1556,11 +1704,13 @@ var life_stats_default = {
     years: {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
+      accountShare: "2024",
       socialAssistanceQ1: "2021",
       socialProtection: "2019",
       childLabour: "2019"
     },
     maternalDeathsPer100kBirths: 118,
+    accountShare: 0.8113,
     socialAssistanceQ1: 0.9458,
     socialProtection: 0.493,
     childLabour: 0.075
@@ -1570,11 +1720,13 @@ var life_stats_default = {
     years: {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
+      accountShare: "2024",
       socialAssistanceQ1: "2015",
       socialProtection: "2021",
       childLabour: "2023"
     },
     maternalDeathsPer100kBirths: 85,
+    accountShare: 0.727,
     socialAssistanceQ1: 62e-4,
     socialProtection: 0.303,
     childLabour: 0.187
@@ -1584,11 +1736,13 @@ var life_stats_default = {
     years: {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
+      accountShare: "2024",
       socialAssistanceQ1: "2019",
       socialProtection: "2021",
       childLabour: "2019"
     },
     maternalDeathsPer100kBirths: 358,
+    accountShare: 0.4952,
     socialAssistanceQ1: 0.5896,
     socialProtection: 0.164,
     childLabour: 0.279
@@ -1620,6 +1774,7 @@ function emigration(iso3) {
   if (!s?.emigrantShare || !s.emigrantDest?.length) return null;
   return { share: s.emigrantShare, dest: s.emigrantDest.filter(([n]) => DEST_JA[n]).map(([n, c]) => [DEST_JA[n], c]) };
 }
+var accountShare = (iso3) => STATS[iso3]?.accountShare ?? null;
 var DEST_JA = {
   Australia: "\u30AA\u30FC\u30B9\u30C8\u30E9\u30EA\u30A2",
   Belgium: "\u30D9\u30EB\u30AE\u30FC",
@@ -13379,6 +13534,11 @@ var Life = class {
     this.futokoAge = -1;
     /** お酒がやめられなくなった */
     this.alcoholProblem = false;
+    /** 銀行やモバイルマネーの口座を持っている（ない人は貯金に利息がつかず、投資もできない） */
+    this.banked = true;
+    /** 自己破産した年齢。-1 はなし */
+    this.bankruptAge = -1;
+    this.bankruptAsked = false;
     /** 次に小さな選択を出す年齢 */
     this.nextMicro = 6;
     /** 小さな選択ごとの、最後に出た年齢 */
@@ -13561,7 +13721,8 @@ var Life = class {
   chooseAlloc(al, optionId = "custom") {
     const c = this.pending;
     if (!c || !c.alloc) throw new Error("\u632F\u308A\u5206\u3051\u306E\u5834\u9762\u3067\u306F\u3042\u308A\u307E\u305B\u3093");
-    const v = normAlloc(al);
+    let v = normAlloc(al);
+    if (!this.banked && v.invest) v = noInvestAlloc(v);
     this.pending = null;
     const label = allocLabel(v);
     this.choiceLog.push({ id: "alloc", optionId, label, age: this.age, pickIndex: -1, alloc: v });
@@ -13999,6 +14160,10 @@ var Life = class {
   }
   workYear(r) {
     const a = this.age;
+    if (!this.banked && (this.job === "big" || this.job === "sme" || this.job === "civil")) {
+      this.banked = true;
+      this.log("money", "\u7D66\u6599\u306E\u632F\u308A\u8FBC\u307F\u306E\u305F\u3081\u3001\u9280\u884C\u306B\u53E3\u5EA7\u3092\u4F5C\u3063\u305F\u3002");
+    }
     const world = streamRng("world", "economy", this.year);
     const recession = world.chance(0.1);
     if (recession && a >= 18) {
@@ -14249,7 +14414,7 @@ var Life = class {
     const pot = Math.min(free, this.cash);
     const part = (n) => pot * n / 10;
     if (al.living) this.spend("fun", part(al.living));
-    if (al.invest) {
+    if (al.invest && this.banked) {
       const v = Math.min(this.cash, part(al.invest));
       this.cash -= v;
       this.invest += v;
@@ -14363,6 +14528,15 @@ var Life = class {
    */
   childhoodYear() {
     const a = this.age;
+    if (a === 19 && this.job !== "big" && this.job !== "sme" && this.job !== "civil") {
+      const acc = accountShare(this.D.iso3);
+      const bandF = [2, 1.4, 1, 0.5, 0.2][this.bandIdx] ?? 1;
+      if (acc !== null && streamRng(this.seed, "account", 0).chance(Math.min(0.95, (1 - acc) * bandF))) {
+        this.banked = false;
+        this.log("money", "\u9280\u884C\u3084\u30B9\u30DE\u30DB\u306E\u304A\u91D1\u306E\u53E3\u5EA7\u3092\u6301\u3063\u3066\u3044\u306A\u3044\u3002\u7A3C\u3044\u3060\u304A\u91D1\u306F\u3001\u624B\u5143\u306B\u7F6E\u3044\u3066\u304A\u304F\u3057\u304B\u306A\u3044\u3002");
+        this.mark("unbanked");
+      }
+    }
     if (!this.D.isJapan && a === 10) {
       const share = childLabourShare(this.D.iso3);
       const bandF = [2, 1.4, 1, 0.5, 0.2][this.bandIdx] ?? 1;
@@ -14520,7 +14694,7 @@ var Life = class {
         this.log("money", "\u4F4F\u5B85\u30ED\u30FC\u30F3\u3092\u5B8C\u6E08\u3057\u305F\u3002", void 0, true);
       }
     }
-    if (this.investStyle !== "none" && a < 65 && this.cash > 0) {
+    if (this.investStyle !== "none" && this.banked && a < 65 && this.cash > 0) {
       const net = (this.cur.income.salary ?? 0) + (this.cur.income.partner ?? 0) - (this.cur.expense.tax ?? 0);
       const c = Math.min(this.cash, Math.max(0, net * this.investRate));
       this.cash -= c;
@@ -14545,7 +14719,7 @@ var Life = class {
       }
     }
     this.allocYear();
-    if (this.cash > 0) this.cash += this.cash * this.D.ev.depositRate;
+    if (this.cash > 0 && this.banked) this.cash += this.cash * this.D.ev.depositRate;
     if (this.cash < 0) {
       if (this.invest > 0) {
         const w = Math.min(this.invest, -this.cash);
@@ -14581,6 +14755,10 @@ var Life = class {
     }
     const wasFrugal = this.frugal;
     this.frugal = this.cash + this.invest < -this.y(1e6) && this.school === "done";
+    if (this.D.isJapan && !this.bankruptAsked && a >= 20 && a < 65 && -(this.cash + this.invest) > 3 * Math.max(this.y(2e6), this.salaryOf(a))) {
+      this.bankruptAsked = true;
+      this.queueScene(bankruptScene(this));
+    }
     if (this.frugal && !wasFrugal && !this.again("frugalFlip", 2))
       this.log(
         "money",
@@ -14854,6 +15032,14 @@ function buildChoice(l, id) {
     case "invest": {
       title = "\u6295\u8CC7\u3092\u59CB\u3081\u308B\u304B";
       situation = `${a}\u6B73\u3002\u8CAF\u91D1\u306F${l.D.fmt(Math.max(0, l.cash))}\u3002${l.D.isJapan ? "\u5468\u308A\u3067NISA\u306E\u8A71\u3092\u805E\u304F\u3088\u3046\u306B\u306A\u3063\u305F\u3002" : "\u5468\u308A\u3067\u6295\u8CC7\u306E\u8A71\u3092\u805E\u304F\u3088\u3046\u306B\u306A\u3063\u305F\u3002"}`;
+      if (!l.banked) {
+        situation += "\u305F\u3060\u3001\u53E3\u5EA7\u3092\u6301\u3063\u3066\u3044\u306A\u3044\u306E\u3067\u3001\u6295\u8CC7\u306F\u3067\u304D\u306A\u3044\u3002";
+        options.push(
+          opt("deposit", "\u624B\u5143\u306B\u8CAF\u3081\u3066\u304A\u304F", "\u53E3\u5EA7\u304C\u306A\u3044\u306E\u3067\u5229\u606F\u306F\u3064\u304B\u306A\u3044\u3002\u7269\u4FA1\u304C\u4E0A\u304C\u308B\u3068\u76EE\u6E1B\u308A\u3059\u308B\u3002"),
+          opt("self", "\u81EA\u5206\u306B\u6295\u8CC7\u3059\u308B\uFF08\u8CC7\u683C\u30FB\u30B9\u30AD\u30EB\uFF09", "\u6570\u5E74\u9593\u306E\u51FA\u8CBB\u3002\u53CE\u5165\u304C\u4E0A\u304C\u308B\u4FDD\u8A3C\u306F\u306A\u3044\u3002")
+        );
+        break;
+      }
       options.push(
         opt("index", "\u6BCE\u6708\u30B3\u30C4\u30B3\u30C4\u7A4D\u7ACB\u6295\u8CC7", "\u9577\u304F\u7D9A\u3051\u308C\u3070\u5897\u3048\u3084\u3059\u3044\u3002\u66B4\u843D\u306E\u5E74\u306F\u8CC7\u7523\u304C\u76EE\u6E1B\u308A\u3059\u308B\u3002"),
         opt("stocks", "\u500B\u5225\u682A\u3067\u653B\u3081\u308B", "\u5927\u304D\u304F\u5897\u3048\u308B\u3053\u3068\u3082\u3001\u5927\u304D\u304F\u6E1B\u308B\u3053\u3068\u3082\u3042\u308B\u3002"),
@@ -14890,6 +15076,11 @@ function buildChoice(l, id) {
           );
           if (l.parents.some((x) => x.alive)) options.push(opt("home", "\u5B9F\u5BB6\u306B\u623B\u308B", "\u4F4F\u5C45\u8CBB\u304C\u6D6E\u3044\u3066\u8CAF\u91D1\u3057\u3084\u3059\u3044\u3002\u89AA\u306E\u4ECB\u8B77\u304C\u8EAB\u8FD1\u306B\u306A\u308B\u3002"));
         }
+      }
+      if (l.bankruptAge >= 0 && a - l.bankruptAge < 7) {
+        const keep = options.filter((o) => o.id !== "buy" && o.id !== "marryBuy" && o.id !== "condo");
+        options.length = 0;
+        options.push(...keep);
       }
       break;
     }
@@ -15351,6 +15542,10 @@ function normAlloc(a) {
   return { living: 10 - save - invest - family - self, save, invest, family, self };
 }
 var ALLOC_LABEL = { living: "\u66AE\u3089\u3057", save: "\u8CAF\u91D1", invest: "\u6295\u8CC7", family: "\u5BB6\u65CF", self: "\u81EA\u5206" };
+function noInvestAlloc(a) {
+  const save = Math.min(9, a.save + a.invest);
+  return { living: 10 - save - a.family - a.self, save, invest: 0, family: a.family, self: a.self };
+}
 function allocLabel(a) {
   return Object.keys(ALLOC_LABEL).filter((k) => a[k] > 0).map((k) => `${ALLOC_LABEL[k]}${a[k] * 10}%`).join("\u30FB");
 }
@@ -15361,15 +15556,54 @@ function allocChoice(l) {
   const familyTo = kidsNow ? "kids" : l.parents.some((p) => p.alive) ? "parents" : "none";
   const free = l.lastFree;
   const situation = free > 0 ? `${a}\u6B73\u3002\u53BB\u5E74\u3001\u81EA\u7531\u306B\u4F7F\u3048\u305F\u304A\u91D1\uFF08\u624B\u53D6\u308A\u304B\u3089\u3001\u51FA\u3066\u3044\u3063\u305F\u304A\u91D1\u3092\u5F15\u3044\u305F\u6B8B\u308A\uFF09\u306F\u7D04${l.D.fmt(free)}\u3002\u3053\u308C\u304B\u30895\u5E74\u3001\u3069\u3053\u306B\u4F7F\u3046\uFF1F` : `${a}\u6B73\u3002\u53BB\u5E74\u306F\u3001\u624B\u53D6\u308A\u3088\u308A\u51FA\u3066\u3044\u304F\u304A\u91D1\u306E\u307B\u3046\u304C\u591A\u304B\u3063\u305F\u3002\u3053\u308C\u304B\u30895\u5E74\u3001\u4F59\u308A\u304C\u51FA\u305F\u5E74\u306F\u3001\u3069\u3053\u306B\u4F7F\u3046\uFF1F`;
-  const options = ALLOC_PRESETS.map(({ id, label, desc }) => ({ id, label, desc }));
-  if (last) options.push({ id: "same", label: "\u524D\u56DE\u3068\u540C\u3058", desc: allocLabel(last) });
+  const noInvest = (x) => l.banked || !x.invest ? x : noInvestAlloc(x);
+  const presets = ALLOC_PRESETS.filter((p) => l.banked || p.id !== "p1");
+  const options = presets.map(({ id, label, desc, a: x }) => ({ id, label, desc: l.banked ? desc : `${allocLabel(noInvest(x))}\u3002` }));
+  if (last) options.push({ id: "same", label: "\u524D\u56DE\u3068\u540C\u3058", desc: allocLabel(noInvest(last)) });
   return {
     id: "alloc",
     age: a,
     title: "\u304A\u91D1\u306E\u632F\u308A\u5206\u3051",
-    situation,
+    situation: l.banked ? situation : situation + "\u53E3\u5EA7\u3092\u6301\u3063\u3066\u3044\u306A\u3044\u306E\u3067\u6295\u8CC7\u306F\u3067\u304D\u305A\u3001\u8CAF\u91D1\u306F\u624B\u5143\u306B\u7F6E\u304F\u3002",
     options,
-    alloc: { free, last, presets: [...ALLOC_PRESETS.map((p) => p.a), ...last ? [last] : []], familyTo }
+    alloc: { free, last: last && noInvest(last), presets: [...presets.map((p) => noInvest(p.a)), ...last ? [noInvest(last)] : []], familyTo, noInvest: !l.banked }
+  };
+}
+function bankruptScene(l) {
+  const debt = () => Math.max(0, -(l.cash + l.invest));
+  return {
+    id: "bankrupt",
+    title: "\u501F\u91D1\u306E\u6574\u7406",
+    situation: `\u501F\u91D1\u304C${l.D.fmt(debt())}\u306B\u3075\u304F\u3089\u307F\u3001\u8FD4\u6E08\u304C\u8FFD\u3044\u3064\u304B\u306A\u3044\u3002\u5F01\u8B77\u58EB\u306B\u76F8\u8AC7\u3059\u308B\u3068\u3001\u81EA\u5DF1\u7834\u7523\u3068\u3044\u3046\u65B9\u6CD5\u3082\u3042\u308B\u3068\u8A00\u308F\u308C\u305F\u3002\u65E5\u672C\u3067\u81EA\u5DF1\u7834\u7523\u3059\u308B\u4EBA\u306F\u30011\u5E74\u306B\u5927\u4EBA\u306E\u7D041,200\u4EBA\u306B1\u4EBA\u3002`,
+    situationOf: (l2) => `\u501F\u91D1\u304C${l2.D.fmt(Math.max(0, -(l2.cash + l2.invest)))}\u306B\u3075\u304F\u3089\u307F\u3001\u8FD4\u6E08\u304C\u8FFD\u3044\u3064\u304B\u306A\u3044\u3002\u5F01\u8B77\u58EB\u306B\u76F8\u8AC7\u3059\u308B\u3068\u3001\u81EA\u5DF1\u7834\u7523\u3068\u3044\u3046\u65B9\u6CD5\u3082\u3042\u308B\u3068\u8A00\u308F\u308C\u305F\u3002\u65E5\u672C\u3067\u81EA\u5DF1\u7834\u7523\u3059\u308B\u4EBA\u306F\u30011\u5E74\u306B\u5927\u4EBA\u306E\u7D041,200\u4EBA\u306B1\u4EBA\u3002`,
+    stillValid: (l2) => l2.cash + l2.invest < 0 && l2.bankruptAge < 0,
+    options: [
+      {
+        id: "file",
+        label: "\u81EA\u5DF1\u7834\u7523\u3059\u308B",
+        desc: "\u501F\u91D1\u306E\u8FD4\u6E08\u304C\u306A\u304F\u306A\u308B\u3002\u5BB6\u306A\u3069\u306E\u8CA1\u7523\u306F\u624B\u653E\u3057\u30017\u5E74\u307B\u3069\u306F\u4F4F\u5B85\u30ED\u30FC\u30F3\u3092\u7D44\u3081\u306A\u3044\u3002",
+        apply: (l2) => {
+          l2.bankruptAge = l2.age;
+          const lost = l2.home === "own" ? "\u5BB6\u3082\u624B\u653E\u3057\u305F\u3002" : "";
+          if (l2.home === "own") {
+            l2.home = "rent";
+            l2.loan = 0;
+            l2.loanAnnual = 0;
+            l2.ownedBefore = false;
+          }
+          l2.invest = 0;
+          l2.cash = 0;
+          l2.logPre("money", `\u81EA\u5DF1\u7834\u7523\u3057\u305F\u3002\u501F\u91D1\u306E\u8FD4\u6E08\u306F\u306A\u304F\u306A\u3063\u305F\u3002${lost}`, void 0, true);
+          l2.mark("bankrupt");
+        }
+      },
+      {
+        id: "repay",
+        label: "\u50CD\u304D\u306A\u304C\u3089\u8FD4\u3057\u7D9A\u3051\u308B",
+        desc: "\u8CA1\u7523\u306F\u624B\u5143\u306B\u6B8B\u308B\u3002\u5229\u606F\u304C\u304B\u3055\u307F\u3001\u8FD4\u3057\u7D42\u3048\u308B\u307E\u3067\u66AE\u3089\u3057\u306F\u82E6\u3057\u3044\u3002",
+        apply: (l2) => l2.logPre("money", "\u66AE\u3089\u3057\u3092\u5207\u308A\u3064\u3081\u3001\u501F\u91D1\u3092\u8FD4\u3057\u7D9A\u3051\u308B\u3053\u3068\u306B\u3057\u305F\u3002")
+      }
+    ]
   };
 }
 
@@ -25754,7 +25988,7 @@ var EXPENSE_LABEL = {
 };
 
 // src/engine/result.ts
-var CODEC_VERSION = "13";
+var CODEC_VERSION = "14";
 function picksOf(l) {
   return l.choiceLog.flatMap((c) => c.alloc ? [c.alloc.save, c.alloc.invest, c.alloc.family, c.alloc.self] : [c.pickIndex ?? 0]);
 }

@@ -19,6 +19,7 @@ FIELDS = {
     "child_labour_share": "childLabour",
     "emigrant_stock_share": "emigrantShare",
     "alcohol_use_disorder_share": "alcoholUseDisorder",
+    "account_ownership": "accountShare",
 }
 # 使わない値（理由つき）
 REJECT = {

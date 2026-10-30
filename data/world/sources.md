@@ -237,3 +237,9 @@
 | sickness_benefit_status | ILO World Social Protection Report、ISSA | 20か国（ほかは非正規で働く人の割合から推計） | がん・心臓や脳の病気・交通事故で休む間の給料 |
 | social_assistance_coverage_q1 / social_protection_coverage | 世界銀行 ASPIRE / ILO（SDG 1.3.1） | 69か国 / 85か国 | 暮らしに困ったとき、国の給付を受けられるか（日本以外） |
 | single_parent_poverty_rate | OECD Family Database、厚生労働省 ほか | 8か国（インド・中国は2011年と古いので使わない） | 一人で子どもを育てることになったときの一言 |
+| account_ownership | 世界銀行 Global Findex 2025（2024年の値。アフガニスタン・ミャンマー・南スーダンは2021年） | 77か国 | 口座を持てるか（19歳）。ない間は利息がつかず、投資できない |
+| 自己破産の件数 | 最高裁判所「司法統計年報」2025年（個人の自己破産 8.31万件）、国勢調査 2025年（18歳以上） | 日本 | 借金の整理の場面で伝える割合（年に約1,200人に1人） |
+| child_labour_share | 国連 SDG データベース（UNICEF・ILO、家の仕事を含む定義） | 53か国 | 子どものうちから働く |
+| emigrant_stock_share / emigrant_top_destinations | 国連 International Migrant Stock 2024（Our World in Data 経由） | 20か国 | 子どもが外国へ移り住む |
+| alcohol_use_disorder_share | WHO（2016年、Our World in Data 経由） | 20か国 | お酒への依存 |
+| 不登校 | 文部科学省「児童生徒の問題行動・不登校等生徒指導上の諸課題に関する調査」2024年度、不登校に関する実態調査 | 日本 | 不登校と、その後の進学 |

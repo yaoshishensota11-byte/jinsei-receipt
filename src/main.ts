@@ -406,7 +406,7 @@ class Game {
   /** お金の振り分け：型を選び、必要ならタップして細かく調整する */
   private openAlloc(c: Choice): void {
     const info = c.alloc!;
-    const keys: (keyof Alloc)[] = ["living", "save", "invest", "family", "self"];
+    const keys: (keyof Alloc)[] = info.noInvest ? ["living", "save", "family", "self"] : ["living", "save", "invest", "family", "self"];
     const familyNote =
       info.familyTo === "kids" ? "子どもの教育費。子どもの進学を助け、その子に生まれ直したときにも役立つ" : info.familyTo === "parents" ? "親への仕送り" : "回す相手がいないので、貯金と同じになる";
     const note: Record<keyof Alloc, string> = {

@@ -1,7 +1,7 @@
 // 人生シミュレーション本体。1年ずつ進み、選択場面で止まる。
 // 同じ seed と同じ選択の並びなら、まったく同じ人生になる。
 import { Rng, streamRng, hashStr } from "./rng";
-import { alcoholDisorderShare, childLabourShare, emigration, maternalDeaths, publicAidRate, sickPayCovered, singleParentPoverty } from "./lifestats";
+import { accountShare, alcoholDisorderShare, childLabourShare, emigration, maternalDeaths, publicAidRate, sickPayCovered, singleParentPoverty } from "./lifestats";
 import { JAPAN, type CountryData, type Region, type IncomeBand } from "./data";
 import { MICROS } from "./micro";
 import { riskYear, countryEventScene, ipvHazard } from "./risks";
@@ -449,7 +449,9 @@ export class Life {
   chooseAlloc(al: Alloc, optionId = "custom"): void {
     const c = this.pending;
     if (!c || !c.alloc) throw new Error("振り分けの場面ではありません");
-    const v = normAlloc(al);
+    let v = normAlloc(al);
+    // 口座がない人は投資ができないので、投資に回す分は手元の貯金にする
+    if (!this.banked && v.invest) v = noInvestAlloc(v);
     this.pending = null;
     const label = allocLabel(v);
     this.choiceLog.push({ id: "alloc", optionId, label, age: this.age, pickIndex: -1, alloc: v });
@@ -518,6 +520,11 @@ export class Life {
   futokoAge = -1;
   /** お酒がやめられなくなった */
   alcoholProblem = false;
+  /** 銀行やモバイルマネーの口座を持っている（ない人は貯金に利息がつかず、投資もできない） */
+  banked = true;
+  /** 自己破産した年齢。-1 はなし */
+  bankruptAge = -1;
+  bankruptAsked = false;
 
   /** 離婚する。財産を分け、子どもがいれば養育費などが続く */
   divorce(r: Rng, text: string, dv = false): void {
@@ -1014,6 +1021,10 @@ export class Life {
 
   private workYear(r: Rng): void {
     const a = this.age;
+    if (!this.banked && (this.job === "big" || this.job === "sme" || this.job === "civil")) {
+      this.banked = true;
+      this.log("money", "給料の振り込みのため、銀行に口座を作った。");
+    }
     const world = streamRng("world", "economy", this.year); // 景気は同い年みんな共通
     const recession = world.chance(0.1);
     if (recession && a >= 18) {
@@ -1306,7 +1317,8 @@ export class Life {
     const pot = Math.min(free, this.cash);
     const part = (n: number) => (pot * n) / 10;
     if (al.living) this.spend("fun", part(al.living));
-    if (al.invest) {
+    // 口座がない人は、投資に回すつもりの分も手元に置く
+    if (al.invest && this.banked) {
       const v = Math.min(this.cash, part(al.invest));
       this.cash -= v;
       this.invest += v;
@@ -1428,6 +1440,17 @@ export class Life {
    */
   private childhoodYear(): void {
     const a = this.age;
+    // 19歳：口座を持てるか。国の口座の割合（Global Findex）を、家の豊かさで重みづけて決める。統計がない国は持っているとみなす。
+    // 正社員・公務員として働いている人は、給料の振り込みのために口座を持っている
+    if (a === 19 && this.job !== "big" && this.job !== "sme" && this.job !== "civil") {
+      const acc = accountShare(this.D.iso3);
+      const bandF = [2, 1.4, 1, 0.5, 0.2][this.bandIdx] ?? 1;
+      if (acc !== null && streamRng(this.seed, "account", 0).chance(Math.min(0.95, (1 - acc) * bandF))) {
+        this.banked = false;
+        this.log("money", "銀行やスマホのお金の口座を持っていない。稼いだお金は、手元に置いておくしかない。");
+        this.mark("unbanked");
+      }
+    }
     if (!this.D.isJapan && a === 10) {
       const share = childLabourShare(this.D.iso3);
       const bandF = [2, 1.4, 1, 0.5, 0.2][this.bandIdx] ?? 1;
@@ -1617,7 +1640,7 @@ export class Life {
     }
 
     // 投資
-    if (this.investStyle !== "none" && a < 65 && this.cash > 0) {
+    if (this.investStyle !== "none" && this.banked && a < 65 && this.cash > 0) {
       const net = (this.cur!.income.salary ?? 0) + (this.cur!.income.partner ?? 0) - (this.cur!.expense.tax ?? 0);
       const c = Math.min(this.cash, Math.max(0, net * this.investRate));
       this.cash -= c;
@@ -1643,7 +1666,7 @@ export class Life {
       }
     }
     this.allocYear();
-    if (this.cash > 0) this.cash += this.cash * this.D.ev.depositRate;
+    if (this.cash > 0 && this.banked) this.cash += this.cash * this.D.ev.depositRate;
     if (this.cash < 0) {
       if (this.invest > 0) {
         const w = Math.min(this.invest, -this.cash);
@@ -1695,6 +1718,11 @@ export class Life {
     // 家計が苦しいときは節約する
     const wasFrugal = this.frugal;
     this.frugal = this.cash + this.invest < -this.y(1_000_000) && this.school === "done";
+    // 自己破産（日本）：奨学金を除く借金が年収の3年分を超えたとき、一度だけ考える
+    if (this.D.isJapan && !this.bankruptAsked && a >= 20 && a < 65 && -(this.cash + this.invest) > 3 * Math.max(this.y(2_000_000), this.salaryOf(a))) {
+      this.bankruptAsked = true;
+      this.queueScene(bankruptScene(this));
+    }
     // 1〜2年で行ったり来たりするときは、毎回は知らせない
     if (this.frugal && !wasFrugal && !this.again("frugalFlip", 2))
       this.log(
@@ -2016,6 +2044,14 @@ export function buildChoice(l: Life, id: ChoiceId): Choice {
     case "invest": {
       title = "投資を始めるか";
       situation = `${a}歳。貯金は${l.D.fmt(Math.max(0, l.cash))}。${l.D.isJapan ? "周りでNISAの話を聞くようになった。" : "周りで投資の話を聞くようになった。"}`;
+      if (!l.banked) {
+        situation += "ただ、口座を持っていないので、投資はできない。";
+        options.push(
+          opt("deposit", "手元に貯めておく", "口座がないので利息はつかない。物価が上がると目減りする。"),
+          opt("self", "自分に投資する（資格・スキル）", "数年間の出費。収入が上がる保証はない。"),
+        );
+        break;
+      }
       options.push(
         opt("index", "毎月コツコツ積立投資", "長く続ければ増えやすい。暴落の年は資産が目減りする。"),
         opt("stocks", "個別株で攻める", "大きく増えることも、大きく減ることもある。"),
@@ -2052,6 +2088,12 @@ export function buildChoice(l: Life, id: ChoiceId): Choice {
           );
           if (l.parents.some((x) => x.alive)) options.push(opt("home", "実家に戻る", "住居費が浮いて貯金しやすい。親の介護が身近になる。"));
         }
+      }
+      // 自己破産してから7年ほどは、住宅ローンを組めない（信用情報に記録が残る）
+      if (l.bankruptAge >= 0 && a - l.bankruptAge < 7) {
+        const keep = options.filter((o) => o.id !== "buy" && o.id !== "marryBuy" && o.id !== "condo");
+        options.length = 0;
+        options.push(...keep);
       }
       break;
     }
@@ -2579,6 +2621,12 @@ export function normAlloc(a: Alloc): Alloc {
 
 export const ALLOC_LABEL: Record<keyof Alloc, string> = { living: "暮らし", save: "貯金", invest: "投資", family: "家族", self: "自分" };
 
+/** 口座がない人の振り分け：投資の分を手元の貯金に回す（共有URLに1けたで書けるよう、貯金は9割まで。余りは暮らし） */
+export function noInvestAlloc(a: Alloc): Alloc {
+  const save = Math.min(9, a.save + a.invest);
+  return { living: 10 - save - a.family - a.self, save, invest: 0, family: a.family, self: a.self };
+}
+
 /** 「暮らし40%・貯金40%・投資10%・家族10%」 */
 export function allocLabel(a: Alloc): string {
   return (Object.keys(ALLOC_LABEL) as (keyof Alloc)[])
@@ -2597,14 +2645,56 @@ function allocChoice(l: Life): Choice {
     free > 0
       ? `${a}歳。去年、自由に使えたお金（手取りから、出ていったお金を引いた残り）は約${l.D.fmt(free)}。これから5年、どこに使う？`
       : `${a}歳。去年は、手取りより出ていくお金のほうが多かった。これから5年、余りが出た年は、どこに使う？`;
-  const options = ALLOC_PRESETS.map(({ id, label, desc }) => ({ id, label, desc }));
-  if (last) options.push({ id: "same", label: "前回と同じ", desc: allocLabel(last) });
+  // 口座がない人には、投資を貯金（手元）に置きかえた形で見せる
+  const noInvest = (x: Alloc): Alloc => (l.banked || !x.invest ? x : noInvestAlloc(x));
+  const presets = ALLOC_PRESETS.filter((p) => l.banked || p.id !== "p1");
+  const options = presets.map(({ id, label, desc, a: x }) => ({ id, label, desc: l.banked ? desc : `${allocLabel(noInvest(x))}。` }));
+  if (last) options.push({ id: "same", label: "前回と同じ", desc: allocLabel(noInvest(last)) });
   return {
     id: "alloc",
     age: a,
     title: "お金の振り分け",
-    situation,
+    situation: l.banked ? situation : situation + "口座を持っていないので投資はできず、貯金は手元に置く。",
     options,
-    alloc: { free, last, presets: [...ALLOC_PRESETS.map((p) => p.a), ...(last ? [last] : [])], familyTo },
+    alloc: { free, last: last && noInvest(last), presets: [...presets.map((p) => noInvest(p.a)), ...(last ? [noInvest(last)] : [])], familyTo, noInvest: !l.banked },
+  };
+}
+
+/** 借金が返せないほどふくらんだとき（日本）：自己破産するか */
+function bankruptScene(l: Life): Scene {
+  const debt = () => Math.max(0, -(l.cash + l.invest));
+  return {
+    id: "bankrupt",
+    title: "借金の整理",
+    situation: `借金が${l.D.fmt(debt())}にふくらみ、返済が追いつかない。弁護士に相談すると、自己破産という方法もあると言われた。日本で自己破産する人は、1年に大人の約1,200人に1人。`,
+    situationOf: (l) => `借金が${l.D.fmt(Math.max(0, -(l.cash + l.invest)))}にふくらみ、返済が追いつかない。弁護士に相談すると、自己破産という方法もあると言われた。日本で自己破産する人は、1年に大人の約1,200人に1人。`,
+    stillValid: (l) => l.cash + l.invest < 0 && l.bankruptAge < 0,
+    options: [
+      {
+        id: "file",
+        label: "自己破産する",
+        desc: "借金の返済がなくなる。家などの財産は手放し、7年ほどは住宅ローンを組めない。",
+        apply: (l) => {
+          l.bankruptAge = l.age;
+          const lost = l.home === "own" ? "家も手放した。" : "";
+          if (l.home === "own") {
+            l.home = "rent";
+            l.loan = 0;
+            l.loanAnnual = 0;
+            l.ownedBefore = false;
+          }
+          l.invest = 0;
+          l.cash = 0;
+          l.logPre("money", `自己破産した。借金の返済はなくなった。${lost}`, undefined, true);
+          l.mark("bankrupt");
+        },
+      },
+      {
+        id: "repay",
+        label: "働きながら返し続ける",
+        desc: "財産は手元に残る。利息がかさみ、返し終えるまで暮らしは苦しい。",
+        apply: (l) => l.logPre("money", "暮らしを切りつめ、借金を返し続けることにした。"),
+      },
+    ],
   };
 }

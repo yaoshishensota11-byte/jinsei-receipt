@@ -63,7 +63,11 @@ export function emigration(iso3: string): { share: number; dest: [string, number
   return { share: s.emigrantShare, dest: s.emigrantDest.filter(([n]) => DEST_JA[n]).map(([n, c]) => [DEST_JA[n], c]) };
 }
 
+/** 15歳以上のうち、銀行やモバイルマネーの口座を持つ人の割合（世界銀行 Global Findex 2025）。統計がない国は null */
+export const accountShare = (iso3: string): number | null => (STATS[iso3] as LifeStatsExtra | undefined)?.accountShare ?? null;
+
 interface LifeStatsExtra extends LifeStats {
+  accountShare?: number;
   childLabour?: number;
   alcoholUseDisorder?: number;
   emigrantShare?: number;

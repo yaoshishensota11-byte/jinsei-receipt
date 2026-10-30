@@ -60,6 +60,8 @@ for (let i = 0; i < N; i++) {
       if (/(車|新車|中古車)に?を?買い替え/.test(e.text) && !carBought) add("車がないのに車の買い替え", `${where} ${e.text}`);
       if (/家賃|大家/.test(e.text) && l.home === "own" && !/売|引っ越|移/.test(e.text)) add("持ち家なのに家賃・大家の話", `${where} ${e.text}`);
       if (/通勤|休んでいる間|か月休み/.test(e.text) && !wasWorking && !working(l) && !rec.events.some((x) => /仕事を辞め|働きはじめ|就職|採用/.test(x.text))) add("働いていないのに仕事を休む話", `${where} ${e.text}`);
+      if (/買った。35年ローン/.test(e.text) && (l as any).bankruptAge >= 0 && rec.age - (l as any).bankruptAge < 7) add("自己破産のすぐあとに家を買った", `${where} ${e.text}`);
+      if (/投資\d|株/.test(e.text) && !(l as any).banked) add("口座がないのに投資の話", `${where} ${e.text}`);
       if (/一人で子どもを育てる/.test(e.text) && !l.kids.some((k) => rec.age - k.born < 18)) add("子どもがいないのにひとり親の話", `${where} ${e.text}`);
     }
     // 家族の声
