@@ -13536,6 +13536,11 @@ var Life = class {
     this.alcoholProblem = false;
     /** 銀行やモバイルマネーの口座を持っている（ない人は貯金に利息がつかず、投資もできない） */
     this.banked = true;
+    /** 高校でプロを目指した競技（日本の男子）。"" は目指していない */
+    this.proSport = "";
+    /** プロ選手として稼ぐ年俸と、引退する年齢。-1 はプロではない */
+    this.proSalary = 0;
+    this.proUntil = -1;
     /** 自己破産した年齢。-1 はなし */
     this.bankruptAge = -1;
     this.bankruptAsked = false;
@@ -14132,6 +14137,7 @@ var Life = class {
   }
   // ── 仕事
   salaryOf(a) {
+    if (this.proUntil > a) return this.proSalary;
     const w = this.region.wageIndex;
     const m = this.careerMult;
     switch (this.job) {
@@ -14160,6 +14166,12 @@ var Life = class {
   }
   workYear(r) {
     const a = this.age;
+    if (this.D.isJapan && this.sex === "male" && a === 15 && this.school === "hs") this.queueScene(clubScene());
+    if (this.proUntil === a) {
+      this.proUntil = -1;
+      this.log("work", this.proSport === "baseball" ? "\u30D7\u30ED\u91CE\u7403\u9078\u624B\u3092\u5F15\u9000\u3057\u305F\u3002\u6B21\u306E\u4ED5\u4E8B\u3092\u63A2\u3059\u3002" : "\u30D7\u30ED\u30B5\u30C3\u30AB\u30FC\u9078\u624B\u3092\u5F15\u9000\u3057\u305F\u3002\u6B21\u306E\u4ED5\u4E8B\u3092\u63A2\u3059\u3002", void 0, true);
+      this.job = "none";
+    }
     if (!this.banked && (this.job === "big" || this.job === "sme" || this.job === "civil")) {
       this.banked = true;
       this.log("money", "\u7D66\u6599\u306E\u632F\u308A\u8FBC\u307F\u306E\u305F\u3081\u3001\u9280\u884C\u306B\u53E3\u5EA7\u3092\u4F5C\u3063\u305F\u3002");
@@ -14196,7 +14208,10 @@ var Life = class {
     }
     if (this.job !== "none" && this.job !== "retired") {
       let sal = this.salaryOf(a);
-      if (this.job === "freelance" || this.job === "founder") sal *= Math.max(0.2, r.normal(1, 0.28));
+      if (this.job === "freelance" || this.job === "founder") {
+        const v = Math.max(0.2, r.normal(1, 0.28));
+        if (this.proUntil <= a) sal *= v;
+      }
       if (recession && (this.job === "big" || this.job === "sme")) sal *= 0.94;
       if (this.careMode === "home" && a < this.careUntil) sal *= 0.85;
       if (this.careMode === "liveIn" && a < this.careUntil) sal *= 0.9;
@@ -14988,6 +15003,8 @@ function buildChoice(l, id) {
         break;
       }
       title = "\u9AD8\u6821\u5352\u696D\u5F8C\u306E\u9032\u8DEF";
+      const scouted = !!l.proSport && streamRng(l.seed, "scout", 0).chance(PRO[l.proSport || "baseball"].rate);
+      if (scouted) options.push(opt("pro", PRO[l.proSport || "baseball"].label, PRO[l.proSport || "baseball"].desc));
       const pUniv = bandUnivRate(l) / Math.max(0.01, l.D.education.universityEntryByHouseholdIncome.over1000);
       const noSupport = r.chance(Math.max(0.03, 0.85 - pUniv * 0.85));
       if (noSupport) {
@@ -15007,6 +15024,8 @@ function buildChoice(l, id) {
           opt("job", "\u5C31\u8077\u3059\u308B", "\u65E9\u304F\u7A3C\u3052\u308B\u3002\u5927\u5352\u3068\u306E\u7D66\u6599\u5DEE\u306F\u5E83\u304C\u308A\u3084\u3059\u3044\u3002")
         );
       }
+      if (scouted) situation = PRO[l.proSport || "baseball"].offer + situation;
+      else if (l.proSport) situation = (l.proSport === "baseball" ? "3\u5E74\u9593\u3001\u91CE\u7403\u306B\u6253\u3061\u8FBC\u3093\u3060\u304C\u3001\u30D7\u30ED\u304B\u3089\u306E\u58F0\u306F\u304B\u304B\u3089\u306A\u304B\u3063\u305F\u3002" : "3\u5E74\u9593\u3001\u30B5\u30C3\u30AB\u30FC\u306B\u6253\u3061\u8FBC\u3093\u3060\u304C\u3001\u30D7\u30ED\u304B\u3089\u306E\u58F0\u306F\u304B\u304B\u3089\u306A\u304B\u3063\u305F\u3002") + situation;
       break;
     }
     case "firstJob": {
@@ -15215,6 +15234,17 @@ function applyChoice(l, id, o, r) {
       }
       break;
     case "afterHS": {
+      if (o === "pro") {
+        const pr = PRO[l.proSport];
+        l.school = "done";
+        l.job = "freelance";
+        l.jobStart = a;
+        l.proSalary = pr.salary;
+        l.proUntil = a + pr.years;
+        l.logPre("work", pr.joined, void 0, true);
+        l.mark("pro");
+        break;
+      }
       if (o === "job" || o === "stay") {
         l.school = "done";
         if (o === "stay") l.careerMult *= 1.05;
@@ -15602,6 +15632,60 @@ function bankruptScene(l) {
         label: "\u50CD\u304D\u306A\u304C\u3089\u8FD4\u3057\u7D9A\u3051\u308B",
         desc: "\u8CA1\u7523\u306F\u624B\u5143\u306B\u6B8B\u308B\u3002\u5229\u606F\u304C\u304B\u3055\u307F\u3001\u8FD4\u3057\u7D42\u3048\u308B\u307E\u3067\u66AE\u3089\u3057\u306F\u82E6\u3057\u3044\u3002",
         apply: (l2) => l2.logPre("money", "\u66AE\u3089\u3057\u3092\u5207\u308A\u3064\u3081\u3001\u501F\u91D1\u3092\u8FD4\u3057\u7D9A\u3051\u308B\u3053\u3068\u306B\u3057\u305F\u3002")
+      }
+    ]
+  };
+}
+var PRO = {
+  baseball: {
+    rate: 76 / (114904 / 3),
+    salary: 2e7,
+    years: 7,
+    offer: "\u9AD8\u6821\u6700\u5F8C\u306E\u590F\u304C\u7D42\u308F\u308A\u3001\u30D7\u30ED\u91CE\u7403\u306E\u30C9\u30E9\u30D5\u30C8\u4F1A\u8B70\u3067\u6307\u540D\u3055\u308C\u305F\u3002",
+    label: "\u30D7\u30ED\u91CE\u7403\u9078\u624B\u306B\u306A\u308B",
+    desc: "\u5E74\u4FF8\u306E\u771F\u3093\u4E2D\u306F2,000\u4E07\u5186\u3002\u5E73\u5747\u30677\u5E74\u307B\u3069\u3067\u5F15\u9000\u3057\u3001\u305D\u306E\u5148\u306E\u4ED5\u4E8B\u306F\u81EA\u5206\u3067\u63A2\u3059\u3002",
+    joined: "\u30C9\u30E9\u30D5\u30C8\u3067\u6307\u540D\u3055\u308C\u3001\u30D7\u30ED\u91CE\u7403\u9078\u624B\u306B\u306A\u3063\u305F\u3002"
+  },
+  soccer: {
+    rate: 265 / (137925 / 3),
+    salary: 36e5,
+    years: 6,
+    offer: "J\u30EA\u30FC\u30B0\u306E\u30AF\u30E9\u30D6\u304B\u3089\u3001\u30D7\u30ED\u5951\u7D04\u306E\u8A71\u304C\u6765\u305F\u3002",
+    label: "\u30D7\u30ED\u30B5\u30C3\u30AB\u30FC\u9078\u624B\u306B\u306A\u308B",
+    desc: "\u5E74\u4FF8\u306E\u4E0B\u9650\u306FJ1\u3067480\u4E07\u5186\u3001J2\u3067360\u4E07\u5186\u3002\u5E73\u5747\u30676\u5E74\u307B\u3069\u3067\u5F15\u9000\u3057\u3001\u305D\u306E\u5148\u306E\u4ED5\u4E8B\u306F\u81EA\u5206\u3067\u63A2\u3059\u3002",
+    joined: "J\u30EA\u30FC\u30B0\u306E\u30AF\u30E9\u30D6\u3068\u30D7\u30ED\u5951\u7D04\u3092\u7D50\u3073\u3001\u30D7\u30ED\u30B5\u30C3\u30AB\u30FC\u9078\u624B\u306B\u306A\u3063\u305F\u3002"
+  }
+};
+function clubScene() {
+  return {
+    id: "club",
+    title: "\u9AD8\u6821\u306E\u90E8\u6D3B",
+    situation: "\u9AD8\u6821\u306B\u5165\u3063\u305F\u3002\u90E8\u6D3B\u3092\u3069\u3046\u3059\u308B\uFF1F",
+    stillValid: (l) => l.school === "hs",
+    options: [
+      {
+        id: "baseball",
+        label: "\u91CE\u7403\u90E8\u3067\u30D7\u30ED\u3092\u76EE\u6307\u3059",
+        desc: "\u9AD8\u6821\u3067\u786C\u5F0F\u91CE\u7403\u3092\u3059\u308B\u7537\u5B50\u306F\u7D0411\u4E075\u5343\u4EBA\u3002\u30D7\u30ED\uFF08\u652F\u914D\u4E0B\uFF09\u306B\u5165\u308C\u308B\u306E\u306F1\u5E74\u306B76\u4EBA\u3067\u3001\u7D04500\u4EBA\u306B1\u4EBA\u3002",
+        apply: (l) => {
+          l.proSport = "baseball";
+          l.logPre("school", "\u91CE\u7403\u90E8\u306B\u5165\u308A\u3001\u30D7\u30ED\u3092\u76EE\u6307\u3057\u3066\u7DF4\u7FD2\u306B\u6253\u3061\u8FBC\u3093\u3060\u3002");
+        }
+      },
+      {
+        id: "soccer",
+        label: "\u30B5\u30C3\u30AB\u30FC\u90E8\u3067\u30D7\u30ED\u3092\u76EE\u6307\u3059",
+        desc: "\u9AD8\u6821\u3067\u30B5\u30C3\u30AB\u30FC\u3092\u3059\u308B\u7537\u5B50\u306F\u7D0413\u4E078\u5343\u4EBA\u3002\u9AD8\u6821\u30FB\u5927\u5B66\u30FB\u30E6\u30FC\u30B9\u304B\u30891\u5E74\u306B\u30D7\u30ED\u306B\u306A\u308B\u306E\u306F\u7D04270\u4EBA\u3002",
+        apply: (l) => {
+          l.proSport = "soccer";
+          l.logPre("school", "\u30B5\u30C3\u30AB\u30FC\u90E8\u306B\u5165\u308A\u3001\u30D7\u30ED\u3092\u76EE\u6307\u3057\u3066\u7DF4\u7FD2\u306B\u6253\u3061\u8FBC\u3093\u3060\u3002");
+        }
+      },
+      {
+        id: "other",
+        label: "\u307B\u304B\u306E\u90E8\u6D3B\u30FB\u5165\u3089\u306A\u3044",
+        desc: "\u52C9\u5F37\u3084\u8DA3\u5473\u3001\u30A2\u30EB\u30D0\u30A4\u30C8\u306B\u6642\u9593\u3092\u4F7F\u3048\u308B\u3002",
+        apply: (l) => l.logPre("school", "\u90E8\u6D3B\u306F\u307B\u3069\u307B\u3069\u306B\u3001\u9AD8\u6821\u751F\u6D3B\u3092\u9001\u3063\u305F\u3002")
       }
     ]
   };
@@ -25988,7 +26072,7 @@ var EXPENSE_LABEL = {
 };
 
 // src/engine/result.ts
-var CODEC_VERSION = "14";
+var CODEC_VERSION = "15";
 function picksOf(l) {
   return l.choiceLog.flatMap((c) => c.alloc ? [c.alloc.save, c.alloc.invest, c.alloc.family, c.alloc.self] : [c.pickIndex ?? 0]);
 }

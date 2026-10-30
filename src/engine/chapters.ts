@@ -46,6 +46,7 @@ const TAG_TEXT: Record<string, string> = {
   kidAbroad: "子どもが外国へ移り住んだ",
   unbanked: "口座を持てなかった",
   bankrupt: "自己破産した",
+  pro: "プロのスポーツ選手になった",
 };
 
 export interface Compare {

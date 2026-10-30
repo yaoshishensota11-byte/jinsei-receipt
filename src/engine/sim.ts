@@ -522,6 +522,11 @@ export class Life {
   alcoholProblem = false;
   /** 銀行やモバイルマネーの口座を持っている（ない人は貯金に利息がつかず、投資もできない） */
   banked = true;
+  /** 高校でプロを目指した競技（日本の男子）。"" は目指していない */
+  proSport: "" | "baseball" | "soccer" = "";
+  /** プロ選手として稼ぐ年俸と、引退する年齢。-1 はプロではない */
+  proSalary = 0;
+  proUntil = -1;
   /** 自己破産した年齢。-1 はなし */
   bankruptAge = -1;
   bankruptAsked = false;
@@ -991,6 +996,7 @@ export class Life {
 
   // ── 仕事
   salaryOf(a: number): number {
+    if (this.proUntil > a) return this.proSalary;
     const w = this.region.wageIndex;
     const m = this.careerMult;
     switch (this.job) {
@@ -1021,6 +1027,12 @@ export class Life {
 
   private workYear(r: Rng): void {
     const a = this.age;
+    if (this.D.isJapan && this.sex === "male" && a === 15 && this.school === "hs") this.queueScene(clubScene());
+    if (this.proUntil === a) {
+      this.proUntil = -1;
+      this.log("work", this.proSport === "baseball" ? "プロ野球選手を引退した。次の仕事を探す。" : "プロサッカー選手を引退した。次の仕事を探す。", undefined, true);
+      this.job = "none";
+    }
     if (!this.banked && (this.job === "big" || this.job === "sme" || this.job === "civil")) {
       this.banked = true;
       this.log("money", "給料の振り込みのため、銀行に口座を作った。");
@@ -1063,7 +1075,11 @@ export class Life {
 
     if (this.job !== "none" && this.job !== "retired") {
       let sal = this.salaryOf(a);
-      if (this.job === "freelance" || this.job === "founder") sal *= Math.max(0.2, r.normal(1, 0.28));
+      if (this.job === "freelance" || this.job === "founder") {
+        // 収入は毎年ばらつく。プロのスポーツ選手は年俸の契約なので、ばらつかせない
+        const v = Math.max(0.2, r.normal(1, 0.28));
+        if (this.proUntil <= a) sal *= v;
+      }
       if (recession && (this.job === "big" || this.job === "sme")) sal *= 0.94;
       if (this.careMode === "home" && a < this.careUntil) sal *= 0.85;
       if (this.careMode === "liveIn" && a < this.careUntil) sal *= 0.9;
@@ -2000,6 +2016,9 @@ export function buildChoice(l: Life, id: ChoiceId): Choice {
         break;
       }
       title = "高校卒業後の進路";
+      // プロを目指していた人に、プロから声がかかるか（大学や社会人を経てプロになる人も含めた、高校の部員1人あたりの割合）
+      const scouted = !!l.proSport && streamRng(l.seed, "scout", 0).chance(PRO[l.proSport || "baseball"].rate);
+      if (scouted) options.push(opt("pro", PRO[l.proSport || "baseball"].label, PRO[l.proSport || "baseball"].desc));
       const pUniv = bandUnivRate(l) / Math.max(0.01, l.D.education.universityEntryByHouseholdIncome.over1000);
       const noSupport = r.chance(Math.max(0.03, 0.85 - pUniv * 0.85));
       if (noSupport) {
@@ -2019,6 +2038,8 @@ export function buildChoice(l: Life, id: ChoiceId): Choice {
           opt("job", "就職する", "早く稼げる。大卒との給料差は広がりやすい。"),
         );
       }
+      if (scouted) situation = PRO[l.proSport || "baseball"].offer + situation;
+      else if (l.proSport) situation = (l.proSport === "baseball" ? "3年間、野球に打ち込んだが、プロからの声はかからなかった。" : "3年間、サッカーに打ち込んだが、プロからの声はかからなかった。") + situation;
       break;
     }
     case "firstJob": {
@@ -2242,6 +2263,17 @@ function applyChoice(l: Life, id: ChoiceId, o: string, r: Rng): void {
       }
       break;
     case "afterHS": {
+      if (o === "pro") {
+        const pr = PRO[l.proSport as "baseball" | "soccer"];
+        l.school = "done";
+        l.job = "freelance";
+        l.jobStart = a;
+        l.proSalary = pr.salary;
+        l.proUntil = a + pr.years;
+        l.logPre("work", pr.joined, undefined, true);
+        l.mark("pro");
+        break;
+      }
       if (o === "job" || o === "stay") {
         l.school = "done";
         if (o === "stay") l.careerMult *= 1.05;
@@ -2694,6 +2726,69 @@ function bankruptScene(l: Life): Scene {
         label: "働きながら返し続ける",
         desc: "財産は手元に残る。利息がかさみ、返し終えるまで暮らしは苦しい。",
         apply: (l) => l.logPre("money", "暮らしを切りつめ、借金を返し続けることにした。"),
+      },
+    ],
+  };
+}
+
+/**
+ * プロのスポーツ選手（日本の男子）。高校の部員1人あたり、のちにプロになる割合
+ * ・野球：NPB 2026年ドラフトの支配下指名76人 ÷ 硬式野球部の男子11.49万人の1学年分（3分の1）。年俸は支配下選手の中央値2,000万円（日本プロ野球選手会 2026年）、在籍は戦力外・引退した人の平均6.8年（NPB 2025年）
+ * ・サッカー：2026/27シーズンに高校・大学・ユースから新しく加入した265人（Jリーグ公式の移籍情報から数えた）÷ 男子サッカー部員13.79万人の1学年分。
+ *   ユース出身者も分子に入るので、部員1人あたりでは多めに出る。年俸はJ2の下限360万円（Jリーグ 2026/27、J1は480万円・J3は240万円）、在籍は2004年の新人103人の平均6.3年（報道）
+ */
+const PRO = {
+  baseball: {
+    rate: 76 / (114_904 / 3),
+    salary: 20_000_000,
+    years: 7,
+    offer: "高校最後の夏が終わり、プロ野球のドラフト会議で指名された。",
+    label: "プロ野球選手になる",
+    desc: "年俸の真ん中は2,000万円。平均で7年ほどで引退し、その先の仕事は自分で探す。",
+    joined: "ドラフトで指名され、プロ野球選手になった。",
+  },
+  soccer: {
+    rate: 265 / (137_925 / 3),
+    salary: 3_600_000,
+    years: 6,
+    offer: "Jリーグのクラブから、プロ契約の話が来た。",
+    label: "プロサッカー選手になる",
+    desc: "年俸の下限はJ1で480万円、J2で360万円。平均で6年ほどで引退し、その先の仕事は自分で探す。",
+    joined: "Jリーグのクラブとプロ契約を結び、プロサッカー選手になった。",
+  },
+} as const;
+
+/** 高校1年生（日本の男子）：部活でプロを目指すか */
+function clubScene(): Scene {
+  return {
+    id: "club",
+    title: "高校の部活",
+    situation: "高校に入った。部活をどうする？",
+    stillValid: (l) => l.school === "hs",
+    options: [
+      {
+        id: "baseball",
+        label: "野球部でプロを目指す",
+        desc: "高校で硬式野球をする男子は約11万5千人。プロ（支配下）に入れるのは1年に76人で、約500人に1人。",
+        apply: (l) => {
+          l.proSport = "baseball";
+          l.logPre("school", "野球部に入り、プロを目指して練習に打ち込んだ。");
+        },
+      },
+      {
+        id: "soccer",
+        label: "サッカー部でプロを目指す",
+        desc: "高校でサッカーをする男子は約13万8千人。高校・大学・ユースから1年にプロになるのは約270人。",
+        apply: (l) => {
+          l.proSport = "soccer";
+          l.logPre("school", "サッカー部に入り、プロを目指して練習に打ち込んだ。");
+        },
+      },
+      {
+        id: "other",
+        label: "ほかの部活・入らない",
+        desc: "勉強や趣味、アルバイトに時間を使える。",
+        apply: (l) => l.logPre("school", "部活はほどほどに、高校生活を送った。"),
       },
     ],
   };

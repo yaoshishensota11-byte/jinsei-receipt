@@ -1,0 +1,10 @@
+iso3,country_en,field,value,unit,year,source_name,source_url,note
+JPN,Japan,pro_entrants:jleague,265,count,2026/27,Jリーグ公式 移籍情報まとめページ（J1・J2・J3、2026年10月27〜29日更新）,https://www.jleague.jp/j1/special/transfer/,Claude が数えた。各クラブの IN のうち「新加入」で、所属元が大学（192人）・高校（43人）・ユース（30人）の選手。J1 82人・J2 91人・J3 92人。2025年5月〜2026年10月の発表を含む
+JPN,Japan,pro_salary:jleague,44300000,JPY,2023,Jリーグ クラブ経営ガイド2024,https://www.jleague.jp/corporate/assets/pdf/club_guide/jclub_guide-2024.pdf,J1のトップチーム選手671人の平均年俸（ChatGPT の調査）
+JPN,Japan,pro_career:jleague,6.3,year,2004,PRESIDENT Online（村井満前チェアマンのインタビュー）,https://president.jp/articles/-/64741?page=2,2004年に加入した新人103人の現役期間の平均。二次情報（ChatGPT の調査）
+JPN,Japan,pro_salary:weleague,2700000,JPY,2024/25,WEリーグ選手契約制度に関する資料,https://weleague.jp/files/upload/202602/25_160652.pdf,プロ契約の最低年俸270万円（ChatGPT の調査）
+JPN,Japan,pro_salary:bleague,8000000,JPY,2026/27,Bリーグ公式サラリーキャップ制度,https://www.bleague.jp/new-bleague/system/salary-cap/,B.LEAGUE PREMIER の最低年俸（ONE 360万円・NEXT 290万円）（ChatGPT の調査）
+JPN,Japan,pro_entrants:sumo,64,count,2025,2025年の相撲 新弟子検査合格者（二次情報）,https://newikis.com/ja/2025%E5%B9%B4%E3%81%AE%E7%9B%B8%E6%92%B2,6場所の合計（1月6・3月34・5月14・7月4・9月3・11月3）。十両以上になれる割合が分からない（ChatGPT の調査）
+JPN,Japan,pro_entrants:golf_m,52,count,2026,日本プロゴルフ協会 2026年度資格認定プロテスト最終結果,https://pga.or.jp/tournament/detail/22071/report,最終プロテスト155人中52人合格（ChatGPT の調査）
+JPN,Japan,pro_entrants:golf_f,22,count,2025,日本女子プロゴルフ協会 2025年度プロテスト合格者一覧,https://www.lpga.or.jp/qualify/pt/2025/passing-list,総受験者756人中22人合格（ChatGPT の調査）
+JPN,Japan,hs_club_members:baseball_m,114904,count,2026,日本高等学校野球連盟 2026年度加盟校部員数調査結果,https://www.jhbf.or.jp/topics/detail/592,硬式野球、5月末。総数124,116人から女子部員9,212人を引いた男子（ChatGPT の調査）
