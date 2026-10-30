@@ -41,3 +41,11 @@ Manus のクレジットが途中で尽き、運転手の給料・歯の治療�
 | doctor_wage_ratio・med_student_high_income_share・med_school_entrants_share | 医師の給料は5か国、医学部生の家の年収は日米だけ、医学部の入学者の割合は0か国 | 医師の出来事を国ごとに作るには足りない。保留 |
 | wage_ratio_*（職業の給料） | 製造業だけ20か国。教員4・公務員2・看護師0・運転手0 | 職業を細かくするには足りない。保留 |
 | dental_*・glasses_cost | 0/20（調査が終わらなかった） | 保留。別のAIで聞き直す候補 |
+
+### 2回目の追加分 jinsei_receipt_part11b_1.csv（11b の全行に、残っていた項目を足した版）
+
+| 項目 | 値あり | 判断 |
+|---|---|---|
+| wage_ratio_driver | 18/20 | 運転手ではなく「機械の操作員・組立工」（ILO の職業分類の大分類8）全体の給料。運転手の値としては使わない。製造業の給料と同じく、工場などで働く人の目安にとどめる |
+| dental_public_coverage | 6/20（OECD Health at a Glance 2025） | 歯の治療費のうち、公的な保険が払う割合：日本79%、ドイツ73%、フランス66%、ブラジル37%、英国36%、韓国36%。残り14か国（中・低所得国）は値がない。国全体の医療費の自己負担（countries の outOfPocketHealthShare）で補えるか、出来事を作るときに考える |
+| dental_visit_cost・glasses_cost | 0/20 | 国をまたいで比べられる公式の値がない。保留 |
