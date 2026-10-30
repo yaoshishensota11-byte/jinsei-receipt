@@ -1027,7 +1027,8 @@ export class Life {
 
   private workYear(r: Rng): void {
     const a = this.age;
-    if (this.D.isJapan && this.sex === "male" && a === 15 && this.school === "hs") this.queueScene(clubScene());
+    // 高校の部活でプロを目指す場面。女子の統計（WEリーグの引退までの年数）がそろうまで、男女とも出さない（ユーザーの判断）
+    if (PRO_ENABLED && this.D.isJapan && this.sex === "male" && a === 15 && this.school === "hs") this.queueScene(clubScene());
     if (this.proUntil === a) {
       this.proUntil = -1;
       this.log("work", this.proSport === "baseball" ? "プロ野球選手を引退した。次の仕事を探す。" : "プロサッカー選手を引退した。次の仕事を探す。", undefined, true);
@@ -2730,6 +2731,9 @@ function bankruptScene(l: Life): Scene {
     ],
   };
 }
+
+/** プロのスポーツ選手の出来事を出すか（男女の統計がそろうまで止めている） */
+const PRO_ENABLED = false;
 
 /**
  * プロのスポーツ選手（日本の男子）。高校の部員1人あたり、のちにプロになる割合

@@ -14159,7 +14159,7 @@ var Life = class {
   }
   workYear(r) {
     const a = this.age;
-    if (this.D.isJapan && this.sex === "male" && a === 15 && this.school === "hs") this.queueScene(clubScene());
+    if (PRO_ENABLED && this.D.isJapan && this.sex === "male" && a === 15 && this.school === "hs") this.queueScene(clubScene());
     if (this.proUntil === a) {
       this.proUntil = -1;
       this.log("work", this.proSport === "baseball" ? "\u30D7\u30ED\u91CE\u7403\u9078\u624B\u3092\u5F15\u9000\u3057\u305F\u3002\u6B21\u306E\u4ED5\u4E8B\u3092\u63A2\u3059\u3002" : "\u30D7\u30ED\u30B5\u30C3\u30AB\u30FC\u9078\u624B\u3092\u5F15\u9000\u3057\u305F\u3002\u6B21\u306E\u4ED5\u4E8B\u3092\u63A2\u3059\u3002", void 0, true);
@@ -15629,6 +15629,7 @@ function bankruptScene(l) {
     ]
   };
 }
+var PRO_ENABLED = false;
 var PRO = {
   baseball: {
     rate: 76 / (114904 / 3),
@@ -26065,7 +26066,7 @@ var EXPENSE_LABEL = {
 };
 
 // src/engine/result.ts
-var CODEC_VERSION = "15";
+var CODEC_VERSION = "16";
 function picksOf(l) {
   return l.choiceLog.flatMap((c) => c.alloc ? [c.alloc.save, c.alloc.invest, c.alloc.family, c.alloc.self] : [c.pickIndex ?? 0]);
 }
