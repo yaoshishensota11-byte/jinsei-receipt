@@ -400,7 +400,7 @@
         </h1>
         <p class="lead">生まれる国も、家庭も、生まれるまで分かりません。公的な統計データでつくった一生ぶんのお金の流れを、約20分で体験するゲームです。</p>
 
-        <div class="earn" id="earn" role="img" aria-label="生涯で稼ぐお金の中央値。アメリカ3.88億円、ドイツ2.82億円、日本1.66億円、中国5,913万円、ブラジル4,726万円、インド953万円、ナイジェリア407万円、エチオピア413万円">
+        <div class="earn" id="earn" role="img" aria-label="生涯で稼ぐお金の中央値。アメリカ3.88億円、ドイツ2.82億円、日本1.66億円、中国5,913万円、ブラジル4,726万円、インド953万円、エチオピア413万円、ナイジェリア407万円">
           <div class="hd"><span>生涯で稼ぐお金（本人）</span><span>中央値・円換算</span></div>
           <div class="er" data-v="38844"><span class="cn">アメリカ</span><span class="dots"></span><b>0円</b><span class="bar"><i></i></span></div>
           <div class="er" data-v="28200"><span class="cn">ドイツ</span><span class="dots"></span><b>0円</b><span class="bar"><i></i></span></div>
@@ -408,9 +408,9 @@
           <div class="er" data-v="5913"><span class="cn">中国</span><span class="dots"></span><b>0円</b><span class="bar"><i></i></span></div>
           <div class="er" data-v="4726"><span class="cn">ブラジル</span><span class="dots"></span><b>0円</b><span class="bar"><i></i></span></div>
           <div class="er" data-v="953"><span class="cn">インド</span><span class="dots"></span><b>0円</b><span class="bar"><i></i></span></div>
-          <div class="er" data-v="407"><span class="cn">ナイジェリア</span><span class="dots"></span><b>0円</b><span class="bar"><i></i></span></div>
           <div class="er" data-v="413"><span class="cn">エチオピア</span><span class="dots"></span><b>0円</b><span class="bar"><i></i></span></div>
-          <div class="total"><span>アメリカとエチオピアの差</span><b id="gap">約95倍</b></div>
+          <div class="er" data-v="407"><span class="cn">ナイジェリア</span><span class="dots"></span><b>0円</b><span class="bar"><i></i></span></div>
+          <div class="total"><span>アメリカとナイジェリアの差</span><b id="gap">約95倍</b></div>
         </div>
         <p class="cap">ゲームの中で各国400人の人生を動かしたときの、本人が生涯で稼いだお金の中央値です。現地通貨を今の為替で円に直しています。物価が違うので、暮らしの豊かさをそのまま比べたものではありません。</p>
 
@@ -696,8 +696,8 @@
               requestAnimationFrame(step);
             }, still ? 0 : 2300 + i * 170);
           });
-        const r0 = Number(rows[0].dataset.v), rl = Number(rows[rows.length - 1].dataset.v);
-        document.getElementById("gap").textContent = `約${Math.round(r0 / rl)}倍`;
+        const vs = rows.map((r) => Number(r.dataset.v));
+        document.getElementById("gap").textContent = `約${Math.round(Math.max(...vs) / Math.min(...vs))}倍`;
         start();
       })();
 
@@ -829,8 +829,7 @@
           box.append(a);
         });
         const cards = [...box.children];
-        onSeen(cards, (a) => {
-          const k = cards.indexOf(a);
+        onSeen([box], () => cards.forEach((a, k) => {
           setTimeout(() => {
             on(a);
             const b = a.querySelector(".earned b");
@@ -844,7 +843,7 @@
             };
             requestAnimationFrame(step);
           }, k * 260);
-        }, { threshold: 0.2 });
+        }), { threshold: 0.2 });
       });
 
       // ───── 最後のはんこ ─────

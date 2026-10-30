@@ -32,7 +32,15 @@ for line in open(os.environ['SP']+'/med.txt'):
     iso,name,v=line.split()
     short={'アメリカ合衆国':'アメリカ'}.get(name,name)
     s,n=re.subn(r'(<div class="er(?: jp)?" data-v=")\d+("><span class="cn">'+short+'</span>)', lambda m: m.group(1)+v+m.group(2), s); assert n==1,short
+# 金額の大きい順に並べ替える（年ごとの数字の入れ替えで順番がずれないように）
+rows=re.findall(r'          <div class="er(?: jp)?" data-v="\d+">.*?</div>\n',s)
+assert len(rows)==8
+start=s.index(rows[0]); end=start+sum(len(r) for r in rows)
+assert s[start:end]==''.join(rows)
+rows.sort(key=lambda r:-int(re.search(r'data-v="(\d+)"',r).group(1)))
+s=s[:start]+''.join(rows)+s[end:]
 vals=re.findall(r'<div class="er(?: jp)?" data-v="(\d+)"><span class="cn">([^<]+)</span>',s)
+s,n=re.subn(r'(<div class="total"><span>)[^<]*(の差</span>)',lambda m:m.group(1)+vals[0][1]+'と'+vals[-1][1]+m.group(2),s); assert n==1
 man=lambda v: f"{v/10000:.2f}億円" if v>=10000 else f"{v:,}万円"
 s,n=re.subn(r'(<div class="earn" id="earn" role="img" aria-label=")[^"]*(")',lambda m:m.group(1)+"生涯で稼ぐお金の中央値。"+"、".join(n+man(int(v)) for v,n in vals)+m.group(2),s); assert n==1
 for row in open('docs/generations.md',encoding='utf8'):
