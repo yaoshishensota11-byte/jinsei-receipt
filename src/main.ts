@@ -435,7 +435,7 @@ class Game {
           )
           .join("")}
       </div>
-      <button class="btn" id="allocGo">この割合で決める</button>
+      <div class="al-go"><button class="btn" id="allocGo">この割合で決める</button></div>
     </div></div>`);
     document.body.append(bg);
     const draw = () => {
@@ -443,10 +443,10 @@ class Game {
         .filter((k) => cur[k] > 0)
         .map((k) => `<i class="al-${k}" style="flex:${cur[k]}">${cur[k] >= 2 ? `${ALLOC_LABEL[k]}${cur[k] * 10}%` : ""}</i>`)
         .join("");
-      bg.querySelector<HTMLElement>(".al-legend")!.textContent = keys
+      bg.querySelector<HTMLElement>(".al-legend")!.innerHTML = keys
         .filter((k) => cur[k] > 0)
-        .map((k) => `${ALLOC_LABEL[k]}${cur[k] * 10}%`)
-        .join("・");
+        .map((k) => `<span><i class="al-${k}"></i>${ALLOC_LABEL[k]}${cur[k] * 10}%</span>`)
+        .join("");
       bg.querySelectorAll<HTMLInputElement>(".al-tune input").forEach((inp) => (inp.value = String(cur[inp.dataset.k as keyof Alloc])));
       bg.querySelectorAll<HTMLElement>(".al-val").forEach((el) => (el.textContent = `${cur[el.dataset.v as keyof Alloc] * 10}%`));
       bg.querySelectorAll<HTMLElement>(".al-presets .opt").forEach((b) => b.classList.toggle("picked", b.dataset.id === picked));

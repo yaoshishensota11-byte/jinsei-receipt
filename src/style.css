@@ -393,11 +393,12 @@ button {
   font-size: 12px;
 }
 
-/* ── 選択場面 ── */
+/* ── 選択場面 ──
+   後ろのゲーム画面をしっかり暗くし、選択肢は「押せるカード」とひと目で分かるようにする */
 .sheet-bg {
   position: fixed;
   inset: 0;
-  background: rgba(34, 30, 24, 0.45);
+  background: rgba(34, 30, 24, 0.62);
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -417,6 +418,7 @@ button {
   overflow-y: auto;
   border-radius: 18px 18px 0 0;
   padding: 20px 16px calc(20px + var(--safe-b));
+  box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.25);
   animation: up 0.3s ease-out;
 }
 @keyframes up {
@@ -426,70 +428,124 @@ button {
   }
 }
 .sheet .tag {
-  font-size: 12px;
-  color: var(--red);
+  display: inline-block;
+  font-size: 12.5px;
+  color: #fff;
+  background: var(--red);
   font-weight: 700;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
+  padding: 3px 10px;
+  border-radius: 99px;
 }
 .sheet h2 {
-  margin: 4px 0 6px;
-  font-size: 21px;
+  margin: 8px 0 6px;
+  font-size: 22px;
+  line-height: 1.4;
 }
 .sheet .sit {
-  font-size: 14px;
-  line-height: 1.7;
-  color: var(--sub);
-  margin: 0 0 14px;
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--ink);
+  margin: 0 0 16px;
 }
 .opt {
+  position: relative;
   display: block;
   width: 100%;
   text-align: left;
-  border: 1.5px solid var(--line);
+  font: inherit;
+  color: var(--ink);
+  border: 2px solid #b9b09d;
   background: #fff;
   border-radius: 12px;
-  padding: 13px 14px;
-  margin-bottom: 8px;
+  padding: 14px 40px 14px 14px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 0 #b9b09d;
   cursor: pointer;
+  transition: transform 0.08s, box-shadow 0.08s, background 0.12s;
+}
+/* 右端の「›」で、押せることを示す */
+.opt::after {
+  content: "›";
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 26px;
+  line-height: 1;
+  color: var(--ink);
 }
 .opt b {
   display: block;
-  font-size: 16px;
-  margin-bottom: 3px;
+  font-size: 17px;
+  line-height: 1.45;
+  margin-bottom: 4px;
 }
 .opt span {
-  font-size: 13px;
-  color: var(--sub);
-  line-height: 1.6;
+  display: block;
+  font-size: 14px;
+  color: #4f4a42;
+  line-height: 1.65;
 }
-.opt:active,
+@media (hover: hover) {
+  .opt:hover {
+    border-color: var(--ink);
+    box-shadow: 0 2px 0 var(--ink);
+  }
+}
+.opt:focus-visible {
+  outline: 3px solid var(--red);
+  outline-offset: 2px;
+}
+.opt:active {
+  transform: translateY(2px);
+  box-shadow: 0 0 0 #b9b09d;
+}
 .opt.picked {
   border-color: var(--ink);
-  background: var(--bg);
+  background: var(--ink);
+  box-shadow: 0 0 0 var(--ink);
+  transform: translateY(2px);
+  color: var(--paper);
+}
+.opt.picked span {
+  color: #e6e1d6;
+}
+.opt.picked::after {
+  content: "✓";
+  font-size: 20px;
+  color: var(--paper);
 }
 
 /* ── お金の振り分け ── */
-.sheet.alloc { max-height: 92vh; overflow-y: auto; }
-.al-bar { display: flex; height: 30px; border-radius: 8px; overflow: hidden; margin: 4px 0 6px; border: 1.5px solid var(--ink); }
-.al-bar i { display: flex; align-items: center; justify-content: center; font-style: normal; font-size: 11px; font-weight: 700; color: #fff; white-space: nowrap; overflow: hidden; transition: flex 0.2s ease-out; }
-.al-legend { font-size: 12px; color: var(--sub); margin-bottom: 10px; }
-.al-bar .al-living, .al-row.al-living .al-name { background: #d99a2b; }
-.al-bar .al-save, .al-row.al-save .al-name { background: #4f7fbf; }
-.al-bar .al-invest, .al-row.al-invest .al-name { background: #4e9a62; }
-.al-bar .al-family, .al-row.al-family .al-name { background: #c9534f; }
-.al-bar .al-self, .al-row.al-self .al-name { background: #8a6bbf; }
-.al-presets { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 8px; }
-.al-presets .opt { padding: 9px 10px; margin: 0; }
-.al-presets .opt b { font-size: 14.5px; margin-bottom: 2px; }
-.al-presets .opt span { font-size: 11.5px; line-height: 1.5; display: block; }
-.al-tune-btn { display: block; width: 100%; margin: 2px 0 10px; padding: 10px; border: 1.5px dashed var(--ink); border-radius: 10px; background: none; font: inherit; font-size: 14px; font-weight: 700; cursor: pointer; }
+.sheet.alloc { padding-bottom: 0; }
+.al-bar { display: flex; height: 34px; border-radius: 8px; overflow: hidden; margin: 4px 0 8px; border: 1.5px solid var(--ink); }
+.al-bar i { display: flex; align-items: center; justify-content: center; font-style: normal; font-size: 12px; font-weight: 700; color: #fff; white-space: nowrap; overflow: hidden; transition: flex 0.2s ease-out; }
+/* 色の見本つきの内訳。帯に名前が入らない小さな割合も、ここで読める */
+.al-legend { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 13.5px; font-weight: 700; margin-bottom: 12px; }
+.al-legend span { display: inline-flex; align-items: center; gap: 5px; }
+.al-legend i { display: inline-block; width: 12px; height: 12px; border-radius: 3px; }
+.al-bar .al-living, .al-row.al-living .al-name, .al-legend .al-living { background: #d99a2b; }
+.al-bar .al-save, .al-row.al-save .al-name, .al-legend .al-save { background: #4f7fbf; }
+.al-bar .al-invest, .al-row.al-invest .al-name, .al-legend .al-invest { background: #4e9a62; }
+.al-bar .al-family, .al-row.al-family .al-name, .al-legend .al-family { background: #c9534f; }
+.al-bar .al-self, .al-row.al-self .al-name, .al-legend .al-self { background: #8a6bbf; }
+.al-presets { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px; }
+.al-presets .opt { padding: 10px 10px 12px; margin: 0; }
+.al-presets .opt::after { content: none; }
+.al-presets .opt.picked::after { content: "✓"; top: 12px; right: 10px; transform: none; font-size: 17px; }
+.al-presets .opt b { font-size: 15.5px; margin-bottom: 3px; padding-right: 16px; }
+.al-presets .opt span { font-size: 12.5px; line-height: 1.55; }
+.al-tune-btn { display: block; width: 100%; margin: 2px 0 10px; padding: 12px; border: 1.5px dashed var(--ink); border-radius: 10px; background: none; color: var(--ink); font: inherit; font-size: 14.5px; font-weight: 700; cursor: pointer; }
 .al-tune { margin-bottom: 10px; }
-.al-row { display: grid; grid-template-columns: 4.2em 1fr 3em; align-items: center; gap: 8px; padding: 6px 0; border-bottom: 1px dashed var(--line); }
-.al-row .al-name { color: #fff; font-size: 12px; font-weight: 700; text-align: center; border-radius: 6px; padding: 3px 0; }
-.al-row input { width: 100%; }
-.al-row .al-rest { font-size: 12px; color: var(--sub); }
-.al-row .al-val { text-align: right; font-size: 15px; }
-.al-row small { grid-column: 1 / -1; font-size: 11.5px; color: var(--sub); line-height: 1.5; }
+.al-row { display: grid; grid-template-columns: 4.2em 1fr 3em; align-items: center; gap: 8px; padding: 8px 0; border-bottom: 1px dashed var(--line); }
+.al-row .al-name { color: #fff; font-size: 12.5px; font-weight: 700; text-align: center; border-radius: 6px; padding: 4px 0; }
+.al-row input { width: 100%; height: 28px; accent-color: var(--ink); }
+.al-row .al-rest { font-size: 13px; color: var(--sub); }
+.al-row .al-val { text-align: right; font-size: 16px; }
+.al-row small { grid-column: 1 / -1; font-size: 12.5px; color: #4f4a42; line-height: 1.55; }
+/* 「決める」ボタンは、下にスクロールしなくても常に見える */
+.al-go { position: sticky; bottom: 0; margin: 0 -16px; padding: 10px 16px calc(14px + var(--safe-b)); background: var(--paper); border-top: 1px solid var(--line); }
 
 /* ── 子どもとして生まれ直す ── */
 .heir {
@@ -720,7 +776,9 @@ button {
 
 /* 小さな選択は、大きな分かれ道より軽い見た目にする */
 .sheet.small .tag {
-  color: var(--sub);
+  color: var(--ink);
+  background: var(--bg);
+  border: 1px solid var(--line);
 }
 .sheet.small h2 {
   font-size: 18px;
@@ -924,6 +982,8 @@ button {
   margin: 12px 0 12px;
 }
 .ch-next {
+  padding: 14px;
+  box-shadow: 0 2px 0 #000;
   text-align: center;
   background: var(--ink);
   color: var(--paper);
@@ -931,6 +991,9 @@ button {
 }
 .ch-next b {
   margin: 0;
+}
+.ch-next::after {
+  color: var(--paper);
 }
 .lp-link {
   margin-top: 10px;
