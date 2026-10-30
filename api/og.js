@@ -14159,7 +14159,7 @@ var Life = class {
   }
   workYear(r) {
     const a = this.age;
-    if (PRO_ENABLED && this.D.isJapan && this.sex === "male" && a === 15 && this.school === "hs") this.queueScene(clubScene());
+    if (PRO_ENABLED && this.D.isJapan && a === 15 && this.school === "hs") this.queueScene(clubScene(this.sex));
     if (this.proUntil === a) {
       this.proUntil = -1;
       this.log("work", this.proSport === "baseball" ? "\u30D7\u30ED\u91CE\u7403\u9078\u624B\u3092\u5F15\u9000\u3057\u305F\u3002\u6B21\u306E\u4ED5\u4E8B\u3092\u63A2\u3059\u3002" : "\u30D7\u30ED\u30B5\u30C3\u30AB\u30FC\u9078\u624B\u3092\u5F15\u9000\u3057\u305F\u3002\u6B21\u306E\u4ED5\u4E8B\u3092\u63A2\u3059\u3002", void 0, true);
@@ -15629,7 +15629,7 @@ function bankruptScene(l) {
     ]
   };
 }
-var PRO_ENABLED = false;
+var PRO_ENABLED = true;
 var PRO = {
   baseball: {
     rate: 76 / (114904 / 3),
@@ -15648,9 +15648,42 @@ var PRO = {
     label: "\u30D7\u30ED\u30B5\u30C3\u30AB\u30FC\u9078\u624B\u306B\u306A\u308B",
     desc: "\u5E74\u4FF8\u306E\u4E0B\u9650\u306FJ1\u3067480\u4E07\u5186\u3001J2\u3067360\u4E07\u5186\u3002\u5E73\u5747\u30676\u5E74\u307B\u3069\u3067\u5F15\u9000\u3057\u3001\u305D\u306E\u5148\u306E\u4ED5\u4E8B\u306F\u81EA\u5206\u3067\u63A2\u3059\u3002",
     joined: "J\u30EA\u30FC\u30B0\u306E\u30AF\u30E9\u30D6\u3068\u30D7\u30ED\u5951\u7D04\u3092\u7D50\u3073\u3001\u30D7\u30ED\u30B5\u30C3\u30AB\u30FC\u9078\u624B\u306B\u306A\u3063\u305F\u3002"
+  },
+  soccerW: {
+    rate: 37 / (9048 / 3),
+    salary: 27e5,
+    years: 8,
+    offer: "WE\u30EA\u30FC\u30B0\u306E\u30AF\u30E9\u30D6\u304B\u3089\u3001\u30D7\u30ED\u5951\u7D04\u306E\u8A71\u304C\u6765\u305F\u3002",
+    label: "\u30D7\u30ED\u30B5\u30C3\u30AB\u30FC\u9078\u624B\u306B\u306A\u308B",
+    desc: "\u30D7\u30ED\u5951\u7D04\u306E\u5E74\u4FF8\u306E\u4E0B\u9650\u306F270\u4E07\u5186\u3002\u5728\u7C4D\u306F\u304A\u3088\u305D8\u5E74\uFF08\u9078\u624B\u540D\u7C3F\u304B\u3089\u8A08\u7B97\u3057\u305F\u76EE\u5B89\uFF09\u3067\u3001\u305D\u306E\u5148\u306E\u4ED5\u4E8B\u306F\u81EA\u5206\u3067\u63A2\u3059\u3002",
+    joined: "WE\u30EA\u30FC\u30B0\u306E\u30AF\u30E9\u30D6\u3068\u30D7\u30ED\u5951\u7D04\u3092\u7D50\u3073\u3001\u30D7\u30ED\u30B5\u30C3\u30AB\u30FC\u9078\u624B\u306B\u306A\u3063\u305F\u3002"
   }
 };
-function clubScene() {
+function clubScene(sex) {
+  if (sex === "female")
+    return {
+      id: "club",
+      title: "\u9AD8\u6821\u306E\u90E8\u6D3B",
+      situation: "\u9AD8\u6821\u306B\u5165\u3063\u305F\u3002\u90E8\u6D3B\u3092\u3069\u3046\u3059\u308B\uFF1F",
+      stillValid: (l) => l.school === "hs",
+      options: [
+        {
+          id: "soccerW",
+          label: "\u30B5\u30C3\u30AB\u30FC\u90E8\u3067\u30D7\u30ED\u3092\u76EE\u6307\u3059",
+          desc: "\u9AD8\u6821\u3067\u30B5\u30C3\u30AB\u30FC\u3092\u3059\u308B\u5973\u5B50\u306F\u7D049\u5343\u4EBA\u3002\u9AD8\u6821\u30FB\u5927\u5B66\u30FB\u30E6\u30FC\u30B9\u304B\u30891\u5E74\u306BWE\u30EA\u30FC\u30B0\u306B\u5165\u308B\u306E\u306F\u7D0440\u4EBA\u3002",
+          apply: (l) => {
+            l.proSport = "soccerW";
+            l.logPre("school", "\u30B5\u30C3\u30AB\u30FC\u90E8\u306B\u5165\u308A\u3001\u30D7\u30ED\u3092\u76EE\u6307\u3057\u3066\u7DF4\u7FD2\u306B\u6253\u3061\u8FBC\u3093\u3060\u3002");
+          }
+        },
+        {
+          id: "other",
+          label: "\u307B\u304B\u306E\u90E8\u6D3B\u30FB\u5165\u3089\u306A\u3044",
+          desc: "\u52C9\u5F37\u3084\u8DA3\u5473\u3001\u30A2\u30EB\u30D0\u30A4\u30C8\u306B\u6642\u9593\u3092\u4F7F\u3048\u308B\u3002",
+          apply: (l) => l.logPre("school", "\u90E8\u6D3B\u306F\u307B\u3069\u307B\u3069\u306B\u3001\u9AD8\u6821\u751F\u6D3B\u3092\u9001\u3063\u305F\u3002")
+        }
+      ]
+    };
   return {
     id: "club",
     title: "\u9AD8\u6821\u306E\u90E8\u6D3B",
@@ -26066,7 +26099,7 @@ var EXPENSE_LABEL = {
 };
 
 // src/engine/result.ts
-var CODEC_VERSION = "16";
+var CODEC_VERSION = "17";
 function picksOf(l) {
   return l.choiceLog.flatMap((c) => c.alloc ? [c.alloc.save, c.alloc.invest, c.alloc.family, c.alloc.self] : [c.pickIndex ?? 0]);
 }
