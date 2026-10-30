@@ -52,4 +52,4 @@
 
 29件のうち17件を統計で確かめ、そのうち6件の確率を直した。12件は推計のまま。
 
-推計のまま：jpn_tenkin、jpn_earthquake、chn_996、ind_wedding_cost、ind_crop_failure、nga_japa、pak_electricity_bill、pak_heatwave、phl_commute、egy_marriage_home、ken_fuel_tax、gen_urban_rent
+推計のまま：jpn_tenkin、jpn_earthquake、chn_996、ind_wedding_cost、ind_crop_failure、pak_electricity_bill、pak_heatwave、phl_commute、egy_marriage_home、gen_urban_rent（10件）。nga_japa と ken_fuel_tax は第11部の4回目の聞き直しで統計がそろい、確かめた（part11_review.md）
