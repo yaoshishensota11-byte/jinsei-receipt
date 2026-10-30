@@ -65,11 +65,13 @@ var life_stats_default = {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
       socialAssistanceQ1: "2011",
-      socialProtection: "2019"
+      socialProtection: "2019",
+      childLabour: "2023"
     },
     maternalDeathsPer100kBirths: 521,
     socialAssistanceQ1: 0.1247,
-    socialProtection: 0.075
+    socialProtection: 0.075,
+    childLabour: 0.193
   },
   AGO: {
     roadDeathsPer100k: 15,
@@ -77,11 +79,13 @@ var life_stats_default = {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
       socialAssistanceQ1: "2018",
-      socialProtection: "2022"
+      socialProtection: "2022",
+      childLabour: "2024"
     },
     maternalDeathsPer100kBirths: 183,
     socialAssistanceQ1: 0.0468,
-    socialProtection: 0.087
+    socialProtection: 0.087,
+    childLabour: 0.14
   },
   ARG: {
     roadDeathsPer100k: 10.2,
@@ -89,11 +93,13 @@ var life_stats_default = {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
       socialAssistanceQ1: "2022",
-      socialProtection: "2021"
+      socialProtection: "2021",
+      childLabour: "2017"
     },
     maternalDeathsPer100kBirths: 33,
     socialAssistanceQ1: 0.6886,
-    socialProtection: 0.659
+    socialProtection: 0.659,
+    childLabour: 0.02
   },
   AUS: {
     roadDeathsPer100k: 4.5,
@@ -111,11 +117,13 @@ var life_stats_default = {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
       socialAssistanceQ1: "2019",
-      socialProtection: "2022"
+      socialProtection: "2022",
+      childLabour: "2020"
     },
     maternalDeathsPer100kBirths: 392,
     socialAssistanceQ1: 0.1126,
-    socialProtection: 0.161
+    socialProtection: 0.161,
+    childLabour: 0.566
   },
   BEN: {
     roadDeathsPer100k: 24.8,
@@ -123,11 +131,13 @@ var life_stats_default = {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
       socialAssistanceQ1: "2021",
-      socialProtection: "2020"
+      socialProtection: "2020",
+      childLabour: "2022"
     },
     maternalDeathsPer100kBirths: 518,
     socialAssistanceQ1: 0.0441,
-    socialProtection: 0.084
+    socialProtection: 0.084,
+    childLabour: 0.199
   },
   BFA: {
     roadDeathsPer100k: 27.8,
@@ -135,11 +145,13 @@ var life_stats_default = {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
       socialAssistanceQ1: "2021",
-      socialProtection: "2021"
+      socialProtection: "2021",
+      childLabour: "2022"
     },
     maternalDeathsPer100kBirths: 242,
     socialAssistanceQ1: 0.4704,
-    socialProtection: 0.097
+    socialProtection: 0.097,
+    childLabour: 0.206
   },
   BGD: {
     roadDeathsPer100k: 18.6,
@@ -148,12 +160,32 @@ var life_stats_default = {
       maternalDeathsPer100kBirths: "2023",
       socialAssistanceQ1: "2022",
       socialProtection: "2021",
-      sicknessBenefit: "2023"
+      childLabour: "2025",
+      sicknessBenefit: "2023",
+      emigrantShare: "2024",
+      alcoholUseDisorder: "2016"
     },
     maternalDeathsPer100kBirths: 115,
     socialAssistanceQ1: 0.6934,
     socialProtection: 0.22,
-    sicknessBenefit: 0.5
+    childLabour: 0.092,
+    sicknessBenefit: 0.5,
+    emigrantShare: 0.0508,
+    emigrantDest: [
+      [
+        "Saudi Arabia",
+        2362680
+      ],
+      [
+        "India",
+        2293959
+      ],
+      [
+        "United Arab Emirates",
+        1024949
+      ]
+    ],
+    alcoholUseDisorder: 8e-3
   },
   BOL: {
     roadDeathsPer100k: 17.7,
@@ -161,11 +193,13 @@ var life_stats_default = {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
       socialAssistanceQ1: "2021",
-      socialProtection: "2021"
+      socialProtection: "2021",
+      childLabour: "2019"
     },
     maternalDeathsPer100kBirths: 146,
     socialAssistanceQ1: 0.9934,
-    socialProtection: 0.384
+    socialProtection: 0.384,
+    childLabour: 0.136
   },
   BRA: {
     roadDeathsPer100k: 15.7,
@@ -174,24 +208,46 @@ var life_stats_default = {
       maternalDeathsPer100kBirths: "2023",
       socialAssistanceQ1: "2022",
       socialProtection: "2022",
+      childLabour: "2022",
       singleParentPoverty: "2022",
-      sicknessBenefit: "2023"
+      sicknessBenefit: "2023",
+      emigrantShare: "2024",
+      alcoholUseDisorder: "2016"
     },
     maternalDeathsPer100kBirths: 67,
     socialAssistanceQ1: 0.6428,
     socialProtection: 0.712,
+    childLabour: 0.021,
     singleParentPoverty: 0.6122,
-    sicknessBenefit: 1
+    sicknessBenefit: 1,
+    emigrantShare: 0.0104,
+    emigrantDest: [
+      [
+        "United States",
+        738994
+      ],
+      [
+        "Japan",
+        207220
+      ],
+      [
+        "Spain",
+        179946
+      ]
+    ],
+    alcoholUseDisorder: 0.042
   },
   CAF: {
     roadDeathsPer100k: 26.1,
     years: {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
-      socialProtection: "2019"
+      socialProtection: "2019",
+      childLabour: "2019"
     },
     maternalDeathsPer100kBirths: 692,
-    socialProtection: 0.035
+    socialProtection: 0.035,
+    childLabour: 0.269
   },
   CAN: {
     roadDeathsPer100k: 4.8,
@@ -209,11 +265,13 @@ var life_stats_default = {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
       socialAssistanceQ1: "2022",
-      socialProtection: "2022"
+      socialProtection: "2022",
+      childLabour: "2012"
     },
     maternalDeathsPer100kBirths: 10,
     socialAssistanceQ1: 0.9278,
-    socialProtection: 0.753
+    socialProtection: 0.753,
+    childLabour: 0.059
   },
   CHN: {
     roadDeathsPer100k: 17.4,
@@ -222,12 +280,30 @@ var life_stats_default = {
       maternalDeathsPer100kBirths: "2023",
       socialAssistanceQ1: "2013",
       socialProtection: "2021",
-      sicknessBenefit: "2023"
+      sicknessBenefit: "2023",
+      emigrantShare: "2024",
+      alcoholUseDisorder: "2016"
     },
     maternalDeathsPer100kBirths: 16,
     socialAssistanceQ1: 0.6504,
     socialProtection: 0.756,
-    sicknessBenefit: 0.5
+    sicknessBenefit: 0.5,
+    emigrantShare: 82e-4,
+    emigrantDest: [
+      [
+        "Hong Kong",
+        2490414
+      ],
+      [
+        "United States",
+        2488775
+      ],
+      [
+        "Japan",
+        809893
+      ]
+    ],
+    alcoholUseDisorder: 0.044
   },
   CIV: {
     roadDeathsPer100k: 20.6,
@@ -235,11 +311,13 @@ var life_stats_default = {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
       socialAssistanceQ1: "2021",
-      socialProtection: "2022"
+      socialProtection: "2022",
+      childLabour: "2022"
     },
     maternalDeathsPer100kBirths: 359,
     socialAssistanceQ1: 0.0341,
-    socialProtection: 0.121
+    socialProtection: 0.121,
+    childLabour: 0.13
   },
   CMR: {
     roadDeathsPer100k: 10.6,
@@ -247,11 +325,13 @@ var life_stats_default = {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
       socialAssistanceQ1: "2021",
-      socialProtection: "2022"
+      socialProtection: "2022",
+      childLabour: "2014"
     },
     maternalDeathsPer100kBirths: 258,
     socialAssistanceQ1: 0.1279,
-    socialProtection: 0.1
+    socialProtection: 0.1,
+    childLabour: 0.389
   },
   COD: {
     roadDeathsPer100k: 16.3,
@@ -260,20 +340,42 @@ var life_stats_default = {
       maternalDeathsPer100kBirths: "2023",
       socialAssistanceQ1: "2012",
       socialProtection: "2022",
-      sicknessBenefit: "2023"
+      childLabour: "2024",
+      sicknessBenefit: "2023",
+      emigrantShare: "2024",
+      alcoholUseDisorder: "2016"
     },
     maternalDeathsPer100kBirths: 427,
     socialAssistanceQ1: 0.0483,
     socialProtection: 0.052,
-    sicknessBenefit: 0
+    childLabour: 0.119,
+    sicknessBenefit: 0,
+    emigrantShare: 0.0198,
+    emigrantDest: [
+      [
+        "Uganda",
+        637206
+      ],
+      [
+        "Rwanda",
+        236385
+      ],
+      [
+        "Burundi",
+        224091
+      ]
+    ],
+    alcoholUseDisorder: 0.05
   },
   COG: {
     roadDeathsPer100k: 8.4,
     years: {
       roadDeathsPer100k: "2021",
-      maternalDeathsPer100kBirths: "2023"
+      maternalDeathsPer100kBirths: "2023",
+      childLabour: "2015"
     },
-    maternalDeathsPer100kBirths: 241
+    maternalDeathsPer100kBirths: 241,
+    childLabour: 0.141
   },
   COL: {
     roadDeathsPer100k: 16.2,
@@ -281,11 +383,13 @@ var life_stats_default = {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
       socialAssistanceQ1: "2022",
-      socialProtection: "2025"
+      socialProtection: "2025",
+      childLabour: "2024"
     },
     maternalDeathsPer100kBirths: 59,
     socialAssistanceQ1: 0.5404,
-    socialProtection: 0.583
+    socialProtection: 0.583,
+    childLabour: 0.029
   },
   DEU: {
     roadDeathsPer100k: 3.3,
@@ -294,12 +398,30 @@ var life_stats_default = {
       maternalDeathsPer100kBirths: "2023",
       socialProtection: "2022",
       singleParentPoverty: "2020",
-      sicknessBenefit: "2023"
+      sicknessBenefit: "2023",
+      emigrantShare: "2024",
+      alcoholUseDisorder: "2016"
     },
     maternalDeathsPer100kBirths: 4,
     socialProtection: 1,
     singleParentPoverty: 0.2906,
-    sicknessBenefit: 1
+    sicknessBenefit: 1,
+    emigrantShare: 0.0508,
+    emigrantDest: [
+      [
+        "United States",
+        1137577
+      ],
+      [
+        "Switzerland",
+        371816
+      ],
+      [
+        "Turkey",
+        363563
+      ]
+    ],
+    alcoholUseDisorder: 0.068
   },
   DOM: {
     roadDeathsPer100k: 27.4,
@@ -307,21 +429,25 @@ var life_stats_default = {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
       socialAssistanceQ1: "2021",
-      socialProtection: "2022"
+      socialProtection: "2022",
+      childLabour: "2019"
     },
     maternalDeathsPer100kBirths: 124,
     socialAssistanceQ1: 0.5696,
-    socialProtection: 0.61
+    socialProtection: 0.61,
+    childLabour: 0.038
   },
   DZA: {
     roadDeathsPer100k: 18.3,
     years: {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
-      socialProtection: "2021"
+      socialProtection: "2021",
+      childLabour: "2019"
     },
     maternalDeathsPer100kBirths: 62,
-    socialProtection: 0.602
+    socialProtection: 0.602,
+    childLabour: 0.025
   },
   ECU: {
     roadDeathsPer100k: 22.8,
@@ -342,12 +468,32 @@ var life_stats_default = {
       maternalDeathsPer100kBirths: "2023",
       socialAssistanceQ1: "2019",
       socialProtection: "2022",
-      sicknessBenefit: "2023"
+      childLabour: "2023",
+      sicknessBenefit: "2023",
+      emigrantShare: "2024",
+      alcoholUseDisorder: "2016"
     },
     maternalDeathsPer100kBirths: 17,
     socialAssistanceQ1: 0.9409,
     socialProtection: 0.366,
-    sicknessBenefit: 1
+    childLabour: 0.114,
+    sicknessBenefit: 1,
+    emigrantShare: 0.0421,
+    emigrantDest: [
+      [
+        "Saudi Arabia",
+        1498313
+      ],
+      [
+        "United Arab Emirates",
+        841883
+      ],
+      [
+        "Jordan",
+        767948
+      ]
+    ],
+    alcoholUseDisorder: 0.014
   },
   ESP: {
     roadDeathsPer100k: 3.5,
@@ -366,12 +512,30 @@ var life_stats_default = {
       maternalDeathsPer100kBirths: "2023",
       socialAssistanceQ1: "2018",
       socialProtection: "2024",
-      sicknessBenefit: "2023"
+      sicknessBenefit: "2023",
+      emigrantShare: "2024",
+      alcoholUseDisorder: "2016"
     },
     maternalDeathsPer100kBirths: 195,
     socialAssistanceQ1: 0.3001,
     socialProtection: 0.115,
-    sicknessBenefit: 0.5
+    sicknessBenefit: 0.5,
+    emigrantShare: 96e-4,
+    emigrantDest: [
+      [
+        "United States",
+        363811
+      ],
+      [
+        "Saudi Arabia",
+        180746
+      ],
+      [
+        "Sudan",
+        121969
+      ]
+    ],
+    alcoholUseDisorder: 0.025
   },
   FRA: {
     roadDeathsPer100k: 4.7,
@@ -380,12 +544,30 @@ var life_stats_default = {
       maternalDeathsPer100kBirths: "2023",
       socialProtection: "2021",
       singleParentPoverty: "2021",
-      sicknessBenefit: "2023"
+      sicknessBenefit: "2023",
+      emigrantShare: "2024",
+      alcoholUseDisorder: "2016"
     },
     maternalDeathsPer100kBirths: 7,
     socialProtection: 0.994,
     singleParentPoverty: 0.3115,
-    sicknessBenefit: 1
+    sicknessBenefit: 1,
+    emigrantShare: 0.0383,
+    emigrantDest: [
+      [
+        "United States",
+        253094
+      ],
+      [
+        "Spain",
+        217960
+      ],
+      [
+        "Belgium",
+        196995
+      ]
+    ],
+    alcoholUseDisorder: 0.07
   },
   GBR: {
     roadDeathsPer100k: 2.4,
@@ -394,12 +576,30 @@ var life_stats_default = {
       maternalDeathsPer100kBirths: "2023",
       socialProtection: "2023",
       singleParentPoverty: "2021",
-      sicknessBenefit: "2023"
+      sicknessBenefit: "2023",
+      emigrantShare: "2024",
+      alcoholUseDisorder: "2016"
     },
     maternalDeathsPer100kBirths: 8,
     socialProtection: 0.936,
     singleParentPoverty: 0.2667,
-    sicknessBenefit: 0.5
+    sicknessBenefit: 0.5,
+    emigrantShare: 0.07,
+    emigrantDest: [
+      [
+        "Australia",
+        1107102
+      ],
+      [
+        "United States",
+        894789
+      ],
+      [
+        "Canada",
+        427526
+      ]
+    ],
+    alcoholUseDisorder: 0.087
   },
   GHA: {
     roadDeathsPer100k: 25.9,
@@ -407,11 +607,13 @@ var life_stats_default = {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
       socialAssistanceQ1: "2016",
-      socialProtection: "2022"
+      socialProtection: "2022",
+      childLabour: "2018"
     },
     maternalDeathsPer100kBirths: 234,
     socialAssistanceQ1: 0.3951,
-    socialProtection: 0.252
+    socialProtection: 0.252,
+    childLabour: 0.201
   },
   GIN: {
     roadDeathsPer100k: 37.4,
@@ -419,11 +621,13 @@ var life_stats_default = {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
       socialAssistanceQ1: "2018",
-      socialProtection: "2021"
+      socialProtection: "2021",
+      childLabour: "2016"
     },
     maternalDeathsPer100kBirths: 494,
     socialAssistanceQ1: 0.0779,
-    socialProtection: 0.037
+    socialProtection: 0.037,
+    childLabour: 0.242
   },
   GTM: {
     roadDeathsPer100k: 12.6,
@@ -443,11 +647,13 @@ var life_stats_default = {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
       socialAssistanceQ1: "2019",
-      socialProtection: "2022"
+      socialProtection: "2022",
+      childLabour: "2023"
     },
     maternalDeathsPer100kBirths: 47,
     socialAssistanceQ1: 0.5039,
-    socialProtection: 0.301
+    socialProtection: 0.301,
+    childLabour: 0.288
   },
   HTI: {
     roadDeathsPer100k: 31.3,
@@ -468,12 +674,30 @@ var life_stats_default = {
       maternalDeathsPer100kBirths: "2023",
       socialAssistanceQ1: "2022",
       socialProtection: "2021",
-      sicknessBenefit: "2023"
+      sicknessBenefit: "2023",
+      emigrantShare: "2024",
+      alcoholUseDisorder: "2016"
     },
     maternalDeathsPer100kBirths: 140,
     socialAssistanceQ1: 0.6939,
     socialProtection: 0.543,
-    sicknessBenefit: 0.5
+    sicknessBenefit: 0.5,
+    emigrantShare: 0.0133,
+    emigrantDest: [
+      [
+        "Malaysia",
+        1761502
+      ],
+      [
+        "United Arab Emirates",
+        298351
+      ],
+      [
+        "Taiwan",
+        292830
+      ]
+    ],
+    alcoholUseDisorder: 8e-3
   },
   IND: {
     roadDeathsPer100k: 14.6,
@@ -482,12 +706,30 @@ var life_stats_default = {
       maternalDeathsPer100kBirths: "2023",
       socialAssistanceQ1: "2011",
       socialProtection: "2025",
-      sicknessBenefit: "2023"
+      sicknessBenefit: "2023",
+      emigrantShare: "2024",
+      alcoholUseDisorder: "2016"
     },
     maternalDeathsPer100kBirths: 80,
     socialAssistanceQ1: 0.9276,
     socialProtection: 0.643,
-    sicknessBenefit: 1
+    sicknessBenefit: 1,
+    emigrantShare: 0.0129,
+    emigrantDest: [
+      [
+        "United Arab Emirates",
+        3248545
+      ],
+      [
+        "United States",
+        3165238
+      ],
+      [
+        "Saudi Arabia",
+        1953496
+      ]
+    ],
+    alcoholUseDisorder: 0.049
   },
   IRN: {
     roadDeathsPer100k: 20.6,
@@ -507,11 +749,13 @@ var life_stats_default = {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
       socialAssistanceQ1: "2012",
-      socialProtection: "2022"
+      socialProtection: "2022",
+      childLabour: "2018"
     },
     maternalDeathsPer100kBirths: 66,
     socialAssistanceQ1: 0.8612,
-    socialProtection: 0.417
+    socialProtection: 0.417,
+    childLabour: 0.045
   },
   ISR: {
     roadDeathsPer100k: 4.2,
@@ -539,11 +783,13 @@ var life_stats_default = {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
       socialAssistanceQ1: "2010",
-      socialProtection: "2022"
+      socialProtection: "2022",
+      childLabour: "2016"
     },
     maternalDeathsPer100kBirths: 31,
     socialAssistanceQ1: 0.8331,
-    socialProtection: 0.288
+    socialProtection: 0.288,
+    childLabour: 0.017
   },
   JPN: {
     roadDeathsPer100k: 2.6,
@@ -552,12 +798,30 @@ var life_stats_default = {
       maternalDeathsPer100kBirths: "2023",
       socialProtection: "2020",
       singleParentPoverty: "2021",
-      sicknessBenefit: "2023"
+      sicknessBenefit: "2023",
+      emigrantShare: "2024",
+      alcoholUseDisorder: "2016"
     },
     maternalDeathsPer100kBirths: 3,
     socialProtection: 0.946,
     singleParentPoverty: 0.4446,
-    sicknessBenefit: 1
+    sicknessBenefit: 1,
+    emigrantShare: 81e-4,
+    emigrantDest: [
+      [
+        "United States",
+        547444
+      ],
+      [
+        "Thailand",
+        104515
+      ],
+      [
+        "Australia",
+        53094
+      ]
+    ],
+    alcoholUseDisorder: 0.034
   },
   KAZ: {
     roadDeathsPer100k: 11.9,
@@ -565,11 +829,13 @@ var life_stats_default = {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
       socialAssistanceQ1: "2021",
-      socialProtection: "2023"
+      socialProtection: "2023",
+      childLabour: "2024"
     },
     maternalDeathsPer100kBirths: 10,
     socialAssistanceQ1: 0.4108,
-    socialProtection: 0.943
+    socialProtection: 0.943,
+    childLabour: 0.075
   },
   KEN: {
     roadDeathsPer100k: 28.2,
@@ -578,22 +844,42 @@ var life_stats_default = {
       maternalDeathsPer100kBirths: "2023",
       socialAssistanceQ1: "2015",
       socialProtection: "2021",
-      sicknessBenefit: "2023"
+      sicknessBenefit: "2023",
+      emigrantShare: "2024",
+      alcoholUseDisorder: "2016"
     },
     maternalDeathsPer100kBirths: 149,
     socialAssistanceQ1: 0.3451,
     socialProtection: 0.09,
-    sicknessBenefit: 0.5
+    sicknessBenefit: 0.5,
+    emigrantShare: 98e-4,
+    emigrantDest: [
+      [
+        "United States",
+        210991
+      ],
+      [
+        "United Kingdom",
+        137817
+      ],
+      [
+        "Australia",
+        30123
+      ]
+    ],
+    alcoholUseDisorder: 0.04
   },
   KHM: {
     roadDeathsPer100k: 18.8,
     years: {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
-      socialProtection: "2022"
+      socialProtection: "2022",
+      childLabour: "2012"
     },
     maternalDeathsPer100kBirths: 137,
-    socialProtection: 0.208
+    socialProtection: 0.208,
+    childLabour: 0.126
   },
   KOR: {
     roadDeathsPer100k: 6.9,
@@ -602,12 +888,30 @@ var life_stats_default = {
       maternalDeathsPer100kBirths: "2023",
       socialProtection: "2022",
       singleParentPoverty: "2022",
-      sicknessBenefit: "2023"
+      sicknessBenefit: "2023",
+      emigrantShare: "2024",
+      alcoholUseDisorder: "2016"
     },
     maternalDeathsPer100kBirths: 4,
     socialProtection: 0.802,
     singleParentPoverty: 0.2956,
-    sicknessBenefit: 0
+    sicknessBenefit: 0,
+    emigrantShare: 0.0392,
+    emigrantDest: [
+      [
+        "United States",
+        1083174
+      ],
+      [
+        "Japan",
+        393944
+      ],
+      [
+        "Canada",
+        151409
+      ]
+    ],
+    alcoholUseDisorder: 0.139
   },
   LKA: {
     roadDeathsPer100k: 11.4,
@@ -615,11 +919,13 @@ var life_stats_default = {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
       socialAssistanceQ1: "2019",
-      socialProtection: "2021"
+      socialProtection: "2021",
+      childLabour: "2016"
     },
     maternalDeathsPer100kBirths: 18,
     socialAssistanceQ1: 0.4882,
-    socialProtection: 0.413
+    socialProtection: 0.413,
+    childLabour: 8e-3
   },
   MAR: {
     roadDeathsPer100k: 18.6,
@@ -638,10 +944,12 @@ var life_stats_default = {
     years: {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
-      socialProtection: "2022"
+      socialProtection: "2022",
+      childLabour: "2018"
     },
     maternalDeathsPer100kBirths: 445,
-    socialProtection: 0.154
+    socialProtection: 0.154,
+    childLabour: 0.367
   },
   MEX: {
     roadDeathsPer100k: 12,
@@ -650,14 +958,34 @@ var life_stats_default = {
       maternalDeathsPer100kBirths: "2023",
       socialAssistanceQ1: "2022",
       socialProtection: "2022",
+      childLabour: "2022",
       singleParentPoverty: "2022",
-      sicknessBenefit: "2023"
+      sicknessBenefit: "2023",
+      emigrantShare: "2024",
+      alcoholUseDisorder: "2016"
     },
     maternalDeathsPer100kBirths: 42,
     socialAssistanceQ1: 0.5158,
     socialProtection: 0.808,
+    childLabour: 0.06,
     singleParentPoverty: 0.339,
-    sicknessBenefit: 1
+    sicknessBenefit: 1,
+    emigrantShare: 0.0894,
+    emigrantDest: [
+      [
+        "United States",
+        11279561
+      ],
+      [
+        "Canada",
+        103620
+      ],
+      [
+        "Spain",
+        77724
+      ]
+    ],
+    alcoholUseDisorder: 0.023
   },
   MLI: {
     roadDeathsPer100k: 20.2,
@@ -665,11 +993,13 @@ var life_stats_default = {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
       socialAssistanceQ1: "2021",
-      socialProtection: "2022"
+      socialProtection: "2022",
+      childLabour: "2020"
     },
     maternalDeathsPer100kBirths: 367,
     socialAssistanceQ1: 0.4095,
-    socialProtection: 0.126
+    socialProtection: 0.126,
+    childLabour: 0.227
   },
   MMR: {
     roadDeathsPer100k: 19.3,
@@ -677,11 +1007,13 @@ var life_stats_default = {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
       socialAssistanceQ1: "2017",
-      socialProtection: "2019"
+      socialProtection: "2019",
+      childLabour: "2015"
     },
     maternalDeathsPer100kBirths: 185,
     socialAssistanceQ1: 0.1038,
-    socialProtection: 0.063
+    socialProtection: 0.063,
+    childLabour: 0.099
   },
   MOZ: {
     roadDeathsPer100k: 19.9,
@@ -701,11 +1033,13 @@ var life_stats_default = {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
       socialAssistanceQ1: "2019",
-      socialProtection: "2022"
+      socialProtection: "2022",
+      childLabour: "2020"
     },
     maternalDeathsPer100kBirths: 225,
     socialAssistanceQ1: 0.4243,
-    socialProtection: 0.199
+    socialProtection: 0.199,
+    childLabour: 0.14
   },
   MYS: {
     roadDeathsPer100k: 13.9,
@@ -725,11 +1059,13 @@ var life_stats_default = {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
       socialAssistanceQ1: "2021",
-      socialProtection: "2015"
+      socialProtection: "2015",
+      childLabour: "2022"
     },
     maternalDeathsPer100kBirths: 350,
     socialAssistanceQ1: 0.2364,
-    socialProtection: 0.206
+    socialProtection: 0.206,
+    childLabour: 0.427
   },
   NGA: {
     roadDeathsPer100k: 17.2,
@@ -738,12 +1074,32 @@ var life_stats_default = {
       maternalDeathsPer100kBirths: "2023",
       socialAssistanceQ1: "2018",
       socialProtection: "2022",
-      sicknessBenefit: "2023"
+      childLabour: "2021",
+      sicknessBenefit: "2023",
+      emigrantShare: "2024",
+      alcoholUseDisorder: "2016"
     },
     maternalDeathsPer100kBirths: 993,
     socialAssistanceQ1: 0.277,
     socialProtection: 0.148,
-    sicknessBenefit: 0.5
+    childLabour: 0.315,
+    sicknessBenefit: 0.5,
+    emigrantShare: 92e-4,
+    emigrantDest: [
+      [
+        "United States",
+        565053
+      ],
+      [
+        "United Kingdom",
+        324007
+      ],
+      [
+        "Niger",
+        199722
+      ]
+    ],
+    alcoholUseDisorder: 6e-3
   },
   NPL: {
     roadDeathsPer100k: 28.2,
@@ -751,11 +1107,13 @@ var life_stats_default = {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
       socialAssistanceQ1: "2010",
-      socialProtection: "2022"
+      socialProtection: "2022",
+      childLabour: "2017"
     },
     maternalDeathsPer100kBirths: 142,
     socialAssistanceQ1: 0.4895,
-    socialProtection: 0.21
+    socialProtection: 0.21,
+    childLabour: 0.1
   },
   PAK: {
     roadDeathsPer100k: 11.9,
@@ -764,12 +1122,30 @@ var life_stats_default = {
       maternalDeathsPer100kBirths: "2023",
       socialAssistanceQ1: "2018",
       socialProtection: "2022",
-      sicknessBenefit: "2023"
+      sicknessBenefit: "2023",
+      emigrantShare: "2024",
+      alcoholUseDisorder: "2016"
     },
     maternalDeathsPer100kBirths: 155,
     socialAssistanceQ1: 0.2065,
     socialProtection: 0.202,
-    sicknessBenefit: 0.5
+    sicknessBenefit: 0.5,
+    emigrantShare: 0.0279,
+    emigrantDest: [
+      [
+        "Saudi Arabia",
+        1937044
+      ],
+      [
+        "United Arab Emirates",
+        932356
+      ],
+      [
+        "India",
+        768138
+      ]
+    ],
+    alcoholUseDisorder: 4e-3
   },
   PER: {
     roadDeathsPer100k: 12.2,
@@ -777,11 +1153,13 @@ var life_stats_default = {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
       socialAssistanceQ1: "2022",
-      socialProtection: "2024"
+      socialProtection: "2024",
+      childLabour: "2015"
     },
     maternalDeathsPer100kBirths: 51,
     socialAssistanceQ1: 0.9531,
-    socialProtection: 0.301
+    socialProtection: 0.301,
+    childLabour: 0.145
   },
   PHL: {
     roadDeathsPer100k: 9.9,
@@ -790,12 +1168,30 @@ var life_stats_default = {
       maternalDeathsPer100kBirths: "2023",
       socialAssistanceQ1: "2018",
       socialProtection: "2022",
-      sicknessBenefit: "2023"
+      sicknessBenefit: "2023",
+      emigrantShare: "2024",
+      alcoholUseDisorder: "2016"
     },
     maternalDeathsPer100kBirths: 84,
     socialAssistanceQ1: 0.5724,
     socialProtection: 0.349,
-    sicknessBenefit: 1
+    sicknessBenefit: 1,
+    emigrantShare: 0.0608,
+    emigrantDest: [
+      [
+        "United States",
+        2263697
+      ],
+      [
+        "Canada",
+        835779
+      ],
+      [
+        "Saudi Arabia",
+        755432
+      ]
+    ],
+    alcoholUseDisorder: 0.053
   },
   PNG: {
     roadDeathsPer100k: 15.3,
@@ -825,9 +1221,11 @@ var life_stats_default = {
     roadDeathsPer100k: 42.7,
     years: {
       roadDeathsPer100k: "2021",
-      maternalDeathsPer100kBirths: "2023"
+      maternalDeathsPer100kBirths: "2023",
+      childLabour: "2017"
     },
-    maternalDeathsPer100kBirths: 67
+    maternalDeathsPer100kBirths: 67,
+    childLabour: 0.043
   },
   RUS: {
     roadDeathsPer100k: 10.6,
@@ -847,11 +1245,13 @@ var life_stats_default = {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
       socialAssistanceQ1: "2013",
-      socialProtection: "2023"
+      socialProtection: "2023",
+      childLabour: "2024"
     },
     maternalDeathsPer100kBirths: 229,
     socialAssistanceQ1: 0.2005,
-    socialProtection: 0.077
+    socialProtection: 0.077,
+    childLabour: 0.068
   },
   SAU: {
     roadDeathsPer100k: 18.8,
@@ -869,11 +1269,13 @@ var life_stats_default = {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
       socialAssistanceQ1: "2009",
-      socialProtection: "2021"
+      socialProtection: "2021",
+      childLabour: "2022"
     },
     maternalDeathsPer100kBirths: 256,
     socialAssistanceQ1: 0.131,
-    socialProtection: 0.104
+    socialProtection: 0.104,
+    childLabour: 0.182
   },
   SEN: {
     roadDeathsPer100k: 20.8,
@@ -881,11 +1283,13 @@ var life_stats_default = {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
       socialAssistanceQ1: "2021",
-      socialProtection: "2022"
+      socialProtection: "2022",
+      childLabour: "2016"
     },
     maternalDeathsPer100kBirths: 237,
     socialAssistanceQ1: 0.3911,
-    socialProtection: 0.199
+    socialProtection: 0.199,
+    childLabour: 0.228
   },
   SLE: {
     roadDeathsPer100k: 13.8,
@@ -893,11 +1297,13 @@ var life_stats_default = {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
       socialAssistanceQ1: "2018",
-      socialProtection: "2019"
+      socialProtection: "2019",
+      childLabour: "2017"
     },
     maternalDeathsPer100kBirths: 354,
     socialAssistanceQ1: 0.2134,
-    socialProtection: 0.044
+    socialProtection: 0.044,
+    childLabour: 0.252
   },
   SOM: {
     roadDeathsPer100k: 20.2,
@@ -937,11 +1343,13 @@ var life_stats_default = {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
       socialAssistanceQ1: "2022",
-      socialProtection: "2022"
+      socialProtection: "2022",
+      childLabour: "2019"
     },
     maternalDeathsPer100kBirths: 748,
     socialAssistanceQ1: 0.0667,
-    socialProtection: 0.025
+    socialProtection: 0.025,
+    childLabour: 0.39
   },
   TGO: {
     roadDeathsPer100k: 22.7,
@@ -949,11 +1357,13 @@ var life_stats_default = {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
       socialAssistanceQ1: "2021",
-      socialProtection: "2022"
+      socialProtection: "2022",
+      childLabour: "2022"
     },
     maternalDeathsPer100kBirths: 349,
     socialAssistanceQ1: 0.1724,
-    socialProtection: 0.387
+    socialProtection: 0.387,
+    childLabour: 0.269
   },
   THA: {
     roadDeathsPer100k: 25.4,
@@ -985,11 +1395,13 @@ var life_stats_default = {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
       socialAssistanceQ1: "2019",
-      socialProtection: "2022"
+      socialProtection: "2022",
+      childLabour: "2022"
     },
     maternalDeathsPer100kBirths: 15,
     socialAssistanceQ1: 0.3961,
-    socialProtection: 0.64
+    socialProtection: 0.64,
+    childLabour: 0.059
   },
   TZA: {
     roadDeathsPer100k: 15.8,
@@ -997,11 +1409,13 @@ var life_stats_default = {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
       socialAssistanceQ1: "2014",
-      socialProtection: "2021"
+      socialProtection: "2021",
+      childLabour: "2014"
     },
     maternalDeathsPer100kBirths: 276,
     socialAssistanceQ1: 0.0867,
-    socialProtection: 0.114
+    socialProtection: 0.114,
+    childLabour: 0.248
   },
   UGA: {
     roadDeathsPer100k: 16,
@@ -1009,11 +1423,13 @@ var life_stats_default = {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
       socialAssistanceQ1: "2016",
-      socialProtection: "2022"
+      socialProtection: "2022",
+      childLabour: "2021"
     },
     maternalDeathsPer100kBirths: 170,
     socialAssistanceQ1: 46e-4,
-    socialProtection: 0.031
+    socialProtection: 0.031,
+    childLabour: 0.408
   },
   UKR: {
     roadDeathsPer100k: 10.5,
@@ -1021,11 +1437,13 @@ var life_stats_default = {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
       socialAssistanceQ1: "2020",
-      socialProtection: "2019"
+      socialProtection: "2019",
+      childLabour: "2015"
     },
     maternalDeathsPer100kBirths: 15,
     socialAssistanceQ1: 0.3342,
-    socialProtection: 0.73
+    socialProtection: 0.73,
+    childLabour: 0.04
   },
   USA: {
     roadDeathsPer100k: 14.2,
@@ -1034,12 +1452,30 @@ var life_stats_default = {
       maternalDeathsPer100kBirths: "2023",
       socialProtection: "2023",
       singleParentPoverty: "2022",
-      sicknessBenefit: "2023"
+      sicknessBenefit: "2023",
+      emigrantShare: "2024",
+      alcoholUseDisorder: "2016"
     },
     maternalDeathsPer100kBirths: 17,
     socialProtection: 0.788,
     singleParentPoverty: 0.4963,
-    sicknessBenefit: 0
+    sicknessBenefit: 0,
+    emigrantShare: 93e-4,
+    emigrantDest: [
+      [
+        "Mexico",
+        823502
+      ],
+      [
+        "Canada",
+        256571
+      ],
+      [
+        "United Kingdom",
+        243570
+      ]
+    ],
+    alcoholUseDisorder: 0.139
   },
   UZB: {
     roadDeathsPer100k: 9.3,
@@ -1047,11 +1483,13 @@ var life_stats_default = {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
       socialAssistanceQ1: "2018",
-      socialProtection: "2022"
+      socialProtection: "2022",
+      childLabour: "2022"
     },
     maternalDeathsPer100kBirths: 26,
     socialAssistanceQ1: 0.1026,
-    socialProtection: 0.56
+    socialProtection: 0.56,
+    childLabour: 0.206
   },
   VEN: {
     roadDeathsPer100k: 13.9,
@@ -1072,12 +1510,32 @@ var life_stats_default = {
       maternalDeathsPer100kBirths: "2023",
       socialAssistanceQ1: "2020",
       socialProtection: "2022",
-      sicknessBenefit: "2023"
+      childLabour: "2021",
+      sicknessBenefit: "2023",
+      emigrantShare: "2024",
+      alcoholUseDisorder: "2016"
     },
     maternalDeathsPer100kBirths: 48,
     socialAssistanceQ1: 0.8855,
     socialProtection: 0.383,
-    sicknessBenefit: 1
+    childLabour: 0.069,
+    sicknessBenefit: 1,
+    emigrantShare: 0.0368,
+    emigrantDest: [
+      [
+        "United States",
+        1434631
+      ],
+      [
+        "Japan",
+        589874
+      ],
+      [
+        "Australia",
+        294435
+      ]
+    ],
+    alcoholUseDisorder: 0.054
   },
   YEM: {
     roadDeathsPer100k: 29.8,
@@ -1085,11 +1543,13 @@ var life_stats_default = {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
       socialAssistanceQ1: "2014",
-      socialProtection: "2022"
+      socialProtection: "2022",
+      childLabour: "2023"
     },
     maternalDeathsPer100kBirths: 118,
     socialAssistanceQ1: 0.4421,
-    socialProtection: 0.07
+    socialProtection: 0.07,
+    childLabour: 0.159
   },
   ZAF: {
     roadDeathsPer100k: 24.9,
@@ -1097,11 +1557,13 @@ var life_stats_default = {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
       socialAssistanceQ1: "2021",
-      socialProtection: "2019"
+      socialProtection: "2019",
+      childLabour: "2019"
     },
     maternalDeathsPer100kBirths: 118,
     socialAssistanceQ1: 0.9458,
-    socialProtection: 0.493
+    socialProtection: 0.493,
+    childLabour: 0.075
   },
   ZMB: {
     roadDeathsPer100k: 17.1,
@@ -1109,11 +1571,13 @@ var life_stats_default = {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
       socialAssistanceQ1: "2015",
-      socialProtection: "2021"
+      socialProtection: "2021",
+      childLabour: "2023"
     },
     maternalDeathsPer100kBirths: 85,
     socialAssistanceQ1: 62e-4,
-    socialProtection: 0.303
+    socialProtection: 0.303,
+    childLabour: 0.187
   },
   ZWE: {
     roadDeathsPer100k: 29.8,
@@ -1121,11 +1585,13 @@ var life_stats_default = {
       roadDeathsPer100k: "2021",
       maternalDeathsPer100kBirths: "2023",
       socialAssistanceQ1: "2019",
-      socialProtection: "2021"
+      socialProtection: "2021",
+      childLabour: "2019"
     },
     maternalDeathsPer100kBirths: 358,
     socialAssistanceQ1: 0.5896,
-    socialProtection: 0.164
+    socialProtection: 0.164,
+    childLabour: 0.279
   }
 };
 
@@ -1147,6 +1613,38 @@ function publicAidRate(iso3) {
   const s = of(iso3);
   return s.socialAssistanceQ1 ?? s.socialProtection ?? 0.3;
 }
+var childLabourShare = (iso3) => STATS[iso3]?.childLabour ?? null;
+var alcoholDisorderShare = (iso3) => STATS[iso3]?.alcoholUseDisorder ?? null;
+function emigration(iso3) {
+  const s = STATS[iso3];
+  if (!s?.emigrantShare || !s.emigrantDest?.length) return null;
+  return { share: s.emigrantShare, dest: s.emigrantDest.filter(([n]) => DEST_JA[n]).map(([n, c]) => [DEST_JA[n], c]) };
+}
+var DEST_JA = {
+  Australia: "\u30AA\u30FC\u30B9\u30C8\u30E9\u30EA\u30A2",
+  Belgium: "\u30D9\u30EB\u30AE\u30FC",
+  Burundi: "\u30D6\u30EB\u30F3\u30B8",
+  Canada: "\u30AB\u30CA\u30C0",
+  "Hong Kong": "\u9999\u6E2F",
+  India: "\u30A4\u30F3\u30C9",
+  Japan: "\u65E5\u672C",
+  Jordan: "\u30E8\u30EB\u30C0\u30F3",
+  Malaysia: "\u30DE\u30EC\u30FC\u30B7\u30A2",
+  Mexico: "\u30E1\u30AD\u30B7\u30B3",
+  Niger: "\u30CB\u30B8\u30A7\u30FC\u30EB",
+  Rwanda: "\u30EB\u30EF\u30F3\u30C0",
+  "Saudi Arabia": "\u30B5\u30A6\u30B8\u30A2\u30E9\u30D3\u30A2",
+  Spain: "\u30B9\u30DA\u30A4\u30F3",
+  Sudan: "\u30B9\u30FC\u30C0\u30F3",
+  Switzerland: "\u30B9\u30A4\u30B9",
+  Taiwan: "\u53F0\u6E7E",
+  Thailand: "\u30BF\u30A4",
+  Turkey: "\u30C8\u30EB\u30B3",
+  Uganda: "\u30A6\u30AC\u30F3\u30C0",
+  "United Arab Emirates": "\u30A2\u30E9\u30D6\u9996\u9577\u56FD\u9023\u90A6",
+  "United Kingdom": "\u30A4\u30AE\u30EA\u30B9",
+  "United States": "\u30A2\u30E1\u30EA\u30AB"
+};
 
 // data/income.json
 var income_default = {
@@ -12875,6 +13373,12 @@ var Life = class {
     this.usedEvents = /* @__PURE__ */ new Set();
     /** 暮らしに困ったとき、国の給付を受けられた（親戚の援助ではなく） */
     this.publicAid = false;
+    /** 子どものうちから家の仕事や外の仕事で働いた（児童労働） */
+    this.childWorked = false;
+    /** 学校に行けない時期があった年齢（日本、不登校）。-1 はなし */
+    this.futokoAge = -1;
+    /** お酒がやめられなくなった */
+    this.alcoholProblem = false;
     /** 次に小さな選択を出す年齢 */
     this.nextMicro = 6;
     /** 小さな選択ごとの、最後に出た年齢 */
@@ -13246,6 +13750,7 @@ var Life = class {
     const a = this.age;
     if (a === 6) this.log("school", "\u5C0F\u5B66\u6821\u306B\u5165\u5B66\u3057\u305F\u3002");
     if (a === 12) this.log("school", "\u4E2D\u5B66\u6821\u306B\u5165\u5B66\u3057\u305F\u3002");
+    this.childhoodYear();
     if (this.school === "child" || this.school === "done") return;
     const drop = BAND_DROPOUT[this.band.id] ?? 1;
     if (this.school === "hs_night" || this.school === "univ_night") {
@@ -13404,6 +13909,17 @@ var Life = class {
     }
     for (const k of this.kids) {
       const ka = a - k.born;
+      const em = ka === 27 && !this.kidWithEx(k) ? emigration(this.D.iso3) : null;
+      if (em && em.dest.length && streamRng(this.seed, "kidAbroad" + this.kids.indexOf(k), 0).chance(Math.min(0.15, em.share))) {
+        const rr = streamRng(this.seed, "kidAbroadTo" + this.kids.indexOf(k), 0);
+        let x = rr.next() * em.dest.reduce((t, [, c]) => t + c, 0);
+        const to = em.dest.find(([, c]) => (x -= c) < 0)?.[0] ?? em.dest[0][0];
+        k.abroad = to;
+        if (k.leftAge === void 0) k.leftAge = a;
+        k.stayHome = false;
+        this.log("family", `${this.kidLabel(this.kids.indexOf(k))}\u304C${to}\u3078\u79FB\u308A\u4F4F\u307F\u3001\u5411\u3053\u3046\u3067\u50CD\u304D\u306F\u3058\u3081\u305F\u3002${this.D.nameJa}\u3067\u751F\u307E\u308C\u305F\u4EBA\u306E${Math.round(em.share * 1e3) / 10}%\u304C\u3001\u5916\u56FD\u3067\u66AE\u3089\u3057\u3066\u3044\u308B\u3002`, void 0, true);
+        this.mark("kidAbroad");
+      }
       if (ka === 22 && k.univ || ka === 18 && !k.univ) this.queueScene(kidLeaveScene(this, this.kids.indexOf(k)));
       else if (k.stayHome && k.leftAge === void 0 && ka > 18) {
         if (r.chance(0.18) || ka >= 35) {
@@ -13824,12 +14340,59 @@ var Life = class {
       this.spend("medical", cost);
       this.log("health", r.pick(["\u9AA8\u6298\u3057\u3066\u901A\u9662\u3057\u305F\u3002", "\u624B\u8853\u306E\u305F\u3081\u5165\u9662\u3057\u305F\u3002", "\u6301\u75C5\u306E\u6CBB\u7642\u304C\u7D9A\u3044\u305F\u3002"]), -cost);
     }
+    const alc = alcoholDisorderShare(this.D.iso3);
+    if (alc !== null && !this.alcoholProblem && a < 60 && streamRng(this.seed, "alcohol", a).chance(1 - Math.pow(1 - alc, 1 / 40))) {
+      this.alcoholProblem = true;
+      const cost = this.y(streamRng(this.seed, "alcoholCost", a).range(2e5, 6e5));
+      this.spend("medical", cost);
+      this.illMult = Math.min(1.6, this.illMult * 1.08);
+      this.log("health", this.vary("alcohol", ["\u304A\u9152\u306E\u91CF\u304C\u5897\u3048\u3001\u81EA\u5206\u3067\u306F\u3084\u3081\u3089\u308C\u306A\u304F\u306A\u3063\u305F\u3002\u5C02\u9580\u306E\u75C5\u9662\u3067\u6CBB\u7642\u3092\u53D7\u3051\u305F\u3002", "\u6BCE\u6669\u306E\u9152\u304C\u624B\u653E\u305B\u306A\u304F\u306A\u308A\u3001\u5BB6\u65CF\u306B\u52E7\u3081\u3089\u308C\u3066\u6CBB\u7642\u306B\u901A\u3063\u305F\u3002"]), -cost, true);
+      this.mark("alcohol");
+    }
     if (!this.selfCare && a >= 65 && r.chance(this.D.careNeed(a) / 6)) {
       this.selfCare = true;
       this.log("health", "\u8981\u4ECB\u8B77\u306E\u8A8D\u5B9A\u3092\u53D7\u3051\u305F\u3002\u4ECB\u8B77\u30B5\u30FC\u30D3\u30B9\u3092\u4F7F\u3044\u306F\u3058\u3081\u305F\u3002", void 0, true);
       this.mark("care");
     }
     if (this.selfCare) this.spend("care", r.range(this.y(6e5), this.y(12e5)));
+  }
+  /**
+   * 子ども時代の出来事（ほかの出来事と乱数を分ける）
+   * ・児童労働（日本以外）：10歳のとき、その国の5〜17歳の児童労働の割合（UNICEF・ILO）を、家の豊かさで重みづけて決める
+   * ・不登校（日本）：その年度に不登校だった子は小学生2.3%、中学生6.8%（文部科学省 2024年度）
+   */
+  childhoodYear() {
+    const a = this.age;
+    if (!this.D.isJapan && a === 10) {
+      const share = childLabourShare(this.D.iso3);
+      const bandF = [2, 1.4, 1, 0.5, 0.2][this.bandIdx] ?? 1;
+      if (share !== null && streamRng(this.seed, "childWork", 0).chance(Math.min(0.9, share * bandF))) {
+        this.childWorked = true;
+        this.log(
+          "school",
+          this.region.urban ? "\u5BB6\u8A08\u3092\u52A9\u3051\u308B\u305F\u3081\u3001\u5B66\u6821\u304C\u7D42\u308F\u308B\u3068\u5E02\u5834\u3084\u5E97\u3067\u50CD\u304F\u3088\u3046\u306B\u306A\u3063\u305F\u3002\u5B66\u6821\u3092\u4F11\u3080\u65E5\u3082\u5897\u3048\u305F\u3002" : "\u5BB6\u306E\u7551\u4ED5\u4E8B\u3084\u5BB6\u755C\u306E\u4E16\u8A71\u3092\u4EFB\u3055\u308C\u3001\u5B66\u6821\u3092\u4F11\u3080\u65E5\u304C\u5897\u3048\u305F\u3002",
+          void 0,
+          true
+        );
+        this.mark("childWork");
+      }
+    }
+    if (this.D.isJapan && this.futokoAge < 0 && (a === 9 || a === 13) && streamRng(this.seed, "futoko", a).chance(a === 13 ? 0.068 : 0.023)) {
+      this.futokoAge = a;
+      this.log(
+        "school",
+        a >= 12 ? "\u4E2D\u5B66\u6821\u306B\u884C\u3051\u306A\u3044\u6642\u671F\u304C\u7D9A\u3044\u305F\u3002\u5BB6\u3084\u30D5\u30EA\u30FC\u30B9\u30AF\u30FC\u30EB\u3067\u904E\u3054\u3057\u305F\u3002" : "\u5C0F\u5B66\u6821\u306B\u884C\u3051\u306A\u3044\u6642\u671F\u304C\u7D9A\u3044\u305F\u3002\u5BB6\u3067\u904E\u3054\u3059\u65E5\u304C\u591A\u304B\u3063\u305F\u3002",
+        void 0,
+        true
+      );
+      this.mark("futoko");
+    }
+  }
+  /** 子どもの呼び名（長男・次女など）。家族の声と同じ数え方 */
+  kidLabel(i) {
+    const f = kidFemale(this.seed, i);
+    const nth = this.kids.slice(0, i).filter((_, j) => kidFemale(this.seed, j) === f).length;
+    return `${["\u9577", "\u6B21", "\u4E09", "\u56DB", "\u4E94"][nth] ?? "\u672B"}${f ? "\u5973" : "\u7537"}`;
   }
   /** 初めての子が生まれたときに添える、お産の危険の一言（国連の推計） */
   birthRiskNote() {
@@ -14204,7 +14767,8 @@ function buildChoice(l, id) {
       const jp2 = l.D.isJapan;
       const bandF = [2, 1.4, 1, 0.5, 0.2][l.bandIdx] ?? 1;
       const pNoFull = jp2 ? l.band.id === "low" ? 0.08 : l.band.id === "lower_mid" ? 0.03 : 8e-3 : Math.min(0.92, (1 - l.D.education.highSchoolEntryRate) * bandF);
-      const noFull = r.chance(pNoFull);
+      const pAdj = l.childWorked ? 1 - (1 - pNoFull) * (2 / 3) : l.futokoAge >= 12 ? Math.max(pNoFull, 0.149) : pNoFull;
+      const noFull = r.chance(pAdj);
       if (noFull) {
         situation = jp2 ? "\u5BB6\u8A08\u304C\u82E6\u3057\u304F\u3001\u5168\u65E5\u5236\u306E\u9AD8\u6821\u306B\u901A\u308F\u305B\u308B\u4F59\u88D5\u304C\u306A\u3044\u3068\u89AA\u306B\u8A00\u308F\u308C\u305F\u3002" : "\u5BB6\u8A08\u304C\u82E6\u3057\u304F\u3001\u4E0A\u306E\u5B66\u6821\u306B\u901A\u308F\u305B\u308B\u4F59\u88D5\u306F\u306A\u3044\u3068\u89AA\u306B\u8A00\u308F\u308C\u305F\u3002";
         options.push(
@@ -25190,7 +25754,7 @@ var EXPENSE_LABEL = {
 };
 
 // src/engine/result.ts
-var CODEC_VERSION = "12";
+var CODEC_VERSION = "13";
 function picksOf(l) {
   return l.choiceLog.flatMap((c) => c.alloc ? [c.alloc.save, c.alloc.invest, c.alloc.family, c.alloc.self] : [c.pickIndex ?? 0]);
 }

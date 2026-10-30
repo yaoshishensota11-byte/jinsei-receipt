@@ -49,3 +49,30 @@ export function publicAidRate(iso3: string): number {
   const s = of(iso3);
   return s.socialAssistanceQ1 ?? s.socialProtection ?? 0.3;
 }
+
+/** 5〜17歳のうち、児童労働をしている子の割合（家の仕事を含む本来の定義、UNICEF・ILO）。統計がない国は null */
+export const childLabourShare = (iso3: string): number | null => (STATS[iso3] as LifeStatsExtra | undefined)?.childLabour ?? null;
+
+/** 15歳以上のうち、アルコール使用障害の人の割合（WHO、12か月）。統計がない国は null */
+export const alcoholDisorderShare = (iso3: string): number | null => (STATS[iso3] as LifeStatsExtra | undefined)?.alcoholUseDisorder ?? null;
+
+/** その国で生まれ、外国に住んでいる人の割合と、主な行き先（国連 International Migrant Stock 2024） */
+export function emigration(iso3: string): { share: number; dest: [string, number][] } | null {
+  const s = STATS[iso3] as LifeStatsExtra | undefined;
+  if (!s?.emigrantShare || !s.emigrantDest?.length) return null;
+  return { share: s.emigrantShare, dest: s.emigrantDest.filter(([n]) => DEST_JA[n]).map(([n, c]) => [DEST_JA[n], c]) };
+}
+
+interface LifeStatsExtra extends LifeStats {
+  childLabour?: number;
+  alcoholUseDisorder?: number;
+  emigrantShare?: number;
+  emigrantDest?: [string, number][];
+}
+
+const DEST_JA: Record<string, string> = {
+  Australia: "オーストラリア", Belgium: "ベルギー", Burundi: "ブルンジ", Canada: "カナダ", "Hong Kong": "香港", India: "インド",
+  Japan: "日本", Jordan: "ヨルダン", Malaysia: "マレーシア", Mexico: "メキシコ", Niger: "ニジェール", Rwanda: "ルワンダ",
+  "Saudi Arabia": "サウジアラビア", Spain: "スペイン", Sudan: "スーダン", Switzerland: "スイス", Taiwan: "台湾", Thailand: "タイ",
+  Turkey: "トルコ", Uganda: "ウガンダ", "United Arab Emirates": "アラブ首長国連邦", "United Kingdom": "イギリス", "United States": "アメリカ",
+};

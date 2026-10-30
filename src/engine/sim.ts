@@ -1,7 +1,7 @@
 // 人生シミュレーション本体。1年ずつ進み、選択場面で止まる。
 // 同じ seed と同じ選択の並びなら、まったく同じ人生になる。
 import { Rng, streamRng, hashStr } from "./rng";
-import { maternalDeaths, publicAidRate, sickPayCovered, singleParentPoverty } from "./lifestats";
+import { alcoholDisorderShare, childLabourShare, emigration, maternalDeaths, publicAidRate, sickPayCovered, singleParentPoverty } from "./lifestats";
 import { JAPAN, type CountryData, type Region, type IncomeBand } from "./data";
 import { MICROS } from "./micro";
 import { riskYear, countryEventScene, ipvHazard } from "./risks";
@@ -225,6 +225,8 @@ export class Life {
     stayHome?: boolean;
     /** 家を出た年齢（自分の年齢） */
     leftAge?: number;
+    /** 外国へ移り住んだ先（国連の移住統計の主な行き先から） */
+    abroad?: string;
     /** 巣立ちの場面で、どうするかを決めた */
     leaveAsked?: boolean;
     /** 生まれたときの、もう一人の親（パートナー）の年齢 */
@@ -510,6 +512,12 @@ export class Life {
   usedEvents = new Set<string>();
   /** 暮らしに困ったとき、国の給付を受けられた（親戚の援助ではなく） */
   publicAid = false;
+  /** 子どものうちから家の仕事や外の仕事で働いた（児童労働） */
+  childWorked = false;
+  /** 学校に行けない時期があった年齢（日本、不登校）。-1 はなし */
+  futokoAge = -1;
+  /** お酒がやめられなくなった */
+  alcoholProblem = false;
 
   /** 離婚する。財産を分け、子どもがいれば養育費などが続く */
   divorce(r: Rng, text: string, dv = false): void {
@@ -716,6 +724,7 @@ export class Life {
     const a = this.age;
     if (a === 6) this.log("school", "小学校に入学した。");
     if (a === 12) this.log("school", "中学校に入学した。");
+    this.childhoodYear();
     if (this.school === "child" || this.school === "done") return;
     const drop = BAND_DROPOUT[this.band.id] ?? 1;
     // 在学中のアルバイト・学費
@@ -896,6 +905,18 @@ export class Life {
     // 子どもの節目
     for (const k of this.kids) {
       const ka = a - k.born;
+      const em = ka === 27 && !this.kidWithEx(k) ? emigration(this.D.iso3) : null;
+      if (em && em.dest.length && streamRng(this.seed, "kidAbroad" + this.kids.indexOf(k), 0).chance(Math.min(0.15, em.share))) {
+        // その国で生まれた人のうち外国に住む人の割合で、子どもが外国へ移り住む。行き先は人数の多い国ほど選ばれやすい
+        const rr = streamRng(this.seed, "kidAbroadTo" + this.kids.indexOf(k), 0);
+        let x = rr.next() * em.dest.reduce((t, [, c]) => t + c, 0);
+        const to = em.dest.find(([, c]) => (x -= c) < 0)?.[0] ?? em.dest[0][0];
+        k.abroad = to;
+        if (k.leftAge === undefined) k.leftAge = a;
+        k.stayHome = false;
+        this.log("family", `${this.kidLabel(this.kids.indexOf(k))}が${to}へ移り住み、向こうで働きはじめた。${this.D.nameJa}で生まれた人の${Math.round(em.share * 1000) / 10}%が、外国で暮らしている。`, undefined, true);
+        this.mark("kidAbroad");
+      }
       if ((ka === 22 && k.univ) || (ka === 18 && !k.univ)) this.queueScene(kidLeaveScene(this, this.kids.indexOf(k)));
       else if (k.stayHome && k.leftAge === undefined && ka > 18) {
         // 実家から通う子どもは家にお金を入れ、いずれ貯めたお金で家を出る
@@ -1382,12 +1403,65 @@ export class Life {
       this.spend("medical", cost);
       this.log("health", r.pick(["骨折して通院した。", "手術のため入院した。", "持病の治療が続いた。"]), -cost);
     }
+    // お酒がやめられなくなる（WHO の12か月有病率を、20〜59歳の40年でおよそ一度起きる大きさにした。統計がある20か国だけ）
+    const alc = alcoholDisorderShare(this.D.iso3);
+    if (alc !== null && !this.alcoholProblem && a < 60 && streamRng(this.seed, "alcohol", a).chance(1 - Math.pow(1 - alc, 1 / 40))) {
+      this.alcoholProblem = true;
+      const cost = this.y(streamRng(this.seed, "alcoholCost", a).range(200_000, 600_000));
+      this.spend("medical", cost);
+      this.illMult = Math.min(1.6, this.illMult * 1.08);
+      this.log("health", this.vary("alcohol", ["お酒の量が増え、自分ではやめられなくなった。専門の病院で治療を受けた。", "毎晩の酒が手放せなくなり、家族に勧められて治療に通った。"]), -cost, true);
+      this.mark("alcohol");
+    }
     if (!this.selfCare && a >= 65 && r.chance(this.D.careNeed(a) / 6)) {
       this.selfCare = true;
       this.log("health", "要介護の認定を受けた。介護サービスを使いはじめた。", undefined, true);
       this.mark("care");
     }
     if (this.selfCare) this.spend("care", r.range(this.y(600_000), this.y(1_200_000)));
+  }
+
+  /**
+   * 子ども時代の出来事（ほかの出来事と乱数を分ける）
+   * ・児童労働（日本以外）：10歳のとき、その国の5〜17歳の児童労働の割合（UNICEF・ILO）を、家の豊かさで重みづけて決める
+   * ・不登校（日本）：その年度に不登校だった子は小学生2.3%、中学生6.8%（文部科学省 2024年度）
+   */
+  private childhoodYear(): void {
+    const a = this.age;
+    if (!this.D.isJapan && a === 10) {
+      const share = childLabourShare(this.D.iso3);
+      const bandF = [2, 1.4, 1, 0.5, 0.2][this.bandIdx] ?? 1;
+      if (share !== null && streamRng(this.seed, "childWork", 0).chance(Math.min(0.9, share * bandF))) {
+        this.childWorked = true;
+        this.log(
+          "school",
+          this.region.urban
+            ? "家計を助けるため、学校が終わると市場や店で働くようになった。学校を休む日も増えた。"
+            : "家の畑仕事や家畜の世話を任され、学校を休む日が増えた。",
+          undefined,
+          true,
+        );
+        this.mark("childWork");
+      }
+    }
+    // 不登校の割合は「その年度に不登校だった子」の割合で、同じ子を毎年数える。そこで小学校（9歳）と中学校（13歳）で1回ずつ決める
+    if (this.D.isJapan && this.futokoAge < 0 && (a === 9 || a === 13) && streamRng(this.seed, "futoko", a).chance(a === 13 ? 0.068 : 0.023)) {
+      this.futokoAge = a;
+      this.log(
+        "school",
+        a >= 12 ? "中学校に行けない時期が続いた。家やフリースクールで過ごした。" : "小学校に行けない時期が続いた。家で過ごす日が多かった。",
+        undefined,
+        true,
+      );
+      this.mark("futoko");
+    }
+  }
+
+  /** 子どもの呼び名（長男・次女など）。家族の声と同じ数え方 */
+  kidLabel(i: number): string {
+    const f = kidFemale(this.seed, i);
+    const nth = this.kids.slice(0, i).filter((_, j) => kidFemale(this.seed, j) === f).length;
+    return `${["長", "次", "三", "四", "五"][nth] ?? "末"}${f ? "女" : "男"}`;
   }
 
   /** 初めての子が生まれたときに添える、お産の危険の一言（国連の推計） */
@@ -1853,7 +1927,10 @@ export function buildChoice(l: Life, id: ChoiceId): Choice {
       const pNoFull = jp
         ? l.band.id === "low" ? 0.08 : l.band.id === "lower_mid" ? 0.03 : 0.008
         : Math.min(0.92, (1 - l.D.education.highSchoolEntryRate) * bandF);
-      const noFull = r.chance(pNoFull);
+      // 児童労働をしている12〜14歳の3人に1人は学校に通っていない（ILO・UNICEF「Child Labour: Global estimates 2020」）。
+      // 中学で不登校だった人のうち、高校などに進んだのは85.1%（文部科学省 不登校に関する実態調査）
+      const pAdj = l.childWorked ? 1 - (1 - pNoFull) * (2 / 3) : l.futokoAge >= 12 ? Math.max(pNoFull, 0.149) : pNoFull;
+      const noFull = r.chance(pAdj);
       if (noFull) {
         situation = jp ? "家計が苦しく、全日制の高校に通わせる余裕がないと親に言われた。" : "家計が苦しく、上の学校に通わせる余裕はないと親に言われた。";
         options.push(

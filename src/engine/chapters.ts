@@ -40,6 +40,10 @@ const TAG_TEXT: Record<string, string> = {
   inflation: "物価の急上昇で貯金が目減りした",
   scam: "詐欺でお金を取られた",
   road: "交通事故で大けがをした",
+  childWork: "子どものうちから働いた",
+  futoko: "学校に行けない時期があった",
+  alcohol: "お酒がやめられなくなった",
+  kidAbroad: "子どもが外国へ移り住んだ",
 };
 
 export interface Compare {
