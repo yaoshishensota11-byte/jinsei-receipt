@@ -3,7 +3,8 @@
 import risksJson from "../../data/world/risks.json";
 import eventsJson from "../../data/world/country_events.json";
 import cpiJson from "../../data/world/cpi_annual.json";
-import type { Rng } from "./rng";
+import { streamRng, type Rng } from "./rng";
+import { roadInjuryRate, sickPayCovered } from "./lifestats";
 import type { Scene } from "./scenes";
 import type { Life } from "./sim";
 
@@ -202,6 +203,26 @@ export function riskYear(l: Life, r: Rng): void {
       l.log("disaster", "大きな地震で家が壊れ、修理が必要になった。", -c, true);
       l.mark("disaster");
     }
+  }
+
+  // 交通事故の重いけが（1か月以上の治療）。国の交通事故死の割合から（ほかの出来事と乱数を分ける）
+  const rr = streamRng(l.seed, "road", a);
+  if (rr.chance(roadInjuryRate(l.D.iso3))) {
+    const cost = l.y(rr.range(300_000, 1_200_000));
+    l.spend("medical", cost);
+    // 2か月ほど働けない。病気で休む間の国の補償がある人は、給料の3分の2が出る
+    const working = l.job !== "none" && l.job !== "retired";
+    const covered = working && sickPayCovered(l.D.iso3, l.job, l.D.inst?.informalShare ?? 0);
+    const lost = working ? l.salaryOf(a) * (2 / 12) * (covered ? 1 / 3 : 1) : 0;
+    if (lost > 0) l.spend("other", lost);
+    l.log(
+      "health",
+      l.vary("road", ["交通事故にあい、大けがをした。1か月以上、治療に通った。", "道を渡っているときに車にはねられ、入院した。", working ? "通勤の途中で事故に巻き込まれ、骨を折った。" : "出かけた先で事故に巻き込まれ、骨を折った。"]) +
+        (!working ? "" : covered ? "休んでいる間は、国の制度で給料の3分の2が出た。" : "休んでいる間の給料は出なかった。"),
+      -(cost + lost),
+      true,
+    );
+    l.mark("road");
   }
 }
 

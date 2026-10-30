@@ -50,6 +50,7 @@ for (let i = 0; i < N; i++) {
       l.choose(r.pick(l.pending.options).id);
       continue;
     }
+    const wasWorking = working(l);
     const rec = l.advance();
     if (!rec) continue;
     const where = `${l.seed} ${l.D.nameJa} ${rec.age}歳`;
@@ -58,6 +59,8 @@ for (let i = 0; i < N; i++) {
       if (/車を買った|中古車を買った|新車を買った/.test(e.text)) carBought = true;
       if (/(車|新車|中古車)に?を?買い替え/.test(e.text) && !carBought) add("車がないのに車の買い替え", `${where} ${e.text}`);
       if (/家賃|大家/.test(e.text) && l.home === "own" && !/売|引っ越|移/.test(e.text)) add("持ち家なのに家賃・大家の話", `${where} ${e.text}`);
+      if (/通勤|休んでいる間|か月休み/.test(e.text) && !wasWorking && !working(l) && !rec.events.some((x) => /仕事を辞め|働きはじめ|就職|採用/.test(x.text))) add("働いていないのに仕事を休む話", `${where} ${e.text}`);
+      if (/一人で子どもを育てる/.test(e.text) && !l.kids.some((k) => rec.age - k.born < 18)) add("子どもがいないのにひとり親の話", `${where} ${e.text}`);
     }
     // 家族の声
     for (const v of voicesFor(l, prev, rec)) {

@@ -1,6 +1,7 @@
 // 人生シミュレーション本体。1年ずつ進み、選択場面で止まる。
 // 同じ seed と同じ選択の並びなら、まったく同じ人生になる。
 import { Rng, streamRng, hashStr } from "./rng";
+import { maternalDeaths, publicAidRate, sickPayCovered, singleParentPoverty } from "./lifestats";
 import { JAPAN, type CountryData, type Region, type IncomeBand } from "./data";
 import { MICROS } from "./micro";
 import { riskYear, countryEventScene, ipvHazard } from "./risks";
@@ -507,6 +508,8 @@ export class Life {
   inflSpellFrom = 0;
   /** 一度起きた「国ごとの出来事」 */
   usedEvents = new Set<string>();
+  /** 暮らしに困ったとき、国の給付を受けられた（親戚の援助ではなく） */
+  publicAid = false;
 
   /** 離婚する。財産を分け、子どもがいれば養育費などが続く */
   divorce(r: Rng, text: string, dv = false): void {
@@ -516,6 +519,7 @@ export class Life {
     this.mark("divorce");
     this.spend("events", share);
     if (this.kids.some((k) => a - k.born < 18) && this.sex === "male") this.childSupport = true;
+    else if (this.kids.some((k) => a - k.born < 18)) this.singleParentNote();
     this.partner = null;
     this.strained = false;
     this.dvOngoing = false;
@@ -829,7 +833,7 @@ export class Life {
         };
         this.kids.push(kid);
         const nth = ["第一子", "第二子", "第三子", "第四子"][this.kids.length - 1] ?? "子ども";
-        this.log("family", `${nth}が生まれた。`, -this.D.living.childbirthNetCost, this.kids.length === 1);
+        this.log("family", `${nth}が生まれた。` + (this.kids.length === 1 ? this.birthRiskNote() : ""), -this.D.living.childbirthNetCost, this.kids.length === 1);
         this.spend("kids", this.D.living.childbirthNetCost);
         if (this.sex === "female" && (this.job === "big" || this.job === "sme" || this.job === "civil") && r.chance(0.3)) {
           this.log("work", "出産を機に仕事を辞めた。", undefined, true);
@@ -857,6 +861,7 @@ export class Life {
         this.log("family", `パートナーが${p.age}歳で亡くなった。`, -this.D.living.funeralCost, true);
         this.mark("partnerDeath");
         this.spend("events", this.D.living.funeralCost);
+        if (this.kids.some((k) => a - k.born < 18)) this.singleParentNote();
         this.widowed = true;
         this.partnerDeaths[this.partnerSince] = a;
         this.partner = null;
@@ -1359,7 +1364,7 @@ export class Life {
       this.cancerAge = a;
       const cost = r.range(this.y(400_000), this.y(1_500_000));
       this.spend("medical", cost);
-      this.log("health", "がんが見つかり、治療を受けた。", -cost, true);
+      this.log("health", "がんが見つかり、治療を受けた。" + this.sickLeave(4), -cost, true);
       this.mark("cancer");
       if (this.job !== "none" && this.job !== "retired" && r.chance(0.2)) {
         this.log("work", "治療のため仕事を辞めた。");
@@ -1369,7 +1374,7 @@ export class Life {
     } else if (r.chance(0.002 + Math.max(0, a - 40) * 0.0006)) {
       const cost = r.range(this.y(300_000), this.y(1_000_000));
       this.spend("medical", cost);
-      this.log("health", r.chance(0.5) ? "心臓の病気で入院した。" : "脳の血管の病気で入院した。", -cost, true);
+      this.log("health", (r.chance(0.5) ? "心臓の病気で入院した。" : "脳の血管の病気で入院した。") + this.sickLeave(2), -cost, true);
       this.mark("heartBrain");
       this.illMult = Math.min(1.6, this.illMult * 1.12);
     } else if (r.chance(0.012)) {
@@ -1383,6 +1388,33 @@ export class Life {
       this.mark("care");
     }
     if (this.selfCare) this.spend("care", r.range(this.y(600_000), this.y(1_200_000)));
+  }
+
+  /** 初めての子が生まれたときに添える、お産の危険の一言（国連の推計） */
+  private birthRiskNote(): string {
+    const n = maternalDeaths(this.D.iso3);
+    if (n === null) return "";
+    const jp = maternalDeaths("JPN");
+    return `${this.D.nameJa}では、お産で命を落とす女性が10万人に${Math.round(n)}人いる` + (this.D.isJapan || jp === null ? "。" : `（日本は${Math.round(jp)}人）。`);
+  }
+
+  /** 一人で子どもを育てることになったときの一言（ひとり親世帯の貧困率） */
+  private singleParentNote(): void {
+    const p = singleParentPoverty(this.D.iso3);
+    if (p === null) return;
+    this.log("family", `一人で子どもを育てることになった。${this.D.nameJa}では、ひとり親の家庭の${Math.round(p * 100)}%が、貧困ラインより下で暮らしている。`);
+  }
+
+  /**
+   * 病気で何か月か仕事を休む。休んだ分の給料は、国の補償がある人なら3分の2が出る（統計は lifestats.ts）。
+   * 休んで減った分を支出に入れ、ログに足す一文を返す
+   */
+  private sickLeave(months: number): string {
+    if (this.job === "none" || this.job === "retired") return "";
+    const covered = sickPayCovered(this.D.iso3, this.job, this.D.inst?.informalShare ?? 0);
+    const lost = this.salaryOf(this.age) * (months / 12) * (covered ? 1 / 3 : 1);
+    this.spend("other", lost);
+    return covered ? `${months}か月休み、その間は国の制度で給料の3分の2が出た。` : `${months}か月休み、その間の給料は出なかった。`;
   }
 
   // ── 運
@@ -1561,8 +1593,14 @@ export class Life {
       const gap = exp - inc;
       if (gap > 0) {
         if (!this.welfare) {
+          // 国の給付（社会扶助）があるかは、その国で一番所得の低い人たちが給付を受けている割合で決める
+          this.publicAid = this.D.isJapan || streamRng(this.seed, "publicAid", 0).chance(publicAidRate(this.D.iso3));
           const text = this.D.isJapan
             ? "貯えが尽き、生活保護を受けはじめた。"
+            : this.publicAid
+              ? a < 65
+                ? this.vary("aidPub", ["暮らしが立ち行かなくなり、国の生活支援（現金の給付）を受けることになった。", "稼ぎだけでは暮らせなくなり、国の生活支援を受けはじめた。"])
+                : "貯えが尽き、国の生活支援（現金の給付）を受けて暮らすようになった。"
             : a < 65
               ? this.again("aid", 8)
                 ? this.vary("aid2", ["また借金が返せなくなり、親戚の援助を受けることになった。", "再び暮らしが立ち行かなくなり、親戚を頼った。"])
@@ -1578,7 +1616,7 @@ export class Life {
     }
     if (this.welfare && !this.D.isJapan && a < 65 && this.cash + this.invest > 0) {
       this.welfare = false;
-      this.log("money", this.vary("welfareOff", ["援助を受けずに暮らせるようになった。", "なんとか自分の稼ぎで暮らせるようになった。", "親戚に頼らずにやっていけるようになった。"]));
+      this.log("money", this.publicAid ? this.vary("welfareOffPub", ["国の支援を受けずに暮らせるようになった。", "なんとか自分の稼ぎで暮らせるようになった。"]) : this.vary("welfareOff", ["援助を受けずに暮らせるようになった。", "なんとか自分の稼ぎで暮らせるようになった。", "親戚に頼らずにやっていけるようになった。"]));
     }
     // 家計が苦しいときは節約する
     const wasFrugal = this.frugal;

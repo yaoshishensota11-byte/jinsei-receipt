@@ -57,6 +57,1097 @@ function streamRng(seed, stream, age) {
   return new Rng(hashStr(`${seed}|${stream}|${age}`));
 }
 
+// data/world/life_stats.json
+var life_stats_default = {
+  AFG: {
+    roadDeathsPer100k: 23.9,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023",
+      socialAssistanceQ1: "2011",
+      socialProtection: "2019"
+    },
+    maternalDeathsPer100kBirths: 521,
+    socialAssistanceQ1: 0.1247,
+    socialProtection: 0.075
+  },
+  AGO: {
+    roadDeathsPer100k: 15,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023",
+      socialAssistanceQ1: "2018",
+      socialProtection: "2022"
+    },
+    maternalDeathsPer100kBirths: 183,
+    socialAssistanceQ1: 0.0468,
+    socialProtection: 0.087
+  },
+  ARG: {
+    roadDeathsPer100k: 10.2,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023",
+      socialAssistanceQ1: "2022",
+      socialProtection: "2021"
+    },
+    maternalDeathsPer100kBirths: 33,
+    socialAssistanceQ1: 0.6886,
+    socialProtection: 0.659
+  },
+  AUS: {
+    roadDeathsPer100k: 4.5,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023",
+      socialProtection: "2022"
+    },
+    maternalDeathsPer100kBirths: 2,
+    socialProtection: 0.94
+  },
+  BDI: {
+    roadDeathsPer100k: 12.3,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023",
+      socialAssistanceQ1: "2019",
+      socialProtection: "2022"
+    },
+    maternalDeathsPer100kBirths: 392,
+    socialAssistanceQ1: 0.1126,
+    socialProtection: 0.161
+  },
+  BEN: {
+    roadDeathsPer100k: 24.8,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023",
+      socialAssistanceQ1: "2021",
+      socialProtection: "2020"
+    },
+    maternalDeathsPer100kBirths: 518,
+    socialAssistanceQ1: 0.0441,
+    socialProtection: 0.084
+  },
+  BFA: {
+    roadDeathsPer100k: 27.8,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023",
+      socialAssistanceQ1: "2021",
+      socialProtection: "2021"
+    },
+    maternalDeathsPer100kBirths: 242,
+    socialAssistanceQ1: 0.4704,
+    socialProtection: 0.097
+  },
+  BGD: {
+    roadDeathsPer100k: 18.6,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023",
+      socialAssistanceQ1: "2022",
+      socialProtection: "2021",
+      sicknessBenefit: "2023"
+    },
+    maternalDeathsPer100kBirths: 115,
+    socialAssistanceQ1: 0.6934,
+    socialProtection: 0.22,
+    sicknessBenefit: 0.5
+  },
+  BOL: {
+    roadDeathsPer100k: 17.7,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023",
+      socialAssistanceQ1: "2021",
+      socialProtection: "2021"
+    },
+    maternalDeathsPer100kBirths: 146,
+    socialAssistanceQ1: 0.9934,
+    socialProtection: 0.384
+  },
+  BRA: {
+    roadDeathsPer100k: 15.7,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023",
+      socialAssistanceQ1: "2022",
+      socialProtection: "2022",
+      singleParentPoverty: "2022",
+      sicknessBenefit: "2023"
+    },
+    maternalDeathsPer100kBirths: 67,
+    socialAssistanceQ1: 0.6428,
+    socialProtection: 0.712,
+    singleParentPoverty: 0.6122,
+    sicknessBenefit: 1
+  },
+  CAF: {
+    roadDeathsPer100k: 26.1,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023",
+      socialProtection: "2019"
+    },
+    maternalDeathsPer100kBirths: 692,
+    socialProtection: 0.035
+  },
+  CAN: {
+    roadDeathsPer100k: 4.8,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023",
+      socialProtection: "2022"
+    },
+    maternalDeathsPer100kBirths: 12,
+    socialProtection: 0.956
+  },
+  CHL: {
+    roadDeathsPer100k: 10.8,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023",
+      socialAssistanceQ1: "2022",
+      socialProtection: "2022"
+    },
+    maternalDeathsPer100kBirths: 10,
+    socialAssistanceQ1: 0.9278,
+    socialProtection: 0.753
+  },
+  CHN: {
+    roadDeathsPer100k: 17.4,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023",
+      socialAssistanceQ1: "2013",
+      socialProtection: "2021",
+      sicknessBenefit: "2023"
+    },
+    maternalDeathsPer100kBirths: 16,
+    socialAssistanceQ1: 0.6504,
+    socialProtection: 0.756,
+    sicknessBenefit: 0.5
+  },
+  CIV: {
+    roadDeathsPer100k: 20.6,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023",
+      socialAssistanceQ1: "2021",
+      socialProtection: "2022"
+    },
+    maternalDeathsPer100kBirths: 359,
+    socialAssistanceQ1: 0.0341,
+    socialProtection: 0.121
+  },
+  CMR: {
+    roadDeathsPer100k: 10.6,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023",
+      socialAssistanceQ1: "2021",
+      socialProtection: "2022"
+    },
+    maternalDeathsPer100kBirths: 258,
+    socialAssistanceQ1: 0.1279,
+    socialProtection: 0.1
+  },
+  COD: {
+    roadDeathsPer100k: 16.3,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023",
+      socialAssistanceQ1: "2012",
+      socialProtection: "2022",
+      sicknessBenefit: "2023"
+    },
+    maternalDeathsPer100kBirths: 427,
+    socialAssistanceQ1: 0.0483,
+    socialProtection: 0.052,
+    sicknessBenefit: 0
+  },
+  COG: {
+    roadDeathsPer100k: 8.4,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023"
+    },
+    maternalDeathsPer100kBirths: 241
+  },
+  COL: {
+    roadDeathsPer100k: 16.2,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023",
+      socialAssistanceQ1: "2022",
+      socialProtection: "2025"
+    },
+    maternalDeathsPer100kBirths: 59,
+    socialAssistanceQ1: 0.5404,
+    socialProtection: 0.583
+  },
+  DEU: {
+    roadDeathsPer100k: 3.3,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023",
+      socialProtection: "2022",
+      singleParentPoverty: "2020",
+      sicknessBenefit: "2023"
+    },
+    maternalDeathsPer100kBirths: 4,
+    socialProtection: 1,
+    singleParentPoverty: 0.2906,
+    sicknessBenefit: 1
+  },
+  DOM: {
+    roadDeathsPer100k: 27.4,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023",
+      socialAssistanceQ1: "2021",
+      socialProtection: "2022"
+    },
+    maternalDeathsPer100kBirths: 124,
+    socialAssistanceQ1: 0.5696,
+    socialProtection: 0.61
+  },
+  DZA: {
+    roadDeathsPer100k: 18.3,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023",
+      socialProtection: "2021"
+    },
+    maternalDeathsPer100kBirths: 62,
+    socialProtection: 0.602
+  },
+  ECU: {
+    roadDeathsPer100k: 22.8,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023",
+      socialAssistanceQ1: "2022",
+      socialProtection: "2021"
+    },
+    maternalDeathsPer100kBirths: 55,
+    socialAssistanceQ1: 0.5645,
+    socialProtection: 0.468
+  },
+  EGY: {
+    roadDeathsPer100k: 9.4,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023",
+      socialAssistanceQ1: "2019",
+      socialProtection: "2022",
+      sicknessBenefit: "2023"
+    },
+    maternalDeathsPer100kBirths: 17,
+    socialAssistanceQ1: 0.9409,
+    socialProtection: 0.366,
+    sicknessBenefit: 1
+  },
+  ESP: {
+    roadDeathsPer100k: 3.5,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023",
+      socialProtection: "2022"
+    },
+    maternalDeathsPer100kBirths: 3,
+    socialProtection: 0.781
+  },
+  ETH: {
+    roadDeathsPer100k: 17.7,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023",
+      socialAssistanceQ1: "2018",
+      socialProtection: "2024",
+      sicknessBenefit: "2023"
+    },
+    maternalDeathsPer100kBirths: 195,
+    socialAssistanceQ1: 0.3001,
+    socialProtection: 0.115,
+    sicknessBenefit: 0.5
+  },
+  FRA: {
+    roadDeathsPer100k: 4.7,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023",
+      socialProtection: "2021",
+      singleParentPoverty: "2021",
+      sicknessBenefit: "2023"
+    },
+    maternalDeathsPer100kBirths: 7,
+    socialProtection: 0.994,
+    singleParentPoverty: 0.3115,
+    sicknessBenefit: 1
+  },
+  GBR: {
+    roadDeathsPer100k: 2.4,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023",
+      socialProtection: "2023",
+      singleParentPoverty: "2021",
+      sicknessBenefit: "2023"
+    },
+    maternalDeathsPer100kBirths: 8,
+    socialProtection: 0.936,
+    singleParentPoverty: 0.2667,
+    sicknessBenefit: 0.5
+  },
+  GHA: {
+    roadDeathsPer100k: 25.9,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023",
+      socialAssistanceQ1: "2016",
+      socialProtection: "2022"
+    },
+    maternalDeathsPer100kBirths: 234,
+    socialAssistanceQ1: 0.3951,
+    socialProtection: 0.252
+  },
+  GIN: {
+    roadDeathsPer100k: 37.4,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023",
+      socialAssistanceQ1: "2018",
+      socialProtection: "2021"
+    },
+    maternalDeathsPer100kBirths: 494,
+    socialAssistanceQ1: 0.0779,
+    socialProtection: 0.037
+  },
+  GTM: {
+    roadDeathsPer100k: 12.6,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023",
+      socialAssistanceQ1: "2014",
+      socialProtection: "2022"
+    },
+    maternalDeathsPer100kBirths: 94,
+    socialAssistanceQ1: 0.7165,
+    socialProtection: 0.121
+  },
+  HND: {
+    roadDeathsPer100k: 18.6,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023",
+      socialAssistanceQ1: "2019",
+      socialProtection: "2022"
+    },
+    maternalDeathsPer100kBirths: 47,
+    socialAssistanceQ1: 0.5039,
+    socialProtection: 0.301
+  },
+  HTI: {
+    roadDeathsPer100k: 31.3,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023",
+      socialAssistanceQ1: "2012",
+      socialProtection: "2022"
+    },
+    maternalDeathsPer100kBirths: 328,
+    socialAssistanceQ1: 0.2153,
+    socialProtection: 0.066
+  },
+  IDN: {
+    roadDeathsPer100k: 11.3,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023",
+      socialAssistanceQ1: "2022",
+      socialProtection: "2021",
+      sicknessBenefit: "2023"
+    },
+    maternalDeathsPer100kBirths: 140,
+    socialAssistanceQ1: 0.6939,
+    socialProtection: 0.543,
+    sicknessBenefit: 0.5
+  },
+  IND: {
+    roadDeathsPer100k: 14.6,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023",
+      socialAssistanceQ1: "2011",
+      socialProtection: "2025",
+      sicknessBenefit: "2023"
+    },
+    maternalDeathsPer100kBirths: 80,
+    socialAssistanceQ1: 0.9276,
+    socialProtection: 0.643,
+    sicknessBenefit: 1
+  },
+  IRN: {
+    roadDeathsPer100k: 20.6,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023",
+      socialAssistanceQ1: "2020",
+      socialProtection: "2023"
+    },
+    maternalDeathsPer100kBirths: 16,
+    socialAssistanceQ1: 0.8977,
+    socialProtection: 1
+  },
+  IRQ: {
+    roadDeathsPer100k: 21.5,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023",
+      socialAssistanceQ1: "2012",
+      socialProtection: "2022"
+    },
+    maternalDeathsPer100kBirths: 66,
+    socialAssistanceQ1: 0.8612,
+    socialProtection: 0.417
+  },
+  ISR: {
+    roadDeathsPer100k: 4.2,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023",
+      socialProtection: "2022"
+    },
+    maternalDeathsPer100kBirths: 2,
+    socialProtection: 1
+  },
+  ITA: {
+    roadDeathsPer100k: 5,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023",
+      socialProtection: "2022"
+    },
+    maternalDeathsPer100kBirths: 6,
+    socialProtection: 0.888
+  },
+  JOR: {
+    roadDeathsPer100k: 13.3,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023",
+      socialAssistanceQ1: "2010",
+      socialProtection: "2022"
+    },
+    maternalDeathsPer100kBirths: 31,
+    socialAssistanceQ1: 0.8331,
+    socialProtection: 0.288
+  },
+  JPN: {
+    roadDeathsPer100k: 2.6,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023",
+      socialProtection: "2020",
+      singleParentPoverty: "2021",
+      sicknessBenefit: "2023"
+    },
+    maternalDeathsPer100kBirths: 3,
+    socialProtection: 0.946,
+    singleParentPoverty: 0.4446,
+    sicknessBenefit: 1
+  },
+  KAZ: {
+    roadDeathsPer100k: 11.9,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023",
+      socialAssistanceQ1: "2021",
+      socialProtection: "2023"
+    },
+    maternalDeathsPer100kBirths: 10,
+    socialAssistanceQ1: 0.4108,
+    socialProtection: 0.943
+  },
+  KEN: {
+    roadDeathsPer100k: 28.2,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023",
+      socialAssistanceQ1: "2015",
+      socialProtection: "2021",
+      sicknessBenefit: "2023"
+    },
+    maternalDeathsPer100kBirths: 149,
+    socialAssistanceQ1: 0.3451,
+    socialProtection: 0.09,
+    sicknessBenefit: 0.5
+  },
+  KHM: {
+    roadDeathsPer100k: 18.8,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023",
+      socialProtection: "2022"
+    },
+    maternalDeathsPer100kBirths: 137,
+    socialProtection: 0.208
+  },
+  KOR: {
+    roadDeathsPer100k: 6.9,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023",
+      socialProtection: "2022",
+      singleParentPoverty: "2022",
+      sicknessBenefit: "2023"
+    },
+    maternalDeathsPer100kBirths: 4,
+    socialProtection: 0.802,
+    singleParentPoverty: 0.2956,
+    sicknessBenefit: 0
+  },
+  LKA: {
+    roadDeathsPer100k: 11.4,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023",
+      socialAssistanceQ1: "2019",
+      socialProtection: "2021"
+    },
+    maternalDeathsPer100kBirths: 18,
+    socialAssistanceQ1: 0.4882,
+    socialProtection: 0.413
+  },
+  MAR: {
+    roadDeathsPer100k: 18.6,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023",
+      socialAssistanceQ1: "2009",
+      socialProtection: "2019"
+    },
+    maternalDeathsPer100kBirths: 70,
+    socialAssistanceQ1: 0.5011,
+    socialProtection: 0.205
+  },
+  MDG: {
+    roadDeathsPer100k: 22.5,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023",
+      socialProtection: "2022"
+    },
+    maternalDeathsPer100kBirths: 445,
+    socialProtection: 0.154
+  },
+  MEX: {
+    roadDeathsPer100k: 12,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023",
+      socialAssistanceQ1: "2022",
+      socialProtection: "2022",
+      singleParentPoverty: "2022",
+      sicknessBenefit: "2023"
+    },
+    maternalDeathsPer100kBirths: 42,
+    socialAssistanceQ1: 0.5158,
+    socialProtection: 0.808,
+    singleParentPoverty: 0.339,
+    sicknessBenefit: 1
+  },
+  MLI: {
+    roadDeathsPer100k: 20.2,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023",
+      socialAssistanceQ1: "2021",
+      socialProtection: "2022"
+    },
+    maternalDeathsPer100kBirths: 367,
+    socialAssistanceQ1: 0.4095,
+    socialProtection: 0.126
+  },
+  MMR: {
+    roadDeathsPer100k: 19.3,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023",
+      socialAssistanceQ1: "2017",
+      socialProtection: "2019"
+    },
+    maternalDeathsPer100kBirths: 185,
+    socialAssistanceQ1: 0.1038,
+    socialProtection: 0.063
+  },
+  MOZ: {
+    roadDeathsPer100k: 19.9,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023",
+      socialAssistanceQ1: "2019",
+      socialProtection: "2022"
+    },
+    maternalDeathsPer100kBirths: 99,
+    socialAssistanceQ1: 0.0394,
+    socialProtection: 0.06
+  },
+  MWI: {
+    roadDeathsPer100k: 20.4,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023",
+      socialAssistanceQ1: "2019",
+      socialProtection: "2022"
+    },
+    maternalDeathsPer100kBirths: 225,
+    socialAssistanceQ1: 0.4243,
+    socialProtection: 0.199
+  },
+  MYS: {
+    roadDeathsPer100k: 13.9,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023",
+      socialAssistanceQ1: "2016",
+      socialProtection: "2023"
+    },
+    maternalDeathsPer100kBirths: 26,
+    socialAssistanceQ1: 0.9763,
+    socialProtection: 0.292
+  },
+  NER: {
+    roadDeathsPer100k: 24.9,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023",
+      socialAssistanceQ1: "2021",
+      socialProtection: "2015"
+    },
+    maternalDeathsPer100kBirths: 350,
+    socialAssistanceQ1: 0.2364,
+    socialProtection: 0.206
+  },
+  NGA: {
+    roadDeathsPer100k: 17.2,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023",
+      socialAssistanceQ1: "2018",
+      socialProtection: "2022",
+      sicknessBenefit: "2023"
+    },
+    maternalDeathsPer100kBirths: 993,
+    socialAssistanceQ1: 0.277,
+    socialProtection: 0.148,
+    sicknessBenefit: 0.5
+  },
+  NPL: {
+    roadDeathsPer100k: 28.2,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023",
+      socialAssistanceQ1: "2010",
+      socialProtection: "2022"
+    },
+    maternalDeathsPer100kBirths: 142,
+    socialAssistanceQ1: 0.4895,
+    socialProtection: 0.21
+  },
+  PAK: {
+    roadDeathsPer100k: 11.9,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023",
+      socialAssistanceQ1: "2018",
+      socialProtection: "2022",
+      sicknessBenefit: "2023"
+    },
+    maternalDeathsPer100kBirths: 155,
+    socialAssistanceQ1: 0.2065,
+    socialProtection: 0.202,
+    sicknessBenefit: 0.5
+  },
+  PER: {
+    roadDeathsPer100k: 12.2,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023",
+      socialAssistanceQ1: "2022",
+      socialProtection: "2024"
+    },
+    maternalDeathsPer100kBirths: 51,
+    socialAssistanceQ1: 0.9531,
+    socialProtection: 0.301
+  },
+  PHL: {
+    roadDeathsPer100k: 9.9,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023",
+      socialAssistanceQ1: "2018",
+      socialProtection: "2022",
+      sicknessBenefit: "2023"
+    },
+    maternalDeathsPer100kBirths: 84,
+    socialAssistanceQ1: 0.5724,
+    socialProtection: 0.349,
+    sicknessBenefit: 1
+  },
+  PNG: {
+    roadDeathsPer100k: 15.3,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023",
+      socialAssistanceQ1: "2009",
+      socialProtection: "2022"
+    },
+    maternalDeathsPer100kBirths: 189,
+    socialAssistanceQ1: 0.0192,
+    socialProtection: 0.091
+  },
+  POL: {
+    roadDeathsPer100k: 6.4,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023",
+      socialAssistanceQ1: "2019",
+      socialProtection: "2023"
+    },
+    maternalDeathsPer100kBirths: 2,
+    socialAssistanceQ1: 0.7179,
+    socialProtection: 0.842
+  },
+  PRK: {
+    roadDeathsPer100k: 42.7,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023"
+    },
+    maternalDeathsPer100kBirths: 67
+  },
+  RUS: {
+    roadDeathsPer100k: 10.6,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023",
+      socialAssistanceQ1: "2017",
+      socialProtection: "2022"
+    },
+    maternalDeathsPer100kBirths: 9,
+    socialAssistanceQ1: 0.7756,
+    socialProtection: 0.954
+  },
+  RWA: {
+    roadDeathsPer100k: 11.6,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023",
+      socialAssistanceQ1: "2013",
+      socialProtection: "2023"
+    },
+    maternalDeathsPer100kBirths: 229,
+    socialAssistanceQ1: 0.2005,
+    socialProtection: 0.077
+  },
+  SAU: {
+    roadDeathsPer100k: 18.8,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023",
+      socialProtection: "2022"
+    },
+    maternalDeathsPer100kBirths: 7,
+    socialProtection: 0.64
+  },
+  SDN: {
+    roadDeathsPer100k: 19.6,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023",
+      socialAssistanceQ1: "2009",
+      socialProtection: "2021"
+    },
+    maternalDeathsPer100kBirths: 256,
+    socialAssistanceQ1: 0.131,
+    socialProtection: 0.104
+  },
+  SEN: {
+    roadDeathsPer100k: 20.8,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023",
+      socialAssistanceQ1: "2021",
+      socialProtection: "2022"
+    },
+    maternalDeathsPer100kBirths: 237,
+    socialAssistanceQ1: 0.3911,
+    socialProtection: 0.199
+  },
+  SLE: {
+    roadDeathsPer100k: 13.8,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023",
+      socialAssistanceQ1: "2018",
+      socialProtection: "2019"
+    },
+    maternalDeathsPer100kBirths: 354,
+    socialAssistanceQ1: 0.2134,
+    socialProtection: 0.044
+  },
+  SOM: {
+    roadDeathsPer100k: 20.2,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023",
+      socialAssistanceQ1: "2017",
+      socialProtection: "2023"
+    },
+    maternalDeathsPer100kBirths: 563,
+    socialAssistanceQ1: 0.0573,
+    socialProtection: 0
+  },
+  SSD: {
+    roadDeathsPer100k: 23.5,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023",
+      socialAssistanceQ1: "2009",
+      socialProtection: "2023"
+    },
+    maternalDeathsPer100kBirths: 692,
+    socialAssistanceQ1: 0.0337,
+    socialProtection: 0
+  },
+  SYR: {
+    roadDeathsPer100k: 29.9,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023"
+    },
+    maternalDeathsPer100kBirths: 20
+  },
+  TCD: {
+    roadDeathsPer100k: 26.4,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023",
+      socialAssistanceQ1: "2022",
+      socialProtection: "2022"
+    },
+    maternalDeathsPer100kBirths: 748,
+    socialAssistanceQ1: 0.0667,
+    socialProtection: 0.025
+  },
+  TGO: {
+    roadDeathsPer100k: 22.7,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023",
+      socialAssistanceQ1: "2021",
+      socialProtection: "2022"
+    },
+    maternalDeathsPer100kBirths: 349,
+    socialAssistanceQ1: 0.1724,
+    socialProtection: 0.387
+  },
+  THA: {
+    roadDeathsPer100k: 25.4,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023",
+      socialAssistanceQ1: "2021",
+      socialProtection: "2020"
+    },
+    maternalDeathsPer100kBirths: 34,
+    socialAssistanceQ1: 0.9708,
+    socialProtection: 0.701
+  },
+  TJK: {
+    roadDeathsPer100k: 13.9,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023",
+      socialAssistanceQ1: "2011",
+      socialProtection: "2023"
+    },
+    maternalDeathsPer100kBirths: 14,
+    socialAssistanceQ1: 0.1304,
+    socialProtection: 0.341
+  },
+  TUR: {
+    roadDeathsPer100k: 6.4,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023",
+      socialAssistanceQ1: "2019",
+      socialProtection: "2022"
+    },
+    maternalDeathsPer100kBirths: 15,
+    socialAssistanceQ1: 0.3961,
+    socialProtection: 0.64
+  },
+  TZA: {
+    roadDeathsPer100k: 15.8,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023",
+      socialAssistanceQ1: "2014",
+      socialProtection: "2021"
+    },
+    maternalDeathsPer100kBirths: 276,
+    socialAssistanceQ1: 0.0867,
+    socialProtection: 0.114
+  },
+  UGA: {
+    roadDeathsPer100k: 16,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023",
+      socialAssistanceQ1: "2016",
+      socialProtection: "2022"
+    },
+    maternalDeathsPer100kBirths: 170,
+    socialAssistanceQ1: 46e-4,
+    socialProtection: 0.031
+  },
+  UKR: {
+    roadDeathsPer100k: 10.5,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023",
+      socialAssistanceQ1: "2020",
+      socialProtection: "2019"
+    },
+    maternalDeathsPer100kBirths: 15,
+    socialAssistanceQ1: 0.3342,
+    socialProtection: 0.73
+  },
+  USA: {
+    roadDeathsPer100k: 14.2,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023",
+      socialProtection: "2023",
+      singleParentPoverty: "2022",
+      sicknessBenefit: "2023"
+    },
+    maternalDeathsPer100kBirths: 17,
+    socialProtection: 0.788,
+    singleParentPoverty: 0.4963,
+    sicknessBenefit: 0
+  },
+  UZB: {
+    roadDeathsPer100k: 9.3,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023",
+      socialAssistanceQ1: "2018",
+      socialProtection: "2022"
+    },
+    maternalDeathsPer100kBirths: 26,
+    socialAssistanceQ1: 0.1026,
+    socialProtection: 0.56
+  },
+  VEN: {
+    roadDeathsPer100k: 13.9,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023",
+      socialAssistanceQ1: "2006",
+      socialProtection: "2019"
+    },
+    maternalDeathsPer100kBirths: 227,
+    socialAssistanceQ1: 0.05,
+    socialProtection: 0.308
+  },
+  VNM: {
+    roadDeathsPer100k: 17.7,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023",
+      socialAssistanceQ1: "2020",
+      socialProtection: "2022",
+      sicknessBenefit: "2023"
+    },
+    maternalDeathsPer100kBirths: 48,
+    socialAssistanceQ1: 0.8855,
+    socialProtection: 0.383,
+    sicknessBenefit: 1
+  },
+  YEM: {
+    roadDeathsPer100k: 29.8,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023",
+      socialAssistanceQ1: "2014",
+      socialProtection: "2022"
+    },
+    maternalDeathsPer100kBirths: 118,
+    socialAssistanceQ1: 0.4421,
+    socialProtection: 0.07
+  },
+  ZAF: {
+    roadDeathsPer100k: 24.9,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023",
+      socialAssistanceQ1: "2021",
+      socialProtection: "2019"
+    },
+    maternalDeathsPer100kBirths: 118,
+    socialAssistanceQ1: 0.9458,
+    socialProtection: 0.493
+  },
+  ZMB: {
+    roadDeathsPer100k: 17.1,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023",
+      socialAssistanceQ1: "2015",
+      socialProtection: "2021"
+    },
+    maternalDeathsPer100kBirths: 85,
+    socialAssistanceQ1: 62e-4,
+    socialProtection: 0.303
+  },
+  ZWE: {
+    roadDeathsPer100k: 29.8,
+    years: {
+      roadDeathsPer100k: "2021",
+      maternalDeathsPer100kBirths: "2023",
+      socialAssistanceQ1: "2019",
+      socialProtection: "2021"
+    },
+    maternalDeathsPer100kBirths: 358,
+    socialAssistanceQ1: 0.5896,
+    socialProtection: 0.164
+  }
+};
+
+// src/engine/lifestats.ts
+var STATS = life_stats_default;
+var of = (iso3) => STATS[iso3] ?? {};
+function roadInjuryRate(iso3) {
+  return Math.min(0.01, (of(iso3).roadDeathsPer100k ?? 15) * 10 / 1e5);
+}
+var maternalDeaths = (iso3) => of(iso3).maternalDeathsPer100kBirths ?? null;
+var singleParentPoverty = (iso3) => of(iso3).singleParentPoverty ?? null;
+function sickPayCovered(iso3, job, informalShare) {
+  const s = of(iso3).sicknessBenefit ?? (informalShare < 0.3 ? 1 : informalShare < 0.7 ? 0.5 : 0);
+  if (s >= 1) return job === "big" || job === "sme" || job === "civil";
+  if (s > 0) return job === "big" || job === "civil";
+  return false;
+}
+function publicAidRate(iso3) {
+  const s = of(iso3);
+  return s.socialAssistanceQ1 ?? s.socialProtection ?? 0.3;
+}
+
 // data/income.json
 var income_default = {
   source: "\u539A\u751F\u52B4\u50CD\u7701\u300C\u4EE4\u548C6\u5E74\u8CC3\u91D1\u69CB\u9020\u57FA\u672C\u7D71\u8A08\u8ABF\u67FB\u300D(\u96C7\u7528\u5F62\u614B\u30FB\u5B66\u6B74\u30FB\u5E74\u9F62\u968E\u7D1A\u5225 \u304D\u307E\u3063\u3066\u652F\u7D66\u3059\u308B\u73FE\u91D1\u7D66\u4E0E\u984D\xD712\uFF0B\u5E74\u9593\u8CDE\u4E0E\u305D\u306E\u4ED6\u7279\u5225\u7D66\u4E0E\u984D) \u3092\u3082\u3068\u306B\u518D\u69CB\u6210",
@@ -4056,7 +5147,7 @@ var country_events_default = [
     minAge: 24,
     maxAge: 45,
     annualProb: 0.08,
-    requires: "kid:0-2",
+    requires: "working+kid:0-2",
     title: "\u4FDD\u80B2\u6599\u306E\u9AD8\u3055",
     situation: "\u7523\u4F11\u304C\u660E\u3051\u305F\u304C\u3001\u8FD1\u304F\u306E\u4FDD\u80B2\u65BD\u8A2D\u306E\u6599\u91D1\u306F\u6708\u306B1,000\u30C9\u30EB\u3092\u8D85\u3048\u3066\u3044\u305F\u3002",
     options: [
@@ -4807,7 +5898,7 @@ var country_events_default = [
     ],
     minAge: 22,
     maxAge: 40,
-    annualProb: 0.015,
+    annualProb: 5e-3,
     requires: "working",
     title: "\u6D77\u5916\u79FB\u4F4F\uFF08\u30B8\u30E3\u30D1\uFF09",
     situation: "\u540C\u50DA\u304C\u6B21\u3005\u3068\u82F1\u56FD\u3084\u30AB\u30CA\u30C0\u306B\u79FB\u4F4F\u3057\u3001\u81EA\u5206\u3082\u5C31\u52B4\u30D3\u30B6\u3092\u53D6\u308B\u304B\u8003\u3048\u305F\u3002",
@@ -4845,8 +5936,8 @@ var country_events_default = [
         result: "\u30E9\u30B4\u30B9\u3067\u306E\u4ED5\u4E8B\u3092\u7D9A\u3051\u305F\u3002"
       }
     ],
-    basis: "\u533B\u5E2B\u30FB\u770B\u8B77\u5E2B\u306A\u3069\u306E\u56FD\u5916\u6D41\u51FA\u300C\u30B8\u30E3\u30D1\u300D\u304C2020\u5E74\u4EE3\u306B\u6025\u5897\uFF08\u5831\u9053\u3001\u82F1\u56FD\u306E\u5C31\u52B4\u30D3\u30B6\u7D71\u8A08\uFF09",
-    estimated: true
+    basis: "\u82F1\u56FD\u306E\u5C31\u52B4\u30FB\u4ECB\u8B77\u30FB\u7559\u5B66\u30D3\u30B6\u306F\u5E74\u7D047\u4E07\u4EF6\uFF08Home Office 2022\u301C23\u5E74\uFF09\u3001\u30AB\u30CA\u30C0\u306E\u7559\u5B66\u8A31\u53EF\u306F\u5E74\u7D043.3\u4E07\u4EF6\uFF08IRCC 2023\u5E74\uFF09\u300220\u301C39\u6B736,526\u4E07\u4EBA\u306E\u5E740.2%\u524D\u5F8C\uFF08\u7D71\u8A08\u3067\u78BA\u8A8D\uFF09",
+    estimated: false
   },
   {
     id: "nga_asuu_strike",
@@ -5408,7 +6499,7 @@ var country_events_default = [
     minAge: 0,
     maxAge: 100,
     annualProb: 0.02,
-    requires: "urban",
+    requires: "urban+working",
     title: "\u96E8\u5B63\u306E\u51A0\u6C34",
     situation: "\u5927\u96E8\u3067\u4F4F\u3093\u3067\u3044\u308B\u5730\u533A\u304C\u51A0\u6C34\u3057\u3001\u6570\u65E5\u9593\u4ED5\u4E8B\u306B\u884C\u3051\u306A\u304B\u3063\u305F\u3002",
     options: [
@@ -5676,7 +6767,7 @@ var country_events_default = [
     minAge: 15,
     maxAge: 70,
     annualProb: 0.1,
-    requires: "urban",
+    requires: "urban+working",
     title: "\u30B9\u30DE\u30DB\u306E\u3072\u3063\u305F\u304F\u308A",
     situation: "\u901A\u52E4\u4E2D\u306B\u30B9\u30DE\u30DB\u3092\u3072\u3063\u305F\u304F\u3089\u308C\u305F\u3002",
     options: [
@@ -6268,7 +7359,7 @@ var country_events_default = [
     minAge: 18,
     maxAge: 70,
     annualProb: 0.2,
-    requires: "urban",
+    requires: "urban+working",
     title: "\u4EA4\u901A\u6A5F\u95A2\u306E\u30B9\u30C8\u30E9\u30A4\u30AD",
     situation: "\u5E74\u91D1\u6539\u9769\u306B\u53CD\u5BFE\u3059\u308B\u30B9\u30C8\u30E9\u30A4\u30AD\u3067\u3001\u96FB\u8ECA\u3068\u5730\u4E0B\u9244\u304C\u307B\u3068\u3093\u3069\u52D5\u304B\u306A\u3044\u65E5\u304C\u7D9A\u3044\u305F\u3002",
     options: [
@@ -6832,7 +7923,7 @@ var country_events_default = [
     minAge: 20,
     maxAge: 60,
     annualProb: 0.05,
-    requires: "urban",
+    requires: "urban+working",
     title: "\u30DE\u30CB\u30E9\u306E\u901A\u52E4",
     situation: "\u6E0B\u6EDE\u304C\u3072\u3069\u304F\u3001\u7247\u90532\u6642\u9593\u4EE5\u4E0A\u304B\u3051\u3066\u901A\u52E4\u3057\u3066\u3044\u308B\u3002",
     options: [
@@ -8179,7 +9270,7 @@ var country_events_default = [
     ],
     minAge: 18,
     maxAge: 70,
-    annualProb: 0.05,
+    annualProb: 0.15,
     requires: "urban",
     title: "\u71C3\u6599\u3068\u4EA4\u901A\u8CBB\u306E\u5024\u4E0A\u304C\u308A",
     situation: "\u71C3\u6599\u7A0E\u306E\u5F15\u304D\u4E0A\u3052\u3067\u3001\u4E57\u308A\u5408\u3044\u30D0\u30B9\uFF08\u30DE\u30BF\u30C4\uFF09\u306E\u904B\u8CC3\u304C\u4E0A\u304C\u3063\u305F\u3002",
@@ -8213,8 +9304,8 @@ var country_events_default = [
         result: "\u98DF\u8CBB\u3092\u524A\u3063\u3066\u901A\u52E4\u3092\u7D9A\u3051\u305F\u3002"
       }
     ],
-    basis: "2023\u5E74\u306B\u71C3\u6599\u3078\u306E\u4ED8\u52A0\u4FA1\u5024\u7A0E\u304C8%\u304B\u308916%\u306B\u5F15\u304D\u4E0A\u3052\u3089\u308C\u305F\uFF08\u8CA1\u52D9\u7701\uFF09",
-    estimated: true
+    basis: "\u30AC\u30BD\u30EA\u30F3\u306E\u5E74\u5E73\u5747\u4FA1\u683C\u304C1\u5E74\u306B2\u5272\u4EE5\u4E0A\u4E0A\u304C\u3063\u305F\u5E74\u306F\u30012007\u301C2024\u5E74\u306E17\u56DE\u306E\u3046\u30615\u56DE\uFF08KNBS\uFF09\uFF08\u7D71\u8A08\u3067\u78BA\u8A8D\uFF09",
+    estimated: false
   },
   {
     id: "ken_harambee",
@@ -8833,6 +9924,22 @@ function riskYear(l, r) {
       l.log("disaster", "\u5927\u304D\u306A\u5730\u9707\u3067\u5BB6\u304C\u58CA\u308C\u3001\u4FEE\u7406\u304C\u5FC5\u8981\u306B\u306A\u3063\u305F\u3002", -c, true);
       l.mark("disaster");
     }
+  }
+  const rr = streamRng(l.seed, "road", a);
+  if (rr.chance(roadInjuryRate(l.D.iso3))) {
+    const cost = l.y(rr.range(3e5, 12e5));
+    l.spend("medical", cost);
+    const working2 = l.job !== "none" && l.job !== "retired";
+    const covered = working2 && sickPayCovered(l.D.iso3, l.job, l.D.inst?.informalShare ?? 0);
+    const lost = working2 ? l.salaryOf(a) * (2 / 12) * (covered ? 1 / 3 : 1) : 0;
+    if (lost > 0) l.spend("other", lost);
+    l.log(
+      "health",
+      l.vary("road", ["\u4EA4\u901A\u4E8B\u6545\u306B\u3042\u3044\u3001\u5927\u3051\u304C\u3092\u3057\u305F\u30021\u304B\u6708\u4EE5\u4E0A\u3001\u6CBB\u7642\u306B\u901A\u3063\u305F\u3002", "\u9053\u3092\u6E21\u3063\u3066\u3044\u308B\u3068\u304D\u306B\u8ECA\u306B\u306F\u306D\u3089\u308C\u3001\u5165\u9662\u3057\u305F\u3002", working2 ? "\u901A\u52E4\u306E\u9014\u4E2D\u3067\u4E8B\u6545\u306B\u5DFB\u304D\u8FBC\u307E\u308C\u3001\u9AA8\u3092\u6298\u3063\u305F\u3002" : "\u51FA\u304B\u3051\u305F\u5148\u3067\u4E8B\u6545\u306B\u5DFB\u304D\u8FBC\u307E\u308C\u3001\u9AA8\u3092\u6298\u3063\u305F\u3002"]) + (!working2 ? "" : covered ? "\u4F11\u3093\u3067\u3044\u308B\u9593\u306F\u3001\u56FD\u306E\u5236\u5EA6\u3067\u7D66\u6599\u306E3\u5206\u306E2\u304C\u51FA\u305F\u3002" : "\u4F11\u3093\u3067\u3044\u308B\u9593\u306E\u7D66\u6599\u306F\u51FA\u306A\u304B\u3063\u305F\u3002"),
+      -(cost + lost),
+      true
+    );
+    l.mark("road");
   }
 }
 var EVENTS = country_events_default;
@@ -11759,6 +12866,8 @@ var Life = class {
     this.inflSpellFrom = 0;
     /** 一度起きた「国ごとの出来事」 */
     this.usedEvents = /* @__PURE__ */ new Set();
+    /** 暮らしに困ったとき、国の給付を受けられた（親戚の援助ではなく） */
+    this.publicAid = false;
     /** 次に小さな選択を出す年齢 */
     this.nextMicro = 6;
     /** 小さな選択ごとの、最後に出た年齢 */
@@ -11982,6 +13091,7 @@ var Life = class {
     this.mark("divorce");
     this.spend("events", share);
     if (this.kids.some((k) => a - k.born < 18) && this.sex === "male") this.childSupport = true;
+    else if (this.kids.some((k) => a - k.born < 18)) this.singleParentNote();
     this.partner = null;
     this.strained = false;
     this.dvOngoing = false;
@@ -12234,7 +13344,7 @@ var Life = class {
         };
         this.kids.push(kid);
         const nth = ["\u7B2C\u4E00\u5B50", "\u7B2C\u4E8C\u5B50", "\u7B2C\u4E09\u5B50", "\u7B2C\u56DB\u5B50"][this.kids.length - 1] ?? "\u5B50\u3069\u3082";
-        this.log("family", `${nth}\u304C\u751F\u307E\u308C\u305F\u3002`, -this.D.living.childbirthNetCost, this.kids.length === 1);
+        this.log("family", `${nth}\u304C\u751F\u307E\u308C\u305F\u3002` + (this.kids.length === 1 ? this.birthRiskNote() : ""), -this.D.living.childbirthNetCost, this.kids.length === 1);
         this.spend("kids", this.D.living.childbirthNetCost);
         if (this.sex === "female" && (this.job === "big" || this.job === "sme" || this.job === "civil") && r.chance(0.3)) {
           this.log("work", "\u51FA\u7523\u3092\u6A5F\u306B\u4ED5\u4E8B\u3092\u8F9E\u3081\u305F\u3002", void 0, true);
@@ -12258,6 +13368,7 @@ var Life = class {
         this.log("family", `\u30D1\u30FC\u30C8\u30CA\u30FC\u304C${p.age}\u6B73\u3067\u4EA1\u304F\u306A\u3063\u305F\u3002`, -this.D.living.funeralCost, true);
         this.mark("partnerDeath");
         this.spend("events", this.D.living.funeralCost);
+        if (this.kids.some((k) => a - k.born < 18)) this.singleParentNote();
         this.widowed = true;
         this.partnerDeaths[this.partnerSince] = a;
         this.partner = null;
@@ -12688,7 +13799,7 @@ var Life = class {
       this.cancerAge = a;
       const cost = r.range(this.y(4e5), this.y(15e5));
       this.spend("medical", cost);
-      this.log("health", "\u304C\u3093\u304C\u898B\u3064\u304B\u308A\u3001\u6CBB\u7642\u3092\u53D7\u3051\u305F\u3002", -cost, true);
+      this.log("health", "\u304C\u3093\u304C\u898B\u3064\u304B\u308A\u3001\u6CBB\u7642\u3092\u53D7\u3051\u305F\u3002" + this.sickLeave(4), -cost, true);
       this.mark("cancer");
       if (this.job !== "none" && this.job !== "retired" && r.chance(0.2)) {
         this.log("work", "\u6CBB\u7642\u306E\u305F\u3081\u4ED5\u4E8B\u3092\u8F9E\u3081\u305F\u3002");
@@ -12698,7 +13809,7 @@ var Life = class {
     } else if (r.chance(2e-3 + Math.max(0, a - 40) * 6e-4)) {
       const cost = r.range(this.y(3e5), this.y(1e6));
       this.spend("medical", cost);
-      this.log("health", r.chance(0.5) ? "\u5FC3\u81D3\u306E\u75C5\u6C17\u3067\u5165\u9662\u3057\u305F\u3002" : "\u8133\u306E\u8840\u7BA1\u306E\u75C5\u6C17\u3067\u5165\u9662\u3057\u305F\u3002", -cost, true);
+      this.log("health", (r.chance(0.5) ? "\u5FC3\u81D3\u306E\u75C5\u6C17\u3067\u5165\u9662\u3057\u305F\u3002" : "\u8133\u306E\u8840\u7BA1\u306E\u75C5\u6C17\u3067\u5165\u9662\u3057\u305F\u3002") + this.sickLeave(2), -cost, true);
       this.mark("heartBrain");
       this.illMult = Math.min(1.6, this.illMult * 1.12);
     } else if (r.chance(0.012)) {
@@ -12712,6 +13823,30 @@ var Life = class {
       this.mark("care");
     }
     if (this.selfCare) this.spend("care", r.range(this.y(6e5), this.y(12e5)));
+  }
+  /** 初めての子が生まれたときに添える、お産の危険の一言（国連の推計） */
+  birthRiskNote() {
+    const n = maternalDeaths(this.D.iso3);
+    if (n === null) return "";
+    const jp2 = maternalDeaths("JPN");
+    return `${this.D.nameJa}\u3067\u306F\u3001\u304A\u7523\u3067\u547D\u3092\u843D\u3068\u3059\u5973\u6027\u304C10\u4E07\u4EBA\u306B${Math.round(n)}\u4EBA\u3044\u308B` + (this.D.isJapan || jp2 === null ? "\u3002" : `\uFF08\u65E5\u672C\u306F${Math.round(jp2)}\u4EBA\uFF09\u3002`);
+  }
+  /** 一人で子どもを育てることになったときの一言（ひとり親世帯の貧困率） */
+  singleParentNote() {
+    const p = singleParentPoverty(this.D.iso3);
+    if (p === null) return;
+    this.log("family", `\u4E00\u4EBA\u3067\u5B50\u3069\u3082\u3092\u80B2\u3066\u308B\u3053\u3068\u306B\u306A\u3063\u305F\u3002${this.D.nameJa}\u3067\u306F\u3001\u3072\u3068\u308A\u89AA\u306E\u5BB6\u5EAD\u306E${Math.round(p * 100)}%\u304C\u3001\u8CA7\u56F0\u30E9\u30A4\u30F3\u3088\u308A\u4E0B\u3067\u66AE\u3089\u3057\u3066\u3044\u308B\u3002`);
+  }
+  /**
+   * 病気で何か月か仕事を休む。休んだ分の給料は、国の補償がある人なら3分の2が出る（統計は lifestats.ts）。
+   * 休んで減った分を支出に入れ、ログに足す一文を返す
+   */
+  sickLeave(months) {
+    if (this.job === "none" || this.job === "retired") return "";
+    const covered = sickPayCovered(this.D.iso3, this.job, this.D.inst?.informalShare ?? 0);
+    const lost = this.salaryOf(this.age) * (months / 12) * (covered ? 1 / 3 : 1);
+    this.spend("other", lost);
+    return covered ? `${months}\u304B\u6708\u4F11\u307F\u3001\u305D\u306E\u9593\u306F\u56FD\u306E\u5236\u5EA6\u3067\u7D66\u6599\u306E3\u5206\u306E2\u304C\u51FA\u305F\u3002` : `${months}\u304B\u6708\u4F11\u307F\u3001\u305D\u306E\u9593\u306E\u7D66\u6599\u306F\u51FA\u306A\u304B\u3063\u305F\u3002`;
   }
   // ── 運
   luckYear(r) {
@@ -12862,7 +13997,8 @@ var Life = class {
       const gap = exp - inc;
       if (gap > 0) {
         if (!this.welfare) {
-          const text = this.D.isJapan ? "\u8CAF\u3048\u304C\u5C3D\u304D\u3001\u751F\u6D3B\u4FDD\u8B77\u3092\u53D7\u3051\u306F\u3058\u3081\u305F\u3002" : a < 65 ? this.again("aid", 8) ? this.vary("aid2", ["\u307E\u305F\u501F\u91D1\u304C\u8FD4\u305B\u306A\u304F\u306A\u308A\u3001\u89AA\u621A\u306E\u63F4\u52A9\u3092\u53D7\u3051\u308B\u3053\u3068\u306B\u306A\u3063\u305F\u3002", "\u518D\u3073\u66AE\u3089\u3057\u304C\u7ACB\u3061\u884C\u304B\u306A\u304F\u306A\u308A\u3001\u89AA\u621A\u3092\u983C\u3063\u305F\u3002"]) : this.vary("aid", ["\u501F\u91D1\u304C\u8FD4\u305B\u306A\u304F\u306A\u308A\u3001\u89AA\u621A\u306B\u52A9\u3051\u3092\u6C42\u3081\u305F\u3002\u3057\u3070\u3089\u304F\u63F4\u52A9\u3092\u53D7\u3051\u3066\u66AE\u3089\u3059\u3002", "\u8FD4\u6E08\u304C\u8FFD\u3044\u3064\u304B\u306A\u304F\u306A\u308A\u3001\u89AA\u621A\u306E\u63F4\u52A9\u3067\u66AE\u3089\u3059\u3053\u3068\u306B\u306A\u3063\u305F\u3002"]) : this.kids.length ? "\u8CAF\u3048\u304C\u5C3D\u304D\u3001\u5B50\u3069\u3082\u305F\u3061\u306E\u4ED5\u9001\u308A\u306B\u983C\u3063\u3066\u66AE\u3089\u3059\u3088\u3046\u306B\u306A\u3063\u305F\u3002" : "\u8CAF\u3048\u304C\u5C3D\u304D\u3001\u89AA\u621A\u3084\u5730\u57DF\u306E\u652F\u3048\u3067\u66AE\u3089\u3059\u3088\u3046\u306B\u306A\u3063\u305F\u3002";
+          this.publicAid = this.D.isJapan || streamRng(this.seed, "publicAid", 0).chance(publicAidRate(this.D.iso3));
+          const text = this.D.isJapan ? "\u8CAF\u3048\u304C\u5C3D\u304D\u3001\u751F\u6D3B\u4FDD\u8B77\u3092\u53D7\u3051\u306F\u3058\u3081\u305F\u3002" : this.publicAid ? a < 65 ? this.vary("aidPub", ["\u66AE\u3089\u3057\u304C\u7ACB\u3061\u884C\u304B\u306A\u304F\u306A\u308A\u3001\u56FD\u306E\u751F\u6D3B\u652F\u63F4\uFF08\u73FE\u91D1\u306E\u7D66\u4ED8\uFF09\u3092\u53D7\u3051\u308B\u3053\u3068\u306B\u306A\u3063\u305F\u3002", "\u7A3C\u304E\u3060\u3051\u3067\u306F\u66AE\u3089\u305B\u306A\u304F\u306A\u308A\u3001\u56FD\u306E\u751F\u6D3B\u652F\u63F4\u3092\u53D7\u3051\u306F\u3058\u3081\u305F\u3002"]) : "\u8CAF\u3048\u304C\u5C3D\u304D\u3001\u56FD\u306E\u751F\u6D3B\u652F\u63F4\uFF08\u73FE\u91D1\u306E\u7D66\u4ED8\uFF09\u3092\u53D7\u3051\u3066\u66AE\u3089\u3059\u3088\u3046\u306B\u306A\u3063\u305F\u3002" : a < 65 ? this.again("aid", 8) ? this.vary("aid2", ["\u307E\u305F\u501F\u91D1\u304C\u8FD4\u305B\u306A\u304F\u306A\u308A\u3001\u89AA\u621A\u306E\u63F4\u52A9\u3092\u53D7\u3051\u308B\u3053\u3068\u306B\u306A\u3063\u305F\u3002", "\u518D\u3073\u66AE\u3089\u3057\u304C\u7ACB\u3061\u884C\u304B\u306A\u304F\u306A\u308A\u3001\u89AA\u621A\u3092\u983C\u3063\u305F\u3002"]) : this.vary("aid", ["\u501F\u91D1\u304C\u8FD4\u305B\u306A\u304F\u306A\u308A\u3001\u89AA\u621A\u306B\u52A9\u3051\u3092\u6C42\u3081\u305F\u3002\u3057\u3070\u3089\u304F\u63F4\u52A9\u3092\u53D7\u3051\u3066\u66AE\u3089\u3059\u3002", "\u8FD4\u6E08\u304C\u8FFD\u3044\u3064\u304B\u306A\u304F\u306A\u308A\u3001\u89AA\u621A\u306E\u63F4\u52A9\u3067\u66AE\u3089\u3059\u3053\u3068\u306B\u306A\u3063\u305F\u3002"]) : this.kids.length ? "\u8CAF\u3048\u304C\u5C3D\u304D\u3001\u5B50\u3069\u3082\u305F\u3061\u306E\u4ED5\u9001\u308A\u306B\u983C\u3063\u3066\u66AE\u3089\u3059\u3088\u3046\u306B\u306A\u3063\u305F\u3002" : "\u8CAF\u3048\u304C\u5C3D\u304D\u3001\u89AA\u621A\u3084\u5730\u57DF\u306E\u652F\u3048\u3067\u66AE\u3089\u3059\u3088\u3046\u306B\u306A\u3063\u305F\u3002";
           this.log("money", text, void 0, true);
         }
         this.welfare = true;
@@ -12871,7 +14007,7 @@ var Life = class {
     }
     if (this.welfare && !this.D.isJapan && a < 65 && this.cash + this.invest > 0) {
       this.welfare = false;
-      this.log("money", this.vary("welfareOff", ["\u63F4\u52A9\u3092\u53D7\u3051\u305A\u306B\u66AE\u3089\u305B\u308B\u3088\u3046\u306B\u306A\u3063\u305F\u3002", "\u306A\u3093\u3068\u304B\u81EA\u5206\u306E\u7A3C\u304E\u3067\u66AE\u3089\u305B\u308B\u3088\u3046\u306B\u306A\u3063\u305F\u3002", "\u89AA\u621A\u306B\u983C\u3089\u305A\u306B\u3084\u3063\u3066\u3044\u3051\u308B\u3088\u3046\u306B\u306A\u3063\u305F\u3002"]));
+      this.log("money", this.publicAid ? this.vary("welfareOffPub", ["\u56FD\u306E\u652F\u63F4\u3092\u53D7\u3051\u305A\u306B\u66AE\u3089\u305B\u308B\u3088\u3046\u306B\u306A\u3063\u305F\u3002", "\u306A\u3093\u3068\u304B\u81EA\u5206\u306E\u7A3C\u304E\u3067\u66AE\u3089\u305B\u308B\u3088\u3046\u306B\u306A\u3063\u305F\u3002"]) : this.vary("welfareOff", ["\u63F4\u52A9\u3092\u53D7\u3051\u305A\u306B\u66AE\u3089\u305B\u308B\u3088\u3046\u306B\u306A\u3063\u305F\u3002", "\u306A\u3093\u3068\u304B\u81EA\u5206\u306E\u7A3C\u304E\u3067\u66AE\u3089\u305B\u308B\u3088\u3046\u306B\u306A\u3063\u305F\u3002", "\u89AA\u621A\u306B\u983C\u3089\u305A\u306B\u3084\u3063\u3066\u3044\u3051\u308B\u3088\u3046\u306B\u306A\u3063\u305F\u3002"]));
     }
     const wasFrugal = this.frugal;
     this.frugal = this.cash + this.invest < -this.y(1e6) && this.school === "done";
@@ -24047,7 +25183,7 @@ var EXPENSE_LABEL = {
 };
 
 // src/engine/result.ts
-var CODEC_VERSION = "11";
+var CODEC_VERSION = "12";
 function picksOf(l) {
   return l.choiceLog.flatMap((c) => c.alloc ? [c.alloc.save, c.alloc.invest, c.alloc.family, c.alloc.self] : [c.pickIndex ?? 0]);
 }

@@ -225,3 +225,15 @@
 | 項目 | 出典 | 反映した数 | 備考 |
 |---|---|---|---|
 | 国ごとの出来事の起きる確率（country_events.json の annualProb） | 各国の政府統計・国際機関（出来事ごとに basis に記載） | 29件のうち17件を統計で確認、そのうち6件の確率を直した | 判断の理由は manual/part10_review.md。反映は build/apply_event_freq.py。これで110件のうち98件が統計で確認済み、12件は推計のまま |
+
+## 第11部：新しい出来事の統計（Manus・Gemini 用の依頼と、Claude による調査、2026年10月）
+
+第1段階として、次の統計を data/world/life_stats.json（build/build_life_stats.py）にまとめてゲームに入れた。判断の理由は manual/part11_review.md。
+
+| 項目 | 出典 | 反映した数 | ゲームでの使い道 |
+|---|---|---|---|
+| road_traffic_death_rate | WHO Global Status Report on Road Safety 2023（2021年の推計） | 88か国 | 交通事故の重いけが。重傷者は死者の約10倍（警察庁 2024年：死者2,663人・重傷者27,285人）として確率にした |
+| maternal_mortality_ratio | WHO・UNICEF・UNFPA・世界銀行・国連の共同推計（2023年） | 88か国 | 初めての子が生まれたときの一言 |
+| sickness_benefit_status | ILO World Social Protection Report、ISSA | 20か国（ほかは非正規で働く人の割合から推計） | がん・心臓や脳の病気・交通事故で休む間の給料 |
+| social_assistance_coverage_q1 / social_protection_coverage | 世界銀行 ASPIRE / ILO（SDG 1.3.1） | 69か国 / 85か国 | 暮らしに困ったとき、国の給付を受けられるか（日本以外） |
+| single_parent_poverty_rate | OECD Family Database、厚生労働省 ほか | 8か国（インド・中国は2011年と古いので使わない） | 一人で子どもを育てることになったときの一言 |

@@ -491,7 +491,7 @@
   "minAge": 24,
   "maxAge": 45,
   "annualProb": 0.08,
-  "requires": "kid:0-2",
+  "requires": "working+kid:0-2",
   "title": "保育料の高さ",
   "situation": "産休が明けたが、近くの保育施設の料金は月に1,000ドルを超えていた。",
   "options": [
@@ -1242,7 +1242,7 @@
   ],
   "minAge": 22,
   "maxAge": 40,
-  "annualProb": 0.015,
+  "annualProb": 0.005,
   "requires": "working",
   "title": "海外移住（ジャパ）",
   "situation": "同僚が次々と英国やカナダに移住し、自分も就労ビザを取るか考えた。",
@@ -1280,8 +1280,8 @@
     "result": "ラゴスでの仕事を続けた。"
    }
   ],
-  "basis": "医師・看護師などの国外流出「ジャパ」が2020年代に急増（報道、英国の就労ビザ統計）",
-  "estimated": true
+  "basis": "英国の就労・介護・留学ビザは年約7万件（Home Office 2022〜23年）、カナダの留学許可は年約3.3万件（IRCC 2023年）。20〜39歳6,526万人の年0.2%前後（統計で確認）",
+  "estimated": false
  },
  {
   "id": "nga_asuu_strike",
@@ -1843,7 +1843,7 @@
   "minAge": 0,
   "maxAge": 100,
   "annualProb": 0.02,
-  "requires": "urban",
+  "requires": "urban+working",
   "title": "雨季の冠水",
   "situation": "大雨で住んでいる地区が冠水し、数日間仕事に行けなかった。",
   "options": [
@@ -2111,7 +2111,7 @@
   "minAge": 15,
   "maxAge": 70,
   "annualProb": 0.1,
-  "requires": "urban",
+  "requires": "urban+working",
   "title": "スマホのひったくり",
   "situation": "通勤中にスマホをひったくられた。",
   "options": [
@@ -2703,7 +2703,7 @@
   "minAge": 18,
   "maxAge": 70,
   "annualProb": 0.2,
-  "requires": "urban",
+  "requires": "urban+working",
   "title": "交通機関のストライキ",
   "situation": "年金改革に反対するストライキで、電車と地下鉄がほとんど動かない日が続いた。",
   "options": [
@@ -3267,7 +3267,7 @@
   "minAge": 20,
   "maxAge": 60,
   "annualProb": 0.05,
-  "requires": "urban",
+  "requires": "urban+working",
   "title": "マニラの通勤",
   "situation": "渋滞がひどく、片道2時間以上かけて通勤している。",
   "options": [
@@ -4614,7 +4614,7 @@
   ],
   "minAge": 18,
   "maxAge": 70,
-  "annualProb": 0.05,
+  "annualProb": 0.15,
   "requires": "urban",
   "title": "燃料と交通費の値上がり",
   "situation": "燃料税の引き上げで、乗り合いバス（マタツ）の運賃が上がった。",
@@ -4648,8 +4648,8 @@
     "result": "食費を削って通勤を続けた。"
    }
   ],
-  "basis": "2023年に燃料への付加価値税が8%から16%に引き上げられた（財務省）",
-  "estimated": true
+  "basis": "ガソリンの年平均価格が1年に2割以上上がった年は、2007〜2024年の17回のうち5回（KNBS）（統計で確認）",
+  "estimated": false
  },
  {
   "id": "ken_harambee",

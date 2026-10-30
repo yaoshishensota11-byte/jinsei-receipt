@@ -1,0 +1,1070 @@
+{
+ "AFG": {
+  "roadDeathsPer100k": 23.9,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023",
+   "socialAssistanceQ1": "2011",
+   "socialProtection": "2019"
+  },
+  "maternalDeathsPer100kBirths": 521.0,
+  "socialAssistanceQ1": 0.1247,
+  "socialProtection": 0.075
+ },
+ "AGO": {
+  "roadDeathsPer100k": 15.0,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023",
+   "socialAssistanceQ1": "2018",
+   "socialProtection": "2022"
+  },
+  "maternalDeathsPer100kBirths": 183.0,
+  "socialAssistanceQ1": 0.0468,
+  "socialProtection": 0.087
+ },
+ "ARG": {
+  "roadDeathsPer100k": 10.2,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023",
+   "socialAssistanceQ1": "2022",
+   "socialProtection": "2021"
+  },
+  "maternalDeathsPer100kBirths": 33.0,
+  "socialAssistanceQ1": 0.6886,
+  "socialProtection": 0.659
+ },
+ "AUS": {
+  "roadDeathsPer100k": 4.5,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023",
+   "socialProtection": "2022"
+  },
+  "maternalDeathsPer100kBirths": 2.0,
+  "socialProtection": 0.94
+ },
+ "BDI": {
+  "roadDeathsPer100k": 12.3,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023",
+   "socialAssistanceQ1": "2019",
+   "socialProtection": "2022"
+  },
+  "maternalDeathsPer100kBirths": 392.0,
+  "socialAssistanceQ1": 0.1126,
+  "socialProtection": 0.161
+ },
+ "BEN": {
+  "roadDeathsPer100k": 24.8,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023",
+   "socialAssistanceQ1": "2021",
+   "socialProtection": "2020"
+  },
+  "maternalDeathsPer100kBirths": 518.0,
+  "socialAssistanceQ1": 0.0441,
+  "socialProtection": 0.084
+ },
+ "BFA": {
+  "roadDeathsPer100k": 27.8,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023",
+   "socialAssistanceQ1": "2021",
+   "socialProtection": "2021"
+  },
+  "maternalDeathsPer100kBirths": 242.0,
+  "socialAssistanceQ1": 0.4704,
+  "socialProtection": 0.097
+ },
+ "BGD": {
+  "roadDeathsPer100k": 18.6,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023",
+   "socialAssistanceQ1": "2022",
+   "socialProtection": "2021",
+   "sicknessBenefit": "2023"
+  },
+  "maternalDeathsPer100kBirths": 115.0,
+  "socialAssistanceQ1": 0.6934,
+  "socialProtection": 0.22,
+  "sicknessBenefit": 0.5
+ },
+ "BOL": {
+  "roadDeathsPer100k": 17.7,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023",
+   "socialAssistanceQ1": "2021",
+   "socialProtection": "2021"
+  },
+  "maternalDeathsPer100kBirths": 146.0,
+  "socialAssistanceQ1": 0.9934,
+  "socialProtection": 0.384
+ },
+ "BRA": {
+  "roadDeathsPer100k": 15.7,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023",
+   "socialAssistanceQ1": "2022",
+   "socialProtection": "2022",
+   "singleParentPoverty": "2022",
+   "sicknessBenefit": "2023"
+  },
+  "maternalDeathsPer100kBirths": 67.0,
+  "socialAssistanceQ1": 0.6428,
+  "socialProtection": 0.712,
+  "singleParentPoverty": 0.6122,
+  "sicknessBenefit": 1.0
+ },
+ "CAF": {
+  "roadDeathsPer100k": 26.1,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023",
+   "socialProtection": "2019"
+  },
+  "maternalDeathsPer100kBirths": 692.0,
+  "socialProtection": 0.035
+ },
+ "CAN": {
+  "roadDeathsPer100k": 4.8,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023",
+   "socialProtection": "2022"
+  },
+  "maternalDeathsPer100kBirths": 12.0,
+  "socialProtection": 0.956
+ },
+ "CHL": {
+  "roadDeathsPer100k": 10.8,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023",
+   "socialAssistanceQ1": "2022",
+   "socialProtection": "2022"
+  },
+  "maternalDeathsPer100kBirths": 10.0,
+  "socialAssistanceQ1": 0.9278,
+  "socialProtection": 0.753
+ },
+ "CHN": {
+  "roadDeathsPer100k": 17.4,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023",
+   "socialAssistanceQ1": "2013",
+   "socialProtection": "2021",
+   "sicknessBenefit": "2023"
+  },
+  "maternalDeathsPer100kBirths": 16.0,
+  "socialAssistanceQ1": 0.6504,
+  "socialProtection": 0.756,
+  "sicknessBenefit": 0.5
+ },
+ "CIV": {
+  "roadDeathsPer100k": 20.6,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023",
+   "socialAssistanceQ1": "2021",
+   "socialProtection": "2022"
+  },
+  "maternalDeathsPer100kBirths": 359.0,
+  "socialAssistanceQ1": 0.0341,
+  "socialProtection": 0.121
+ },
+ "CMR": {
+  "roadDeathsPer100k": 10.6,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023",
+   "socialAssistanceQ1": "2021",
+   "socialProtection": "2022"
+  },
+  "maternalDeathsPer100kBirths": 258.0,
+  "socialAssistanceQ1": 0.1279,
+  "socialProtection": 0.1
+ },
+ "COD": {
+  "roadDeathsPer100k": 16.3,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023",
+   "socialAssistanceQ1": "2012",
+   "socialProtection": "2022",
+   "sicknessBenefit": "2023"
+  },
+  "maternalDeathsPer100kBirths": 427.0,
+  "socialAssistanceQ1": 0.0483,
+  "socialProtection": 0.052,
+  "sicknessBenefit": 0.0
+ },
+ "COG": {
+  "roadDeathsPer100k": 8.4,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023"
+  },
+  "maternalDeathsPer100kBirths": 241.0
+ },
+ "COL": {
+  "roadDeathsPer100k": 16.2,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023",
+   "socialAssistanceQ1": "2022",
+   "socialProtection": "2025"
+  },
+  "maternalDeathsPer100kBirths": 59.0,
+  "socialAssistanceQ1": 0.5404,
+  "socialProtection": 0.583
+ },
+ "DEU": {
+  "roadDeathsPer100k": 3.3,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023",
+   "socialProtection": "2022",
+   "singleParentPoverty": "2020",
+   "sicknessBenefit": "2023"
+  },
+  "maternalDeathsPer100kBirths": 4.0,
+  "socialProtection": 1.0,
+  "singleParentPoverty": 0.2906,
+  "sicknessBenefit": 1.0
+ },
+ "DOM": {
+  "roadDeathsPer100k": 27.4,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023",
+   "socialAssistanceQ1": "2021",
+   "socialProtection": "2022"
+  },
+  "maternalDeathsPer100kBirths": 124.0,
+  "socialAssistanceQ1": 0.5696,
+  "socialProtection": 0.61
+ },
+ "DZA": {
+  "roadDeathsPer100k": 18.3,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023",
+   "socialProtection": "2021"
+  },
+  "maternalDeathsPer100kBirths": 62.0,
+  "socialProtection": 0.602
+ },
+ "ECU": {
+  "roadDeathsPer100k": 22.8,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023",
+   "socialAssistanceQ1": "2022",
+   "socialProtection": "2021"
+  },
+  "maternalDeathsPer100kBirths": 55.0,
+  "socialAssistanceQ1": 0.5645,
+  "socialProtection": 0.468
+ },
+ "EGY": {
+  "roadDeathsPer100k": 9.4,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023",
+   "socialAssistanceQ1": "2019",
+   "socialProtection": "2022",
+   "sicknessBenefit": "2023"
+  },
+  "maternalDeathsPer100kBirths": 17.0,
+  "socialAssistanceQ1": 0.9409,
+  "socialProtection": 0.366,
+  "sicknessBenefit": 1.0
+ },
+ "ESP": {
+  "roadDeathsPer100k": 3.5,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023",
+   "socialProtection": "2022"
+  },
+  "maternalDeathsPer100kBirths": 3.0,
+  "socialProtection": 0.781
+ },
+ "ETH": {
+  "roadDeathsPer100k": 17.7,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023",
+   "socialAssistanceQ1": "2018",
+   "socialProtection": "2024",
+   "sicknessBenefit": "2023"
+  },
+  "maternalDeathsPer100kBirths": 195.0,
+  "socialAssistanceQ1": 0.3001,
+  "socialProtection": 0.115,
+  "sicknessBenefit": 0.5
+ },
+ "FRA": {
+  "roadDeathsPer100k": 4.7,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023",
+   "socialProtection": "2021",
+   "singleParentPoverty": "2021",
+   "sicknessBenefit": "2023"
+  },
+  "maternalDeathsPer100kBirths": 7.0,
+  "socialProtection": 0.994,
+  "singleParentPoverty": 0.3115,
+  "sicknessBenefit": 1.0
+ },
+ "GBR": {
+  "roadDeathsPer100k": 2.4,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023",
+   "socialProtection": "2023",
+   "singleParentPoverty": "2021",
+   "sicknessBenefit": "2023"
+  },
+  "maternalDeathsPer100kBirths": 8.0,
+  "socialProtection": 0.936,
+  "singleParentPoverty": 0.2667,
+  "sicknessBenefit": 0.5
+ },
+ "GHA": {
+  "roadDeathsPer100k": 25.9,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023",
+   "socialAssistanceQ1": "2016",
+   "socialProtection": "2022"
+  },
+  "maternalDeathsPer100kBirths": 234.0,
+  "socialAssistanceQ1": 0.3951,
+  "socialProtection": 0.252
+ },
+ "GIN": {
+  "roadDeathsPer100k": 37.4,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023",
+   "socialAssistanceQ1": "2018",
+   "socialProtection": "2021"
+  },
+  "maternalDeathsPer100kBirths": 494.0,
+  "socialAssistanceQ1": 0.0779,
+  "socialProtection": 0.037
+ },
+ "GTM": {
+  "roadDeathsPer100k": 12.6,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023",
+   "socialAssistanceQ1": "2014",
+   "socialProtection": "2022"
+  },
+  "maternalDeathsPer100kBirths": 94.0,
+  "socialAssistanceQ1": 0.7165,
+  "socialProtection": 0.121
+ },
+ "HND": {
+  "roadDeathsPer100k": 18.6,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023",
+   "socialAssistanceQ1": "2019",
+   "socialProtection": "2022"
+  },
+  "maternalDeathsPer100kBirths": 47.0,
+  "socialAssistanceQ1": 0.5039,
+  "socialProtection": 0.301
+ },
+ "HTI": {
+  "roadDeathsPer100k": 31.3,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023",
+   "socialAssistanceQ1": "2012",
+   "socialProtection": "2022"
+  },
+  "maternalDeathsPer100kBirths": 328.0,
+  "socialAssistanceQ1": 0.2153,
+  "socialProtection": 0.066
+ },
+ "IDN": {
+  "roadDeathsPer100k": 11.3,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023",
+   "socialAssistanceQ1": "2022",
+   "socialProtection": "2021",
+   "sicknessBenefit": "2023"
+  },
+  "maternalDeathsPer100kBirths": 140.0,
+  "socialAssistanceQ1": 0.6939,
+  "socialProtection": 0.543,
+  "sicknessBenefit": 0.5
+ },
+ "IND": {
+  "roadDeathsPer100k": 14.6,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023",
+   "socialAssistanceQ1": "2011",
+   "socialProtection": "2025",
+   "sicknessBenefit": "2023"
+  },
+  "maternalDeathsPer100kBirths": 80.0,
+  "socialAssistanceQ1": 0.9276,
+  "socialProtection": 0.643,
+  "sicknessBenefit": 1.0
+ },
+ "IRN": {
+  "roadDeathsPer100k": 20.6,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023",
+   "socialAssistanceQ1": "2020",
+   "socialProtection": "2023"
+  },
+  "maternalDeathsPer100kBirths": 16.0,
+  "socialAssistanceQ1": 0.8977,
+  "socialProtection": 1.0
+ },
+ "IRQ": {
+  "roadDeathsPer100k": 21.5,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023",
+   "socialAssistanceQ1": "2012",
+   "socialProtection": "2022"
+  },
+  "maternalDeathsPer100kBirths": 66.0,
+  "socialAssistanceQ1": 0.8612,
+  "socialProtection": 0.417
+ },
+ "ISR": {
+  "roadDeathsPer100k": 4.2,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023",
+   "socialProtection": "2022"
+  },
+  "maternalDeathsPer100kBirths": 2.0,
+  "socialProtection": 1.0
+ },
+ "ITA": {
+  "roadDeathsPer100k": 5.0,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023",
+   "socialProtection": "2022"
+  },
+  "maternalDeathsPer100kBirths": 6.0,
+  "socialProtection": 0.888
+ },
+ "JOR": {
+  "roadDeathsPer100k": 13.3,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023",
+   "socialAssistanceQ1": "2010",
+   "socialProtection": "2022"
+  },
+  "maternalDeathsPer100kBirths": 31.0,
+  "socialAssistanceQ1": 0.8331,
+  "socialProtection": 0.288
+ },
+ "JPN": {
+  "roadDeathsPer100k": 2.6,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023",
+   "socialProtection": "2020",
+   "singleParentPoverty": "2021",
+   "sicknessBenefit": "2023"
+  },
+  "maternalDeathsPer100kBirths": 3.0,
+  "socialProtection": 0.946,
+  "singleParentPoverty": 0.4446,
+  "sicknessBenefit": 1.0
+ },
+ "KAZ": {
+  "roadDeathsPer100k": 11.9,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023",
+   "socialAssistanceQ1": "2021",
+   "socialProtection": "2023"
+  },
+  "maternalDeathsPer100kBirths": 10.0,
+  "socialAssistanceQ1": 0.4108,
+  "socialProtection": 0.943
+ },
+ "KEN": {
+  "roadDeathsPer100k": 28.2,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023",
+   "socialAssistanceQ1": "2015",
+   "socialProtection": "2021",
+   "sicknessBenefit": "2023"
+  },
+  "maternalDeathsPer100kBirths": 149.0,
+  "socialAssistanceQ1": 0.3451,
+  "socialProtection": 0.09,
+  "sicknessBenefit": 0.5
+ },
+ "KHM": {
+  "roadDeathsPer100k": 18.8,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023",
+   "socialProtection": "2022"
+  },
+  "maternalDeathsPer100kBirths": 137.0,
+  "socialProtection": 0.208
+ },
+ "KOR": {
+  "roadDeathsPer100k": 6.9,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023",
+   "socialProtection": "2022",
+   "singleParentPoverty": "2022",
+   "sicknessBenefit": "2023"
+  },
+  "maternalDeathsPer100kBirths": 4.0,
+  "socialProtection": 0.802,
+  "singleParentPoverty": 0.2956,
+  "sicknessBenefit": 0.0
+ },
+ "LKA": {
+  "roadDeathsPer100k": 11.4,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023",
+   "socialAssistanceQ1": "2019",
+   "socialProtection": "2021"
+  },
+  "maternalDeathsPer100kBirths": 18.0,
+  "socialAssistanceQ1": 0.4882,
+  "socialProtection": 0.413
+ },
+ "MAR": {
+  "roadDeathsPer100k": 18.6,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023",
+   "socialAssistanceQ1": "2009",
+   "socialProtection": "2019"
+  },
+  "maternalDeathsPer100kBirths": 70.0,
+  "socialAssistanceQ1": 0.5011,
+  "socialProtection": 0.205
+ },
+ "MDG": {
+  "roadDeathsPer100k": 22.5,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023",
+   "socialProtection": "2022"
+  },
+  "maternalDeathsPer100kBirths": 445.0,
+  "socialProtection": 0.154
+ },
+ "MEX": {
+  "roadDeathsPer100k": 12.0,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023",
+   "socialAssistanceQ1": "2022",
+   "socialProtection": "2022",
+   "singleParentPoverty": "2022",
+   "sicknessBenefit": "2023"
+  },
+  "maternalDeathsPer100kBirths": 42.0,
+  "socialAssistanceQ1": 0.5158,
+  "socialProtection": 0.808,
+  "singleParentPoverty": 0.339,
+  "sicknessBenefit": 1.0
+ },
+ "MLI": {
+  "roadDeathsPer100k": 20.2,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023",
+   "socialAssistanceQ1": "2021",
+   "socialProtection": "2022"
+  },
+  "maternalDeathsPer100kBirths": 367.0,
+  "socialAssistanceQ1": 0.4095,
+  "socialProtection": 0.126
+ },
+ "MMR": {
+  "roadDeathsPer100k": 19.3,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023",
+   "socialAssistanceQ1": "2017",
+   "socialProtection": "2019"
+  },
+  "maternalDeathsPer100kBirths": 185.0,
+  "socialAssistanceQ1": 0.1038,
+  "socialProtection": 0.063
+ },
+ "MOZ": {
+  "roadDeathsPer100k": 19.9,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023",
+   "socialAssistanceQ1": "2019",
+   "socialProtection": "2022"
+  },
+  "maternalDeathsPer100kBirths": 99.0,
+  "socialAssistanceQ1": 0.0394,
+  "socialProtection": 0.06
+ },
+ "MWI": {
+  "roadDeathsPer100k": 20.4,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023",
+   "socialAssistanceQ1": "2019",
+   "socialProtection": "2022"
+  },
+  "maternalDeathsPer100kBirths": 225.0,
+  "socialAssistanceQ1": 0.4243,
+  "socialProtection": 0.199
+ },
+ "MYS": {
+  "roadDeathsPer100k": 13.9,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023",
+   "socialAssistanceQ1": "2016",
+   "socialProtection": "2023"
+  },
+  "maternalDeathsPer100kBirths": 26.0,
+  "socialAssistanceQ1": 0.9763,
+  "socialProtection": 0.292
+ },
+ "NER": {
+  "roadDeathsPer100k": 24.9,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023",
+   "socialAssistanceQ1": "2021",
+   "socialProtection": "2015"
+  },
+  "maternalDeathsPer100kBirths": 350.0,
+  "socialAssistanceQ1": 0.2364,
+  "socialProtection": 0.206
+ },
+ "NGA": {
+  "roadDeathsPer100k": 17.2,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023",
+   "socialAssistanceQ1": "2018",
+   "socialProtection": "2022",
+   "sicknessBenefit": "2023"
+  },
+  "maternalDeathsPer100kBirths": 993.0,
+  "socialAssistanceQ1": 0.277,
+  "socialProtection": 0.148,
+  "sicknessBenefit": 0.5
+ },
+ "NPL": {
+  "roadDeathsPer100k": 28.2,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023",
+   "socialAssistanceQ1": "2010",
+   "socialProtection": "2022"
+  },
+  "maternalDeathsPer100kBirths": 142.0,
+  "socialAssistanceQ1": 0.4895,
+  "socialProtection": 0.21
+ },
+ "PAK": {
+  "roadDeathsPer100k": 11.9,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023",
+   "socialAssistanceQ1": "2018",
+   "socialProtection": "2022",
+   "sicknessBenefit": "2023"
+  },
+  "maternalDeathsPer100kBirths": 155.0,
+  "socialAssistanceQ1": 0.2065,
+  "socialProtection": 0.202,
+  "sicknessBenefit": 0.5
+ },
+ "PER": {
+  "roadDeathsPer100k": 12.2,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023",
+   "socialAssistanceQ1": "2022",
+   "socialProtection": "2024"
+  },
+  "maternalDeathsPer100kBirths": 51.0,
+  "socialAssistanceQ1": 0.9531,
+  "socialProtection": 0.301
+ },
+ "PHL": {
+  "roadDeathsPer100k": 9.9,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023",
+   "socialAssistanceQ1": "2018",
+   "socialProtection": "2022",
+   "sicknessBenefit": "2023"
+  },
+  "maternalDeathsPer100kBirths": 84.0,
+  "socialAssistanceQ1": 0.5724,
+  "socialProtection": 0.349,
+  "sicknessBenefit": 1.0
+ },
+ "PNG": {
+  "roadDeathsPer100k": 15.3,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023",
+   "socialAssistanceQ1": "2009",
+   "socialProtection": "2022"
+  },
+  "maternalDeathsPer100kBirths": 189.0,
+  "socialAssistanceQ1": 0.0192,
+  "socialProtection": 0.091
+ },
+ "POL": {
+  "roadDeathsPer100k": 6.4,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023",
+   "socialAssistanceQ1": "2019",
+   "socialProtection": "2023"
+  },
+  "maternalDeathsPer100kBirths": 2.0,
+  "socialAssistanceQ1": 0.7179,
+  "socialProtection": 0.842
+ },
+ "PRK": {
+  "roadDeathsPer100k": 42.7,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023"
+  },
+  "maternalDeathsPer100kBirths": 67.0
+ },
+ "RUS": {
+  "roadDeathsPer100k": 10.6,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023",
+   "socialAssistanceQ1": "2017",
+   "socialProtection": "2022"
+  },
+  "maternalDeathsPer100kBirths": 9.0,
+  "socialAssistanceQ1": 0.7756,
+  "socialProtection": 0.954
+ },
+ "RWA": {
+  "roadDeathsPer100k": 11.6,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023",
+   "socialAssistanceQ1": "2013",
+   "socialProtection": "2023"
+  },
+  "maternalDeathsPer100kBirths": 229.0,
+  "socialAssistanceQ1": 0.2005,
+  "socialProtection": 0.077
+ },
+ "SAU": {
+  "roadDeathsPer100k": 18.8,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023",
+   "socialProtection": "2022"
+  },
+  "maternalDeathsPer100kBirths": 7.0,
+  "socialProtection": 0.64
+ },
+ "SDN": {
+  "roadDeathsPer100k": 19.6,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023",
+   "socialAssistanceQ1": "2009",
+   "socialProtection": "2021"
+  },
+  "maternalDeathsPer100kBirths": 256.0,
+  "socialAssistanceQ1": 0.131,
+  "socialProtection": 0.104
+ },
+ "SEN": {
+  "roadDeathsPer100k": 20.8,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023",
+   "socialAssistanceQ1": "2021",
+   "socialProtection": "2022"
+  },
+  "maternalDeathsPer100kBirths": 237.0,
+  "socialAssistanceQ1": 0.3911,
+  "socialProtection": 0.199
+ },
+ "SLE": {
+  "roadDeathsPer100k": 13.8,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023",
+   "socialAssistanceQ1": "2018",
+   "socialProtection": "2019"
+  },
+  "maternalDeathsPer100kBirths": 354.0,
+  "socialAssistanceQ1": 0.2134,
+  "socialProtection": 0.044
+ },
+ "SOM": {
+  "roadDeathsPer100k": 20.2,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023",
+   "socialAssistanceQ1": "2017",
+   "socialProtection": "2023"
+  },
+  "maternalDeathsPer100kBirths": 563.0,
+  "socialAssistanceQ1": 0.0573,
+  "socialProtection": 0.0
+ },
+ "SSD": {
+  "roadDeathsPer100k": 23.5,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023",
+   "socialAssistanceQ1": "2009",
+   "socialProtection": "2023"
+  },
+  "maternalDeathsPer100kBirths": 692.0,
+  "socialAssistanceQ1": 0.0337,
+  "socialProtection": 0.0
+ },
+ "SYR": {
+  "roadDeathsPer100k": 29.9,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023"
+  },
+  "maternalDeathsPer100kBirths": 20.0
+ },
+ "TCD": {
+  "roadDeathsPer100k": 26.4,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023",
+   "socialAssistanceQ1": "2022",
+   "socialProtection": "2022"
+  },
+  "maternalDeathsPer100kBirths": 748.0,
+  "socialAssistanceQ1": 0.0667,
+  "socialProtection": 0.025
+ },
+ "TGO": {
+  "roadDeathsPer100k": 22.7,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023",
+   "socialAssistanceQ1": "2021",
+   "socialProtection": "2022"
+  },
+  "maternalDeathsPer100kBirths": 349.0,
+  "socialAssistanceQ1": 0.1724,
+  "socialProtection": 0.387
+ },
+ "THA": {
+  "roadDeathsPer100k": 25.4,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023",
+   "socialAssistanceQ1": "2021",
+   "socialProtection": "2020"
+  },
+  "maternalDeathsPer100kBirths": 34.0,
+  "socialAssistanceQ1": 0.9708,
+  "socialProtection": 0.701
+ },
+ "TJK": {
+  "roadDeathsPer100k": 13.9,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023",
+   "socialAssistanceQ1": "2011",
+   "socialProtection": "2023"
+  },
+  "maternalDeathsPer100kBirths": 14.0,
+  "socialAssistanceQ1": 0.1304,
+  "socialProtection": 0.341
+ },
+ "TUR": {
+  "roadDeathsPer100k": 6.4,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023",
+   "socialAssistanceQ1": "2019",
+   "socialProtection": "2022"
+  },
+  "maternalDeathsPer100kBirths": 15.0,
+  "socialAssistanceQ1": 0.3961,
+  "socialProtection": 0.64
+ },
+ "TZA": {
+  "roadDeathsPer100k": 15.8,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023",
+   "socialAssistanceQ1": "2014",
+   "socialProtection": "2021"
+  },
+  "maternalDeathsPer100kBirths": 276.0,
+  "socialAssistanceQ1": 0.0867,
+  "socialProtection": 0.114
+ },
+ "UGA": {
+  "roadDeathsPer100k": 16.0,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023",
+   "socialAssistanceQ1": "2016",
+   "socialProtection": "2022"
+  },
+  "maternalDeathsPer100kBirths": 170.0,
+  "socialAssistanceQ1": 0.0046,
+  "socialProtection": 0.031
+ },
+ "UKR": {
+  "roadDeathsPer100k": 10.5,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023",
+   "socialAssistanceQ1": "2020",
+   "socialProtection": "2019"
+  },
+  "maternalDeathsPer100kBirths": 15.0,
+  "socialAssistanceQ1": 0.3342,
+  "socialProtection": 0.73
+ },
+ "USA": {
+  "roadDeathsPer100k": 14.2,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023",
+   "socialProtection": "2023",
+   "singleParentPoverty": "2022",
+   "sicknessBenefit": "2023"
+  },
+  "maternalDeathsPer100kBirths": 17.0,
+  "socialProtection": 0.788,
+  "singleParentPoverty": 0.4963,
+  "sicknessBenefit": 0.0
+ },
+ "UZB": {
+  "roadDeathsPer100k": 9.3,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023",
+   "socialAssistanceQ1": "2018",
+   "socialProtection": "2022"
+  },
+  "maternalDeathsPer100kBirths": 26.0,
+  "socialAssistanceQ1": 0.1026,
+  "socialProtection": 0.56
+ },
+ "VEN": {
+  "roadDeathsPer100k": 13.9,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023",
+   "socialAssistanceQ1": "2006",
+   "socialProtection": "2019"
+  },
+  "maternalDeathsPer100kBirths": 227.0,
+  "socialAssistanceQ1": 0.05,
+  "socialProtection": 0.308
+ },
+ "VNM": {
+  "roadDeathsPer100k": 17.7,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023",
+   "socialAssistanceQ1": "2020",
+   "socialProtection": "2022",
+   "sicknessBenefit": "2023"
+  },
+  "maternalDeathsPer100kBirths": 48.0,
+  "socialAssistanceQ1": 0.8855,
+  "socialProtection": 0.383,
+  "sicknessBenefit": 1.0
+ },
+ "YEM": {
+  "roadDeathsPer100k": 29.8,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023",
+   "socialAssistanceQ1": "2014",
+   "socialProtection": "2022"
+  },
+  "maternalDeathsPer100kBirths": 118.0,
+  "socialAssistanceQ1": 0.4421,
+  "socialProtection": 0.07
+ },
+ "ZAF": {
+  "roadDeathsPer100k": 24.9,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023",
+   "socialAssistanceQ1": "2021",
+   "socialProtection": "2019"
+  },
+  "maternalDeathsPer100kBirths": 118.0,
+  "socialAssistanceQ1": 0.9458,
+  "socialProtection": 0.493
+ },
+ "ZMB": {
+  "roadDeathsPer100k": 17.1,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023",
+   "socialAssistanceQ1": "2015",
+   "socialProtection": "2021"
+  },
+  "maternalDeathsPer100kBirths": 85.0,
+  "socialAssistanceQ1": 0.0062,
+  "socialProtection": 0.303
+ },
+ "ZWE": {
+  "roadDeathsPer100k": 29.8,
+  "years": {
+   "roadDeathsPer100k": "2021",
+   "maternalDeathsPer100kBirths": "2023",
+   "socialAssistanceQ1": "2019",
+   "socialProtection": "2021"
+  },
+  "maternalDeathsPer100kBirths": 358.0,
+  "socialAssistanceQ1": 0.5896,
+  "socialProtection": 0.164
+ }
+}

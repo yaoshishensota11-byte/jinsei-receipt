@@ -39,6 +39,7 @@ const TAG_TEXT: Record<string, string> = {
   drought: "干ばつで作物を失った",
   inflation: "物価の急上昇で貯金が目減りした",
   scam: "詐欺でお金を取られた",
+  road: "交通事故で大けがをした",
 };
 
 export interface Compare {

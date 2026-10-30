@@ -117,7 +117,15 @@ CHECKED = {
 }
 
 # 出る条件を直したもの（状況と合わない人に出ていた）
-REQUIRES = {"jpn_seishain": "working+nonregular"}
+REQUIRES = {
+    "jpn_seishain": "working+nonregular",
+    # 通勤・職場の話なので、働いている人だけに出す
+    "phl_commute": "urban+working",
+    "usa_childcare": "working+kid:0-2",
+    "idn_jakarta_flood": "urban+working",
+    "bra_phone_theft": "urban+working",
+    "fra_strike": "urban+working",
+}
 
 MARK = "（統計で確認）"
 done = 0
