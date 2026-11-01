@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jinsei-receipt.vercel.app/sitemap.xml

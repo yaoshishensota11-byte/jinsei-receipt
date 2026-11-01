@@ -138,6 +138,7 @@ export function shareHtml(code: string, origin: string): string {
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex" />
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(desc)}" />
 <meta property="og:type" content="website" />
