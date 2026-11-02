@@ -19,7 +19,7 @@ const YEAR_MS = 4_200;
 const EVENT_MS = 700;
 const VOICE_MS = 1_600;
 
-const SPEEDS = [1, 2, 3, 4, 5] as const;
+const SPEEDS = [0.5, 1, 2, 3, 4, 5] as const;
 
 const params = new URLSearchParams(location.search);
 /** テスト用の内部高速モード（?turbo=50 なら速度×50）。画面には出さない */
