@@ -51,3 +51,5 @@ for row in open('docs/generations.md',encoding='utf8'):
     print(k,a,b)
 open(p,'w',encoding='utf8').write(s)
 PY
+# 共有用の画像（og.png）も、新しい金額で作り直す
+node scripts/ogimage.mjs 2>&1 | tail -1

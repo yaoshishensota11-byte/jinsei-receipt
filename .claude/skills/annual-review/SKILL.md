@@ -64,7 +64,7 @@ npx tsx scripts/consistencytest.ts 3000                       # 食い違い
 ```bash
 bash scripts/lpregen.sh 前の版の番号      # 例：版を18にしたなら 17
 for m in j m w; do npx tsx scripts/simtest.ts 300 $m; done
-node scripts/uitest.mjs 10                 # 画面を動かして10回遊ぶ。「10回すべて完走」と、等倍で約20分か
+node scripts/uitest.mjs 10                 # 画面を動かして10回遊ぶ。「10回すべて完走」と、等倍で約30分か
 npm run build
 ```
 lpregen.sh は 10分ほどかかるので、裏で動かして終わりを待つ。

@@ -298,7 +298,7 @@ button {
 /* ── 再生操作 ── */
 .controls {
   display: flex;
-  gap: 5px;
+  gap: 6px;
   padding: 10px 12px calc(10px + var(--safe-b));
   background: var(--paper);
   border-top: 1px dashed var(--line);
@@ -315,11 +315,7 @@ button {
   min-width: 0;
   white-space: nowrap;
 }
-/* 0.5×〜5× と停止の7つが、狭いスマホでも1行に収まるように */
-@media (max-width: 380px) {
-  .controls { gap: 4px; padding-left: 8px; padding-right: 8px; }
-  .controls button { font-size: 13px; letter-spacing: -0.02em; }
-}
+
 .controls button.on {
   background: var(--ink);
   border-color: var(--ink);

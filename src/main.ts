@@ -13,13 +13,13 @@ import { snap, voicesFor, type Snap, type Voice } from "./engine/voices";
 
 // 1年が進む時間は、出来事があってもなくても同じ（速さを変えるのは画面下の倍速ボタンだけ）。
 // 出来事が多い年と、家族の声がある年は、そのぶん少し長くする。章の区切りでは止まってまとめを見せる。
-// 選択・家族の声・章のまとめを含めて、等倍で1プレイ20〜30分ほど。
-const YEAR_MS = 4_200;
+// 1年は等倍で10秒。選択・家族の声・章のまとめを含めて、等倍で1プレイ約30分。
+const YEAR_MS = 10_000;
 /** 出来事が多い年は、3つ目から1つにつき少し長くする */
 const EVENT_MS = 700;
 const VOICE_MS = 1_600;
 
-const SPEEDS = [0.5, 1, 2, 3, 4, 5] as const;
+const SPEEDS = [1, 2, 3, 4, 5] as const;
 
 const params = new URLSearchParams(location.search);
 /** テスト用の内部高速モード（?turbo=50 なら速度×50）。画面には出さない */
@@ -51,7 +51,7 @@ function showTitle(): void {
         <p>あなたは今年生まれる赤ちゃん。<br>どこの国のどんな家庭に生まれるかは、生まれるまで分かりません。</p>
         <p>大きな分かれ道が8回と、日々の小さな選択がいくつも。最後に、人生のお会計をどうぞ。</p>
         <div class="dash"></div>
-        <div class="meta">所要時間 約20分（倍速で短縮できます）<br>賃金・家計・寿命・進学などは公的統計がもと</div>
+        <div class="meta">所要時間 約30分（倍速で短縮できます）<br>賃金・家計・寿命・進学などは公的統計がもと</div>
       </div>
       <div class="modes">
         <div class="modes-h">どこに生まれますか？</div>

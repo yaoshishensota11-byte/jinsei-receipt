@@ -12,6 +12,9 @@ const p = await b.newPage({ viewport: { width: 1200, height: 630 }, deviceScaleF
 await p.goto(`${BASE}/lp/index.html`);
 await p.evaluate(() => document.fonts.ready);
 await p.evaluate(async () => {
+  // 国ごとの金額は、紹介ページの「生涯で稼ぐお金」と同じ値を使う（古い値が残らないように）
+  const earn = Object.fromEntries([...document.querySelectorAll(".er")].map((r) => [r.querySelector(".cn").textContent, Number(r.dataset.v)]));
+  const man = (v) => (v >= 10000 ? (v / 10000).toFixed(2) + "億円" : Math.round(v).toLocaleString("ja-JP") + "万円");
   const people = await (await fetch("img/people.json")).json();
   const walk = ["toddle", "randoseru", "uniform", "suit", "bride", "work", "elder"];
   const sprite = (k, s) => `<span class="og-pp" style="width:${(people[k].w / 2) * s}px;height:${people[k].h * s}px;background-image:url(img/p-${k}.png);background-size:${people[k].w * s}px ${people[k].h * s}px"></span>`;
@@ -47,15 +50,15 @@ await p.evaluate(async () => {
     </style>`,
   );
   document.body.innerHTML = `<div class="og">
-    <div class="og-bar"><img src="/icon-192.png" alt="">人生のレシート<span class="og-lamp"></span><span class="og-free">無料・登録なし・約20分</span></div>
+    <div class="og-bar"><img src="/icon-192.png" alt="">人生のレシート<span class="og-lamp"></span><span class="og-free">無料・登録なし・約30分</span></div>
     <div class="og-paper">
       <div class="og-shop"><b>人生商店</b><span>LIFE STORE</span></div>
       <div class="og-wel">いらっしゃいませ。</div>
       <h1>あなたは、どこで<br>お金を使う？<i></i></h1>
       <div class="og-rows">
-        <div class="og-r"><span>アメリカ</span><span class="og-d"></span><b>3.93億円</b></div>
-        <div class="og-r og-jp"><span>日本</span><span class="og-d"></span><b>1.67億円</b></div>
-        <div class="og-r"><span>エチオピア</span><span class="og-d"></span><b>412万円</b></div>
+        <div class="og-r"><span>アメリカ</span><span class="og-d"></span><b>${man(earn["アメリカ"])}</b></div>
+        <div class="og-r og-jp"><span>日本</span><span class="og-d"></span><b>${man(earn["日本"])}</b></div>
+        <div class="og-r"><span>エチオピア</span><span class="og-d"></span><b>${man(earn["エチオピア"])}</b></div>
         <small>生涯で稼ぐお金（本人・中央値）※ゲーム内の試算</small>
       </div>
     </div>
