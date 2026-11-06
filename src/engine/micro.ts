@@ -3,6 +3,7 @@
 import type { Rng } from "./rng";
 import { kidFemale, type Life } from "./sim";
 import { riskOf } from "./risks";
+import { sportScene } from "./clubs";
 
 export interface MicroOption {
   id: string;
@@ -87,7 +88,13 @@ export const MICROS: Micro[] = [
     title: "部活動",
     situation: () => "中学で入る部活を決める日。",
     options: [
-      { id: "a", label: "運動部に入る", desc: "体が丈夫になる。勉強の時間は減る。", apply: (l) => { l.illMult *= 0.94; l.aptitude = Math.max(0, l.aptitude - 0.02); l.logPre("school", "運動部に入った。毎日へとへとだが体力がついた。"); } },
+      { id: "a", label: "運動部に入る", desc: "体が丈夫になる。勉強の時間は減る。", apply: (l) => {
+        l.illMult *= 0.94;
+        l.aptitude = Math.max(0, l.aptitude - 0.02);
+        // 日本は、中学の運動部の中から4つの競技を選ぶ（どの部に入ったかは次の場面で記録する）
+        if (l.D.isJapan) l.queueScene(sportScene(l, "jhs"));
+        else l.logPre("school", "運動部に入った。毎日へとへとだが体力がついた。");
+      } },
       { id: "b", label: "勉強に集中する", desc: "成績が上がりやすい。体力はつかない。", apply: (l) => { l.aptitude = Math.min(1, l.aptitude + 0.05); l.logPre("school", "部活には入らず、勉強に集中した。"); } },
     ],
   },

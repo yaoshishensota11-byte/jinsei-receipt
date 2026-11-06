@@ -56,7 +56,7 @@ function showTitle(): void {
       <div class="modes">
         <div class="modes-h">どこに生まれますか？</div>
         <button class="mode" data-mode="j"><b>日本で生まれる</b><span>日本の地域・家庭のどこかに生まれる。</span></button>
-        <button class="mode" data-mode="m"><b>主要20か国のどこかで</b><span>日本・米国・インド・ナイジェリア・ドイツなど20か国から、どこになるかは運しだい。</span></button>
+        <button class="mode" data-mode="m"><b>主要20か国のどこかで</b><span>日本・アメリカ・インド・ナイジェリア・ドイツなど20か国から、どこになるかは運しだい。</span></button>
         <button class="mode" data-mode="w"><b>世界のどこかで</b><span>実際の出生数の割合で生まれる国が決まる。いちばん現実に近い。</span></button>
       </div>
     </div>`),

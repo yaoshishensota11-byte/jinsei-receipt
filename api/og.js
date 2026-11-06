@@ -10718,6 +10718,241 @@ function countryEventScene(l, r) {
 }
 var COUNTRY_EVENT_COUNT = EVENTS.length;
 
+// src/engine/clubs.ts
+var LESSONS = [
+  { id: "swim", label: "\u6C34\u6CF3", kind: "sports", m: 26.2, f: 23 },
+  { id: "juku", label: "\u5B66\u7FD2\u587E", kind: "study", m: 16, f: 17.8 },
+  { id: "eikaiwa", label: "\u82F1\u4F1A\u8A71\u6559\u5BA4", kind: "study", m: 11.3, f: 17.3 },
+  { id: "music", label: "\u97F3\u697D\u6559\u5BA4\uFF08\u30D4\u30A2\u30CE\u30FB\u6B4C\u306A\u3069\uFF09", kind: "arts", m: 6.7, f: 17 },
+  { id: "tsushin", label: "\u901A\u4FE1\u6559\u80B2", kind: "study", m: 9.3, f: 8.7 },
+  { id: "soroban", label: "\u305D\u308D\u3070\u3093", kind: "study", m: 7.8, f: 8.2 },
+  { id: "taiso", label: "\u4F53\u64CD\u6559\u5BA4", kind: "sports", m: 7.2, f: 8.3 },
+  { id: "soccer", label: "\u30B5\u30C3\u30AB\u30FC\u30FB\u30D5\u30C3\u30C8\u30B5\u30EB", kind: "sports", m: 11.5, f: 3.2 },
+  { id: "shuji", label: "\u7FD2\u5B57\u30FB\u66F8\u9053", kind: "arts", m: 6.5, f: 7 },
+  { id: "eigojuku", label: "\u82F1\u8A9E\u587E", kind: "study", m: 6.3, f: 6.3 },
+  { id: "dance", label: "\u30C0\u30F3\u30B9", kind: "sports", m: 1.7, f: 10 },
+  { id: "baseball", label: "\u91CE\u7403\u30FB\u30BD\u30D5\u30C8\u30DC\u30FC\u30EB", kind: "sports", m: 6.2, f: 2.2 },
+  { id: "basket", label: "\u30D0\u30B9\u30B1\u30C3\u30C8\u30DC\u30FC\u30EB", kind: "sports", m: 4, f: 3.5 },
+  { id: "budo", label: "\u6B66\u9053\uFF08\u67D4\u9053\u30FB\u7A7A\u624B\u30FB\u5263\u9053\u306A\u3069\uFF09", kind: "sports", m: 5, f: 1.8 },
+  { id: "program", label: "\u30D7\u30ED\u30B0\u30E9\u30DF\u30F3\u30B0\u30FB\u30ED\u30DC\u30C3\u30C8\u6559\u5BA4", kind: "study", m: 3.8, f: 0.5 },
+  { id: "ballet", label: "\u30D0\u30EC\u30A8", kind: "arts", m: 0.5, f: 3.3 },
+  { id: "pc", label: "\u30D1\u30BD\u30B3\u30F3\u6559\u5BA4", kind: "study", m: 1.8, f: 1.2 },
+  { id: "art", label: "\u7D75\u753B\u6559\u5BA4\u30FB\u9020\u5F62\u6559\u5BA4", kind: "arts", m: 0.2, f: 1.7 },
+  { id: "craft", label: "\u624B\u82B8\u30FB\u6599\u7406\u6559\u5BA4", kind: "arts", m: 0.5, f: 0.7 },
+  { id: "video", label: "\u52D5\u753B\u5236\u4F5C\u30FB\u7DE8\u96C6", kind: "arts", m: 0.2, f: 0.7 },
+  { id: "shogi", label: "\u5C06\u68CB\u30FB\u56F2\u7881", kind: "arts", m: 0.3, f: 0.5 },
+  { id: "golf", label: "\u30B4\u30EB\u30D5", kind: "sports", m: 0.3, f: 0.3 },
+  { id: "bouldering", label: "\u30DC\u30EB\u30C0\u30EA\u30F3\u30B0", kind: "sports", m: 0.2, f: 0.3 },
+  { id: "sado", label: "\u8336\u9053\u30FB\u83EF\u9053", kind: "arts", m: 0, f: 0.3 },
+  { id: "skate", label: "\u30B9\u30B1\u30FC\u30C8", kind: "sports", m: 0, f: 0.2 },
+  { id: "drama", label: "\u6F14\u5287", kind: "arts", m: 0.2, f: 0 }
+];
+var LESSON_SHARE = { male: 0.76, female: 0.775 };
+var SECOND_LESSON = 0.547;
+var pctOf = (x, sex) => sex === "male" ? x.m : x.f;
+var sexWord = (sex) => sex === "male" ? "\u7537\u5B50" : "\u5973\u5B50";
+function pickWeighted(r, items, weight, n) {
+  const pool = items.filter((x) => weight(x) > 0);
+  const out = [];
+  while (out.length < n && pool.length) {
+    const x = r.weighted(pool, pool.map(weight));
+    out.push(x);
+    pool.splice(pool.indexOf(x), 1);
+  }
+  return out;
+}
+function startLesson(l, ls) {
+  l.lessons.push(ls.label);
+  if (ls.kind === "study") l.aptitude = Math.min(1, l.aptitude + 0.03);
+  else if (ls.kind === "sports") l.illMult *= 0.97;
+  else l.social += 0.03;
+  const after = ls.kind === "study" ? "\u52C9\u5F37\u304C\u5C11\u3057\u5F97\u610F\u306B\u306A\u3063\u305F\u3002" : ls.kind === "sports" ? "\u4F53\u304C\u5C11\u3057\u4E08\u592B\u306B\u306A\u3063\u305F\u3002" : "\u6559\u5BA4\u3067\u53CB\u3060\u3061\u304C\u3067\u304D\u305F\u3002";
+  const start = /(教室|塾)$|教室・/.test(ls.label.replace(/（.*）$/, "")) ? `${ls.label}\u306B\u901A\u3044\u306F\u3058\u3081\u305F\u3002` : ls.id === "tsushin" ? "\u901A\u4FE1\u6559\u80B2\u3092\u59CB\u3081\u305F\u3002" : `${ls.label}\u3092\u7FD2\u3044\u306F\u3058\u3081\u305F\u3002`;
+  l.logPre("school", start + after);
+}
+function lessonOptions(l, r, skip) {
+  return pickWeighted(r, LESSONS.filter((x) => !skip.includes(x.label)), (x) => pctOf(x, l.sex), 3).map((ls) => ({
+    id: ls.id,
+    label: ls.label,
+    desc: `\u5C0F\u5B66\u751F\u306E${sexWord(l.sex)}\u306E${pctOf(ls, l.sex) >= 1 ? `\u7D04${Math.round(pctOf(ls, l.sex))}%` : "100\u4EBA\u306B1\u4EBA\u307B\u3069"}\u304C${/(教室|塾)$|教室・/.test(ls.label.replace(/（.*）$/, "")) ? "\u901A\u3063\u3066\u3044\u308B" : ls.id === "tsushin" ? "\u3057\u3066\u3044\u308B" : "\u7FD2\u3063\u3066\u3044\u308B"}\u3002${ls.kind === "study" ? "\u52C9\u5F37\u306E\u529B\u304C\u3064\u304F\u3002" : ls.kind === "sports" ? "\u4F53\u304C\u4E08\u592B\u306B\u306A\u308B\u3002" : "\u597D\u304D\u306A\u3053\u3068\u304C\u898B\u3064\u304B\u308B\u3002"}\u6708\u8B1D\u306F\u89AA\u304C\u6255\u3046\u3002`,
+    apply: (lf) => startLesson(lf, ls)
+  }));
+}
+function lessonScene(l) {
+  const a = l.age + 1;
+  if (!l.D.isJapan) return null;
+  if (a === 6) {
+    if (!streamRng(l.seed, "lesson", 6).chance(LESSON_SHARE[l.sex])) return null;
+    const r = streamRng(l.seed, "lessonPick", 6);
+    return {
+      id: "lesson",
+      title: "\u7FD2\u3044\u4E8B",
+      situation: "\u5C0F\u5B66\u6821\u306B\u5165\u3063\u305F\u3002\u7FD2\u3044\u4E8B\u3092\u59CB\u3081\u306A\u3044\u304B\u3068\u3001\u89AA\u304C\u805E\u3044\u3066\u304D\u305F\u3002",
+      options: [
+        ...lessonOptions(l, r, []),
+        { id: "none", label: "\u7FD2\u3044\u4E8B\u306F\u3057\u306A\u3044", desc: "\u653E\u8AB2\u5F8C\u306F\u81EA\u7531\u306B\u904A\u3079\u308B\u3002", apply: (lf) => lf.logPre("life", "\u7FD2\u3044\u4E8B\u306F\u305B\u305A\u3001\u653E\u8AB2\u5F8C\u306F\u53CB\u3060\u3061\u3068\u904A\u3093\u3060\u3002") }
+      ]
+    };
+  }
+  if (a === 9 && l.lessons.length === 1) {
+    if (!streamRng(l.seed, "lesson", 9).chance(SECOND_LESSON)) return null;
+    const r = streamRng(l.seed, "lessonPick", 9);
+    return {
+      id: "lesson2",
+      title: "\u3082\u30461\u3064\u306E\u7FD2\u3044\u4E8B",
+      situation: `${l.lessons[0]}\u3092\u7D9A\u3051\u3066\u3044\u308B\u3002\u53CB\u3060\u3061\u306B\u8A98\u308F\u308C\u3066\u3001\u3082\u30461\u3064\u7FD2\u3044\u4E8B\u3092\u59CB\u3081\u308B\u304B\u8003\u3048\u3066\u3044\u308B\u3002`,
+      options: [
+        ...lessonOptions(l, r, l.lessons),
+        { id: "none", label: `${l.lessons[0]}\u3060\u3051\u306B\u3059\u308B`, desc: "\u4ECA\u306E\u7FD2\u3044\u4E8B\u306B\u96C6\u4E2D\u3067\u304D\u308B\u3002", apply: (lf) => lf.logPre("life", `${lf.lessons[0]}\u3060\u3051\u3092\u7D9A\u3051\u308B\u3053\u3068\u306B\u3057\u305F\u3002`) }
+      ]
+    };
+  }
+  return null;
+}
+function lessonGraduation(l) {
+  if (!l.D.isJapan || l.age !== 12 || !l.lessons.length) return null;
+  return `\u5C0F\u5B66\u6821\u3092\u5352\u696D\u3059\u308B\u307E\u3067\u3001${l.lessons.join("\u3068")}\u3092\u7D9A\u3051\u305F\u3002`;
+}
+var JHS_SPORTS = [
+  { id: "track", label: "\u9678\u4E0A\u7AF6\u6280", m: 117524, f: 74500 },
+  { id: "swim", label: "\u6C34\u6CF3", m: 20352, f: 11267 },
+  { id: "basket", label: "\u30D0\u30B9\u30B1\u30C3\u30C8\u30DC\u30FC\u30EB", m: 162938, f: 116435 },
+  { id: "soccer", label: "\u30B5\u30C3\u30AB\u30FC", m: 150505, f: 4910 },
+  { id: "handball", label: "\u30CF\u30F3\u30C9\u30DC\u30FC\u30EB", m: 16817, f: 8392 },
+  { id: "baseball", label: "\u8EDF\u5F0F\u91CE\u7403", m: 129805, f: 4049 },
+  { id: "gym", label: "\u4F53\u64CD", m: 1232, f: 2628 },
+  { id: "rgym", label: "\u65B0\u4F53\u64CD", m: 219, f: 2379 },
+  { id: "volley", label: "\u30D0\u30EC\u30FC\u30DC\u30FC\u30EB", m: 60937, f: 147738 },
+  { id: "softtennis", label: "\u30BD\u30D5\u30C8\u30C6\u30CB\u30B9", m: 123031, f: 142417 },
+  { id: "tabletennis", label: "\u5353\u7403", m: 127065, f: 82300 },
+  { id: "badminton", label: "\u30D0\u30C9\u30DF\u30F3\u30C8\u30F3", m: 53192, f: 75051 },
+  { id: "softball", label: "\u30BD\u30D5\u30C8\u30DC\u30FC\u30EB", m: 888, f: 22880 },
+  { id: "judo", label: "\u67D4\u9053", m: 15745, f: 6101 },
+  { id: "kendo", label: "\u5263\u9053", m: 36568, f: 26913 },
+  { id: "sumo", label: "\u76F8\u64B2", m: 636, f: 84 },
+  { id: "ski", label: "\u30B9\u30AD\u30FC", m: 995, f: 739 },
+  { id: "skate", label: "\u30B9\u30B1\u30FC\u30C8", m: 206, f: 201 },
+  { id: "icehockey", label: "\u30A2\u30A4\u30B9\u30DB\u30C3\u30B1\u30FC", m: 371, f: 32 },
+  { id: "tennis", label: "\u30C6\u30CB\u30B9", m: 18236, f: 14576 },
+  { id: "hockey", label: "\u30DB\u30C3\u30B1\u30FC", m: 684, f: 547 },
+  { id: "naginata", label: "\u306A\u304E\u306A\u305F", m: 74, f: 506 },
+  { id: "wrestling", label: "\u30EC\u30B9\u30EA\u30F3\u30B0", m: 157, f: 58 },
+  { id: "kyudo", label: "\u5F13\u9053", m: 4559, f: 5595 },
+  { id: "rugby", label: "\u30E9\u30B0\u30D3\u30FC", m: 5272, f: 133 },
+  { id: "karate", label: "\u7A7A\u624B\u9053", m: 944, f: 730 },
+  { id: "figure", label: "\u30D5\u30A3\u30AE\u30E5\u30A2\u30B9\u30B1\u30FC\u30C8", m: 0, f: 11 },
+  { id: "archery", label: "\u30A2\u30FC\u30C1\u30A7\u30EA\u30FC", m: 333, f: 242 }
+];
+var HS_SPORTS = [
+  { id: "track", label: "\u9678\u4E0A\u7AF6\u6280", m: 63712, f: 28838 },
+  { id: "gym", label: "\u4F53\u64CD", m: 1564, f: 2319 },
+  { id: "rgym", label: "\u65B0\u4F53\u64CD", m: 364, f: 1582 },
+  { id: "swim", label: "\u7AF6\u6CF3", m: 16389, f: 9197 },
+  { id: "diving", label: "\u98DB\u8FBC", m: 18, f: 21 },
+  { id: "waterpolo", label: "\u6C34\u7403", m: 1110, f: 0 },
+  { id: "basket", label: "\u30D0\u30B9\u30B1\u30C3\u30C8\u30DC\u30FC\u30EB", m: 86687, f: 48579 },
+  { id: "volley", label: "\u30D0\u30EC\u30FC\u30DC\u30FC\u30EB", m: 55939, f: 55377 },
+  { id: "tabletennis", label: "\u5353\u7403", m: 40029, f: 18805 },
+  { id: "softtennis", label: "\u30BD\u30D5\u30C8\u30C6\u30CB\u30B9", m: 38480, f: 25289 },
+  { id: "handball", label: "\u30CF\u30F3\u30C9\u30DC\u30FC\u30EB", m: 26298, f: 12735 },
+  { id: "soccer", label: "\u30B5\u30C3\u30AB\u30FC", m: 137925, f: 9048 },
+  { id: "rugby", label: "\u30E9\u30B0\u30D3\u30FC", m: 17158, f: 0 },
+  { id: "badminton", label: "\u30D0\u30C9\u30DF\u30F3\u30C8\u30F3", m: 70997, f: 50421 },
+  { id: "softball", label: "\u30BD\u30D5\u30C8\u30DC\u30FC\u30EB", m: 3164, f: 12109 },
+  { id: "sumo", label: "\u76F8\u64B2", m: 752, f: 0 },
+  { id: "judo", label: "\u67D4\u9053", m: 11244, f: 3231 },
+  { id: "ski", label: "\u30B9\u30AD\u30FC", m: 1069, f: 689 },
+  { id: "skate", label: "\u30B9\u30B1\u30FC\u30C8", m: 795, f: 297 },
+  { id: "rowing", label: "\u30DC\u30FC\u30C8", m: 2891, f: 1398 },
+  { id: "kendo", label: "\u5263\u9053", m: 19688, f: 11992 },
+  { id: "wrestling", label: "\u30EC\u30B9\u30EA\u30F3\u30B0", m: 1768, f: 238 },
+  { id: "kyudo", label: "\u5F13\u9053", m: 27715, f: 35474 },
+  { id: "tennis", label: "\u30C6\u30CB\u30B9", m: 40587, f: 24066 },
+  { id: "climbing", label: "\u767B\u5C71", m: 8293, f: 3010 },
+  { id: "cycling", label: "\u81EA\u8EE2\u8ECA\u7AF6\u6280", m: 1626, f: 117 },
+  { id: "boxing", label: "\u30DC\u30AF\u30B7\u30F3\u30B0", m: 2172, f: 0 },
+  { id: "hockey", label: "\u30DB\u30C3\u30B1\u30FC", m: 1722, f: 1267 },
+  { id: "weight", label: "\u30A6\u30A8\u30A4\u30C8\u30EA\u30D5\u30C6\u30A3\u30F3\u30B0", m: 1792, f: 393 },
+  { id: "yacht", label: "\u30E8\u30C3\u30C8", m: 723, f: 343 },
+  { id: "fencing", label: "\u30D5\u30A7\u30F3\u30B7\u30F3\u30B0", m: 1547, f: 1208 },
+  { id: "karate", label: "\u7A7A\u624B\u9053", m: 4173, f: 3043 },
+  { id: "archery", label: "\u30A2\u30FC\u30C1\u30A7\u30EA\u30FC", m: 2118, f: 1572 },
+  { id: "naginata", label: "\u306A\u304E\u306A\u305F", m: 0, f: 1335 },
+  { id: "canoe", label: "\u30AB\u30CC\u30FC", m: 1031, f: 430 },
+  { id: "shorinji", label: "\u5C11\u6797\u5BFA\u62F3\u6CD5", m: 1129, f: 975 },
+  { id: "baseball", label: "\u786C\u5F0F\u91CE\u7403", m: 114904, f: 0 }
+];
+function people(n) {
+  if (n >= 1e4) {
+    const man = Math.floor(n / 1e4);
+    const sen = Math.round(n % 1e4 / 1e3);
+    return sen === 10 ? `\u7D04${man + 1}\u4E07\u4EBA` : sen ? `\u7D04${man}\u4E07${sen}\u5343\u4EBA` : `\u7D04${man}\u4E07\u4EBA`;
+  }
+  if (n >= 1e3) return `\u7D04${(Math.round(n / 100) * 100).toLocaleString("ja-JP")}\u4EBA`;
+  if (n >= 100) return `\u7D04${Math.round(n / 10) * 10}\u4EBA`;
+  return `${n}\u4EBA`;
+}
+function proOf(sex, level, id) {
+  if (level !== "hs") return null;
+  if (id === "soccer") return sex === "male" ? "soccer" : "soccerW";
+  if (id === "baseball" && sex === "male") return "baseball";
+  return null;
+}
+var PRO_DESC = {
+  baseball: "\u30D7\u30ED\uFF08\u652F\u914D\u4E0B\uFF09\u306B\u5165\u308C\u308B\u306E\u306F1\u5E74\u306B76\u4EBA\u3067\u3001\u7D04500\u4EBA\u306B1\u4EBA\u3002",
+  soccer: "\u9AD8\u6821\u30FB\u5927\u5B66\u30FB\u30E6\u30FC\u30B9\u304B\u30891\u5E74\u306B\u30D7\u30ED\u306B\u306A\u308B\u306E\u306F\u7D04270\u4EBA\u3002",
+  soccerW: "\u9AD8\u6821\u30FB\u5927\u5B66\u30FB\u30E6\u30FC\u30B9\u304B\u30891\u5E74\u306BWE\u30EA\u30FC\u30B0\u306B\u5165\u308B\u306E\u306F\u7D0440\u4EBA\u3002"
+};
+function sportScene(l, level) {
+  const list = (level === "jhs" ? JHS_SPORTS : HS_SPORTS).filter((s) => pctOf(s, l.sex) > 0);
+  const r = streamRng(l.seed, "sport:" + level, l.age);
+  const four = pickWeighted(r, list, () => 1, 4);
+  const school = level === "jhs" ? "\u4E2D\u5B66" : "\u9AD8\u6821";
+  return {
+    id: "sport_" + level,
+    title: `${school}\u306E\u904B\u52D5\u90E8`,
+    situation: `\u3069\u306E\u904B\u52D5\u90E8\u306B\u5165\u308B\uFF1F\uFF08${school}\u306E\u904B\u52D5\u90E8\u306F\u5168\u90E8\u3067${list.length}\u7A2E\u985E\u3002\u305D\u306E\u4E2D\u306E4\u3064\uFF09`,
+    stillValid: (lf) => level === "jhs" ? lf.age <= 15 : lf.school === "hs",
+    options: four.map((s) => {
+      const pro = proOf(l.sex, level, s.id);
+      return {
+        id: s.id,
+        label: `${s.label}\u90E8`,
+        desc: `\u5168\u56FD\u306E${school}\u3067${s.label}\u90E8\u306E${sexWord(l.sex)}\u306F${people(pctOf(s, l.sex))}\u3002${pro ? PRO_DESC[pro] : ""}`,
+        apply: (lf) => {
+          lf.clubSport = s.label;
+          if (pro) {
+            lf.proSport = pro;
+            lf.logPre("school", `${s.label}\u90E8\u306B\u5165\u308A\u3001\u30D7\u30ED\u3092\u76EE\u6307\u3057\u3066\u7DF4\u7FD2\u306B\u6253\u3061\u8FBC\u3093\u3060\u3002`);
+          } else lf.logPre("school", level === "jhs" ? `${s.label}\u90E8\u306B\u5165\u3063\u305F\u3002\u6BCE\u65E5\u3078\u3068\u3078\u3068\u3060\u304C\u4F53\u529B\u304C\u3064\u3044\u305F\u3002` : `${s.label}\u90E8\u306B\u5165\u308A\u30013\u5E74\u9593\u6253\u3061\u8FBC\u3093\u3060\u3002`);
+        }
+      };
+    })
+  };
+}
+function hsClubScene() {
+  return {
+    id: "club",
+    title: "\u9AD8\u6821\u306E\u90E8\u6D3B",
+    situation: "\u9AD8\u6821\u306B\u5165\u3063\u305F\u3002\u90E8\u6D3B\u3092\u3069\u3046\u3059\u308B\uFF1F",
+    stillValid: (l) => l.school === "hs",
+    options: [
+      {
+        id: "sport",
+        label: "\u904B\u52D5\u90E8\u306B\u5165\u308B",
+        desc: "\u4F53\u3092\u52D5\u304B\u30593\u5E74\u9593\u3002\u30D7\u30ED\u3092\u76EE\u6307\u305B\u308B\u7AF6\u6280\u3082\u3042\u308B\u3002",
+        apply: (l) => l.queueScene(sportScene(l, "hs"))
+      },
+      {
+        id: "other",
+        label: "\u307B\u304B\u306E\u90E8\u6D3B\u30FB\u5165\u3089\u306A\u3044",
+        desc: "\u52C9\u5F37\u3084\u8DA3\u5473\u3001\u30A2\u30EB\u30D0\u30A4\u30C8\u306B\u6642\u9593\u3092\u4F7F\u3048\u308B\u3002",
+        apply: (l) => l.logPre("school", "\u90E8\u6D3B\u306F\u307B\u3069\u307B\u3069\u306B\u3001\u9AD8\u6821\u751F\u6D3B\u3092\u9001\u3063\u305F\u3002")
+      }
+    ]
+  };
+}
+
 // src/engine/micro.ts
 function hashPick(key, n) {
   let h = 2166136261;
@@ -10796,7 +11031,8 @@ var MICROS = [
       { id: "a", label: "\u904B\u52D5\u90E8\u306B\u5165\u308B", desc: "\u4F53\u304C\u4E08\u592B\u306B\u306A\u308B\u3002\u52C9\u5F37\u306E\u6642\u9593\u306F\u6E1B\u308B\u3002", apply: (l) => {
         l.illMult *= 0.94;
         l.aptitude = Math.max(0, l.aptitude - 0.02);
-        l.logPre("school", "\u904B\u52D5\u90E8\u306B\u5165\u3063\u305F\u3002\u6BCE\u65E5\u3078\u3068\u3078\u3068\u3060\u304C\u4F53\u529B\u304C\u3064\u3044\u305F\u3002");
+        if (l.D.isJapan) l.queueScene(sportScene(l, "jhs"));
+        else l.logPre("school", "\u904B\u52D5\u90E8\u306B\u5165\u3063\u305F\u3002\u6BCE\u65E5\u3078\u3068\u3078\u3068\u3060\u304C\u4F53\u529B\u304C\u3064\u3044\u305F\u3002");
       } },
       { id: "b", label: "\u52C9\u5F37\u306B\u96C6\u4E2D\u3059\u308B", desc: "\u6210\u7E3E\u304C\u4E0A\u304C\u308A\u3084\u3059\u3044\u3002\u4F53\u529B\u306F\u3064\u304B\u306A\u3044\u3002", apply: (l) => {
         l.aptitude = Math.min(1, l.aptitude + 0.05);
@@ -13531,6 +13767,10 @@ var Life = class {
     this.banked = true;
     /** 高校でプロを目指した競技（日本の男子）。"" は目指していない */
     this.proSport = "";
+    /** 習っている習い事（日本・小学生） */
+    this.lessons = [];
+    /** 入った運動部（日本の中学・高校） */
+    this.clubSport = "";
     /** プロ選手として稼ぐ年俸と、引退する年齢。-1 はプロではない */
     this.proSalary = 0;
     this.proUntil = -1;
@@ -14159,7 +14399,7 @@ var Life = class {
   }
   workYear(r) {
     const a = this.age;
-    if (PRO_ENABLED && this.D.isJapan && a === 15 && this.school === "hs") this.queueScene(clubScene(this.sex));
+    if (this.D.isJapan && a === 15 && this.school === "hs") this.queueScene(hsClubScene());
     if (this.proUntil === a) {
       this.proUntil = -1;
       this.log("work", this.proSport === "baseball" ? "\u30D7\u30ED\u91CE\u7403\u9078\u624B\u3092\u5F15\u9000\u3057\u305F\u3002\u6B21\u306E\u4ED5\u4E8B\u3092\u63A2\u3059\u3002" : "\u30D7\u30ED\u30B5\u30C3\u30AB\u30FC\u9078\u624B\u3092\u5F15\u9000\u3057\u305F\u3002\u6B21\u306E\u4ED5\u4E8B\u3092\u63A2\u3059\u3002", void 0, true);
@@ -14559,6 +14799,12 @@ var Life = class {
         this.mark("childWork");
       }
     }
+    if (this.D.isJapan && (a === 5 || a === 8)) {
+      const sc = lessonScene(this);
+      if (sc) this.queueScene(sc);
+    }
+    const grad = lessonGraduation(this);
+    if (grad) this.log("school", grad);
     if (this.D.isJapan && this.futokoAge < 0 && (a === 9 || a === 13) && streamRng(this.seed, "futoko", a).chance(a === 13 ? 0.068 : 0.023)) {
       this.futokoAge = a;
       this.log(
@@ -15629,7 +15875,6 @@ function bankruptScene(l) {
     ]
   };
 }
-var PRO_ENABLED = true;
 var PRO = {
   baseball: {
     rate: 76 / (114904 / 3),
@@ -15659,64 +15904,6 @@ var PRO = {
     joined: "WE\u30EA\u30FC\u30B0\u306E\u30AF\u30E9\u30D6\u3068\u30D7\u30ED\u5951\u7D04\u3092\u7D50\u3073\u3001\u30D7\u30ED\u30B5\u30C3\u30AB\u30FC\u9078\u624B\u306B\u306A\u3063\u305F\u3002"
   }
 };
-function clubScene(sex) {
-  if (sex === "female")
-    return {
-      id: "club",
-      title: "\u9AD8\u6821\u306E\u90E8\u6D3B",
-      situation: "\u9AD8\u6821\u306B\u5165\u3063\u305F\u3002\u90E8\u6D3B\u3092\u3069\u3046\u3059\u308B\uFF1F",
-      stillValid: (l) => l.school === "hs",
-      options: [
-        {
-          id: "soccerW",
-          label: "\u30B5\u30C3\u30AB\u30FC\u90E8\u3067\u30D7\u30ED\u3092\u76EE\u6307\u3059",
-          desc: "\u9AD8\u6821\u3067\u30B5\u30C3\u30AB\u30FC\u3092\u3059\u308B\u5973\u5B50\u306F\u7D049\u5343\u4EBA\u3002\u9AD8\u6821\u30FB\u5927\u5B66\u30FB\u30E6\u30FC\u30B9\u304B\u30891\u5E74\u306BWE\u30EA\u30FC\u30B0\u306B\u5165\u308B\u306E\u306F\u7D0440\u4EBA\u3002",
-          apply: (l) => {
-            l.proSport = "soccerW";
-            l.logPre("school", "\u30B5\u30C3\u30AB\u30FC\u90E8\u306B\u5165\u308A\u3001\u30D7\u30ED\u3092\u76EE\u6307\u3057\u3066\u7DF4\u7FD2\u306B\u6253\u3061\u8FBC\u3093\u3060\u3002");
-          }
-        },
-        {
-          id: "other",
-          label: "\u307B\u304B\u306E\u90E8\u6D3B\u30FB\u5165\u3089\u306A\u3044",
-          desc: "\u52C9\u5F37\u3084\u8DA3\u5473\u3001\u30A2\u30EB\u30D0\u30A4\u30C8\u306B\u6642\u9593\u3092\u4F7F\u3048\u308B\u3002",
-          apply: (l) => l.logPre("school", "\u90E8\u6D3B\u306F\u307B\u3069\u307B\u3069\u306B\u3001\u9AD8\u6821\u751F\u6D3B\u3092\u9001\u3063\u305F\u3002")
-        }
-      ]
-    };
-  return {
-    id: "club",
-    title: "\u9AD8\u6821\u306E\u90E8\u6D3B",
-    situation: "\u9AD8\u6821\u306B\u5165\u3063\u305F\u3002\u90E8\u6D3B\u3092\u3069\u3046\u3059\u308B\uFF1F",
-    stillValid: (l) => l.school === "hs",
-    options: [
-      {
-        id: "baseball",
-        label: "\u91CE\u7403\u90E8\u3067\u30D7\u30ED\u3092\u76EE\u6307\u3059",
-        desc: "\u9AD8\u6821\u3067\u786C\u5F0F\u91CE\u7403\u3092\u3059\u308B\u7537\u5B50\u306F\u7D0411\u4E075\u5343\u4EBA\u3002\u30D7\u30ED\uFF08\u652F\u914D\u4E0B\uFF09\u306B\u5165\u308C\u308B\u306E\u306F1\u5E74\u306B76\u4EBA\u3067\u3001\u7D04500\u4EBA\u306B1\u4EBA\u3002",
-        apply: (l) => {
-          l.proSport = "baseball";
-          l.logPre("school", "\u91CE\u7403\u90E8\u306B\u5165\u308A\u3001\u30D7\u30ED\u3092\u76EE\u6307\u3057\u3066\u7DF4\u7FD2\u306B\u6253\u3061\u8FBC\u3093\u3060\u3002");
-        }
-      },
-      {
-        id: "soccer",
-        label: "\u30B5\u30C3\u30AB\u30FC\u90E8\u3067\u30D7\u30ED\u3092\u76EE\u6307\u3059",
-        desc: "\u9AD8\u6821\u3067\u30B5\u30C3\u30AB\u30FC\u3092\u3059\u308B\u7537\u5B50\u306F\u7D0413\u4E078\u5343\u4EBA\u3002\u9AD8\u6821\u30FB\u5927\u5B66\u30FB\u30E6\u30FC\u30B9\u304B\u30891\u5E74\u306B\u30D7\u30ED\u306B\u306A\u308B\u306E\u306F\u7D04270\u4EBA\u3002",
-        apply: (l) => {
-          l.proSport = "soccer";
-          l.logPre("school", "\u30B5\u30C3\u30AB\u30FC\u90E8\u306B\u5165\u308A\u3001\u30D7\u30ED\u3092\u76EE\u6307\u3057\u3066\u7DF4\u7FD2\u306B\u6253\u3061\u8FBC\u3093\u3060\u3002");
-        }
-      },
-      {
-        id: "other",
-        label: "\u307B\u304B\u306E\u90E8\u6D3B\u30FB\u5165\u3089\u306A\u3044",
-        desc: "\u52C9\u5F37\u3084\u8DA3\u5473\u3001\u30A2\u30EB\u30D0\u30A4\u30C8\u306B\u6642\u9593\u3092\u4F7F\u3048\u308B\u3002",
-        apply: (l) => l.logPre("school", "\u90E8\u6D3B\u306F\u307B\u3069\u307B\u3069\u306B\u3001\u9AD8\u6821\u751F\u6D3B\u3092\u9001\u3063\u305F\u3002")
-      }
-    ]
-  };
-}
 
 // data/world/countries.json
 var countries_default = [
@@ -26099,7 +26286,7 @@ var EXPENSE_LABEL = {
 };
 
 // src/engine/result.ts
-var CODEC_VERSION = "17";
+var CODEC_VERSION = "18";
 function picksOf(l) {
   return l.choiceLog.flatMap((c) => c.alloc ? [c.alloc.save, c.alloc.invest, c.alloc.family, c.alloc.self] : [c.pickIndex ?? 0]);
 }
@@ -26267,12 +26454,12 @@ function buildReceipt(l, withCohort = true) {
     { label: "\u904B\u7528\u640D\u76CA", amount: inv }
     // 親から受け継いだお金・借金は、少なくても行を残す（子どもに生まれ直したことが分かるように）
   ].filter((d) => Math.abs(l.D.toJpy(d.amount)) >= 1e4 || d.label.startsWith("\u89AA\u304B\u3089\u53D7\u3051\u7D99\u3044\u3060") && Math.abs(d.amount) >= 1);
-  const sexWord = s.sex === "male" ? "\u7537\u6027" : "\u5973\u6027";
+  const sexWord2 = s.sex === "male" ? "\u7537\u6027" : "\u5973\u6027";
   return {
     receiptNo: s.seed.toUpperCase(),
     visitDate: dateOf(s.seed, s.birthYear, "visit"),
     closeDate: dateOf(s.seed, s.birthYear + s.deathAge, "close"),
-    customer: l.D.isJapan ? `${s.regionLabel}\u751F\u307E\u308C\u30FB${sexWord}\u30FB\u5BB6\u5EAD${s.familyBandLabel.replace("\u5E74\u53CE", "")}` : `${l.D.nameJa}\u30FB${s.regionLabel}\u751F\u307E\u308C\u30FB${sexWord}\u30FB${s.familyBandLabel.replace(/（.*$/, "")}`,
+    customer: l.D.isJapan ? `${s.regionLabel}\u751F\u307E\u308C\u30FB${sexWord2}\u30FB\u5BB6\u5EAD${s.familyBandLabel.replace("\u5E74\u53CE", "")}` : `${l.D.nameJa}\u30FB${s.regionLabel}\u751F\u307E\u308C\u30FB${sexWord2}\u30FB${s.familyBandLabel.replace(/（.*$/, "")}`,
     items,
     subtotal,
     deposit: Math.round(s.lifetimeIncome + inv),

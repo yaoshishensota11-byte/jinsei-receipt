@@ -53,6 +53,10 @@
 | events.pensionMonthly | 厚生労働省 厚生年金保険・国民年金事業の概況 | 令和5年度 | https://www.nenkin.go.jp/info/tokei/kako/r05.files/R05toukei.pdf | ✅（146,429円 / 57,584円） |
 | events.retirementAllowance | 厚生労働省 就労条件総合調査 | 令和5年 | https://www.mhlw.go.jp/toukei/itiran/roudou/jikan/syurou/23/ | ✅（大卒1,896万 / 高卒1,682万, 管理・事務・技術職） |
 | events.taxAndSocialInsuranceRate | 家計調査 可処分所得/実収入 等 | — | — | ⚠️推定 |
+| lessons（習い事の種類と割合・男女別、src/engine/clubs.ts） | 学研教育総合研究所「小学生白書Web版」（小学1〜6年生1,200人、学校以外で行っている習い事・複数回答。「習い事はない」男子24.0%・女子22.5%） | 2024年11月調査 | https://www.gakken.jp/kyouikusouken/whitepaper/202411/chapter7/01.html | ✅（図表の値） |
+| lessons（2つ以上の習い事をしている割合） | ベネッセ「小学生の習い事調査」（3,096組。有料の習い事をしている小学生70%、そのうち2つ以上54.7%） | 2024年2月 | https://benesse.jp/kosodate/202403/20240329-1.html | ✅ |
+| clubs（中学の運動部の部員数・男女別、src/engine/clubs.ts） | 日本中学校体育連盟「加盟校・加盟生徒数調査集計表（確定値）」（参考競技を含む28競技） | 令和6年度 | https://nippon-chutairen.or.jp/data/ | ✅ |
+| clubs（高校の運動部の部員数・男女別） | 全国高等学校体育連盟「加盟・登録状況（全日制＋定通制）」と、日本高等学校野球連盟（硬式、2026年度） | 令和7年度 | https://www.zen-koutairen.com/statistics/ | ✅ |
 
 ## 推定値一覧（まとめ）
 - income.json: regular・nonRegular の全セル（アンカー値に合わせた再構成）、selfEmployedMedianAnnual

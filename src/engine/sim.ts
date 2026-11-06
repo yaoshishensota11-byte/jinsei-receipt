@@ -4,6 +4,7 @@ import { Rng, streamRng, hashStr } from "./rng";
 import { accountShare, alcoholDisorderShare, childLabourShare, emigration, maternalDeaths, publicAidRate, sickPayCovered, singleParentPoverty } from "./lifestats";
 import { JAPAN, type CountryData, type Region, type IncomeBand } from "./data";
 import { MICROS } from "./micro";
+import { hsClubScene, lessonGraduation, lessonScene } from "./clubs";
 import { riskYear, countryEventScene, ipvHazard } from "./risks";
 import { kidsScene, kidsAgainScene, fertilityScene, strainScene, dvScene, heldHouseScene, type Scene } from "./scenes";
 import { drawMarriageMode, meetScene, loveScene, arrangedScene, betrothedScene, type MarriageMode } from "./marriage";
@@ -524,6 +525,10 @@ export class Life {
   banked = true;
   /** 高校でプロを目指した競技（日本の男子）。"" は目指していない */
   proSport: "" | "baseball" | "soccer" | "soccerW" = "";
+  /** 習っている習い事（日本・小学生） */
+  lessons: string[] = [];
+  /** 入った運動部（日本の中学・高校） */
+  clubSport = "";
   /** プロ選手として稼ぐ年俸と、引退する年齢。-1 はプロではない */
   proSalary = 0;
   proUntil = -1;
@@ -1027,8 +1032,8 @@ export class Life {
 
   private workYear(r: Rng): void {
     const a = this.age;
-    // 高校の部活でプロを目指す場面（男子は野球・サッカー、女子はサッカー。片方の性別だけには出さない：ユーザーの判断）
-    if (PRO_ENABLED && this.D.isJapan && a === 15 && this.school === "hs") this.queueScene(clubScene(this.sex));
+    // 高校の部活：運動部を選ぶと、日本の部活動から4つの競技が出る。硬式野球（男子）・サッカー（男女）を選ぶとプロを目指す（片方の性別だけには出さない：ユーザーの判断）
+    if (this.D.isJapan && a === 15 && this.school === "hs") this.queueScene(hsClubScene());
     if (this.proUntil === a) {
       this.proUntil = -1;
       this.log("work", this.proSport === "baseball" ? "プロ野球選手を引退した。次の仕事を探す。" : "プロサッカー選手を引退した。次の仕事を探す。", undefined, true);
@@ -1484,6 +1489,13 @@ export class Life {
         this.mark("childWork");
       }
     }
+    // 習い事（日本・小学1年と4年で決める。卒業の年に一言）
+    if (this.D.isJapan && (a === 5 || a === 8)) {
+      const sc = lessonScene(this);
+      if (sc) this.queueScene(sc);
+    }
+    const grad = lessonGraduation(this);
+    if (grad) this.log("school", grad);
     // 不登校の割合は「その年度に不登校だった子」の割合で、同じ子を毎年数える。そこで小学校（9歳）と中学校（13歳）で1回ずつ決める
     if (this.D.isJapan && this.futokoAge < 0 && (a === 9 || a === 13) && streamRng(this.seed, "futoko", a).chance(a === 13 ? 0.068 : 0.023)) {
       this.futokoAge = a;
@@ -2732,9 +2744,6 @@ function bankruptScene(l: Life): Scene {
   };
 }
 
-/** プロのスポーツ選手の出来事を出すか（男女の統計がそろうまで止めている） */
-const PRO_ENABLED = true;
-
 /**
  * プロのスポーツ選手（日本の男子）。高校の部員1人あたり、のちにプロになる割合
  * ・野球：NPB 2026年ドラフトの支配下指名76人 ÷ 硬式野球部の男子11.49万人の1学年分（3分の1）。年俸は支配下選手の中央値2,000万円（日本プロ野球選手会 2026年）、在籍は戦力外・引退した人の平均6.8年（NPB 2025年）
@@ -2773,62 +2782,3 @@ const PRO = {
   },
 } as const;
 
-/** 高校1年生（日本）：部活でプロを目指すか。男子は野球・サッカー、女子はサッカー（統計がそろった競技だけ） */
-function clubScene(sex: "male" | "female"): Scene {
-  if (sex === "female")
-    return {
-      id: "club",
-      title: "高校の部活",
-      situation: "高校に入った。部活をどうする？",
-      stillValid: (l) => l.school === "hs",
-      options: [
-        {
-          id: "soccerW",
-          label: "サッカー部でプロを目指す",
-          desc: "高校でサッカーをする女子は約9千人。高校・大学・ユースから1年にWEリーグに入るのは約40人。",
-          apply: (l) => {
-            l.proSport = "soccerW";
-            l.logPre("school", "サッカー部に入り、プロを目指して練習に打ち込んだ。");
-          },
-        },
-        {
-          id: "other",
-          label: "ほかの部活・入らない",
-          desc: "勉強や趣味、アルバイトに時間を使える。",
-          apply: (l) => l.logPre("school", "部活はほどほどに、高校生活を送った。"),
-        },
-      ],
-    };
-  return {
-    id: "club",
-    title: "高校の部活",
-    situation: "高校に入った。部活をどうする？",
-    stillValid: (l) => l.school === "hs",
-    options: [
-      {
-        id: "baseball",
-        label: "野球部でプロを目指す",
-        desc: "高校で硬式野球をする男子は約11万5千人。プロ（支配下）に入れるのは1年に76人で、約500人に1人。",
-        apply: (l) => {
-          l.proSport = "baseball";
-          l.logPre("school", "野球部に入り、プロを目指して練習に打ち込んだ。");
-        },
-      },
-      {
-        id: "soccer",
-        label: "サッカー部でプロを目指す",
-        desc: "高校でサッカーをする男子は約13万8千人。高校・大学・ユースから1年にプロになるのは約270人。",
-        apply: (l) => {
-          l.proSport = "soccer";
-          l.logPre("school", "サッカー部に入り、プロを目指して練習に打ち込んだ。");
-        },
-      },
-      {
-        id: "other",
-        label: "ほかの部活・入らない",
-        desc: "勉強や趣味、アルバイトに時間を使える。",
-        apply: (l) => l.logPre("school", "部活はほどほどに、高校生活を送った。"),
-      },
-    ],
-  };
-}
