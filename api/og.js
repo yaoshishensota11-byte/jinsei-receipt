@@ -1797,8 +1797,8 @@ var DEST_JA = {
   Turkey: "\u30C8\u30EB\u30B3",
   Uganda: "\u30A6\u30AC\u30F3\u30C0",
   "United Arab Emirates": "\u30A2\u30E9\u30D6\u9996\u9577\u56FD\u9023\u90A6",
-  "United Kingdom": "\u30A4\u30AE\u30EA\u30B9",
-  "United States": "\u30A2\u30E1\u30EA\u30AB"
+  "United Kingdom": "\u82F1\u56FD",
+  "United States": "\u30A2\u30E1\u30EA\u30AB\u5408\u8846\u56FD"
 };
 
 // data/income.json

@@ -74,9 +74,10 @@ interface LifeStatsExtra extends LifeStats {
   emigrantDest?: [string, number][];
 }
 
+/** 移り住む先の国名。ゲームの中に出てくる国は、生まれた国の名前（countries.json の nameJa）と同じ書き方にする */
 const DEST_JA: Record<string, string> = {
   Australia: "オーストラリア", Belgium: "ベルギー", Burundi: "ブルンジ", Canada: "カナダ", "Hong Kong": "香港", India: "インド",
   Japan: "日本", Jordan: "ヨルダン", Malaysia: "マレーシア", Mexico: "メキシコ", Niger: "ニジェール", Rwanda: "ルワンダ",
   "Saudi Arabia": "サウジアラビア", Spain: "スペイン", Sudan: "スーダン", Switzerland: "スイス", Taiwan: "台湾", Thailand: "タイ",
-  Turkey: "トルコ", Uganda: "ウガンダ", "United Arab Emirates": "アラブ首長国連邦", "United Kingdom": "イギリス", "United States": "アメリカ",
+  Turkey: "トルコ", Uganda: "ウガンダ", "United Arab Emirates": "アラブ首長国連邦", "United Kingdom": "英国", "United States": "アメリカ合衆国",
 };
