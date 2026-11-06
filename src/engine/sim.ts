@@ -4,7 +4,7 @@ import { Rng, streamRng, hashStr } from "./rng";
 import { accountShare, alcoholDisorderShare, childLabourShare, emigration, maternalDeaths, publicAidRate, sickPayCovered, singleParentPoverty } from "./lifestats";
 import { JAPAN, type CountryData, type Region, type IncomeBand } from "./data";
 import { MICROS } from "./micro";
-import { hsClubScene, lessonGraduation, lessonScene } from "./clubs";
+import { hsClubScene, lessonKeep, lessonScene } from "./clubs";
 import { riskYear, countryEventScene, ipvHazard } from "./risks";
 import { kidsScene, kidsAgainScene, fertilityScene, strainScene, dvScene, heldHouseScene, type Scene } from "./scenes";
 import { drawMarriageMode, meetScene, loveScene, arrangedScene, betrothedScene, type MarriageMode } from "./marriage";
@@ -1032,8 +1032,6 @@ export class Life {
 
   private workYear(r: Rng): void {
     const a = this.age;
-    // 高校の部活：運動部を選ぶと、日本の部活動から4つの競技が出る。硬式野球（男子）・サッカー（男女）を選ぶとプロを目指す（片方の性別だけには出さない：ユーザーの判断）
-    if (this.D.isJapan && a === 15 && this.school === "hs") this.queueScene(hsClubScene());
     if (this.proUntil === a) {
       this.proUntil = -1;
       this.log("work", this.proSport === "baseball" ? "プロ野球選手を引退した。次の仕事を探す。" : "プロサッカー選手を引退した。次の仕事を探す。", undefined, true);
@@ -1489,13 +1487,14 @@ export class Life {
         this.mark("childWork");
       }
     }
-    // 習い事（日本・小学1年と4年で決める。卒業の年に一言）
+    // 習い事（日本・小学1年と4年で始めるか決め、小学校・中学・高校の卒業で続けるか決める）
     if (this.D.isJapan && (a === 5 || a === 8)) {
       const sc = lessonScene(this);
       if (sc) this.queueScene(sc);
     }
-    const grad = lessonGraduation(this);
-    if (grad) this.log("school", grad);
+    const keep = lessonKeep(this);
+    for (const t of keep.quit) this.log("life", t);
+    for (const sc of keep.scenes) this.queueScene(sc);
     // 不登校の割合は「その年度に不登校だった子」の割合で、同じ子を毎年数える。そこで小学校（9歳）と中学校（13歳）で1回ずつ決める
     if (this.D.isJapan && this.futokoAge < 0 && (a === 9 || a === 13) && streamRng(this.seed, "futoko", a).chance(a === 13 ? 0.068 : 0.023)) {
       this.futokoAge = a;
@@ -2261,6 +2260,8 @@ function applyChoice(l: Life, id: ChoiceId, o: string, r: Rng): void {
         if (o === "private") l.aptitude = Math.min(1, l.aptitude + 0.12);
         if (o === "private" && (l.band.id === "low" || l.band.id === "lower_mid")) l.thrift *= 1; // 親の負担（本人の財布ではない）
         l.logPre("school", `${o === "public" ? "公立" : "私立"}高校に入学した。`);
+        // 高校の部活は、入学したその年（15歳）に決める
+        if (l.D.isJapan) l.queueScene(hsClubScene());
       } else if (o === "kosen") {
         l.school = "kosen";
         l.schoolEnd = a + 5;

@@ -55,6 +55,8 @@
 | events.taxAndSocialInsuranceRate | 家計調査 可処分所得/実収入 等 | — | — | ⚠️推定 |
 | lessons（習い事の種類と割合・男女別、src/engine/clubs.ts） | 学研教育総合研究所「小学生白書Web版」（小学1〜6年生1,200人、学校以外で行っている習い事・複数回答。「習い事はない」男子24.0%・女子22.5%） | 2024年11月調査 | https://www.gakken.jp/kyouikusouken/whitepaper/202411/chapter7/01.html | ✅（図表の値） |
 | lessons（2つ以上の習い事をしている割合） | ベネッセ「小学生の習い事調査」（3,096組。有料の習い事をしている小学生70%、そのうち2つ以上54.7%） | 2024年2月 | https://benesse.jp/kosodate/202403/20240329-1.html | ✅ |
+| lessons（中学生・高校生の習い事の割合。続ける割合の推計に使う） | 学研教育総合研究所「中学生白書Web版」（2023年10月調査、600人。習い事はない28.2%）・「高校生白書Web版」（2024年11月調査、600人。習い事はない68.5%） | 2023・2024 | https://www.gakken.jp/kyouikusouken/whitepaper/j202310/chapter7/01.html ・ https://www.gakken.jp/kyouikusouken/whitepaper/h202411/chapter7/01.html | ⚠️推定（同じ子を追った調査ではなく、学校段階ごとの割合の比） |
+| lessons（高校卒業後も続ける割合） | 総務省「令和3年社会生活基本調査」第1・3・4表（20〜24歳の男女別行動者率：水泳・楽器の演奏・書道・英語など） | 2021 | https://www.e-stat.go.jp/stat-search/files?toukei=00200533 | ⚠️推定（習い事ではなく、1年に1回以上その活動をした人の割合） |
 | clubs（中学の運動部の部員数・男女別、src/engine/clubs.ts） | 日本中学校体育連盟「加盟校・加盟生徒数調査集計表（確定値）」（参考競技を含む28競技） | 令和6年度 | https://nippon-chutairen.or.jp/data/ | ✅ |
 | clubs（高校の運動部の部員数・男女別） | 全国高等学校体育連盟「加盟・登録状況（全日制＋定通制）」と、日本高等学校野球連盟（硬式、2026年度） | 令和7年度 | https://www.zen-koutairen.com/statistics/ | ✅ |
 

@@ -11,34 +11,38 @@ import type { Life } from "./sim";
 type Sex = "male" | "female";
 type Kind = "study" | "sports" | "arts";
 
-/** 習い事。pct は学研の調査で「習っている」と答えた割合（%、男子・女子） */
-const LESSONS: { id: string; label: string; kind: Kind; m: number; f: number }[] = [
-  { id: "swim", label: "水泳", kind: "sports", m: 26.2, f: 23.0 },
-  { id: "juku", label: "学習塾", kind: "study", m: 16.0, f: 17.8 },
-  { id: "eikaiwa", label: "英会話教室", kind: "study", m: 11.3, f: 17.3 },
-  { id: "music", label: "音楽教室（ピアノ・歌など）", kind: "arts", m: 6.7, f: 17.0 },
-  { id: "tsushin", label: "通信教育", kind: "study", m: 9.3, f: 8.7 },
-  { id: "soroban", label: "そろばん", kind: "study", m: 7.8, f: 8.2 },
-  { id: "taiso", label: "体操教室", kind: "sports", m: 7.2, f: 8.3 },
-  { id: "soccer", label: "サッカー・フットサル", kind: "sports", m: 11.5, f: 3.2 },
-  { id: "shuji", label: "習字・書道", kind: "arts", m: 6.5, f: 7.0 },
-  { id: "eigojuku", label: "英語塾", kind: "study", m: 6.3, f: 6.3 },
-  { id: "dance", label: "ダンス", kind: "sports", m: 1.7, f: 10.0 },
-  { id: "baseball", label: "野球・ソフトボール", kind: "sports", m: 6.2, f: 2.2 },
-  { id: "basket", label: "バスケットボール", kind: "sports", m: 4.0, f: 3.5 },
-  { id: "budo", label: "武道（柔道・空手・剣道など）", kind: "sports", m: 5.0, f: 1.8 },
-  { id: "program", label: "プログラミング・ロボット教室", kind: "study", m: 3.8, f: 0.5 },
-  { id: "ballet", label: "バレエ", kind: "arts", m: 0.5, f: 3.3 },
-  { id: "pc", label: "パソコン教室", kind: "study", m: 1.8, f: 1.2 },
-  { id: "art", label: "絵画教室・造形教室", kind: "arts", m: 0.2, f: 1.7 },
-  { id: "craft", label: "手芸・料理教室", kind: "arts", m: 0.5, f: 0.7 },
-  { id: "video", label: "動画制作・編集", kind: "arts", m: 0.2, f: 0.7 },
-  { id: "shogi", label: "将棋・囲碁", kind: "arts", m: 0.3, f: 0.5 },
-  { id: "golf", label: "ゴルフ", kind: "sports", m: 0.3, f: 0.3 },
-  { id: "bouldering", label: "ボルダリング", kind: "sports", m: 0.2, f: 0.3 },
-  { id: "sado", label: "茶道・華道", kind: "arts", m: 0, f: 0.3 },
-  { id: "skate", label: "スケート", kind: "sports", m: 0, f: 0.2 },
-  { id: "drama", label: "演劇", kind: "arts", m: 0.2, f: 0 },
+/**
+ * 習い事。m・f は小学生、jm・jf は中学生、hm・hf は高校生で「習っている」と答えた割合（%、男子・女子。学研）。
+ * adult は20〜24歳で1年に1回以上その活動をした人の割合（%、男・女。総務省「令和3年社会生活基本調査」）。統計がない習い事は null
+ */
+type Lesson = { id: string; label: string; kind: Kind; m: number; f: number; jm: number; jf: number; hm: number; hf: number; adult: [string, number, number] | null };
+const LESSONS: Lesson[] = [
+  { id: "swim", label: "水泳", kind: "sports", m: 26.2, f: 23.0, jm: 5.0, jf: 3.0, hm: 3.0, hf: 1.0, adult: ["水泳", 5.9, 8.0] },
+  { id: "juku", label: "学習塾", kind: "study", m: 16.0, f: 17.8, jm: 56.3, jf: 53.3, hm: 15.3, hf: 15.3, adult: null },
+  { id: "eikaiwa", label: "英会話教室", kind: "study", m: 11.3, f: 17.3, jm: 8.0, jf: 7.0, hm: 2.3, hf: 2.3, adult: ["英語の勉強", 28.8, 24.8] },
+  { id: "music", label: "音楽教室（ピアノ・歌など）", kind: "arts", m: 6.7, f: 17.0, jm: 2.3, jf: 11.3, hm: 1.3, hf: 6.7, adult: ["楽器の演奏", 11.6, 21.3] },
+  { id: "tsushin", label: "通信教育", kind: "study", m: 9.3, f: 8.7, jm: 7.0, jf: 6.7, hm: 2.0, hf: 1.3, adult: null },
+  { id: "soroban", label: "そろばん", kind: "study", m: 7.8, f: 8.2, jm: 2.0, jf: 4.0, hm: 1.0, hf: 0.3, adult: null },
+  { id: "taiso", label: "体操教室", kind: "sports", m: 7.2, f: 8.3, jm: 2.0, jf: 3.0, hm: 0.7, hf: 1.3, adult: null },
+  { id: "soccer", label: "サッカー・フットサル", kind: "sports", m: 11.5, f: 3.2, jm: 8.7, jf: 1.0, hm: 3.0, hf: 1.0, adult: ["サッカー・フットサル", 15.4, 3.6] },
+  { id: "shuji", label: "習字・書道", kind: "arts", m: 6.5, f: 7.0, jm: 1.7, jf: 8.7, hm: 0.7, hf: 3.3, adult: ["書道", 1.3, 3.3] },
+  { id: "eigojuku", label: "英語塾", kind: "study", m: 6.3, f: 6.3, jm: 5.7, jf: 8.7, hm: 1.7, hf: 2.0, adult: ["英語の勉強", 28.8, 24.8] },
+  { id: "dance", label: "ダンス", kind: "sports", m: 1.7, f: 10.0, jm: 0.3, jf: 2.3, hm: 1.0, hf: 2.0, adult: ["洋舞・社交ダンス", 0.9, 2.3] },
+  { id: "baseball", label: "野球・ソフトボール", kind: "sports", m: 6.2, f: 2.2, jm: 1.7, jf: 1.0, hm: 1.3, hf: 1.0, adult: ["野球（キャッチボールを含む）", 21.4, 7.0] },
+  { id: "basket", label: "バスケットボール", kind: "sports", m: 4.0, f: 3.5, jm: 3.7, jf: 3.3, hm: 0.7, hf: 1.0, adult: ["バスケットボール", 12.0, 6.7] },
+  { id: "budo", label: "武道（柔道・空手・剣道など）", kind: "sports", m: 5.0, f: 1.8, jm: 1.3, jf: 2.0, hm: 1.0, hf: 0.7, adult: ["柔道・剣道", 1.8, 0.8] },
+  { id: "program", label: "プログラミング・ロボット教室", kind: "study", m: 3.8, f: 0.5, jm: 1.0, jf: 0.7, hm: 1.0, hf: 0.3, adult: ["パソコンなどの情報処理の勉強", 34.7, 24.2] },
+  { id: "ballet", label: "バレエ", kind: "arts", m: 0.5, f: 3.3, jm: 0.3, jf: 1.3, hm: 0, hf: 1.0, adult: ["洋舞・社交ダンス", 0.9, 2.3] },
+  { id: "pc", label: "パソコン教室", kind: "study", m: 1.8, f: 1.2, jm: 1.0, jf: 0, hm: 0.7, hf: 0, adult: ["パソコンなどの情報処理の勉強", 34.7, 24.2] },
+  { id: "art", label: "絵画教室・造形教室", kind: "arts", m: 0.2, f: 1.7, jm: 0, jf: 1.3, hm: 0, hf: 0.3, adult: ["絵画・彫刻の制作", 3.4, 6.7] },
+  { id: "craft", label: "手芸・料理教室", kind: "arts", m: 0.5, f: 0.7, jm: 0, jf: 0, hm: 0.7, hf: 1.3, adult: ["編み物・手芸", 1.2, 10.2] },
+  { id: "video", label: "動画制作・編集", kind: "arts", m: 0.2, f: 0.7, jm: 0, jf: 0.3, hm: 1.0, hf: 0, adult: null },
+  { id: "shogi", label: "将棋・囲碁", kind: "arts", m: 0.3, f: 0.5, jm: 1.0, jf: 0.3, hm: 0, hf: 0, adult: ["将棋", 5.8, 1.1] },
+  { id: "golf", label: "ゴルフ", kind: "sports", m: 0.3, f: 0.3, jm: 0.3, jf: 0.3, hm: 0, hf: 0, adult: ["ゴルフ", 10.3, 5.7] },
+  { id: "bouldering", label: "ボルダリング", kind: "sports", m: 0.2, f: 0.3, jm: 0, jf: 0, hm: 0.3, hf: 0, adult: null },
+  { id: "sado", label: "茶道・華道", kind: "arts", m: 0, f: 0.3, jm: 0, jf: 0, hm: 0, hf: 0, adult: ["茶道", 1.0, 1.2] },
+  { id: "skate", label: "スケート", kind: "sports", m: 0, f: 0.2, jm: 0.3, jf: 0, hm: 0, hf: 0, adult: null },
+  { id: "drama", label: "演劇", kind: "arts", m: 0.2, f: 0, jm: 0, jf: 0.3, hm: 0, hf: 0.3, adult: null },
 ];
 /** 学校以外の習い事をしている割合（「習い事はない」男子24.0%・女子22.5%の残り） */
 const LESSON_SHARE: Record<Sex, number> = { male: 0.76, female: 0.775 };
@@ -61,11 +65,14 @@ function pickWeighted<T>(r: Rng, items: T[], weight: (x: T) => number, n: number
 }
 
 /** 習い事の効き目（小さな選択と同じくらいの、少しの差） */
-function startLesson(l: Life, ls: (typeof LESSONS)[number]): void {
-  l.lessons.push(ls.label);
+function lessonEffect(l: Life, ls: Lesson): void {
   if (ls.kind === "study") l.aptitude = Math.min(1, l.aptitude + 0.03);
   else if (ls.kind === "sports") l.illMult *= 0.97;
   else l.social += 0.03;
+}
+function startLesson(l: Life, ls: Lesson): void {
+  l.lessons.push(ls.label);
+  lessonEffect(l, ls);
   const after = ls.kind === "study" ? "勉強が少し得意になった。" : ls.kind === "sports" ? "体が少し丈夫になった。" : "教室で友だちができた。";
   const start = /(教室|塾)$|教室・/.test(ls.label.replace(/（.*）$/, "")) ? `${ls.label}に通いはじめた。` : ls.id === "tsushin" ? "通信教育を始めた。" : `${ls.label}を習いはじめた。`;
   l.logPre("school", start + after);
@@ -120,10 +127,64 @@ export function lessonScene(l: Life): Scene | null {
   return null;
 }
 
-/** 小学校の卒業（12歳）で、習い事に区切りをつける */
-export function lessonGraduation(l: Life): string | null {
-  if (!l.D.isJapan || l.age !== 12 || !l.lessons.length) return null;
-  return `小学校を卒業するまで、${l.lessons.join("と")}を続けた。`;
+/**
+ * 学校の区切り（小学校の卒業12歳・中学の卒業15歳・高校の卒業18歳）で、習い事を続けるか。
+ * 続けている割合は、学研の調査で同じ習い事をしている割合の「中学生÷小学生」「高校生÷中学生」から推計する（同じ子を追った調査ではない）。
+ * 高校のあとは、20〜24歳で1年に1回以上その活動をした人の割合（社会生活基本調査）を使う。
+ * その確率で残った子にだけ「続ける／やめる」を聞き、外れた子は区切りの年にやめる。場面は翌年の頭に出る。
+ */
+export function lessonKeep(l: Life): { quit: string[]; scenes: Scene[] } {
+  const stage = l.age === 12 ? 1 : l.age === 15 ? 2 : l.age === 18 ? 3 : 0;
+  const out = { quit: [] as string[], scenes: [] as Scene[] };
+  if (!l.D.isJapan || !stage || !l.lessons.length) return out;
+  const m = l.sex === "male";
+  const end = ["", "小学校", "中学", "高校"][stage];
+  for (const label of [...l.lessons]) {
+    const ls = LESSONS.find((x) => x.label === label);
+    if (!ls) continue;
+    const from = stage === 1 ? (m ? ls.m : ls.f) : stage === 2 ? (m ? ls.jm : ls.jf) : m ? ls.hm : ls.hf;
+    const to = stage === 1 ? (m ? ls.jm : ls.jf) : stage === 2 ? (m ? ls.hm : ls.hf) : ls.adult ? (m ? ls.adult[1] : ls.adult[2]) : 0;
+    const p = stage === 3 ? to / 100 : from > 0 ? Math.min(0.95, Math.max(0.05, to / from)) : 0.05;
+    if (!p || !streamRng(l.seed, `keep${stage}:${ls.id}`, 0).chance(p)) {
+      l.lessons.splice(l.lessons.indexOf(label), 1);
+      out.quit.push(stage === 3 && !ls.adult ? `${end}の卒業で、${label}に区切りをつけた。` : `${end}の卒業とともに、${label}をやめた。`);
+      continue;
+    }
+    const pct = Math.round(p * 100);
+    const keepDesc =
+      stage === 1
+        ? `中学生でも続けているのは、習っていた小学生のおよそ${pct}%（学研の調査からの推計）。部活や勉強との両立が必要。`
+        : stage === 2
+          ? `高校生でも続けているのは、習っていた中学生のおよそ${pct}%（学研の調査からの推計）。`
+          : `20〜24歳で1年に1回以上「${ls.adult![0]}」をする人は約${pct}%（総務省 社会生活基本調査 2021年）。`;
+    out.scenes.push({
+      id: `keep${stage}_${ls.id}`,
+      title: stage === 3 ? "大人になっても続ける？" : stage === 1 ? "中学でも続ける？" : "この先も続ける？",
+      situation: stage === 1 ? `中学生になった。小学校から続けている${label}、中学でも続ける？` : stage === 2 ? `中学を卒業した。${label}、この先も続ける？` : `高校を卒業した。${label}、これからも続ける？`,
+      options: [
+        {
+          id: "keep",
+          label: "続ける",
+          desc: keepDesc,
+          apply: (lf: Life) => {
+            lessonEffect(lf, ls);
+            lf.logPre("life", stage === 3 ? `大人になっても、${label}を続けている。` : `${stage === 1 ? "中学" : "高校"}でも${label}を続けた。`);
+          },
+        },
+        {
+          id: "quit",
+          label: "やめる",
+          desc: stage === 3 ? "仕事や学業に時間を使う。" : "部活や勉強に時間を使える。",
+          apply: (lf: Life) => {
+            const i = lf.lessons.indexOf(label);
+            if (i >= 0) lf.lessons.splice(i, 1);
+            lf.logPre("life", `${label}をやめた。${stage === 3 ? "" : "ここまで続けたことは自信になった。"}`);
+          },
+        },
+      ],
+    });
+  }
+  return out;
 }
 
 /** 運動部。m・f は部員数（人） */

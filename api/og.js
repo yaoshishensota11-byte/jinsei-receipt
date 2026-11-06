@@ -10720,32 +10720,32 @@ var COUNTRY_EVENT_COUNT = EVENTS.length;
 
 // src/engine/clubs.ts
 var LESSONS = [
-  { id: "swim", label: "\u6C34\u6CF3", kind: "sports", m: 26.2, f: 23 },
-  { id: "juku", label: "\u5B66\u7FD2\u587E", kind: "study", m: 16, f: 17.8 },
-  { id: "eikaiwa", label: "\u82F1\u4F1A\u8A71\u6559\u5BA4", kind: "study", m: 11.3, f: 17.3 },
-  { id: "music", label: "\u97F3\u697D\u6559\u5BA4\uFF08\u30D4\u30A2\u30CE\u30FB\u6B4C\u306A\u3069\uFF09", kind: "arts", m: 6.7, f: 17 },
-  { id: "tsushin", label: "\u901A\u4FE1\u6559\u80B2", kind: "study", m: 9.3, f: 8.7 },
-  { id: "soroban", label: "\u305D\u308D\u3070\u3093", kind: "study", m: 7.8, f: 8.2 },
-  { id: "taiso", label: "\u4F53\u64CD\u6559\u5BA4", kind: "sports", m: 7.2, f: 8.3 },
-  { id: "soccer", label: "\u30B5\u30C3\u30AB\u30FC\u30FB\u30D5\u30C3\u30C8\u30B5\u30EB", kind: "sports", m: 11.5, f: 3.2 },
-  { id: "shuji", label: "\u7FD2\u5B57\u30FB\u66F8\u9053", kind: "arts", m: 6.5, f: 7 },
-  { id: "eigojuku", label: "\u82F1\u8A9E\u587E", kind: "study", m: 6.3, f: 6.3 },
-  { id: "dance", label: "\u30C0\u30F3\u30B9", kind: "sports", m: 1.7, f: 10 },
-  { id: "baseball", label: "\u91CE\u7403\u30FB\u30BD\u30D5\u30C8\u30DC\u30FC\u30EB", kind: "sports", m: 6.2, f: 2.2 },
-  { id: "basket", label: "\u30D0\u30B9\u30B1\u30C3\u30C8\u30DC\u30FC\u30EB", kind: "sports", m: 4, f: 3.5 },
-  { id: "budo", label: "\u6B66\u9053\uFF08\u67D4\u9053\u30FB\u7A7A\u624B\u30FB\u5263\u9053\u306A\u3069\uFF09", kind: "sports", m: 5, f: 1.8 },
-  { id: "program", label: "\u30D7\u30ED\u30B0\u30E9\u30DF\u30F3\u30B0\u30FB\u30ED\u30DC\u30C3\u30C8\u6559\u5BA4", kind: "study", m: 3.8, f: 0.5 },
-  { id: "ballet", label: "\u30D0\u30EC\u30A8", kind: "arts", m: 0.5, f: 3.3 },
-  { id: "pc", label: "\u30D1\u30BD\u30B3\u30F3\u6559\u5BA4", kind: "study", m: 1.8, f: 1.2 },
-  { id: "art", label: "\u7D75\u753B\u6559\u5BA4\u30FB\u9020\u5F62\u6559\u5BA4", kind: "arts", m: 0.2, f: 1.7 },
-  { id: "craft", label: "\u624B\u82B8\u30FB\u6599\u7406\u6559\u5BA4", kind: "arts", m: 0.5, f: 0.7 },
-  { id: "video", label: "\u52D5\u753B\u5236\u4F5C\u30FB\u7DE8\u96C6", kind: "arts", m: 0.2, f: 0.7 },
-  { id: "shogi", label: "\u5C06\u68CB\u30FB\u56F2\u7881", kind: "arts", m: 0.3, f: 0.5 },
-  { id: "golf", label: "\u30B4\u30EB\u30D5", kind: "sports", m: 0.3, f: 0.3 },
-  { id: "bouldering", label: "\u30DC\u30EB\u30C0\u30EA\u30F3\u30B0", kind: "sports", m: 0.2, f: 0.3 },
-  { id: "sado", label: "\u8336\u9053\u30FB\u83EF\u9053", kind: "arts", m: 0, f: 0.3 },
-  { id: "skate", label: "\u30B9\u30B1\u30FC\u30C8", kind: "sports", m: 0, f: 0.2 },
-  { id: "drama", label: "\u6F14\u5287", kind: "arts", m: 0.2, f: 0 }
+  { id: "swim", label: "\u6C34\u6CF3", kind: "sports", m: 26.2, f: 23, jm: 5, jf: 3, hm: 3, hf: 1, adult: ["\u6C34\u6CF3", 5.9, 8] },
+  { id: "juku", label: "\u5B66\u7FD2\u587E", kind: "study", m: 16, f: 17.8, jm: 56.3, jf: 53.3, hm: 15.3, hf: 15.3, adult: null },
+  { id: "eikaiwa", label: "\u82F1\u4F1A\u8A71\u6559\u5BA4", kind: "study", m: 11.3, f: 17.3, jm: 8, jf: 7, hm: 2.3, hf: 2.3, adult: ["\u82F1\u8A9E\u306E\u52C9\u5F37", 28.8, 24.8] },
+  { id: "music", label: "\u97F3\u697D\u6559\u5BA4\uFF08\u30D4\u30A2\u30CE\u30FB\u6B4C\u306A\u3069\uFF09", kind: "arts", m: 6.7, f: 17, jm: 2.3, jf: 11.3, hm: 1.3, hf: 6.7, adult: ["\u697D\u5668\u306E\u6F14\u594F", 11.6, 21.3] },
+  { id: "tsushin", label: "\u901A\u4FE1\u6559\u80B2", kind: "study", m: 9.3, f: 8.7, jm: 7, jf: 6.7, hm: 2, hf: 1.3, adult: null },
+  { id: "soroban", label: "\u305D\u308D\u3070\u3093", kind: "study", m: 7.8, f: 8.2, jm: 2, jf: 4, hm: 1, hf: 0.3, adult: null },
+  { id: "taiso", label: "\u4F53\u64CD\u6559\u5BA4", kind: "sports", m: 7.2, f: 8.3, jm: 2, jf: 3, hm: 0.7, hf: 1.3, adult: null },
+  { id: "soccer", label: "\u30B5\u30C3\u30AB\u30FC\u30FB\u30D5\u30C3\u30C8\u30B5\u30EB", kind: "sports", m: 11.5, f: 3.2, jm: 8.7, jf: 1, hm: 3, hf: 1, adult: ["\u30B5\u30C3\u30AB\u30FC\u30FB\u30D5\u30C3\u30C8\u30B5\u30EB", 15.4, 3.6] },
+  { id: "shuji", label: "\u7FD2\u5B57\u30FB\u66F8\u9053", kind: "arts", m: 6.5, f: 7, jm: 1.7, jf: 8.7, hm: 0.7, hf: 3.3, adult: ["\u66F8\u9053", 1.3, 3.3] },
+  { id: "eigojuku", label: "\u82F1\u8A9E\u587E", kind: "study", m: 6.3, f: 6.3, jm: 5.7, jf: 8.7, hm: 1.7, hf: 2, adult: ["\u82F1\u8A9E\u306E\u52C9\u5F37", 28.8, 24.8] },
+  { id: "dance", label: "\u30C0\u30F3\u30B9", kind: "sports", m: 1.7, f: 10, jm: 0.3, jf: 2.3, hm: 1, hf: 2, adult: ["\u6D0B\u821E\u30FB\u793E\u4EA4\u30C0\u30F3\u30B9", 0.9, 2.3] },
+  { id: "baseball", label: "\u91CE\u7403\u30FB\u30BD\u30D5\u30C8\u30DC\u30FC\u30EB", kind: "sports", m: 6.2, f: 2.2, jm: 1.7, jf: 1, hm: 1.3, hf: 1, adult: ["\u91CE\u7403\uFF08\u30AD\u30E3\u30C3\u30C1\u30DC\u30FC\u30EB\u3092\u542B\u3080\uFF09", 21.4, 7] },
+  { id: "basket", label: "\u30D0\u30B9\u30B1\u30C3\u30C8\u30DC\u30FC\u30EB", kind: "sports", m: 4, f: 3.5, jm: 3.7, jf: 3.3, hm: 0.7, hf: 1, adult: ["\u30D0\u30B9\u30B1\u30C3\u30C8\u30DC\u30FC\u30EB", 12, 6.7] },
+  { id: "budo", label: "\u6B66\u9053\uFF08\u67D4\u9053\u30FB\u7A7A\u624B\u30FB\u5263\u9053\u306A\u3069\uFF09", kind: "sports", m: 5, f: 1.8, jm: 1.3, jf: 2, hm: 1, hf: 0.7, adult: ["\u67D4\u9053\u30FB\u5263\u9053", 1.8, 0.8] },
+  { id: "program", label: "\u30D7\u30ED\u30B0\u30E9\u30DF\u30F3\u30B0\u30FB\u30ED\u30DC\u30C3\u30C8\u6559\u5BA4", kind: "study", m: 3.8, f: 0.5, jm: 1, jf: 0.7, hm: 1, hf: 0.3, adult: ["\u30D1\u30BD\u30B3\u30F3\u306A\u3069\u306E\u60C5\u5831\u51E6\u7406\u306E\u52C9\u5F37", 34.7, 24.2] },
+  { id: "ballet", label: "\u30D0\u30EC\u30A8", kind: "arts", m: 0.5, f: 3.3, jm: 0.3, jf: 1.3, hm: 0, hf: 1, adult: ["\u6D0B\u821E\u30FB\u793E\u4EA4\u30C0\u30F3\u30B9", 0.9, 2.3] },
+  { id: "pc", label: "\u30D1\u30BD\u30B3\u30F3\u6559\u5BA4", kind: "study", m: 1.8, f: 1.2, jm: 1, jf: 0, hm: 0.7, hf: 0, adult: ["\u30D1\u30BD\u30B3\u30F3\u306A\u3069\u306E\u60C5\u5831\u51E6\u7406\u306E\u52C9\u5F37", 34.7, 24.2] },
+  { id: "art", label: "\u7D75\u753B\u6559\u5BA4\u30FB\u9020\u5F62\u6559\u5BA4", kind: "arts", m: 0.2, f: 1.7, jm: 0, jf: 1.3, hm: 0, hf: 0.3, adult: ["\u7D75\u753B\u30FB\u5F6B\u523B\u306E\u5236\u4F5C", 3.4, 6.7] },
+  { id: "craft", label: "\u624B\u82B8\u30FB\u6599\u7406\u6559\u5BA4", kind: "arts", m: 0.5, f: 0.7, jm: 0, jf: 0, hm: 0.7, hf: 1.3, adult: ["\u7DE8\u307F\u7269\u30FB\u624B\u82B8", 1.2, 10.2] },
+  { id: "video", label: "\u52D5\u753B\u5236\u4F5C\u30FB\u7DE8\u96C6", kind: "arts", m: 0.2, f: 0.7, jm: 0, jf: 0.3, hm: 1, hf: 0, adult: null },
+  { id: "shogi", label: "\u5C06\u68CB\u30FB\u56F2\u7881", kind: "arts", m: 0.3, f: 0.5, jm: 1, jf: 0.3, hm: 0, hf: 0, adult: ["\u5C06\u68CB", 5.8, 1.1] },
+  { id: "golf", label: "\u30B4\u30EB\u30D5", kind: "sports", m: 0.3, f: 0.3, jm: 0.3, jf: 0.3, hm: 0, hf: 0, adult: ["\u30B4\u30EB\u30D5", 10.3, 5.7] },
+  { id: "bouldering", label: "\u30DC\u30EB\u30C0\u30EA\u30F3\u30B0", kind: "sports", m: 0.2, f: 0.3, jm: 0, jf: 0, hm: 0.3, hf: 0, adult: null },
+  { id: "sado", label: "\u8336\u9053\u30FB\u83EF\u9053", kind: "arts", m: 0, f: 0.3, jm: 0, jf: 0, hm: 0, hf: 0, adult: ["\u8336\u9053", 1, 1.2] },
+  { id: "skate", label: "\u30B9\u30B1\u30FC\u30C8", kind: "sports", m: 0, f: 0.2, jm: 0.3, jf: 0, hm: 0, hf: 0, adult: null },
+  { id: "drama", label: "\u6F14\u5287", kind: "arts", m: 0.2, f: 0, jm: 0, jf: 0.3, hm: 0, hf: 0.3, adult: null }
 ];
 var LESSON_SHARE = { male: 0.76, female: 0.775 };
 var SECOND_LESSON = 0.547;
@@ -10761,11 +10761,14 @@ function pickWeighted(r, items, weight, n) {
   }
   return out;
 }
-function startLesson(l, ls) {
-  l.lessons.push(ls.label);
+function lessonEffect(l, ls) {
   if (ls.kind === "study") l.aptitude = Math.min(1, l.aptitude + 0.03);
   else if (ls.kind === "sports") l.illMult *= 0.97;
   else l.social += 0.03;
+}
+function startLesson(l, ls) {
+  l.lessons.push(ls.label);
+  lessonEffect(l, ls);
   const after = ls.kind === "study" ? "\u52C9\u5F37\u304C\u5C11\u3057\u5F97\u610F\u306B\u306A\u3063\u305F\u3002" : ls.kind === "sports" ? "\u4F53\u304C\u5C11\u3057\u4E08\u592B\u306B\u306A\u3063\u305F\u3002" : "\u6559\u5BA4\u3067\u53CB\u3060\u3061\u304C\u3067\u304D\u305F\u3002";
   const start = /(教室|塾)$|教室・/.test(ls.label.replace(/（.*）$/, "")) ? `${ls.label}\u306B\u901A\u3044\u306F\u3058\u3081\u305F\u3002` : ls.id === "tsushin" ? "\u901A\u4FE1\u6559\u80B2\u3092\u59CB\u3081\u305F\u3002" : `${ls.label}\u3092\u7FD2\u3044\u306F\u3058\u3081\u305F\u3002`;
   l.logPre("school", start + after);
@@ -10809,9 +10812,53 @@ function lessonScene(l) {
   }
   return null;
 }
-function lessonGraduation(l) {
-  if (!l.D.isJapan || l.age !== 12 || !l.lessons.length) return null;
-  return `\u5C0F\u5B66\u6821\u3092\u5352\u696D\u3059\u308B\u307E\u3067\u3001${l.lessons.join("\u3068")}\u3092\u7D9A\u3051\u305F\u3002`;
+function lessonKeep(l) {
+  const stage = l.age === 12 ? 1 : l.age === 15 ? 2 : l.age === 18 ? 3 : 0;
+  const out = { quit: [], scenes: [] };
+  if (!l.D.isJapan || !stage || !l.lessons.length) return out;
+  const m = l.sex === "male";
+  const end = ["", "\u5C0F\u5B66\u6821", "\u4E2D\u5B66", "\u9AD8\u6821"][stage];
+  for (const label of [...l.lessons]) {
+    const ls = LESSONS.find((x) => x.label === label);
+    if (!ls) continue;
+    const from = stage === 1 ? m ? ls.m : ls.f : stage === 2 ? m ? ls.jm : ls.jf : m ? ls.hm : ls.hf;
+    const to = stage === 1 ? m ? ls.jm : ls.jf : stage === 2 ? m ? ls.hm : ls.hf : ls.adult ? m ? ls.adult[1] : ls.adult[2] : 0;
+    const p = stage === 3 ? to / 100 : from > 0 ? Math.min(0.95, Math.max(0.05, to / from)) : 0.05;
+    if (!p || !streamRng(l.seed, `keep${stage}:${ls.id}`, 0).chance(p)) {
+      l.lessons.splice(l.lessons.indexOf(label), 1);
+      out.quit.push(stage === 3 && !ls.adult ? `${end}\u306E\u5352\u696D\u3067\u3001${label}\u306B\u533A\u5207\u308A\u3092\u3064\u3051\u305F\u3002` : `${end}\u306E\u5352\u696D\u3068\u3068\u3082\u306B\u3001${label}\u3092\u3084\u3081\u305F\u3002`);
+      continue;
+    }
+    const pct = Math.round(p * 100);
+    const keepDesc = stage === 1 ? `\u4E2D\u5B66\u751F\u3067\u3082\u7D9A\u3051\u3066\u3044\u308B\u306E\u306F\u3001\u7FD2\u3063\u3066\u3044\u305F\u5C0F\u5B66\u751F\u306E\u304A\u3088\u305D${pct}%\uFF08\u5B66\u7814\u306E\u8ABF\u67FB\u304B\u3089\u306E\u63A8\u8A08\uFF09\u3002\u90E8\u6D3B\u3084\u52C9\u5F37\u3068\u306E\u4E21\u7ACB\u304C\u5FC5\u8981\u3002` : stage === 2 ? `\u9AD8\u6821\u751F\u3067\u3082\u7D9A\u3051\u3066\u3044\u308B\u306E\u306F\u3001\u7FD2\u3063\u3066\u3044\u305F\u4E2D\u5B66\u751F\u306E\u304A\u3088\u305D${pct}%\uFF08\u5B66\u7814\u306E\u8ABF\u67FB\u304B\u3089\u306E\u63A8\u8A08\uFF09\u3002` : `20\u301C24\u6B73\u30671\u5E74\u306B1\u56DE\u4EE5\u4E0A\u300C${ls.adult[0]}\u300D\u3092\u3059\u308B\u4EBA\u306F\u7D04${pct}%\uFF08\u7DCF\u52D9\u7701 \u793E\u4F1A\u751F\u6D3B\u57FA\u672C\u8ABF\u67FB 2021\u5E74\uFF09\u3002`;
+    out.scenes.push({
+      id: `keep${stage}_${ls.id}`,
+      title: stage === 3 ? "\u5927\u4EBA\u306B\u306A\u3063\u3066\u3082\u7D9A\u3051\u308B\uFF1F" : stage === 1 ? "\u4E2D\u5B66\u3067\u3082\u7D9A\u3051\u308B\uFF1F" : "\u3053\u306E\u5148\u3082\u7D9A\u3051\u308B\uFF1F",
+      situation: stage === 1 ? `\u4E2D\u5B66\u751F\u306B\u306A\u3063\u305F\u3002\u5C0F\u5B66\u6821\u304B\u3089\u7D9A\u3051\u3066\u3044\u308B${label}\u3001\u4E2D\u5B66\u3067\u3082\u7D9A\u3051\u308B\uFF1F` : stage === 2 ? `\u4E2D\u5B66\u3092\u5352\u696D\u3057\u305F\u3002${label}\u3001\u3053\u306E\u5148\u3082\u7D9A\u3051\u308B\uFF1F` : `\u9AD8\u6821\u3092\u5352\u696D\u3057\u305F\u3002${label}\u3001\u3053\u308C\u304B\u3089\u3082\u7D9A\u3051\u308B\uFF1F`,
+      options: [
+        {
+          id: "keep",
+          label: "\u7D9A\u3051\u308B",
+          desc: keepDesc,
+          apply: (lf) => {
+            lessonEffect(lf, ls);
+            lf.logPre("life", stage === 3 ? `\u5927\u4EBA\u306B\u306A\u3063\u3066\u3082\u3001${label}\u3092\u7D9A\u3051\u3066\u3044\u308B\u3002` : `${stage === 1 ? "\u4E2D\u5B66" : "\u9AD8\u6821"}\u3067\u3082${label}\u3092\u7D9A\u3051\u305F\u3002`);
+          }
+        },
+        {
+          id: "quit",
+          label: "\u3084\u3081\u308B",
+          desc: stage === 3 ? "\u4ED5\u4E8B\u3084\u5B66\u696D\u306B\u6642\u9593\u3092\u4F7F\u3046\u3002" : "\u90E8\u6D3B\u3084\u52C9\u5F37\u306B\u6642\u9593\u3092\u4F7F\u3048\u308B\u3002",
+          apply: (lf) => {
+            const i = lf.lessons.indexOf(label);
+            if (i >= 0) lf.lessons.splice(i, 1);
+            lf.logPre("life", `${label}\u3092\u3084\u3081\u305F\u3002${stage === 3 ? "" : "\u3053\u3053\u307E\u3067\u7D9A\u3051\u305F\u3053\u3068\u306F\u81EA\u4FE1\u306B\u306A\u3063\u305F\u3002"}`);
+          }
+        }
+      ]
+    });
+  }
+  return out;
 }
 var JHS_SPORTS = [
   { id: "track", label: "\u9678\u4E0A\u7AF6\u6280", m: 117524, f: 74500 },
@@ -14399,7 +14446,6 @@ var Life = class {
   }
   workYear(r) {
     const a = this.age;
-    if (this.D.isJapan && a === 15 && this.school === "hs") this.queueScene(hsClubScene());
     if (this.proUntil === a) {
       this.proUntil = -1;
       this.log("work", this.proSport === "baseball" ? "\u30D7\u30ED\u91CE\u7403\u9078\u624B\u3092\u5F15\u9000\u3057\u305F\u3002\u6B21\u306E\u4ED5\u4E8B\u3092\u63A2\u3059\u3002" : "\u30D7\u30ED\u30B5\u30C3\u30AB\u30FC\u9078\u624B\u3092\u5F15\u9000\u3057\u305F\u3002\u6B21\u306E\u4ED5\u4E8B\u3092\u63A2\u3059\u3002", void 0, true);
@@ -14803,8 +14849,9 @@ var Life = class {
       const sc = lessonScene(this);
       if (sc) this.queueScene(sc);
     }
-    const grad = lessonGraduation(this);
-    if (grad) this.log("school", grad);
+    const keep = lessonKeep(this);
+    for (const t of keep.quit) this.log("life", t);
+    for (const sc of keep.scenes) this.queueScene(sc);
     if (this.D.isJapan && this.futokoAge < 0 && (a === 9 || a === 13) && streamRng(this.seed, "futoko", a).chance(a === 13 ? 0.068 : 0.023)) {
       this.futokoAge = a;
       this.log(
@@ -15458,6 +15505,7 @@ function applyChoice(l, id, o, r) {
         if (o === "private") l.aptitude = Math.min(1, l.aptitude + 0.12);
         if (o === "private" && (l.band.id === "low" || l.band.id === "lower_mid")) l.thrift *= 1;
         l.logPre("school", `${o === "public" ? "\u516C\u7ACB" : "\u79C1\u7ACB"}\u9AD8\u6821\u306B\u5165\u5B66\u3057\u305F\u3002`);
+        if (l.D.isJapan) l.queueScene(hsClubScene());
       } else if (o === "kosen") {
         l.school = "kosen";
         l.schoolEnd = a + 5;
@@ -26286,7 +26334,7 @@ var EXPENSE_LABEL = {
 };
 
 // src/engine/result.ts
-var CODEC_VERSION = "18";
+var CODEC_VERSION = "19";
 function picksOf(l) {
   return l.choiceLog.flatMap((c) => c.alloc ? [c.alloc.save, c.alloc.invest, c.alloc.family, c.alloc.self] : [c.pickIndex ?? 0]);
 }
